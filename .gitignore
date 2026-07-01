@@ -11,3 +11,9 @@ __deprecated_v2/
 *.db
 *.sqlite
 *.sqlite3
+
+# Agentes (logs binarios)
+.agents/
+lyzer edge/coverage/
+stderr.txt
+stdout.txt

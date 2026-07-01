@@ -123,12 +123,16 @@ if (-not $NoPush) {
 
     Write-Host "  Push para $spaceId..."
 
-    & { git remote remove "hf-$($exp.Name)" } 2>$null
-    & { git remote add "hf-$($exp.Name)" $remoteUrl } 2>$null
-    Write-Host "    Enviando codigo..." -NoNewline
-    $pushOut = & { git push "hf-$($exp.Name)" master:main --force } 2>&1
+    & cmd /c "git remote remove hf-$($exp.Name) 2>nul"
+    & cmd /c "git remote add hf-$($exp.Name) $remoteUrl 2>nul"
+    Write-Host "    Enviando codigo..."
+    $tmpOut = [System.IO.Path]::GetTempFileName()
+    & cmd /c "git push hf-$($exp.Name) master:main --force > `"$tmpOut`" 2>&1"
+    $pushExit = $LASTEXITCODE
+    Get-Content $tmpOut -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "      $_" }
+    Remove-Item $tmpOut -Force -ErrorAction SilentlyContinue
     
-    if ($LASTEXITCODE -eq 0) {
+    if ($pushExit -eq 0) {
       Write-Host "    OK codigo enviado" -ForegroundColor Green
     } else {
       Write-Host "    Atencao: falha no push (tente manualmente)" -ForegroundColor Yellow
