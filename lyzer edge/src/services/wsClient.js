@@ -1,0 +1,56 @@
+class WSClient {
+  constructor() {
+    this.ws = null;
+    this.listeners = [];
+  }
+
+  connect() {
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const host = window.location.host;
+    let wsUrl = protocol + '//' + host;
+    if (window.location.port === '5173') {
+      wsUrl = protocol + '//' + window.location.hostname + ':3001';
+    }
+    this.ws = new WebSocket(wsUrl);
+
+    this.ws.onopen = () => {
+      console.log("🟢 WS connected");
+    };
+
+    this.ws.onmessage = (msg) => {
+      const data = JSON.parse(msg.data);
+      this.listeners.forEach(fn => {
+        try {
+          fn(data);
+        } catch (e) {
+          console.error("WS listener error:", e);
+        }
+      });
+    };
+
+    this.ws.onerror = (err) => {
+      console.error("WS error", err);
+    };
+
+    this.ws.onclose = () => {
+      console.warn("WS disconnected");
+      this.ws = null;
+      // Reconnect loop (every 3 seconds)
+      setTimeout(() => {
+        console.log("🔄 WS attempting reconnect...");
+        this.connect();
+      }, 3000);
+    };
+  }
+
+  onData(fn) {
+    this.listeners.push(fn);
+  }
+
+  offData(fn) {
+    this.listeners = this.listeners.filter(listener => listener !== fn);
+  }
+}
+
+export const wsClient = new WSClient();
+ 

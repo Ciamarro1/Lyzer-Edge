@@ -1,0 +1,9 @@
+[workspace]
+members = [
+    "lyzer-eca",
+    "lyzer-shared",
+    "lyzer-oal",
+    "lyzer-ocr",
+    "lyzer-shm-spine"
+, "lyzer-binance-adapter", "lyzer-reality-ws", "lyzer-shadow-oms"]
+resolver = "2"

@@ -1,0 +1,13 @@
+node_modules/
+.env
+target/
+*.log
+dist/
+build/
+*.exe
+*.zip
+__deprecated_v1/
+__deprecated_v2/
+*.db
+*.sqlite
+*.sqlite3

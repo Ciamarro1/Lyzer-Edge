@@ -1,0 +1,10 @@
+[package]
+name = "lyzer-eca"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+lyzer-shared = { path = "../lyzer-shared" }
+prost = "0.13"
+tokio = { version = "1.52.3", features = ["macros", "rt", "rt-multi-thread"] }
+tonic = "0.12"

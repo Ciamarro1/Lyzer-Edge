@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package lyzer.governance.rio;
+
+// Absolute reality events (Level 1 Friction)
+message IrreversibleConsequenceEvent {
+  string event_id = 1;
+  int64 timestamp = 2;
+  string domain_type = 3; // e.g., "thermodynamic", "capital", "execution_finality"
+  double magnitude = 4;
+  string cryptographic_proof = 5; // On-chain hash or physical attestation
+}
+
+// Sensor telemetry for Observer Capture detection
+message SensorState {
+  string sensor_id = 1;
+  int64 timestamp = 2;
+  string observed_reality_hash = 3;
+  double confidence_score = 4;
+}
+
+// Nuclear command issued when sensors conflict (Observer Capture)
+message EpistemicHaltCommand {
+  string halt_id = 1;
+  string reason = 2;
+  repeated string conflicting_sensor_ids = 3;
+  int64 halt_timestamp = 4;
+}

@@ -1,0 +1,11 @@
+[package]
+name = "lyzer-core-hub"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lyzer-core-models = { path = "../lyzer-core-models" }
+lyzer-core-arbitration = { path = "../lyzer-core-arbitration" }
+lyzer-core-memory = { path = "../lyzer-core-memory" }
+lyzer-core-governance = { path = "../lyzer-core-governance" }
+serde_json = "1.0"
