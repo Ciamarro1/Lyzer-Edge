@@ -2,5 +2,3 @@
 linker = "C:\\mingw64\\mingw64\\bin\\gcc.exe"
 ar = "C:\\mingw64\\mingw64\\bin\\ar.exe"
 
-[build]
-target = "x86_64-pc-windows-gnu"

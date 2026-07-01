@@ -17,3 +17,7 @@ __deprecated_v2/
 lyzer edge/coverage/
 stderr.txt
 stdout.txt
+
+# HF tokens vazados
+ORIGINAL_REQUEST.md
+download_space.ps1
