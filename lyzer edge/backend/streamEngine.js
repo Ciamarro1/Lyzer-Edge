@@ -56,6 +56,7 @@ export class StreamEngine extends EventEmitter {
     this.execution = null;
     this.candles = [];
     this.mtfCandles = { '1m': [], '5m': [], '15m': [], '1h': [], '4h': [], '1d': [] };
+    this.setupMtfAliases();
     this.v1 = new LiquidityReconstructionEngine();
     this.v2 = new StructuralBoundaryEngine();
     this.v3 = new MomentumRsiEngine();
@@ -154,11 +155,16 @@ export class StreamEngine extends EventEmitter {
     // 1m, 5m, 15m intervals mapped by LiveDataIngestor
     this.ingestor = new LiveDataIngestor(this.symbol);
 
-    // 1. Fetch historical MTF closed candles for genetic warmup
-    const warmupCandles = await this.ingestor.warmupCandles();
-    this.mtfCandles = { '1m': warmupCandles, '5m': [], '15m': [], '1h': [], '4h': [], '1d': [] };
+    console.log(`[STREAM] Fetching MTF closed candles for warmup for ${this.symbol}...`);
+    this.mtfCandles = {};
+    const tfs = ['1m', '5m', '15m', '1h', '4h', '1d'];
+    for (const tf of tfs) {
+      const ing = new LiveDataIngestor(this.symbol, tf);
+      this.mtfCandles[tf] = await ing.warmupCandles();
+    }
+    this.setupMtfAliases();
     // For legacy fallback
-    this.candles = warmupCandles;
+    this.candles = this.mtfCandles['1m'];
 
     // 2. Setup execution layer
     this.initializeExecution();
@@ -175,8 +181,7 @@ export class StreamEngine extends EventEmitter {
           return;
         }
         
-        this.mtfCandles['1m'].push(candle);
-        this.candles.push(candle); // Keep legacy array in sync
+        this.updateMtfCandles(candle);
         
         try {
           await this.processCandle(candle, this.candles.length - 1);
@@ -190,6 +195,67 @@ export class StreamEngine extends EventEmitter {
     );
 
     console.log(`[STREAM] Live data ingestion active.`);
+  }
+
+  updateMtfCandles(candle) {
+    this.mtfCandles['1m'].push(candle);
+    this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
+    if (this.mtfCandles['1m'].length > 3000) {
+      this.mtfCandles['1m'].shift();
+    }
+
+    const tfs = {
+      '5m': 5 * 60 * 1000,
+      '15m': 15 * 60 * 1000,
+      '1h': 60 * 60 * 1000,
+      '4h': 4 * 60 * 60 * 1000,
+      '1d': 24 * 60 * 60 * 1000
+    };
+
+    for (const [tf, periodMs] of Object.entries(tfs)) {
+      const list = this.mtfCandles[tf] || [];
+      if (list.length === 0) continue;
+
+      const bucketStart = candle.openTime - (candle.openTime % periodMs);
+      const lastCandle = list[list.length - 1];
+
+      if (lastCandle.openTime === bucketStart) {
+        // Update existing candle values
+        lastCandle.high = Math.max(lastCandle.high, candle.high);
+        lastCandle.low = Math.min(lastCandle.low, candle.low);
+        lastCandle.close = candle.close;
+        lastCandle.volume += candle.volume;
+      } else if (bucketStart > lastCandle.openTime) {
+        // Create a new closed candle
+        list.push({
+          openTime: bucketStart,
+          open: candle.open,
+          high: candle.high,
+          low: candle.low,
+          close: candle.close,
+          volume: candle.volume,
+          closed: true
+        });
+        if (list.length > 500) {
+          list.shift();
+        }
+      }
+    }
+  }
+
+  setupMtfAliases() {
+    Object.defineProperty(this.mtfCandles, 'fast', {
+      get: () => this.mtfCandles['1m'] || [],
+      configurable: true
+    });
+    Object.defineProperty(this.mtfCandles, 'intermediate', {
+      get: () => this.mtfCandles['15m'] || [],
+      configurable: true
+    });
+    Object.defineProperty(this.mtfCandles, 'slow', {
+      get: () => this.mtfCandles['1h'] || [],
+      configurable: true
+    });
   }
 
   initializeExecution() {
