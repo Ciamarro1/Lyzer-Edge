@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package lyzer.governance.eca;
+
+// The payload of a mutation proposed by Release 1.8
+message ConstitutionalMutationRequest {
+  string proposal_id = 1;
+  bytes mutated_binary = 2;       // The actual code/logic being proposed
+  string previous_state_hash = 3; // Hash of the current active state
+  EnfNecessityProof necessity_proof = 4;
+}
+
+// Proof of Necessity (ENF Layer 3)
+message EnfNecessityProof {
+  bool deficiency_proven = 1;
+  bool counterfactual_superior = 2;
+  bool preservation_assured = 3;
+  double teleological_alignment_score = 4; // EPO Metric
+  string proof_signature = 5;
+}
+
+// Adversarial Trial Result (CAC Layer 4)
+message CacAdversarialTrial {
+  string trial_id = 1;
+  bool prosecutor_truth_passed = 2;
+  bool prosecutor_meaning_passed = 3;
+  bool prosecutor_memory_passed = 4;
+  bool prosecutor_identity_passed = 5;
+  bool prosecutor_exploration_passed = 6;
+  bool prosecutor_correction_passed = 7;
+  bool survival_verdict = 8; // True if all 6 passed
+}
+
+// The final Legitimacy Token (CLE Layer 5)
+message ConstitutionalLegitimacyToken {
+  string token_id = 1;
+  string proposal_id = 2;
+  int64 issued_timestamp = 3;
+  int64 expiration_timestamp = 4;
+  bytes cryptographic_signature = 5; // Issued by the Isolation Kernel
+}
+
+// Isolation Kernel Service
+service EcaAuthority {
+  rpc RequestMutation(ConstitutionalMutationRequest) returns (ConstitutionalLegitimacyToken);
+}
+

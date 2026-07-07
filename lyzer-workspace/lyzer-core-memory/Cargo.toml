@@ -1,0 +1,8 @@
+[package]
+name = "lyzer-core-memory"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+lyzer-core-models = { path = "../lyzer-core-models" }
+lyzer-core-governance = { path = "../lyzer-core-governance" }

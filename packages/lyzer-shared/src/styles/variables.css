@@ -1,0 +1,45 @@
+:root {
+  /* Modern Typography */
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  
+  /* Lyzer Labs Dark Mode Palette */
+  --bg-base: hsl(220, 20%, 8%);
+  --bg-surface: hsl(220, 20%, 12%);
+  --bg-surface-hover: hsl(220, 20%, 16%);
+  
+  /* Primary & Accents (No Purple/Violet per Agent Rules) */
+  --accent-cyan: hsl(190, 90%, 50%);
+  --accent-blue: hsl(210, 100%, 60%);
+  --accent-amber: hsl(40, 100%, 50%);
+  --accent-red: hsl(0, 80%, 60%);
+  --accent-green: hsl(150, 80%, 40%);
+  
+  /* Text Colors */
+  --text-primary: hsl(220, 10%, 95%);
+  --text-secondary: hsl(220, 10%, 70%);
+  --text-muted: hsl(220, 10%, 50%);
+  
+  /* Borders & Glassmorphism */
+  --border-color: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(20, 24, 32, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2rem;
+  --space-6: 3rem;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.5);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 15px rgba(0, 200, 255, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
