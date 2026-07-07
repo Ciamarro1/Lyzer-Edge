@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package lyzer.governance.cml;
+
+// Immutable record of a constitutional dogma failing
+message ConstitutionalScar {
+  string scar_id = 1;
+  string failed_dogma_id = 2;
+  string triggering_rio_event_id = 3; // Link to the Level 1 Friction that killed it
+  string epistemic_rationale = 4; // Why did it fail?
+  int64 timestamp = 5;
+}
+
+// Record of a failed mutation proposal (to prevent repeating mistakes)
+message HistoricalVetoRecord {
+  string veto_id = 1;
+  string rejected_proposal_id = 2;
+  string rejected_topology_hash = 3;
+  string rejection_reason = 4; // Which CAC prosecutor or ENF test failed
+  int64 timestamp = 5;
+}
+
+// The hash chain block for a constitutional mutation
+message AmendmentGenesisBlock {
+  string block_id = 1;
+  string previous_block_hash = 2;
+  string new_constitution_hash = 3;
+  string rationale = 4;
+  int64 timestamp = 5;
+  bytes signature = 6;
+}

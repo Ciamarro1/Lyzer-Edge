@@ -1,0 +1,57 @@
+//@version=5
+strategy("Lyzer Baseline Control — Simple EMA Cross", overlay=true,
+     initial_capital=10000,
+     default_qty_type=strategy.percent_of_equity,
+     default_qty_value=25)
+
+// ======================================================
+// 🧠 CONFIG
+// ======================================================
+
+riskReward = input.float(2.0, "Risk:Reward (fixed)", minval=1.0, step=0.5)
+
+// ======================================================
+// 📡 SIGNAL ENGINE (Simple Baseline EMA Cross)
+// ======================================================
+
+ema20 = ta.ema(close, 20)
+ema50 = ta.ema(close, 50)
+
+longSignal = ta.crossover(ema20, ema50)
+shortSignal = ta.crossunder(ema20, ema50)
+
+// ======================================================
+// 💰 EXECUTION LAYER (Fixed R:R 2:1 based on ATR)
+// ======================================================
+
+atr = ta.atr(14)
+
+// Long execution
+if (longSignal)
+    longStop = close - atr
+    longTP   = close + (atr * riskReward)
+
+    strategy.entry("LONG", strategy.long)
+    strategy.exit("LONG TP/SL", "LONG",
+         stop=longStop,
+         limit=longTP)
+
+// Short execution
+if (shortSignal)
+    shortStop = close + atr
+    shortTP   = close - (atr * riskReward)
+
+    strategy.entry("SHORT", strategy.short)
+    strategy.exit("SHORT TP/SL", "SHORT",
+         stop=shortStop,
+         limit=shortTP)
+
+// ======================================================
+// 📊 VISUALIZATION
+// ======================================================
+
+plot(ema20, color=color.orange, title="EMA 20")
+plot(ema50, color=color.blue, title="EMA 50")
+
+bgcolor(longSignal ? color.new(color.green, 90) :
+       shortSignal ? color.new(color.red, 90) : na)

@@ -1,0 +1,9 @@
+[package]
+name = "lyzer-core-arbitration"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# NENHUMA DEPENDÊNCIA DE GOVERNANÇA PERMITIDA.
+# Este crate deve ser oco e alheio à Constituição.
+lyzer-core-models = { path = "../lyzer-core-models" }
