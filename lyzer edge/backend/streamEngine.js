@@ -457,6 +457,14 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
+        } else if (kernelResult.signal === 'no-go') {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'REVERSAL_TO_SHORT';
+        } else if (kernelResult.confidence < 50) {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'LOW_CONFIDENCE';
         }
       } else {
         if (candle.high >= pos.stopLoss) {
@@ -467,6 +475,14 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
+        } else if (kernelResult.signal === 'go') {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'REVERSAL_TO_LONG';
+        } else if (kernelResult.confidence < 50) {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'LOW_CONFIDENCE';
         }
       }
 
@@ -504,6 +520,24 @@ export class StreamEngine extends EventEmitter {
         sendTelegramAlert(formatTradeAlert(this.symbol, resolvedTrade))
           .catch(e => console.error('[TELEGRAM] Error sending trade alert:', e.message));
 
+        // Place close order on exchange if executing in live/testnet mode
+        if (this.execution) {
+          const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
+          const closeQty = pos.quantity || 0.001;
+          this.ui.logEvent(`Executing close order (${closeSide}) for ${this.symbol}. Target: ${this.mode}`);
+          this.execution.placeOrder(this.symbol, closeSide, 'MARKET', closeQty)
+            .then(order => {
+              this.emit('execution', {
+                symbol: this.symbol,
+                side: closeSide,
+                order,
+                price: exitPrice,
+                quantity: closeQty
+              });
+            })
+            .catch(e => console.error('[STREAM] Close order placement failed:', e.message));
+        }
+
         this.activePosition = null;
         this.emit('state_changed');
       }
@@ -518,7 +552,19 @@ export class StreamEngine extends EventEmitter {
       const rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
 
       if (permissionToken.granted) {
-        const slDistance = 0.015;
+        // Calculate dynamic quantity
+        const confidence = baseSignal.confidence || 0.5;
+        const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
+        const baseQty = 0.001;
+        const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
+        const confMultiplier = confidence > 1 ? confidence / 100 : confidence;
+        const divMultiplier = Math.max(0, Math.min(1, diversity));
+        let quantity = baseQty * (1 - stress) * divMultiplier * confMultiplier;
+        quantity = Math.max(0.0001, Math.min(baseQty, quantity));
+        quantity = parseFloat(quantity.toFixed(5));
+
+        // Use 1:2 R:R to match backtest
+        const slDistance = 0.03;
         const tpDistance = 0.06;
         const entryPrice = candle.close;
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
@@ -533,6 +579,7 @@ export class StreamEngine extends EventEmitter {
           entryPrice,
           stopLoss,
           takeProfit,
+          quantity,
           signal: {
             type: direction,
             confidence: baseSignal.confidence,
@@ -655,37 +702,25 @@ export class StreamEngine extends EventEmitter {
     this.emit('arl', payload);
 
     // 4. Send actual execution order if permitted
-    if (this.execution && simulatedTrade && simulatedTrade.governanceDecision === 'ALLOW') {
+    if (this.execution && simulatedTrade && simulatedTrade.governanceDecision === 'ALLOW' && this.activePosition) {
       if (this.mode === 'LIVE') {
-        const estimatedCost = candle.close * 0.001;
+        const estimatedCost = candle.close * this.activePosition.quantity;
         if (this.dailyCapitalUsed + estimatedCost > this.maxDailyCapital) {
           console.warn(`[RISK BLOCK] LIVE order rejected: MAX_DAILY_CAPITAL limit reached ($${this.dailyCapitalUsed.toFixed(2)} + $${estimatedCost.toFixed(2)} > $${this.maxDailyCapital.toFixed(2)}).`);
+          this.activePosition = null; // Reset local position state on risk block
           return;
         }
         this.dailyCapitalUsed += estimatedCost;
       }
 
-      const confidence = baseSignal.confidence || 0.5;
-      const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
-      
       this.ui.logEvent(`Executing ${simulatedTrade.direction} order. Target: ${this.mode}`);
-      this.handleExecution(simulatedTrade.direction, candle, confidence, diversity);
+      this.handleExecution(simulatedTrade.direction, candle, this.activePosition.quantity);
     }
   }
 
-  async handleExecution(direction, candle, confidence = 0.5, diversity = 1) {
+  async handleExecution(direction, candle, quantity) {
     try {
       const side = direction === 'LONG' ? 'BUY' : 'SELL';
-      
-      const baseQty = 0.001;
-      const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
-      const confMultiplier = confidence > 1 ? confidence / 100 : confidence;
-      const divMultiplier = Math.max(0, Math.min(1, diversity));
-
-      let quantity = baseQty * (1 - stress) * divMultiplier * confMultiplier;
-      quantity = Math.max(0.0001, Math.min(baseQty, quantity));
-      quantity = parseFloat(quantity.toFixed(5));
-
       const order = await this.execution.placeOrder(this.symbol, side, 'MARKET', quantity);
 
       this.emit('execution', {
