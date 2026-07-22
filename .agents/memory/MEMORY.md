@@ -11,6 +11,7 @@
 - [project] Epistemic Observatory deployed (Read-Only Live Signal Generation) → line-b-epistemology.md
 - [project] Era 7 Synchronization: Transitioning to empirical recursive intelligence -> era_7_synchronization.md
 - [project] Complete Codebase Structure & Architecture Map -> project_structure.md
+- [directive] LYZER EDGE — Cognitive Operating Directive v1.0 -> cognitive_directive.md
 
 ## Reference
 - [reference] Complete Lyzer Labs investigation and architecture super-document → lyzer_labs_investigation.md
