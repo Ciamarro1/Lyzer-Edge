@@ -11,7 +11,7 @@ import { LiveDataIngestor } from "./liveDataIngestor.js";
 import { ExchangeExecution } from "./exchangeExecution.js";
 
 import { TruthKernel } from "../../packages/lyzer-shared/src/engine/kernel.js";
-import { court } from "../../packages/lyzer-constitution/src/eca/court.js";
+import { ConstitutionalCourt, court } from "../../packages/lyzer-constitution/src/eca/court.js";
 import { LiquidityReconstructionEngine } from "../../packages/lyzer-shared/src/providers/v1_smc_ict.js";
 import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/providers/v2_snd_snr.js";
 import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js";
@@ -32,7 +32,6 @@ const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
 const consensusLimit = parseFloat(process.env.RESIDUAL_CONSENSUS_LIMIT || '0.1');
 const lhdsVetoLimit = parseFloat(process.env.LHDS_VETO_LIMIT || '0.8');
 const ontologicalCollapseTrg = parseFloat(process.env.ONTOLOGICAL_COLLAPSE_TRG || '0.7');
-const truthKernel = new TruthKernel({ trgThreshold, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
 
 const cclistConfig = {
   dvfFloor: parseFloat(process.env.CCLIST_DVF_FLOOR || '0.1'),
@@ -41,7 +40,6 @@ const cclistConfig = {
   stressRelease: parseFloat(process.env.CCLIST_STRESS_RELEASE || '0.1'),
 };
 const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
-court.configure(cclistConfig, { sclThreshold: molSclThreshold });
 
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
@@ -51,6 +49,12 @@ export class StreamEngine extends EventEmitter {
     this.interval = config.interval || '1m';
 
     this.signalEngine = signalEngine;
+    this.truthKernel = new TruthKernel({ trgThreshold, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
+    
+    const activeCclistConfig = config.cclistConfig || cclistConfig;
+    const activeMolConfig = config.molConfig || { sclThreshold: molSclThreshold };
+    this.court = config.court || new ConstitutionalCourt(activeCclistConfig, activeMolConfig);
+
     this.ecoEngine = new EVAlphaResearchEngineV3_3();
     this.extinctionEngine = this.ecoEngine.extinctionEngine;
 
@@ -82,6 +86,7 @@ export class StreamEngine extends EventEmitter {
     this.maxDailyCapital = parseFloat(process.env.MAX_DAILY_CAPITAL || '0');
     this.dailyCapitalUsed = 0;
     this.fallbackInterval = null;
+    this.isFallbackActive = false;
 
     this.globalEVMemory = {
       signalBuckets: {},
@@ -320,8 +325,9 @@ export class StreamEngine extends EventEmitter {
   }
 
   startFallbackLoop() {
-    if (this.fallbackInterval) return;
-    console.log('[STREAM] ⚠️ Starting fallback simulation loop to keep ARL active...');
+    if (this.connectionState === 'CONNECTED' || this.fallbackInterval) return;
+    this.isFallbackActive = true;
+    console.log(`[STREAM] ⚠️ Starting fallback simulation loop to keep ARL active for ${this.symbol}...`);
     
     this.fallbackInterval = setInterval(() => {
       const nextIndex = this.candles.length;
@@ -351,9 +357,10 @@ export class StreamEngine extends EventEmitter {
 
   stopFallbackLoop() {
     if (this.fallbackInterval) {
-      console.log('[STREAM] Restored live connection. Stopping fallback simulation loop.');
+      console.log(`[STREAM] Restored live connection for ${this.symbol}. Stopping fallback simulation loop.`);
       clearInterval(this.fallbackInterval);
       this.fallbackInterval = null;
+      this.isFallbackActive = false;
     }
   }
 
@@ -407,11 +414,11 @@ export class StreamEngine extends EventEmitter {
     }
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
 
     // Update court C-CLIST stress and MOL state on every candle tick
-    court.cclist.evaluateStress(kernelResult.trg || 0, kernelResult.dvf || 0);
-    court.mol.evaluateState(kernelResult, { eef: kernelResult.eef });
+    this.court.cclist.evaluateStress(kernelResult.trg || 0, kernelResult.dvf || 0);
+    this.court.mol.evaluateState(kernelResult, { eef: kernelResult.eef });
 
     // Update Spectrogram UI
     if (this.mode === 'LIVE' || this.mode === 'TESTNET') {
@@ -547,7 +554,7 @@ export class StreamEngine extends EventEmitter {
     if (kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
-      const permissionToken = court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
+      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       const governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
       const rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
 

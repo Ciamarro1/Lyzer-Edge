@@ -1316,14 +1316,15 @@ describe('StreamEngine SMC Transformation - Tier 4: Real-World Workloads (5 test
     // - DVF drops to 0, C-CLIST stress builds up rapidly
     // - Stress crosses lethalIllusionLimit
     // - Court vetoes all execution requests with VETO_LETHAL_STABILITY_ILLUSION
-    court.configure({
+    const cclistConfig = {
       dvfFloor: 0.8,
       stressAccumulation: 0.4, // Fast build up
       lethalIllusionLimit: 0.7,
       stressRelease: 0.1
-    });
+    };
+    court.configure(cclistConfig);
 
-    const engine = new StreamEngine();
+    const engine = new StreamEngine({ cclistConfig });
     engine.mtfCandles['1m'] = makeFlatCandles(25, 100);
     engine.mtfCandles['5m'] = makeFlatCandles(10, 100);
     engine.mtfCandles['15m'] = makeFlatCandles(15, 100);
@@ -1333,10 +1334,10 @@ describe('StreamEngine SMC Transformation - Tier 4: Real-World Workloads (5 test
     await engine.processCandle(candle, 1);
     await engine.processCandle(candle, 2);
 
-    expect(court.cclist.stressLevel).toBeGreaterThanOrEqual(0.7);
+    expect(engine.court.cclist.stressLevel).toBeGreaterThanOrEqual(0.7);
 
     // Try to trigger a trade with synthetic EEF = true
-    const permissionToken = court.requestPermission('EXECUTE_TRADE', { trg: 0.5, dvf: 0.0 }, { eef: true });
+    const permissionToken = engine.court.requestPermission('EXECUTE_TRADE', { trg: 0.5, dvf: 0.0 }, { eef: true });
     expect(permissionToken.granted).toBe(false);
     expect(permissionToken.reason).toBe('VETO_LETHAL_STABILITY_ILLUSION');
   });

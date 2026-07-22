@@ -24,8 +24,17 @@ const wss = new WebSocketServer({ server });
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.json());
 
+// Middleware para proteção de rotas administrativas quando ADMIN_API_KEY estiver configurada
+const authenticateAdmin = (req, res, next) => {
+  const adminKey = process.env.ADMIN_API_KEY;
+  if (!adminKey) return next();
+  const keyHeader = req.headers['x-admin-key'] || req.query.adminKey;
+  if (keyHeader === adminKey) return next();
+  return res.status(401).json({ error: 'Unauthorized: Invalid or missing Admin API Key' });
+};
+
 // API endpoints for deleting, closing, and wiping trades from the backend engines
-app.post('/api/trades/close', (req, res) => {
+app.post('/api/trades/close', authenticateAdmin, (req, res) => {
   const { symbol, id, exitPrice, exitDate, fees } = req.body;
   if (!symbol) return res.status(400).json({ error: 'Symbol is required' });
   const targetSymbol = symbol.toUpperCase().replace('/USD', 'USDT');
@@ -66,7 +75,7 @@ app.post('/api/trades/close', (req, res) => {
   return res.status(404).json({ error: 'Active trade not found for id' });
 });
 
-app.post('/api/trades/delete', (req, res) => {
+app.post('/api/trades/delete', authenticateAdmin, (req, res) => {
   const { symbol, id } = req.body;
   if (!symbol) return res.status(400).json({ error: 'Symbol is required' });
   const targetSymbol = symbol.toUpperCase().replace('/USD', 'USDT');
@@ -93,7 +102,7 @@ app.post('/api/trades/delete', (req, res) => {
   return res.status(404).json({ error: 'Trade not found for id' });
 });
 
-app.post('/api/trades/wipe', (req, res) => {
+app.post('/api/trades/wipe', authenticateAdmin, (req, res) => {
   for (const engine of engines) {
     engine.activePosition = null;
     engine.tradeHistory = [];
