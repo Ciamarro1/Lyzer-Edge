@@ -11,6 +11,7 @@
     "full": "concurrently \"node backend/server.js\" \"vite\"",
     "test": "vitest run",
     "test:watch": "vitest",
+    "test:verify": "vitest run tests/verification",
     "coverage": "vitest run --coverage",
     "lint": "eslint ."
   },

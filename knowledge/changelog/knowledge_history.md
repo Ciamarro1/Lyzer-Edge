@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v1.2.0] — 2026-07-22
+- **Fase 2 (Estabilização) Concluída**:
+  - Reorganizados 12 scripts de verificação `verify_*.js` para a pasta dedicada `lyzer edge/tests/verification/`.
+  - Adicionado runner unificado `verify_suite.test.js` e o script `"test:verify"` no `package.json`.
+  - Integrada a função `sendTelegramAlertWithRetry` com retentativa por exponential backoff no `telegram.js`.
+  - 100% dos testes validados com sucesso (163 testes aprovados em 8 arquivos de teste).
+
 ## [v1.1.0] — 2026-07-22
 - **Fase 1 (Correções Críticas) Concluída**:
   - Eliminado Singleton Pollution: `StreamEngine` agora instancia suas próprias cópias escopadas de `TruthKernel` e `ConstitutionalCourt`.

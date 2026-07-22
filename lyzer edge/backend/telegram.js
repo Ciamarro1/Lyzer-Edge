@@ -65,3 +65,24 @@ Título: <b>${title}</b>
 Mensagem: <i>${message}</i>
 `;
 }
+
+/**
+ * Sends Telegram alert with exponential backoff retries.
+ */
+export async function sendTelegramAlertWithRetry(text, maxRetries = 3, initialDelayMs = 1000) {
+  let delay = initialDelayMs;
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      await sendTelegramAlert(text);
+      return;
+    } catch (e) {
+      if (attempt === maxRetries) {
+        console.error(`[TELEGRAM RETRY EXHAUSTED] ${e.message}`);
+        return;
+      }
+      console.warn(`[TELEGRAM RETRY] Attempt ${attempt}/${maxRetries} failed: ${e.message}. Retrying in ${delay}ms...`);
+      await new Promise(resolve => setTimeout(resolve, delay));
+      delay *= 2;
+    }
+  }
+}
