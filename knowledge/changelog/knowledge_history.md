@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.1.0] — 2026-07-22
+- **Fase 7.0 (Adaptive Intelligence Sandbox Implementation) Concluída com Sucesso**:
+  - Implementados os 4 submódulos e fachada em `lyzer edge/src/adaptive-sandbox/`:
+    - `ParameterProposalEngine.js`: Construção de `ParameterProposal` e restrição de boundary clamping ($\pm 15\%$).
+    - `AdaptiveShadowEngine.js`: Simulação paralela não-destrutiva contra ticks reais e evento `SHADOW_COMPARISON_EVENT`.
+    - `AdaptiveScoreEngine.js`: Métrica `Adaptive Confidence Score (ACS)` com cortes de submissão à Corte ECA ($ACS > 95\%$) e auto-rejeição ($ACS < 80\%$).
+    - `ParameterVersionStore.js`: Rastreabilidade imutável em `parameter_versions` e método `rollback()`.
+    - `AdaptiveSandboxFacade` (`index.js`): Coordenação unificada do laboratório Sandbox.
+  - Adicionada a tabela `parameter_versions` em `lyzer edge/backend/db.js`.
+  - Validação 100% aprovada na suíte de testes `tests/adaptive-sandbox/` (6/6 testes PASSED).
+  - Publicada a documentação em [implementation.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/adaptive-sandbox/implementation.md).
+
 ## [v4.0.0] — 2026-07-22
 - **Fase 7.0 (Adaptive Intelligence Sandbox - Architecture & ADRs) Formalizada**:
   - Aprovado o **ADR-014** em [ADR-014-adaptive-parameter-governance.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-014-adaptive-parameter-governance.md) (Governança de Parâmetros Adaptativos & Objeto ParameterProposal).
