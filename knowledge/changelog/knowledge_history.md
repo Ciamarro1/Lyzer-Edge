@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.0.0] — 2026-07-22
+- **Auditoria Técnica v2.0 Concluída**:
+  - Publicado o relatório de auditoria pós-implementação em `docs/audit/post_implementation_audit_v2.md`.
+  - Confirmada a conformidade de 100% dos subsistemas com os axiomas constitutivos ("The Court shall never learn", 3-process isolation, 7-layer quantitative pipeline).
+  - Mapeadas novas oportunidades para a Fase 5 (SQLite WAL Mode, C-CLIST Rust Offloading e OpenTelemetry).
+
 ## [v1.4.0] — 2026-07-22
 - **Fase 4 (Performance) Concluída**:
   - Capping rigoroso de retenção de candles $1m$ ajustado de 3.000 para 1.000 candles max em `StreamEngine.js`, reduzindo o consumo de memória RAM por instância em 66.7%.
