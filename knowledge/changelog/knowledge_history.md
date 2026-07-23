@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.6.0] — 2026-07-22
+- **Fase 5.4 (Causal Memory Runtime Layer Design) Concluída**:
+  - Aprovado o **ADR-008** em [ADR-008-causal-memory-runtime.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-008-causal-memory-runtime.md).
+  - Elaborada a especificação técnica [causal_memory_runtime_spec.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_memory_runtime_spec.md).
+  - Proclamado o **Axioma da Soberania Causal (Causal Sovereignty Axiom)**.
+  - Projetados os 5 componentes executáveis (`EventFactory`, `EventValidator`, `EventStore`, `ProjectionEngine`, `RewindEngine`).
+  - Estabelecido o fluxo determinístico causal de decisão e as 4 invariantes invioláveis do runtime.
+
 ## [v2.5.1] — 2026-07-22
 - **Fase 5.3.1 (Causal Event Contract Review) Concluída**:
   - Aprovado o **ADR-007** em [ADR-007-causal-event-contract.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-007-causal-event-contract.md).
