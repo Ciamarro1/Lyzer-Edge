@@ -49,6 +49,30 @@ export class CausalMemoryDB {
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_ts ON candles (symbol, timeframe, timestamp)`);
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_close ON candles (symbol, timeframe, close_time)`);
+
+            // Create causal_events_log table (ADR-007 / ADR-008)
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS causal_events_log (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    event_id TEXT NOT NULL UNIQUE,
+                    timestamp INTEGER NOT NULL,
+                    event_type TEXT NOT NULL,
+                    source TEXT NOT NULL,
+                    causation_id TEXT,
+                    correlation_id TEXT NOT NULL,
+                    intent_id TEXT,
+                    parent_event TEXT,
+                    version TEXT NOT NULL DEFAULT '1.0.0',
+                    hash_prev TEXT NOT NULL,
+                    epistemic_regime TEXT NOT NULL,
+                    payload TEXT NOT NULL,
+                    context TEXT NOT NULL,
+                    hash TEXT NOT NULL
+                )
+            `);
+
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_ts ON causal_events_log (timestamp)`);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_correlation ON causal_events_log (correlation_id)`);
         });
     }
 
@@ -57,6 +81,80 @@ export class CausalMemoryDB {
             this.db.run(`PRAGMA wal_checkpoint(${mode});`, (err) => {
                 if (err) reject(err);
                 else resolve();
+            });
+        });
+    }
+
+    insertCausalEvent(event) {
+        return new Promise((resolve, reject) => {
+            const startTime = performance.now();
+            const sql = `
+                INSERT INTO causal_events_log 
+                (event_id, timestamp, event_type, source, causation_id, correlation_id, intent_id, parent_event, version, hash_prev, epistemic_regime, payload, context, hash)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const params = [
+                event.event_id,
+                event.timestamp,
+                event.event_type,
+                event.source,
+                event.causation_id || null,
+                event.correlation_id,
+                event.intent_id || null,
+                event.parent_event || null,
+                event.version || '1.0.0',
+                event.hash_prev,
+                event.epistemic_regime || 'REGIME_A_CONSENSUS',
+                JSON.stringify(event.payload || {}),
+                JSON.stringify(event.context || {}),
+                event.hash
+            ];
+
+            this.db.run(sql, params, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    recordSqliteWrite('insert_causal_event', (performance.now() - startTime) / 1000);
+                    resolve();
+                }
+            });
+        });
+    }
+
+    getLastCausalEventHash() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
+            this.db.get(sql, [], (err, row) => {
+                if (err) reject(err);
+                else resolve(row ? row.hash : '0'.repeat(64));
+            });
+        });
+    }
+
+    getCausalEventsUntil(timestampMs) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM causal_events_log WHERE timestamp <= ? ORDER BY id ASC`;
+            this.db.all(sql, [timestampMs], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows.map(r => ({
+                    ...r,
+                    payload: JSON.parse(r.payload),
+                    context: JSON.parse(r.context)
+                })));
+            });
+        });
+    }
+
+    getCausalEventsByCorrelation(correlationId) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM causal_events_log WHERE correlation_id = ? ORDER BY id ASC`;
+            this.db.all(sql, [correlationId], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows.map(r => ({
+                    ...r,
+                    payload: JSON.parse(r.payload),
+                    context: JSON.parse(r.context)
+                })));
             });
         });
     }

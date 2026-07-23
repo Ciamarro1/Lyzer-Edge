@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.7.0] — 2026-07-22
+- **Fase 5.5 (Causal Memory Runtime MVP Implementation) Concluída**:
+  - Criado o diretório e módulo `lyzer edge/src/causal-memory/` (`EventFactory.js`, `EventValidator.js`, `EventStore.js`, `ProjectionEngine.js`, `RewindEngine.js`, `index.js`).
+  - Adicionado o suporte à tabela `causal_events_log` e métodos de consulta/inserção em `db.js`.
+  - Criada a suíte de testes em `lyzer edge/tests/causal-memory/` (5 novas suítes de teste).
+  - Validados **100% dos 177 testes** da aplicação no Vitest sem alterar os contratos dos motores de trading.
+  - Documentados em `docs/causal-memory/` (`implementation.md`, `runtime_flow.md`, `testing.md`).
+
 ## [v2.6.0] — 2026-07-22
 - **Fase 5.4 (Causal Memory Runtime Layer Design) Concluída**:
   - Aprovado o **ADR-008** em [ADR-008-causal-memory-runtime.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-008-causal-memory-runtime.md).
