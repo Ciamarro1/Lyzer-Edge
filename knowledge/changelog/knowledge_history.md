@@ -10,6 +10,16 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.5.0] — 2026-07-22
+- **Fase 7.4 (Evolution Governance Certification) Concluída com Sucesso**:
+  - Implementados 3 módulos e fachada em `lyzer edge/src/evolution-governance/`:
+    - `EvolutionReplayEngine.js`: Replay determinístico de histórico de transações e ledger sem corrupção de estado.
+    - `EvolutionHealthScore.js`: Cálculo do EHS global ($\in [0, 100\%]$) com zonas (`HEALTHY`, `MODERATE_DEGRADATION`, `CRITICAL_EVOLUTION_HALT`).
+    - `EvolutionObservatory.js`: Painel observatório cognitivo em tempo real e relatório de auditoria constitucional.
+    - `EvolutionGovernanceFacade` (`index.js`): Certificação de integridade evolutiva (ECS-1000).
+  - Aprovado **ADR-024** (Cognitive Evolution Certification Framework).
+  - Validação 100% aprovada na suíte de certificação `tests/evolution-governance/` (7/7 testes PASSED em 4 arquivos).
+
 ## [v4.4.0] — 2026-07-22
 - **Fase 7.3 (Adaptive Evolution Runtime) Concluída com Sucesso**:
   - Implementados 4 módulos e fachada em `lyzer edge/src/adaptive-evolution/`:
