@@ -15,6 +15,7 @@ import { ConstitutionalCourt, court } from "../../packages/lyzer-constitution/sr
 import { LiquidityReconstructionEngine } from "../../packages/lyzer-shared/src/providers/v1_smc_ict.js";
 import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/providers/v2_snd_snr.js";
 import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js";
+import { InstitutionalMarketCausalityEngine } from "../../packages/lyzer-shared/src/providers/v4_imce.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
@@ -68,6 +69,7 @@ export class StreamEngine extends EventEmitter {
     this.v1 = new LiquidityReconstructionEngine();
     this.v2 = new StructuralBoundaryEngine();
     this.v3 = new MomentumRsiEngine();
+    this.v4 = new InstitutionalMarketCausalityEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -378,10 +380,11 @@ export class StreamEngine extends EventEmitter {
   async processCandle(candle, index) {
     const processStartTime = performance.now();
 
-    // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI)
+    // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI vs IMCE V4)
     const v1Narrative = this.v1.reconstruct(this.mtfCandles);
     const v2Narrative = this.v2.reconstruct(this.mtfCandles);
     const v3Narrative = this.v3.reconstruct(this.mtfCandles);
+    const v4Narrative = this.v4.reconstruct(this.mtfCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -408,13 +411,14 @@ export class StreamEngine extends EventEmitter {
     const alignedTensors = this.scaleNormalizer.alignScales(this.mtfCandles);
     const topology = this.cstg.buildTopology(alignedTensors);
     const invariants = this.invariantExtractor.extract(topology);
-    const sds = this.divergenceDetector.detect(topology);
+    const sds = this.divergenceDetector.calculateDivergence(topology, invariants);
     recordCsrlDuration(this.symbol, (performance.now() - csrlStart) / 1000);
 
     const providers = {
         v1: { signal: v1Narrative.signal, confidence: v1Narrative.confidence },
         v2: { signal: v2Narrative.signal, confidence: v2Narrative.confidence },
-        v3: { signal: v3Narrative.signal, confidence: v3Narrative.confidence }
+        v3: { signal: v3Narrative.signal, confidence: v3Narrative.confidence },
+        v4: { signal: v4Narrative.signal, confidence: v4Narrative.confidence }
     };
     
     // 2.5 Dual Reality Divergence Validation
