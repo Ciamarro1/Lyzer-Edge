@@ -68,6 +68,10 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [ADR-009: Causal Integration Coverage & CCS (Fase 5.6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-009-causal-integration-coverage.md) — Auditoria de integração, Matriz de Cobertura Causal e score CCS (85.7%).
 - [Causal Integration Audit Report](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_integration_audit.md) — Relatório completo de auditoria do pipeline e plano de elevação do CCS.
 - [CCS 100% Upgrade Report (Fase 5.6.1)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-memory/ccs_upgrade_report.md) — Relatório de conclusão do upgrade para CCS 100.0% e LearningEngine.
+- [ADR-010: Epistemic Learning Architecture (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-010-epistemic-learning-architecture.md) — Contrato de aprendizado epistêmico, limites mutáveis vs imutáveis.
+- [ADR-011: Adaptive Governance Model (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-011-adaptive-governance-model.md) — Governança adaptativa: Proposta ≠ Alteração, ParameterProposal e CognitiveAuditor.
+- [ADR-012: Semantic Memory Architecture (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-012-semantic-memory-architecture.md) — Memória Semântica, Grafo Cognitivo de Causalidade e tabela `semantic_memory`.
+- [Causal Learning Architecture Spec (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_learning_architecture.md) — Especificação completa da camada de auto-melhoria cognitiva.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---
