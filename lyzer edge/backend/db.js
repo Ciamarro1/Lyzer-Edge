@@ -112,6 +112,33 @@ export class CausalMemoryDB {
             `);
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_param_ver ON parameter_versions (module, parameter, status)`);
+
+            // Create evolution_ledger table (ADR-019)
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS evolution_ledger (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ledger_id TEXT NOT NULL UNIQUE,
+                    event_type TEXT NOT NULL,
+                    module TEXT NOT NULL,
+                    parameter TEXT NOT NULL,
+                    from_version TEXT,
+                    to_version TEXT,
+                    from_value_json TEXT,
+                    to_value_json TEXT,
+                    acs_score REAL,
+                    ars_score REAL,
+                    regime_stability_json TEXT,
+                    impact_analysis_json TEXT,
+                    reason TEXT NOT NULL,
+                    proposal_id TEXT,
+                    decided_by TEXT NOT NULL DEFAULT 'ECA_COURT',
+                    observed_result_json TEXT,
+                    created_at INTEGER NOT NULL
+                )
+            `);
+
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_module ON evolution_ledger (module, parameter)`);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_type ON evolution_ledger (event_type)`);
         });
     }
 
@@ -163,6 +190,83 @@ export class CausalMemoryDB {
                 });
             });
         });
+    }
+
+    insertEvolutionLedgerEntry(entry) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO evolution_ledger
+                (ledger_id, event_type, module, parameter, from_version, to_version, from_value_json, to_value_json,
+                 acs_score, ars_score, regime_stability_json, impact_analysis_json, reason, proposal_id, decided_by, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const params = [
+                entry.ledger_id,
+                entry.event_type,
+                entry.module,
+                entry.parameter,
+                entry.from_version || null,
+                entry.to_version || null,
+                entry.from_value !== null && entry.from_value !== undefined ? JSON.stringify(entry.from_value) : null,
+                entry.to_value !== null && entry.to_value !== undefined ? JSON.stringify(entry.to_value) : null,
+                entry.acs_score || null,
+                entry.ars_score || null,
+                entry.regime_stability ? JSON.stringify(entry.regime_stability) : null,
+                entry.impact_analysis ? JSON.stringify(entry.impact_analysis) : null,
+                entry.reason,
+                entry.proposal_id || null,
+                entry.decided_by || 'ECA_COURT',
+                entry.created_at || Date.now()
+            ];
+
+            this.db.serialize(() => {
+                this.db.run(sql, params, (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+        });
+    }
+
+    updateEvolutionLedgerResult(ledgerId, observedResult) {
+        return new Promise((resolve, reject) => {
+            const sql = `UPDATE evolution_ledger SET observed_result_json = ? WHERE ledger_id = ?`;
+            this.db.run(sql, [JSON.stringify(observedResult), ledgerId], (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+    }
+
+    getEvolutionLedgerEntries(module, parameter) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM evolution_ledger WHERE module = ? AND parameter = ? ORDER BY created_at ASC`;
+            this.db.all(sql, [module, parameter], (err, rows) => {
+                if (err) reject(err);
+                else resolve((rows || []).map(this._parseEvolutionRow));
+            });
+        });
+    }
+
+    getAllEvolutionLedgerEntries() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM evolution_ledger ORDER BY created_at ASC`;
+            this.db.all(sql, [], (err, rows) => {
+                if (err) reject(err);
+                else resolve((rows || []).map(this._parseEvolutionRow));
+            });
+        });
+    }
+
+    _parseEvolutionRow(row) {
+        return {
+            ...row,
+            from_value: row.from_value_json ? JSON.parse(row.from_value_json) : null,
+            to_value: row.to_value_json ? JSON.parse(row.to_value_json) : null,
+            regime_stability: row.regime_stability_json ? JSON.parse(row.regime_stability_json) : null,
+            impact_analysis: row.impact_analysis_json ? JSON.parse(row.impact_analysis_json) : null,
+            observed_result: row.observed_result_json ? JSON.parse(row.observed_result_json) : null
+        };
     }
 
     insertSemanticPattern(pattern) {
