@@ -1,5 +1,5 @@
 import { eventBus } from '../lib/eventBus.js';
-import { calculateEDM } from '../intelligence/edm.ts';
+import { calculateEDM } from './edm.js';
 
 export class FailureModeCartography {
   constructor() {
