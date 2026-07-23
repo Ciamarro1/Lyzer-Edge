@@ -8,7 +8,7 @@
 
 AG Kit is a modular system consisting of:
 
-- **20 Specialist Agents** - Role-based AI personas (1 major upgrade in 2026.5.13)
+- **30 Specialist Agents** - Role-based AI personas (10 Market Causality Engine agents added)
 - **45 Skills** - Domain-specific knowledge modules with conditional loading
 - **13 Workflows** - Slash command procedures
 
@@ -19,7 +19,7 @@ AG Kit is a modular system consisting of:
 ```plaintext
 .agents/
 ├── ARCHITECTURE.md          # This file
-├── agent/                  # 20 Specialist Agents
+├── agent/                  # 30 Specialist Agents
 ├── skills/                  # 45 Skills (with conditional loading)
 ├── workflows/               # 13 Slash Commands
 ├── rules/                   # Global Rules
@@ -29,7 +29,7 @@ AG Kit is a modular system consisting of:
 
 ---
 
-## 🤖 Agents (20)
+## 🤖 Agents (30)
 
 Specialist AI personas for different domains.
 
@@ -55,6 +55,16 @@ Specialist AI personas for different domains.
 | `qa-automation-engineer` | E2E testing, CI pipelines  | webapp-testing, testing-patterns                         |
 | `code-archaeologist`     | Legacy code, refactoring   | clean-code, code-review-checklist                        |
 | `explorer-agent`         | Codebase analysis          | -                                                        |
+| `liquidity-agent`        | Liquidity Graph & Sweeps   | lyzer-guardian, clean-code                               |
+| `structure-agent`        | MSS, BOS & CISD Shift      | lyzer-guardian, clean-code                               |
+| `fvg-agent`              | FVG, BPR, Premium/Discount | lyzer-guardian, clean-code                               |
+| `order-block-agent`      | Order Blocks & Breakers    | lyzer-guardian, clean-code                               |
+| `market-state-agent`     | 9 Market State Regimes     | lyzer-guardian, clean-code                               |
+| `narrative-agent`        | MTF Memory & Causal JSON   | lyzer-guardian, clean-code                               |
+| `risk-agent`             | ATR Stop & Liquidity TP    | lyzer-guardian, clean-code                               |
+| `execution-agent`        | TruthKernel & ECA Court    | lyzer-guardian, clean-code                               |
+| `meta-agent`             | Red Team Macro Veto        | lyzer-guardian, clean-code                               |
+| `edge-validator-agent`   | Empirical Edge Certificate | lyzer-guardian, clean-code                               |
 
 ---
 
