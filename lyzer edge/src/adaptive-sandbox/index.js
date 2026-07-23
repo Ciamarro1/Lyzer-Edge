@@ -2,6 +2,7 @@ import { ParameterProposalEngine } from './ParameterProposalEngine.js';
 import { AdaptiveShadowEngine } from './AdaptiveShadowEngine.js';
 import { AdaptiveScoreEngine } from './AdaptiveScoreEngine.js';
 import { ParameterVersionStore } from './ParameterVersionStore.js';
+import { AdaptivePipelineController } from './AdaptivePipelineController.js';
 
 export class AdaptiveSandboxFacade {
   constructor(causalMemoryDB) {
@@ -37,4 +38,4 @@ export class AdaptiveSandboxFacade {
   }
 }
 
-export { ParameterProposalEngine, AdaptiveShadowEngine, AdaptiveScoreEngine, ParameterVersionStore };
+export { ParameterProposalEngine, AdaptiveShadowEngine, AdaptiveScoreEngine, ParameterVersionStore, AdaptivePipelineController };
