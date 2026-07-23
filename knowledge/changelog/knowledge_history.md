@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.9.0] — 2026-07-22
+- **Fase 5.6.1 (Causal Completeness Upgrade) Concluída**:
+  - Implementadas as 3 Sprints de elevação do Causal Completeness Score (CCS) de **85.7% para 100.0%**.
+  - **Sprint 1**: Criado `REALITY_SNAPSHOT_CREATED` com compressão de tensores CSRL.
+  - **Sprint 2**: Criado `FEATURE_GENERATED` integrando estruturas SMC (`OrderBlocks`, `LiquidityPools`, `MarketStructure`).
+  - **Sprint 3**: Criado o `LearningEngine.js` e evento `LEARNING_FEEDBACK` para ciclo adaptativo predito vs realizado.
+  - Publicado o relatório em [ccs_upgrade_report.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-memory/ccs_upgrade_report.md).
+
 ## [v2.8.0] — 2026-07-22
 - **Fase 5.6 (Causal Memory Integration Audit) Concluída**:
   - Aprovado o **ADR-009** em [ADR-009-causal-integration-coverage.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-009-causal-integration-coverage.md).
