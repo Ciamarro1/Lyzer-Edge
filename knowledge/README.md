@@ -60,6 +60,7 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [Performance Baseline (Fase 5.1.5)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/performance_baseline.md) — Linha de base empírica de throughput e latência P50/P95/P99.
 - [SLO Definition & Readiness Checklist](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/slo_definition.md) — SLOs/SLIs e Production Readiness Checklist.
 - [Chaos Experiments](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/chaos/experiments/CE001-sqlite-latency.md) — Runbooks executáveis de Engenharia do Caos (CE001, CE002, CE003).
+- [Persistence Architecture & WAL Strategy (Fase 5.2)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/persistence/architecture.md) — Documentação oficial do upgrade institucional SQLite WAL Mode.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---
