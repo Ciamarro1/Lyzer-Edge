@@ -61,6 +61,8 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [SLO Definition & Readiness Checklist](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/slo_definition.md) — SLOs/SLIs e Production Readiness Checklist.
 - [Chaos Experiments](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/chaos/experiments/CE001-sqlite-latency.md) — Runbooks executáveis de Engenharia do Caos (CE001, CE002, CE003).
 - [Persistence Architecture & WAL Strategy (Fase 5.2)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/persistence/architecture.md) — Documentação oficial do upgrade institucional SQLite WAL Mode.
+- [ADR-006: Causal Memory Architecture (Fase 5.3)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-006-causal-memory-architecture.md) — Desenho arquitetural da Memória Causal e Reconstrução Epistemológica.
+- [Causal Memory Design Specification](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_memory_design.md) — Especificação dos 4 tipos de memória, schema SQL e Rewind Market Reality.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---

@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.5.0] — 2026-07-22
+- **Fase 5.3 (Causal Memory Architecture Design) Concluída**:
+  - Criado o **ADR-006** em [ADR-006-causal-memory-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-006-causal-memory-architecture.md).
+  - Elaborada a especificação técnica [causal_memory_design.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_memory_design.md).
+  - Definidos os 4 domínios funcionais de memória (Operational, Episodic, Semantic, Constitutional Memory).
+  - Projetados o esquema DDL de `causal_events_log` e o motor de viagem temporal `Rewind Market Reality`.
+
 ## [v2.4.0] — 2026-07-22
 - **Fase 5.2 (SQLite Institutional Persistence Upgrade) Concluída**:
   - Habilitado o modo `PRAGMA journal_mode = WAL;` com ajuste fino de pragmas (`synchronous = NORMAL`, `busy_timeout = 5000`, `temp_store = MEMORY`, `cache_size = -64000`, `mmap_size = 30GB`, `wal_autocheckpoint = 1000`) em `db.js`.
