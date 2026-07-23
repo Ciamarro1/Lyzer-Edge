@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v13.0.0] — 2026-07-23
+- **ADR-033 (Unified Cognitive Architecture) Aprovada com Sucesso**:
+  - Auditoria completa das Fases 1 a 15 e ADRs 001 a 032.
+  - Auditoria sob a perspectiva de Alan Turing, John von Neumann, Claude Shannon, Edsger Dijkstra e Christopher Alexander.
+  - Formulação da Teoria Unificada do Lyzer Edge baseada em 4 Abstrações Universais: `CognitiveLoop` (Fractal), `GenericCompositeScore` (Scores), `UniversalMemoryArchitecture` (Event Sourcing) e `CognitiveRuntimePlatform`.
+  - Mapeamento completo de duplicações, responsabilidades, repetições e oportunidades de simplificação.
+  - Estabelecidos os 4 Critérios Objetivos de Governança para bloquear criação de novas camadas desnecessárias.
+
 ## [v12.0.0] — 2026-07-23
 - **Fase 15 (Autonomous Quant Research Lab & Economic Decision Layer Architecture) Concluída com Sucesso**:
   - Implementados 5 módulos e fachada em `lyzer edge/src/autonomous-research/`:
