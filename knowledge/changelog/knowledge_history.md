@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v17.0.0] — 2026-07-23
+- **ADR-037 (The Evidence Era & Architecture Complexity Index - ACI) Aprovada com Sucesso**:
+  - Distinção em **Triplo Nível de Mutabilidade**: Fundamentos (ADR-033..036 - Quase Imutáveis), Arquitetura (Configurações e Políticas) e Implementação (Evolução Contínua).
+  - Inauguração da **Era da Evidência**: Foco absoluto em medição empírica sob estresse real, latência, CPU, RAM, Sharpe, Max Drawdown, Fault Injection e Replay Determinístico.
+  - Instituição da métrica de acompanhamento **Architecture Complexity Index (ACI)** para garantir que cada release mantenha ou reduza o $ACI$ enquanto preserva ou expande a capacidade e throughput.
+
 ## [v16.0.0] — 2026-07-23
 - **ADR-036 (Lyzer Guardian v3 Meta-Governance & Removal-First Law) Aprovada com Sucesso**:
   - Transição de postura oficial: o Lyzer Guardian atua estritamente como **Matemático da Computação e Guardião da Complexidade**.
