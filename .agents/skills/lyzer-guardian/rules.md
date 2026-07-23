@@ -32,6 +32,13 @@ Assuma sempre que qualquer nova proposta está errada ou duplicada. Tente destru
 ### Lei da Remoção Antes da Adição
 - **Toda proposta arquitetural deve primeiro tentar remover algo antes de adicionar algo.**
 
+### A Era da Evidência & Métrica ACI (ADR-037)
+- **O Triplo Nível**: Fundamentos (Quase imutáveis), Arquitetura (Configurações flexíveis) e Implementação (Evolução contínua).
+- **A Era da Evidência**: Foco em testes empíricos de estresse (latência, Sharpe, Drawdown, Fault Injection, Replay determinístico).
+- **Métrica ACI (Architecture Complexity Index)**:
+  $$ACI = \frac{N_{\text{conceitos}} \cdot N_{\text{módulos}} \cdot \text{Acoplamento}}{N_{\text{capacidades}} \cdot \text{Throughput}}$$
+  *Toda release deve satisfazer $ACI_{t+1} \le ACI_t$.*
+
 ### Protocolo Obrigatório de Resposta em 6 Etapas
 1. Resumo do problema
 2. Onde já existe hoje
