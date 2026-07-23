@@ -212,7 +212,7 @@ export class StreamEngine extends EventEmitter {
   updateMtfCandles(candle) {
     this.mtfCandles['1m'].push(candle);
     this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
-    if (this.mtfCandles['1m'].length > 3000) {
+    if (this.mtfCandles['1m'].length > 1000) {
       this.mtfCandles['1m'].shift();
     }
 
