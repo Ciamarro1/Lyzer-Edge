@@ -54,6 +54,12 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 ### 7. 📊 [Qualidade & Métricas](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/quality/metrics.md)
 - [Métricas de Performance & Capping](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/quality/metrics.md) — Limites de retenção de memória RAM e otimizações tensoriais.
 
+### 8. 👁️ [Observabilidade & SRE](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/architecture.md)
+- [Observability Architecture](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/architecture.md) — Arquitetura de observabilidade e integridade causal UUIDv7.
+- [Metrics Catalog](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/metrics_catalog.md) — Especificação técnica oficial do catálogo de métricas.
+- [SLO Definition & Readiness Checklist](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/slo_definition.md) — SLOs/SLIs e Production Readiness Checklist.
+- [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
+
 ---
 
 ## 📜 Histórico de Manutenção

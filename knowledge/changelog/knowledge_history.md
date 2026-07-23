@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.2.0] — 2026-07-22
+- **Especificação da Arquitetura de Observabilidade & SRE Checklist**:
+  - Criados os 4 documentos institucionais sob `docs/observability/`: `architecture.md`, `metrics_catalog.md`, `slo_definition.md` e `runbook.md`.
+  - Formalizado o axioma da **Integridade Causal rastreável por UUIDv7** sobre a latência pura.
+  - Criado o **Lyzer Edge Production Readiness Checklist** para transição segura ao ecossistema institucional.
+
 ## [v2.1.0] — 2026-07-22
 - **Aprovação da ADR-005 pelo Comitê de Arquitetura**:
   - Realizado o mapeamento detalhado do caminho crítico completo (do WebSocket ao I/O em disco).
