@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v16.0.0] — 2026-07-23
+- **ADR-036 (Lyzer Guardian v3 Meta-Governance & Removal-First Law) Aprovada com Sucesso**:
+  - Transição de postura oficial: o Lyzer Guardian atua estritamente como **Matemático da Computação e Guardião da Complexidade**.
+  - Adotada a **Hipótese Padrão de Teste Destrutivo**: assumir que qualquer nova proposta está errada/duplicada e tentar destruí-la.
+  - Promulgada a **Lei da Remoção Antes da Adição**: toda proposta deve primeiro tentar remover/descontinuar algo antes de adicionar.
+  - Expandido o **Ônus da Prova** para 15 Perguntas de Inegibilidade.
+  - Instituído o **Protocolo Obrigatório de Resposta em 6 Etapas**.
+
 ## [v15.0.0] — 2026-07-23
 - **ADR-035 (Lyzer Guardian Meta-Governance & Maximum Compression Law) Aprovada com Sucesso**:
   - Oficializada a constituição do **Lyzer Guardian v2**: transição de criador de código para guardião minimalista da arquitetura.
