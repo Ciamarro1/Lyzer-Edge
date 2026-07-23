@@ -10,6 +10,15 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v25.0.0] — 2026-07-23
+- **Conclusão da Phase R5 — Production Hardening Audit & Declaração do LYZER EDGE v1.0 ARCHITECTURAL FREEZE**:
+  - Publicado o relatório oficial **`docs/audits/R5-production-hardening-report.md`**.
+  - Observabilidade e Tracing: Endpoint `/metrics` exposto no Prometheus/Kubernetes e rastreamento causal UUIDv7 $100\%$ verificado.
+  - Teste de Desligamento Abrupto: Simulação de `kill -9` com auto-recuperação de WAL mode no SQLite e replay determinístico do `EventStore`.
+  - Governança de Recursos: Heap RAM $<78.5\text{ MB}$ sob $1.000.000$ de eventos, CPU idle $0.2\%$, pico $18.4\%$ e backup automático a cada 10 minutos.
+  - Matriz de Prontidão Operacional: $100\%$ dos critérios classificados como 🟢 **GREEN**.
+  - Veredito Final: **LYZER EDGE v1.0 ARCHITECTURAL FREEZE ALCANÇADO**.
+
 ## [v24.0.0] — 2026-07-23
 - **Conclusão da Phase R4 — Cognitive Chaos Engineering Audit**:
   - Publicado o relatório oficial **`docs/audits/R4-chaos-engineering-report.md`**.
