@@ -92,7 +92,7 @@ export class StreamEngine extends EventEmitter {
     this.isFallbackActive = false;
     this.bootTime = Date.now();
     const isTestEnv = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST) || (this.mode === 'SIMULATION');
-    const defaultWindow = isTestEnv ? 0 : 300000;
+    const defaultWindow = isTestEnv ? 0 : 45000; // Default 45 seconds boot stabilization grace period
     this.stabilizationWindowMs = process.env.MOL_STABILIZATION_WINDOW_MS !== undefined
       ? parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS)
       : defaultWindow;

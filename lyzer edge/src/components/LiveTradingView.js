@@ -912,6 +912,7 @@ canvas.ltv-chart {
   }
 
   _connectWS() {
+    wsClient.connect();
     const handler = (data) => {
       const sym = data.symbol;
       if (!sym || !SYMBOLS.includes(sym)) return;
