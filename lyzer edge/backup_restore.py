@@ -2,14 +2,15 @@ import os
 import sys
 from huggingface_hub import create_bucket, sync_bucket
 
-# Get token from environment
+# Get token and bucket name from environment (leave HF_BUCKET_NAME empty to disable cloud backup/restore)
 token = os.environ.get("HF_TOKEN")
-if not token:
-    print("[BACKUP] HF_TOKEN environment variable not set. Skipping backup/restore.")
+bucket_name = os.environ.get("HF_BUCKET_NAME", "")
+
+if not token or not bucket_name:
+    print("[BACKUP] Cloud backup/restore disabled (HF_TOKEN or HF_BUCKET_NAME not set). Operating in local mode.")
     sys.exit(0)
 
-bucket_name = "lyzer-edge-storage"
-username = "jonatanciamarro"
+username = os.environ.get("HF_USERNAME", "jonatanciamarro")
 bucket_uri = f"hf://buckets/{username}/{bucket_name}"
 local_dir = "/tmp/data"
 
