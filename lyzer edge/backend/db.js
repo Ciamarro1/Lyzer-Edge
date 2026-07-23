@@ -8,8 +8,13 @@ const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 const DEFAULT_DB_PATH = process.env.DB_PATH || path.join(DATA_DIR, 'historical_causal_memory.db');
 
+let sharedInstance = null;
+
 export class CausalMemoryDB {
     constructor(customDbPath = null) {
+        if (!customDbPath && sharedInstance) {
+            return sharedInstance;
+        }
         const targetPath = customDbPath || DEFAULT_DB_PATH;
         this.db = new sqlite3.Database(targetPath, (err) => {
             if (err) {
@@ -19,6 +24,9 @@ export class CausalMemoryDB {
             }
         });
         this.init();
+        if (!customDbPath) {
+            sharedInstance = this;
+        }
     }
 
     init() {
