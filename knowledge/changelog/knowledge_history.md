@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v6.0.0] — 2026-07-23
+- **Fase 9 (Cognitive Validation & Empirical Intelligence Layer) Concluída com Sucesso**:
+  - Implementados 5 módulos e fachada em `lyzer edge/src/empirical-validation/`:
+    - `EmpiricalValidationEngine.js`: Triagem empírica de hipóteses e cálculo de métricas de ocorrências (PnL médio, variância, taxa de falha).
+    - `StatisticalSignificanceEngine.js`: Validação de tamanho amostral ($N \ge 500$), cálculo do Intervalo de Confiança de 95% ($95\%\text{ CI}$) e estabilidade do Sharpe inter-regimes.
+    - `CausalEvidenceScorer.js`: Pontuação de evidência causal **CES** ($\in [0, 100\%]$) com zonas (`PROVEN`, `PROMISING`, `SPECULATIVE`).
+    - `KnowledgeMaturationPipeline.js`: Pipeline de maturidade do conhecimento semântico (`OBSERVATION` $\to$ `HYPOTHESIS` $\to$ `VALIDATED` $\to$ `ESTABLISHED` $\to$ `CONSTITUTIONAL`).
+    - `ResearchExperimentEngine.js`: Execução de experimentos científicos com Walk-Forward Validation (WFV) e cálculo da Eficiência Walk-Forward ($WFE \ge 0.50$).
+    - `EmpiricalValidationFacade` (`index.js`): Fachada unificada (`validateCandidate`).
+  - Aprovado **ADR-026** (Empirical Validation Architecture).
+  - Validação 100% aprovada na suíte `tests/empirical-validation/` (7/7 testes PASSED em 6 arquivos).
+
 ## [v5.0.0] — 2026-07-23
 - **Fase 8 (Cognitive Market Intelligence Layer) Concluída com Sucesso**:
   - Implementados 5 módulos e fachada em `lyzer edge/src/cognitive-intelligence/`:
