@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.0.0] — 2026-07-22
+- **Fase 7.0 (Adaptive Intelligence Sandbox - Architecture & ADRs) Formalizada**:
+  - Aprovado o **ADR-014** em [ADR-014-adaptive-parameter-governance.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-014-adaptive-parameter-governance.md) (Governança de Parâmetros Adaptativos & Objeto ParameterProposal).
+  - Aprovado o **ADR-015** em [ADR-015-shadow-intelligence-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-015-shadow-intelligence-architecture.md) (Execução Shadow Não-Destrutiva & Adaptive Confidence Score ACS).
+  - Aprovado o **ADR-016** em [ADR-016-parameter-version-control.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-016-parameter-version-control.md) (Controle de Versão de Parâmetros & Mecanismo Proativo de Rollback).
+  - Publicada a especificação técnica em [adaptive_sandbox_architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/adaptive_sandbox_architecture.md).
+
 ## [v3.2.0] — 2026-07-22
 - **Fase 6.6 (Cognitive Reflection Layer) Concluída com Sucesso**:
   - Aprovado o **ADR-013** em [ADR-013-cognitive-reflection-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-013-cognitive-reflection-architecture.md) (Arquitetura de Metacognição e Raciocínio Contrafactual).
