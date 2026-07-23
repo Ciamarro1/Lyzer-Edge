@@ -10,6 +10,16 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.2.0] — 2026-07-22
+- **Fase 7.1 (Adaptive Pipeline Controller) Concluída com Sucesso**:
+  - Implementado o `AdaptivePipelineController.js` em `lyzer edge/src/adaptive-sandbox/`:
+    - Orquestra o ciclo completo: REFLECT → EXTRACT → PROPOSE → AUDIT → SHADOW → SCORE → COURT → PROMOTE.
+    - Extrai propostas automaticamente do relatório de reflexão (`runDreamCycle`).
+    - Executa simulação shadow não-destrutiva e calcula ACS antes de submeter à Corte ECA.
+    - Implementa monitoramento pós-promoção com rollback proativo ($Drawdown > 5\%$ ou $PnL < -2\%$).
+  - Aprovado **ADR-017** (Adaptive Pipeline Controller Architecture).
+  - Validação 100% aprovada na suíte completa `tests/adaptive-sandbox/` (11/11 testes PASSED em 6 arquivos).
+
 ## [v4.1.0] — 2026-07-22
 - **Fase 7.0 (Adaptive Intelligence Sandbox Implementation) Concluída com Sucesso**:
   - Implementados os 4 submódulos e fachada em `lyzer edge/src/adaptive-sandbox/`:
