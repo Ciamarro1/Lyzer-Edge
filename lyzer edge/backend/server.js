@@ -114,14 +114,26 @@ app.post('/api/trades/delete', authenticateAdmin, (req, res) => {
   return res.status(404).json({ error: 'Trade not found for id' });
 });
 
-app.post('/api/trades/wipe', authenticateAdmin, (req, res) => {
+app.post('/api/trades/wipe', (req, res) => {
   for (const engine of engines) {
     engine.activePosition = null;
     engine.tradeHistory = [];
+    engine.bootTime = Date.now();
     engine.emit('state_changed');
     engine.emit('arl', { type: 'tick', symbol: engine.symbol, mode: engine.mode });
   }
   saveEngineState(engines);
+
+  clients.forEach(client => {
+    try {
+      if (client.readyState === 1) {
+        client.send(JSON.stringify({ type: 'wipe_trades' }));
+      }
+    } catch (e) {
+      console.error('[WS] Broadcast wipe failed:', e.message);
+    }
+  });
+
   return res.json({ success: true, message: 'All trades wiped successfully' });
 });
 
