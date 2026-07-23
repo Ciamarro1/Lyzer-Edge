@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v26.0.0] — 2026-07-23
+- **Conclusão da Phase C0 — Capability Era Transition Review**:
+  - Publicado o roadmap estratégico **`docs/roadmap/capability-era-roadmap.md`**.
+  - Transição de foco: de engenharia de arquitetura para a **Capability Era** sobre a fundação congelada do Lyzer Edge v1.0.
+  - Inventário completo das 15 capacidades cognitivas mapeadas e classificadas com $100\%$ de prontidão para produção.
+  - Estruturadas as 3 Trilhas Estratégicas: Operação Real em Mercado (Binance/Bybit/Kraken), Benchmark Institucional Empírico e Gestão Autônoma de Capital por EVI.
+  - Veredito Final C0: Transição homologada. O Lyzer Edge foca $100\%$ da energia na entrega de valor econômico real sem alteração de código arquitetural.
+
 ## [v25.0.0] — 2026-07-23
 - **Conclusão da Phase R5 — Production Hardening Audit & Declaração do LYZER EDGE v1.0 ARCHITECTURAL FREEZE**:
   - Publicado o relatório oficial **`docs/audits/R5-production-hardening-report.md`**.
