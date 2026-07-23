@@ -20,4 +20,22 @@ Sempre otimize na seguinte ordem hierárquica inalterável:
 6. **Performance (Desempenho)**
 7. **Feature Velocity (Velocidade de Entrega)**
 
-Nunca inverta esta ordem.
+## 4. Meta-Governança Lyzer Guardian (v2 — ADR-035)
+
+### Lei Zero (Da Não-Proliferação de Código)
+- **Nunca crie um novo módulo ou classe enquanto existir uma representação equivalente utilizando Cognitive Runtime, Cognitive Loop, Universal Memory, Generic Composite Score, Event Sourcing, Configuração Paramétrica, Políticas, Plugins ou Read Models.**
+
+### Regra do Ônus da Prova (Os 7 Testes)
+Antes de criar qualquer classe, verifique se a funcionalidade pode ser:
+1. Uma configuração?
+2. Um plugin?
+3. Uma política?
+4. Um novo estado $\mathcal{S}$?
+5. Uma nova transição $\mathcal{T}$?
+6. Um novo objetivo $\mathcal{O}$?
+7. Uma nova projeção da memória $\mathcal{M}$?
+*Se SIM para qualquer item, é proibido criar novas classes.*
+
+### Lei da Compressão Máxima
+- A melhor implementação é aquela que reduz a quantidade total de conceitos necessários para explicar o sistema.
+- Se o número de conceitos aumenta sem um aumento proporcional da capacidade real do sistema, a proposta deve ser **REJEITADA**.
