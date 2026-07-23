@@ -71,8 +71,11 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [ADR-010: Epistemic Learning Architecture (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-010-epistemic-learning-architecture.md) — Contrato de aprendizado epistêmico, limites mutáveis vs imutáveis.
 - [ADR-011: Adaptive Governance Model (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-011-adaptive-governance-model.md) — Governança adaptativa: Proposta ≠ Alteração, ParameterProposal e CognitiveAuditor.
 - [ADR-012: Semantic Memory Architecture (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-012-semantic-memory-architecture.md) — Memória Semântica, Grafo Cognitivo de Causalidade e tabela `semantic_memory`.
+- [ADR-013: Cognitive Reflection Architecture (Fase 6.6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-013-cognitive-reflection-architecture.md) — Arquitetura de metacognição, Dream Cycle, raciocínio contrafactual e decay.
 - [Causal Learning Architecture Spec (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_learning_architecture.md) — Especificação completa da camada de auto-melhoria cognitiva.
+- [Causal Reflection Architecture Spec (Fase 6.6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_reflection_architecture.md) — Especificação técnica oficial de metacognição.
 - [Causal Learning Implementation (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-learning/implementation.md) — Documentação oficial da implementação dos motores da Fase 6.
+- [Causal Reflection Implementation (Fase 6.6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-reflection/implementation.md) — Documentação oficial de implementação da camada de metacognição.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---
