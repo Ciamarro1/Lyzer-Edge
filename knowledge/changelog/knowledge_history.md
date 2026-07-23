@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v15.0.0] — 2026-07-23
+- **ADR-035 (Lyzer Guardian Meta-Governance & Maximum Compression Law) Aprovada com Sucesso**:
+  - Oficializada a constituição do **Lyzer Guardian v2**: transição de criador de código para guardião minimalista da arquitetura.
+  - Promulgada a **Lei Zero** (proibição de novos módulos quando houver representação equivalente por configuração, política, plugin ou projeção de memória).
+  - Estabelecida a **Regra do Ônus da Prova** com os 7 Testes de Inegibilidade.
+  - Promulgada a **Lei da Compressão Máxima**: a melhor implementação é aquela que reduz a quantidade total de conceitos para explicar o sistema.
+
 ## [v14.0.0] — 2026-07-23
 - **ADR-034 (Universal Cognitive Calculus - UCC) Aprovada com Sucesso**:
   - Formalização matemática completa de todo o ecossistema Lyzer Edge em 4 Primitivas Fundamentais: Estado $\mathcal{S}$, Transição $\mathcal{T}$, Memória Imutável $\mathcal{M}$ e Função Objetivo Escalar $\mathcal{O}$.
