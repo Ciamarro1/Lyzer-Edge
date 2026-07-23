@@ -65,6 +65,8 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [ADR-007: Causal Event Contract (Fase 5.3.1)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-007-causal-event-contract.md) — Contrato formal do evento, integridade Hash Chain e explicabilidade.
 - [ADR-008: Causal Memory Runtime (Fase 5.4)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-008-causal-memory-runtime.md) — Desenho do runtime executável, componentes, invariantes e Soberania Causal.
 - [Causal Memory Implementation MVP (Fase 5.5)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-memory/implementation.md) — Documentação oficial da implementação do MVP do Runtime Causal.
+- [ADR-009: Causal Integration Coverage & CCS (Fase 5.6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-009-causal-integration-coverage.md) — Auditoria de integração, Matriz de Cobertura Causal e score CCS (85.7%).
+- [Causal Integration Audit Report](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_integration_audit.md) — Relatório completo de auditoria do pipeline e plano de elevação do CCS.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---
