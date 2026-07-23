@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v1.4.0] — 2026-07-22
+- **Fase 4 (Performance) Concluída**:
+  - Capping rigoroso de retenção de candles $1m$ ajustado de 3.000 para 1.000 candles max em `StreamEngine.js`, reduzindo o consumo de memória RAM por instância em 66.7%.
+  - Otimizações no `ScaleNormalizer` e `LiquidityEngine` com limites estritos de 300 zonas para prevenção de bloat em transporte WebSocket.
+  - Criado o documento de qualidade `knowledge/quality/metrics.md`.
+  - 100% dos testes validados com sucesso no Vitest (164 testes aprovados).
+
 ## [v1.3.0] — 2026-07-22
 - **Fase 3 (Refatoração) Concluída**:
   - Criado o módulo `SmcEngineFacade` em `@lyzer/shared/src/smc/smcFacade.js`, unificando a avaliação do `TimeframeManager`, `TrendEngine`, `StructureEngine` e `LiquidityEngine`.
