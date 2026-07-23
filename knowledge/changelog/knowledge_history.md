@@ -10,6 +10,16 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v20.0.0] — 2026-07-23
+- **Selamento Definitivo da CONSTITUTION.md & Transição para a Engenharia Minimalista**:
+  - Consolidação da `CONSTITUTION.md` concisa de 1 página, prevenindo a *overconstitutionalization*.
+  - Transformado o ciclo operacional em **4 Perguntas Obrigatórias da Engenharia Minimalista** para PRs e RFCs:
+    1. *Remoção*: O que conseguimos eliminar ou descontinuar?
+    2. *Compressão*: O que conseguimos unificar ou parametrizar?
+    3. *Evidência*: Como provamos quantitativamente que o sistema melhorou?
+    4. *Produção*: Como essa mudança se comporta em estresse e ambiente real?
+  - Estabelecida a estratificação permanente de 4 velocidades de mudança: Constituição (Quase imutável), Fundamentos (ADR-033/034 Registro histórico), Arquitetura (Políticas e configurações flexíveis) e Código (Evolução contínua).
+
 ## [v19.0.0] — 2026-07-23
 - **Selamento da CONSTITUTION.md & Transição para o Ciclo Permanente de Engenharia**:
   - Consolidação definitiva da Carta Arquitetural Permanente em 1 página concisa.
