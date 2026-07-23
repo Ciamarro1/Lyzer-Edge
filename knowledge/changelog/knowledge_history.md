@@ -10,6 +10,17 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.4.0] — 2026-07-22
+- **Fase 7.3 (Adaptive Evolution Runtime) Concluída com Sucesso**:
+  - Implementados 4 módulos e fachada em `lyzer edge/src/adaptive-evolution/`:
+    - `EvolutionExecutor.js`: Transações evolutivas atômicas (PENDING → ACTIVE → COMPLETED | ROLLED_BACK).
+    - `ParameterVersionManager.js`: Versionamento Git-like com cognitive snapshots, diff e lineage.
+    - `AdaptiveRuntimeMonitor.js`: Vigia pós-promoção com 5 triggers (drawdown, PnL, Sharpe, win rate, veto rate).
+    - `AutomaticRollbackEngine.js`: Motor de reversão automática com quarentena de 1.000 ticks.
+    - `AdaptiveEvolutionFacade` (`index.js`): Fachada unificada do runtime evolutivo.
+  - Aprovados **ADR-021** (Adaptive Evolution Runtime), **ADR-022** (Parameter Version Governance), **ADR-023** (Evolution Rollback Constitution).
+  - Validação 100% aprovada na suíte `tests/adaptive-evolution/` (11/11 testes PASSED em 5 arquivos).
+
 ## [v4.3.0] — 2026-07-22
 - **Fase 7.2 (Adaptive Intelligence Evaluation Layer) Concluída com Sucesso**:
   - Implementados 4 módulos e fachada em `lyzer edge/src/adaptive-evaluation/`:
