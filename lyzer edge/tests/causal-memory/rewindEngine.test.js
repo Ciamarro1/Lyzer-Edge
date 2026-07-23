@@ -6,7 +6,7 @@ import { RewindEngine } from '../../src/causal-memory/RewindEngine.js';
 
 describe('RewindEngine & Temporal Reconstruction Verification', () => {
   test('rewinds and reconstructs historical perceived state at timestamp T0', async () => {
-    const db = new CausalMemoryDB();
+    const db = new CausalMemoryDB('/tmp/data/test_rewind_engine.db');
     const store = new EventStore(db);
     const rewindEngine = new RewindEngine(store);
 

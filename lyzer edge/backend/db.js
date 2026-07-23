@@ -6,15 +6,16 @@ import { recordSqliteWrite } from '../src/observability/index.js';
 // Use /tmp/data which is always writable in containerized environments
 const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-const DB_PATH = path.join(DATA_DIR, 'historical_causal_memory.db');
+const DEFAULT_DB_PATH = process.env.DB_PATH || path.join(DATA_DIR, 'historical_causal_memory.db');
 
 export class CausalMemoryDB {
-    constructor() {
-        this.db = new sqlite3.Database(DB_PATH, (err) => {
+    constructor(customDbPath = null) {
+        const targetPath = customDbPath || DEFAULT_DB_PATH;
+        this.db = new sqlite3.Database(targetPath, (err) => {
             if (err) {
                 console.error('[DB] Error opening database:', err);
             } else {
-                console.log('[DB] Connected to SQLite Causal Memory Database (WAL Mode).');
+                console.log(`[DB] Connected to SQLite Causal Memory Database (${targetPath}).`);
             }
         });
         this.init();
@@ -110,13 +111,15 @@ export class CausalMemoryDB {
                 event.hash
             ];
 
-            this.db.run(sql, params, (err) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    recordSqliteWrite('insert_causal_event', (performance.now() - startTime) / 1000);
-                    resolve();
-                }
+            this.db.serialize(() => {
+                this.db.run(sql, params, (err) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        recordSqliteWrite('insert_causal_event', (performance.now() - startTime) / 1000);
+                        resolve();
+                    }
+                });
             });
         });
     }
@@ -124,9 +127,11 @@ export class CausalMemoryDB {
     getLastCausalEventHash() {
         return new Promise((resolve, reject) => {
             const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
-            this.db.get(sql, [], (err, row) => {
-                if (err) reject(err);
-                else resolve(row ? row.hash : '0'.repeat(64));
+            this.db.serialize(() => {
+                this.db.get(sql, [], (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row ? row.hash : '0'.repeat(64));
+                });
             });
         });
     }

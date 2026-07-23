@@ -4,7 +4,7 @@ import { CausalMemoryAdapter } from '../../src/causal-memory/index.js';
 
 describe('CausalMemoryAdapter Full Pipeline Flow (Observation -> Execution)', () => {
   test('records full 5-stage causal chain without altering engine state', async () => {
-    const db = new CausalMemoryDB();
+    const db = new CausalMemoryDB('/tmp/data/test_causal_pipeline.db');
     const adapter = new CausalMemoryAdapter(db);
     const correlationId = `pipeline_flow_${Date.now()}`;
 

@@ -3,12 +3,14 @@ import { EventValidator } from './EventValidator.js';
 import { EventStore } from './EventStore.js';
 import { ProjectionEngine } from './ProjectionEngine.js';
 import { RewindEngine } from './RewindEngine.js';
+import { LearningEngine } from './LearningEngine.js';
 
 export class CausalMemoryAdapter {
   constructor(causalMemoryDB) {
     this.store = new EventStore(causalMemoryDB);
     this.projection = new ProjectionEngine();
     this.rewindEngine = new RewindEngine(this.store);
+    this.learningEngine = new LearningEngine();
   }
 
   async recordObservation({ symbol, candle, correlationId }) {
@@ -36,6 +38,40 @@ export class CausalMemoryAdapter {
       correlationId,
       regime: regime || 'REGIME_A_CONSENSUS',
       payload: { symbol, csrlInvariants, lhdsScore },
+      context: { symbol },
+      prevHash
+    });
+
+    await this.store.append(event);
+    this.projection.processEvent(event);
+    return event;
+  }
+
+  async recordRealitySnapshot({ symbol, tensorHash, tensorLocation, compressedVector, dimensions, correlationId, causationId }) {
+    const prevHash = await this.store.getLastHash();
+    const event = EventFactory.createEvent({
+      type: 'REALITY_SNAPSHOT_CREATED',
+      source: 'CSRL_SCALE_NORMALIZER',
+      causationId,
+      correlationId,
+      payload: { symbol, tensor_hash: tensorHash, tensor_location: tensorLocation, compressed_vector: compressedVector, dimensions },
+      context: { symbol },
+      prevHash
+    });
+
+    await this.store.append(event);
+    this.projection.processEvent(event);
+    return event;
+  }
+
+  async recordFeature({ symbol, orderBlocks, liquidityPools, marketStructure, correlationId, causationId }) {
+    const prevHash = await this.store.getLastHash();
+    const event = EventFactory.createEvent({
+      type: 'FEATURE_GENERATED',
+      source: 'SMC_ENGINE_FACADE',
+      causationId,
+      correlationId,
+      payload: { symbol, order_blocks: orderBlocks || [], liquidity_pools: liquidityPools || [], market_structure: marketStructure || {} },
       context: { symbol },
       prevHash
     });
@@ -103,6 +139,54 @@ export class CausalMemoryAdapter {
     return event;
   }
 
+  async recordLearning({ symbol, intentId, predicted, reality, correlationId, causationId }) {
+    const lesson = this.learningEngine.analyzeOutcome({ intentId, predicted, reality });
+    const prevHash = await this.store.getLastHash();
+
+    const event = EventFactory.createEvent({
+      type: 'LEARNING_FEEDBACK',
+      source: 'LEARNING_ENGINE',
+      causationId,
+      correlationId,
+      intentId,
+      payload: {
+        intentId,
+        predicted,
+        reality,
+        lesson
+      },
+      context: { symbol },
+      prevHash
+    });
+
+    await this.store.append(event);
+    this.projection.processEvent(event);
+    return event;
+  }
+
+  calculateCCS() {
+    const state = this.getCurrentState();
+    const totalRequired = 8;
+    let covered = 0;
+
+    if (state.lastObservation) covered++;
+    if (state.lastReality) covered++;
+    if (state.lastRealitySnapshot) covered++;
+    if (state.lastFeature) covered++;
+    if (state.lastJudgment) covered++;
+    if (state.lastRisk) covered++;
+    if (state.lastExecution) covered++;
+    if (state.lastLearning) covered++;
+
+    const score = (covered / totalRequired) * 100;
+    return {
+      score,
+      coveredCount: covered,
+      totalRequired,
+      isFullyComplete: score === 100
+    };
+  }
+
   async rewind(targetTimestampMs) {
     return await this.rewindEngine.rewind(targetTimestampMs);
   }
@@ -112,4 +196,4 @@ export class CausalMemoryAdapter {
   }
 }
 
-export { EventFactory, EventValidator, EventStore, ProjectionEngine, RewindEngine };
+export { EventFactory, EventValidator, EventStore, ProjectionEngine, RewindEngine, LearningEngine };
