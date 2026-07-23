@@ -90,6 +90,12 @@ export class StreamEngine extends EventEmitter {
     this.dailyCapitalUsed = 0;
     this.fallbackInterval = null;
     this.isFallbackActive = false;
+    this.bootTime = Date.now();
+    const isTestEnv = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST) || (this.mode === 'SIMULATION');
+    const defaultWindow = isTestEnv ? 0 : 300000;
+    this.stabilizationWindowMs = process.env.MOL_STABILIZATION_WINDOW_MS !== undefined
+      ? parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS)
+      : defaultWindow;
 
     this.globalEVMemory = {
       signalBuckets: {},
@@ -100,7 +106,8 @@ export class StreamEngine extends EventEmitter {
 
   async start() {
     this.isRunning = true;
-    console.log(`[STREAM] Initializing StreamEngine in ${this.mode} mode for ${this.symbol}...`);
+    this.bootTime = Date.now();
+    console.log(`[STREAM] Initializing StreamEngine in ${this.mode} mode for ${this.symbol} (Stabilization Window: ${Math.round(this.stabilizationWindowMs / 1000)}s)...`);
 
     if (this.mode === 'SIMULATION') {
       this.warmupSyntheticCandles();
@@ -556,7 +563,15 @@ export class StreamEngine extends EventEmitter {
     }
 
     // B. Check for new trade execution
-    if (kernelResult.eef && !this.activePosition) {
+    const isStabilized = (Date.now() - this.bootTime) >= this.stabilizationWindowMs;
+
+    if (!isStabilized && kernelResult.eef && !this.activePosition) {
+      const secondsLeft = Math.ceil((this.stabilizationWindowMs - (Date.now() - this.bootTime)) / 1000);
+      if (!this._lastStabilizationLogged || Date.now() - this._lastStabilizationLogged > 30000) {
+        console.log(`[STABILIZATION] Warmup grace period active for ${this.symbol} (${secondsLeft}s remaining). Holding execution.`);
+        this._lastStabilizationLogged = Date.now();
+      }
+    } else if (isStabilized && kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
