@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v19.0.0] — 2026-07-23
+- **Selamento da CONSTITUTION.md & Transição para o Ciclo Permanente de Engenharia**:
+  - Consolidação definitiva da Carta Arquitetural Permanente em 1 página concisa.
+  - Encerramento final de ADRs conceituais. Absorção da doutrina das ADRs 035-037 na `CONSTITUTION.md`.
+  - Fixada a quádrupla $\langle \mathcal{S}, \mathcal{T}, \mathcal{M}, \mathcal{O} \rangle$ como regra de domínio de projeto do Lyzer Edge.
+  - Oficializada a postura do Lyzer Guardian como **Revisor Científico & Compilador da Arquitetura** (`Hipótese recebida. Hipótese considerada falsa até prova em contrário...`).
+  - Inaugurado o **Ciclo Permanente de Engenharia**: `Remoção` $\to$ `Compressão` $\to$ `Evidência` $\to$ `Produção` $\to$ `(Repete)`.
+
 ## [v18.0.0] — 2026-07-23
 - **Promulgação da Carta Arquitetural Permanente (`CONSTITUTION.md`)**:
   - Encerramento definitivo da produção de ADRs filosóficas e de metagovernança.
