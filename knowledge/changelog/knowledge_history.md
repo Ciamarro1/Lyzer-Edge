@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v14.0.0] — 2026-07-23
+- **ADR-034 (Universal Cognitive Calculus - UCC) Aprovada com Sucesso**:
+  - Formalização matemática completa de todo o ecossistema Lyzer Edge em 4 Primitivas Fundamentais: Estado $\mathcal{S}$, Transição $\mathcal{T}$, Memória Imutável $\mathcal{M}$ e Função Objetivo Escalar $\mathcal{O}$.
+  - Matriz de prova mostrando que as Fases 5 a 15 são instâncias parametrizadas da quádrupla $\langle \mathcal{S}, \mathcal{T}, \mathcal{M}, \mathcal{O} \rangle$.
+  - Estabelecido o Teorema da Impossibilidade de Expressão como filtro estrito de metagovernança para bloquear criação de novos módulos de código e exigir configuração parametrizada.
+
 ## [v13.0.0] — 2026-07-23
 - **ADR-033 (Unified Cognitive Architecture) Aprovada com Sucesso**:
   - Auditoria completa das Fases 1 a 15 e ADRs 001 a 032.
