@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.8.0] — 2026-07-22
+- **Fase 5.6 (Causal Memory Integration Audit) Concluída**:
+  - Aprovado o **ADR-009** em [ADR-009-causal-integration-coverage.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-009-causal-integration-coverage.md).
+  - Elaborado o relatório de auditoria [causal_integration_audit.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_integration_audit.md).
+  - Formulada a métrica institucional **Causal Completeness Score (CCS)** e apurado o valor atual do sistema em **85.7%**.
+  - Mapeada a Matriz de Cobertura Causal detalhando os eventos cobertos, parciais e faltantes (`FEATURE_GENERATED`, `LEARNING_FEEDBACK`).
+
 ## [v2.7.0] — 2026-07-22
 - **Fase 5.5 (Causal Memory Runtime MVP Implementation) Concluída**:
   - Criado o diretório e módulo `lyzer edge/src/causal-memory/` (`EventFactory.js`, `EventValidator.js`, `EventStore.js`, `ProjectionEngine.js`, `RewindEngine.js`, `index.js`).
