@@ -814,11 +814,14 @@ export async function wipeAllTrades() {
   });
 
   try {
-    await fetch('/api/trades/wipe', {
-      method: 'POST'
+    const res = await fetch('/api/trades/wipe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
+    console.log('[WIPE] Backend trades wipe result:', res.status);
   } catch (e) {
-    console.error('[Queries] Failed to sync wipe with backend:', e);
+    console.error('Failed to notify backend wipe:', e);
   }
 }
- 
