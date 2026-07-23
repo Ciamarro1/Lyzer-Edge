@@ -591,10 +591,30 @@ export class StreamEngine extends EventEmitter {
         quantity = Math.max(0.0001, Math.min(baseQty, quantity));
         quantity = parseFloat(quantity.toFixed(5));
 
-        // Use 1:2 R:R to match backtest
-        const slDistance = 0.03;
-        const tpDistance = 0.06;
+        // Micro-Scalp Risk/Reward (0.15% - 0.4% micro SL, 1:2 R:R) for sub-m5 timeframes
+        let microAtr = 0;
+        if (this.recentCandles && this.recentCandles.length >= 5) {
+          const recent = this.recentCandles.slice(-14);
+          let sumRange = 0;
+          for (let i = 0; i < recent.length; i++) {
+            sumRange += (recent[i].high - recent[i].low);
+          }
+          microAtr = sumRange / recent.length;
+        }
+
         const entryPrice = candle.close;
+        let slDistance = 0.0025; // 0.25% micro SL fallback
+        let tpDistance = 0.0050; // 0.50% micro TP fallback (1:2 R:R)
+
+        if (microAtr > 0 && entryPrice > 0) {
+          const atrPct = microAtr / entryPrice;
+          slDistance = Math.max(0.0015, Math.min(0.004, atrPct * 1.5));
+          tpDistance = slDistance * 2.0; // 1:2 R:R ratio
+        }
+
+        if (process.env.SCALP_SL_PCT) slDistance = parseFloat(process.env.SCALP_SL_PCT);
+        if (process.env.SCALP_TP_PCT) tpDistance = parseFloat(process.env.SCALP_TP_PCT);
+
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
         const takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
 
