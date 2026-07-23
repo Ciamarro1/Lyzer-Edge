@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v7.0.0] — 2026-07-23
+- **Fase 10 (Cognitive Portfolio Intelligence Layer) Concluída com Sucesso**:
+  - Implementados 5 módulos e fachada em `lyzer edge/src/cognitive-portfolio/`:
+    - `StrategyGenomeRegistry.js`: Registro de genomas de estratégia ("espécies") com perfil de DNA completo (CES, EHS, regimes, mutações).
+    - `CorrelationMatrixEngine.js`: Cálculo de matrizes de correlação inter-estratégia (retorno e drawdown) com alerta de risco de concentração ($r \ge 0.70$).
+    - `RegimeAllocationEngine.js`: Alocação dinâmica de capital e reserva de caixa conforme regime de mercado.
+    - `CapitalAllocationGovernor.js`: Governador de alocação de capital e limites de exposição por estratégia ($\le 30\%$).
+    - `PortfolioIntelligenceEngine.js`: Cálculo do **Cognitive Allocation Score (CAS)** com zonas (`CORE_ALLOCATION`, `ACTIVE`, `OBSERVATION`, `QUARANTINE`).
+    - `CognitivePortfolioFacade` (`index.js`): Fachada unificada (`optimizePortfolio`).
+  - Aprovado **ADR-027** (Cognitive Portfolio Intelligence Architecture).
+  - Validação 100% aprovada na suíte `tests/cognitive-portfolio/` (6/6 testes PASSED em 6 arquivos).
+
 ## [v6.0.0] — 2026-07-23
 - **Fase 9 (Cognitive Validation & Empirical Intelligence Layer) Concluída com Sucesso**:
   - Implementados 5 módulos e fachada em `lyzer edge/src/empirical-validation/`:
