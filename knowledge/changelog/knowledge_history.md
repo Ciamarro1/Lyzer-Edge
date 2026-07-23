@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.3.0] — 2026-07-22
+- **Implementação da Camada de Observabilidade (Fase 5.1) & Chaos Engineering**:
+  - Criado o núcleo isolado de observabilidade em `lyzer edge/src/observability/` (`metricsRegistry.js` e `index.js`).
+  - Integrada a biblioteca `prom-client` e exposta a rota protegida `/metrics` em `server.js`.
+  - Instrumentado o `StreamEngine.js` e `db.js` com captura de latência e contadores de ticks.
+  - Criado o plano de resiliência [chaos_engineering_plan.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/chaos_engineering_plan.md).
+  - 100% dos testes validados com sucesso no Vitest (166 testes aprovados em 10 suítes).
+
 ## [v2.2.0] — 2026-07-22
 - **Especificação da Arquitetura de Observabilidade & SRE Checklist**:
   - Criados os 4 documentos institucionais sob `docs/observability/`: `architecture.md`, `metrics_catalog.md`, `slo_definition.md` e `runbook.md`.

@@ -1,6 +1,7 @@
 import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
+import { recordSqliteWrite } from '../src/observability/index.js';
 
 // Use /tmp/data which is always writable in containerized environments
 const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
@@ -45,6 +46,7 @@ export class CausalMemoryDB {
     // Insert multiple candles inside a transaction for massive performance gain
     insertBatch(symbol, timeframe, candles) {
         return new Promise((resolve, reject) => {
+            const startTime = performance.now();
             this.db.serialize(() => {
                 this.db.run("BEGIN TRANSACTION");
                 const stmt = this.db.prepare(`INSERT INTO candles (symbol, timeframe, timestamp, open, high, low, close, volume, close_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`);
@@ -56,8 +58,12 @@ export class CausalMemoryDB {
                 
                 stmt.finalize();
                 this.db.run("COMMIT", (err) => {
-                    if (err) reject(err);
-                    else resolve();
+                    if (err) {
+                        reject(err);
+                    } else {
+                        recordSqliteWrite('insert_batch', (performance.now() - startTime) / 1000);
+                        resolve();
+                    }
                 });
             });
         });

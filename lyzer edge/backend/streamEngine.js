@@ -27,6 +27,7 @@ import { DivergenceDetector } from "../../packages/lyzer-shared/src/csrl/Diverge
 import { DualRealityMonitor } from "./dualRealityMonitor.js";
 import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
+import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation } from "../src/observability/index.js";
 
 const signalEngine = new EvSignalEngine();
 const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
@@ -210,6 +211,7 @@ export class StreamEngine extends EventEmitter {
   }
 
   updateMtfCandles(candle) {
+    recordTickReceived(this.symbol, 'websocket');
     this.mtfCandles['1m'].push(candle);
     this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
     if (this.mtfCandles['1m'].length > 1000) {
@@ -367,6 +369,8 @@ export class StreamEngine extends EventEmitter {
   }
 
   async processCandle(candle, index) {
+    const processStartTime = performance.now();
+
     // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI)
     const v1Narrative = this.v1.reconstruct(this.mtfCandles);
     const v2Narrative = this.v2.reconstruct(this.mtfCandles);
@@ -393,10 +397,12 @@ export class StreamEngine extends EventEmitter {
     }
 
     // 2. CSRL Phase: Compute Structural Coherence Across Scales
+    const csrlStart = performance.now();
     const alignedTensors = this.scaleNormalizer.alignScales(this.mtfCandles);
     const topology = this.cstg.buildTopology(alignedTensors);
     const invariants = this.invariantExtractor.extract(topology);
     const sds = this.divergenceDetector.detect(topology);
+    recordCsrlDuration(this.symbol, (performance.now() - csrlStart) / 1000);
 
     const providers = {
         v1: { signal: v1Narrative.signal, confidence: v1Narrative.confidence },
@@ -414,8 +420,10 @@ export class StreamEngine extends EventEmitter {
     const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
 
     // Update court C-CLIST stress and MOL state on every candle tick
+    const cclistStart = performance.now();
     this.court.cclist.evaluateStress(kernelResult.trg || 0, kernelResult.dvf || 0);
     this.court.mol.evaluateState(kernelResult, { eef: kernelResult.eef });
+    recordCclistEvaluation(this.symbol, (performance.now() - cclistStart) / 1000);
 
     // Update Spectrogram UI
     if (this.mode === 'LIVE' || this.mode === 'TESTNET') {
@@ -554,6 +562,7 @@ export class StreamEngine extends EventEmitter {
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       const governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
       const rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
+      recordEcaEvaluation(this.symbol, governanceDecision, rejectionReason);
 
       if (permissionToken.granted) {
         // Calculate dynamic quantity
@@ -704,6 +713,7 @@ export class StreamEngine extends EventEmitter {
     };
 
     this.emit('arl', payload);
+    recordTickDuration(this.symbol, 'SUCCESS', (performance.now() - processStartTime) / 1000);
 
     // 4. Send actual execution order if permitted
     if (this.execution && simulatedTrade && simulatedTrade.governanceDecision === 'ALLOW' && this.activePosition) {
