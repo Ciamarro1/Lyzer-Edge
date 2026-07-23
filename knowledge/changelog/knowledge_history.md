@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.3.5] — 2026-07-22
+- **Fase 5.1.5 (Observability Validation & Production Baseline) Concluída**:
+  - Medido o baseline empírico: Throughput de **1,859.96 ticks/sec**, $P_{50} = 0.336\text{ ms}$, $P_{95} = 1.209\text{ ms}$, $P_{99} = 3.783\text{ ms}$.
+  - Criado o documento [performance_baseline.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/performance_baseline.md).
+  - Estruturados os 3 runbooks executáveis de Engenharia do Caos sob `docs/chaos/experiments/` (`CE001-sqlite-latency.md`, `CE002-websocket-loss.md`, `CE003-tick-storm.md`).
+  - Confirmado com dados empíricos que o gargalo de escrita de I/O em disco no SQLite autoriza a entrada na Fase 5.2.
+
 ## [v2.3.0] — 2026-07-22
 - **Implementação da Camada de Observabilidade (Fase 5.1) & Chaos Engineering**:
   - Criado o núcleo isolado de observabilidade em `lyzer edge/src/observability/` (`metricsRegistry.js` e `index.js`).
