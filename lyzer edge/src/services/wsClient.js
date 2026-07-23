@@ -5,12 +5,16 @@ class WSClient {
   }
 
   connect() {
+    if (this.ws && (this.ws.readyState === WebSocket.CONNECTING || this.ws.readyState === WebSocket.OPEN)) {
+      return;
+    }
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.host;
     let wsUrl = protocol + '//' + host;
     if (window.location.port === '5173') {
-      wsUrl = protocol + '//' + window.location.hostname + ':3001';
+      wsUrl = protocol + '//' + window.location.hostname + ':7860';
     }
+    console.log(`[wsClient] Connecting to WebSocket at ${wsUrl}...`);
     this.ws = new WebSocket(wsUrl);
 
     this.ws.onopen = () => {
