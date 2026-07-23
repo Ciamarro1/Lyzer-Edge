@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v1.3.0] — 2026-07-22
+- **Fase 3 (Refatoração) Concluída**:
+  - Criado o módulo `SmcEngineFacade` em `@lyzer/shared/src/smc/smcFacade.js`, unificando a avaliação do `TimeframeManager`, `TrendEngine`, `StructureEngine` e `LiquidityEngine`.
+  - Refatorado `StreamEngine.js` para consumir a fachada SMC unificada em `processCandle`, eliminando chamadas redundantes e mantendo 100% de retrocompatibilidade com os adaptadores legados V1/V2/V3.
+  - Adicionada a suíte de testes unitários `smcFacade.test.js` com 100% de taxa de aprovação no Vitest (164 testes aprovados).
+
 ## [v1.2.0] — 2026-07-22
 - **Fase 2 (Estabilização) Concluída**:
   - Reorganizados 12 scripts de verificação `verify_*.js` para a pasta dedicada `lyzer edge/tests/verification/`.

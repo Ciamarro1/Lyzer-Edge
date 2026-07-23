@@ -17,6 +17,7 @@ import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/provid
 import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
+import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
 
 // CSRL Subsystem Imports
 import { ScaleNormalizer } from "../../packages/lyzer-shared/src/csrl/ScaleNormalizer.js";
@@ -68,6 +69,7 @@ export class StreamEngine extends EventEmitter {
     this.v3 = new MomentumRsiEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
+    this.smcFacade = new SmcEngineFacade();
     
     // CSRL Instance Initialization
     this.scaleNormalizer = new ScaleNormalizer();
@@ -370,16 +372,11 @@ export class StreamEngine extends EventEmitter {
     const v2Narrative = this.v2.reconstruct(this.mtfCandles);
     const v3Narrative = this.v3.reconstruct(this.mtfCandles);
 
-    // 1b. Full SMC Liquidity + Structure evaluation for visual overlays
-    const tfManager = {
-      getCandles: (tf, limit, includeUnclosed) => {
-        const mapped = this.mtfCandles[tf.toLowerCase()];
-        if (!mapped || mapped.length === 0) return [];
-        return mapped.slice(-(limit || mapped.length));
-      }
-    };
-    const smcStructureResult = this.smcStructure.analyze(tfManager);
-    const smcLiquidityResult = this.smcLiquidity.evaluate(tfManager, smcStructureResult);
+    // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
+    const smcResult = this.smcFacade.evaluate(this.mtfCandles);
+    const smcStructureResult = smcResult.structure;
+    const smcLiquidityResult = smcResult.liquidity;
+
     // Extract S/R levels from V2 engine
     const v2Candles = this.mtfCandles['15m'] || this.mtfCandles['1m'] || [];
     let srLevels = [];
