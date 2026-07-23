@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.4.0] — 2026-07-22
+- **Fase 5.2 (SQLite Institutional Persistence Upgrade) Concluída**:
+  - Habilitado o modo `PRAGMA journal_mode = WAL;` com ajuste fino de pragmas (`synchronous = NORMAL`, `busy_timeout = 5000`, `temp_store = MEMORY`, `cache_size = -64000`, `mmap_size = 30GB`, `wal_autocheckpoint = 1000`) em `db.js`.
+  - Implementado o método de checkpoint `db.walCheckpoint(mode)`.
+  - Criada a suíte de benchmark de persistência WAL em `benchmark_persistence_wal.test.js` e validados 100% dos 168 testes do sistema.
+  - Documentada a camada de persistência em `docs/persistence/` (`architecture.md`, `wal_strategy.md`, `performance_comparison.md` e `disaster_recovery.md`).
+
 ## [v2.3.5] — 2026-07-22
 - **Fase 5.1.5 (Observability Validation & Production Baseline) Concluída**:
   - Medido o baseline empírico: Throughput de **1,859.96 ticks/sec**, $P_{50} = 0.336\text{ ms}$, $P_{95} = 1.209\text{ ms}$, $P_{99} = 3.783\text{ ms}$.

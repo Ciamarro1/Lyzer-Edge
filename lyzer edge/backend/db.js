@@ -14,7 +14,7 @@ export class CausalMemoryDB {
             if (err) {
                 console.error('[DB] Error opening database:', err);
             } else {
-                console.log('[DB] Connected to SQLite Causal Memory Database.');
+                console.log('[DB] Connected to SQLite Causal Memory Database (WAL Mode).');
             }
         });
         this.init();
@@ -22,6 +22,15 @@ export class CausalMemoryDB {
 
     init() {
         this.db.serialize(() => {
+            // Institutional WAL Mode Pragmas Tuning
+            this.db.run(`PRAGMA journal_mode = WAL;`);
+            this.db.run(`PRAGMA synchronous = NORMAL;`);
+            this.db.run(`PRAGMA busy_timeout = 5000;`);
+            this.db.run(`PRAGMA temp_store = MEMORY;`);
+            this.db.run(`PRAGMA cache_size = -64000;`); // 64MB Page Cache
+            this.db.run(`PRAGMA mmap_size = 30000000000;`); // Memory Mapped I/O
+            this.db.run(`PRAGMA wal_autocheckpoint = 1000;`);
+
             // Create the candles table with indexed symbol, timeframe, and timestamp for fast lookups
             this.db.run(`
                 CREATE TABLE IF NOT EXISTS candles (
@@ -40,6 +49,15 @@ export class CausalMemoryDB {
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_ts ON candles (symbol, timeframe, timestamp)`);
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_close ON candles (symbol, timeframe, close_time)`);
+        });
+    }
+
+    walCheckpoint(mode = 'PASSIVE') {
+        return new Promise((resolve, reject) => {
+            this.db.run(`PRAGMA wal_checkpoint(${mode});`, (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
         });
     }
 
