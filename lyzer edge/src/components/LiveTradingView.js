@@ -73,28 +73,30 @@ function renderChart(canvas, symbol) {
   const visibleCount = Math.min(state.visibleCount || 80, candles.length);
   const visible = candles.slice(-visibleCount);
 
-  const allHigh = visible.map(c => c.high);
-  const allLow  = visible.map(c => c.low);
+  const visibleHigh = Math.max(...visible.map(c => c.high));
+  const visibleLow  = Math.min(...visible.map(c => c.low));
+  const visibleSpan = visibleHigh - visibleLow || visibleHigh * 0.005;
 
-  // Auto-scale to fit Entry, TP, and SL lines if they exist
+  let priceMax = visibleHigh + visibleSpan * 0.15;
+  let priceMin = visibleLow  - visibleSpan * 0.15;
+
+  // Include entryPrice or close SL/TP only if within 1.2x of visible span to prevent squishing candles
   const activeOpenTrade = state.trades[symbol].find(t => t.status === 'open');
   if (activeOpenTrade) {
-    if (activeOpenTrade.entryPrice) {
-      allHigh.push(activeOpenTrade.entryPrice);
-      allLow.push(activeOpenTrade.entryPrice);
+    if (activeOpenTrade.entryPrice && Math.abs(activeOpenTrade.entryPrice - visibleHigh) < visibleSpan * 1.2) {
+      priceMax = Math.max(priceMax, activeOpenTrade.entryPrice + visibleSpan * 0.05);
+      priceMin = Math.min(priceMin, activeOpenTrade.entryPrice - visibleSpan * 0.05);
     }
-    if (activeOpenTrade.takeProfit) {
-      allHigh.push(activeOpenTrade.takeProfit);
-      allLow.push(activeOpenTrade.takeProfit);
+    if (activeOpenTrade.stopLoss && Math.abs(activeOpenTrade.stopLoss - visibleHigh) < visibleSpan * 1.2) {
+      priceMax = Math.max(priceMax, activeOpenTrade.stopLoss);
+      priceMin = Math.min(priceMin, activeOpenTrade.stopLoss);
     }
-    if (activeOpenTrade.stopLoss) {
-      allHigh.push(activeOpenTrade.stopLoss);
-      allLow.push(activeOpenTrade.stopLoss);
+    if (activeOpenTrade.takeProfit && Math.abs(activeOpenTrade.takeProfit - visibleLow) < visibleSpan * 1.2) {
+      priceMax = Math.max(priceMax, activeOpenTrade.takeProfit);
+      priceMin = Math.min(priceMin, activeOpenTrade.takeProfit);
     }
   }
 
-  const priceMax = Math.max(...allHigh) * 1.002;
-  const priceMin = Math.min(...allLow)  * 0.998;
   const priceRange = priceMax - priceMin || 1;
 
   const chartW = W - PADDING_LEFT - PADDING_RIGHT;
