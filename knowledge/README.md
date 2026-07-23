@@ -72,6 +72,7 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [ADR-011: Adaptive Governance Model (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-011-adaptive-governance-model.md) — Governança adaptativa: Proposta ≠ Alteração, ParameterProposal e CognitiveAuditor.
 - [ADR-012: Semantic Memory Architecture (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-012-semantic-memory-architecture.md) — Memória Semântica, Grafo Cognitivo de Causalidade e tabela `semantic_memory`.
 - [Causal Learning Architecture Spec (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_learning_architecture.md) — Especificação completa da camada de auto-melhoria cognitiva.
+- [Causal Learning Implementation (Fase 6)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-learning/implementation.md) — Documentação oficial da implementação dos motores da Fase 6.
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---

@@ -74,6 +74,79 @@ export class CausalMemoryDB {
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_ts ON causal_events_log (timestamp)`);
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_correlation ON causal_events_log (correlation_id)`);
+
+            // Create semantic_memory table (ADR-012)
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS semantic_memory (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    pattern_id TEXT NOT NULL UNIQUE,
+                    pattern_type TEXT NOT NULL,
+                    conditions_json TEXT NOT NULL,
+                    observations_count INTEGER NOT NULL,
+                    success_rate REAL NOT NULL,
+                    avg_pnl REAL NOT NULL,
+                    confidence_score REAL NOT NULL,
+                    graph_edges_json TEXT NOT NULL,
+                    version TEXT NOT NULL DEFAULT '1.0.0',
+                    created_at INTEGER NOT NULL,
+                    updated_at INTEGER NOT NULL
+                )
+            `);
+
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_semantic_pattern ON semantic_memory (pattern_id)`);
+        });
+    }
+
+    insertSemanticPattern(pattern) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO semantic_memory
+                (pattern_id, pattern_type, conditions_json, observations_count, success_rate, avg_pnl, confidence_score, graph_edges_json, version, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(pattern_id) DO UPDATE SET
+                    observations_count = excluded.observations_count,
+                    success_rate = excluded.success_rate,
+                    avg_pnl = excluded.avg_pnl,
+                    confidence_score = excluded.confidence_score,
+                    graph_edges_json = excluded.graph_edges_json,
+                    version = excluded.version,
+                    updated_at = excluded.updated_at
+            `;
+            const now = Date.now();
+            const params = [
+                pattern.pattern_id,
+                pattern.pattern_type || 'SEMANTIC_PATTERN',
+                JSON.stringify(pattern.conditions || {}),
+                pattern.observations_count || 0,
+                pattern.success_rate || 0.0,
+                pattern.avg_pnl || 0.0,
+                pattern.confidence_score || 0.0,
+                JSON.stringify(pattern.graph_edges || []),
+                pattern.version || '1.0.0',
+                now,
+                now
+            ];
+
+            this.db.serialize(() => {
+                this.db.run(sql, params, (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+        });
+    }
+
+    getSemanticPatterns() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM semantic_memory ORDER BY confidence_score DESC`;
+            this.db.all(sql, [], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows.map(r => ({
+                    ...r,
+                    conditions: JSON.parse(r.conditions_json),
+                    graph_edges: JSON.parse(r.graph_edges_json)
+                })));
+            });
         });
     }
 
