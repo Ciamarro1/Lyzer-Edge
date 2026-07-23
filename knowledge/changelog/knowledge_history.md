@@ -10,6 +10,12 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v18.0.0] — 2026-07-23
+- **Promulgação da Carta Arquitetural Permanente (`CONSTITUTION.md`)**:
+  - Encerramento definitivo da produção de ADRs filosóficas e de metagovernança.
+  - Codificação final das 4 Primitivas Matemáticas ($\langle \mathcal{S}, \mathcal{T}, \mathcal{M}, \mathcal{O} \rangle$), das 9 Abstrações Base, dos 15 Testes do Ônus da Prova, da Lei da Remoção Antes da Adição e da Família de Métricas ACI (Structure, Coupling, Execution, Cognitive, Testability).
+  - Transição do Lyzer Guardian para a função permanente de **Auditor do Código Real**.
+
 ## [v17.0.0] — 2026-07-23
 - **ADR-037 (The Evidence Era & Architecture Complexity Index - ACI) Aprovada com Sucesso**:
   - Distinção em **Triplo Nível de Mutabilidade**: Fundamentos (ADR-033..036 - Quase Imutáveis), Arquitetura (Configurações e Políticas) e Implementação (Evolução Contínua).
