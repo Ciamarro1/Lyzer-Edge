@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v22.0.0] — 2026-07-23
+- **Conclusão da Phase R2 — Empirical Evidence & Architecture Validation**:
+  - Publicado o relatório oficial **`docs/audits/R2-empirical-validation-report.md`**.
+  - Validação empírica de **Zero Regressões**: $100\%$ dos testes da plataforma mantidos e aprovados (88/88 passed).
+  - Verificação de integridade do Grafo de Importações: $0$ imports quebrados, $0$ referências órfãs e $0$ ciclos de dependência após a Phase R1.
+  - Confirmada a redução do `ACI-Structure` de **$4.12 \to 2.68$** ($-35.0\%$).
+  - Veredito Final R2: **"Architecture stable. Proceed to production hardening."**
+
 ## [v21.0.0] — 2026-07-23
 - **Conclusão da Phase R1 — Surgical Compression Execution**:
   - Relocalizado o utilitário ativo `calculateEDM` para `lyzer edge/src/engine/edm.js` e atualizada a importação em `fmc.js`.
