@@ -4,7 +4,8 @@ import { AdaptiveShadowEngine } from '../../src/adaptive-sandbox/AdaptiveShadowE
 
 describe('Fase 7.0.2 — AdaptiveShadowEngine Verification', () => {
   test('executes shadow comparison without modifying real engine state', async () => {
-    const db = new CausalMemoryDB('/tmp/data/test_shadow_engine.db');
+    const dbPath = `/tmp/data/test_shadow_engine_${Date.now()}_${Math.floor(Math.random()*10000)}.db`;
+    const db = new CausalMemoryDB(dbPath);
     const shadowEngine = new AdaptiveShadowEngine(db);
 
     const proposal = { proposal_id: 'prop_test_100' };
