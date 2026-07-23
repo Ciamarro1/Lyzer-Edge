@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.1.0] — 2026-07-22
+- **Aprovação da ADR-005 pelo Comitê de Arquitetura**:
+  - Realizado o mapeamento detalhado do caminho crítico completo (do WebSocket ao I/O em disco).
+  - Aprovada a **Opção D (Evolução Progressiva Guiada por Observabilidade)**.
+  - Criado o registro oficial [ADR-005-phase5-hft-evolution.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-005-phase5-hft-evolution.md).
+  - Atualizado o índice de ADRs em `knowledge/development/architecture_decisions.md`.
+
 ## [v2.0.0] — 2026-07-22
 - **Auditoria Técnica v2.0 Concluída**:
   - Publicado o relatório de auditoria pós-implementação em `docs/audit/post_implementation_audit_v2.md`.
