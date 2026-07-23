@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v5.0.0] — 2026-07-23
+- **Fase 8 (Cognitive Market Intelligence Layer) Concluída com Sucesso**:
+  - Implementados 5 módulos e fachada em `lyzer edge/src/cognitive-intelligence/`:
+    - `RegimeDiscoveryEngine.js`: Descoberta autônoma de regimes de mercado conhecidos e emergentes.
+    - `FeatureDiscoveryEngine.js`: Composição e seleção de preditores estatísticos compostos.
+    - `HypothesisGenerator.js`: Formulação autônoma de hipóteses causais testáveis (`CognitiveHypothesis`).
+    - `AnomalyDetectionEngine.js`: Detecção em tempo real de quebras estruturais e anomalias de volatilidade/spread.
+    - `StrategyCandidateEngine.js`: Síntese de candidatos a estratégia (`StrategyCandidate`) para submissão governada no Sandbox (Fase 7.1).
+    - `CognitiveIntelligenceFacade` (`index.js`): Fachada unificada de inteligência de mercado autônoma.
+  - Aprovado **ADR-025** (Cognitive Market Intelligence Architecture).
+  - Validação 100% aprovada na suíte `tests/cognitive-intelligence/` (8/8 testes PASSED em 6 arquivos).
+
 ## [v4.5.0] — 2026-07-22
 - **Fase 7.4 (Evolution Governance Certification) Concluída com Sucesso**:
   - Implementados 3 módulos e fachada em `lyzer edge/src/evolution-governance/`:
