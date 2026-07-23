@@ -94,6 +94,74 @@ export class CausalMemoryDB {
             `);
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_semantic_pattern ON semantic_memory (pattern_id)`);
+
+            // Create parameter_versions table (ADR-016)
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS parameter_versions (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    module TEXT NOT NULL,
+                    parameter TEXT NOT NULL,
+                    version TEXT NOT NULL UNIQUE,
+                    value_json TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'ACTIVE',
+                    proposal_id TEXT NOT NULL,
+                    approved_by TEXT NOT NULL DEFAULT 'ECA_COURT',
+                    created_at INTEGER NOT NULL,
+                    rollback_reason TEXT
+                )
+            `);
+
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_param_ver ON parameter_versions (module, parameter, status)`);
+        });
+    }
+
+    insertParameterVersion(paramVersion) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO parameter_versions
+                (module, parameter, version, value_json, status, proposal_id, approved_by, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const now = Date.now();
+            const params = [
+                paramVersion.module,
+                paramVersion.parameter,
+                paramVersion.version,
+                JSON.stringify(paramVersion.value),
+                paramVersion.status || 'ACTIVE',
+                paramVersion.proposal_id || 'manual',
+                paramVersion.approved_by || 'ECA_COURT',
+                now
+            ];
+
+            this.db.serialize(() => {
+                this.db.run(sql, params, (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+        });
+    }
+
+    getActiveParameterVersion(moduleName, parameterName) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM parameter_versions WHERE module = ? AND parameter = ? AND status = 'ACTIVE' ORDER BY id DESC LIMIT 1`;
+            this.db.get(sql, [moduleName, parameterName], (err, row) => {
+                if (err) reject(err);
+                else resolve(row ? { ...row, value: JSON.parse(row.value_json) } : null);
+            });
+        });
+    }
+
+    rollbackParameterVersion(version, reason) {
+        return new Promise((resolve, reject) => {
+            this.db.serialize(() => {
+                const sql1 = `UPDATE parameter_versions SET status = 'ROLLED_BACK', rollback_reason = ? WHERE version = ?`;
+                this.db.run(sql1, [reason || 'MANUAL_ROLLBACK', version], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
         });
     }
 
