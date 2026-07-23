@@ -28,8 +28,11 @@ Objetivo: demonstrar que ela pode ser reduzida para algo que já existe.
 Somente se essa prova falhar, uma alteração minimalista será considerada.
 ```
 
-### O Ciclo Permanente de Engenharia (Inviolável)
-$$\text{Remoção} \longrightarrow \text{Compressão} \longrightarrow \text{Evidência} \longrightarrow \text{Produção} \longrightarrow \text{(Repete)}$$
+### As 4 Perguntas da Engenharia Minimalista (Checklist Operacional)
+1. **Remoção**: *O que conseguimos eliminar ou descontinuar?*
+2. **Compressão**: *O que conseguimos unificar ou parametrizar?*
+3. **Evidência**: *Como provamos quantitativamente que o sistema melhorou?*
+4. **Produção**: *Como essa mudança se comporta em estresse e ambiente real?*
 
 ### Protocolo Obrigatório de Resposta em 6 Etapas
 1. Resumo do problema
