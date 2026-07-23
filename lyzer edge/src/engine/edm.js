@@ -1,16 +1,14 @@
-export interface EdmResult {
-  edmScore: number;
-  trend: 'UPWARD' | 'DOWNWARD' | 'STABLE';
-  warning: boolean;
-}
-
 /**
  * Calculates the Epistemic Drift Momentum (EDM).
  * Inputs: epsHistory, windowSize (default 4)
  * Outputs: { edmScore, trend, warning }
+ * 
+ * @param {number[]} epsHistory
+ * @param {number} [windowSize=4]
+ * @returns {{ edmScore: number, trend: 'UPWARD'|'DOWNWARD'|'STABLE', warning: boolean }}
  */
-export function calculateEDM(epsHistory: number[], windowSize: number = 4): EdmResult {
-  if (epsHistory.length < windowSize) {
+export function calculateEDM(epsHistory, windowSize = 4) {
+  if (!epsHistory || epsHistory.length < windowSize) {
     return { edmScore: 0, trend: 'STABLE', warning: false };
   }
 
@@ -27,7 +25,7 @@ export function calculateEDM(epsHistory: number[], windowSize: number = 4): EdmR
 
   const edmScore = Math.round(Math.abs(recent[recent.length - 1] - recent[0]) * 10000) / 10000;
 
-  let trend: 'UPWARD' | 'DOWNWARD' | 'STABLE' = 'STABLE';
+  let trend = 'STABLE';
   if (strictlyDecreasing) {
     trend = 'DOWNWARD';
   } else {

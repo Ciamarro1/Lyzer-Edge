@@ -1,0 +1,37 @@
+{
+  "evolution_health": {
+    "weights": {
+      "promotionRate": 0.35,
+      "rollbackRate": -0.40,
+      "replayIntegrity": 0.25
+    }
+  },
+  "causal_evidence": {
+    "weights": {
+      "effectSize": 0.40,
+      "pVal": -0.30,
+      "sampleCount": 0.30
+    }
+  },
+  "capital_allocation": {
+    "weights": {
+      "sharpe": 0.40,
+      "drawdown": -0.30,
+      "winRate": 0.30
+    }
+  },
+  "market_adaptation": {
+    "weights": {
+      "alphaSurvival": 0.40,
+      "mutationSuccess": 0.30,
+      "regimeStability": 0.30
+    }
+  },
+  "adaptive_risk": {
+    "weights": {
+      "volatility": -0.35,
+      "uncertainty": -0.35,
+      "drift": -0.30
+    }
+  }
+}
