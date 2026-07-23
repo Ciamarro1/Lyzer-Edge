@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v2.5.1] — 2026-07-22
+- **Fase 5.3.1 (Causal Event Contract Review) Concluída**:
+  - Aprovado o **ADR-007** em [ADR-007-causal-event-contract.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-007-causal-event-contract.md).
+  - Elaborada a especificação técnica [causal_event_contract_spec.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_event_contract_spec.md).
+  - Estabelecida a anatomia auto-contida de 14 campos do evento causal, incluindo `epistemic_regime` e `hash_prev`.
+  - Definidas as 9 categorias da taxonomia oficial de eventos e o payload enriquecido da Corte Constitucional (`CONSTITUTIONAL_JUDGMENT`).
+  - Projetados o encadeamento criptográfico de hash (Hash Chain SHA-256) e a regra de compatibilidade do Schema Registry.
+
 ## [v2.5.0] — 2026-07-22
 - **Fase 5.3 (Causal Memory Architecture Design) Concluída**:
   - Criado o **ADR-006** em [ADR-006-causal-memory-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-006-causal-memory-architecture.md).
