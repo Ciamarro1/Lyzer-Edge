@@ -10,6 +10,17 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v10.0.0] — 2026-07-23
+- **Fase 13 (Distributed Runtime & Cognitive Kernel Architecture) Concluída com Sucesso**:
+  - Implementados 4 módulos e fachada em `lyzer edge/src/distributed-runtime/`:
+    - `CognitiveKernel.js`: O Orquestrador e Maestro Global da Plataforma Lyzer Edge (`start`, `processMarketTick`, `stop`).
+    - `CognitiveEventBus.js`: Backbone de mensageria assíncrono desacoplado com suporte a Event Sourcing imutável, subscrições por tópico e replay.
+    - `DependencyContainer.js`: Container leve de Injeção de Dependências (DI) e Plugin SDK (`register`, `resolve`, `registerFactory`).
+    - `WorkerPoolEngine.js`: Pool de 6 workers especialistas em paralelo (`MarketWorker`, `ResearchWorker`, `ReflectionWorker`, `EvolutionWorker`, `ValidationWorker`, `ExecutionWorker`).
+    - `DistributedRuntimeFacade` (`index.js`): Fachada unificada do runtime distribuído.
+  - Aprovado **ADR-030** (Distributed Runtime & Cognitive Kernel Architecture).
+  - Validação 100% aprovada na suíte `tests/distributed-runtime/` (5/5 testes PASSED em 5 arquivos).
+
 ## [v9.0.0] — 2026-07-23
 - **Fase 12 (Cognitive Operations Architecture) Concluída com Sucesso**:
   - Implementados 3 módulos e fachada em `lyzer edge/src/cognitive-operations/`:
