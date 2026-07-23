@@ -51,6 +51,9 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 - [ADRs](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/development/architecture_decisions.md) — Registros de decisão de arquitetura.
 - [Onboarding](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/development/onboarding.md) — Guia de partida rápida para novos devs.
 
+### 7. 📊 [Qualidade & Métricas](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/quality/metrics.md)
+- [Métricas de Performance & Capping](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/knowledge/quality/metrics.md) — Limites de retenção de memória RAM e otimizações tensoriais.
+
 ---
 
 ## 📜 Histórico de Manutenção
