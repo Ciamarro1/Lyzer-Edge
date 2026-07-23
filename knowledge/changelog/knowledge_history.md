@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v3.0.0] — 2026-07-22
+- **Fase 6 (Cognitive Self Improvement Layer - Architecture & ADRs) Formalizada**:
+  - Aprovado o **ADR-010** em [ADR-010-epistemic-learning-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-010-epistemic-learning-architecture.md) (Contrato de Aprendizado Epistêmico & Axiomas Imutáveis).
+  - Aprovado o **ADR-011** em [ADR-011-adaptive-governance-model.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-011-adaptive-governance-model.md) (Governança Adaptativa: Proposta ≠ Alteração, `CognitiveAuditor` & `ParameterProposal`).
+  - Aprovado o **ADR-012** em [ADR-012-semantic-memory-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-012-semantic-memory-architecture.md) (Memória Semântica & Grafo Cognitivo de Causalidade).
+  - Publicada a especificação em [causal_learning_architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_learning_architecture.md).
+
 ## [v2.9.0] — 2026-07-22
 - **Fase 5.6.1 (Causal Completeness Upgrade) Concluída**:
   - Implementadas as 3 Sprints de elevação do Causal Completeness Score (CCS) de **85.7% para 100.0%**.
