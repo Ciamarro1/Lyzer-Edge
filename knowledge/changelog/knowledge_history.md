@@ -10,6 +10,16 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v9.0.0] — 2026-07-23
+- **Fase 12 (Cognitive Operations Architecture) Concluída com Sucesso**:
+  - Implementados 3 módulos e fachada em `lyzer edge/src/cognitive-operations/`:
+    - `CognitiveTelemetryAggregator.js`: Consolidação unificada dos 6 Scores Cognitivos (CCS, CES, EHS, ARS, CAS, MAS) e cálculo do **Global Cognitive Health Index (GCHI $\in [0, 100\%]$)**.
+    - `PipelineTracingEngine.js`: Tracing end-to-end do pipeline cognitivo (Perception $\to$ Memory $\to$ Learning $\to$ Reflection $\to$ Sandbox $\to$ Governance $\to$ Evolution $\to$ Portfolio $\to$ Execution).
+    - `PerformanceProfilingMonitor.js`: Monitoramento de consumo de RAM (heap, RSS), CPU e diagnósticos de gargalos de latência (> 50ms por estágio).
+    - `CognitiveOperationsFacade` (`index.js`): Fachada unificada (`generateDashboardStatus`).
+  - Aprovado **ADR-029** (Cognitive Operations & System Telemetry Architecture).
+  - Validação 100% aprovada na suíte `tests/cognitive-operations/` (5/5 testes PASSED em 4 arquivos).
+
 ## [v8.0.0] — 2026-07-23
 - **Fase 11 (Cognitive Market Organism Layer) Concluída com Sucesso**:
   - Implementados 5 módulos e fachada em `lyzer edge/src/market-organism/`:
