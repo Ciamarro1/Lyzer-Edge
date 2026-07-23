@@ -57,7 +57,9 @@ Bem-vindo à **Base de Conhecimento Oficial do Lyzer Edge**. Este repositório d
 ### 8. 👁️ [Observabilidade & SRE](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/architecture.md)
 - [Observability Architecture](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/architecture.md) — Arquitetura de observabilidade e integridade causal UUIDv7.
 - [Metrics Catalog](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/metrics_catalog.md) — Especificação técnica oficial do catálogo de métricas.
+- [Performance Baseline (Fase 5.1.5)](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/performance_baseline.md) — Linha de base empírica de throughput e latência P50/P95/P99.
 - [SLO Definition & Readiness Checklist](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/slo_definition.md) — SLOs/SLIs e Production Readiness Checklist.
+- [Chaos Experiments](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/chaos/experiments/CE001-sqlite-latency.md) — Runbooks executáveis de Engenharia do Caos (CE001, CE002, CE003).
 - [SRE Runbook](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/observability/runbook.md) — Guia operacional de resposta a incidentes.
 
 ---
