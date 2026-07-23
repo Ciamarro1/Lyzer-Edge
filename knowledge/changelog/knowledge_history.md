@@ -10,6 +10,13 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v21.0.0] — 2026-07-23
+- **Conclusão da Phase R1 — Surgical Compression Execution**:
+  - Relocalizado o utilitário ativo `calculateEDM` para `lyzer edge/src/engine/edm.js` e atualizada a importação em `fmc.js`.
+  - Remoção cirúrgica de **11 arquivos mortos/órfãos** (1.543 linhas de código eliminadas) nos diretórios descontinuados `src/intelligence/`, `src/capital/`, `src/research/` e `src/governance/`.
+  - Criado o manifesto de parametrização `lyzer edge/src/config/score_profiles.json` para encapsular os pesos da quádrupla $\mathcal{O}$.
+  - Redução do `ACI-Structure` de **$4.12 \to 2.68$** ($-35\%$ na complexidade estrutural) mantendo $100\%$ dos testes unitários e de integração verdes.
+
 ## [v20.0.0] — 2026-07-23
 - **Selamento Definitivo da CONSTITUTION.md & Transição para a Engenharia Minimalista**:
   - Consolidação da `CONSTITUTION.md` concisa de 1 página, prevenindo a *overconstitutionalization*.
