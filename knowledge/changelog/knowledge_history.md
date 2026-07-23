@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v3.1.0] — 2026-07-22
+- **Fase 6 (Cognitive Self Improvement Layer Implementation) Concluída com Sucesso**:
+  - Implementados os 5 submódulos em `lyzer edge/src/causal-learning/`:
+    - `MemoryMiningEngine.js`: Mineração histórica de padrões epistêmicos no SQLite WAL.
+    - `HypothesisEngine.js`: Avaliação de predição vs realidade empírica pós-fill.
+    - `CognitiveKnowledgeGraph.js`: Grafo direcionado de causalidade (`CAUSED_BY`, `EVIDENCED_BY`, `PREVENTED_BY`).
+    - `CognitiveAuditor.js`: Auditoria autônoma de propostas ($N \ge 500$, ganho de PnL $> +5\%$, estabilidade multi-regime, viés temporal e compliance constitucional).
+    - `CausalLearningFacade` (`index.js`): Coordenação do ciclo adaptativo e gravação em `semantic_memory`.
+  - Criada a tabela `semantic_memory` em `lyzer edge/backend/db.js`.
+  - Validação 100% aprovada na suíte de testes `tests/causal-learning/` (7/7 testes PASSED).
+  - Publicada a documentação em [implementation.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-learning/implementation.md).
+
 ## [v3.0.0] — 2026-07-22
 - **Fase 6 (Cognitive Self Improvement Layer - Architecture & ADRs) Formalizada**:
   - Aprovado o **ADR-010** em [ADR-010-epistemic-learning-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-010-epistemic-learning-architecture.md) (Contrato de Aprendizado Epistêmico & Axiomas Imutáveis).
