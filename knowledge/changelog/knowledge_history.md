@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v8.0.0] — 2026-07-23
+- **Fase 11 (Cognitive Market Organism Layer) Concluída com Sucesso**:
+  - Implementados 5 módulos e fachada em `lyzer edge/src/market-organism/`:
+    - `MarketEcologyEngine.js`: Avaliação dos pilares ecológicos do mercado (liquidez, volatilidade, eficiência e pressão competitiva).
+    - `StrategyCompetitionEngine.js`: Competição biológica entre espécies de genomas de estratégia (fitness score e participação de mercado de alpha).
+    - `AlphaDecayEngine.js`: Medição da meia-vida do alpha (**Alpha Half-Life**), taxas de deterioração de Sharpe e obsolescência (`ACTIVE`, `AGING`, `OBSOLETE`).
+    - `StrategyMutationEngine.js`: Co-evolução e geração de genomas descendentes mutados com ajustes paramétricos contidos e filtros adicionais.
+    - `MarketAdaptationScore.js`: Cálculo do **Market Adaptation Score (MAS $\in [0, 100\%]$)** com zonas (`ADAPTIVE_ORGANISM`, `HEALTHY`, `STRESSED`, `EVOLUTION_REQUIRED`).
+    - `CognitiveOrganismFacade` (`index.js`): Fachada unificada (`runOrganismCycle`).
+  - Aprovado **ADR-028** (Cognitive Market Organism Architecture).
+  - Validação 100% aprovada na suíte `tests/market-organism/` (8/8 testes PASSED em 6 arquivos).
+
 ## [v7.0.0] — 2026-07-23
 - **Fase 10 (Cognitive Portfolio Intelligence Layer) Concluída com Sucesso**:
   - Implementados 5 módulos e fachada em `lyzer edge/src/cognitive-portfolio/`:
