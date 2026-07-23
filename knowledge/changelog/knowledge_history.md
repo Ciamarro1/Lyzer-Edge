@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v12.0.0] — 2026-07-23
+- **Fase 15 (Autonomous Quant Research Lab & Economic Decision Layer Architecture) Concluída com Sucesso**:
+  - Implementados 5 módulos e fachada em `lyzer edge/src/autonomous-research/`:
+    - `KnowledgeGapDetector.js`: Interrogação do Grafo Causal (Fase 14) para detecção de lacunas de conhecimento (hipóteses não testadas, regimes mal compreendidos).
+    - `ExpectedValueInfoEngine.js` (EVI Engine): Cálculo do Valor Esperado da Informação (EVI) e ROI de computação (ganho de alpha vs custo de CPU/tempo).
+    - `ScientificBacklogManager.js`: Gerenciamento do backlog científico ranqueado por EVI com alocação por orçamento de computação.
+    - `ResearchPublicationEngine.js`: Geração de artigos científicos internos imutáveis com metodologia empírica, p-valor e intervalo de confiança de 95%.
+    - `AutonomousResearchDirector.js`: O Diretor de Pesquisa Autônomo orquestrando o ciclo científico proativo.
+    - `AutonomousResearchFacade` (`index.js`): Fachada unificada de pesquisa autônoma.
+  - Aprovado **ADR-032** (Autonomous Quant Research Lab & Economic Decision Layer Architecture).
+  - Validação 100% aprovada na suíte `tests/autonomous-research/` (5/5 testes PASSED em 5 arquivos).
+
 ## [v11.0.0] — 2026-07-23
 - **Fase 14 (Institutional Production & Knowledge Graph Architecture) Concluída com Sucesso**:
   - Implementados 6 módulos e fachada em `lyzer edge/src/institutional-production/`:
