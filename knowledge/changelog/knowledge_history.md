@@ -10,6 +10,19 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v11.0.0] — 2026-07-23
+- **Fase 14 (Institutional Production & Knowledge Graph Architecture) Concluída com Sucesso**:
+  - Implementados 6 módulos e fachada em `lyzer edge/src/institutional-production/`:
+    - `ExchangeAdapter.js`: Camada de abstração de corretoras com adaptadores para `Binance`, `Bybit`, `Kraken` e `MockExchangeAdapter`.
+    - `CognitiveCommandBus.js`: Implementação CQRS de barramento de comandos desacoplado de intenções (`dispatch`, `registerHandler`).
+    - `CircuitBreakerEngine.js`: Padrão Circuit Breaker (`CLOSED`, `OPEN`, `HALF_OPEN`) para isolar APIs externas e falhas de rede.
+    - `SystemHealthSupervisor.js`: Monitor autônomo com auto-recuperação de workers e conectores.
+    - `CognitiveScheduler.js`: Agendador dedicado de tarefas por cadência (Telemetry 10s, Portfolio 5m, Reflection 30m, Evolution 12h, Research 24h).
+    - `CausalKnowledgeGraph.js`: Grafo de Conhecimento Causal conectando a linhagem completa: Regimes $\to$ Features $\to$ Hipóteses $\to$ Experimentos $\to$ Evidências $\to$ Genomas $\to$ Portfólio $\to$ Execuções $\to$ PnL.
+    - `InstitutionalProductionFacade` (`index.js`): Fachada unificada de produção institucional.
+  - Aprovado **ADR-031** (Institutional Production & Knowledge Graph Architecture).
+  - Validação 100% aprovada na suíte `tests/institutional-production/` (8/8 testes PASSED em 7 arquivos).
+
 ## [v10.0.0] — 2026-07-23
 - **Fase 13 (Distributed Runtime & Cognitive Kernel Architecture) Concluída com Sucesso**:
   - Implementados 4 módulos e fachada em `lyzer edge/src/distributed-runtime/`:
