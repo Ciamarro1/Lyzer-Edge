@@ -24,14 +24,26 @@ const wss = new WebSocketServer({ server });
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.json());
 
+import { register } from '../src/observability/index.js';
+
 // Middleware para proteção de rotas administrativas quando ADMIN_API_KEY estiver configurada
 const authenticateAdmin = (req, res, next) => {
   const adminKey = process.env.ADMIN_API_KEY;
   if (!adminKey) return next();
-  const keyHeader = req.headers['x-admin-key'] || req.query.adminKey;
+  const keyHeader = req.headers['x-admin-key'] || req.query.adminKey || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
   if (keyHeader === adminKey) return next();
   return res.status(401).json({ error: 'Unauthorized: Invalid or missing Admin API Key' });
 };
+
+// Endpoint para raspagem de métricas do Prometheus/Kubernetes
+app.get('/metrics', authenticateAdmin, async (req, res) => {
+  try {
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
+  } catch (err) {
+    res.status(500).end(err);
+  }
+});
 
 // API endpoints for deleting, closing, and wiping trades from the backend engines
 app.post('/api/trades/close', authenticateAdmin, (req, res) => {
