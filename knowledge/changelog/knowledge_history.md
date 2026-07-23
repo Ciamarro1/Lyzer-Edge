@@ -10,6 +10,14 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v24.0.0] — 2026-07-23
+- **Conclusão da Phase R4 — Cognitive Chaos Engineering Audit**:
+  - Publicado o relatório oficial **`docs/audits/R4-chaos-engineering-report.md`**.
+  - Testes de Injeção de Falhas nas 4 Primitivas $\langle \mathcal{S}, \mathcal{T}, \mathcal{M}, \mathcal{O} \rangle$: Desvio de estado isolado em $14.5\text{ ms}$, falhas de API interceptadas em $<0.1\text{ ms}$ pelo `CircuitBreakerEngine`, replay determinístico a $48.200\text{ ev/s}$ e clamps de segurança para scores malformatados.
+  - Teste de Carga Extrema ($500.000\text{ ticks}$): Throughput mantido em $>18.400\text{ ev/s}$, latência média $1.32\text{ ms/tick}$, p99 de $6.1\text{ ms}$ e consumo de Heap RAM $74.2\text{ MB}$.
+  - Matriz de Recuperação: $100\%$ das falhas classificadas como 🟢 **GREEN** (Recuperação Autônoma).
+  - Veredito Final R4: **"System is anti-fragile & constitutionally sound. Proceed to Phase R5 Production Hardening."**
+
 ## [v23.0.0] — 2026-07-23
 - **Conclusão da Phase R3 — Runtime Reality Audit**:
   - Publicado o relatório oficial **`docs/audits/R3-runtime-reality-audit.md`**.
