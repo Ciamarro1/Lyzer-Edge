@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v4.3.0] — 2026-07-22
+- **Fase 7.2 (Adaptive Intelligence Evaluation Layer) Concluída com Sucesso**:
+  - Implementados 4 módulos e fachada em `lyzer edge/src/adaptive-evaluation/`:
+    - `AdaptationImpactAnalyzer.js`: Avaliação multidimensional (frequência, exposição, drawdown, Sharpe).
+    - `RegimeStressEvaluator.js`: Teste de estabilidade multi-regime com RSS (Regime Stability Score).
+    - `AdaptationRiskScore.js`: Adaptive Risk Score (ARS) composto com 4 zonas (SAFE/OBSERVATION/ECA_REVIEW/BLOCKED).
+    - `EvolutionLedger.js`: Registro imutável da história genética do sistema.
+    - `AdaptiveEvaluationFacade` (`index.js`): Fachada unificada com `evaluateProposal()`.
+  - Adicionada a tabela `evolution_ledger` em `lyzer edge/backend/db.js`.
+  - Aprovados **ADR-018** (Adaptive Evaluation Architecture), **ADR-019** (Evolution Ledger Model), **ADR-020** (Regime Stability Governance).
+  - Validação 100% aprovada na suíte `tests/adaptive-evaluation/` (14/14 testes PASSED em 5 arquivos).
+
 ## [v4.2.0] — 2026-07-22
 - **Fase 7.1 (Adaptive Pipeline Controller) Concluída com Sucesso**:
   - Implementado o `AdaptivePipelineController.js` em `lyzer edge/src/adaptive-sandbox/`:
