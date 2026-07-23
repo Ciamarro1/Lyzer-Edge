@@ -10,6 +10,18 @@ pendencias_conhecidas: "Nenhuma"
 
 # Histórico de Alterações da Base de Conhecimento (`/knowledge`)
 
+## [v3.2.0] — 2026-07-22
+- **Fase 6.6 (Cognitive Reflection Layer) Concluída com Sucesso**:
+  - Aprovado o **ADR-013** em [ADR-013-cognitive-reflection-architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/ADR-013-cognitive-reflection-architecture.md) (Arquitetura de Metacognição e Raciocínio Contrafactual).
+  - Implementados os 5 submódulos metacognitivos em `lyzer edge/src/causal-reflection/`:
+    - `ReflectionEngine.js`: Ciclo de reflexão offline ("Dream Cycle").
+    - `CounterfactualSimulator.js`: Simulações hipotéticas ("What-If") sobre o SQLite WAL.
+    - `KnowledgeConflictResolver.js`: Resolução de contradições no Grafo Cognitivo por amostragem e recência.
+    - `ConfidenceDecayEngine.js`: Decaimento exponencial ($t_{1/2} = 30 \text{ dias}$) de scores de confiança.
+    - `LearningReportGenerator.js`: Relatórios institucionais de metacognição para a Corte ECA.
+  - Validação 100% aprovada na suíte de testes `tests/causal-reflection/` (5/5 testes PASSED).
+  - Publicada a especificação em [causal_reflection_architecture.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/architecture/causal_reflection_architecture.md) e o relatório de implementação em [implementation.md](file:///c:/Users/WDAGUtilityAccount/Downloads/projeto/docs/causal-reflection/implementation.md).
+
 ## [v3.1.0] — 2026-07-22
 - **Fase 6 (Cognitive Self Improvement Layer Implementation) Concluída com Sucesso**:
   - Implementados os 5 submódulos em `lyzer edge/src/causal-learning/`:
