@@ -52,16 +52,14 @@ Somente se essa prova falhar, uma implementação minimalista será considerada.
 
 ---
 
-## 🔄 IV. O CICLO PERMANENTE DE ENGENHARIA
+## 🔄 IV. O CHECKLIST OPERACIONAL DE ENGENHARIA
 
-O desenvolvimento do Lyzer Edge é governado por um **Ciclo Permanente de 4 Fases**:
+Toda alteração, issue, RFC ou pull request deve obrigatoriamente responder às **4 Perguntas da Engenharia Minimalista**:
 
-$$\text{Ciclo 1: Remoção} \longrightarrow \text{Ciclo 2: Compressão} \longrightarrow \text{Ciclo 3: Evidência} \longrightarrow \text{Ciclo 4: Produção} \longrightarrow \text{(Repete)}$$
-
-1. **Ciclo 1 — Remoção**: Eliminação de código obsoleto, módulos duplicados e acoplamentos.
-2. **Ciclo 2 — Compressão**: Fusão de conceitos, unificação de APIs e parametrização.
-3. **Ciclo 3 — Evidência**: Benchmarks, estresse, replay, chaos engineering, latência e profiling.
-4. **Ciclo 4 — Produção**: Observabilidade, resiliência, deployment e estabilidade.
+1. **Remoção**: *O que conseguimos eliminar ou descontinuar?*
+2. **Compressão**: *O que conseguimos unificar ou parametrizar?*
+3. **Evidência**: *Como provamos quantitativamente que o sistema melhorou?*
+4. **Produção**: *Como essa mudança se comporta em estresse e ambiente real?*
 
 ---
 
