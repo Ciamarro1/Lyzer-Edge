@@ -33,10 +33,20 @@ export function loadEngineState(engines) {
         const saved = state[engine.symbol];
         engine.activePosition = saved.activePosition || null;
         engine.tradeHistory = saved.tradeHistory || [];
-        console.log(`[PERSISTENCE] Restored state for ${engine.symbol}: ActivePosition: ${engine.activePosition ? 'YES' : 'NO'}, History: ${engine.tradeHistory.length} trades.`);
       }
     }
   } catch (err) {
     console.error('[PERSISTENCE] Failed to load engine state:', err);
+  }
+}
+
+export function clearEngineState() {
+  try {
+    if (fs.existsSync(STATE_FILE)) {
+      fs.unlinkSync(STATE_FILE);
+      console.log('[PERSISTENCE] Cleared engine_state.json from disk.');
+    }
+  } catch (err) {
+    console.error('[PERSISTENCE] Failed to clear engine state:', err);
   }
 }

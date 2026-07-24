@@ -3,7 +3,7 @@ import express from 'express';
 import http from 'http';
 import { WebSocketServer } from 'ws';
 import { StreamEngine, arl } from './streamEngine.js';
-import { loadEngineState, saveEngineState } from './statePersistence.js';
+import { loadEngineState, saveEngineState, clearEngineState } from './statePersistence.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { sendTelegramAlert } from './telegram.js';
@@ -122,6 +122,7 @@ app.post('/api/trades/wipe', (req, res) => {
     engine.emit('state_changed');
     engine.emit('arl', { type: 'tick', symbol: engine.symbol, mode: engine.mode });
   }
+  clearEngineState();
   saveEngineState(engines);
 
   clients.forEach(client => {
