@@ -1071,6 +1071,9 @@ canvas.ltv-chart {
           state.connState = data.connectionState;
           this._updateConnBadge();
         }
+        if (state.chartMode === 'lwc') {
+          this._mountLWC(symbol);
+        }
         this._updateTradeLog();
       }
     } catch (e) {
