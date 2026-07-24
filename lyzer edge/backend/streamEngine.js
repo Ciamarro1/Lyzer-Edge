@@ -191,8 +191,10 @@ export class StreamEngine extends EventEmitter {
     // 2. Setup execution layer
     this.initializeExecution();
 
-    // 2.5 Setup live tick emitter for real-time frontend UI updates — broadcast ALL symbols
+    // 2.5 Setup live tick emitter for real-time frontend UI updates & instant SL/TP guard
     this.ingestor.onTick = (candle) => {
+      // Instant Tick-Level SL/TP Guard Check
+      this.checkTickPositionExit(candle);
       this.emit('arl', { type: 'tick', symbol: this.symbol, market: candle, mode: this.mode });
     };
 
@@ -373,6 +375,91 @@ export class StreamEngine extends EventEmitter {
       this.fallbackInterval = null;
       this.isFallbackActive = false;
     }
+  }
+
+  checkTickPositionExit(candle) {
+    if (!this.activePosition) return null;
+
+    const pos = this.activePosition;
+    let closed = false;
+    let exitPrice = 0;
+    let exitReason = '';
+
+    const price = candle.close;
+    const high = candle.high || price;
+    const low = candle.low || price;
+
+    if (pos.direction === 'LONG') {
+      if (low <= pos.stopLoss || price <= pos.stopLoss) {
+        closed = true;
+        exitPrice = pos.stopLoss;
+        exitReason = 'STOP_LOSS';
+      } else if (high >= pos.takeProfit || price >= pos.takeProfit) {
+        closed = true;
+        exitPrice = pos.takeProfit;
+        exitReason = 'TAKE_PROFIT';
+      }
+    } else {
+      if (high >= pos.stopLoss || price >= pos.stopLoss) {
+        closed = true;
+        exitPrice = pos.stopLoss;
+        exitReason = 'STOP_LOSS';
+      } else if (low <= pos.takeProfit || price <= pos.takeProfit) {
+        closed = true;
+        exitPrice = pos.takeProfit;
+        exitReason = 'TAKE_PROFIT';
+      }
+    }
+
+    if (closed) {
+      const rawPnl = pos.direction === 'LONG'
+        ? (exitPrice - pos.entryPrice) / pos.entryPrice
+        : (pos.entryPrice - exitPrice) / pos.entryPrice;
+
+      const resolvedTrade = {
+        id: pos.id,
+        timestamp: pos.timestamp,
+        symbol: this.symbol,
+        direction: pos.direction,
+        entryPrice: pos.entryPrice,
+        exitPrice: exitPrice,
+        pnl: rawPnl,
+        status: 'closed',
+        signal: pos.signal,
+        regime: pos.regime,
+        governanceDecision: pos.governanceDecision,
+        wasRejected: false,
+        reasonCodes: [exitReason],
+        slippage: 0.0001,
+        spread: 0.0001,
+        distortionFactor: 1.0,
+        timingOffset: 0,
+        stopLoss: pos.stopLoss,
+        takeProfit: pos.takeProfit
+      };
+
+      const ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
+      const tradeWithEv = { ...resolvedTrade, ev };
+      this.tradeHistory.push(tradeWithEv);
+
+      this.ui.logEvent(`⚡ [TICK GUARD] Position CLOSED via ${exitReason} for ${this.symbol}. Exit: ${exitPrice}, PnL: ${(rawPnl * 100).toFixed(2)}%`);
+
+      sendTelegramAlert(formatTradeAlert(this.symbol, resolvedTrade))
+        .catch(e => console.error('[TELEGRAM] Error sending trade alert:', e.message));
+
+      if (this.execution) {
+        const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
+        const closeQty = pos.quantity || 0.001;
+        this.execution.placeOrder(this.symbol, closeSide, 'MARKET', closeQty).catch(e => console.error('[STREAM] Close order failed:', e.message));
+      }
+
+      this.activePosition = null;
+      this.emit('state_changed');
+      this.emit('arl', { type: 'arl', symbol: this.symbol, trade: tradeWithEv, mode: this.mode });
+      return tradeWithEv;
+    }
+
+    return null;
   }
 
   async processCandle(candle, index) {
