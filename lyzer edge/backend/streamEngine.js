@@ -442,9 +442,11 @@ export class StreamEngine extends EventEmitter {
         this.ui.render(lhds, kernelResult.epistemic_authority || 'UNKNOWN', reason);
     }
 
-    // Legacy baseline for telemetry filler
+    // Baseline for telemetry filler with IMCE V4 priority
     let combinedSignal = 'flat';
-    if (v1Narrative.signal !== 'flat') {
+    if (v4Narrative && v4Narrative.signal !== 'flat') {
+      combinedSignal = v4Narrative.signal;
+    } else if (v1Narrative.signal !== 'flat') {
       combinedSignal = v1Narrative.signal;
     } else if (v2Narrative.signal !== 'flat') {
       combinedSignal = v2Narrative.signal;
@@ -454,9 +456,21 @@ export class StreamEngine extends EventEmitter {
 
     const baseSignal = { 
       signal: combinedSignal, 
-      confidence: Math.max(v1Narrative.confidence, v2Narrative.confidence, v3Narrative.confidence), 
-      regime: 'MTF_OBSERVATION', 
-      reasons: [v1Narrative.narrative, v2Narrative.narrative, v3Narrative.narrative],
+      confidence: Math.max(
+        v1Narrative.confidence, 
+        v2Narrative.confidence, 
+        v3Narrative.confidence, 
+        (v4Narrative ? v4Narrative.confidence : 0)
+      ), 
+      regime: (v4Narrative && v4Narrative.causalAnswers) ? v4Narrative.causalAnswers.whatHappened : 'MTF_OBSERVATION', 
+      reasons: [
+        v1Narrative.narrative, 
+        v2Narrative.narrative, 
+        v3Narrative.narrative,
+        (v4Narrative ? v4Narrative.narrative : '')
+      ],
+      explanationText: v4Narrative ? v4Narrative.explanationText : null,
+      tradeDna: v4Narrative ? v4Narrative.tradeDna : null,
       Z_t: kernelResult.dvf * 10
     };
 
@@ -597,8 +611,9 @@ export class StreamEngine extends EventEmitter {
 
         // Micro-Scalp Risk/Reward (0.15% - 0.4% micro SL, 1:2 R:R) for sub-m5 timeframes
         let microAtr = 0;
-        if (this.recentCandles && this.recentCandles.length >= 5) {
-          const recent = this.recentCandles.slice(-14);
+        const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
+        if (candleList.length >= 5) {
+          const recent = candleList.slice(-14);
           let sumRange = 0;
           for (let i = 0; i < recent.length; i++) {
             sumRange += (recent[i].high - recent[i].low);
@@ -632,6 +647,8 @@ export class StreamEngine extends EventEmitter {
           stopLoss,
           takeProfit,
           quantity,
+          tradeDna: baseSignal.tradeDna,
+          explanationText: baseSignal.explanationText,
           signal: {
             type: direction,
             confidence: baseSignal.confidence,
@@ -647,7 +664,12 @@ export class StreamEngine extends EventEmitter {
           symbol: this.symbol,
           direction,
           entryPrice,
+          stopLoss,
+          takeProfit,
+          quantity,
           status: 'open',
+          tradeDna: baseSignal.tradeDna,
+          explanationText: baseSignal.explanationText,
           governanceDecision
         };
 

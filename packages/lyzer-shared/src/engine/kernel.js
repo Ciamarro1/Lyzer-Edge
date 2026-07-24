@@ -27,13 +27,14 @@ export class TruthKernel {
    * @returns {Object} Final contract matching CRSA.
    */
   evaluate(providers, micro = {}) {
-    // Expect providers to have V1, V2, and V3
+    // Expect providers to have V1, V2, V3, and V4
     const v1 = providers.v1 || { signal: 'flat', confidence: 0 };
     const v2 = providers.v2 || { signal: 'flat', confidence: 0 };
     const v3 = providers.v3 || { signal: 'flat', confidence: 0 };
+    const v4 = providers.v4 || { signal: 'flat', confidence: 0 };
 
     // 1. Residualization & Consensus Destruction
-    const { dvf, trg } = this.rl.evaluate(v1, v2, v3, micro);
+    const { dvf, trg } = this.rl.evaluate(v1, v2, v3, v4, micro);
 
     // 2. Execution Trigger Evaluation
     let { eef, reason } = this.ett.evaluate(trg);

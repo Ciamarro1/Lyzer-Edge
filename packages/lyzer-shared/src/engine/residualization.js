@@ -14,29 +14,33 @@ export class ResidualizationLayer {
     }
 
     /**
-     * Extracts residual divergence between V1 and V2.
+     * Extracts residual divergence between V1, V2, V3, and V4.
      * If they agree, the residual is artificially compressed (consensus destruction).
      */
-    extractDivergence(v1Output, v2Output, v3Output) {
-        // v1, v2, v3 expected shape: { signal: 'long'|'short'|'flat', confidence: 0-100, price: number }
+    extractDivergence(v1Output, v2Output, v3Output, v4Output) {
+        // v1, v2, v3, v4 expected shape: { signal: 'long'|'short'|'flat', confidence: 0-100 }
         const fallbackV3 = v3Output || { signal: 'flat', confidence: 0 };
+        const fallbackV4 = v4Output || { signal: 'flat', confidence: 0 };
         
-        const sigToVec = (sig) => sig === 'long' || sig === 'go' ? 1 : (sig === 'short' || sig === 'no-go' ? -1 : 0);
+        const sigToVec = (sig) => (sig === 'long' || sig === 'go') ? 1 : ((sig === 'short' || sig === 'no-go') ? -1 : 0);
         
         const v1Vec = sigToVec(v1Output.signal) * (v1Output.confidence / 100);
         const v2Vec = sigToVec(v2Output.signal) * (v2Output.confidence / 100);
         const v3Vec = sigToVec(fallbackV3.signal) * (fallbackV3.confidence / 100);
+        const v4Vec = sigToVec(fallbackV4.signal) * (fallbackV4.confidence / 100);
         
         // DVF: Pairwise maximum distance in the ensemble
         const d12 = Math.abs(v1Vec - v2Vec);
         const d13 = Math.abs(v1Vec - v3Vec);
+        const d14 = Math.abs(v1Vec - v4Vec);
         const d23 = Math.abs(v2Vec - v3Vec);
-        const divergenceScalar = Math.max(d12, d13, d23);
+        const d24 = Math.abs(v2Vec - v4Vec);
+        const d34 = Math.abs(v3Vec - v4Vec);
+        const divergenceScalar = Math.max(d12, d13, d14, d23, d24, d34);
         
-        const directionalTension = v1Vec + v2Vec + v3Vec;
+        const directionalTension = v1Vec + v2Vec + v3Vec + v4Vec;
 
         // Streaming Consensus Destruction (SCD)
-        // Shrink consensus boundary to < consensusLimit for high-frequency trading
         const isConsensus = this.consensusLimit > 0 && divergenceScalar < this.consensusLimit && Math.abs(directionalTension) > 1.0;
         
         let dvf = divergenceScalar;
@@ -56,14 +60,8 @@ export class ResidualizationLayer {
      */
     projectTailRisk(dvfResult, microstructureData = {}) {
         const { divergence } = dvfResult;
-        
-        // TRG defines risk asymmetry.
-        // It grows non-linearly with extreme divergence.
         const structuralRisk = Math.pow(divergence, 2); 
-        
-        // Liquidity Vacuum (from microstructure) acts as a multiplier.
         const liquidityVacuum = microstructureData.liquidityDivergence || 1.0;
-        
         const trg = structuralRisk * liquidityVacuum;
 
         return {
@@ -73,17 +71,23 @@ export class ResidualizationLayer {
         };
     }
 
-    evaluate(v1, v2, v3, micro) {
-        // Handle legacy 3-argument call evaluation: evaluate(v1, v2, micro)
+    evaluate(v1, v2, v3, v4, micro) {
         let actualV3 = v3;
+        let actualV4 = v4;
         let actualMicro = micro;
-        if (micro === undefined && v3 !== undefined && !v3.signal) {
-            // v3 is microData
-            actualV3 = { signal: 'flat', confidence: 0 };
+
+        if (micro === undefined && v4 !== undefined && !v4.signal) {
+            // Called with (v1, v2, v3, micro)
+            actualMicro = v4;
+            actualV4 = { signal: 'flat', confidence: 0 };
+        } else if (v3 !== undefined && !v3.signal && v4 === undefined) {
+            // Called with (v1, v2, micro)
             actualMicro = v3;
+            actualV3 = { signal: 'flat', confidence: 0 };
+            actualV4 = { signal: 'flat', confidence: 0 };
         }
         
-        const dvf = this.extractDivergence(v1, v2, actualV3);
+        const dvf = this.extractDivergence(v1, v2, actualV3, actualV4);
         const trg = this.projectTailRisk(dvf, actualMicro);
         return { dvf, trg };
     }
