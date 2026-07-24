@@ -7,9 +7,6 @@ test('Dual Reality Monitor Verification', async () => {
     
     const monitor = new DualRealityMonitor();
     const kernel = new TruthKernel();
-    
-    // 1. Wait a bit for the ingestor to have at least some data
-    await new Promise(r => setTimeout(r, 2000));
 
     // Anchor time: Arbitrary point in the database, e.g. 10:30 AM on Jan 2nd 2024
     // 2024-01-02T10:30:00Z -> 1704191400000
