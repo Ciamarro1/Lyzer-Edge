@@ -795,14 +795,67 @@ canvas.ltv-chart {
 
       <div class="ltv-tradelog">
         <div class="ltv-tradelog-header">
-          <span class="ltv-tradelog-title">📋 Operações Recentes — <span id="log-symbol">${state.active}</span></span>
-          <span style="font-size:11px;color:${C.textMuted}" id="log-count">0 operações</span>
-        </div>
-        <div class="ltv-tradelog-body">
-          <div class="ltv-trade-header-row">
-            <span>Hora</span><span>Dir.</span><span>Entrada</span><span>Saída</span><span>P&L</span><span>Gov.</span>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <span style="font-size:11px; font-weight:bold; color:var(--accent-cyan); display:flex; align-items:center; gap:6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              TradingView Paper Trading Console
+            </span>
+            <div style="display:flex; gap:2px; background:rgba(255,255,255,0.04); padding:2px; border-radius:6px;">
+              <button class="tv-paper-tab active" id="tv-tab-positions" style="background:rgba(59,130,246,0.2); color:#38bdf8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📊 Posições Abertas (<span id="count-positions">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-orders" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📋 Ordens (<span id="count-orders">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-history" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📜 Histórico (<span id="count-history">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-account" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📈 Conta ($1.000)</button>
+            </div>
           </div>
-          <div id="ltv-trade-rows"></div>
+          <span style="font-size:11px; color:${C.textMuted}" id="log-count">0 operações</span>
+        </div>
+
+        <div class="ltv-tradelog-body">
+          <div id="tv-view-positions" class="tv-paper-view" style="display:block;">
+            <div class="ltv-trade-header-row" style="grid-template-columns: 80px 70px 70px 80px 80px 80px 80px 90px 90px;">
+              <span>Símbolo</span><span>Lado</span><span>Qtd</span><span>Entrada</span><span>Preço Mark</span><span>SL (Stop)</span><span>TP (Alvo)</span><span>P&L ($ / %)</span><span>Ação</span>
+            </div>
+            <div id="tv-position-rows"></div>
+          </div>
+
+          <div id="tv-view-orders" class="tv-paper-view" style="display:none;">
+            <div class="ltv-trade-header-row" style="grid-template-columns: 100px 70px 80px 90px 90px 90px;">
+              <span>ID Ordem</span><span>Símbolo</span><span>Lado</span><span>Tipo</span><span>Preço Disparo</span><span>Status</span>
+            </div>
+            <div id="tv-order-rows"></div>
+          </div>
+
+          <div id="tv-view-history" class="tv-paper-view" style="display:none;">
+            <div class="ltv-trade-header-row" style="grid-template-columns: 80px 60px 90px 90px 80px 80px 100px;">
+              <span>Hora</span><span>Lado</span><span>Entrada</span><span>Saída</span><span>P&L</span><span>Gov.</span><span>Trade DNA</span>
+            </div>
+            <div id="ltv-trade-rows"></div>
+          </div>
+
+          <div id="tv-view-account" class="tv-paper-view" style="display:none; padding:16px;">
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap:12px;">
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:#94a3b8;">SALDO INICIAL</div>
+                <div style="font-size:16px; font-weight:bold; color:#fff;" id="acc-balance">$1.000,00</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:#94a3b8;">PATRIMÔNIO (EQUITY)</div>
+                <div style="font-size:16px; font-weight:bold; color:#38bdf8;" id="acc-equity">$1.000,00</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:#94a3b8;">REALIZED P&L</div>
+                <div style="font-size:16px; font-weight:bold; color:#10b981;" id="acc-pnl">+$0,00 (0.00%)</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:#94a3b8;">WIN RATE %</div>
+                <div style="font-size:16px; font-weight:bold; color:#f59e0b;" id="acc-winrate">0.0%</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); padding:10px; border-radius:6px;">
+                <div style="font-size:10px; color:#94a3b8;">PROFIT FACTOR</div>
+                <div style="font-size:16px; font-weight:bold; color:#34d399;" id="acc-pf">0.00</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -858,6 +911,31 @@ canvas.ltv-chart {
         if (zoomControls) zoomControls.style.display = 'flex';
       });
     }
+
+    // Paper Trading Console Tabs
+    const paperTabs = [
+      { btnId: 'tv-tab-positions', viewId: 'tv-view-positions' },
+      { btnId: 'tv-tab-orders', viewId: 'tv-view-orders' },
+      { btnId: 'tv-tab-history', viewId: 'tv-view-history' },
+      { btnId: 'tv-tab-account', viewId: 'tv-view-account' }
+    ];
+
+    paperTabs.forEach(({ btnId, viewId }) => {
+      const btn = document.getElementById(btnId);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          paperTabs.forEach(t => {
+            const b = document.getElementById(t.btnId);
+            const v = document.getElementById(t.viewId);
+            if (b) {
+              b.style.background = t.btnId === btnId ? 'rgba(59,130,246,0.2)' : 'transparent';
+              b.style.color = t.btnId === btnId ? '#38bdf8' : '#94a3b8';
+            }
+            if (v) v.style.display = t.viewId === viewId ? 'block' : 'none';
+          });
+        });
+      }
+    });
 
     // Zoom buttons and mouse wheel zoom events
     const zoomInBtn = document.getElementById('ltv-zoom-in');
@@ -1188,24 +1266,167 @@ canvas.ltv-chart {
   }
 
   _updateTradeLog() {
-    const sym = state.active;
-    const trades = state.trades[sym].slice().reverse().slice(0, 30);
-    const el = document.getElementById('ltv-trade-rows');
+    const activeSym = state.active;
+
+    // Collect open positions across all symbols
+    const allOpenPositions = [];
+    const allOrders = [];
+    let totalRealizedPnlPct = 0;
+    let totalWins = 0;
+    let totalClosed = 0;
+    let totalWinPnl = 0;
+    let totalLossPnl = 0;
+
+    SYMBOLS.forEach(sym => {
+      const trades = state.trades[sym] || [];
+      const markPrice = state.latest[sym];
+
+      trades.forEach(t => {
+        if (t.status === 'open' && markPrice) {
+          let pnlPct = 0;
+          if (t.direction === 'LONG') {
+            pnlPct = (markPrice - t.entryPrice) / t.entryPrice;
+          } else {
+            pnlPct = (t.entryPrice - markPrice) / t.entryPrice;
+          }
+          const pnlUsd = pnlPct * 1000 * 0.1; // $100 position size equivalent
+
+          allOpenPositions.push({
+            symbol: sym,
+            direction: t.direction,
+            quantity: t.quantity || '0.001',
+            entryPrice: t.entryPrice,
+            markPrice,
+            stopLoss: t.stopLoss,
+            takeProfit: t.takeProfit,
+            pnlPct,
+            pnlUsd
+          });
+
+          if (t.stopLoss) {
+            allOrders.push({
+              id: `SL_${sym}`,
+              symbol: sym,
+              direction: t.direction === 'LONG' ? 'SELL' : 'BUY',
+              type: 'STOP_LOSS',
+              triggerPrice: t.stopLoss,
+              status: 'ATIVO'
+            });
+          }
+          if (t.takeProfit) {
+            allOrders.push({
+              id: `TP_${sym}`,
+              symbol: sym,
+              direction: t.direction === 'LONG' ? 'SELL' : 'BUY',
+              type: 'TAKE_PROFIT',
+              triggerPrice: t.takeProfit,
+              status: 'ATIVO'
+            });
+          }
+        } else if (t.status === 'closed') {
+          totalClosed++;
+          totalRealizedPnlPct += (t.pnl || 0);
+          if (t.pnl > 0) {
+            totalWins++;
+            totalWinPnl += t.pnl;
+          } else if (t.pnl < 0) {
+            totalLossPnl += Math.abs(t.pnl);
+          }
+        }
+      });
+    });
+
+    // Update Counts
+    const posCountEl = document.getElementById('count-positions');
+    const ordCountEl = document.getElementById('count-orders');
+    const histCountEl = document.getElementById('count-history');
+    if (posCountEl) posCountEl.textContent = allOpenPositions.length;
+    if (ordCountEl) ordCountEl.textContent = allOrders.length;
+    if (histCountEl) histCountEl.textContent = (state.trades[activeSym] || []).length;
+
+    // 1. Render Positions View
+    const posContainer = document.getElementById('tv-position-rows');
+    if (posContainer) {
+      if (allOpenPositions.length === 0) {
+        posContainer.innerHTML = `<div style="padding:14px; text-align:center; color:${C.textMuted}; font-size:11px;">Nenhuma posição aberta no momento. O sistema está monitorando a estrutura de mercado...</div>`;
+      } else {
+        posContainer.innerHTML = allOpenPositions.map(p => {
+          const isLong = p.direction === 'LONG';
+          const pnlPos = p.pnlPct >= 0;
+          return `<div class="ltv-trade-row" style="grid-template-columns: 80px 70px 70px 80px 80px 80px 80px 90px 90px;">
+            <span style="font-weight:bold; color:${C.text}">${SYMBOL_META[p.symbol].label}</span>
+            <span class="${isLong ? 'ltv-trade-dir-long' : 'ltv-trade-dir-short'}">${p.direction}</span>
+            <span class="ltv-trade-col">${p.quantity}</span>
+            <span class="ltv-trade-col">${formatPrice(p.entryPrice, p.symbol)}</span>
+            <span class="ltv-trade-col" style="color:#fff; font-weight:bold;">${formatPrice(p.markPrice, p.symbol)}</span>
+            <span class="ltv-trade-col" style="color:${C.red}">${formatPrice(p.stopLoss, p.symbol)}</span>
+            <span class="ltv-trade-col" style="color:${C.green}">${formatPrice(p.takeProfit, p.symbol)}</span>
+            <span class="${pnlPos ? 'ltv-trade-pnl-pos' : 'ltv-trade-pnl-neg'}">${pnlPos ? '+' : ''}$${p.pnlUsd.toFixed(2)} (${formatPct(p.pnlPct)})</span>
+            <span><button onclick="fetch('/api/trades/wipe',{method:'POST'}).then(()=>location.reload())" style="background:rgba(239,68,68,0.15); border:1px solid #ef4444; color:#ef4444; border-radius:3px; padding:2px 6px; font-size:10px; cursor:pointer;">Fechar</button></span>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    // 2. Render Orders View
+    const ordContainer = document.getElementById('tv-order-rows');
+    if (ordContainer) {
+      if (allOrders.length === 0) {
+        ordContainer.innerHTML = `<div style="padding:14px; text-align:center; color:${C.textMuted}; font-size:11px;">Nenhuma ordem pendente.</div>`;
+      } else {
+        ordContainer.innerHTML = allOrders.map(o => `
+          <div class="ltv-trade-row" style="grid-template-columns: 100px 70px 80px 90px 90px 90px;">
+            <span class="ltv-trade-col">${o.id}</span>
+            <span style="font-weight:bold;">${o.symbol}</span>
+            <span class="${o.direction === 'BUY' ? 'ltv-trade-dir-long' : 'ltv-trade-dir-short'}">${o.direction}</span>
+            <span class="ltv-trade-col">${o.type}</span>
+            <span class="ltv-trade-col">${formatPrice(o.triggerPrice, o.symbol)}</span>
+            <span style="color:${C.green}">${o.status}</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // 3. Render History View for Active Symbol
+    const trades = (state.trades[activeSym] || []).slice().reverse().slice(0, 30);
+    const histContainer = document.getElementById('ltv-trade-rows');
     const countEl = document.getElementById('log-count');
-    if (!el) return;
-    if (countEl) countEl.textContent = `${state.trades[sym].length} operações`;
-    el.innerHTML = trades.map(t => {
-      const isLong = t.direction === 'LONG';
-      const pnlPos = t.pnl >= 0;
-      return `<div class="ltv-trade-row">
-        <span class="ltv-trade-col">${t.time}</span>
-        <span class="${isLong ? 'ltv-trade-dir-long' : 'ltv-trade-dir-short'}">${t.direction}</span>
-        <span class="ltv-trade-col">${formatPrice(t.entryPrice, sym)}</span>
-        <span class="ltv-trade-col">${formatPrice(t.exitPrice, sym)}</span>
-        <span class="${pnlPos ? 'ltv-trade-pnl-pos' : 'ltv-trade-pnl-neg'}">${formatPct(t.pnl)}</span>
-        <span class="${t.governance === 'ALLOW' ? 'ltv-trade-gov-allow' : 'ltv-trade-gov-reject'}">${t.governance || '—'}</span>
-      </div>`;
-    }).join('');
+    if (countEl) countEl.textContent = `${state.trades[activeSym]?.length || 0} operações`;
+    if (histContainer) {
+      histContainer.innerHTML = trades.map(t => {
+        const isLong = t.direction === 'LONG';
+        const pnlPos = t.pnl >= 0;
+        return `<div class="ltv-trade-row" style="grid-template-columns: 80px 60px 90px 90px 80px 80px 100px;">
+          <span class="ltv-trade-col">${t.time}</span>
+          <span class="${isLong ? 'ltv-trade-dir-long' : 'ltv-trade-dir-short'}">${t.direction}</span>
+          <span class="ltv-trade-col">${formatPrice(t.entryPrice, activeSym)}</span>
+          <span class="ltv-trade-col">${formatPrice(t.exitPrice, activeSym)}</span>
+          <span class="${pnlPos ? 'ltv-trade-pnl-pos' : 'ltv-trade-pnl-neg'}">${formatPct(t.pnl)}</span>
+          <span class="${t.governance === 'ALLOW' ? 'ltv-trade-gov-allow' : 'ltv-trade-gov-reject'}">${t.governance || 'ALLOW'}</span>
+          <span style="font-size:10px; color:#38bdf8;">IMCE V4</span>
+        </div>`;
+      }).join('');
+    }
+
+    // 4. Render Account Summary
+    const initialBalance = 1000.0;
+    const netPnlUsd = totalRealizedPnlPct * 1000;
+    const equity = initialBalance + netPnlUsd;
+    const winRate = totalClosed > 0 ? (totalWins / totalClosed * 100).toFixed(1) : '0.0';
+    const profitFactor = totalLossPnl > 0 ? (totalWinPnl / totalLossPnl).toFixed(2) : (totalWinPnl > 0 ? '99.00' : '0.00');
+
+    const accEquityEl = document.getElementById('acc-equity');
+    const accPnlEl = document.getElementById('acc-pnl');
+    const accWinrateEl = document.getElementById('acc-winrate');
+    const accPfEl = document.getElementById('acc-pf');
+
+    if (accEquityEl) accEquityEl.textContent = `$${equity.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
+    if (accPnlEl) {
+      accPnlEl.textContent = `${netPnlUsd >= 0 ? '+' : ''}$${netPnlUsd.toFixed(2)} (${formatPct(totalRealizedPnlPct)})`;
+      accPnlEl.style.color = netPnlUsd >= 0 ? C.green : C.red;
+    }
+    if (accWinrateEl) accWinrateEl.textContent = `${winRate}%`;
+    if (accPfEl) accPfEl.textContent = profitFactor;
   }
 
   _startRenderLoop() {
