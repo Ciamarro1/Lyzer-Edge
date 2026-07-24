@@ -44,7 +44,7 @@ const state = {
   active:    'BTCUSDT',
   connState: 'CONNECTING',
   visibleCount: 80,
-  chartMode: 'lwc' // 'lwc' (TradingView Native + Order Lines), 'tradingview' (Binance Iframe), or 'canvas'
+  chartMode: 'tradingview' // 'tradingview' (Binance Iframe Widget), 'lwc' (TradingView Native Lines), or 'canvas'
 };
 
 // ── Canvas Candlestick Renderer ───────────────────────────────────────────────
@@ -783,8 +783,8 @@ canvas.ltv-chart {
         <canvas class="ltv-chart" id="ltv-main-chart" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></canvas>
 
         <div style="position: absolute; left: 15px; top: 12px; display: flex; gap: 6px; z-index: 20;">
-          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#3b82f6; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 TradingView Nativo (Linhas SL/TP)</button>
-          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">🌐 Binance Widget</button>
+          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#38bdf8; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">🌐 Binance TradingView</button>
+          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 TradingView Lines (SL/TP)</button>
           <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">⚡ Canvas Nativo</button>
         </div>
 
