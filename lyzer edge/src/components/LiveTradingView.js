@@ -776,17 +776,18 @@ canvas.ltv-chart {
         <div class="ltv-infobar-item"><div class="ltv-infobar-lbl">Sinal ARL</div><div class="ltv-infobar-val" id="info-signal">—</div></div>
         <div class="ltv-infobar-item"><div class="ltv-infobar-lbl">Confiança</div><div class="ltv-infobar-val" id="info-conf">—</div></div>
         <div class="ltv-infobar-item"><div class="ltv-infobar-lbl">Candles</div><div class="ltv-infobar-val" id="info-count">—</div></div>
+
+        <!-- Mode Toggle Buttons moved to Infobar Header to avoid obscuring chart tools -->
+        <div style="margin-left: auto; display: flex; gap: 6px; align-items: center;">
+          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#38bdf8; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">🌐 Binance TV</button>
+          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">📊 TV Lines (SL/TP)</button>
+          <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">⚡ Canvas</button>
+        </div>
       </div>
 
       <div class="ltv-chart-wrap" style="position: relative; flex: 1; min-height: 0;">
         <div id="tradingview-container" style="width:100%; height:100%; position:absolute; top:0; left:0; border-radius:8px; overflow:hidden; z-index:1;"></div>
         <canvas class="ltv-chart" id="ltv-main-chart" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></canvas>
-
-        <div style="position: absolute; left: 15px; top: 12px; display: flex; gap: 6px; z-index: 20;">
-          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#38bdf8; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">🌐 Binance TradingView</button>
-          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 TradingView Lines (SL/TP)</button>
-          <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">⚡ Canvas Nativo</button>
-        </div>
 
         <div id="ltv-zoom-controls" style="position: absolute; right: 15px; top: 12px; display: none; gap: 6px; z-index: 20;">
           <button id="ltv-zoom-in" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.text}; border-radius:4px; width:26px; height:26px; cursor:pointer; font-weight:bold; font-size:14px; display:flex; align-items:center; justify-content:center;" title="Zoom In">+</button>
@@ -982,6 +983,142 @@ canvas.ltv-chart {
     // Initial mount of TradingView widget
     if (state.chartMode === 'tradingview') {
       this._mountTVWidget(state.active);
+    }
+  }
+
+  _mountLWC(symbol) {
+    const container = document.getElementById('tradingview-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const chartDiv = document.createElement('div');
+    chartDiv.style.width = '100%';
+    chartDiv.style.height = '100%';
+    container.appendChild(chartDiv);
+
+    const LWC = window.LightweightCharts || window.lightweightCharts;
+    if (!LWC) {
+      setTimeout(() => this._mountLWC(symbol), 300);
+      return;
+    }
+
+    const rect = container.getBoundingClientRect();
+    const width = rect.width || container.clientWidth || 800;
+    const height = rect.height || container.clientHeight || 450;
+
+    try {
+      const chart = LWC.createChart(chartDiv, {
+        width: width,
+        height: height,
+        layout: {
+          background: { type: 'solid', color: '#0f1629' },
+          textColor: '#cbd5e1',
+          fontSize: 11,
+          fontFamily: "'Inter', sans-serif",
+        },
+        grid: {
+          vertLines: { color: 'rgba(255, 255, 255, 0.04)' },
+          horzLines: { color: 'rgba(255, 255, 255, 0.04)' },
+        },
+        crosshair: {
+          mode: 1,
+        },
+        rightPriceScale: {
+          borderColor: '#1e2d50',
+        },
+        timeScale: {
+          borderColor: '#1e2d50',
+          timeVisible: true,
+          secondsVisible: false,
+        },
+      });
+
+      const series = chart.addCandlestickSeries({
+        upColor: '#10b981',
+        downColor: '#ef4444',
+        borderVisible: false,
+        wickUpColor: '#10b981',
+        wickDownColor: '#ef4444',
+      });
+
+      const rawCandles = state.candles[symbol] || [];
+      if (rawCandles.length > 0) {
+        const formatted = rawCandles.map(c => {
+          let t = c.openTime || c.timestamp || Date.now();
+          if (t > 2000000000) t = Math.floor(t / 1000);
+          return {
+            time: t,
+            open: Number(c.open),
+            high: Number(c.high),
+            low: Number(c.low),
+            close: Number(c.close)
+          };
+        }).sort((a, b) => a.time - b.time);
+
+        const unique = [];
+        const seen = new Set();
+        for (const c of formatted) {
+          if (!seen.has(c.time)) {
+            seen.add(c.time);
+            unique.push(c);
+          }
+        }
+        if (unique.length > 0) {
+          series.setData(unique);
+        }
+      }
+
+      // Add TradingView Native Price Lines for Active Position (ENTRY, SL, TP)
+      const activeTrade = (state.trades[symbol] || []).find(t => t.status === 'open');
+      if (activeTrade) {
+        if (activeTrade.entryPrice) {
+          series.createPriceLine({
+            price: Number(activeTrade.entryPrice),
+            color: '#f59e0b',
+            lineWidth: 2,
+            lineStyle: 2, // Dashed
+            axisLabelVisible: true,
+            title: `ENTRY: ${formatPrice(activeTrade.entryPrice, symbol)}`,
+          });
+        }
+        if (activeTrade.stopLoss) {
+          series.createPriceLine({
+            price: Number(activeTrade.stopLoss),
+            color: '#ef4444',
+            lineWidth: 2,
+            lineStyle: 3, // Dotted
+            axisLabelVisible: true,
+            title: `SL: ${formatPrice(activeTrade.stopLoss, symbol)}`,
+          });
+        }
+        if (activeTrade.takeProfit) {
+          series.createPriceLine({
+            price: Number(activeTrade.takeProfit),
+            color: '#10b981',
+            lineWidth: 2,
+            lineStyle: 3, // Dotted
+            axisLabelVisible: true,
+            title: `TP: ${formatPrice(activeTrade.takeProfit, symbol)}`,
+          });
+        }
+      }
+
+      this._lwcChart = chart;
+      this._lwcSeries = series;
+
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(entries => {
+          if (entries[0] && chart) {
+            const { width, height } = entries[0].contentRect;
+            if (width > 0 && height > 0) {
+              chart.applyOptions({ width, height });
+            }
+          }
+        });
+        observer.observe(container);
+      }
+    } catch (err) {
+      console.error('[LTV] Error initializing LightweightCharts:', err);
     }
   }
 
