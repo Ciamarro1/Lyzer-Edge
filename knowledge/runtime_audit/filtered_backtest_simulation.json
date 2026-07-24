@@ -1,0 +1,42 @@
+{
+  "baseline": {
+    "count": 1389,
+    "wins": 427,
+    "losses": 956,
+    "be": 6,
+    "wr": 30.74,
+    "pnl": -306.18,
+    "pf": 0.89,
+    "exp": -0.22
+  },
+  "scenarioA": {
+    "count": 825,
+    "wins": 288,
+    "losses": 532,
+    "be": 5,
+    "wr": 34.91,
+    "pnl": 132.49,
+    "pf": 1.08,
+    "exp": 0.16
+  },
+  "scenarioB": {
+    "count": 372,
+    "wins": 195,
+    "losses": 176,
+    "be": 1,
+    "wr": 52.42,
+    "pnl": 643.27,
+    "pf": 2.22,
+    "exp": 1.73
+  },
+  "scenarioC": {
+    "count": 332,
+    "wins": 236,
+    "losses": 96,
+    "be": 0,
+    "wr": 71.08,
+    "pnl": 1129.46,
+    "pf": 4.92,
+    "exp": 3.4
+  }
+}

@@ -54,22 +54,37 @@ export class SmcEngineFacade {
     let narrative = 'SMC_OBSERVATION';
     let confidence = 50;
 
+    const enforceH4 = process.env.FEATURE_FILTER_H4_ALIGNMENT === 'true';
+    const enforceStructure = process.env.FEATURE_FILTER_STRUCTURE_CONFLUENCE === 'true';
+
     if (liquidityState.sweep && liquidityState.sweep.swept) {
       if (liquidityState.sweep.swept === 'SSL') {
-        signal = 'long';
-        narrative = 'SELL_SIDE_LIQUIDITY_SWEPT';
-        confidence = 85;
+        const h4Ok = !enforceH4 || trendState.bias === 'BULLISH' || trendState.bias === 'NEUTRAL';
+        const structOk = !enforceStructure || (structureState.markers && structureState.markers.some(m => m.direction === 'BULLISH'));
+        if (h4Ok && structOk) {
+          signal = 'long';
+          narrative = 'SELL_SIDE_LIQUIDITY_SWEPT';
+          confidence = 85;
+        }
       } else if (liquidityState.sweep.swept === 'BSL') {
-        signal = 'short';
-        narrative = 'BUY_SIDE_LIQUIDITY_SWEPT';
-        confidence = 85;
+        const h4Ok = !enforceH4 || trendState.bias === 'BEARISH' || trendState.bias === 'NEUTRAL';
+        const structOk = !enforceStructure || (structureState.markers && structureState.markers.some(m => m.direction === 'BEARISH'));
+        if (h4Ok && structOk) {
+          signal = 'short';
+          narrative = 'BUY_SIDE_LIQUIDITY_SWEPT';
+          confidence = 85;
+        }
       }
     } else if (structureState.markers && structureState.markers.length > 0) {
       const lastMarker = structureState.markers[structureState.markers.length - 1];
       if (lastMarker.type === 'BOS' || lastMarker.type === 'CHOCH') {
-        signal = lastMarker.direction === 'BULLISH' ? 'long' : 'short';
-        narrative = `${lastMarker.direction}_${lastMarker.type}_DETECTED`;
-        confidence = 75;
+        const candidateSignal = lastMarker.direction === 'BULLISH' ? 'long' : 'short';
+        const h4Ok = !enforceH4 || (candidateSignal === 'long' ? trendState.bias !== 'BEARISH' : trendState.bias !== 'BULLISH');
+        if (h4Ok) {
+          signal = candidateSignal;
+          narrative = `${lastMarker.direction}_${lastMarker.type}_DETECTED`;
+          confidence = 75;
+        }
       }
     }
 
