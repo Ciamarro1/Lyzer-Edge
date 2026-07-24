@@ -44,7 +44,7 @@ const state = {
   active:    'BTCUSDT',
   connState: 'CONNECTING',
   visibleCount: 80,
-  chartMode: 'tradingview' // 'tradingview' or 'canvas'
+  chartMode: 'lwc' // 'lwc' (TradingView Native + Order Lines), 'tradingview' (Binance Iframe), or 'canvas'
 };
 
 // ── Canvas Candlestick Renderer ───────────────────────────────────────────────
@@ -783,7 +783,8 @@ canvas.ltv-chart {
         <canvas class="ltv-chart" id="ltv-main-chart" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></canvas>
 
         <div style="position: absolute; left: 15px; top: 12px; display: flex; gap: 6px; z-index: 20;">
-          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#3b82f6; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 Binance TradingView Pro</button>
+          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#3b82f6; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 TradingView Nativo (Linhas SL/TP)</button>
+          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">🌐 Binance Widget</button>
           <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">⚡ Canvas Nativo</button>
         </div>
 
@@ -877,21 +878,41 @@ canvas.ltv-chart {
       this._sparklines[s] = document.getElementById(`spark-${s}`);
     });
 
-    // Toggle chart modes: TradingView vs Canvas
+    // Toggle chart modes: LightweightCharts (Default) vs TradingView Iframe vs Canvas
+    const btnLwc = document.getElementById('btn-chart-lwc');
     const btnTv = document.getElementById('btn-chart-tv');
     const btnCanvas = document.getElementById('btn-chart-canvas');
     const zoomControls = document.getElementById('ltv-zoom-controls');
     const tvContainer = document.getElementById('tradingview-container');
 
-    if (btnTv && btnCanvas) {
+    const updateButtonStyles = (activeBtn) => {
+      [btnLwc, btnTv, btnCanvas].forEach(b => {
+        if (!b) return;
+        if (b === activeBtn) {
+          b.style.background = 'rgba(59,130,246,0.2)';
+          b.style.borderColor = '#3b82f6';
+          b.style.color = '#38bdf8';
+        } else {
+          b.style.background = C.panel;
+          b.style.borderColor = C.border;
+          b.style.color = C.textMuted;
+        }
+      });
+    };
+
+    if (btnLwc && btnTv && btnCanvas) {
+      btnLwc.addEventListener('click', () => {
+        state.chartMode = 'lwc';
+        updateButtonStyles(btnLwc);
+        if (tvContainer) tvContainer.style.display = 'block';
+        if (this._mainCanvas) this._mainCanvas.style.display = 'none';
+        if (zoomControls) zoomControls.style.display = 'none';
+        this._mountLWC(state.active);
+      });
+
       btnTv.addEventListener('click', () => {
         state.chartMode = 'tradingview';
-        btnTv.style.background = 'rgba(59,130,246,0.2)';
-        btnTv.style.borderColor = '#3b82f6';
-        btnTv.style.color = '#3b82f6';
-        btnCanvas.style.background = C.panel;
-        btnCanvas.style.borderColor = C.border;
-        btnCanvas.style.color = C.textMuted;
+        updateButtonStyles(btnTv);
         if (tvContainer) tvContainer.style.display = 'block';
         if (this._mainCanvas) this._mainCanvas.style.display = 'none';
         if (zoomControls) zoomControls.style.display = 'none';
@@ -1065,8 +1086,12 @@ canvas.ltv-chart {
       const card = document.getElementById(`card-${s}`);
       if (card) card.classList.toggle('active', s === symbol);
     });
-    document.getElementById('log-symbol').textContent = symbol;
-    if (state.chartMode === 'tradingview') {
+    const logSym = document.getElementById('log-symbol');
+    if (logSym) logSym.textContent = symbol;
+    
+    if (state.chartMode === 'lwc') {
+      this._mountLWC(symbol);
+    } else if (state.chartMode === 'tradingview') {
       this._mountTVWidget(symbol);
     }
     this._loadHistory(symbol);
