@@ -1262,6 +1262,27 @@ canvas.ltv-chart {
         }
         state.latest[sym] = c.close;
 
+        // Instant Frontend SL/TP Tick Guard: guarantee visual closure immediately on tick breach
+        const openTrade = (state.trades[sym] || []).find(t => t.status === 'open');
+        if (openTrade) {
+          const isLong = openTrade.direction === 'LONG';
+          const price = c.close;
+          const high = c.high || price;
+          const low = c.low || price;
+
+          const slHit = isLong ? (low <= openTrade.stopLoss || price <= openTrade.stopLoss) : (high >= openTrade.stopLoss || price >= openTrade.stopLoss);
+          const tpHit = isLong ? (high >= openTrade.takeProfit || price >= openTrade.takeProfit) : (low <= openTrade.takeProfit || price <= openTrade.takeProfit);
+
+          if ((openTrade.stopLoss && slHit) || (openTrade.takeProfit && tpHit)) {
+            openTrade.status = 'closed';
+            openTrade.exitPrice = slHit ? openTrade.stopLoss : openTrade.takeProfit;
+            openTrade.pnl = isLong
+              ? (openTrade.exitPrice - openTrade.entryPrice) / openTrade.entryPrice
+              : (openTrade.entryPrice - openTrade.exitPrice) / openTrade.entryPrice;
+            this._updateTradeLog();
+          }
+        }
+
       } else if (data.type === 'arl' && data.market) {
         const c = data.market;
         // ARL candle close — ensure it's recorded
