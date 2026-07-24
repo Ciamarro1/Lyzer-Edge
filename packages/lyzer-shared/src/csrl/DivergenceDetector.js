@@ -23,4 +23,8 @@ export class DivergenceDetector {
         // Return normalized SDS (0 to 1, where 1 means total epistemic collapse across scales)
         return Math.min(1.0, Math.max(0.0, sds));
     }
+
+    calculateDivergence(topology, invariants) {
+        return this.detect(topology);
+    }
 }

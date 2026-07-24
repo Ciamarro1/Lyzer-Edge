@@ -327,12 +327,10 @@ export class StreamEngine extends EventEmitter {
     sendTelegramAlert(formatSystemAlert(`Conexão ${this.symbol}`, `Status da conexão alterado para: <b>${state}</b>`))
       .catch(e => console.error('[TELEGRAM] Error sending system alert:', e.message));
 
+    this.initializeExecution();
     if (state === 'CONNECTED') {
-      this.initializeExecution();
       this.stopFallbackLoop();
     } else {
-      console.log('[STREAM] Pausing execution layer due to connection loss/degradation.');
-      this.execution = null;
       this.startFallbackLoop();
     }
   }
@@ -411,7 +409,16 @@ export class StreamEngine extends EventEmitter {
     const alignedTensors = this.scaleNormalizer.alignScales(this.mtfCandles);
     const topology = this.cstg.buildTopology(alignedTensors);
     const invariants = this.invariantExtractor.extract(topology);
-    const sds = this.divergenceDetector.calculateDivergence(topology, invariants);
+    let sds = 0.0;
+    try {
+      if (typeof this.divergenceDetector.calculateDivergence === 'function') {
+        sds = this.divergenceDetector.calculateDivergence(topology, invariants);
+      } else if (typeof this.divergenceDetector.detect === 'function') {
+        sds = this.divergenceDetector.detect(topology);
+      }
+    } catch (csrlErr) {
+      console.warn(`[STREAM] CSRL divergence calculation fallback for ${this.symbol}: ${csrlErr.message}`);
+    }
     recordCsrlDuration(this.symbol, (performance.now() - csrlStart) / 1000);
 
     const providers = {
