@@ -44,6 +44,7 @@ const state = {
   active:    'BTCUSDT',
   connState: 'CONNECTING',
   visibleCount: 80,
+  chartMode: 'tradingview' // 'tradingview' or 'canvas'
 };
 
 // ── Canvas Candlestick Renderer ───────────────────────────────────────────────
@@ -777,9 +778,16 @@ canvas.ltv-chart {
         <div class="ltv-infobar-item"><div class="ltv-infobar-lbl">Candles</div><div class="ltv-infobar-val" id="info-count">—</div></div>
       </div>
 
-      <div class="ltv-chart-wrap" style="position: relative;">
-        <canvas class="ltv-chart" id="ltv-main-chart"></canvas>
-        <div style="position: absolute; right: 75px; top: 15px; display: flex; gap: 6px; z-index: 10;">
+      <div class="ltv-chart-wrap" style="position: relative; flex: 1; min-height: 0;">
+        <div id="tradingview-container" style="width:100%; height:100%; position:absolute; top:0; left:0; border-radius:8px; overflow:hidden; z-index:1;"></div>
+        <canvas class="ltv-chart" id="ltv-main-chart" style="display:none; position:absolute; top:0; left:0; width:100%; height:100%; z-index:2;"></canvas>
+
+        <div style="position: absolute; left: 15px; top: 12px; display: flex; gap: 6px; z-index: 20;">
+          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#3b82f6; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">📊 Binance TradingView Pro</button>
+          <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:5px 12px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:5px;">⚡ Canvas Nativo</button>
+        </div>
+
+        <div id="ltv-zoom-controls" style="position: absolute; right: 15px; top: 12px; display: none; gap: 6px; z-index: 20;">
           <button id="ltv-zoom-in" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.text}; border-radius:4px; width:26px; height:26px; cursor:pointer; font-weight:bold; font-size:14px; display:flex; align-items:center; justify-content:center;" title="Zoom In">+</button>
           <button id="ltv-zoom-out" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.text}; border-radius:4px; width:26px; height:26px; cursor:pointer; font-weight:bold; font-size:14px; display:flex; align-items:center; justify-content:center;" title="Zoom Out">-</button>
         </div>
@@ -816,6 +824,41 @@ canvas.ltv-chart {
       this._sparklines[s] = document.getElementById(`spark-${s}`);
     });
 
+    // Toggle chart modes: TradingView vs Canvas
+    const btnTv = document.getElementById('btn-chart-tv');
+    const btnCanvas = document.getElementById('btn-chart-canvas');
+    const zoomControls = document.getElementById('ltv-zoom-controls');
+    const tvContainer = document.getElementById('tradingview-container');
+
+    if (btnTv && btnCanvas) {
+      btnTv.addEventListener('click', () => {
+        state.chartMode = 'tradingview';
+        btnTv.style.background = 'rgba(59,130,246,0.2)';
+        btnTv.style.borderColor = '#3b82f6';
+        btnTv.style.color = '#3b82f6';
+        btnCanvas.style.background = C.panel;
+        btnCanvas.style.borderColor = C.border;
+        btnCanvas.style.color = C.textMuted;
+        if (tvContainer) tvContainer.style.display = 'block';
+        if (this._mainCanvas) this._mainCanvas.style.display = 'none';
+        if (zoomControls) zoomControls.style.display = 'none';
+        this._mountTVWidget(state.active);
+      });
+
+      btnCanvas.addEventListener('click', () => {
+        state.chartMode = 'canvas';
+        btnCanvas.style.background = 'rgba(59,130,246,0.2)';
+        btnCanvas.style.borderColor = '#3b82f6';
+        btnCanvas.style.color = '#3b82f6';
+        btnTv.style.background = C.panel;
+        btnTv.style.borderColor = C.border;
+        btnTv.style.color = C.textMuted;
+        if (tvContainer) tvContainer.style.display = 'none';
+        if (this._mainCanvas) this._mainCanvas.style.display = 'block';
+        if (zoomControls) zoomControls.style.display = 'flex';
+      });
+    }
+
     // Zoom buttons and mouse wheel zoom events
     const zoomInBtn = document.getElementById('ltv-zoom-in');
     const zoomOutBtn = document.getElementById('ltv-zoom-out');
@@ -835,6 +878,52 @@ canvas.ltv-chart {
         const delta = e.deltaY > 0 ? 10 : -10;
         state.visibleCount = Math.max(10, Math.min(300, state.visibleCount + delta));
       }, { passive: false });
+    }
+
+    // Initial mount of TradingView widget
+    if (state.chartMode === 'tradingview') {
+      this._mountTVWidget(state.active);
+    }
+  }
+
+  _mountTVWidget(symbol) {
+    const container = document.getElementById('tradingview-container');
+    if (!container) return;
+    container.innerHTML = '';
+
+    const widgetId = `tv_widget_${Date.now()}`;
+    const div = document.createElement('div');
+    div.id = widgetId;
+    div.style.width = '100%';
+    div.style.height = '100%';
+    container.appendChild(div);
+
+    let tvSymbol = `BINANCE:${symbol}`;
+    if (symbol.startsWith('EUR')) tvSymbol = 'FX:EURUSD';
+    if (symbol.startsWith('GBP')) tvSymbol = 'FX:GBPUSD';
+
+    if (window.TradingView) {
+      try {
+        new window.TradingView.widget({
+          "autosize": true,
+          "symbol": tvSymbol,
+          "interval": "1",
+          "timezone": "Etc/UTC",
+          "theme": "dark",
+          "style": "1",
+          "locale": "en",
+          "toolbar_bg": "#06090f",
+          "enable_publishing": false,
+          "hide_top_toolbar": false,
+          "allow_symbol_change": true,
+          "save_image": false,
+          "container_id": widgetId
+        });
+      } catch (err) {
+        console.error('[LTV] Failed to mount TradingView widget:', err);
+      }
+    } else {
+      setTimeout(() => this._mountTVWidget(symbol), 400);
     }
   }
 
@@ -899,6 +988,9 @@ canvas.ltv-chart {
       if (card) card.classList.toggle('active', s === symbol);
     });
     document.getElementById('log-symbol').textContent = symbol;
+    if (state.chartMode === 'tradingview') {
+      this._mountTVWidget(symbol);
+    }
     this._loadHistory(symbol);
   }
 
