@@ -1,0 +1,1869 @@
+{
+  "timestamp": "2026-07-25T03:29:22.876Z",
+  "gridSize": 168,
+  "optimal": {
+    "params": {
+      "slAtr": 1,
+      "tpAtr": 1.5,
+      "trgThreshold": 0.4,
+      "sizingPct": 2
+    },
+    "sharpe": 4.1,
+    "winRate": 0.455,
+    "robustnessScore": "ROBUST"
+  },
+  "distribution": {
+    "robust": 54,
+    "fragile": 114
+  },
+  "rawGrid": [
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 1.43,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 1.61,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 1.61,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -1.08,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 1.48,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 1.53,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 1.41,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": -1.02,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 1.44,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 1.44,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 1.5,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -1.06,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 1.44,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 1.59,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 1.47,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -0.94,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 1.43,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 1.47,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 1.48,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": -0.89,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 1.47,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 1.59,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 1.52,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -1.03,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 1.61,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 1.59,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 1.5,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -1.05,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 1.41,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 1.55,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 1.47,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": -0.93,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 1.42,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 1.48,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 1.59,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -1.05,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 1.58,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 1.59,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 1.57,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -0.99,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 1.58,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 1.45,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 1.45,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": -1.05,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 1.58,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 1.47,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 1.55,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -0.97,
+      "winRate": 0.355,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": -0.03,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": -0.05,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": -0.04,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -2,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 0.08,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": -0.07,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 0.04,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": -2,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 0,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 0.02,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": -0.07,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 0.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -2,
+      "winRate": 0.205,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 4.07,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 3.93,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.56,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 4.1,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 3.93,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.49,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4.08,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 4.07,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 4.06,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 1.5,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.56,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 4.04,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 3.94,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 4.01,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.47,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 4.01,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 3.94,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 3.91,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.49,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 3.96,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.45,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 3.98,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 4.05,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.44,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 3.98,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 4.01,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 4.01,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.52,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4.06,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 3.92,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.57,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 2.5,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 2.58,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 2.55,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 0.06,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 2.57,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 2.56,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 2.59,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 0.06,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 2.55,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 2.61,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 2.59,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 0.1,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 4.09,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 4.04,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.58,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 4.09,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 3.92,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.45,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 4.06,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 3.92,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 2,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.49,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 4.1,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 3.98,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 3.99,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.43,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 3.93,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 4.02,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.52,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 4.1,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 4.06,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.59,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 2.43,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 2.59,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 2.45,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": -0.05,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 2.48,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 2.56,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 2.5,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 0.08,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 2.58,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 2.43,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 2.59,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 1.5,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 0.04,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 3.96,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 3.92,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 3.93,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 1.51,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 4.01,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 3.97,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 4.03,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 1.51,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 4.09,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 3.99,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 4.07,
+      "winRate": 0.455,
+      "robustnessScore": "ROBUST"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 3,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": 1.51,
+      "winRate": 0.455,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 1
+      },
+      "sharpe": 2.61,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 2
+      },
+      "sharpe": 2.56,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 5
+      },
+      "sharpe": 2.41,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.2,
+        "sizingPct": 10
+      },
+      "sharpe": 0.03,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 1
+      },
+      "sharpe": 2.43,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 2
+      },
+      "sharpe": 2.6,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 5
+      },
+      "sharpe": 2.61,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.4,
+        "sizingPct": 10
+      },
+      "sharpe": 0.03,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 1
+      },
+      "sharpe": 2.5,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 2
+      },
+      "sharpe": 2.49,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 5
+      },
+      "sharpe": 2.48,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    },
+    {
+      "params": {
+        "slAtr": 2,
+        "tpAtr": 4,
+        "trgThreshold": 0.6,
+        "sizingPct": 10
+      },
+      "sharpe": -0.04,
+      "winRate": 0.305,
+      "robustnessScore": "FRAGILE"
+    }
+  ]
+}
