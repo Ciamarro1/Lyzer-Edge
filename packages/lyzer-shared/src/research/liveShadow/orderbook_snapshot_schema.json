@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderBookForensicSnapshot",
+  "description": "Esquema forense de armazenamento do order book observável antes, durante e após decisões quantitativas do Lyzer Edge L15",
+  "type": "object",
+  "required": [
+    "snapshotId",
+    "timestamp",
+    "symbol",
+    "realitySource",
+    "preDecision",
+    "duringExecution",
+    "postExecution",
+    "lineageSignature"
+  ],
+  "properties": {
+    "snapshotId": {
+      "type": "string",
+      "description": "UUIDv7 ou identificador único causal da observação forense"
+    },
+    "timestamp": {
+      "type": "integer",
+      "description": "Timestamp em milissegundos UTC do momento da captura física"
+    },
+    "symbol": {
+      "type": "string",
+      "example": "BTC/USDT"
+    },
+    "realitySource": {
+      "type": "string",
+      "enum": ["OBSERVED_REALITY", "SYNTHETIC_REALITY"],
+      "description": "Tag regimental declarando estritamente a fonte da microestrutura"
+    },
+    "preDecision": {
+      "type": "object",
+      "required": ["bid", "ask", "spread", "depth", "volume24h"],
+      "properties": {
+        "bid": { "type": "number", "description": "Melhor preço de compra observável no livro" },
+        "ask": { "type": "number", "description": "Melhor preço de venda observável no livro" },
+        "spread": { "type": "number", "description": "Diferença absoluta entre Ask e Bid" },
+        "depth": {
+          "type": "object",
+          "properties": {
+            "bidsVolume": { "type": "number", "description": "Volume agregado no topo das ordens de compra" },
+            "asksVolume": { "type": "number", "description": "Volume agregado no topo das ordens de venda" }
+          },
+          "required": ["bidsVolume", "asksVolume"]
+        },
+        "volume24h": { "type": "number", "description": "Volume operado no par nas últimas 24h" }
+      }
+    },
+    "duringExecution": {
+      "type": "object",
+      "required": ["latencyMs", "simulatedPrice", "marketImpactPerc"],
+      "properties": {
+        "latencyMs": { "type": "number", "description": "Latência física de rede/processamento desde a emissão do sinal até a leitura do livro" },
+        "simulatedPrice": { "type": "number", "description": "Preço efetivo simulado no order book para o volume desejado" },
+        "marketImpactPerc": { "type": "number", "description": "Impacto percentual estimado no order book para absorver a ordem" }
+      }
+    },
+    "postExecution": {
+      "type": "object",
+      "required": ["hypotheticalOrderStatus", "slippagePerc", "netPnlBrl"],
+      "properties": {
+        "hypotheticalOrderStatus": {
+          "type": "string",
+          "enum": ["FILLED_SIMULATED", "REJECTED_LIQUIDITY", "REJECTED_SPREAD", "REJECTED_LATENCY", "HALTED_CLOCK"],
+          "description": "Resultado da simulação hipotética no observatório L15"
+        },
+        "slippagePerc": { "type": "number", "description": "Slippage percentual real sofrido em comparação ao preço do sinal" },
+        "netPnlBrl": { "type": "number", "description": "Lucro ou prejuízo líquido em BRL (incluindo taxas simuladas de exchange)" }
+      }
+    },
+    "lineageSignature": {
+      "type": "string",
+      "description": "Assinatura criptográfica do DataLineageEngine selando a autenticidade"
+    }
+  }
+}
