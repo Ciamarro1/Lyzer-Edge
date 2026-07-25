@@ -137,3 +137,43 @@ export class WidgetError extends Error {
     this.timestamp = new Date().toISOString();
   }
 }
+
+/**
+ * Deeply or structurally freezes an event payload according to institutional immutability rules.
+ * Handles Array, Object, Map, Set, TypedArray, and Date.
+ * @param {*} payload
+ * @returns {*} Frozen copy or original primitive
+ */
+export function freezePayload(payload) {
+  if (payload === null || typeof payload !== 'object') {
+    return payload;
+  }
+  if (payload instanceof Date) {
+    return new Date(payload.getTime());
+  }
+  if (Array.isArray(payload)) {
+    return Object.freeze(payload.map(item => freezePayload(item)));
+  }
+  if (payload instanceof Map) {
+    const copy = new Map();
+    for (const [k, v] of payload.entries()) {
+      copy.set(k, freezePayload(v));
+    }
+    return copy;
+  }
+  if (payload instanceof Set) {
+    const copy = new Set();
+    for (const v of payload.values()) {
+      copy.add(freezePayload(v));
+    }
+    return copy;
+  }
+  if (ArrayBuffer.isView(payload) || payload instanceof ArrayBuffer) {
+    return payload.slice(0);
+  }
+  const copy = { ...payload };
+  for (const key of Object.keys(copy)) {
+    copy[key] = freezePayload(copy[key]);
+  }
+  return Object.freeze(copy);
+}

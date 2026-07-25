@@ -108,18 +108,9 @@ export class WidgetLoader {
         await this.loadAndMount(widgetId, container, plugin);
       });
 
-      // Execute mount hook (supports object context or positional args)
+      // Execute mount hook strictly following RFC-001 / ADR-041 positional args: (container, runtime)
       await errorBoundary.executeAsync(async () => {
-        const context = Object.freeze({
-          container,
-          instanceId,
-          manifest,
-          runtime,
-          theme: 'dark',
-          locale: 'en-US',
-          paneId: manifest.targetPane
-        });
-        await plugin.mount(context, runtime);
+        await plugin.mount(container, runtime);
       }, 'mounting');
 
       if (errorBoundary.isCrashed) {

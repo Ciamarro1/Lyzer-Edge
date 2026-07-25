@@ -11,6 +11,7 @@ export class FrameMetricsCollector {
     // Metrics state
     this._frameCount = 0;
     this._droppedFrames = 0;
+    this._framesOverBudget = 0;
     this._framesOver16ms = 0;
     this._framesOver33ms = 0;
     this._maxFrameTime = 0;
@@ -21,6 +22,7 @@ export class FrameMetricsCollector {
     // Bind to scheduler events
     this._scheduler.on('frame:end', this._onFrameEnd.bind(this));
     this._scheduler.on('frame:dropped', this._onFrameDropped.bind(this));
+    this._scheduler.on('frame:over_budget', this._onFrameOverBudget.bind(this));
     
     this._startTime = Date.now();
     this._lastReportTime = this._startTime;
@@ -39,8 +41,12 @@ export class FrameMetricsCollector {
     if (duration > 33.3) this._framesOver33ms++;
   }
 
-  _onFrameDropped() {
-    this._droppedFrames++;
+  _onFrameOverBudget() {
+    this._framesOverBudget++;
+  }
+
+  _onFrameDropped(payload) {
+    this._droppedFrames += payload?.count || 1;
   }
 
   /**
@@ -62,6 +68,7 @@ export class FrameMetricsCollector {
       totalFrames: this._frameCount,
       droppedFrames: this._droppedFrames,
       droppedRatio: droppedRatio * 100, // %
+      framesOverBudget: this._framesOverBudget,
       framesOver16ms: this._framesOver16ms,
       framesOver33ms: this._framesOver33ms,
       avgFrameTimeMs: avgFrameTime,
@@ -79,6 +86,7 @@ export class FrameMetricsCollector {
   reset() {
     this._frameCount = 0;
     this._droppedFrames = 0;
+    this._framesOverBudget = 0;
     this._framesOver16ms = 0;
     this._framesOver33ms = 0;
     this._maxFrameTime = 0;

@@ -61,6 +61,11 @@ O Orchestrator **NÃO** convoca todos. Seleciona apenas os necessários para a m
 - Documentation Engineer
 - Release Engineer
 
+### 🏛️ COMITÊS MULTI-AGENTE EM PARALELO (INSTITUTIONAL HIGH-STANDARD)
+Quando a missão exigir grau de certificação institucional (ex: *Architecture Review Board*, *Readiness Review*, *Red Team Review*, *Milestone Certification*), o Orchestrator DEVE despachar subagentes em paralelo com visões opostas e complementares para auditar a mesma superfície. 
+- **Regra de Não-Consenso Prévio**: O comitê não parte do pressuposto que a arquitetura está correta. Cada membro analisa isoladamente pelo seu prisma (Segurança, Latência, Contratos, DX).
+- **Síntese Institucional**: O Orchestrator consolida os apontamentos em uma Matriz de Veto e Parecer Final. Nenhuma milestone avança se houver veto técnico não resolvido.
+
 ---
 
 ## 📚 ESTRUTURA MODULAR DO FRAMEWORK DE GOVERNANÇA
