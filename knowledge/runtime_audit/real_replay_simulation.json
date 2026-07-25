@@ -1,0 +1,38 @@
+{
+  "baseline": {
+    "totalTrades": 6,
+    "wins": 2,
+    "losses": 4,
+    "winRate": 33.33,
+    "netPnl": 0,
+    "profitFactor": 1,
+    "expectancy": 0
+  },
+  "scenarioA": {
+    "totalTrades": 5,
+    "wins": 1,
+    "losses": 4,
+    "winRate": 20,
+    "netPnl": -6,
+    "profitFactor": 0.5,
+    "expectancy": -1.2
+  },
+  "scenarioB": {
+    "totalTrades": 5,
+    "wins": 1,
+    "losses": 4,
+    "winRate": 20,
+    "netPnl": -6,
+    "profitFactor": 0.5,
+    "expectancy": -1.2
+  },
+  "scenarioC": {
+    "totalTrades": 1,
+    "wins": 1,
+    "losses": 0,
+    "winRate": 100,
+    "netPnl": 6,
+    "profitFactor": 6,
+    "expectancy": 6
+  }
+}
