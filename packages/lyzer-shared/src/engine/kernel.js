@@ -12,8 +12,8 @@ import { ExecutionTriggerLayer } from './executionTriggerLayer.js';
  */
 
 export class TruthKernel {
-  constructor({ trgThreshold = 0.4, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg } = {}) {
-    this.rl = new ResidualizationLayer({ consensusLimit });
+  constructor({ trgThreshold = 0.4, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg } = {}) {
+    this.rl = new ResidualizationLayer({ consensusLimit, trgExponent });
     this.ett = new ExecutionTriggerLayer(trgThreshold);
     this.lhdsVetoLimit = lhdsVetoLimit !== undefined ? lhdsVetoLimit : 0.8;
     this.ontologicalCollapseTrg = ontologicalCollapseTrg !== undefined ? ontologicalCollapseTrg : 0.7;

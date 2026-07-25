@@ -1,0 +1,674 @@
+{
+  "timestamp": "2026-07-25T03:09:11.349Z",
+  "dataset": {
+    "source": "Binance API (Live BTCUSDT 1m)",
+    "candleCount": 1000,
+    "regime": {
+      "regime": "EXPANSION",
+      "confidence": 0.85,
+      "metrics": {
+        "atrRatio": 1.30497335701581,
+        "directionalBias": 0.7155361050329638,
+        "compressionRatio": 0.18123055110602623,
+        "shortATR": 12.244999999998981,
+        "longATR": 9.383333333333818
+      }
+    }
+  },
+  "walkForward": {
+    "baseline": {
+      "windows": [
+        {
+          "window": 1,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 4,
+            "winCount": 1,
+            "lossCount": 3,
+            "winRate": 0.25,
+            "avgWin": 0.0003298732099946874,
+            "avgLoss": 0.001499999999999983,
+            "profitFactor": 0.07330515777659803,
+            "expectancy": -0.0010425316975013154,
+            "totalReturn": -0.004170126790005261,
+            "maxDrawdown": -0.0044999999999999485,
+            "recoveryFactor": -0.926694842223402,
+            "sharpe": -18.08833261512277,
+            "sortino": -11.033118421962122,
+            "calmar": -58.381775060074325,
+            "avgHoldingBars": 20.5,
+            "exitReasons": {
+              "STOP_LOSS": 3,
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 1.1547005383792524,
+              "kurtosis": -0.6666666666666652,
+              "percentiles": {
+                "p5": -0.0015000000000000907,
+                "p25": -0.0014999999999999595,
+                "p50": -0.001499999999999898,
+                "p75": 0.0003298732099946874,
+                "p95": 0.0003298732099946874
+              }
+            },
+            "significance": {
+              "tStatistic": -2.2789157014968313,
+              "pValue": 0.022672010987388802,
+              "isSignificant": true,
+              "degreesOfFreedom": 3,
+              "meanPnl": -0.0010425316975013154,
+              "stdErr": 0.0004574683024986675
+            },
+            "equityCurve": [
+              0,
+              -0.001499999999999898,
+              -0.002999999999999989,
+              -0.0044999999999999485,
+              -0.004170126790005261
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 4,
+          "testTrades": 0
+        },
+        {
+          "window": 2,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 8,
+            "winCount": 3,
+            "lossCount": 5,
+            "winRate": 0.375,
+            "avgWin": 0.0026358584180759346,
+            "avgLoss": 0.0015399601172982286,
+            "profitFactor": 1.0269844219214184,
+            "expectancy": 0.000025971833467082635,
+            "totalReturn": 0.00020777466773666173,
+            "maxDrawdown": -0.003199800586491216,
+            "recoveryFactor": 0.06493363011865055,
+            "sharpe": 0.18480046586065138,
+            "sortino": 0.26737074195791494,
+            "calmar": 2.0454093487374925,
+            "avgHoldingBars": 10.75,
+            "exitReasons": {
+              "STOP_LOSS": 5,
+              "TAKE_PROFIT": 2,
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0.6811386459799638,
+              "kurtosis": -1.366575693202049,
+              "percentiles": {
+                "p5": -0.0016991759733950519,
+                "p25": -0.001500000000000043,
+                "p50": -0.0014999999999999328,
+                "p75": 0.00299999999999989,
+                "p95": 0.003432496575039216
+              }
+            },
+            "significance": {
+              "tStatistic": 0.032926668007941515,
+              "pValue": 0.9737329540202162,
+              "isSignificant": false,
+              "degreesOfFreedom": 7,
+              "meanPnl": 0.000025971833467082717,
+              "stdErr": 0.0007887780646623164
+            },
+            "equityCurve": [
+              0,
+              -0.001500000000000043,
+              0.001499999999999847,
+              -6.246130963170546e-7,
+              -0.001699800586491369,
+              0.0017326959885478471,
+              0.0002326959885479143,
+              -0.0012673040114520367,
+              0.00020777466773666173
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 8,
+          "testTrades": 0
+        },
+        {
+          "window": 3,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 1,
+            "lossCount": 0,
+            "winRate": 1,
+            "avgWin": 0.00018195977847643724,
+            "avgLoss": 0,
+            "profitFactor": null,
+            "expectancy": 0.00018195977847643724,
+            "totalReturn": 0.00018195977847643724,
+            "maxDrawdown": 0,
+            "recoveryFactor": null,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": null,
+            "avgHoldingBars": 85,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              0.00018195977847643724
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        },
+        {
+          "window": 4,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 0,
+            "lossCount": 1,
+            "winRate": 0,
+            "avgWin": 0,
+            "avgLoss": 0.0004052115820067979,
+            "profitFactor": 0,
+            "expectancy": -0.0004052115820067979,
+            "totalReturn": -0.0004052115820067979,
+            "maxDrawdown": -0.0004052115820067979,
+            "recoveryFactor": -1,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": -251.99999999999997,
+            "avgHoldingBars": 87,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              -0.0004052115820067979
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        },
+        {
+          "window": 5,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 1,
+            "lossCount": 0,
+            "winRate": 1,
+            "avgWin": 0.00005227705591223922,
+            "avgLoss": 0,
+            "profitFactor": null,
+            "expectancy": 0.00005227705591223922,
+            "totalReturn": 0.00005227705591223922,
+            "maxDrawdown": 0,
+            "recoveryFactor": null,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": null,
+            "avgHoldingBars": 84,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              0.00005227705591223922
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        }
+      ],
+      "aggregate": {
+        "avgTestSharpe": null,
+        "avgTestWinRate": null,
+        "windowCount": 5,
+        "consistentWindows": 0
+      }
+    },
+    "optimized": {
+      "windows": [
+        {
+          "window": 1,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 4,
+            "winCount": 2,
+            "lossCount": 2,
+            "winRate": 0.5,
+            "avgWin": 0.0015602067659145405,
+            "avgLoss": 0.0014999999999999944,
+            "profitFactor": 1.0401378439430309,
+            "expectancy": 0.000030103382957273063,
+            "totalReturn": 0.0001204135318290922,
+            "maxDrawdown": -0.002999999999999989,
+            "recoveryFactor": 0.04013784394303088,
+            "sharpe": 0.22518241383893606,
+            "sortino": 0.31858425970673976,
+            "calmar": 2.528684168410946,
+            "avgHoldingBars": 20,
+            "exitReasons": {
+              "STOP_LOSS": 2,
+              "TAKE_PROFIT": 1,
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0.766438099308902,
+              "kurtosis": -1.0550392489809863,
+              "percentiles": {
+                "p5": -0.0015000000000000907,
+                "p25": -0.001499999999999898,
+                "p50": 0.00012041353182906878,
+                "p75": 0.003000000000000012,
+                "p95": 0.003000000000000012
+              }
+            },
+            "significance": {
+              "tStatistic": 0.02837031745919306,
+              "pValue": 0.9773666950822588,
+              "isSignificant": false,
+              "degreesOfFreedom": 3,
+              "meanPnl": 0.00003010338295727305,
+              "stdErr": 0.001061087279004642
+            },
+            "equityCurve": [
+              0,
+              -0.001499999999999898,
+              -0.002999999999999989,
+              2.3418766925686896e-17,
+              0.0001204135318290922
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 4,
+          "testTrades": 0
+        },
+        {
+          "window": 2,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 8,
+            "winCount": 1,
+            "lossCount": 7,
+            "winRate": 0.125,
+            "avgWin": 0.002999999999999979,
+            "avgLoss": 0.0012857142857143102,
+            "profitFactor": 0.33333333333332466,
+            "expectancy": -0.0007500000000000241,
+            "totalReturn": -0.006000000000000193,
+            "maxDrawdown": -0.007500000000000191,
+            "recoveryFactor": -0.8000000000000053,
+            "sharpe": -7.424621202458968,
+            "sortino": -7.937253933193876,
+            "calmar": -25.200000000000166,
+            "avgHoldingBars": 10.125,
+            "exitReasons": {
+              "STOP_LOSS": 6,
+              "TAKE_PROFIT": 1,
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 1.874999999999989,
+              "kurtosis": 1.9374999999999636,
+              "percentiles": {
+                "p5": -0.0015000000000000909,
+                "p25": -0.0015000000000000371,
+                "p50": -0.0015000000000000018,
+                "p75": 0,
+                "p95": 0.002999999999999979
+              }
+            },
+            "significance": {
+              "tStatistic": -1.3228756555323342,
+              "pValue": 0.185876864583985,
+              "isSignificant": false,
+              "degreesOfFreedom": 7,
+              "meanPnl": -0.0007500000000000241,
+              "stdErr": 0.0005669467095138423
+            },
+            "equityCurve": [
+              0,
+              -0.001500000000000043,
+              -0.0030000000000000447,
+              -0.004500000000000136,
+              -0.0060000000000001545,
+              -0.007500000000000191,
+              -0.004500000000000212,
+              -0.006000000000000193,
+              -0.006000000000000193
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 8,
+          "testTrades": 0
+        },
+        {
+          "window": 3,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 1,
+            "lossCount": 0,
+            "winRate": 1,
+            "avgWin": 0.00018195977847643724,
+            "avgLoss": 0,
+            "profitFactor": null,
+            "expectancy": 0.00018195977847643724,
+            "totalReturn": 0.00018195977847643724,
+            "maxDrawdown": 0,
+            "recoveryFactor": null,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": null,
+            "avgHoldingBars": 85,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              0.00018195977847643724
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        },
+        {
+          "window": 4,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 0,
+            "lossCount": 1,
+            "winRate": 0,
+            "avgWin": 0,
+            "avgLoss": 0.0004052115820067979,
+            "profitFactor": 0,
+            "expectancy": -0.0004052115820067979,
+            "totalReturn": -0.0004052115820067979,
+            "maxDrawdown": -0.0004052115820067979,
+            "recoveryFactor": -1,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": -251.99999999999997,
+            "avgHoldingBars": 87,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              -0.0004052115820067979
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        },
+        {
+          "window": 5,
+          "trainBars": 140,
+          "testBars": 60,
+          "trainStats": {
+            "tradeCount": 1,
+            "winCount": 1,
+            "lossCount": 0,
+            "winRate": 1,
+            "avgWin": 0.00005227705591223922,
+            "avgLoss": 0,
+            "profitFactor": null,
+            "expectancy": 0.00005227705591223922,
+            "totalReturn": 0.00005227705591223922,
+            "maxDrawdown": 0,
+            "recoveryFactor": null,
+            "sharpe": 0,
+            "sortino": 0,
+            "calmar": null,
+            "avgHoldingBars": 84,
+            "exitReasons": {
+              "END_OF_DATA": 1
+            },
+            "distribution": {
+              "skewness": 0,
+              "kurtosis": 0,
+              "percentiles": {}
+            },
+            "significance": {
+              "tStatistic": 0,
+              "pValue": 1,
+              "isSignificant": false
+            },
+            "equityCurve": [
+              0,
+              0.00005227705591223922
+            ]
+          },
+          "testStats": null,
+          "trainTrades": 1,
+          "testTrades": 0
+        }
+      ],
+      "aggregate": {
+        "avgTestSharpe": null,
+        "avgTestWinRate": null,
+        "windowCount": 5,
+        "consistentWindows": 0
+      }
+    }
+  },
+  "fullDataset": {
+    "baselineStats": {
+      "tradeCount": 30,
+      "winCount": 8,
+      "lossCount": 22,
+      "winRate": 0.26666666666666666,
+      "avgWin": 0.0031135564578171683,
+      "avgLoss": 0.0015053058092372692,
+      "profitFactor": 0.7521410874451042,
+      "expectancy": -0.00027360920468941935,
+      "totalReturn": -0.008208276140682572,
+      "maxDrawdown": -0.011410117655642218,
+      "recoveryFactor": -0.7193857581848545,
+      "sharpe": -2.0703655001100554,
+      "sortino": -2.821725677910815,
+      "calmar": -6.042840368752778,
+      "avgHoldingBars": 30.833333333333332,
+      "exitReasons": {
+        "STOP_LOSS": 21,
+        "TAKE_PROFIT": 8,
+        "END_OF_DATA": 1
+      },
+      "distribution": {
+        "skewness": 1.010521476316897,
+        "kurtosis": -0.9200075872579645,
+        "percentiles": {
+          "p5": -0.001776293507286247,
+          "p25": -0.001500624613096164,
+          "p50": -0.0014999999999999538,
+          "p75": 0.0029999999999998604,
+          "p95": 0.0032741135725387898
+        }
+      },
+      "significance": {
+        "tStatistic": -0.7143439634382791,
+        "pValue": 0.4750143745766049,
+        "isSignificant": false,
+        "degreesOfFreedom": 29,
+        "meanPnl": -0.0002736092046894191,
+        "stdErr": 0.0003830216516039188
+      },
+      "equityCurve": [
+        0,
+        -0.001499999999999898,
+        -0.002999999999999989,
+        -0.0044999999999999485,
+        -0.001499999999999942,
+        0.0015000000000000178,
+        1.0625181290357943e-17,
+        0.002999999999999987,
+        0.001499999999999995,
+        -3.903127820947816e-18,
+        0.003201841514959646,
+        0.0014003410723183898,
+        -0.0003486861010063094,
+        -0.0021249796082925564,
+        -0.00386512762207326,
+        -0.0005910140495344702,
+        -0.0022485342385103603,
+        -0.003826061884904241,
+        -0.0008260618849043511,
+        -0.002326686498000515,
+        -0.0040258624713955665,
+        -0.0005933658963563505,
+        -0.0020933658963562833,
+        -0.0035933658963562343,
+        -0.0050933658963562365,
+        -0.002093365896356376,
+        -0.003593365896356283,
+        -0.005093365896356212,
+        -0.006593365896356262,
+        -0.008093365896356217,
+        -0.008208276140682572
+      ]
+    },
+    "optimizedStats": {
+      "tradeCount": 24,
+      "winCount": 10,
+      "lossCount": 14,
+      "winRate": 0.4166666666666667,
+      "avgWin": 0.003073906459342783,
+      "avgLoss": 0.0014608822949825418,
+      "profitFactor": 1.5029598746594228,
+      "expectancy": 0.00042861301931967693,
+      "totalReturn": 0.01028671246367224,
+      "maxDrawdown": -0.007541941023921307,
+      "recoveryFactor": 1.3639343547032716,
+      "sharpe": 2.9652424536110527,
+      "sortino": 4.591463851055441,
+      "calmar": 14.321310724384354,
+      "avgHoldingBars": 38.625,
+      "exitReasons": {
+        "STOP_LOSS": 13,
+        "TAKE_PROFIT": 10,
+        "END_OF_DATA": 1
+      },
+      "distribution": {
+        "skewness": 0.32576820394190686,
+        "kurtosis": -1.8618661457911971,
+        "percentiles": {
+          "p5": -0.0015419410239212025,
+          "p25": -0.0015000000000000182,
+          "p50": -0.001499999999999898,
+          "p75": 0.002999999999999979,
+          "p95": 0.00320184151495965
+        }
+      },
+      "significance": {
+        "tStatistic": 0.9150936880839966,
+        "pValue": 0.3601424013001506,
+        "isSignificant": false,
+        "degreesOfFreedom": 23,
+        "meanPnl": 0.00042861301931967666,
+        "stdErr": 0.0004683815710903846
+      },
+      "equityCurve": [
+        0,
+        -0.001499999999999898,
+        -0.002999999999999989,
+        2.3418766925686896e-17,
+        0.0030000000000000365,
+        0.005999999999999997,
+        0.004499999999999989,
+        0.007499999999999966,
+        0.005999999999999974,
+        0.004499999999999975,
+        0.007701841514959625,
+        0.005900341072318369,
+        0.009437564150786733,
+        0.00789562312686553,
+        0.006395623126865495,
+        0.004895623126865482,
+        0.0033956231268654634,
+        0.0018956231268654263,
+        0.004895623126865405,
+        0.003395623126865425,
+        0.006395623126865462,
+        0.009395623126865323,
+        0.007895623126865302,
+        0.010895623126865277,
+        0.01028671246367224
+      ]
+    },
+    "comparison": {
+      "tStatistic": 1.1605997871162053,
+      "pValue": 0.2458048095063674,
+      "isSignificant": false,
+      "meanDifference": 0.0007022222240090957,
+      "improvementPct": 256.6515350995616
+    }
+  }
+}
