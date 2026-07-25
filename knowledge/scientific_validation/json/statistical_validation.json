@@ -1,0 +1,10 @@
+{
+  "sampleSize": 1389,
+  "meanPnl": -0.2204,
+  "bootstrapCi95": [
+    -0.4292,
+    0.001
+  ],
+  "pValueZeroHypothesis": 0.025,
+  "statisticallySignificant": true
+}

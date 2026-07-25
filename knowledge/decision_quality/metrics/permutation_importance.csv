@@ -1,7 +1,7 @@
 feature,relative_importance_percent,impact_level
-atr_volatility,4.9,CRITICAL
-structure_m15,8.33,HIGH
-trg_asymmetry,14.05,MODERATE
-h4_trend,19.44,MODERATE
-m1_sweep,28.76,LOW_NOISY
-spread_level,24.51,MARGINAL
+atr_volatility,6.48,CRITICAL
+structure_m15,11.05,HIGH
+trg_asymmetry,14.67,MODERATE
+h4_trend,14.48,MODERATE
+m1_sweep,26.1,LOW_NOISY
+spread_level,27.24,MARGINAL

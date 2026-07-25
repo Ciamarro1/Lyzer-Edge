@@ -1,0 +1,6 @@
+{
+  "kellyFraction": -0.0389,
+  "recommendedMaxRiskPerTrade": "0.00% (Sub-optimal Raw Strategy)",
+  "riskOfRuin100Trades": "99.4% (With un-mitigated 30.74% WR)",
+  "riskOfRuinFilteredStrategy": "0.01% (With 52.42% WR / Scenario B)"
+}

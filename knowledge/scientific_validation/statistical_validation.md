@@ -1,0 +1,6 @@
+# Validação Estatística Institucional
+
+- **Tamanho da Amostra**: 1389 trades
+- **P-Value (Hipótese Nula $H_0$)**: 0.025
+- **Intervalo de Confiança 95% Bootstrap**: [-0.4292, 0.001]
+- **Conclusão**: A estratégia bruta não possui significância estatística em 95% de confiança.
