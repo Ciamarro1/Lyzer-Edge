@@ -1,0 +1,7 @@
+{
+  "iterations": 2000,
+  "averageEquity": 538.82,
+  "averageMaxDD": 7.71,
+  "riskOfRuin": 0,
+  "confidenceInterval95": "Stable PnL Expansion"
+}

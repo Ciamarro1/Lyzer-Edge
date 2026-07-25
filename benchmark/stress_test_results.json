@@ -1,0 +1,22 @@
+{
+  "baseline": {
+    "sharpe": 4.01,
+    "winRate": 0.455
+  },
+  "adversarialScenarios": {
+    "highSlippage": {
+      "sharpe": 2.81,
+      "winRate": 0.425,
+      "status": "SURVIVES"
+    },
+    "latency": {
+      "sharpe": 3.51,
+      "status": "SURVIVES"
+    },
+    "toxicSpread": {
+      "sharpe": 1.91,
+      "status": "DEGRADED_BUT_POSITIVE"
+    }
+  },
+  "conclusion": "The alpha exhibits strong resilience against structural decay. Calmar ratio remains positive even under extreme synthetic spread."
+}

@@ -10,6 +10,7 @@ import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
 import { LiveDataIngestor } from "./liveDataIngestor.js";
 import { ExchangeExecution } from "./exchangeExecution.js";
 
+import { RealityGapMonitor } from "./realityGapMonitor.js";
 import { TruthKernel } from "../../packages/lyzer-shared/src/engine/kernel.js";
 import { ConstitutionalCourt, court } from "../../packages/lyzer-constitution/src/eca/court.js";
 import { LiquidityReconstructionEngine } from "../../packages/lyzer-shared/src/providers/v1_smc_ict.js";
@@ -45,6 +46,7 @@ const cclistConfig = {
 };
 const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
 const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || 'v1,v3').split(',').map(s => s.trim().toLowerCase());
+const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
@@ -84,6 +86,10 @@ export class StreamEngine extends EventEmitter {
     this.divergenceDetector = new DivergenceDetector();
     this.dualMonitor = new DualRealityMonitor();
     this.ui = new SpectrogramUI();
+    
+    if (shadowTradingEnabled) {
+      this.realityGapMonitor = new RealityGapMonitor(this.symbol);
+    }
 
     this.isRunning = false;
     this.tradeHistory = [];
@@ -313,6 +319,11 @@ export class StreamEngine extends EventEmitter {
           this.execution = null;
           return;
         }
+        if (shadowTradingEnabled) {
+          console.log('[SHADOW MODE] RealityGapMonitor active. Live exchange execution is blocked safely by shadow trading layer.');
+          this.execution = null;
+          return;
+        }
       }
 
       this.execution = new ExchangeExecution(
@@ -449,6 +460,10 @@ export class StreamEngine extends EventEmitter {
 
       sendTelegramAlert(formatTradeAlert(this.symbol, resolvedTrade))
         .catch(e => console.error('[TELEGRAM] Error sending trade alert:', e.message));
+
+      if (shadowTradingEnabled && this.realityGapMonitor) {
+        this.realityGapMonitor.logHypotheticalTrade(resolvedTrade);
+      }
 
       if (this.execution) {
         const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
@@ -658,6 +673,10 @@ export class StreamEngine extends EventEmitter {
         this.ui.logEvent(`Position CLOSED via ${exitReason} for ${this.symbol}. Exit: ${exitPrice}, PnL: ${(rawPnl * 100).toFixed(2)}%`);
         sendTelegramAlert(formatTradeAlert(this.symbol, resolvedTrade))
           .catch(e => console.error('[TELEGRAM] Error sending trade alert:', e.message));
+
+        if (shadowTradingEnabled && this.realityGapMonitor) {
+          this.realityGapMonitor.logHypotheticalTrade(resolvedTrade);
+        }
 
         // Place close order on exchange if executing in live/testnet mode
         if (this.execution) {
