@@ -37,6 +37,7 @@ export class CommandCenterRuntime {
     this._widgetId = manifest.id;
     this._instanceId = instanceId || `${manifest.id}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     this._adapter = options.dataProvider || options.adapter || runtimeAdapter;
+    this._orchestrator = options.orchestrator || null;
     this._options = Object.freeze({ ...options });
     this._securityGuard = securityGuard;
     this._eventBus = eventBus;
@@ -90,6 +91,23 @@ export class CommandCenterRuntime {
     if (this._isDisposed) {
       throw new WidgetError('ERR_RUNTIME_DISPOSED', `Runtime instance for '${this._widgetId}' has been disposed.`);
     }
+  }
+
+  // ── REALITY GOVERNANCE (M1.4.5) ──────────────────────────────────────
+
+  /**
+   * Retrieves the current reality status governed by the Reality Orchestrator.
+   */
+  getRealityStatus() {
+    this._checkDisposed();
+    if (this._orchestrator) {
+      return this._orchestrator.telemetry;
+    }
+    return {
+      providerId: this._adapter?.id || 'legacy',
+      realityTag: typeof this._adapter?.getSnapshot === 'function' ? this._adapter.getSnapshot().realityTag : this.realityTag,
+      healthStatus: 'UNKNOWN'
+    };
   }
 
   // ── DATA ACCESS (ZERO-TRUST READ-ONLY) ───────────────────────────────
