@@ -9,8 +9,7 @@
 
 export class LiquidityReconstructionEngine {
     constructor() {
-        this.fvgMemory = [];
-        this.obMemory = [];
+        // Note: FVG/OB memory tracking is a future enhancement (see alpha_audit_report.md G8)
     }
 
     /**

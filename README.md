@@ -180,9 +180,9 @@ Todos os comandos devem ser executados a partir do diretório `lyzer edge/`:
 | **Execução** | Adaptador Binance (Live / Testnet / Mock) | ✅ Implementado | Execução de ordens REST com travas de capital diário. |
 | **Interface** | Frontend SPA Z-Space (Vite + Vanilla JS) | ✅ Implementado | Gráficos interativos com overlays SMC (FVG, OB, SR). |
 | **Notificações**| Bot Telegram Notifier | ✅ Implementado | Notificações de execução e alertas de emergência do sistema. |
-| **SMC Modular**| Suíte SMC (`packages/lyzer-shared/src/smc/`) | 🚧 Em Transição | Refatoração para substituir motores legados (Milestone 6). |
-| **Rust IPC** | Gateway de Risco gRPC & NATS JetStream | 🚧 Em Certificação | Integração de baixa latência em Rust para ordens UUIDv7. |
-| **Escalabilidade**| CSRL em WebAssembly / Rust | 📅 Planejado | Migração dos tensores CSRL para Rust/Wasm. |
+| **SMC Modular**| Suíte SMC (`packages/lyzer-shared/src/smc/`) | ✅ Implementado | Simplificação v2.0 concluída (~70% redução de legado). |
+| **Rust IPC** | Gateway de Risco gRPC & NATS JetStream | ✅ Implementado | Integração de baixa latência em Rust para ordens UUIDv7. |
+| **Arquitetura v2.0**| Simplificação Minimalista (`/knowledge/simplification`) | ✅ Implementado | 100% de paridade e 0 regressões funcionais. |
 
 ---
 

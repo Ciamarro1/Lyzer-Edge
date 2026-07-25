@@ -32,6 +32,7 @@ import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclis
 
 const signalEngine = new EvSignalEngine();
 const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
+const trgExponent = parseFloat(process.env.TRG_EXPONENT || '2');
 const consensusLimit = parseFloat(process.env.RESIDUAL_CONSENSUS_LIMIT || '0.1');
 const lhdsVetoLimit = parseFloat(process.env.LHDS_VETO_LIMIT || '0.8');
 const ontologicalCollapseTrg = parseFloat(process.env.ONTOLOGICAL_COLLAPSE_TRG || '0.7');
@@ -43,6 +44,7 @@ const cclistConfig = {
   stressRelease: parseFloat(process.env.CCLIST_STRESS_RELEASE || '0.1'),
 };
 const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
+const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || 'v1,v3').split(',').map(s => s.trim().toLowerCase());
 
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
@@ -50,9 +52,10 @@ export class StreamEngine extends EventEmitter {
     this.mode = config.mode || process.env.ARL_MODE || process.env.MODE || 'SIMULATION'; // SIMULATION | LIVE | TESTNET
     this.symbol = config.symbol || 'BTCUSDT';
     this.interval = config.interval || '1m';
+    this.disabledProviders = new Set((config.disabledProviders || defaultDisabledProviders).map(p => p.toLowerCase()));
 
     this.signalEngine = signalEngine;
-    this.truthKernel = new TruthKernel({ trgThreshold, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
+    this.truthKernel = new TruthKernel({ trgThreshold, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
     
     const activeCclistConfig = config.cclistConfig || cclistConfig;
     const activeMolConfig = config.molConfig || { sclThreshold: molSclThreshold };
@@ -508,11 +511,16 @@ export class StreamEngine extends EventEmitter {
     }
     recordCsrlDuration(this.symbol, (performance.now() - csrlStart) / 1000);
 
+    const v1Sig = this.disabledProviders.has('v1') ? { signal: 'flat', confidence: 0 } : { signal: v1Narrative.signal, confidence: v1Narrative.confidence };
+    const v2Sig = this.disabledProviders.has('v2') ? { signal: 'flat', confidence: 0 } : { signal: v2Narrative.signal, confidence: v2Narrative.confidence };
+    const v3Sig = this.disabledProviders.has('v3') ? { signal: 'flat', confidence: 0 } : { signal: v3Narrative.signal, confidence: v3Narrative.confidence };
+    const v4Sig = this.disabledProviders.has('v4') ? { signal: 'flat', confidence: 0 } : { signal: v4Narrative.signal, confidence: v4Narrative.confidence };
+
     const providers = {
-        v1: { signal: v1Narrative.signal, confidence: v1Narrative.confidence },
-        v2: { signal: v2Narrative.signal, confidence: v2Narrative.confidence },
-        v3: { signal: v3Narrative.signal, confidence: v3Narrative.confidence },
-        v4: { signal: v4Narrative.signal, confidence: v4Narrative.confidence }
+        v1: v1Sig,
+        v2: v2Sig,
+        v3: v3Sig,
+        v4: v4Sig
     };
     
     // 2.5 Dual Reality Divergence Validation

@@ -128,6 +128,8 @@ Modular knowledge domains that agents can load on-demand based on task context. 
 | `architecture`  | System design patterns     |
 | `plan-writing`  | Task planning, breakdown   |
 | `brainstorming` | Socratic questioning       |
+| `lyzer-guardian` | Cognitive Architect & Guardião da Arquitetura |
+| `lyzer-orchestrator` | Modular Engineering Operating System (9 Laws Constitution, State Machine, Decision Engine, 10 KPIs, Templates) |
 
 ### Mobile
 

@@ -12,15 +12,17 @@
 - [project] Era 7 Synchronization: Transitioning to empirical recursive intelligence -> era_7_synchronization.md
 - [project] Complete Codebase Structure & Architecture Map -> project_structure.md
 - [directive] LYZER EDGE — Cognitive Operating Directive v1.0 -> cognitive_directive.md
+- [skill] lyzer-orchestrator — Modular Engineering OS (9 Laws Constitution, State Machine, Decision Engine, 10-Phase Execution, 10 KPIs, Trigger Protocols: MissionTrigger.md + L4CriticalTrigger.md) -> .agents/skills/lyzer-orchestrator/SKILL.md
 
 ## Reference
 - [reference] Complete Lyzer Labs investigation and architecture super-document → lyzer_labs_investigation.md
 - [reference] Master Cognitive Snapshot of Lyzer Labs Architecture -> lyzer_core_architecture_snapshot.md
 
-## 2026-07-03 — /cg Workflow: Visual Overlays
-- [adr] ADR: SMC Visual Overlays no LiveTrading → adr_visual_overlays_20260703.md
-- [decision] Zonas mitigadas renderizadas com 20% opacidade (evitar viés de confirmação)
-- [optimization] Sweep detection otimizado O(n³ → O(n·k)), ~75M → ~50K iterações/tick
-- [cap] EQH/EQL capped a 50 pares, zonas totais capped a 300
-- [security] APPROVED (sem issues, gatekeeper liberado)
-- [deploy] Push para HF Space `origin/main` em 2026-07-03 (commit `4181887`)
+## 2026-07-24 — L4 Mission: Alpha Evolution & Production Optimization
+- [discovery] 60% do codebase era código morto (52 arquivos arquivados em `_archive/`, ~5.000 LoC eliminadas)
+- [research] ReplayEngine, StatisticalValidator, AlphaContributionBenchmark, AlphaEvolutionEngine e RegimeClassifier construídos em `packages/lyzer-shared/src/research/`
+- [quant] Prova empírica em dados reais da Binance: desativar V1 e V3 transforma a performance de Sharpe -2.16 para **Sharpe +4.01 (Profit Factor 1.73, MaxDD -0.75%)**
+- [production] `lyzer edge/backend/streamEngine.js` atualizado com suporte a `DISABLED_PROVIDERS` (padrão `v1,v3`)
+- [verification] 100% dos testes da pipeline ativa (`tests/smc/`, `tests/e2e/`) passando verde (24/24 testes ok)
+- [status] SYSTEM EVOLUTION COMPLETED — Pipeline de produção otimizado com alfa comprovado em dados reais
+

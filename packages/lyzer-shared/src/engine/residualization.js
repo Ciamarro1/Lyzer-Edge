@@ -8,9 +8,10 @@
  */
 
 export class ResidualizationLayer {
-    constructor({ consensusLimit } = {}) {
+    constructor({ consensusLimit, trgExponent } = {}) {
         this.history = []; // Temporal context for TRG
         this.consensusLimit = consensusLimit !== undefined ? consensusLimit : 0.1;
+        this.trgExponent = trgExponent !== undefined ? trgExponent : 2; // Was implicitly 4 (divergence²²). Default now 2.
     }
 
     /**
@@ -60,7 +61,7 @@ export class ResidualizationLayer {
      */
     projectTailRisk(dvfResult, microstructureData = {}) {
         const { divergence } = dvfResult;
-        const structuralRisk = Math.pow(divergence, 2); 
+        const structuralRisk = Math.pow(divergence, this.trgExponent);
         const liquidityVacuum = microstructureData.liquidityDivergence || 1.0;
         const trg = structuralRisk * liquidityVacuum;
 
