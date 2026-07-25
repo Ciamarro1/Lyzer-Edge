@@ -55,16 +55,28 @@ export function validateManifest(manifest) {
     errors.push("Manifest 'name' is required.");
   }
 
-  if (!manifest.version || typeof manifest.version !== 'string') {
-    errors.push("Manifest 'version' is required (SemVer format).");
+  const semverRegex = /^\d+\.\d+\.\d+(?:-[\w.-]+)?$/;
+  if (!manifest.version || typeof manifest.version !== 'string' || !semverRegex.test(manifest.version)) {
+    errors.push("Manifest 'version' must follow strict SemVer format (e.g., '1.0.0').");
+  }
+
+  if (!manifest.minRuntimeVersion || typeof manifest.minRuntimeVersion !== 'string' || !semverRegex.test(manifest.minRuntimeVersion)) {
+    errors.push("Manifest 'minRuntimeVersion' is required and must follow strict SemVer format (e.g., '3.4.0').");
   }
 
   if (!manifest.targetPane || !Object.values(TargetPanes).includes(manifest.targetPane)) {
     errors.push(`Manifest 'targetPane' must be one of: ${Object.values(TargetPanes).join(', ')}.`);
   }
 
+  const validCapabilities = Object.values(WidgetCapabilities);
   if (!Array.isArray(manifest.capabilities)) {
     errors.push("Manifest 'capabilities' must be an array.");
+  } else {
+    for (const cap of manifest.capabilities) {
+      if (!validCapabilities.includes(cap)) {
+        errors.push(`Invalid capability '${cap}' in manifest. Allowed: ${validCapabilities.join(', ')}.`);
+      }
+    }
   }
 
   if (!manifest.realityTag || !Object.values(RealityTags).includes(manifest.realityTag)) {
@@ -75,6 +87,42 @@ export function validateManifest(manifest) {
     valid: errors.length === 0,
     errors
   };
+}
+
+/**
+ * Structural type guard helper verifying if an object satisfies the IWidgetPlugin contract.
+ * @param {*} plugin
+ * @returns {boolean}
+ */
+export function isWidgetPlugin(plugin) {
+  if (!plugin || typeof plugin !== 'object') return false;
+  if (!plugin.manifest || !validateManifest(plugin.manifest).valid) return false;
+  if (typeof plugin.mount !== 'function') return false;
+  if (typeof plugin.unmount !== 'function') return false;
+  return true;
+}
+
+/**
+ * Performs a shallow equality check between two values or objects.
+ * Prevents redundant render passes in slice subscriptions.
+ * @param {*} a
+ * @param {*} b
+ * @returns {boolean}
+ */
+export function shallowEquals(a, b) {
+  if (Object.is(a, b)) return true;
+  if (typeof a !== 'object' || a === null || typeof b !== 'object' || b === null) {
+    return false;
+  }
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+  for (const key of keysA) {
+    if (!Object.prototype.hasOwnProperty.call(b, key) || !Object.is(a[key], b[key])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 /**
