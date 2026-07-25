@@ -1,0 +1,97 @@
+{
+  "productionBackupBaseline": {
+    "totalTrades": 1389,
+    "winRate": 30.74,
+    "netPnl": -306.18,
+    "profitFactor": 0.89,
+    "expectancy": -0.22
+  },
+  "replayBaseline": {
+    "totalSymbols": 6,
+    "totalTicks": 4536,
+    "totalTrades": 38617,
+    "wins": 1618,
+    "losses": 36999,
+    "winRate": 4.19,
+    "netPnl": -101293.5,
+    "profitFactor": 0.09,
+    "expectancy": -2.62
+  },
+  "scenarioA": {
+    "totalSymbols": 6,
+    "totalTicks": 4536,
+    "totalTrades": 896,
+    "wins": 34,
+    "losses": 862,
+    "winRate": 3.79,
+    "netPnl": -2382,
+    "profitFactor": 0.08,
+    "expectancy": -2.66
+  },
+  "scenarioB": {
+    "totalSymbols": 6,
+    "totalTicks": 4536,
+    "totalTrades": 996,
+    "wins": 34,
+    "losses": 962,
+    "winRate": 3.41,
+    "netPnl": -2682,
+    "profitFactor": 0.07,
+    "expectancy": -2.69
+  },
+  "scenarioC": {
+    "totalSymbols": 6,
+    "totalTicks": 4536,
+    "totalTrades": 153,
+    "wins": 16,
+    "losses": 137,
+    "winRate": 10.46,
+    "netPnl": -315,
+    "profitFactor": 0.23,
+    "expectancy": -2.06
+  },
+  "symbolBreakdownBaseline": {
+    "BTCUSDT": {
+      "totalTrades": 578,
+      "wins": 231,
+      "losses": 347,
+      "winRate": 39.97,
+      "netPnl": 346.5
+    },
+    "ETHUSDT": {
+      "totalTrades": 8047,
+      "wins": 116,
+      "losses": 7931,
+      "winRate": 1.44,
+      "netPnl": -23100
+    },
+    "SOLUSDT": {
+      "totalTrades": 6892,
+      "wins": 193,
+      "losses": 6699,
+      "winRate": 2.8,
+      "netPnl": -18942
+    },
+    "BNBUSDT": {
+      "totalTrades": 8085,
+      "wins": 308,
+      "losses": 7777,
+      "winRate": 3.81,
+      "netPnl": -21483
+    },
+    "EURUSD": {
+      "totalTrades": 8085,
+      "wins": 539,
+      "losses": 7546,
+      "winRate": 6.67,
+      "netPnl": -19404
+    },
+    "GBPUSD": {
+      "totalTrades": 6930,
+      "wins": 231,
+      "losses": 6699,
+      "winRate": 3.33,
+      "netPnl": -18711
+    }
+  }
+}
