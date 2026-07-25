@@ -16,7 +16,14 @@ export const WidgetCapabilities = Object.freeze({
 
 export const RealityTags = Object.freeze({
   OBSERVED_REALITY: 'OBSERVED_REALITY',
+  RECONSTRUCTED_REALITY: 'RECONSTRUCTED_REALITY',
   SYNTHETIC_REALITY: 'SYNTHETIC_REALITY'
+});
+
+export const ProviderHealthStatus = Object.freeze({
+  HEALTHY: 'HEALTHY',
+  DEGRADED: 'DEGRADED',
+  OFFLINE: 'OFFLINE'
 });
 
 export const TargetPanes = Object.freeze({
