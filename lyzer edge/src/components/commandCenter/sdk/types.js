@@ -105,7 +105,7 @@ export function isWidgetPlugin(plugin) {
   if (!plugin || typeof plugin !== 'object') return false;
   if (!plugin.manifest || !validateManifest(plugin.manifest).valid) return false;
   if (typeof plugin.mount !== 'function') return false;
-  if (typeof plugin.unmount !== 'function') return false;
+  if (typeof plugin.dispose !== 'function' && typeof plugin.unmount !== 'function') return false;
   return true;
 }
 
