@@ -1,0 +1,27 @@
+{
+  "hypothesisName": "Hypothesis_TRG_060_Ranging_Policy",
+  "baselineMetrics": {
+    "totalTrades": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": 0,
+    "netPnl": 0,
+    "profitFactor": 0,
+    "expectancy": 0
+  },
+  "candidateMetrics": {
+    "totalTrades": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": 0,
+    "netPnl": 0,
+    "profitFactor": 0,
+    "expectancy": 0
+  },
+  "statisticalSignificance": {
+    "pValue": 0.48,
+    "effectSize": 0,
+    "statisticallySignificant": false
+  },
+  "promoted": false
+}
