@@ -15,6 +15,10 @@ export class DisposableStack {
     return this._isDisposed;
   }
 
+  get size() {
+    return this._disposables.length;
+  }
+
   /**
    * Adds a disposable resource to the stack.
    * @param {Object|Function} disposable - Object with dispose() / [Symbol.dispose]() method or cleanup function
@@ -77,7 +81,8 @@ export class DisposableStack {
       if (typeof item === 'function') {
         item();
       } else if (typeof item === 'object' && item !== null) {
-        if (typeof item[Symbol.dispose] === 'function') {
+        const hasNativeSymbol = typeof Symbol !== 'undefined' && Symbol.dispose;
+        if (hasNativeSymbol && typeof item[Symbol.dispose] === 'function') {
           item[Symbol.dispose]();
         } else if (typeof item.dispose === 'function') {
           item.dispose();
@@ -96,12 +101,18 @@ export class DisposableStack {
  */
 export function createDisposable(cleanupFn) {
   let disposed = false;
+  let fn = typeof cleanupFn === 'function' ? cleanupFn : null;
+
   return {
     get isDisposed() { return disposed; },
     dispose() {
       if (!disposed) {
         disposed = true;
-        if (typeof cleanupFn === 'function') cleanupFn();
+        if (fn) {
+          const cleanup = fn;
+          fn = null;
+          cleanup();
+        }
       }
     },
     [Symbol.dispose]() {

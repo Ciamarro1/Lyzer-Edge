@@ -10,7 +10,7 @@ import { runtimeAdapter } from '../../../services/dashboard/dashboardRuntimeAdap
 import { securityGuard } from '../../../services/dashboard/dashboardSecurityGuard.js';
 import { eventBus } from '../../../lib/eventBus.js';
 import { DisposableStack, createDisposable } from './DisposableStack.js';
-import { WidgetCapabilities, WidgetError, validateManifest } from './types.js';
+import { WidgetCapabilities, WidgetError, validateManifest, shallowEquals } from './types.js';
 
 export class CommandCenterRuntime {
   /**
@@ -24,9 +24,17 @@ export class CommandCenterRuntime {
       throw new WidgetError('ERR_MANIFEST_INVALID', validation.errors.join(' '));
     }
 
-    this._manifest = Object.freeze({ ...manifest });
+    const capabilities = Array.isArray(manifest.capabilities)
+      ? Object.freeze([...manifest.capabilities])
+      : Object.freeze([]);
+
+    this._manifest = Object.freeze({
+      ...manifest,
+      capabilities
+    });
+
     this._widgetId = manifest.id;
-    this._instanceId = instanceId || `${manifest.id}_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`;
+    this._instanceId = instanceId || `${manifest.id}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
     this._adapter = runtimeAdapter;
     this._securityGuard = securityGuard;
     this._eventBus = eventBus;
@@ -35,6 +43,8 @@ export class CommandCenterRuntime {
     this._localState = new Map();
     this._telemetryLog = [];
     this._diagnosticLog = [];
+    this._isDisposed = false;
+    this._maxLogEntries = 100;
   }
 
   get widgetId() {
@@ -50,11 +60,22 @@ export class CommandCenterRuntime {
   }
 
   get mode() {
-    return 'LIVE';
+    return typeof this._adapter?.getMode === 'function' ? this._adapter.getMode() : 'LIVE';
   }
 
   get realityTag() {
     return this._manifest.realityTag;
+  }
+
+  get isDisposed() {
+    return this._isDisposed;
+  }
+
+  /** @private */
+  _checkDisposed() {
+    if (this._isDisposed) {
+      throw new WidgetError('ERR_RUNTIME_DISPOSED', `Runtime instance for '${this._widgetId}' has been disposed.`);
+    }
   }
 
   // ── DATA ACCESS (ZERO-TRUST READ-ONLY) ───────────────────────────────
@@ -65,11 +86,11 @@ export class CommandCenterRuntime {
    * @returns {Object} Frozen RuntimeSnapshot
    */
   getSnapshot() {
+    this._checkDisposed();
     this.checkCapability(WidgetCapabilities.TELEMETRY_READ);
-    const snapshot = this._adapter.hasData()
+    return this._adapter.hasData()
       ? this._adapter.getSnapshot()
       : this._adapter.getDefaultSnapshot();
-    return snapshot;
   }
 
   /**
@@ -79,6 +100,7 @@ export class CommandCenterRuntime {
    * @returns {Object} Disposable handle
    */
   subscribeSnapshot(callback) {
+    this._checkDisposed();
     this.checkCapability(WidgetCapabilities.TELEMETRY_READ);
     if (typeof callback !== 'function') {
       throw new WidgetError('ERR_INVALID_CALLBACK', 'Callback must be a function');
@@ -86,7 +108,12 @@ export class CommandCenterRuntime {
 
     const handler = () => {
       try {
-        callback(this.getSnapshot());
+        if (!this._isDisposed) {
+          const snapshot = this._adapter.hasData()
+            ? this._adapter.getSnapshot()
+            : this._adapter.getDefaultSnapshot();
+          callback(snapshot);
+        }
       } catch (err) {
         this.reportError(err);
       }
@@ -110,7 +137,8 @@ export class CommandCenterRuntime {
    * @param {Function} [equalityFn] - Custom equality check (a, b) => boolean
    * @returns {Object} Disposable handle
    */
-  subscribeSlice(selector, callback, equalityFn = (a, b) => a === b) {
+  subscribeSlice(selector, callback, equalityFn = shallowEquals) {
+    this._checkDisposed();
     this.checkCapability(WidgetCapabilities.TELEMETRY_READ);
     if (typeof selector !== 'function' || typeof callback !== 'function') {
       throw new WidgetError('ERR_INVALID_SELECTOR', 'Selector and callback must be functions');
@@ -143,6 +171,7 @@ export class CommandCenterRuntime {
    * @param {*} payload
    */
   emitEvent(topic, payload) {
+    this._checkDisposed();
     this.checkCapability(WidgetCapabilities.UI_EVENT_EMIT);
     
     // Inspect via SecurityGuard
@@ -156,11 +185,15 @@ export class CommandCenterRuntime {
       throw new WidgetError('ERR_CAPABILITY_DENIED', inspection.error, { topic });
     }
 
+    const sanitizedPayload = (typeof payload === 'object' && payload !== null)
+      ? Object.freeze({ ...payload })
+      : payload;
+
     this._eventBus.emit(topic, {
       topic,
       sourceWidgetId: this._widgetId,
       instanceId: this._instanceId,
-      payload,
+      payload: sanitizedPayload,
       timestamp: Date.now()
     });
   }
@@ -173,6 +206,7 @@ export class CommandCenterRuntime {
    * @returns {Object} Disposable handle
    */
   subscribeEvent(topic, callback) {
+    this._checkDisposed();
     this.checkCapability(WidgetCapabilities.UI_EVENT_LISTEN);
     if (typeof callback !== 'function') {
       throw new WidgetError('ERR_INVALID_CALLBACK', 'Callback must be a function');
@@ -180,7 +214,9 @@ export class CommandCenterRuntime {
 
     const handler = (eventData) => {
       try {
-        callback(eventData?.payload, eventData);
+        if (!this._isDisposed) {
+          callback(eventData?.payload, eventData);
+        }
       } catch (err) {
         this.reportError(err);
       }
@@ -199,10 +235,12 @@ export class CommandCenterRuntime {
   // ── INSTANCE LOCAL STATE ─────────────────────────────────────────────
 
   getLocalState(key) {
+    this._checkDisposed();
     return this._localState.get(key);
   }
 
   setLocalState(key, value) {
+    this._checkDisposed();
     this._localState.set(key, value);
   }
 
@@ -235,6 +273,7 @@ export class CommandCenterRuntime {
   // ── TELEMETRY & DIAGNOSTICS ──────────────────────────────────────────
 
   logTelemetry(metricName, value, tags = {}) {
+    if (this._isDisposed) return;
     const entry = {
       metricName,
       value,
@@ -244,9 +283,13 @@ export class CommandCenterRuntime {
       timestamp: Date.now()
     };
     this._telemetryLog.push(entry);
+    if (this._telemetryLog.length > this._maxLogEntries) {
+      this._telemetryLog.shift();
+    }
   }
 
   logDiagnostic(level, message, meta = {}) {
+    if (this._isDisposed) return;
     const entry = {
       level,
       message,
@@ -255,6 +298,9 @@ export class CommandCenterRuntime {
       timestamp: new Date().toISOString()
     };
     this._diagnosticLog.push(entry);
+    if (this._diagnosticLog.length > this._maxLogEntries) {
+      this._diagnosticLog.shift();
+    }
     if (level === 'ERROR') {
       console.error(`[${this._widgetId}] [${level}] ${message}`, meta);
     }
@@ -270,8 +316,12 @@ export class CommandCenterRuntime {
   // ── TEARDOWN ─────────────────────────────────────────────────────────
 
   dispose() {
+    if (this._isDisposed) return;
+    this._isDisposed = true;
     this._disposableStack.dispose();
     this._localState.clear();
+    this._telemetryLog = [];
+    this._diagnosticLog = [];
   }
 
   [Symbol.dispose]() {
