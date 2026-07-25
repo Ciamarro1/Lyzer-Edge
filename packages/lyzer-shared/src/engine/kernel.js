@@ -27,11 +27,10 @@ export class TruthKernel {
    * @returns {Object} Final contract matching CRSA.
    */
   evaluate(providers, micro = {}) {
-    // Expect providers to have V1, V2, V3, and V4
-    const v1 = providers.v1 || { signal: 'flat', confidence: 0 };
-    const v2 = providers.v2 || { signal: 'flat', confidence: 0 };
-    const v3 = providers.v3 || { signal: 'flat', confidence: 0 };
-    const v4 = providers.v4 || { signal: 'flat', confidence: 0 };
+    const v1 = providers.v1;
+    const v2 = providers.v2;
+    const v3 = providers.v3;
+    const v4 = providers.v4;
 
     // 1. Residualization & Consensus Destruction
     const { dvf, trg } = this.rl.evaluate(v1, v2, v3, v4, micro);
@@ -73,9 +72,9 @@ export class TruthKernel {
       reason_codes: [reason],
       epistemic_authority: epistemicAuthority,
       raw_metrics: {
-        v1_confidence: v1.confidence,
-        v2_confidence: v2.confidence,
-        liquidity_vacuum: micro.liquidityDivergence || 1.0,
+        v1_confidence: v1?.confidence || 0,
+        v2_confidence: v2?.confidence || 0,
+        liquidity_vacuum: micro?.liquidityDivergence || 1.0,
         scale_divergence: sds
       }
     };

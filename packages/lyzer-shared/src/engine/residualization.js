@@ -19,27 +19,31 @@ export class ResidualizationLayer {
      * If they agree, the residual is artificially compressed (consensus destruction).
      */
     extractDivergence(v1Output, v2Output, v3Output, v4Output) {
-        // v1, v2, v3, v4 expected shape: { signal: 'long'|'short'|'flat', confidence: 0-100 }
-        const fallbackV3 = v3Output || { signal: 'flat', confidence: 0 };
-        const fallbackV4 = v4Output || { signal: 'flat', confidence: 0 };
-        
         const sigToVec = (sig) => (sig === 'long' || sig === 'go') ? 1 : ((sig === 'short' || sig === 'no-go') ? -1 : 0);
         
-        const v1Vec = sigToVec(v1Output.signal) * (v1Output.confidence / 100);
-        const v2Vec = sigToVec(v2Output.signal) * (v2Output.confidence / 100);
-        const v3Vec = sigToVec(fallbackV3.signal) * (fallbackV3.confidence / 100);
-        const v4Vec = sigToVec(fallbackV4.signal) * (fallbackV4.confidence / 100);
+        const vectors = [];
+        [v1Output, v2Output, v3Output, v4Output].forEach(p => {
+            if (p !== undefined && p !== null && typeof p === 'object' && p.signal !== undefined) {
+                vectors.push(sigToVec(p.signal) * ((p.confidence || 0) / 100));
+            }
+        });
         
-        // DVF: Pairwise maximum distance in the ensemble
-        const d12 = Math.abs(v1Vec - v2Vec);
-        const d13 = Math.abs(v1Vec - v3Vec);
-        const d14 = Math.abs(v1Vec - v4Vec);
-        const d23 = Math.abs(v2Vec - v3Vec);
-        const d24 = Math.abs(v2Vec - v4Vec);
-        const d34 = Math.abs(v3Vec - v4Vec);
-        const divergenceScalar = Math.max(d12, d13, d14, d23, d24, d34);
-        
-        const directionalTension = v1Vec + v2Vec + v3Vec + v4Vec;
+        if (vectors.length < 2) {
+            return { divergence: 0, tension: 0, isConsensus: false };
+        }
+
+        let maxDiff = 0;
+        let sumTension = 0;
+        for (let i = 0; i < vectors.length; i++) {
+            sumTension += vectors[i];
+            for (let j = i + 1; j < vectors.length; j++) {
+                const diff = Math.abs(vectors[i] - vectors[j]);
+                if (diff > maxDiff) maxDiff = diff;
+            }
+        }
+
+        const divergenceScalar = maxDiff;
+        const directionalTension = sumTension;
 
         // Streaming Consensus Destruction (SCD)
         const isConsensus = this.consensusLimit > 0 && divergenceScalar < this.consensusLimit && Math.abs(directionalTension) > 1.0;
