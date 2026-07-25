@@ -1,0 +1,32 @@
+{
+  "lyzerEdgeRaw": {
+    "winRate": 30.74,
+    "netPnl": -306.18,
+    "pf": 0.89
+  },
+  "lyzerEdgeFilteredM15": {
+    "winRate": 52.42,
+    "netPnl": 643.27,
+    "pf": 2.22
+  },
+  "buyAndHold": {
+    "winRate": 54.2,
+    "netPnl": 142.5,
+    "pf": 1.25
+  },
+  "emaCross": {
+    "winRate": 34.5,
+    "netPnl": -180.4,
+    "pf": 0.72
+  },
+  "rsiIndicator": {
+    "winRate": 32.1,
+    "netPnl": -210.1,
+    "pf": 0.68
+  },
+  "randomCoinFlip": {
+    "winRate": 33.33,
+    "netPnl": -0.63,
+    "pf": 0.88
+  }
+}

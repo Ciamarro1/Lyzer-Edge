@@ -1,0 +1,8 @@
+{
+  "dataLeakageDetected": false,
+  "lookAheadViolations": 0,
+  "timestampOrderViolations": 10,
+  "survivorshipBias": "Presente (Análise restrita aos 6 ativos sobreviventes do backup)",
+  "selectionBias": "Presente (Período de 12.6h de produção contínua em mercado com volatilidade atípica)",
+  "verdict": "CLEAN_TIMING"
+}

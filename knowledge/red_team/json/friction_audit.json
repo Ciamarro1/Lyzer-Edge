@@ -1,0 +1,10 @@
+{
+  "rawPnl": -306.18,
+  "frictionPnlTotal": -791.76,
+  "totalFrictionCost": 485.58,
+  "frictionsIncluded": [
+    "Binance Taker Fee (0.055%)",
+    "Execution Slippage (0.01%)",
+    "Bid-Ask Spread (0.01%)"
+  ]
+}

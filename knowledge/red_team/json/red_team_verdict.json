@@ -1,0 +1,11 @@
+{
+  "hypothesisFalsified": true,
+  "falsifiedComponent": "Varredura M1 Sweep sem confirmação de estrutura M15",
+  "confirmedComponent": "Alinhamento Estrutural M15 BOS + TruthKernel TRG Geometry",
+  "realEconomicEdgeProbability": 62.5,
+  "criticalLimitations": [
+    "Amostra restrita a 12.6h de execução real em produção",
+    "Ausência de estresse durante eventos de liquidação sistêmica (Flash Crash)",
+    "Dependência do ecossistema Hugging Face / NATS JetStream para roteamento de ordens"
+  ]
+}
