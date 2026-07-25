@@ -204,6 +204,47 @@ export class CommandCenterRuntime {
   }
 
   /**
+   * Subscribes to high-frequency market data tick/candle streams.
+   * Requires 'market_data:read' capability.
+   * @param {Object} query - e.g. { symbol: 'BTCUSDT', timeframe: '1m' }
+   * @param {Function} callback - Function (data) => void
+   * @returns {Object} Disposable handle
+   */
+  subscribeMarketData(query, callback) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.MARKET_DATA_READ);
+    if (typeof callback !== 'function') {
+      throw new WidgetError('ERR_INVALID_CALLBACK', 'Callback must be a function');
+    }
+
+    const handler = (data) => {
+      try {
+        if (!this._isDisposed) {
+          callback(data);
+        }
+      } catch (err) {
+        this.reportError(err);
+      }
+    };
+
+    let unsubscribe;
+    if (typeof this._adapter?.subscribeMarketData === 'function') {
+      unsubscribe = this._adapter.subscribeMarketData(query, handler);
+    } else {
+      unsubscribe = this._eventBus.on('market:tick', handler);
+    }
+
+    const disposable = createDisposable(() => {
+      if (typeof unsubscribe === 'function') unsubscribe();
+      else if (typeof unsubscribe?.dispose === 'function') unsubscribe.dispose();
+      else this._eventBus.off('market:tick', handler);
+    });
+
+    this._disposableStack.use(disposable);
+    return disposable;
+  }
+
+  /**
    * Subscribes to a specific slice of the snapshot with shallow-equality throttling.
    * Listener fires ONLY when the selected slice fails equality check.
    * @param {Function} selector - Pure function (snapshot) => slice

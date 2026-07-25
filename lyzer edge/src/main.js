@@ -12,6 +12,8 @@ import { RealityOrchestrator } from './components/commandCenter/sdk/reality/Real
 import { LiveProvider } from './components/commandCenter/sdk/providers/LiveProvider.js';
 import { RealityStatusWidget } from './components/commandCenter/widgets/realityStatus/RealityStatusWidget.js';
 import { realityStatusManifest } from './components/commandCenter/widgets/realityStatus/manifest.js';
+import { ChartHostWidget } from './components/commandCenter/widgets/chartHost/ChartHostWidget.js';
+import { chartHostManifest } from './components/commandCenter/widgets/chartHost/manifest.js';
 import { WidgetRegistry } from './components/commandCenter/sdk/WidgetRegistry.js';
 import './styles/variables.css';
 import './styles/base.css';
@@ -35,10 +37,11 @@ async function main() {
       
       const widgetRegistry = new WidgetRegistry();
       widgetRegistry.register(realityStatusManifest, RealityStatusWidget);
+      widgetRegistry.register(chartHostManifest, ChartHostWidget);
 
       const commandCenter = new CommandCenterApp(rootElement, widgetRegistry, orchestrator);
       
-      // Basic Layout Config for V1 of Phase 3
+      // Layout Config for Phase 3.2 Command Center
       const layoutConfig = {
         type: 'institutional',
         panes: {
@@ -49,6 +52,7 @@ async function main() {
       };
       
       const widgetMap = {
+        CenterPane: ['chart-host-widget'],
         RightPane: ['reality-status-widget']
       };
       
