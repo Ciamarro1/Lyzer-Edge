@@ -13,6 +13,7 @@ export class WidgetRegistry {
   constructor(runtimeVersion = CURRENT_RUNTIME_VERSION) {
     this._runtimeVersion = runtimeVersion;
     this._registry = new Map();
+    this._plugins = new Map();
   }
 
   get runtimeVersion() {
@@ -26,9 +27,10 @@ export class WidgetRegistry {
   /**
    * Registers a widget manifest in the central registry.
    * @param {Object} manifest - WidgetManifest object
+   * @param {Object} [plugin] - Optional widget plugin implementation
    * @returns {Object} Frozen registered manifest
    */
-  register(manifest) {
+  register(manifest, plugin = null) {
     const validation = validateManifest(manifest);
     if (!validation.valid) {
       throw new WidgetError(
@@ -60,7 +62,19 @@ export class WidgetRegistry {
     });
 
     this._registry.set(manifest.id, frozenManifest);
+    if (plugin) {
+      this._plugins.set(manifest.id, plugin);
+    }
     return frozenManifest;
+  }
+
+  /**
+   * Retrieves a registered plugin implementation if provided during registration.
+   * @param {string} id
+   * @returns {Object|undefined}
+   */
+  getPlugin(id) {
+    return this._plugins.get(id);
   }
 
   /**

@@ -43,7 +43,7 @@ export class WidgetLoader {
    * @param {Object|string} [pluginOrPath] - Optional pre-loaded plugin object or ESM path
    * @returns {Promise<Object>} Active mount record
    */
-  async loadAndMount(widgetId, container, pluginOrPath = null) {
+  async loadAndMount(widgetId, container, pluginOrPath = null, options = {}) {
     if (!container) {
       throw new WidgetError('ERR_INVALID_CONTAINER', `Container element is required to mount widget '${widgetId}'.`);
     }
@@ -54,7 +54,7 @@ export class WidgetLoader {
     }
 
     const instanceId = `${widgetId}_inst_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-    const runtime = new CommandCenterRuntime(manifest, instanceId);
+    const runtime = new CommandCenterRuntime(manifest, instanceId, options);
     const errorBoundary = new WidgetErrorBoundary(container, widgetId, instanceId);
 
     let plugin = null;
@@ -62,8 +62,10 @@ export class WidgetLoader {
     try {
       // Load plugin object
       await errorBoundary.executeAsync(async () => {
-        if (pluginOrPath && typeof pluginOrPath === 'object') {
+        if (pluginOrPath && (typeof pluginOrPath === 'object' || typeof pluginOrPath === 'function')) {
           plugin = pluginOrPath;
+        } else if (this._registry.getPlugin && this._registry.getPlugin(widgetId)) {
+          plugin = this._registry.getPlugin(widgetId);
         } else if (typeof pluginOrPath === 'string') {
           if (!this.validateModulePath(pluginOrPath)) {
             throw new WidgetError('ERR_CAPABILITY_DENIED', `Unauthorized module path '${pluginOrPath}'.`);
@@ -78,6 +80,11 @@ export class WidgetLoader {
           plugin = module.default || module.plugin || module;
         } else {
           throw new WidgetError('ERR_PLUGIN_NOT_PROVIDED', `Plugin object or module path must be provided for '${widgetId}'.`);
+        }
+        
+        // Ensure class instantiation if plugin is a class
+        if (typeof plugin === 'function' && plugin.prototype && plugin.prototype.mount) {
+          plugin = new plugin();
         }
       }, 'loading');
 
