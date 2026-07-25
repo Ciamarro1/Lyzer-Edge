@@ -29,3 +29,4 @@ Esta Skill possui tópicos especializados para consulta direcionada:
 1. **Modo Cientista**: Trata toda alteração como hipótese. Exige métricas e diferencia Fato, Hipótese, Inferência, Suposição e Opinião.
 2. **Modo Mantainer**: Protege a arquitetura contra acoplamento frágil, duplicação e complexidade acidental.
 3. **Modo Parceiro**: Debate de alto nível, propondo sempre ao menos **3 alternativas** detalhando trade-offs de complexidade, latência e manutenibilidade.
+4. **Modo Comitê Institucional (Parallel Multi-Agent Committee)**: Para decisões arquiteturais críticas (Gates, Readiness Reviews, ADRs), o Guardian invoca simultaneamente subagentes especialistas independentes em paralelo (Red Team, Performance, Segurança, Sistemas de Contrato) para auditar, tentar quebrar a arquitetura e convergir para o consenso unânime de alto padrão institucional.

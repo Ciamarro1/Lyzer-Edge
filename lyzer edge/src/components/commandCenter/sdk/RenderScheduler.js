@@ -6,6 +6,7 @@
 
 import { StreamBuffer } from './StreamBuffer.js';
 import { BrowserClock } from './Clock.js';
+import { createDisposable } from './DisposableStack.js';
 
 export class RenderScheduler {
   /**
@@ -30,7 +31,8 @@ export class RenderScheduler {
     this._frameHandle = null;
     this._listeners = {
       'frame:end': [],
-      'frame:dropped': []
+      'frame:dropped': [],
+      'frame:over_budget': []
     };
     
     // Callbacks registered by the UI to process events
@@ -40,8 +42,16 @@ export class RenderScheduler {
   }
 
   on(event, callback) {
+    if (!this._listeners[event]) {
+      this._listeners[event] = [];
+    }
+    this._listeners[event].push(callback);
+    return createDisposable(() => this.off(event, callback));
+  }
+
+  off(event, callback) {
     if (this._listeners[event]) {
-      this._listeners[event].push(callback);
+      this._listeners[event] = this._listeners[event].filter(cb => cb !== callback);
     }
   }
 
@@ -116,9 +126,21 @@ export class RenderScheduler {
       isDegraded: this.streamBuffer.isDegraded
     });
 
-    if (duration > this.frameBudgetMs * 2 && batchSize === 0) {
-      // If we spent too much time doing nothing, it's a structural frame drop
-      this.emit('frame:dropped');
+    if (duration > this.frameBudgetMs) {
+      this.emit('frame:over_budget', {
+        duration,
+        budget: this.frameBudgetMs,
+        batchSize
+      });
+    }
+
+    if (duration > this.frameBudgetMs * 2) {
+      const count = Math.floor(duration / this.frameBudgetMs) - 1;
+      this.emit('frame:dropped', {
+        count: count > 0 ? count : 1,
+        duration,
+        batchSize
+      });
     }
 
     // Schedule next frame

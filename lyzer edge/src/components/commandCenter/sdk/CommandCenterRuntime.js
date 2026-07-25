@@ -10,15 +10,16 @@ import { runtimeAdapter } from '../../../services/dashboard/dashboardRuntimeAdap
 import { securityGuard } from '../../../services/dashboard/dashboardSecurityGuard.js';
 import { eventBus } from '../../../lib/eventBus.js';
 import { DisposableStack, createDisposable } from './DisposableStack.js';
-import { WidgetCapabilities, WidgetError, validateManifest, shallowEquals } from './types.js';
+import { WidgetCapabilities, WidgetError, validateManifest, shallowEquals, freezePayload } from './types.js';
 
 export class CommandCenterRuntime {
   /**
    * Instantiates a scoped runtime facade for a specific widget.
    * @param {Object} manifest - Validated WidgetManifest
    * @param {string} [instanceId] - Unique mount instance ID
+   * @param {Object} [options] - Optional runtime configurations (e.g., dataProvider)
    */
-  constructor(manifest, instanceId = null) {
+  constructor(manifest, instanceId = null, options = {}) {
     const validation = validateManifest(manifest);
     if (!validation.valid) {
       throw new WidgetError('ERR_MANIFEST_INVALID', validation.errors.join(' '));
@@ -35,7 +36,8 @@ export class CommandCenterRuntime {
 
     this._widgetId = manifest.id;
     this._instanceId = instanceId || `${manifest.id}_${Date.now()}_${Math.random().toString(36).substring(2, 7)}`;
-    this._adapter = runtimeAdapter;
+    this._adapter = options.dataProvider || options.adapter || runtimeAdapter;
+    this._options = Object.freeze({ ...options });
     this._securityGuard = securityGuard;
     this._eventBus = eventBus;
 
@@ -67,6 +69,18 @@ export class CommandCenterRuntime {
     return this._manifest.realityTag;
   }
 
+  get theme() {
+    return this._options.theme || 'dark';
+  }
+
+  get locale() {
+    return this._options.locale || 'en-US';
+  }
+
+  get paneId() {
+    return this._options.paneId || this._manifest.targetPane;
+  }
+
   get isDisposed() {
     return this._isDisposed;
   }
@@ -91,6 +105,44 @@ export class CommandCenterRuntime {
     return this._adapter.hasData()
       ? this._adapter.getSnapshot()
       : this._adapter.getDefaultSnapshot();
+  }
+
+  /**
+   * Retrieves Constitutional Court audit logs and veto status.
+   * Requires 'court:read' capability.
+   */
+  getCourtAuditLog() {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.COURT_READ);
+    return typeof this._adapter.getVetoAuditLog === 'function'
+      ? this._adapter.getVetoAuditLog()
+      : (typeof this._adapter.getCourtState === 'function' ? this._adapter.getCourtState() : []);
+  }
+
+  /**
+   * Retrieves market data (candles, ticks, order blocks) from the provider.
+   * Requires 'market_data:read' capability.
+   */
+  getMarketData(query = {}) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.MARKET_DATA_READ);
+    if (typeof this._adapter.getMarketData !== 'function') {
+      throw new WidgetError('ERR_UNSUPPORTED_METHOD', 'Current data provider does not support getMarketData.');
+    }
+    return this._adapter.getMarketData(query);
+  }
+
+  /**
+   * Retrieves causal timeline history and intent lineage.
+   * Requires 'causal_timeline:read' capability.
+   */
+  getCausalTimeline(query = {}) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.CAUSAL_TIMELINE_READ);
+    if (typeof this._adapter.getCausalTimeline !== 'function') {
+      throw new WidgetError('ERR_UNSUPPORTED_METHOD', 'Current data provider does not support getCausalTimeline.');
+    }
+    return this._adapter.getCausalTimeline(query);
   }
 
   /**
@@ -119,9 +171,13 @@ export class CommandCenterRuntime {
       }
     };
 
-    const unsubscribe = this._eventBus.on('state:changed', handler);
+    const unsubscribe = typeof this._adapter.subscribe === 'function'
+      ? this._adapter.subscribe(handler)
+      : this._eventBus.on('state:changed', handler);
+
     const disposable = createDisposable(() => {
       if (typeof unsubscribe === 'function') unsubscribe();
+      else if (typeof unsubscribe?.dispose === 'function') unsubscribe.dispose();
       else this._eventBus.off('state:changed', handler);
     });
 
@@ -185,9 +241,7 @@ export class CommandCenterRuntime {
       throw new WidgetError('ERR_CAPABILITY_DENIED', inspection.error, { topic });
     }
 
-    const sanitizedPayload = (typeof payload === 'object' && payload !== null)
-      ? Object.freeze({ ...payload })
-      : payload;
+    const sanitizedPayload = freezePayload(payload);
 
     this._eventBus.emit(topic, {
       topic,

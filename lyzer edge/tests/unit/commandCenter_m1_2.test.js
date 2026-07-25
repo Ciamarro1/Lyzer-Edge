@@ -168,9 +168,9 @@ describe('Milestone M1.2: WidgetLoader Orchestration Tests', () => {
 
     const mockPlugin = {
       manifest: registry.get('mock-widget'),
-      mount: (ctx) => {
+      mount: (container, runtime) => {
         mounted = true;
-        ctx.container.innerHTML = '<p>Widget Content</p>';
+        container.innerHTML = '<p>Widget Content</p>';
       },
       unmount: () => {
         unmounted = true;
