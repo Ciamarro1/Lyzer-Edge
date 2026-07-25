@@ -1,0 +1,7 @@
+{
+  "trainSamples": 972,
+  "testSamples": 417,
+  "trainPnl": -213.29,
+  "testPnl": -92.89,
+  "outOfSampleEfficiencyRatio": 0.44
+}
