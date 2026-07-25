@@ -1,0 +1,9 @@
+[
+  { "id": "R01", "name": "BULL_TREND", "volatility": "LOW", "directional_bias": 1 },
+  { "id": "R02", "name": "BEAR_TREND", "volatility": "LOW", "directional_bias": -1 },
+  { "id": "R03", "name": "RANGE_NARROW", "volatility": "LOW", "directional_bias": 0 },
+  { "id": "R04", "name": "RANGE_WIDE", "volatility": "MEDIUM", "directional_bias": 0 },
+  { "id": "R05", "name": "VOLATILITY_EXPANSION", "volatility": "HIGH", "directional_bias": 0 },
+  { "id": "R06", "name": "NEWS_SHOCK", "volatility": "EXTREME", "directional_bias": 0 },
+  { "id": "R07", "name": "COMPRESSION", "volatility": "VERY_LOW", "directional_bias": 0 }
+]

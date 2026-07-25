@@ -1,8 +1,33 @@
 /**
  * Regime Classifier - Lyzer Edge Research
  * Pure function to classify market regime based on statistical features.
- * Integrates with ReplayEngine.
+ * Integrates with ReplayEngine and Transition Probability Matrix (Markov Chain).
  */
+
+const TRANSITION_MATRIX = {
+  'COMPRESSION': { 'EXPANSION': 0.6, 'RANGE_NARROW': 0.3, 'TREND_BULLISH': 0.05, 'TREND_BEARISH': 0.05 },
+  'EXPANSION': { 'TREND_BULLISH': 0.4, 'TREND_BEARISH': 0.4, 'RANGE_WIDE': 0.2 },
+  'TREND_BULLISH': { 'TREND_BULLISH': 0.5, 'RANGE_WIDE': 0.3, 'COMPRESSION': 0.2 },
+  'TREND_BEARISH': { 'TREND_BEARISH': 0.5, 'RANGE_WIDE': 0.3, 'COMPRESSION': 0.2 },
+  'RANGE_WIDE': { 'COMPRESSION': 0.5, 'RANGE_NARROW': 0.3, 'EXPANSION': 0.2 },
+  'RANGE_NARROW': { 'COMPRESSION': 0.4, 'EXPANSION': 0.4, 'RANGE_WIDE': 0.2 },
+  'NEWS_SHOCK': { 'RANGE_WIDE': 0.5, 'EXPANSION': 0.3, 'COMPRESSION': 0.2 },
+  'UNKNOWN': { 'COMPRESSION': 1.0 }
+};
+
+function getNextProbableRegime(currentRegime) {
+  const transitions = TRANSITION_MATRIX[currentRegime] || TRANSITION_MATRIX['UNKNOWN'];
+  let maxProb = 0;
+  let nextRegime = currentRegime;
+  
+  for (const [regime, prob] of Object.entries(transitions)) {
+    if (prob > maxProb) {
+      maxProb = prob;
+      nextRegime = regime;
+    }
+  }
+  return { predictedNext: nextRegime, transitionProbability: maxProb };
+}
 
 /**
  * Calculates True Range
@@ -90,6 +115,8 @@ export function classifyRegime(candles) {
     confidence = 0.6;
   }
 
+  const transitionPrediction = getNextProbableRegime(regime);
+
   return {
     regime,
     confidence,
@@ -99,6 +126,7 @@ export function classifyRegime(candles) {
       compressionRatio,
       shortATR,
       longATR
-    }
+    },
+    transition: transitionPrediction
   };
 }

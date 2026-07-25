@@ -1,0 +1,22 @@
+# LYZER EDGE - ALPHA CONSTITUTION (L6)
+# ====================================
+# Any future PR, Agent, or Human attempting to modify the Alpha Generation logic MUST comply with this Constitution.
+# Failure to comply results in automatic rejection by the Lyzer Guardian.
+
+change:
+  type: alpha_modification
+  description: "Modification to any signaling, risk, or execution logic that affects expected PnL."
+
+required:
+  - hypothesis: "Clear, one-sentence causal reason for the change."
+  - baseline_comparison: "Statistically significant improvement over current production baseline."
+  - out_of_sample_test: "Tested on data completely unseen during parameter tuning."
+  - regime_test: "Profitable across at least 3 distinct Markov Regimes (e.g., BULL, RANGE, COMPRESSION)."
+  - shadow_validation: "Must run in Live Shadow Mode for a minimum of 30 days without critical failure."
+  - ablation_test: "Proves that if the new logic is removed, performance drops (Not a spurious correlation)."
+
+forbidden:
+  - optimize_only_backtest: "Curve-fitting on historical data without Out-of-Sample verification."
+  - add_feature_without_ablation: "Adding complexity without proving the previous layer wasn't enough."
+  - bypass_circuit_breakers: "Disabling or relaxing risk limits to force a trade."
+  - ignore_transaction_costs: "Simulating trades without L5 validated Spread/Slippage models."

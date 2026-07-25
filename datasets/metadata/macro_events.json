@@ -1,0 +1,6 @@
+[
+  { "timestamp": "2021-05-19T13:00:00Z", "event": "CHINA_BAN", "impact": "SEVERE_DOWNTREND" },
+  { "timestamp": "2022-11-08T18:00:00Z", "event": "FTX_COLLAPSE", "impact": "BLACK_SWAN" },
+  { "timestamp": "2023-01-12T13:30:00Z", "event": "CPI_MISS", "impact": "HIGH_VOLATILITY" },
+  { "timestamp": "2024-03-05T15:00:00Z", "event": "ETF_INFLOW_SURGE", "impact": "EXTREME_UPTREND" }
+]
