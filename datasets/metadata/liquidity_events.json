@@ -1,0 +1,4 @@
+[
+  { "timestamp": "2021-09-07T14:00:00Z", "event": "FLASH_CRASH_20", "volume_drop": 0.8, "spread_multiplier": 15 },
+  { "timestamp": "2023-08-17T21:30:00Z", "event": "LIQUIDITY_VACUUM", "volume_drop": 0.95, "spread_multiplier": 20 }
+]

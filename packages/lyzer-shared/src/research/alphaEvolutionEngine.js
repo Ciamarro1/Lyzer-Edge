@@ -208,4 +208,46 @@ export class AlphaEvolutionEngine {
     this.driftDetector.observe(liveMetrics);
     return this.driftDetector.detectDrift();
   }
+
+  /**
+   * AUTONOMOUS EVOLUTION LOOP (L5)
+   * System autonomously detects degradation, proposes hypotheses, experiments, and recommends changes.
+   */
+  async autonomousTick(liveTrade, historicalCandles) {
+    // 1. Observe Reality
+    const driftState = this.monitor(liveTrade);
+    
+    // 2. Detect Degradation
+    if (driftState.drifted && driftState.confidence > 0.5) {
+      console.warn(`[L5 AUTONOMY] Alpha Drift Detected (Confidence: ${(driftState.confidence*100).toFixed(0)}%). Initiating Autonomous Recalibration.`);
+      
+      // 3. Create Hypothesis (Autonomous Grid Search)
+      // Simulating a system-generated proposal adjusting the ATR threshold
+      const proposedId = this.propose(
+        "Autonomous System Recovery H-01",
+        "Adjust SL/TP based on recent volatility compression to recover Sharpe.",
+        { sl: 1.0, tp: 1.5, trg: 0.4 },
+        { sl: 1.2, tp: 1.8, trg: 0.6 } // Widen bands
+      );
+
+      // 4. Run Experiment
+      try {
+        console.log(`[L5 AUTONOMY] Running Statistical Welch's Test on H-01...`);
+        await this.runExperiment(proposedId, historicalCandles);
+        
+        // 5. Recommend Changes
+        const isApproved = this.evaluate(proposedId);
+        if (isApproved) {
+           console.log(`[L5 AUTONOMY] Hypothesis ${proposedId} APPROVED by ARB. System requires parameter hot-swap.`);
+           return { action: 'HOT_SWAP_REQUIRED', hypothesisId: proposedId };
+        } else {
+           console.log(`[L5 AUTONOMY] Hypothesis ${proposedId} REJECTED. Alpha cannot be recovered via ATR tuning. Suspending Live Trading.`);
+           return { action: 'SUSPEND_TRADING', reason: 'Unrecoverable Alpha Drift' };
+        }
+      } catch (e) {
+        console.error("[L5 AUTONOMY] Autonomous Evolution Failed:", e);
+      }
+    }
+    return { action: 'NONE' };
+  }
 }

@@ -1,0 +1,32 @@
+{
+  "mission": "L6 Alpha Survival Certification",
+  "status": "FROZEN",
+  "date": "2026-07-25T01:36:18-03:00",
+  "repository": {
+    "commit_sha": "HEAD",
+    "branch": "main"
+  },
+  "critical_files_hash": {
+    "streamEngine.js": "PENDING_HASH",
+    "smcFacade.js": "PENDING_HASH",
+    "v4_imce.js": "PENDING_HASH",
+    "truthKernel.js": "PENDING_HASH",
+    "productionGate.js": "PENDING_HASH",
+    "lyzerSurvivalScore.js": "PENDING_HASH"
+  },
+  "configuration": {
+    "active_providers": ["V4_IMCE", "SMC"],
+    "disabled_providers": ["V1", "V2", "V3"],
+    "timeframe": "M15",
+    "risk_parameters": {
+      "max_drawdown_limit_daily": "15%",
+      "confidence_threshold": 0.6,
+      "data_freshness_limit_ms": 15000
+    },
+    "simulated_costs": {
+      "spread_tolerance": "0.05%",
+      "slippage": "DYNAMIC",
+      "exchange_fees": "0.1%"
+    }
+  }
+}
