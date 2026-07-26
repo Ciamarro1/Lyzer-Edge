@@ -15,6 +15,7 @@ import { TimelineWidget } from '../src/components/commandCenter/widgets/timeline
 import { CausalGraphWidget } from '../src/components/commandCenter/widgets/causalGraph/CausalGraphWidget.js';
 import { EvidenceFusionWidget } from '../src/components/commandCenter/widgets/evidenceFusion/EvidenceFusionWidget.js';
 import { CognitiveAuditWidget } from '../src/components/commandCenter/widgets/cognitiveAudit/CognitiveAuditWidget.js';
+import { ResearchLabWidget } from '../src/components/commandCenter/widgets/researchLab/ResearchLabWidget.js';
 
 export async function runArchitectureCertification() {
   console.log('=====================================================');
@@ -31,7 +32,8 @@ export async function runArchitectureCertification() {
     { id: 'timeline-widget', instance: new TimelineWidget() },
     { id: 'causal-graph-widget', instance: new CausalGraphWidget() },
     { id: 'evidence-fusion-widget', instance: new EvidenceFusionWidget() },
-    { id: 'cognitive-audit-widget', instance: new CognitiveAuditWidget() }
+    { id: 'cognitive-audit-widget', instance: new CognitiveAuditWidget() },
+    { id: 'research-lab-widget', instance: new ResearchLabWidget() }
   ];
 
   const results = [];
