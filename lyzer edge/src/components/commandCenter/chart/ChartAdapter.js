@@ -133,7 +133,7 @@ export class ChartAdapter {
   createPriceLine(options = {}) {
     const { price, color = '#22c55e', title = 'TP', lineStyle = 2 } = options;
     if (this._engine === 'lightweight-charts' && this._seriesInstance && typeof this._seriesInstance.createPriceLine === 'function') {
-      return this._seriesInstance.createPriceLine({
+      const line = this._seriesInstance.createPriceLine({
         price,
         color,
         lineWidth: 2,
@@ -141,6 +141,9 @@ export class ChartAdapter {
         axisLabelVisible: true,
         title
       });
+      this._priceLineInstances = this._priceLineInstances || [];
+      this._priceLineInstances.push(line);
+      return line;
     } else {
       this._priceLines = this._priceLines || [];
       const lineObj = { price, color, title };
@@ -153,6 +156,12 @@ export class ChartAdapter {
   }
 
   clearPriceLines() {
+    if (this._engine === 'lightweight-charts' && this._seriesInstance && this._priceLineInstances) {
+      this._priceLineInstances.forEach(line => {
+        try { this._seriesInstance.removePriceLine(line); } catch (e) {}
+      });
+      this._priceLineInstances = [];
+    }
     this._priceLines = [];
     if (this._engine === 'canvas') this._renderCanvas();
   }

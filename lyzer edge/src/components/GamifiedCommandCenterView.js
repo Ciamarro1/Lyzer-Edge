@@ -74,6 +74,15 @@ export class GamifiedCommandCenterView {
   }
 
   async mount(container) {
+    if (!document.getElementById('lyzer-fonts')) {
+      const link = document.createElement('link');
+      link.id = 'lyzer-fonts';
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap';
+      document.head.appendChild(link);
+      const preconnect1 = document.createElement('link'); preconnect1.rel = 'preconnect'; preconnect1.href = 'https://fonts.googleapis.com'; document.head.appendChild(preconnect1);
+      const preconnect2 = document.createElement('link'); preconnect2.rel = 'preconnect'; preconnect2.href = 'https://fonts.gstatic.com'; preconnect2.crossOrigin = 'anonymous'; document.head.appendChild(preconnect2);
+    }
     this._container = container;
     this._container.innerHTML = '';
     this._container.style.display = 'grid';
@@ -83,7 +92,7 @@ export class GamifiedCommandCenterView {
     this._container.style.width = '100vw';
     this._container.style.backgroundColor = '#030712';
     this._container.style.color = '#f8fafc';
-    this._container.style.fontFamily = 'Inter, system-ui, monospace';
+    this._container.style.fontFamily = "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif";
     this._container.style.overflow = 'hidden';
 
     this._renderShell();
@@ -99,51 +108,72 @@ export class GamifiedCommandCenterView {
   _renderShell() {
     this._container.innerHTML = `
       <style>
-        .g-topbar { grid-column: 1 / 4; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(16, 185, 129, 0.4); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 4px 25px rgba(0,0,0,0.6); }
-        .g-left { grid-column: 1; border-right: 1px solid #1e293b; overflow-y: auto; background: #070c18; }
-        .g-main { grid-column: 2; overflow-y: auto; background: #020617; position: relative; display: flex; flex-direction: column; }
-        .g-right { grid-column: 3; border-left: 1px solid #1e293b; overflow-y: auto; display: flex; flex-direction: column; background: #070c18; }
-        .g-dock { grid-column: 1 / 4; background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #1e293b; display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 10px; z-index: 10; }
-        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(30, 41, 59, 0.6); border: 1px solid rgba(51, 65, 85, 0.6); padding: 6px 14px; border-radius: 6px; }
-        .g-metric-label { font-size: 9px; color: #94a3b8; letter-spacing: 0.5px; font-weight: 700; text-transform: uppercase; }
-        .g-metric-value { font-size: 15px; font-weight: 800; font-family: monospace; }
-        .g-dock-btn { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: #0f172a; color: #94a3b8; border: 1px solid #1e293b; border-radius: 6px; cursor: pointer; white-space: nowrap; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); font-size: 11px; font-weight: 600; }
-        .g-dock-btn:hover { background: #1e293b; color: #38bdf8; border-color: #38bdf8; transform: translateY(-2px); }
-        .g-dock-btn.active { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #020617; font-weight: 800; border-color: #34d399; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
-        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: linear-gradient(135deg, #065f46 0%, #047857 100%); border: 1px solid #34d399; border-radius: 12px; padding: 14px 18px; font-family: monospace; font-size: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.7); z-index: 200; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 360px; }
+        .g-topbar { grid-column: 1 / 4; background: rgba(10, 12, 22, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(6, 182, 212, 0.3); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+        .g-left { grid-column: 1; border-right: 1px solid rgba(6, 182, 212, 0.08); overflow-y: auto; background: rgba(8, 10, 18, 0.85); backdrop-filter: blur(8px); }
+        .g-main { grid-column: 2; overflow-y: auto; background: rgba(4, 6, 14, 0.9); position: relative; display: flex; flex-direction: column; }
+        .g-right { grid-column: 3; border-left: 1px solid rgba(6, 182, 212, 0.08); overflow-y: auto; display: flex; flex-direction: column; background: rgba(8, 10, 18, 0.85); backdrop-filter: blur(8px); }
+        .g-dock { grid-column: 1 / 4; background: rgba(10, 12, 22, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(6, 182, 212, 0.12); display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; z-index: 10; }
+        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); border: 1px solid rgba(148, 163, 184, 0.08); padding: 5px 14px; border-radius: 8px; position: relative; overflow: hidden; }
+        .g-metric::before { content: ''; position: absolute; inset: 0; border-radius: 8px; padding: 1px; background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        .g-metric-label { font-size: 8px; color: rgba(148, 163, 184, 0.6); letter-spacing: 1.2px; font-weight: 700; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; }
+        .g-metric-value { font-size: 16px; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-shadow: 0 0 20px currentColor; }
+        .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 7px 12px; background: rgba(15, 23, 42, 0.3); color: rgba(148, 163, 184, 0.7); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 500; font-family: 'Inter', system-ui, sans-serif; }
+        .g-dock-btn:hover { background: rgba(56, 189, 248, 0.08); color: #38bdf8; border-color: rgba(56, 189, 248, 0.2); transform: translateY(-1px); }
+        .g-dock-btn.active { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%); color: #34d399; border-color: rgba(52, 211, 153, 0.3); font-weight: 700; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1), inset 0 0 20px rgba(16, 185, 129, 0.05); }
+        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 94, 70, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 12px; padding: 16px 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 30px rgba(16, 185, 129, 0.05); z-index: 200; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 360px; }
         .g-trade-balloon.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        .g-trade-balloon:hover { border-color: #38bdf8; }
-        .g-trade-balloon-close { position: absolute; top: 4px; right: 8px; color: #94a3b8; cursor: pointer; font-size: 14px; background: none; border: none; padding: 2px; }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.8); } 70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); } 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); } }
+        .g-trade-balloon:hover { border-color: rgba(56, 189, 248, 0.4); }
+        .g-trade-balloon-close { position: absolute; top: 4px; right: 8px; color: rgba(148, 163, 184, 0.5); cursor: pointer; font-size: 16px; background: none; border: none; padding: 2px; }
         @keyframes radar-sweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .logo-dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; display: inline-block; animation: pulse-green 2s infinite; margin-right: 8px; }
-        .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 6px; font-weight: 800; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 12px; font-family: monospace; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        @keyframes bg-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
+        @keyframes grid-scroll { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
+        @keyframes ambient-glow { 0%, 100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.05); } }
+        @media (prefers-reduced-motion: reduce) {
+          .g-topbar, .g-metric::before, .g-dock-btn, .g-trade-balloon, .radar-sweep-line,
+          [class*="g-"], [class*="lb-"] { transition-duration: 0.001ms !important; }
+          .radar-sweep-line, [style*="animation"] { animation-duration: 0.001ms !important; }
+        }
+        .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 8px; font-weight: 600; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
         .toast.show { opacity: 1; transform: translateY(0); }
-        .leaderboard { padding: 14px; background: #0b1120; border-top: 1px solid #1e293b; }
-        .lb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 11px; font-family: monospace; }
-        .lb-bar-bg { flex-grow: 1; height: 6px; background: #1e293b; border-radius: 3px; overflow: hidden; }
-        .lb-bar-fg { height: 100%; transition: width 0.5s ease; }
-        .radar-box { position: relative; width: 32px; height: 32px; border-radius: 50%; border: 1px solid #38bdf8; background: rgba(56, 189, 248, 0.05); overflow: hidden; }
-        .radar-sweep-line { position: absolute; top: 50%; left: 50%; width: 50%; height: 2px; background: linear-gradient(90deg, transparent, #38bdf8); transform-origin: left center; animation: radar-sweep 3s linear infinite; }
+        .leaderboard { padding: 16px; background: rgba(10, 12, 22, 0.3); border-top: 1px solid rgba(6, 182, 212, 0.06); }
+        .lb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
+        .lb-bar-bg { flex-grow: 1; height: 4px; background: rgba(30, 41, 59, 0.4); border-radius: 2px; overflow: hidden; }
+        .lb-bar-fg { height: 100%; transition: width 0.5s ease; border-radius: 2px; }
+        .radar-box { position: relative; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.03); overflow: hidden; }
+        .radar-sweep-line { position: absolute; top: 50%; left: 50%; width: 50%; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6)); transform-origin: left center; animation: radar-sweep 3s linear infinite; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.3); }
       </style>
+      <div style="position: fixed; inset: 0; background: #05060a; z-index: -2; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px); background-size: 40px 40px; animation: grid-scroll 8s linear infinite;"></div>
+        <div style="position: absolute; top: -20%; left: -15%; width: 55%; height: 55%; background: radial-gradient(ellipse, rgba(6,182,212,0.06), transparent 70%); animation: ambient-glow 6s ease-in-out infinite; contain: paint;"></div>
+        <div style="position: absolute; bottom: -20%; right: -15%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(16,185,129,0.05), transparent 70%); animation: ambient-glow 8s ease-in-out infinite 2s; contain: paint;"></div>
+      </div>
       <div id="g-topbar" class="g-topbar">
-        <div style="font-weight: 800; font-size: 15px; display: flex; align-items: center; gap: 10px;">
+        <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 10px; font-family: 'Inter', system-ui, sans-serif;">
           <div class="radar-box"><div class="radar-sweep-line"></div></div>
-          <div>
-            <span style="color: #38bdf8; letter-spacing: 1px;">LYZER EDGE</span>
-            <span style="font-size: 10px; color: #10b981; background: rgba(16, 185, 129, 0.15); padding: 2px 6px; border-radius: 4px; margin-left: 6px; border: 1px solid rgba(16, 185, 129, 0.3);">COGNITIVE COCKPIT</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="color: #e2e8f0; letter-spacing: 1.5px; font-weight: 800; font-size: 15px;">LYZER</span>
+            <span style="color: rgba(148, 163, 184, 0.4); font-weight: 300;">|</span>
+            <span style="color: #38bdf8; letter-spacing: 0.5px; font-weight: 500;">EDGE</span>
           </div>
+          <span style="font-size: 9px; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.15); font-weight: 600; letter-spacing: 0.3px;">COCKPIT α</span>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
+        <div style="display: flex; gap: 8px; align-items: center;">
           <div class="g-metric"><span class="g-metric-label">TRG</span><span class="g-metric-value" style="color: #fbbf24;" id="g-trg">0.00</span></div>
           <div class="g-metric"><span class="g-metric-label">DVF</span><span class="g-metric-value" style="color: #38bdf8;" id="g-dvf">0.00</span></div>
           <div class="g-metric"><span class="g-metric-label">LHDS</span><span class="g-metric-value" style="color: #a855f7;" id="g-lhds-val">0.00</span></div>
           <div class="g-metric"><span class="g-metric-label">EEF</span><span class="g-metric-value" style="color: #4ade80;" id="g-eef">--</span></div>
+          <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
+          <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence">--</span></div>
+          <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
         </div>
         <div style="display: flex; gap: 14px; align-items: center;">
           <div style="display: flex; flex-direction: column; align-items: flex-end;">
-            <span style="background: #10b981; color: #020617; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 800;" id="g-mode-badge">SIMULATION</span>
-            <span id="g-clock" style="color: #94a3b8; font-size: 10px; font-family: monospace; margin-top: 2px;">00:00:00 UTC</span>
+            <span style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.1)); color: #2dd4bf; padding: 2px 10px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(45, 212, 191, 0.15);" id="g-mode-badge">SIMULATION</span>
+            <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
           </div>
         </div>
       </div>
@@ -154,11 +184,11 @@ export class GamifiedCommandCenterView {
         <div id="g-trade-balloon" class="g-trade-balloon"></div>
       </div>
       <div id="g-right" class="g-right">
-        <div id="g-court-container" style="flex: 1; min-height: 380px; border-bottom: 1px solid #1e293b;"></div>
+        <div id="g-court-container" style="flex: 1; min-height: 380px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
         <div class="leaderboard">
-          <div style="color: #38bdf8; font-size: 11px; margin-bottom: 10px; font-weight: 800; display: flex; justify-content: space-between;">
-            <span>� ASSET SIGNAL LEADERBOARD</span>
-            <span style="color: #4ade80;" id="g-lb-status">LIVE</span>
+          <div style="color: rgba(56, 189, 248, 0.5); font-size: 10px; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.4);"></span>ASSET SIGNAL LEADERBOARD</span>
+            <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
           </div>
           <div id="g-leaderboard-list"></div>
         </div>
@@ -217,6 +247,8 @@ export class GamifiedCommandCenterView {
     setText('#g-dvf', (k.dvf || 0).toFixed(2));
     setText('#g-lhds-val', (k.lhds_df || 0).toFixed(2));
     setText('#g-eef', k.eef === true ? 'ALLOW' : (k.eef === false ? 'VETO' : '--'));
+    setText('#g-confidence', k.confidence ? `${k.confidence}` : '--');
+    setText('#g-sds', typeof k.scale_divergence_score === 'number' ? k.scale_divergence_score.toFixed(3) : '--');
     setText('#g-mode-badge', data.mode || data.connectionState || 'SIMULATION');
   }
 
@@ -233,9 +265,10 @@ export class GamifiedCommandCenterView {
     });
     entries.sort((a, b) => b.val - a.val);
     lbContainer.innerHTML = entries.map(a => {
-      const color = a.dir > 0 ? '#10b981' : '#ef4444';
-      const arrow = a.dir > 0 ? '▲' : '▼';
-      return `<div class="lb-row"><span style="width:60px;font-weight:700;color:#f8fafc;">${a.sym}</span><div class="lb-bar-bg"><div class="lb-bar-fg" style="width:${a.val}%;background:${color};"></div></div><span style="width:55px;text-align:right;color:${color};font-weight:700;">${arrow} ${a.val}%</span></div>`;
+      const isUp = a.dir > 0;
+      const color = isUp ? '#10b981' : '#ef4444';
+      const gradient = isUp ? 'linear-gradient(90deg, #10b981, #34d399)' : 'linear-gradient(90deg, #ef4444, #f87171)';
+      return `<div class="lb-row"><span style="width:60px;font-weight:600;color:#f1f5f9;font-size:10px;">${a.sym}</span><div class="lb-bar-bg"><div class="lb-bar-fg" style="width:${a.val}%;background:${gradient};"></div></div><span style="width:50px;text-align:right;color:${color};font-weight:600;font-size:10px;font-family:'JetBrains Mono',monospace;">${a.val}%</span></div>`;
     }).join('');
   }
 

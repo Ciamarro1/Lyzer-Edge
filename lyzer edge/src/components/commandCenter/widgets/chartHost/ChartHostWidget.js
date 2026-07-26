@@ -25,7 +25,7 @@ export class ChartHostWidget {
     this._container.style.position = 'relative';
     this._container.style.display = 'flex';
     this._container.style.flexDirection = 'column';
-    this._container.style.background = '#0b0f19';
+    this._container.style.background = 'rgba(4, 6, 14, 0.95)';
 
     this._renderHeader();
 
@@ -36,7 +36,7 @@ export class ChartHostWidget {
     this._container.appendChild(chartHost);
 
     this._adapter = new ChartAdapter();
-    await this._adapter.createChart(chartHost, { bgColor: '#0b0f19', textColor: '#94a3b8' });
+    await this._adapter.createChart(chartHost, { bgColor: 'transparent', textColor: 'rgba(148,163,184,0.5)' });
 
     this._loadHistoricalCandles(this._activeSymbol);
     this._bindAssetTabs();
@@ -46,33 +46,34 @@ export class ChartHostWidget {
 
   _renderHeader() {
     const header = document.createElement('div');
-    header.style.cssText = 'display:flex;flex-direction:column;background:#0f172a;border-bottom:1px solid #1e293b;font-family:monospace;font-size:12px;';
+    header.style.cssText = 'display:flex;flex-direction:column;background:rgba(10,12,22,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(6,182,212,0.06);font-family:\'Inter\',system-ui,sans-serif;font-size:11px;';
 
-    // Asset tabs + decision panel row
     const row1 = document.createElement('div');
     row1.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:6px 14px;';
     row1.innerHTML = `
-      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;" id="asset-tabs-container">
-        ${SYMBOLS.map(s => `<button class="asset-tab ${s === this._activeSymbol ? 'active' : ''}" data-sym="${s}" style="background:${s === this._activeSymbol ? '#10b981' : '#1e293b'};color:${s === this._activeSymbol ? '#020617' : '#94a3b8'};border:none;padding:3px 8px;border-radius:4px;font-weight:bold;font-size:11px;cursor:pointer;">${s.replace('USDT', '/USD')}</button>`).join('')}
+      <div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap;" id="asset-tabs-container">
+        ${SYMBOLS.map(s => {
+          const active = s === this._activeSymbol;
+          return `<button class="asset-tab ${active ? 'active' : ''}" data-sym="${s}" style="background:${active ? 'rgba(16,185,129,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#34d399' : 'rgba(148,163,184,0.6)'};border:1px solid ${active ? 'rgba(52,211,153,0.2)' : 'rgba(148,163,184,0.06)'};padding:3px 10px;border-radius:6px;font-weight:${active ? '700' : '500'};font-size:10px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;">${s.replace('USDT', '/USD')}</button>`;
+        }).join('')}
       </div>
-      <div id="decision-panel" style="display:flex;gap:10px;font-size:10px;align-items:center;">
-        <span style="color:#fbbf24;">TRG: <strong id="dp-trg">--</strong></span>
-        <span style="color:#38bdf8;">DVF: <strong id="dp-dvf">--</strong></span>
-        <span style="color:#a855f7;">LHDS: <strong id="dp-lhds">--</strong></span>
-        <span id="dp-eef" style="color:#4ade80;">EEF: <strong>--</strong></span>
-        <span id="dp-court" style="color:#94a3b8;">COURT: <strong>--</strong></span>
+      <div id="decision-panel" style="display:flex;gap:12px;font-size:10px;align-items:center;font-family:'JetBrains Mono',monospace;">
+        <span style="color:rgba(251,191,36,0.6);">TRG <strong id="dp-trg" style="color:#fbbf24;">--</strong></span>
+        <span style="color:rgba(56,189,248,0.6);">DVF <strong id="dp-dvf" style="color:#38bdf8;">--</strong></span>
+        <span style="color:rgba(168,85,247,0.6);">LHDS <strong id="dp-lhds" style="color:#a855f7;">--</strong></span>
+        <span style="color:rgba(74,222,128,0.6);">EEF <strong id="dp-eef" style="color:#4ade80;">--</strong></span>
+        <span style="color:rgba(148,163,184,0.4);">COURT <strong id="dp-court" style="color:rgba(148,163,184,0.7);">--</strong></span>
       </div>
     `;
     header.appendChild(row1);
 
-    // Decision detail row (volatility bands, SDS, etc)
     const row2 = document.createElement('div');
-    row2.style.cssText = 'display:flex;gap:16px;padding:3px 14px 6px;font-size:9px;color:#64748b;';
+    row2.style.cssText = 'display:flex;gap:16px;padding:3px 14px 6px;font-size:9px;color:rgba(100,116,139,0.5);font-family:\'JetBrains Mono\',monospace;';
     row2.innerHTML = `
-      <span>Signal: <strong id="dp-signal" style="color:#94a3b8;">--</strong></span>
-      <span>Regime: <strong id="dp-regime" style="color:#94a3b8;">--</strong></span>
-      <span>SDS: <strong id="dp-sds" style="color:#94a3b8;">--</strong></span>
-      <span>α-Confidence: <strong id="dp-conf" style="color:#94a3b8;">--</strong></span>
+      <span>Signal <strong id="dp-signal" style="color:rgba(148,163,184,0.6);">--</strong></span>
+      <span>Regime <strong id="dp-regime" style="color:rgba(148,163,184,0.6);">--</strong></span>
+      <span>SDS <strong id="dp-sds" style="color:rgba(148,163,184,0.6);">--</strong></span>
+      <span>α-Confidence <strong id="dp-conf" style="color:rgba(148,163,184,0.6);">--</strong></span>
     `;
     header.appendChild(row2);
 
@@ -122,6 +123,7 @@ export class ChartHostWidget {
   }
 
   _updateDecisionPanel() {
+    this._adapter.clearPriceLines();
     const runtime = this._runtime;
     if (!runtime || !runtime.getLatestData) return;
     const data = runtime.getLatestData()[this._activeSymbol];
