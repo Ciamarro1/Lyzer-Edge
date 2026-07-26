@@ -21,6 +21,7 @@ import { AlphaDiscoveryWidget } from '../src/components/commandCenter/widgets/al
 import { StatisticalRigorWidget } from '../src/components/commandCenter/widgets/statisticalRigor/StatisticalRigorWidget.js';
 import { ContinuousMeasurementWidget } from '../src/components/commandCenter/widgets/continuousMeasurement/ContinuousMeasurementWidget.js';
 import { ObservabilityDashboardWidget } from '../src/components/commandCenter/widgets/observabilityDashboard/ObservabilityDashboardWidget.js';
+import { LACWWorkspaceWidget } from '../src/components/commandCenter/widgets/lacwWorkspace/LACWWorkspaceWidget.js';
 
 export async function runArchitectureCertification() {
   console.log('=====================================================');
@@ -43,7 +44,8 @@ export async function runArchitectureCertification() {
     { id: 'alpha-discovery-widget', instance: new AlphaDiscoveryWidget() },
     { id: 'statistical-rigor-widget', instance: new StatisticalRigorWidget() },
     { id: 'continuous-measurement-widget', instance: new ContinuousMeasurementWidget() },
-    { id: 'observability-dashboard-widget', instance: new ObservabilityDashboardWidget() }
+    { id: 'observability-dashboard-widget', instance: new ObservabilityDashboardWidget() },
+    { id: 'lacw-workspace-widget', instance: new LACWWorkspaceWidget() }
   ];
 
   const results = [];
