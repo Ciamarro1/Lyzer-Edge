@@ -14,6 +14,8 @@ import { RealityStatusWidget } from './components/commandCenter/widgets/realityS
 import { realityStatusManifest } from './components/commandCenter/widgets/realityStatus/manifest.js';
 import { ChartHostWidget } from './components/commandCenter/widgets/chartHost/ChartHostWidget.js';
 import { chartHostManifest } from './components/commandCenter/widgets/chartHost/manifest.js';
+import { RuntimeInspectorWidget } from './components/commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
+import { runtimeInspectorManifest } from './components/commandCenter/widgets/runtimeInspector/manifest.js';
 import { WidgetRegistry } from './components/commandCenter/sdk/WidgetRegistry.js';
 import './styles/variables.css';
 import './styles/base.css';
@@ -38,22 +40,23 @@ async function main() {
       const widgetRegistry = new WidgetRegistry();
       widgetRegistry.register(realityStatusManifest, RealityStatusWidget);
       widgetRegistry.register(chartHostManifest, ChartHostWidget);
+      widgetRegistry.register(runtimeInspectorManifest, RuntimeInspectorWidget);
 
       const commandCenter = new CommandCenterApp(rootElement, widgetRegistry, orchestrator);
       
-      // Layout Config for Phase 3.2 Command Center
+      // Layout Config for Phase 3.3 Command Center
       const layoutConfig = {
         type: 'institutional',
         panes: {
           LeftPane: '20%',
-          CenterPane: '60%',
-          RightPane: '20%'
+          CenterPane: '55%',
+          RightPane: '25%'
         }
       };
       
       const widgetMap = {
         CenterPane: ['chart-host-widget'],
-        RightPane: ['reality-status-widget']
+        RightPane: ['runtime-inspector-widget', 'reality-status-widget']
       };
       
       await commandCenter.mount(layoutConfig, widgetMap);

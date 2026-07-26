@@ -11,6 +11,7 @@ import { securityGuard } from '../../../services/dashboard/dashboardSecurityGuar
 import { eventBus } from '../../../lib/eventBus.js';
 import { DisposableStack, createDisposable } from './DisposableStack.js';
 import { WidgetCapabilities, WidgetError, validateManifest, shallowEquals, freezePayload } from './types.js';
+import { performanceMonitor } from './observability/PerformanceMonitor.js';
 
 export class CommandCenterRuntime {
   /**
@@ -108,6 +109,33 @@ export class CommandCenterRuntime {
       realityTag: typeof this._adapter?.getSnapshot === 'function' ? this._adapter.getSnapshot().realityTag : this.realityTag,
       healthStatus: 'UNKNOWN'
     };
+  }
+
+  /**
+   * Retrieves current real-time performance telemetry snapshot.
+   * Requires 'telemetry:read' capability.
+   */
+  getPerformanceMetrics() {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.TELEMETRY_READ);
+    return performanceMonitor.getSnapshot();
+  }
+
+  /**
+   * Subscribes to real-time performance telemetry events.
+   * Requires 'telemetry:read' capability.
+   * @param {Function} callback
+   * @returns {Object} Disposable handle
+   */
+  subscribePerformanceMetrics(callback) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.TELEMETRY_READ);
+    if (typeof callback !== 'function') {
+      throw new WidgetError('ERR_INVALID_CALLBACK', 'Callback must be a function');
+    }
+    const disposable = performanceMonitor.onSnapshot(callback);
+    this._disposableStack.use(disposable);
+    return disposable;
   }
 
   // ── DATA ACCESS (ZERO-TRUST READ-ONLY) ───────────────────────────────
