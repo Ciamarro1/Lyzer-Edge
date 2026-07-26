@@ -138,25 +138,26 @@ export class GamifiedCommandCenterView {
   _renderShell() {
     this._container.innerHTML = `
       <style>
-        .g-topbar { grid-column: 1 / 4; background: rgba(8, 12, 20, 0.45); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(56, 189, 248, 0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 4px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03); }
-        .g-left { grid-column: 1; border-right: 1px solid rgba(56, 189, 248, 0.06); overflow-y: auto; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); }
-        .g-main { grid-column: 2; overflow-y: auto; background: rgba(4, 8, 18, 0.6); position: relative; display: flex; flex-direction: column; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
-        .g-right { grid-column: 3; border-left: 1px solid rgba(56, 189, 248, 0.06); overflow-y: auto; display: flex; flex-direction: column; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); }
-        .g-dock { grid-column: 1 / 4; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-top: 1px solid rgba(56, 189, 248, 0.08); display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; z-index: 10; }
-        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(12, 18, 35, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.08); padding: 5px 14px; border-radius: 8px; position: relative; overflow: hidden; }
-        .g-metric::before { content: ''; position: absolute; inset: 0; border-radius: 8px; padding: 1px; background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
-        .g-metric-label { font-size: 8px; color: rgba(148, 163, 184, 0.6); letter-spacing: 1.2px; font-weight: 700; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; }
-        .g-metric-value { font-size: 16px; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-shadow: 0 0 20px currentColor; }
-        .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 7px 12px; background: rgba(15, 23, 42, 0.3); color: rgba(148, 163, 184, 0.7); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 500; font-family: 'Inter', system-ui, sans-serif; }
-        .g-dock-btn:hover { background: rgba(56, 189, 248, 0.08); color: #38bdf8; border-color: rgba(56, 189, 248, 0.2); transform: translateY(-1px); }
-        .g-dock-btn.active { background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(6, 182, 212, 0.1) 100%); color: #34d399; border-color: rgba(52, 211, 153, 0.3); font-weight: 700; box-shadow: 0 0 20px rgba(16, 185, 129, 0.1), inset 0 0 20px rgba(16, 185, 129, 0.05); }
-        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 94, 70, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 12px; padding: 16px 20px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 10px 40px rgba(0,0,0,0.5), 0 0 30px rgba(16, 185, 129, 0.05); z-index: 200; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 360px; }
+        .g-topbar { grid-column: 1 / 4; background: rgba(6, 10, 22, 0.35); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border-bottom: 1px solid rgba(0, 243, 255, 0.2); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.12); }
+        .g-left { grid-column: 1; border-right: 1px solid rgba(0, 243, 255, 0.12); overflow-y: auto; background: rgba(6, 10, 22, 0.35); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); box-shadow: inset 1px 0 0 rgba(255,255,255,0.05); }
+        .g-main { grid-column: 2; overflow-y: auto; background: rgba(4, 8, 18, 0.45); position: relative; display: flex; flex-direction: column; backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); }
+        .g-right { grid-column: 3; border-left: 1px solid rgba(0, 243, 255, 0.12); overflow-y: auto; display: flex; flex-direction: column; background: rgba(6, 10, 22, 0.35); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); box-shadow: inset -1px 0 0 rgba(255,255,255,0.05); }
+        .g-dock { grid-column: 1 / 4; background: rgba(6, 10, 22, 0.4); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border-top: 1px solid rgba(0, 243, 255, 0.18); display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; z-index: 10; box-shadow: 0 -10px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); }
+        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(10, 16, 32, 0.45); backdrop-filter: blur(16px); border: 1px solid rgba(0, 243, 255, 0.18); padding: 5px 14px; border-radius: 10px; position: relative; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .g-metric:hover { border-color: #00f3ff; box-shadow: 0 0 20px rgba(0, 243, 255, 0.3), inset 0 1px 0 rgba(255,255,255,0.25); transform: translateY(-2px); }
+        .g-metric::before { content: ''; position: absolute; inset: 0; border-radius: 10px; padding: 1px; background: linear-gradient(135deg, rgba(0,243,255,0.3), rgba(0,255,157,0.2), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+        .g-metric-label { font-size: 8px; color: rgba(148, 163, 184, 0.7); letter-spacing: 1.2px; font-weight: 800; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; }
+        .g-metric-value { font-size: 16px; font-weight: 800; font-family: 'JetBrains Mono', monospace; filter: drop-shadow(0 0 8px currentColor); }
+        .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 7px 14px; background: rgba(15, 23, 42, 0.35); color: rgba(148, 163, 184, 0.8); border: 1px solid rgba(0, 243, 255, 0.1); border-radius: 10px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 600; font-family: 'Inter', system-ui, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
+        .g-dock-btn:hover { background: rgba(0, 243, 255, 0.12); color: #00f3ff; border-color: rgba(0, 243, 255, 0.35); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,243,255,0.15), inset 0 1px 0 rgba(255,255,255,0.15); }
+        .g-dock-btn.active { background: linear-gradient(135deg, rgba(0, 255, 157, 0.2) 0%, rgba(0, 243, 255, 0.15) 100%); color: #00ff9d; border-color: rgba(0, 255, 157, 0.4); font-weight: 800; box-shadow: 0 0 25px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2); }
+        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 94, 70, 0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(0, 255, 157, 0.4); border-radius: 14px; padding: 18px 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 35px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255,255,255,0.2); z-index: 200; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 360px; }
         .g-trade-balloon.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        .g-trade-balloon:hover { border-color: rgba(56, 189, 248, 0.4); }
+        .g-trade-balloon:hover { border-color: #00f3ff; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 45px rgba(0, 243, 255, 0.35); }
         .g-trade-balloon-close { position: absolute; top: 4px; right: 8px; color: rgba(148, 163, 184, 0.5); cursor: pointer; font-size: 16px; background: none; border: none; padding: 2px; }
         @keyframes bg-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         @keyframes grid-scroll { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
-        @keyframes ambient-glow { 0%, 100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.05); } }
+        @keyframes ambient-glow { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.08); } }
         @media (prefers-reduced-motion: reduce) {
           .g-topbar, .g-metric::before, .g-dock-btn, .g-trade-balloon,
           [class*="g-"], [class*="lb-"] { transition-duration: 0.001ms !important; }
@@ -164,14 +165,14 @@ export class GamifiedCommandCenterView {
         }
         .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 8px; font-weight: 600; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: rgba(8, 12, 20, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(56, 189, 248, 0.1); box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03); }
         .toast.show { opacity: 1; transform: translateY(0); }
-        .leaderboard { padding: 16px; background: rgba(8, 12, 20, 0.35); backdrop-filter: blur(16px); border-top: 1px solid rgba(56, 189, 248, 0.06); }
+        .leaderboard { padding: 16px; background: rgba(6, 10, 22, 0.35); backdrop-filter: blur(20px); border-top: 1px solid rgba(0, 243, 255, 0.1); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
         .lb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
-        .lb-bar-bg { flex-grow: 1; height: 4px; background: rgba(30, 41, 59, 0.4); border-radius: 2px; overflow: hidden; }
+        .lb-bar-bg { flex-grow: 1; height: 4px; background: rgba(30, 41, 59, 0.5); border-radius: 2px; overflow: hidden; }
         .lb-bar-fg { height: 100%; transition: width 0.5s ease; border-radius: 2px; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 2px; }
-        ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.3); }
+        ::-webkit-scrollbar-thumb { background: rgba(0, 243, 255, 0.2); border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(0, 243, 255, 0.4); }
       </style>
       <div style="position: fixed; inset: 0; background: #03060e; z-index: -2; overflow: hidden;">
         <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.02) 1px, transparent 1px); background-size: 40px 40px; animation: grid-scroll 8s linear infinite;"></div>

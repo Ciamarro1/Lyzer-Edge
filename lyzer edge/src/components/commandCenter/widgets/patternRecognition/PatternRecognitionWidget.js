@@ -38,21 +38,24 @@ export class PatternRecognitionWidget {
     style.id = 'pattern-recognition-widget-styles';
     style.textContent = `
       .pr-container { max-width: 1400px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
-      .pr-header { display: flex; justify-content: space-between; align-items: center; background: rgba(8, 14, 26, 0.5); backdrop-filter: blur(20px) saturate(1.4); border: 1px solid rgba(56, 189, 248, 0.1); border-radius: 14px; padding: 16px 20px; }
+      .pr-header { display: flex; justify-content: space-between; align-items: center; background: rgba(6, 10, 22, 0.4); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 16px; padding: 18px 24px; box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.15); }
       .pr-title { font-size: 16px; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 10px; }
       .pr-sub { font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace; }
-      .pr-btn { padding: 6px 14px; border-radius: 8px; font-size: 10px; font-weight: 800; cursor: pointer; transition: all 0.2s; font-family: 'JetBrains Mono', monospace; }
-      .pr-btn-mock { background: rgba(56, 189, 248, 0.12); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; }
-      .pr-btn-mock:hover { background: rgba(56, 189, 248, 0.25); transform: translateY(-1px); }
-      .pr-btn-purge { background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); color: #f87171; }
-      .pr-btn-purge:hover { background: rgba(239, 68, 68, 0.25); transform: translateY(-1px); }
+      .pr-btn { padding: 8px 16px; border-radius: 10px; font-size: 10px; font-weight: 800; cursor: pointer; transition: all 0.25s; font-family: 'JetBrains Mono', monospace; }
+      .pr-btn-mock { background: linear-gradient(135deg, rgba(0, 243, 255, 0.15), rgba(0, 255, 157, 0.1)); border: 1px solid rgba(0, 243, 255, 0.35); color: #00f3ff; box-shadow: 0 4px 15px rgba(0,243,255,0.15); }
+      .pr-btn-mock:hover { background: linear-gradient(135deg, rgba(0, 243, 255, 0.3), rgba(0, 255, 157, 0.2)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,243,255,0.3); }
+      .pr-btn-purge { background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(239, 68, 68, 0.1)); border: 1px solid rgba(255, 51, 102, 0.35); color: #ff3366; box-shadow: 0 4px 15px rgba(255,51,102,0.15); }
+      .pr-btn-purge:hover { background: linear-gradient(135deg, rgba(255, 51, 102, 0.3), rgba(239, 68, 68, 0.2)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,51,102,0.3); }
       .pr-grid-clusters { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-      .pr-panel { background: rgba(8, 14, 26, 0.5); backdrop-filter: blur(20px) saturate(1.4); border: 1px solid rgba(56, 189, 248, 0.1); border-radius: 14px; padding: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03); }
-      .pr-panel-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: space-between; }
-      .pr-cluster-card { background: rgba(15, 23, 42, 0.4); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 4px solid #10b981; border-top: 1px solid rgba(255,255,255,0.03); }
-      .pr-toxic-card { background: rgba(15, 23, 42, 0.4); border-radius: 10px; padding: 14px; margin-bottom: 10px; border-left: 4px solid #ef4444; border-top: 1px solid rgba(255,255,255,0.03); }
+      .pr-panel { background: rgba(6, 10, 22, 0.4); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border: 1px solid rgba(0, 243, 255, 0.18); border-radius: 16px; padding: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.65), 0 0 25px rgba(0, 243, 255, 0.08), inset 0 1px 1px rgba(255,255,255,0.15); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+      .pr-panel:hover { border-color: rgba(0, 243, 255, 0.35); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 243, 255, 0.15); }
+      .pr-panel-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; justify-content: space-between; }
+      .pr-cluster-card { background: rgba(10, 16, 32, 0.45); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid #00ff9d; border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+      .pr-cluster-card:hover { transform: translateY(-2px) scale(1.01); border-left-color: #00ff9d; box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(0,255,157,0.2); }
+      .pr-toxic-card { background: rgba(10, 16, 32, 0.45); border-radius: 12px; padding: 16px; margin-bottom: 12px; border-left: 4px solid #ff3366; border-top: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 25px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+      .pr-toxic-card:hover { transform: translateY(-2px) scale(1.01); border-left-color: #ff3366; box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 20px rgba(255,51,102,0.2); }
       .pr-sig-title { font-size: 12px; font-weight: 800; color: #f1f5f9; font-family: 'JetBrains Mono', monospace; }
-      .pr-sig-stats { font-size: 10px; color: #94a3b8; margin-top: 4px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; }
+      .pr-sig-stats { font-size: 10px; color: #94a3b8; margin-top: 6px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; }
       .pr-table { width: 100%; border-collapse: collapse; font-family: 'JetBrains Mono', monospace; font-size: 11px; margin-top: 10px; }
       .pr-table th { text-align: left; padding: 8px 12px; color: #64748b; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(56,189,248,0.1); }
       .pr-table td { padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.02); color: #f1f5f9; }
