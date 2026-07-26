@@ -8,6 +8,7 @@ import { ChartHostWidget } from './commandCenter/widgets/chartHost/ChartHostWidg
 import { RuntimeInspectorWidget } from './commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
 import { RealityStatusWidget } from './commandCenter/widgets/realityStatus/RealityStatusWidget.js';
 import { EvolvedTradeLogWidget } from './commandCenter/widgets/tradeLog/EvolvedTradeLogWidget.js';
+import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/GamificationHUDWidget.js';
 import { wsClient } from '../services/wsClient.js';
 
 export class GamifiedCommandCenterView {
@@ -88,6 +89,7 @@ export class GamifiedCommandCenterView {
     this._widgetRegistry = {
       'chart-host-widget': ChartHostWidget,
       'trade-log-widget': EvolvedTradeLogWidget,
+      'gamification-hud-widget': GamificationHUDWidget,
       'lacw-workspace-widget': LACWWorkspaceWidget,
       'cognitive-audit-widget': CognitiveAuditWidget,
       'observability-dashboard-widget': ObservabilityDashboardWidget,
@@ -227,6 +229,7 @@ export class GamifiedCommandCenterView {
     const tabs = [
       { id: 'chart-host-widget', label: 'Chart & Decisions' },
       { id: 'trade-log-widget', label: 'Trade Log' },
+      { id: 'gamification-hud-widget', label: '🏆 Level & Quests' },
       { id: 'lacw-workspace-widget', label: 'LACW OS' },
       { id: 'cognitive-audit-widget', label: 'Cognitive Audit' },
       { id: 'observability-dashboard-widget', label: 'Observability' },
