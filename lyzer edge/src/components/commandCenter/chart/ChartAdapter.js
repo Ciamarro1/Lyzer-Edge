@@ -52,28 +52,33 @@ export class ChartAdapter {
   }
 
   _initLightweightCharts(lwCharts, options) {
-    this._engine = 'lightweight-charts';
-    this._chartInstance = lwCharts.createChart(this._container, {
-      width: this._viewport.width,
-      height: this._viewport.height,
-      layout: {
-        background: { color: options.bgColor || '#131722' },
-        textColor: options.textColor || '#d1d4dc'
-      },
-      grid: {
-        vertLines: { color: '#2b2b43' },
-        horzLines: { color: '#2b2b43' }
-      },
-      ...options.chartConfig
-    });
+    try {
+      this._engine = 'lightweight-charts';
+      this._chartInstance = lwCharts.createChart(this._container, {
+        width: this._viewport.width,
+        height: this._viewport.height,
+        layout: {
+          background: { color: options.bgColor || '#131722' },
+          textColor: options.textColor || '#d1d4dc'
+        },
+        grid: {
+          vertLines: { color: '#2b2b43' },
+          horzLines: { color: '#2b2b43' }
+        },
+        ...options.chartConfig
+      });
 
-    this._seriesInstance = this._chartInstance.addCandlestickSeries({
-      upColor: '#26a69a',
-      downColor: '#ef5350',
-      borderVisible: false,
-      wickUpColor: '#26a69a',
-      wickDownColor: '#ef5350'
-    });
+      this._seriesInstance = this._chartInstance.addCandlestickSeries({
+        upColor: '#26a69a',
+        downColor: '#ef5350',
+        borderVisible: false,
+        wickUpColor: '#26a69a',
+        wickDownColor: '#ef5350'
+      });
+    } catch (err) {
+      // Fallback to Canvas if Lightweight Charts cannot bind to headless container
+      this._initCanvasFallback(options);
+    }
   }
 
   _initCanvasFallback(options) {

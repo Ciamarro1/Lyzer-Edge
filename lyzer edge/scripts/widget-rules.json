@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "rules": {
+    "forbiddenImports": [
+      "/providers/",
+      "/backend/",
+      "/db/",
+      "WebSocket",
+      "dashboardRuntimeAdapter"
+    ],
+    "requiredManifestFields": [
+      "id",
+      "name",
+      "version",
+      "minRuntimeVersion",
+      "targetPane",
+      "capabilities",
+      "realityTag"
+    ],
+    "requiredLifecycleMethods": [
+      "mount",
+      "dispose"
+    ],
+    "limits": {
+      "maxMountTimeMs": 500,
+      "maxActiveListeners": 20,
+      "maxHeapDeltaMB": 10.0
+    },
+    "certificationLevels": {
+      "Bronze": "Valid manifest, valid contract, no forbidden imports",
+      "Silver": "Bronze + Mount Time < 500ms + Zero leaks on unmount",
+      "Gold": "Silver + Capability Scoping + Telemetry Integration",
+      "Platinum": "Gold + High-Frequency Stress Test Passed (10k ticks < 1s)"
+    }
+  }
+}
