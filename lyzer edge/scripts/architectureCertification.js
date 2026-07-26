@@ -13,6 +13,7 @@ import { RuntimeInspectorWidget } from '../src/components/commandCenter/widgets/
 import { CourtWidget } from '../src/components/commandCenter/widgets/court/CourtWidget.js';
 import { TimelineWidget } from '../src/components/commandCenter/widgets/timeline/TimelineWidget.js';
 import { CausalGraphWidget } from '../src/components/commandCenter/widgets/causalGraph/CausalGraphWidget.js';
+import { EvidenceFusionWidget } from '../src/components/commandCenter/widgets/evidenceFusion/EvidenceFusionWidget.js';
 
 export async function runArchitectureCertification() {
   console.log('=====================================================');
@@ -27,7 +28,8 @@ export async function runArchitectureCertification() {
     { id: 'runtime-inspector-widget', instance: new RuntimeInspectorWidget() },
     { id: 'court-widget', instance: new CourtWidget() },
     { id: 'timeline-widget', instance: new TimelineWidget() },
-    { id: 'causal-graph-widget', instance: new CausalGraphWidget() }
+    { id: 'causal-graph-widget', instance: new CausalGraphWidget() },
+    { id: 'evidence-fusion-widget', instance: new EvidenceFusionWidget() }
   ];
 
   const results = [];
