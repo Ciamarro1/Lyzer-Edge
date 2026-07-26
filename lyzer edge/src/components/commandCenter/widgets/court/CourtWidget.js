@@ -24,24 +24,34 @@ export class CourtWidget {
 
   _render() {
     this._container.innerHTML = `
-      <div style="padding: 12px; font-family: monospace; font-size: 11px; background: #1b1d23; color: #abb2bf; border: 1px solid #4b5263; border-radius: 6px; height: 100%; box-sizing: border-box; overflow-y: auto;">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #4b5263; padding-bottom: 6px; margin-bottom: 10px;">
-          <h4 style="margin: 0; color: #e5c07b; font-size: 13px; font-weight: bold;">⚖️ CONSTITUTIONAL COURT</h4>
-          <span id="cw-status" style="background: #98c379; color: #1e1e1e; padding: 2px 6px; border-radius: 3px; font-weight: bold;">ALLOW</span>
+      <div style="padding: 16px; font-family: 'Inter', system-ui, sans-serif; font-size: 11px; background: rgba(10, 12, 22, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 10px; height: 100%; box-sizing: border-box; overflow-y: auto; position: relative;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(6, 182, 212, 0.08); padding-bottom: 10px; margin-bottom: 12px;">
+          <h4 style="margin: 0; color: #e2e8f0; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;">
+            <span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.4);"></span>
+            CONSTITUTIONAL COURT
+          </h4>
+          <span id="cw-status" style="background: rgba(16,185,129,0.1); color: #10b981; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 9px; letter-spacing: 0.5px; border: 1px solid rgba(16,185,129,0.15);">ALLOW</span>
         </div>
 
-        <!-- COURT METRICS -->
-        <div style="margin-bottom: 10px; background: #21252b; padding: 8px; border-radius: 4px;">
-          <div>LHDS Score: <span id="cw-lhds" style="color: #61afef;">0.00</span></div>
-          <div>EEF Constraint: <span id="cw-eef" style="color: #98c379;">VALID</span></div>
-          <div>MOL Recovery State: <span id="cw-mol" style="color: #98c379;">EXECUTE</span></div>
+        <div style="margin-bottom: 12px; background: rgba(12, 16, 30, 0.4); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">LHDS Score</span>
+            <span id="cw-lhds" style="color: #38bdf8; font-weight: 800; font-family: 'JetBrains Mono', monospace;">0.000</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">EEF Constraint</span>
+            <span id="cw-eef" style="color: #4ade80; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 10px;">VALID</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">MOL State</span>
+            <span id="cw-mol" style="color: #4ade80; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 10px;">EXECUTE</span>
+          </div>
         </div>
 
-        <!-- DECISION LEDGER LOG -->
-        <div style="background: #21252b; padding: 8px; border-radius: 4px;">
-          <div style="color: #e5c07b; font-weight: bold; margin-bottom: 6px;">DECISION LEDGER AUDIT</div>
+        <div style="background: rgba(12, 16, 30, 0.4); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; padding: 10px;">
+          <div style="color: rgba(56, 189, 248, 0.5); font-weight: 700; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">Decision Ledger Audit</div>
           <div id="cw-ledger-list" style="max-height: 150px; overflow-y: auto;">
-            <div style="color: #5c6370; font-style: italic;">No decisions recorded...</div>
+            <div style="color: rgba(148, 163, 184, 0.2); font-style: italic; font-size: 10px;">No decisions recorded...</div>
           </div>
         </div>
       </div>
@@ -89,17 +99,20 @@ export class CourtWidget {
 
     const item = document.createElement('div');
     item.style.marginBottom = '6px';
-    item.style.borderBottom = '1px dashed #3b4048';
-    item.style.paddingBottom = '4px';
+    item.style.borderBottom = '1px solid rgba(148,163,184,0.06)';
+    item.style.paddingBottom = '6px';
 
-    const color = entry.decision.includes('ALLOW') ? '#98c379' : '#e06c75';
+    const allowed = entry.decision.includes('ALLOW');
+    const color = allowed ? '#10b981' : '#ef4444';
     item.innerHTML = `
-      <div style="display: flex; justify-content: space-between;">
-        <strong style="color: ${color};">${entry.decision}</strong>
-        <span style="color: #5c6370; font-size: 10px;">${new Date(entry.timestamp).toLocaleTimeString()}</span>
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 700; font-size: 10px; color: ${color}; display: flex; align-items: center; gap: 4px;">
+          <span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: ${color}; box-shadow: 0 0 4px ${color};"></span>
+          ${entry.decision}
+        </span>
+        <span style="color: rgba(148,163,184,0.3); font-size: 8px; font-family: 'JetBrains Mono', monospace;">${new Date(entry.timestamp).toLocaleTimeString()}</span>
       </div>
-      <div style="color: #abb2bf;">${entry.component}: ${entry.reason}</div>
-      <div style="color: #5c6370; font-size: 10px;">Confidence: ${(entry.confidence * 100).toFixed(0)}%</div>
+      <div style="color: rgba(148,163,184,0.5); font-size: 9px; margin-top: 2px;">${entry.component}: ${entry.reason}</div>
     `;
 
     this._ui.ledgerList.insertBefore(item, this._ui.ledgerList.firstChild);

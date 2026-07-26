@@ -15,50 +15,97 @@ export class AgentHubWidget {
   async mount(container, context) {
     this._container = container;
     
-    // Inject styles
     if (!document.getElementById('agent-hub-styles')) {
       const style = document.createElement('style');
       style.id = 'agent-hub-styles';
       style.textContent = `
-        @keyframes pulse-amber {
-          0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
-          70% { box-shadow: 0 0 0 6px rgba(245, 158, 11, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+        @keyframes card-glow { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+        @keyframes slide-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (prefers-reduced-motion: reduce) {
+          .agent-card.EXECUTING, .agent-card::before, .agent-dot.EXECUTING { animation: none !important; }
         }
         .agent-card {
-          background: #0f172a;
-          border: 1px solid #1e293b;
-          border-radius: 6px;
-          padding: 12px;
-          margin-bottom: 8px;
-          color: #f8fafc;
-          font-family: monospace;
+          background: rgba(12, 16, 30, 0.85);
+          border: 1px solid rgba(148, 163, 184, 0.06);
+          border-radius: 10px;
+          padding: 14px;
+          margin-bottom: 10px;
+          color: #f1f5f9;
+          font-family: 'Inter', system-ui, sans-serif;
           font-size: 11px;
-          transition: all 0.2s;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+          animation: slide-in 0.3s ease-out;
+        }
+        .agent-card::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 0; bottom: 0;
+          width: 3px;
+          background: linear-gradient(180deg, rgb(var(--accent-rgb)), rgba(var(--accent-rgb), 0.3));
+          border-radius: 3px 0 0 3px;
+        }
+        .agent-card::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 10px;
+          padding: 1px;
+          background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+          -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          -webkit-mask-composite: xor; mask-composite: exclude;
+          pointer-events: none;
         }
         .agent-card:hover {
-          border-color: #38bdf8;
-          transform: translateY(-1px);
+          border-color: rgba(56, 189, 248, 0.15);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 30px rgba(0,0,0,0.3), 0 0 15px rgba(var(--accent-rgb), 0.05);
         }
-        .badge {
-          padding: 2px 6px;
+        .agent-card.EXECUTING::before { animation: card-glow 2s ease-in-out infinite; }
+        .agent-card.EXECUTING { --accent-rgb: 245, 158, 11; }
+        .agent-card.AVAILABLE { --accent-rgb: 16, 185, 129; }
+        .agent-card.LEARNING { --accent-rgb: 59, 130, 246; }
+        .agent-card.INITIALIZED { --accent-rgb: 99, 102, 241; }
+        .agent-badge {
+          padding: 2px 8px;
           border-radius: 4px;
-          font-weight: bold;
-          font-size: 10px;
+          font-weight: 700;
+          font-size: 9px;
           display: inline-flex;
           align-items: center;
-          gap: 4px;
+          gap: 5px;
+          letter-spacing: 0.3px;
+          text-transform: uppercase;
         }
-        .badge.AVAILABLE { color: #10b981; background: rgba(16,185,129,0.1); }
-        .badge.EXECUTING { color: #f59e0b; background: rgba(245,158,11,0.1); }
-        .badge.LEARNING { color: #3b82f6; background: rgba(59,130,246,0.1); }
-        .badge.INITIALIZED { color: #6366f1; background: rgba(99,102,241,0.1); }
-        
-        .dot { width: 6px; height: 6px; border-radius: 50%; }
-        .dot.AVAILABLE { background: #10b981; }
-        .dot.EXECUTING { background: #f59e0b; animation: pulse-amber 1.5s infinite; }
-        .dot.LEARNING { background: #3b82f6; }
-        .dot.INITIALIZED { background: #6366f1; }
+        .agent-badge.AVAILABLE { color: #10b981; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.15); }
+        .agent-badge.EXECUTING { color: #f59e0b; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.15); }
+        .agent-badge.LEARNING { color: #60a5fa; background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.15); }
+        .agent-badge.INITIALIZED { color: #818cf8; background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.15); }
+        .agent-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
+        .agent-dot.AVAILABLE { background: #10b981; box-shadow: 0 0 6px rgba(16,185,129,0.6); }
+        .agent-dot.EXECUTING { background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.6); animation: pulse-dot 1s ease-in-out infinite; }
+        .agent-dot.LEARNING { background: #60a5fa; box-shadow: 0 0 6px rgba(59,130,246,0.6); }
+        .agent-dot.INITIALIZED { background: #818cf8; box-shadow: 0 0 6px rgba(99,102,241,0.6); }
+        .agent-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+        .agent-name { font-size: 12px; font-weight: 700; color: #f1f5f9; letter-spacing: 0.2px; }
+        .agent-purpose { color: rgba(148, 163, 184, 0.6); font-size: 10px; margin-bottom: 6px; font-family: 'JetBrains Mono', monospace; }
+        .agent-mission { color: rgba(203, 213, 225, 0.5); font-size: 10px; margin-bottom: 10px; font-style: italic; border-left: 2px solid rgba(148,163,184,0.08); padding-left: 8px; }
+        .agent-progress { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+        .agent-progress-bg { flex-grow: 1; height: 3px; background: rgba(30, 41, 59, 0.3); border-radius: 2px; overflow: hidden; }
+        .agent-progress-fg { height: 100%; border-radius: 2px; transition: width 0.5s ease; }
+        .agent-progress-fg.AVAILABLE { background: linear-gradient(90deg, #10b981, #34d399); }
+        .agent-progress-fg.EXECUTING { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+        .agent-progress-fg.LEARNING { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .agent-progress-fg.INITIALIZED { background: linear-gradient(90deg, #6366f1, #818cf8); }
+        .agent-delegate-btn {
+          width: 100%; padding: 6px; background: rgba(15, 23, 42, 0.3);
+          color: rgba(148, 163, 184, 0.6); border: 1px solid rgba(148, 163, 184, 0.06);
+          border-radius: 6px; cursor: pointer; font-family: 'Inter', system-ui, sans-serif;
+          font-size: 10px; font-weight: 500; transition: all 0.3s;
+        }
+        .agent-delegate-btn:hover { background: rgba(56, 189, 248, 0.06); color: #38bdf8; border-color: rgba(56, 189, 248, 0.15); }
       `;
       document.head.appendChild(style);
     }
@@ -104,30 +151,35 @@ export class AgentHubWidget {
   render() {
     if (!this._container || this._disposed) return;
     
-    let html = `<div style="padding: 12px; height: 100%; box-sizing: border-box; overflow-y: auto;">
-      <div style="color: #38bdf8; font-weight: bold; margin-bottom: 12px; font-family: monospace;">🧩 COGNITIVE AGENT HUB</div>
+    let html = `<div style="padding: 16px; height: 100%; box-sizing: border-box; overflow-y: auto;">
+      <div style="color: rgba(56, 189, 248, 0.5); font-weight: 700; margin-bottom: 16px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; display: flex; align-items: center; gap: 8px;">
+        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px rgba(56,189,248,0.4);"></span>
+        AGENT HUB
+        <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
+      </div>
     `;
 
     for (const model of this._models) {
       const snap = model.getAgentSnapshot();
+      const accPct = (snap.metrics.accuracy * 100).toFixed(1);
       html += `
-        <div class="agent-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <strong style="color: #f8fafc; font-size: 12px;">${snap.name}</strong>
-            <span class="badge ${snap.status}"><span class="dot ${snap.status}"></span>${snap.status}</span>
+        <div class="agent-card ${snap.status}">
+          <div class="agent-header">
+            <span class="agent-name">${snap.name}</span>
+            <span class="agent-badge ${snap.status}"><span class="agent-dot ${snap.status}"></span>${snap.status}</span>
           </div>
-          <div style="color: #94a3b8; margin-bottom: 4px;">${snap.purpose}</div>
-          <div style="color: #cbd5e1; margin-bottom: 8px; font-style: italic;">"${snap.mission}"</div>
+          <div class="agent-purpose">${snap.purpose}</div>
+          <div class="agent-mission">"${snap.mission}"</div>
           
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-            <div style="flex-grow: 1; height: 4px; background: #1e293b; border-radius: 2px; overflow: hidden;">
-              <div style="height: 100%; width: ${snap.metrics.accuracy * 100}%; background: #10b981;"></div>
+          <div class="agent-progress">
+            <div class="agent-progress-bg">
+              <div class="agent-progress-fg ${snap.status}" style="width: ${accPct}%;"></div>
             </div>
-            <span style="color: #10b981;">${(snap.metrics.accuracy * 100).toFixed(1)}%</span>
+            <span style="color: rgba(148, 163, 184, 0.4); font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;">${accPct}%</span>
           </div>
 
-          <button style="width: 100%; padding: 4px; background: #1e293b; color: #38bdf8; border: 1px solid #334155; border-radius: 4px; cursor: pointer; font-family: monospace; transition: background 0.2s;">
-            Delegate Mission
+          <button class="agent-delegate-btn">
+            ${snap.status === 'AVAILABLE' ? '→ Delegate Mission' : snap.status === 'EXECUTING' ? '◉ Executing...' : '● Standby'}
           </button>
         </div>
       `;

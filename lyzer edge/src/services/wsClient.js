@@ -2,6 +2,7 @@ class WSClient {
   constructor() {
     this.ws = null;
     this.listeners = [];
+    this._buffer = [];
   }
 
   connect() {
@@ -19,17 +20,16 @@ class WSClient {
 
     this.ws.onopen = () => {
       console.log("🟢 WS connected");
+      this._drainBuffer();
     };
 
     this.ws.onmessage = (msg) => {
       const data = JSON.parse(msg.data);
-      this.listeners.forEach(fn => {
-        try {
-          fn(data);
-        } catch (e) {
-          console.error("WS listener error:", e);
-        }
-      });
+      if (this.listeners.length === 0) {
+        this._buffer.push(data);
+        return;
+      }
+      this._broadcast(data);
     };
 
     this.ws.onerror = (err) => {
@@ -39,7 +39,6 @@ class WSClient {
     this.ws.onclose = () => {
       console.warn("WS disconnected");
       this.ws = null;
-      // Reconnect loop (every 3 seconds)
       setTimeout(() => {
         console.log("🔄 WS attempting reconnect...");
         this.connect();
@@ -47,8 +46,23 @@ class WSClient {
     };
   }
 
+  _broadcast(data) {
+    this.listeners.forEach(fn => {
+      try { fn(data); } catch (e) { console.error("WS listener error:", e); }
+    });
+  }
+
+  _drainBuffer() {
+    if (this._buffer.length === 0) return;
+    const batch = this._buffer;
+    this._buffer = [];
+    batch.forEach(data => this._broadcast(data));
+  }
+
   onData(fn) {
     this.listeners.push(fn);
+    this._drainBuffer();
+    return fn;
   }
 
   offData(fn) {
