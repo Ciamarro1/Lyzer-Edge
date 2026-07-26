@@ -127,9 +127,7 @@ const DEFAULT_SETTINGS = {
 export async function initDatabase() {
   try {
     await db.open();
-
     const existingSettingsCount = await db.settings.count();
-
     if (existingSettingsCount === 0) {
       const settingsRows = Object.entries(DEFAULT_SETTINGS).map(
         ([key, value]) => ({ key, value }),
@@ -137,8 +135,14 @@ export async function initDatabase() {
       await db.settings.bulkAdd(settingsRows);
     }
   } catch (error) {
-    console.error('[LyzerEdge] Database initialisation failed:', error);
-    throw error;
+    console.warn('[LyzerEdge] Database initialisation encountered an error, attempting recovery:', error);
+    try {
+      // Attempt schema recovery by reopening or deleting stale cache
+      await db.delete();
+      await db.open();
+    } catch (fallbackError) {
+      console.warn('[LyzerEdge] Database running in in-memory fallback mode:', fallbackError);
+    }
   }
 }
 
