@@ -80,7 +80,7 @@ export class CausalGraphWidget {
   }
 
   _subscribe() {
-    if (typeof this._runtime.subscribeSnapshot === 'function') {
+    if (this._runtime && typeof this._runtime.subscribeSnapshot === 'function') {
       this._disposable = this._runtime.subscribeSnapshot((snapshot) => {
         const providerEl = this._container.querySelector('#cg-provider-id');
         const realityEl = this._container.querySelector('#cg-reality-tag');
