@@ -4,7 +4,16 @@
  * Verifies architectural compliance, zero memory leaks, TC39 Symbol.dispose, capability permissions, and test coverage.
  */
 
-import { createHash } from 'crypto';
+/** Browser-safe FNV-1a 32-bit hash — no Node.js crypto dependency. */
+function fnv1aHash(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h * 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+const _randomUUID = () => (typeof globalThis.crypto !== 'undefined' && globalThis.crypto.randomUUID) ? globalThis.crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); });
 
 export class PluginCertificationEngine {
   constructor() {
@@ -30,7 +39,7 @@ export class PluginCertificationEngine {
     }
 
     const payload = `${snap.id}_${snap.version}_${snap.capabilities.join(',')}`;
-    const certificateId = `cert_plugin_${createHash('sha256').update(payload).digest('hex').slice(0, 16)}`;
+    const certificateId = `cert_plugin_${(fnv1aHash(payload) + fnv1aHash(payload.split('').reverse().join(''))).slice(0, 16)}`;
 
     pluginModel.transitionLifecycle('CERTIFIED');
 
