@@ -25,8 +25,8 @@
     "pf": 0.68
   },
   "randomCoinFlip": {
-    "winRate": 33.33,
-    "netPnl": -0.63,
+    "winRate": 33.25,
+    "netPnl": -10.39,
     "pf": 0.88
   }
 }
