@@ -151,10 +151,11 @@ export class GamifiedCommandCenterView {
         .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 7px 14px; background: rgba(15, 23, 42, 0.35); color: rgba(148, 163, 184, 0.8); border: 1px solid rgba(0, 243, 255, 0.1); border-radius: 10px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 600; font-family: 'Inter', system-ui, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
         .g-dock-btn:hover { background: rgba(0, 243, 255, 0.12); color: #00f3ff; border-color: rgba(0, 243, 255, 0.35); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,243,255,0.15), inset 0 1px 0 rgba(255,255,255,0.15); }
         .g-dock-btn.active { background: linear-gradient(135deg, rgba(0, 255, 157, 0.2) 0%, rgba(0, 243, 255, 0.15) 100%); color: #00ff9d; border-color: rgba(0, 255, 157, 0.4); font-weight: 800; box-shadow: 0 0 25px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2); }
-        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 94, 70, 0.65); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(0, 255, 157, 0.4); border-radius: 14px; padding: 18px 22px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 20px 50px rgba(0,0,0,0.6), 0 0 35px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255,255,255,0.2); z-index: 200; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 360px; }
+        .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 10, 22, 0.38); backdrop-filter: blur(32px) saturate(1.8); -webkit-backdrop-filter: blur(32px) saturate(1.8); border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 16px; padding: 20px 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 243, 255, 0.2), inset 0 1px 1px rgba(255,255,255,0.25); z-index: 200; cursor: pointer; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 380px; }
         .g-trade-balloon.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-        .g-trade-balloon:hover { border-color: #00f3ff; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 45px rgba(0, 243, 255, 0.35); }
-        .g-trade-balloon-close { position: absolute; top: 4px; right: 8px; color: rgba(148, 163, 184, 0.5); cursor: pointer; font-size: 16px; background: none; border: none; padding: 2px; }
+        .g-trade-balloon:hover { border-color: #00f3ff; box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 45px rgba(0, 243, 255, 0.4), inset 0 1px 1px rgba(255,255,255,0.35); transform: translateY(-2px) scale(1.01); }
+        .g-trade-balloon-close { position: absolute; top: 6px; right: 10px; color: rgba(148, 163, 184, 0.6); cursor: pointer; font-size: 18px; background: none; border: none; padding: 2px; transition: color 0.2s; }
+        .g-trade-balloon-close:hover { color: #00f3ff; }
         @keyframes bg-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         @keyframes grid-scroll { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
         @keyframes ambient-glow { 0%, 100% { opacity: 0.2; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.08); } }
@@ -318,20 +319,29 @@ export class GamifiedCommandCenterView {
     this._tradeHistory.push(trade);
     const balloon = this._container.querySelector('#g-trade-balloon');
     if (!balloon) return;
-    const sideColor = trade.direction === 'LONG' ? '#10b981' : '#ef4444';
+    const isLong = trade.direction === 'LONG';
+    const sideColor = isLong ? '#00ff9d' : '#ff3366';
+    const glowColor = isLong ? 'rgba(0, 255, 157, 0.3)' : 'rgba(255, 51, 102, 0.3)';
+
+    balloon.style.borderColor = sideColor;
+    balloon.style.boxShadow = `0 25px 60px rgba(0,0,0,0.7), 0 0 35px ${glowColor}, inset 0 1px 1px rgba(255,255,255,0.25)`;
+
     balloon.innerHTML = `
       <button class="g-trade-balloon-close" data-action="close">&times;</button>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px;color:${sideColor};">TRADE EXECUTED</div>
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div><span style="color:#94a3b8;">Asset:</span> <span style="font-weight:700;color:#f8fafc;">${trade.symbol.replace('USDT', '/USD')}</span></div>
-        <div><span style="color:#94a3b8;">Direction:</span> <span style="font-weight:700;color:${sideColor};">${trade.direction}</span></div>
-        <div><span style="color:#94a3b8;">Entry:</span> <span style="font-weight:700;color:#38bdf8;">$${Number(trade.price).toLocaleString()}</span></div>
-        ${trade.takeProfit ? `<div><span style="color:#94a3b8;">TP:</span> <span style="font-weight:700;color:#34d399;">$${Number(trade.takeProfit).toLocaleString()}</span></div>` : ''}
-        ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:700;color:#f87171;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
+      <div style="font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:8px;color:${sideColor};display:flex;align-items:center;justify-content:space-between;">
+        <span>TRADE EXECUTED</span>
+        <span style="font-size:9px;background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:10px;color:#f8fafc;">ECA VERIFIED</span>
       </div>
-      <div style="margin-top:8px;display:flex;gap:6px;">
-        <button class="g-balloon-plot" style="flex:1;background:#38bdf8;color:#020617;border:none;padding:6px 10px;border-radius:4px;font-weight:800;font-size:11px;cursor:pointer;">PLOT CHART</button>
-        <button class="g-balloon-dismiss" style="background:transparent;color:#94a3b8;border:1px solid #475569;padding:6px 10px;border-radius:4px;font-size:11px;cursor:pointer;">Dismiss</button>
+      <div style="display:flex;flex-direction:column;gap:5px;font-size:11px;">
+        <div><span style="color:#94a3b8;">Asset:</span> <span style="font-weight:800;color:#f8fafc;">${trade.symbol.replace('USDT', '/USD')}</span></div>
+        <div><span style="color:#94a3b8;">Direction:</span> <span style="font-weight:800;color:${sideColor};">${trade.direction}</span></div>
+        <div><span style="color:#94a3b8;">Entry:</span> <span style="font-weight:800;color:#00f3ff;">$${Number(trade.price).toLocaleString()}</span></div>
+        ${trade.takeProfit ? `<div><span style="color:#94a3b8;">TP:</span> <span style="font-weight:800;color:#00ff9d;">$${Number(trade.takeProfit).toLocaleString()}</span></div>` : ''}
+        ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:800;color:#ff3366;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
+      </div>
+      <div style="margin-top:12px;display:flex;gap:8px;">
+        <button class="g-balloon-plot" style="flex:1;background:linear-gradient(135deg, rgba(0, 243, 255, 0.25), rgba(0, 255, 157, 0.15));color:#00f3ff;border:1px solid rgba(0, 243, 255, 0.4);padding:8px 12px;border-radius:8px;font-weight:800;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;box-shadow:0 4px 15px rgba(0,243,255,0.2);transition:all 0.2s;">PLOT CHART</button>
+        <button class="g-balloon-dismiss" style="background:rgba(255,255,255,0.06);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.2s;">DISMISS</button>
       </div>`;
     balloon.classList.add('show');
     const close = () => { balloon.classList.remove('show'); };
