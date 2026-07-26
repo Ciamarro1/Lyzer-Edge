@@ -122,6 +122,7 @@ export class EvolvedTradeLogWidget {
           <option value="closed" ${this._filter.status === 'closed' ? 'selected' : ''}>Closed</option>
         </select>
         <button id="tl-refresh" style="background:#1e293b;color:#94a3b8;border:1px solid #475569;border-radius:4px;padding:3px 8px;font-size:10px;cursor:pointer;font-family:monospace;">⟳ Refresh</button>
+        <button id="tl-export-btn" style="background:linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 255, 157, 0.15));color:#00f3ff;border:1px solid rgba(0,243,255,0.4);border-radius:4px;padding:3px 10px;font-size:10px;cursor:pointer;font-family:monospace;font-weight:bold;">EXPORT JSON</button>
       </div>
 
       <div style="overflow-x:auto;">
@@ -175,6 +176,26 @@ export class EvolvedTradeLogWidget {
     sideEl?.addEventListener('change', () => { this._filter.side = sideEl.value; this.render(); });
     statusEl?.addEventListener('change', () => { this._filter.status = statusEl.value; this.render(); });
     refreshEl?.addEventListener('click', () => this._loadTrades());
+    this._container.querySelector('#tl-export-btn')?.addEventListener('click', () => {
+      try {
+        const payload = {
+          exportTimestamp: new Date().toISOString(),
+          totalLocalDbTrades: this._trades.length,
+          localIndexedDbTrades: this._trades
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `lyzer_trades_export_${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      } catch (err) {
+        alert(`Export error: ${err.message}`);
+      }
+    });
 
     // Sort by time column click
     this._container.querySelector('th[data-sort="entryDate"]')?.addEventListener('click', () => {
