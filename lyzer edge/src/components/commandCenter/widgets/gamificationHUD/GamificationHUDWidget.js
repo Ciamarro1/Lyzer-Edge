@@ -21,12 +21,12 @@ export class GamificationHUDWidget {
     ];
 
     this._badges = [
-      { id: 'b1', name: 'TRG Fortress', icon: '🛡️', desc: 'Maintained TRG ≥ 0.40 for 100 consecutive ticks', rarity: 'LEGENDARY', unlocked: true },
-      { id: 'b2', name: 'Flash Execution', icon: '⚡', desc: 'Order authorizing latency < 1.0ms via UUIDv7', rarity: 'EPIC', unlocked: true },
-      { id: 'b3', name: 'Supreme Court', icon: '🏛️', desc: 'Passed 50 ECA Court validations without LHDS veto', rarity: 'RARE', unlocked: true },
-      { id: 'b4', name: 'Unstoppable Streak', icon: '🔥', desc: '7-day continuous trading compliance streak', rarity: 'EPIC', unlocked: true },
-      { id: 'b5', name: 'Diamond Engine', icon: '💎', desc: 'Zero drawdown breaches over 24 hours of live trading', rarity: 'MYTHIC', unlocked: false },
-      { id: 'b6', name: 'Causal Sovereign', icon: '🔮', desc: 'Completed full 7-layer quantitative pipeline audit', rarity: 'LEGENDARY', unlocked: false }
+      { id: 'b1', name: 'TRG Fortress', icon: '[SEC]', desc: 'Maintained TRG ≥ 0.40 for 100 consecutive ticks', rarity: 'LEGENDARY', unlocked: true },
+      { id: 'b2', name: 'Flash Execution', icon: '[EXEC]', desc: 'Order authorizing latency < 1.0ms via UUIDv7', rarity: 'EPIC', unlocked: true },
+      { id: 'b3', name: 'Supreme Court', icon: '[ECA]', desc: 'Passed 50 ECA Court validations without LHDS veto', rarity: 'RARE', unlocked: true },
+      { id: 'b4', name: 'Unstoppable Streak', icon: '[STRK]', desc: '7-day continuous trading compliance streak', rarity: 'EPIC', unlocked: true },
+      { id: 'b5', name: 'Diamond Engine', icon: '[ALPHA]', desc: 'Zero drawdown breaches over 24 hours of live trading', rarity: 'MYTHIC', unlocked: false },
+      { id: 'b6', name: 'Causal Sovereign', icon: '[CAUSAL]', desc: 'Completed full 7-layer quantitative pipeline audit', rarity: 'LEGENDARY', unlocked: false }
     ];
   }
 
@@ -128,7 +128,7 @@ export class GamificationHUDWidget {
                 <div class="ghud-level-lbl">LEVEL</div>
               </div>
             </div>
-            <div class="ghud-rank-badge">⚡ SOVEREIGN OPERATOR</div>
+            <div class="ghud-rank-badge">SOVEREIGN OPERATOR</div>
             <div style="width: 100%; font-size: 10px; color: #94a3b8; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace;">
               <span>XP Progress</span>
               <span style="color: #38bdf8; font-weight: 700;">${this._xp} / ${this._nextLevelXp} XP</span>
@@ -140,11 +140,11 @@ export class GamificationHUDWidget {
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; margin-top: 16px;">
               <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(56,189,248,0.08); padding: 10px; border-radius: 8px; text-align: center;">
                 <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase;">Active Streak</div>
-                <div style="font-size: 16px; font-weight: 800; color: #fbbf24; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">🔥 ${this._streak} Days</div>
+                <div style="font-size: 16px; font-weight: 800; color: #fbbf24; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">${this._streak} Days</div>
               </div>
               <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(56,189,248,0.08); padding: 10px; border-radius: 8px; text-align: center;">
                 <div style="font-size: 9px; color: #94a3b8; text-transform: uppercase;">Reputation</div>
-                <div style="font-size: 16px; font-weight: 800; color: #34d399; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">💎 ${this._reputation}</div>
+                <div style="font-size: 16px; font-weight: 800; color: #34d399; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">${this._reputation}</div>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ export class GamificationHUDWidget {
                       <div class="ghud-quest-reward">
                         +${q.reward} XP
                         ${isComplete && !q.claimed ? `<button class="ghud-btn-claim" data-qid="${q.id}">CLAIM</button>` : ''}
-                        ${q.claimed ? `<span style="color:#34d399; font-size:9px;">CLAIMED ✅</span>` : ''}
+                        ${q.claimed ? `<span style="color:#34d399; font-size:9px;">CLAIMED</span>` : ''}
                       </div>
                     </div>
                     <div style="font-size: 10px; color: #94a3b8; margin-bottom: 8px;">${q.desc}</div>

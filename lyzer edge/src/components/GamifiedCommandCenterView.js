@@ -234,9 +234,9 @@ export class GamifiedCommandCenterView {
     const tabs = [
       { id: 'chart-host-widget', label: 'Chart & Decisions' },
       { id: 'trade-log-widget', label: 'Trade Log' },
-      { id: 'gamification-hud-widget', label: '🏆 Level & Quests' },
-      { id: 'edge-dashboard-widget', label: '📊 Edge Dashboard' },
-      { id: 'pattern-recognition-widget', label: '🔍 Pattern Recognition' },
+      { id: 'gamification-hud-widget', label: 'Level & Quests' },
+      { id: 'edge-dashboard-widget', label: 'Edge Dashboard' },
+      { id: 'pattern-recognition-widget', label: 'Pattern Recognition' },
       { id: 'lacw-workspace-widget', label: 'LACW OS' },
       { id: 'cognitive-audit-widget', label: 'Cognitive Audit' },
       { id: 'observability-dashboard-widget', label: 'Observability' },
