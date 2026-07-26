@@ -1,0 +1,30 @@
+[
+  {
+    "file": "ExchangeExecutionLiveWS.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "PluginSandboxNativeProcess.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "SpatialAmbientInterfaceAdapter.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "DisasterRecoveryRegionSwitch.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  }
+]
