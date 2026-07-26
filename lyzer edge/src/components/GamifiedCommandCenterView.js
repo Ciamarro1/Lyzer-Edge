@@ -7,6 +7,7 @@ import { CausalGraphWidget } from './commandCenter/widgets/causalGraph/CausalGra
 import { ChartHostWidget } from './commandCenter/widgets/chartHost/ChartHostWidget.js';
 import { RuntimeInspectorWidget } from './commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
 import { RealityStatusWidget } from './commandCenter/widgets/realityStatus/RealityStatusWidget.js';
+import { EvolvedTradeLogWidget } from './commandCenter/widgets/tradeLog/EvolvedTradeLogWidget.js';
 import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/GamificationHUDWidget.js';
 import { EdgeDashboardWidget } from './commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js';
 import { PatternRecognitionWidget } from './commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js';
