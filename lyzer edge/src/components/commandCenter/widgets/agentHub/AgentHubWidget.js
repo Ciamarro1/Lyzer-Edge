@@ -26,8 +26,10 @@ export class AgentHubWidget {
           .agent-card.EXECUTING, .agent-card::before, .agent-dot.EXECUTING { animation: none !important; }
         }
         .agent-card {
-          background: rgba(12, 16, 30, 0.85);
-          border: 1px solid rgba(148, 163, 184, 0.06);
+          background: rgba(8, 14, 28, 0.5);
+          backdrop-filter: blur(16px) saturate(1.3);
+          -webkit-backdrop-filter: blur(16px) saturate(1.3);
+          border: 1px solid rgba(56, 189, 248, 0.06);
           border-radius: 10px;
           padding: 14px;
           margin-bottom: 10px;

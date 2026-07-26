@@ -23,8 +23,8 @@ export class RealityStatusWidget {
 
   _render() {
     this._container.innerHTML = `
-      <div style="padding: 10px; border: 1px solid #444; border-radius: 4px; font-family: monospace; background: #1e1e1e; color: #fff;">
-        <h4 style="margin: 0 0 10px 0; border-bottom: 1px solid #444; padding-bottom: 5px;">REALITY STATUS</h4>
+      <div style="padding: 10px; border: 1px solid rgba(56,189,248,0.08); border-radius: 8px; font-family: monospace; background: rgba(8,12,20,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #f1f5f9;">
+        <h4 style="margin: 0 0 10px 0; border-bottom: 1px solid rgba(56,189,248,0.08); padding-bottom: 5px; color: #e2e8f0; font-size: 11px;">REALITY STATUS</h4>
         <div>Mode: <span id="rs-mode" style="color: #61afef;">--</span></div>
         <div>Provider: <span id="rs-provider" style="color: #98c379;">--</span></div>
         <div>Health: <span id="rs-health" style="color: #e5c07b;">--</span></div>

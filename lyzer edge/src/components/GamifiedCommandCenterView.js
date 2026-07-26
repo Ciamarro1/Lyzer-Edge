@@ -114,7 +114,7 @@ export class GamifiedCommandCenterView {
     this._container.style.gridTemplateColumns = '300px 1fr 280px';
     this._container.style.height = '100vh';
     this._container.style.width = '100vw';
-    this._container.style.backgroundColor = '#030712';
+    this._container.style.backgroundColor = '#03060e';
     this._container.style.color = '#f8fafc';
     this._container.style.fontFamily = "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif";
     this._container.style.overflow = 'hidden';
@@ -132,12 +132,12 @@ export class GamifiedCommandCenterView {
   _renderShell() {
     this._container.innerHTML = `
       <style>
-        .g-topbar { grid-column: 1 / 4; background: rgba(10, 12, 22, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(6, 182, 212, 0.3); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
-        .g-left { grid-column: 1; border-right: 1px solid rgba(6, 182, 212, 0.08); overflow-y: auto; background: rgba(8, 10, 18, 0.85); backdrop-filter: blur(8px); }
-        .g-main { grid-column: 2; overflow-y: auto; background: rgba(4, 6, 14, 0.9); position: relative; display: flex; flex-direction: column; }
-        .g-right { grid-column: 3; border-left: 1px solid rgba(6, 182, 212, 0.08); overflow-y: auto; display: flex; flex-direction: column; background: rgba(8, 10, 18, 0.85); backdrop-filter: blur(8px); }
-        .g-dock { grid-column: 1 / 4; background: rgba(10, 12, 22, 0.8); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-top: 1px solid rgba(6, 182, 212, 0.12); display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; z-index: 10; }
-        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(8px); border: 1px solid rgba(148, 163, 184, 0.08); padding: 5px 14px; border-radius: 8px; position: relative; overflow: hidden; }
+        .g-topbar { grid-column: 1 / 4; background: rgba(8, 12, 20, 0.45); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(56, 189, 248, 0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; transition: border-color 0.5s; z-index: 10; box-shadow: 0 4px 30px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03); }
+        .g-left { grid-column: 1; border-right: 1px solid rgba(56, 189, 248, 0.06); overflow-y: auto; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); }
+        .g-main { grid-column: 2; overflow-y: auto; background: rgba(4, 8, 18, 0.6); position: relative; display: flex; flex-direction: column; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        .g-right { grid-column: 3; border-left: 1px solid rgba(56, 189, 248, 0.06); overflow-y: auto; display: flex; flex-direction: column; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); }
+        .g-dock { grid-column: 1 / 4; background: rgba(8, 12, 20, 0.5); backdrop-filter: blur(24px) saturate(1.4); -webkit-backdrop-filter: blur(24px) saturate(1.4); border-top: 1px solid rgba(56, 189, 248, 0.08); display: flex; align-items: center; padding: 0 16px; overflow-x: auto; gap: 6px; z-index: 10; }
+        .g-metric { display: flex; flex-direction: column; align-items: center; background: rgba(12, 18, 35, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.08); padding: 5px 14px; border-radius: 8px; position: relative; overflow: hidden; }
         .g-metric::before { content: ''; position: absolute; inset: 0; border-radius: 8px; padding: 1px; background: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(16,185,129,0.1), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
         .g-metric-label { font-size: 8px; color: rgba(148, 163, 184, 0.6); letter-spacing: 1.2px; font-weight: 700; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; }
         .g-metric-value { font-size: 16px; font-weight: 800; font-family: 'JetBrains Mono', monospace; text-shadow: 0 0 20px currentColor; }
@@ -156,9 +156,9 @@ export class GamifiedCommandCenterView {
           [class*="g-"], [class*="lb-"] { transition-duration: 0.001ms !important; }
           [style*="animation"] { animation-duration: 0.001ms !important; }
         }
-        .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 8px; font-weight: 600; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 8px; font-weight: 600; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: rgba(8, 12, 20, 0.6); backdrop-filter: blur(20px); border: 1px solid rgba(56, 189, 248, 0.1); box-shadow: 0 10px 25px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.03); }
         .toast.show { opacity: 1; transform: translateY(0); }
-        .leaderboard { padding: 16px; background: rgba(10, 12, 22, 0.3); border-top: 1px solid rgba(6, 182, 212, 0.06); }
+        .leaderboard { padding: 16px; background: rgba(8, 12, 20, 0.35); backdrop-filter: blur(16px); border-top: 1px solid rgba(56, 189, 248, 0.06); }
         .lb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
         .lb-bar-bg { flex-grow: 1; height: 4px; background: rgba(30, 41, 59, 0.4); border-radius: 2px; overflow: hidden; }
         .lb-bar-fg { height: 100%; transition: width 0.5s ease; border-radius: 2px; }
@@ -167,10 +167,10 @@ export class GamifiedCommandCenterView {
         ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 2px; }
         ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.3); }
       </style>
-      <div style="position: fixed; inset: 0; background: #05060a; z-index: -2; overflow: hidden;">
-        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.012) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.012) 1px, transparent 1px); background-size: 40px 40px; animation: grid-scroll 8s linear infinite;"></div>
-        <div style="position: absolute; top: -20%; left: -15%; width: 55%; height: 55%; background: radial-gradient(ellipse, rgba(6,182,212,0.06), transparent 70%); animation: ambient-glow 6s ease-in-out infinite; contain: paint;"></div>
-        <div style="position: absolute; bottom: -20%; right: -15%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(16,185,129,0.05), transparent 70%); animation: ambient-glow 8s ease-in-out infinite 2s; contain: paint;"></div>
+      <div style="position: fixed; inset: 0; background: #03060e; z-index: -2; overflow: hidden;">
+        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(56,189,248,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.02) 1px, transparent 1px); background-size: 40px 40px; animation: grid-scroll 8s linear infinite;"></div>
+        <div style="position: absolute; top: -20%; left: -15%; width: 55%; height: 55%; background: radial-gradient(ellipse, rgba(56,189,248,0.04), transparent 70%); animation: ambient-glow 6s ease-in-out infinite; contain: paint;"></div>
+        <div style="position: absolute; bottom: -20%; right: -15%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(16,185,129,0.035), transparent 70%); animation: ambient-glow 8s ease-in-out infinite 2s; contain: paint;"></div>
       </div>
       <div id="g-topbar" class="g-topbar">
         <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', system-ui, sans-serif;">
@@ -416,7 +416,18 @@ export class GamifiedCommandCenterView {
       };
       const regime = ['TRENDING', 'RANGING', 'VOLATILE'][Math.floor(Math.random() * 3)];
       const confidence = 60 + Math.random() * 35;
-      const entry = { symbol, market: null, kernel: null, signal: null, trade };
+      const open = entryPrice;
+      const close = entryPrice + (Math.random() - 0.5) * entryPrice * 0.002;
+      const entry = {
+        symbol,
+        market: {
+          openTime: Date.now(), open, close,
+          high: Math.max(open, close) + Math.random() * entryPrice * 0.001,
+          low: Math.min(open, close) - Math.random() * entryPrice * 0.001,
+          volume: Math.floor(Math.random() * 800 + 100), closed: false
+        },
+        kernel: null, signal: null, trade
+      };
       this._latestData[symbol] = entry;
       this._updateMetrics({
         symbol, trade,

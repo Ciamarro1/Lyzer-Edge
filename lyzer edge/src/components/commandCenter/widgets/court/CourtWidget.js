@@ -24,7 +24,7 @@ export class CourtWidget {
 
   _render() {
     this._container.innerHTML = `
-      <div style="padding: 16px; font-family: 'Inter', system-ui, sans-serif; font-size: 11px; background: rgba(10, 12, 22, 0.4); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 10px; height: 100%; box-sizing: border-box; overflow-y: auto; position: relative;">
+      <div style="padding: 16px; font-family: 'Inter', system-ui, sans-serif; font-size: 11px; background: rgba(8, 12, 20, 0.45); backdrop-filter: blur(20px) saturate(1.3); -webkit-backdrop-filter: blur(20px) saturate(1.3); color: #cbd5e1; border: 1px solid rgba(56, 189, 248, 0.06); border-radius: 10px; height: 100%; box-sizing: border-box; overflow-y: auto; position: relative;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(6, 182, 212, 0.08); padding-bottom: 10px; margin-bottom: 12px;">
           <h4 style="margin: 0; color: #e2e8f0; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; display: flex; align-items: center; gap: 8px;">
             <span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.4);"></span>
@@ -33,7 +33,7 @@ export class CourtWidget {
           <span id="cw-status" style="background: rgba(16,185,129,0.1); color: #10b981; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 9px; letter-spacing: 0.5px; border: 1px solid rgba(16,185,129,0.15);">ALLOW</span>
         </div>
 
-        <div style="margin-bottom: 12px; background: rgba(12, 16, 30, 0.4); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="margin-bottom: 12px; background: rgba(8, 14, 28, 0.4); backdrop-filter: blur(8px); border: 1px solid rgba(56, 189, 248, 0.06); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">LHDS Score</span>
             <span id="cw-lhds" style="color: #38bdf8; font-weight: 800; font-family: 'JetBrains Mono', monospace;">0.000</span>
