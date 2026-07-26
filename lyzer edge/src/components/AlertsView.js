@@ -88,7 +88,7 @@ export class AlertsView {
   }
 
   async purgeAlerts() {
-    if (confirm("⚠️ CUIDADO: Isso irá apagar TODOS os alertas do banco de dados local. Tem certeza?")) {
+    if (confirm("CUIDADO: Isso irá apagar TODOS os alertas do banco de dados local. Tem certeza?")) {
       try {
         await db.alerts.clear();
         await this.refresh();
@@ -144,20 +144,20 @@ export class AlertsView {
           
           <div style="display: flex; gap: 12px;">
             <button id="btn-inject-alerts" class="btn" style="background: rgba(255, 170, 0, 0.1); border: 1px solid var(--accent-amber); color: var(--accent-amber); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              ⚠️ Injetar Mock Alerts
+              Injetar Mock Alerts
             </button>
             <button id="btn-read-alerts" class="btn" style="background: rgba(0, 200, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              ✔️ Marcar Todos Lidos
+              Marcar Todos Lidos
             </button>
             <button id="btn-purge-alerts" class="btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--accent-red); color: var(--accent-red); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              🗑️ Limpar Alertas
+              Limpar Alertas
             </button>
           </div>
         </div>
 
         ${this.alerts.length === 0 ? `
           <div class="card glass-panel" style="text-align: center; padding: 48px;">
-            <div style="font-size: 3rem; margin-bottom: 16px; color: var(--text-muted);">🛡️</div>
+            <div style="font-size: 3rem; margin-bottom: 16px; color: var(--text-muted);"></div>
             <h3 style="color: var(--text-primary);">Sistema Estável</h3>
             <p class="text-muted">Nenhum alerta ou intervenção no momento.</p>
             <p class="text-muted" style="font-size: 0.85rem;">Use a ferramenta 'Injetar Mock Alerts' acima para testar o sistema de Pânico e Glassmorphism.</p>

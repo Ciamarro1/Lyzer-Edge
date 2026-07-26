@@ -120,7 +120,7 @@ export class WidgetErrorBoundary {
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
       ">
         <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
-          <span style="font-weight: 600; color: #ee5253;">⚠️ Widget Failure (${safeCode})</span>
+          <span style="font-weight: 600; color: #ee5253;">Widget Failure (${safeCode})</span>
           <span style="font-size: 11px; opacity: 0.6;">ID: ${safeWidgetId}</span>
         </div>
         <p style="margin: 0 0 12px 0; color: #c9d1d9; font-size: 12px; line-height: 1.4;">
@@ -137,7 +137,7 @@ export class WidgetErrorBoundary {
           font-size: 12px;
           transition: background 0.2s;
         ">
-          🔄 Reload Widget
+          Reload Widget
         </button>
       </div>
     `;

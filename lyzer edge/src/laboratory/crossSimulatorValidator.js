@@ -83,12 +83,12 @@ function runMasterValidation() {
     if (allPassed) {
         console.log(">>> FINAL VERDICT: PASS <<<");
         console.log("Adaptive Advantage is statistically robust across ALL environments.");
-        report += "**STATUS:** ✅ PASS\n\n";
+        report += "**STATUS:** PASS\n\n";
         report += "The Constitutional Architecture demonstrates statistically robust Adaptive Advantage (AA > 0) at a 95% Confidence Interval across all stress, monte carlo, and adversarial simulations. Survival rates are securely maintained.";
     } else {
         console.log(">>> FINAL VERDICT: FAIL <<<");
         console.log("Adaptive Advantage degraded or survival was compromised.");
-        report += "**STATUS:** ❌ FAIL\n\n";
+        report += "**STATUS:** FAIL\n\n";
         report += "The Constitutional Architecture FAILED to maintain structural integrity or Adaptive Advantage across all simulation matrices.";
     }
 

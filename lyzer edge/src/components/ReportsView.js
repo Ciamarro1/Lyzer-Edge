@@ -141,7 +141,7 @@ export class ReportsView {
   }
 
   async purgeDatabase() {
-    if (confirm("⚠️ CUIDADO: Isso irá apagar TODAS as trades do banco. Tem certeza?")) {
+    if (confirm("CUIDADO: Isso irá apagar TODAS as trades do banco. Tem certeza?")) {
       try {
         await db.transaction('rw', [db.trades, db.tradeEvents, db.screenshots, db.marketContext, db.tradeTags, db.equitySnapshots], async () => {
           await db.trades.clear();
@@ -177,17 +177,17 @@ export class ReportsView {
           
           <div style="display: flex; gap: 12px;">
             <button id="btn-inject-reports" class="btn" style="background: rgba(0, 200, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              🧪 Injetar Mock Trades
+              Injetar Mock Trades
             </button>
             <button id="btn-purge-reports" class="btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--accent-red); color: var(--accent-red); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              🗑️ Limpar Banco
+              Limpar Banco
             </button>
           </div>
         </div>
 
         ${rd.totalTrades === 0 ? `
           <div class="card glass-panel" style="text-align: center; padding: 48px;">
-            <div style="font-size: 3rem; margin-bottom: 16px; color: var(--text-muted);">📊</div>
+            <div style="font-size: 3rem; margin-bottom: 16px; color: var(--text-muted);"></div>
             <h3 style="color: var(--text-primary);">Relatório Vazio</h3>
             <p class="text-muted">Não há operações fechadas suficientes para construir o diagnóstico.</p>
           </div>

@@ -73,7 +73,7 @@ export class ObservabilityDashboardWidget {
 
         <!-- Panel 1: Distributed Tracing -->
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">🔗 Distributed Trace — Pipeline Spans:</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Distributed Trace — Pipeline Spans:</div>
           ${completedTraces.length > 0 ? completedTraces.map(t => `
             <div style="color: #cbd5e1; margin-bottom: 2px;">
               <span style="color: #4ade80;">●</span> <strong>${t.name}</strong> — ${t.totalSpans} spans — ${t.totalDurationMs}ms
@@ -87,7 +87,7 @@ export class ObservabilityDashboardWidget {
           `).join('') : '<div style="color: #94a3b8;">No completed traces.</div>'}
 
           ${Object.keys(pipelineMetrics).length > 0 ? `
-            <div style="margin-top: 4px; color: #94a3b8; font-weight: bold;">⚡ Pipeline Stage Metrics:</div>
+            <div style="margin-top: 4px; color: #94a3b8; font-weight: bold;">Pipeline Stage Metrics:</div>
             ${Object.entries(pipelineMetrics).map(([name, m]) => `
               <div style="padding-left: 8px; color: #cbd5e1;">
                 ${name}: avg=${m.avgMs}ms | p50=${m.p50Ms}ms | p99=${m.p99Ms}ms | count=${m.count}
@@ -98,7 +98,7 @@ export class ObservabilityDashboardWidget {
 
         <!-- Panel 2: Historical Trends -->
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">📈 Historical Trends (last ${commits.length} commits):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Historical Trends (last ${commits.length} commits):</div>
           <div style="display: flex; gap: 16px; flex-wrap: wrap;">
             <div>
               <div style="color: #38bdf8; font-size: 9px;">Sharpe OOS</div>
@@ -112,15 +112,15 @@ export class ObservabilityDashboardWidget {
             </div>
           </div>
           ${regressions.length > 0
-            ? `<div style="margin-top: 4px; color: #f87171; font-weight: bold;">⚠️ Regressions Detected:</div>
+            ? `<div style="margin-top: 4px; color: #f87171; font-weight: bold;">Regressions Detected:</div>
                ${regressions.map(r => `<div style="padding-left: 8px; color: #f87171;">${r.severity}: ${r.metric} changed ${r.pctChange}%</div>`).join('')}`
-            : `<div style="margin-top: 4px; color: #4ade80;">✅ No regressions detected across ${commits.length} commits.</div>`
+            : `<div style="margin-top: 4px; color: #4ade80;">No regressions detected across ${commits.length} commits.</div>`
           }
         </div>
 
         <!-- Panel 3: Reproducibility -->
         <div style="background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">🔬 Reproducibility Manifest:</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Reproducibility Manifest:</div>
           <div style="color: #cbd5e1;">
             <div>Commit: <strong style="color: #38bdf8;">${reproManifest.commitHash}</strong></div>
             <div>Config Hash: <span style="color: #a855f7;">${reproManifest.configHash}</span></div>

@@ -139,7 +139,7 @@ export class PatternRecognitionView {
   }
 
   async purgeDatabase() {
-    if (confirm("⚠️ CUIDADO: Isso irá apagar TODAS as trades e contexto do banco de dados local. Tem certeza?")) {
+    if (confirm("CUIDADO: Isso irá apagar TODAS as trades e contexto do banco de dados local. Tem certeza?")) {
       try {
         await db.transaction('rw', [db.trades, db.tradeEvents, db.screenshots, db.marketContext, db.tradeTags, db.equitySnapshots], async () => {
           await db.trades.clear();
@@ -171,10 +171,10 @@ export class PatternRecognitionView {
           
           <div style="display: flex; gap: 12px;">
             <button id="btn-inject-mock" class="btn" style="background: rgba(0, 200, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              🧪 Injetar Mock Data
+              Injetar Mock Data
             </button>
             <button id="btn-purge-db" class="btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid var(--accent-red); color: var(--accent-red); padding: 8px 16px; border-radius: 4px; cursor: pointer;">
-              🗑️ Limpar Banco
+              Limpar Banco
             </button>
           </div>
         </div>

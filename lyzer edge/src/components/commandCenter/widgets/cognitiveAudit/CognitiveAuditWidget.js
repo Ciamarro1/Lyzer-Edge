@@ -27,12 +27,12 @@ export class CognitiveAuditWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; background: #090d16; color: #f8fafc; border-radius: 6px; font-size: 11px; border: 1px solid #1e293b;">
         <div style="font-weight: bold; color: #a855f7; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 8px; display: flex; justify-content: space-between;">
-          <span>🧠 COGNITIVE MATURITY & AUDIT ENGINE</span>
+          <span>COGNITIVE MATURITY & AUDIT ENGINE</span>
           <span style="color: #4ade80;">ERA 5 CERTIFIED</span>
         </div>
 
         <div style="margin-bottom: 10px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">📊 Meta-Learning Weights ("Quem Acertou"):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Meta-Learning Weights ("Quem Acertou"):</div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
             <div>OpenMobius: <span style="color: #38bdf8;">${(weights.OPENMOBIUS_SMC * 100).toFixed(0)}%</span></div>
             <div>Liquidity Engine: <span style="color: #38bdf8;">${(weights.LIQUIDITY_ENGINE * 100).toFixed(0)}%</span></div>
@@ -42,18 +42,18 @@ export class CognitiveAuditWidget {
         </div>
 
         <div style="margin-bottom: 10px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">🔍 Decision Attribution (Explainability):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Decision Attribution (Explainability):</div>
           <div style="color: #4ade80; font-size: 10px;">Decisão: 62% (+24% Liquidity, +18% OpenMobius, -8% News Risk)</div>
         </div>
 
         <div style="margin-bottom: 10px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">💾 Market Pattern Memory (100k Vectors):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Market Pattern Memory (100k Vectors):</div>
           <div style="color: #e2e8f0; font-size: 10px;">Similaridade: <strong style="color: #facc15;">${memoryMatch.similarityPct}%</strong> (${memoryMatch.historicalCount} ocorrencias)</div>
           <div style="color: #94a3b8; font-size: 10px;">Taxa Histórica: ${(memoryMatch.historicalWinRate * 100).toFixed(0)}% | Expectativa: +${memoryMatch.historicalAvgReturnR}R</div>
         </div>
 
         <div style="background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">🌌 Monte Carlo Simulation Universe (1,000 Runs):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Monte Carlo Simulation Universe (1,000 Runs):</div>
           <div style="color: #e2e8f0; font-size: 10px;">Robustez: <strong style="color: #4ade80;">${simResult.robustnessScore}</strong> (${simResult.throughputSimsPerSec} sim/s)</div>
           <div style="color: #94a3b8; font-size: 10px;">IC 95%: ${simResult.confidenceInterval95}</div>
         </div>

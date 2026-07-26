@@ -25,7 +25,7 @@ export class CausalGraphWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; font-size: 11px; background: #16181d; color: #abb2bf; border: 1px solid #3b4048; border-radius: 6px; height: 100%; box-sizing: border-box; overflow-x: auto;">
         <div style="border-bottom: 1px solid #3b4048; padding-bottom: 6px; margin-bottom: 12px;">
-          <h4 style="margin: 0; color: #d19a66; font-size: 13px; font-weight: bold;">🕸️ INSTITUTIONAL CAUSAL GRAPH</h4>
+          <h4 style="margin: 0; color: #d19a66; font-size: 13px; font-weight: bold;">INSTITUTIONAL CAUSAL GRAPH</h4>
         </div>
 
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 600px; padding: 10px 0;">

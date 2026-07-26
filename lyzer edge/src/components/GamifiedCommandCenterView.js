@@ -148,14 +148,13 @@ export class GamifiedCommandCenterView {
         .g-trade-balloon.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
         .g-trade-balloon:hover { border-color: rgba(56, 189, 248, 0.4); }
         .g-trade-balloon-close { position: absolute; top: 4px; right: 8px; color: rgba(148, 163, 184, 0.5); cursor: pointer; font-size: 16px; background: none; border: none; padding: 2px; }
-        @keyframes radar-sweep { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         @keyframes bg-pulse { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.6; } }
         @keyframes grid-scroll { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
         @keyframes ambient-glow { 0%, 100% { opacity: 0.15; transform: scale(1); } 50% { opacity: 0.3; transform: scale(1.05); } }
         @media (prefers-reduced-motion: reduce) {
-          .g-topbar, .g-metric::before, .g-dock-btn, .g-trade-balloon, .radar-sweep-line,
+          .g-topbar, .g-metric::before, .g-dock-btn, .g-trade-balloon,
           [class*="g-"], [class*="lb-"] { transition-duration: 0.001ms !important; }
-          .radar-sweep-line, [style*="animation"] { animation-duration: 0.001ms !important; }
+          [style*="animation"] { animation-duration: 0.001ms !important; }
         }
         .toast { position: absolute; bottom: 20px; right: 20px; padding: 10px 18px; border-radius: 8px; font-weight: 600; opacity: 0; transform: translateY(12px); transition: all 0.25s; z-index: 100; pointer-events: none; font-size: 11px; font-family: 'JetBrains Mono', monospace; background: rgba(0,0,0,0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
         .toast.show { opacity: 1; transform: translateY(0); }
@@ -163,8 +162,6 @@ export class GamifiedCommandCenterView {
         .lb-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 10px; font-family: 'JetBrains Mono', monospace; }
         .lb-bar-bg { flex-grow: 1; height: 4px; background: rgba(30, 41, 59, 0.4); border-radius: 2px; overflow: hidden; }
         .lb-bar-fg { height: 100%; transition: width 0.5s ease; border-radius: 2px; }
-        .radar-box { position: relative; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(56, 189, 248, 0.3); background: rgba(56, 189, 248, 0.03); overflow: hidden; }
-        .radar-sweep-line { position: absolute; top: 50%; left: 50%; width: 50%; height: 1.5px; background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.6)); transform-origin: left center; animation: radar-sweep 3s linear infinite; }
         ::-webkit-scrollbar { width: 4px; height: 4px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.15); border-radius: 2px; }
@@ -176,12 +173,18 @@ export class GamifiedCommandCenterView {
         <div style="position: absolute; bottom: -20%; right: -15%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(16,185,129,0.05), transparent 70%); animation: ambient-glow 8s ease-in-out infinite 2s; contain: paint;"></div>
       </div>
       <div id="g-topbar" class="g-topbar">
-        <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 10px; font-family: 'Inter', system-ui, sans-serif;">
-          <div class="radar-box"><div class="radar-sweep-line"></div></div>
+        <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', system-ui, sans-serif;">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="none" stroke="url(#logo-grad)" stroke-width="1.5"/>
+            <line x1="14" y1="2" x2="14" y2="26" stroke="url(#logo-grad)" stroke-width="0.75" opacity="0.4"/>
+            <line x1="2" y1="8" x2="26" y2="8" stroke="url(#logo-grad)" stroke-width="0.75" opacity="0.4"/>
+            <circle cx="14" cy="14" r="3" fill="#38bdf8" opacity="0.6"/>
+            <defs><linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
+          </svg>
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="color: #e2e8f0; letter-spacing: 1.5px; font-weight: 800; font-size: 15px;">LYZER</span>
-            <span style="color: rgba(148, 163, 184, 0.4); font-weight: 300;">|</span>
-            <span style="color: #38bdf8; letter-spacing: 0.5px; font-weight: 500;">EDGE</span>
+            <span style="background: linear-gradient(135deg, #f1f5f9 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2.5px; font-weight: 800; font-size: 16px; font-family: 'Inter', system-ui, sans-serif;">LYZER</span>
+            <span style="color: rgba(148, 163, 184, 0.3); font-weight: 300; font-size: 14px;">|</span>
+            <span style="color: #38bdf8; letter-spacing: 1px; font-weight: 400; font-size: 13px;">EDGE</span>
           </div>
           <span style="font-size: 9px; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.15); font-weight: 600; letter-spacing: 0.3px;">COCKPIT α</span>
         </div>
@@ -222,18 +225,17 @@ export class GamifiedCommandCenterView {
 
     const dockContainer = this._container.querySelector('#g-dock');
     const tabs = [
-      { id: 'chart-host-widget', icon: '📈', label: 'Chart & Decisions' },
-      { id: 'trade-log-widget', icon: '📋', label: 'Trade Log' },
-      { id: 'lacw-workspace-widget', icon: '🧠', label: 'LACW OS' },
-      { id: 'cognitive-audit-widget', icon: '🔬', label: 'Cognitive Audit' },
-      { id: 'observability-dashboard-widget', icon: '📡', label: 'Observability' },
-      { id: 'causal-graph-widget', icon: '🌐', label: 'Causal Graph' },
-      { id: 'runtime-inspector-widget', icon: '⚙️', label: 'Runtime DevTools' },
-      { id: 'reality-status-widget', icon: '🌍', label: 'Reality Status' }
+      { id: 'chart-host-widget', label: 'Chart & Decisions' },
+      { id: 'trade-log-widget', label: 'Trade Log' },
+      { id: 'lacw-workspace-widget', label: 'LACW OS' },
+      { id: 'cognitive-audit-widget', label: 'Cognitive Audit' },
+      { id: 'observability-dashboard-widget', label: 'Observability' },
+      { id: 'causal-graph-widget', label: 'Causal Graph' },
+      { id: 'runtime-inspector-widget', label: 'Runtime DevTools' },
+      { id: 'reality-status-widget', label: 'Reality Status' }
     ];
     dockContainer.innerHTML = tabs.map(t => `
       <button class="g-dock-btn ${t.id === this._activeWidgetId ? 'active' : ''}" data-id="${t.id}">
-        <span>${t.icon}</span>
         <span>${t.label}</span>
       </button>
     `).join('');
@@ -307,10 +309,9 @@ export class GamifiedCommandCenterView {
     const balloon = this._container.querySelector('#g-trade-balloon');
     if (!balloon) return;
     const sideColor = trade.direction === 'LONG' ? '#10b981' : '#ef4444';
-    const sideEmoji = trade.direction === 'LONG' ? '🟢' : '🔴';
     balloon.innerHTML = `
       <button class="g-trade-balloon-close" data-action="close">&times;</button>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px;">${sideEmoji} TRADE EXECUTED</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px;color:${sideColor};">TRADE EXECUTED</div>
       <div style="display:flex;flex-direction:column;gap:4px;">
         <div><span style="color:#94a3b8;">Asset:</span> <span style="font-weight:700;color:#f8fafc;">${trade.symbol.replace('USDT', '/USD')}</span></div>
         <div><span style="color:#94a3b8;">Direction:</span> <span style="font-weight:700;color:${sideColor};">${trade.direction}</span></div>
@@ -319,7 +320,7 @@ export class GamifiedCommandCenterView {
         ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:700;color:#f87171;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
       </div>
       <div style="margin-top:8px;display:flex;gap:6px;">
-        <button class="g-balloon-plot" style="flex:1;background:#38bdf8;color:#020617;border:none;padding:6px 10px;border-radius:4px;font-weight:800;font-size:11px;cursor:pointer;">📈 Plot Chart</button>
+        <button class="g-balloon-plot" style="flex:1;background:#38bdf8;color:#020617;border:none;padding:6px 10px;border-radius:4px;font-weight:800;font-size:11px;cursor:pointer;">PLOT CHART</button>
         <button class="g-balloon-dismiss" style="background:transparent;color:#94a3b8;border:1px solid #475569;padding:6px 10px;border-radius:4px;font-size:11px;cursor:pointer;">Dismiss</button>
       </div>`;
     balloon.classList.add('show');
@@ -376,7 +377,7 @@ export class GamifiedCommandCenterView {
         this._activeWidgetInstance = new WidgetClass();
         await this._activeWidgetInstance.mount(mainContent, this._realRuntime);
       } catch (e) {
-        mainContent.innerHTML = `<div style="padding:24px;color:#ef4444;font-family:monospace;">❌ Widget Load Error [${this._activeWidgetId}]: ${e.message}</div>`;
+        mainContent.innerHTML = `<div style="padding:24px;color:#ef4444;font-family:monospace;">WIDGET LOAD ERROR [${this._activeWidgetId}]: ${e.message}</div>`;
       }
     } else {
       mainContent.innerHTML = `<div style="padding:24px;color:#94a3b8;font-family:monospace;">Widget '${this._activeWidgetId}' not found</div>`;
@@ -393,7 +394,7 @@ export class GamifiedCommandCenterView {
       if (!toast) return;
       if (balloon?.classList.contains('show')) return;
       const isVeto = Math.random() > 0.85;
-      toast.innerText = isVeto ? '🔴 COURT VETO: LHDS THRESHOLD EXCEEDED' : '✅ ECA COURT: ALLOW_TRANSITION';
+      toast.innerText = isVeto ? 'COURT VETO: LHDS THRESHOLD EXCEEDED' : 'ECA COURT: ALLOW_TRANSITION';
       toast.style.background = isVeto ? '#ef4444' : '#10b981';
       toast.style.color = isVeto ? '#fff' : '#020617';
       toast.classList.add('show');

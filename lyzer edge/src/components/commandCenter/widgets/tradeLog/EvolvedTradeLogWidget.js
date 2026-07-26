@@ -80,7 +80,7 @@ export class EvolvedTradeLogWidget {
       <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1e293b;padding-bottom:12px;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
         <div>
           <h3 style="margin:0 0 2px;font-size:14px;color:#38bdf8;font-weight:bold;display:flex;align-items:center;gap:8px;">
-            <span>📋 TRADE LOG & AUDIT</span>
+            <span>TRADE LOG & AUDIT</span>
             <span style="background:rgba(16,185,129,0.15);color:#34d399;font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid rgba(16,185,129,0.3);">${stats.total} TRADES</span>
           </h3>
           <p style="margin:0;color:#94a3b8;font-size:10px;">Execution Chain & Constitutional Court Audits</p>
@@ -142,7 +142,7 @@ export class EvolvedTradeLogWidget {
             ${filtered.length === 0 ? '<tr><td colspan="8" style="padding:24px;text-align:center;color:#64748b;">No trades recorded yet. Start the backend to receive trade data.</td></tr>' :
               filtered.map(t => {
                 const entryStr = t.entryDate ? new Date(t.entryDate).toLocaleTimeString() : '--';
-                const exitStr = t.exitDate ? new Date(t.exitDate).toLocaleTimeString() : (t.status === 'open' ? '🟢 Open' : '--');
+                const exitStr = t.exitDate ? new Date(t.exitDate).toLocaleTimeString() : (t.status === 'open' ? 'Open' : '--');
                 const pnlVal = t.pnl || 0;
                 return `<tr style="border-bottom:1px solid #1e293b;">
                   <td style="padding:6px;color:#94a3b8;">${entryStr}</td>
@@ -153,7 +153,7 @@ export class EvolvedTradeLogWidget {
                   <td style="padding:6px;color:${pnlColor(pnlVal)};font-weight:bold;">${pnlVal >= 0 ? '+' : ''}$${pnlVal.toFixed(2)}</td>
                   <td style="padding:6px;"><span style="background:#1e293b;padding:2px 5px;border-radius:3px;color:${t.status === 'open' ? '#38bdf8' : '#94a3b8'};">${t.status || '--'}</span></td>
                   <td style="padding:6px;text-align:center;">
-                    <button class="tl-plot-btn" data-id="${t.id}" style="background:#38bdf8;color:#020617;border:none;padding:3px 6px;border-radius:3px;font-weight:bold;font-size:9px;cursor:pointer;">📈</button>
+                    <button class="tl-plot-btn" data-id="${t.id}" style="background:#38bdf8;color:#020617;border:none;padding:3px 6px;border-radius:3px;font-weight:bold;font-size:9px;cursor:pointer;">PLOT</button>
                   </td>
                 </tr>`;
               }).join('')}
@@ -189,7 +189,7 @@ export class EvolvedTradeLogWidget {
         if (trade) {
           const side = trade.direction === 'LONG' ? 'BUY' : 'SELL';
           window.dispatchEvent(new CustomEvent('lyzer:plot-trade', {
-            detail: { symbol: (trade.symbol || '').replace('/USD', 'USDT'), entry: trade.entryPrice, tp: 0, sl: 0, side, title: `${trade.direction} @ ${trade.entryPrice}` }
+            detail: { symbol: (trade.symbol || '').replace('/USD', 'USDT'), entry: trade.entryPrice, tp: trade.takeProfit || 0, sl: trade.stopLoss || 0, side, title: `${trade.direction} @ ${trade.entryPrice}` }
           }));
           window.dispatchEvent(new CustomEvent('lyzer:switch-dock-tab', { detail: { tabId: 'chart-host-widget' } }));
         }

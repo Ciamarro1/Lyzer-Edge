@@ -18,7 +18,7 @@ export class EvidenceFusionWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; background: #0f172a; color: #f8fafc; border-radius: 6px; font-size: 11px;">
         <div style="font-weight: bold; color: #38bdf8; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 8px;">
-          ⚖️ EVIDENCE FUSION & BAYESIAN RANKING
+          EVIDENCE FUSION & BAYESIAN RANKING
         </div>
         <div id="efw-weights" style="margin-bottom: 8px;">
           <div><span style="color: #94a3b8;">Lyzer Native:</span> <span style="color: #38bdf8;">0.30</span></div>

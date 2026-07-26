@@ -43,7 +43,7 @@ export class RealityTagValidator {
       return {
         valid: false,
         veto: "EPISTEMIC_CONTAMINATION",
-        error: "🚨 [EPISTEMIC_CONTAMINATION] FATAL: Cannot mix OBSERVED_REALITY and SYNTHETIC_REALITY in the same context."
+        error: "[EPISTEMIC_CONTAMINATION] FATAL: Cannot mix OBSERVED_REALITY and SYNTHETIC_REALITY in the same context."
       };
     }
 

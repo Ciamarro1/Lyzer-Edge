@@ -26,7 +26,7 @@ export class RuntimeInspectorWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; font-size: 11px; background: #181a1f; color: #abb2bf; border: 1px solid #3b4048; border-radius: 6px; height: 100%; box-sizing: border-box; overflow-y: auto;">
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #3b4048; padding-bottom: 6px; margin-bottom: 10px;">
-          <h4 style="margin: 0; color: #61afef; font-size: 13px; font-weight: bold;">🛠️ LYZER RUNTIME DEVTOOLS</h4>
+          <h4 style="margin: 0; color: #61afef; font-size: 13px; font-weight: bold;">LYZER RUNTIME DEVTOOLS</h4>
           <span id="ri-cert-badge" style="background: #98c379; color: #1e1e1e; padding: 2px 6px; border-radius: 3px; font-weight: bold; font-size: 10px;">PLATINUM</span>
         </div>
 

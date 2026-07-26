@@ -186,7 +186,7 @@ export class DecisionAnalytics {
                 <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                   ${report.vetoes.map(v => `
                     <div style="background: rgba(239,68,68,0.1); border: 1px solid var(--color-loss); padding: 0.5rem; border-radius: var(--radius-xs, 4px); font-size: 0.75rem; font-family: var(--font-mono); color: var(--color-loss);">
-                      ⚠️ VETO: ${v}
+                      VETO: ${v}
                     </div>
                   `).join('')}
                 </div>
