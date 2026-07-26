@@ -173,7 +173,7 @@ export class BenchmarkReproducibilityEngine {
 
     return {
       ...os,
-      v8Version: process.versions?.v8 || 'unknown',
+      v8Version: (typeof process !== 'undefined' && process.versions?.v8) || 'browser',
       timestampUtc: new Date().toISOString()
     };
   }

@@ -21,10 +21,10 @@ export class WorkloadLatencyProfiler {
 
     return Object.freeze({
       environment: {
-        nodeVersion: process.version || 'v20.11.0',
-        platform: process.platform || 'win32',
-        arch: process.arch || 'x64',
-        heapTotalMb: Math.round((process.memoryUsage?.().heapTotal || 64 * 1024 * 1024) / (1024 * 1024))
+        nodeVersion: (typeof process !== 'undefined' && process.version) || 'browser',
+        platform: (typeof process !== 'undefined' && process.platform) || 'browser',
+        arch: (typeof process !== 'undefined' && process.arch) || 'unknown',
+        heapTotalMb: (typeof process !== 'undefined' && process.memoryUsage ? Math.round((process.memoryUsage().heapTotal || 64 * 1024 * 1024) / (1024 * 1024)) : 64)
       },
       workload: {
         sampleSize: n,

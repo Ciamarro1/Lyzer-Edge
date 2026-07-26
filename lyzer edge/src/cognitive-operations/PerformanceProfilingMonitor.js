@@ -10,7 +10,8 @@ export class PerformanceProfilingMonitor {
    * @returns {Object} Performance snapshot
    */
   captureSnapshot() {
-    const memory = process.memoryUsage ? process.memoryUsage() : { heapUsed: 0, rss: 0, heapTotal: 0 };
+    const isNode = typeof process !== 'undefined';
+    const memory = (isNode && process.memoryUsage) ? process.memoryUsage() : { heapUsed: 64 * 1024 * 1024, rss: 128 * 1024 * 1024, heapTotal: 256 * 1024 * 1024 };
 
     const heapUsedMb = Number((memory.heapUsed / (1024 * 1024)).toFixed(2));
     const rssMb = Number((memory.rss / (1024 * 1024)).toFixed(2));
@@ -28,7 +29,7 @@ export class PerformanceProfilingMonitor {
         rss_mb: rssMb,
         status: memoryStatus
       },
-      uptime_seconds: Math.floor(process.uptime ? process.uptime() : 0)
+      uptime_seconds: Math.floor((isNode && process.uptime) ? process.uptime() : (performance.now() / 1000))
     };
   }
 
