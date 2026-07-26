@@ -206,6 +206,7 @@ export class GamifiedCommandCenterView {
           <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
         </div>
         <div style="display: flex; gap: 14px; align-items: center;">
+          <button id="g-export-trades-btn" style="background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 255, 157, 0.15)); border: 1px solid rgba(0, 243, 255, 0.4); color: #00f3ff; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; cursor: pointer; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,243,255,0.15);">EXPORT TRADES (JSON)</button>
           <div style="display: flex; flex-direction: column; align-items: flex-end;">
             <span style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.1)); color: #2dd4bf; padding: 2px 10px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(45, 212, 191, 0.15);" id="g-mode-badge">SIMULATION</span>
             <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
@@ -255,6 +256,46 @@ export class GamifiedCommandCenterView {
         const id = e.currentTarget.dataset.id;
         if (id !== this._activeWidgetId) this._activateTab(id);
       });
+    });
+
+    this._container.querySelector('#g-export-trades-btn')?.addEventListener('click', async () => {
+      try {
+        let dbTrades = [];
+        try {
+          dbTrades = await db.trades.toArray();
+        } catch (e) {}
+
+        let apiTrades = [];
+        try {
+          const res = await fetch('/api/trades/export');
+          if (res.ok) {
+            const data = await res.json();
+            apiTrades = data.trades || [];
+          }
+        } catch (e) {}
+
+        const exportPayload = {
+          exportTimestamp: new Date().toISOString(),
+          totalLocalDbTrades: dbTrades.length,
+          totalBackendApiTrades: apiTrades.length,
+          localIndexedDbTrades: dbTrades,
+          backendServerTrades: apiTrades
+        };
+
+        const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `lyzer_trades_export_${new Date().toISOString().slice(0, 10)}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        this._showToast(`[EXPORT SUCCESS] Saved ${dbTrades.length + apiTrades.length} trades to JSON!`);
+      } catch (err) {
+        alert(`Export failed: ${err.message}`);
+      }
     });
   }
 

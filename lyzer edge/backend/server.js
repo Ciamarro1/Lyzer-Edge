@@ -148,6 +148,24 @@ app.get('/api/status', (req, res) => {
   res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
 });
 
+app.get('/api/trades/export', (req, res) => {
+  try {
+    const allTrades = engines.flatMap(e => (e.tradeHistory || []).map(t => ({
+      ...t,
+      symbol: e.symbol
+    })));
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename=lyzer_hf_trades_export_${new Date().toISOString().slice(0,10)}.json`);
+    res.json({
+      exportedAt: new Date().toISOString(),
+      totalTrades: allTrades.length,
+      trades: allTrades
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/api/test-telegram', async (req, res) => {
   try {
     await sendTelegramAlert('🧪 <b>[LYZER TEST] TESTE DE INTEGRAÇÃO</b>\nSua integração com o Telegram está funcionando perfeitamente!');
