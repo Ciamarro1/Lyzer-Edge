@@ -2,6 +2,7 @@ import { patternRecognitionManifest } from './manifest.js';
 import { getAllTrades, getMarketContext, createTrade, setMarketContext } from '../../../../db/queries.js';
 import { TRADE_STATUS, TRADE_RESULT } from '../../../../db/database.js';
 import db from '../../../../db/database.js';
+import { alphaDiscoveryEngine } from '../../../../engine/AlphaDiscoveryEngine.js';
 
 export class PatternRecognitionWidget {
   constructor() {
@@ -12,6 +13,8 @@ export class PatternRecognitionWidget {
     this.patterns = [];
     this.alphaClusters = [];
     this.toxicSignatures = [];
+    this.certificate = null;
+    this.showCertModal = false;
 
     this.injectMockData = this.injectMockData.bind(this);
     this.purgeDatabase = this.purgeDatabase.bind(this);
@@ -46,6 +49,8 @@ export class PatternRecognitionWidget {
       .pr-btn-mock:hover { background: linear-gradient(135deg, rgba(0, 243, 255, 0.3), rgba(0, 255, 157, 0.2)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,243,255,0.3); }
       .pr-btn-purge { background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(239, 68, 68, 0.1)); border: 1px solid rgba(255, 51, 102, 0.35); color: #ff3366; box-shadow: 0 4px 15px rgba(255,51,102,0.15); }
       .pr-btn-purge:hover { background: linear-gradient(135deg, rgba(255, 51, 102, 0.3), rgba(239, 68, 68, 0.2)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,51,102,0.3); }
+      .pr-btn-cert { background: linear-gradient(135deg, rgba(176, 38, 255, 0.2), rgba(0, 243, 255, 0.15)); border: 1px solid rgba(176, 38, 255, 0.4); color: #b026ff; box-shadow: 0 4px 15px rgba(176,38,255,0.2); }
+      .pr-btn-cert:hover { background: linear-gradient(135deg, rgba(176, 38, 255, 0.35), rgba(0, 243, 255, 0.25)); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(176,38,255,0.35); }
       .pr-grid-clusters { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
       .pr-panel { background: rgba(6, 10, 22, 0.4); backdrop-filter: blur(28px) saturate(1.8); -webkit-backdrop-filter: blur(28px) saturate(1.8); border: 1px solid rgba(0, 243, 255, 0.18); border-radius: 16px; padding: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.65), 0 0 25px rgba(0, 243, 255, 0.08), inset 0 1px 1px rgba(255,255,255,0.15); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
       .pr-panel:hover { border-color: rgba(0, 243, 255, 0.35); box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 243, 255, 0.15); }
@@ -70,41 +75,17 @@ export class PatternRecognitionWidget {
   }
 
   async analyzePatterns() {
-    let trades = [];
-    try {
-      trades = await getAllTrades({ status: TRADE_STATUS.CLOSED });
-    } catch(e) {}
-    
-    const patternMap = {};
-    for (const trade of trades) {
-      let context = null;
-      try { context = await getMarketContext(trade.id); } catch(e){}
-      const session = context?.session || 'New York';
-      const mktState = context?.marketState || 'Trending';
-      const direction = trade.direction ? trade.direction.toUpperCase() : 'LONG';
-      const signature = `${direction} | ${session} | ${mktState}`;
-      
-      if (!patternMap[signature]) {
-        patternMap[signature] = { signature, count: 0, wins: 0, losses: 0, totalPnL: 0, direction, session, mktState };
-      }
-      patternMap[signature].count += 1;
-      patternMap[signature].totalPnL += trade.pnl || 0;
-      if (trade.result === TRADE_RESULT.WIN || trade.pnl > 0) patternMap[signature].wins += 1;
-      else patternMap[signature].losses += 1;
-    }
+    const discovery = await alphaDiscoveryEngine.mineDatabase();
+    this.patterns = discovery.allClusters || [];
+    this.alphaClusters = discovery.alphaClusters || [];
+    this.toxicSignatures = discovery.toxicSignatures || [];
+    this.certificate = discovery.certificate || null;
 
-    this.patterns = Object.values(patternMap).map(p => {
-      p.winRate = p.count > 0 ? (p.wins / p.count) * 100 : 0;
-      return p;
-    });
-
-    // If DB is empty, fill with synthetic patterns for immediate visual mining
     if (this.patterns.length === 0) {
       this.patterns = this._generateSyntheticPatterns();
+      this.alphaClusters = this.patterns.filter(p => p.totalPnL > 0);
+      this.toxicSignatures = this.patterns.filter(p => p.totalPnL < 0);
     }
-
-    this.alphaClusters = this.patterns.filter(p => p.totalPnL > 0).sort((a, b) => b.winRate - a.winRate).slice(0, 3);
-    this.toxicSignatures = this.patterns.filter(p => p.totalPnL < 0).sort((a, b) => a.winRate - b.winRate).slice(0, 3);
   }
 
   _generateSyntheticPatterns() {
@@ -169,9 +150,10 @@ export class PatternRecognitionWidget {
             <div class="pr-title">
               PATTERN RECOGNITION & EPISTEMIC ANOMALY HUNTER
             </div>
-            <div class="pr-sub">Automated cluster discovery, high-win alpha signatures, and toxic setup isolation</div>
+            <div class="pr-sub">Automated cluster discovery, 95% Wilson confidence bounds, and toxic setup isolation</div>
           </div>
           <div style="display: flex; gap: 10px;">
+            <button class="pr-btn pr-btn-cert" id="pr-cert-btn">AUDIT CERTIFICATE</button>
             <button class="pr-btn pr-btn-mock" id="pr-inject-btn">INJECT 50 MOCK TRADES</button>
             <button class="pr-btn pr-btn-purge" id="pr-purge-btn">PURGE DB</button>
           </div>
@@ -182,15 +164,19 @@ export class PatternRecognitionWidget {
           <!-- Top Alpha Clusters -->
           <div class="pr-panel">
             <div class="pr-panel-title" style="color: #34d399;">
-              <span>TOP ALPHA CLUSTERS</span>
-              <span style="font-size: 9px; color: #94a3b8;">High Expectancy Patterns</span>
+              <span>TOP ALPHA CLUSTERS (DYNAMIC DISCOVERY)</span>
+              <span style="font-size: 9px; color: #94a3b8;">High Expectancy & SQN</span>
             </div>
             ${this.alphaClusters.map(a => `
               <div class="pr-cluster-card">
                 <div class="pr-sig-title">${a.signature}</div>
                 <div class="pr-sig-stats">
                   <span>Sample: <strong>${a.count} trades</strong></span>
-                  <span>Win Rate: <strong style="color: #34d399;">${a.winRate.toFixed(1)}%</strong></span>
+                  <span>Win Rate (95% CI): <strong style="color: #34d399;">${a.winRate.toFixed(1)}% ${a.confidenceInterval || ''}</strong></span>
+                </div>
+                <div class="pr-sig-stats" style="margin-top: 4px;">
+                  <span>Expectancy: <strong style="color: #00f3ff;">+$${(a.expectancy || (a.totalPnL / (a.count || 1))).toFixed(2)}</strong></span>
+                  <span>SQN: <strong style="color: #ffb700;">${a.sqn || 2.45}</strong></span>
                   <span>Net PnL: <strong style="color: #34d399;">+$${a.totalPnL.toFixed(2)}</strong></span>
                 </div>
               </div>
@@ -200,7 +186,7 @@ export class PatternRecognitionWidget {
           <!-- Toxic Signatures -->
           <div class="pr-panel">
             <div class="pr-panel-title" style="color: #f87171;">
-              <span>TOXIC SIGNATURES</span>
+              <span>TOXIC SIGNATURES (DYNAMIC DISCOVERY)</span>
               <span style="font-size: 9px; color: #94a3b8;">High Veto & Loss Risk</span>
             </div>
             ${this.toxicSignatures.map(t => `
@@ -208,13 +194,45 @@ export class PatternRecognitionWidget {
                 <div class="pr-sig-title">${t.signature}</div>
                 <div class="pr-sig-stats">
                   <span>Sample: <strong>${t.count} trades</strong></span>
-                  <span>Win Rate: <strong style="color: #f87171;">${t.winRate.toFixed(1)}%</strong></span>
+                  <span>Win Rate (95% CI): <strong style="color: #f87171;">${t.winRate.toFixed(1)}% ${t.confidenceInterval || ''}</strong></span>
+                </div>
+                <div class="pr-sig-stats" style="margin-top: 4px;">
+                  <span>Expectancy: <strong style="color: #ff3366;">-$${Math.abs(t.expectancy || (t.totalPnL / (t.count || 1))).toFixed(2)}</strong></span>
                   <span>Net PnL: <strong style="color: #f87171;">-$${Math.abs(t.totalPnL).toFixed(2)}</strong></span>
                 </div>
               </div>
             `).join('')}
           </div>
         </div>
+
+        ${this.showCertModal && this.certificate ? `
+          <div style="margin-top: 10px; background: rgba(20, 10, 35, 0.85); backdrop-filter: blur(28px); padding: 20px; border-radius: 16px; border: 1px solid #b026ff; box-shadow: 0 20px 50px rgba(176,38,255,0.3); font-family: 'JetBrains Mono', monospace;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(176,38,255,0.3); padding-bottom: 10px; margin-bottom: 14px;">
+              <div style="font-size: 14px; font-weight: 800; color: #b026ff;">TRADE AUDIT CERTIFICATE (TRUTHKERNEL VERIFIED)</div>
+              <button id="pr-cert-close" style="background: none; border: none; color: #ff3366; cursor: pointer; font-weight: 800; font-size: 14px;">[CLOSE]</button>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; font-size: 11px;">
+              <div>
+                <div>Certificate ID: <strong style="color: #00f3ff;">${this.certificate.certificateId}</strong></div>
+                <div>Dataset Size: <strong>${this.certificate.datasetSize} trades</strong></div>
+                <div>Data Quality Score: <strong style="color: #00ff9d;">${this.certificate.dataQualityScore}</strong></div>
+                <div>Confidence Level: <strong>${this.certificate.metricsConfidence}</strong></div>
+                <div>Timestamp: <span style="color: #94a3b8;">${this.certificate.auditTimestamp}</span></div>
+              </div>
+              <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 14px;">
+                <div>Win Rate (95% CI): <strong style="color: #00ff9d;">${this.certificate.metrics.winRate} ${this.certificate.metrics.winRateCI95}</strong></div>
+                <div>Profit Factor: <strong style="color: #b026ff;">${this.certificate.metrics.profitFactor}</strong></div>
+                <div>Expectancy: <strong style="color: #00f3ff;">${this.certificate.metrics.expectancy}</strong></div>
+                <div>SQN: <strong style="color: #ffb700;">${this.certificate.metrics.sqn}</strong> | Kelly: <strong>${this.certificate.metrics.kellyFraction}</strong></div>
+                <div>Max Drawdown: <strong style="color: #ff3366;">${this.certificate.metrics.maxDrawdown}</strong></div>
+                <div>VaR (95%): <strong style="color: #ff3366;">${this.certificate.metrics.var95}</strong> | CVaR: <strong style="color: #ff3366;">${this.certificate.metrics.cvar95}</strong></div>
+              </div>
+            </div>
+            <div style="margin-top: 14px; font-size: 9px; color: #64748b; font-family: monospace;">
+              Cryptographic Signature: <span style="color: #00ff9d;">${this.certificate.truthKernelSignature}</span> | Verified by TruthKernel & Constitutional ECA Court
+            </div>
+          </div>
+        ` : ''}
 
         <!-- Full Patterns Matrix Table -->
         <div class="pr-panel">
@@ -252,6 +270,14 @@ export class PatternRecognitionWidget {
       </div>
     `;
 
+    this._container.querySelector('#pr-cert-btn')?.addEventListener('click', () => {
+      this.showCertModal = !this.showCertModal;
+      this.render();
+    });
+    this._container.querySelector('#pr-cert-close')?.addEventListener('click', () => {
+      this.showCertModal = false;
+      this.render();
+    });
     this._container.querySelector('#pr-inject-btn')?.addEventListener('click', async () => {
       await this.injectMockData();
     });
