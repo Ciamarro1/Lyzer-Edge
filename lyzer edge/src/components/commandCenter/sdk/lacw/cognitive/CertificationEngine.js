@@ -4,7 +4,16 @@
  * Issues immutable certificates for Decisions, Experiments, Plugins, Models, Predictions, Benchmarks, Deployments, Executions.
  */
 
-import { createHash } from 'crypto';
+/** Browser-safe FNV-1a 32-bit hash — no Node.js crypto dependency. */
+function fnv1aHash(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h * 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
+const _randomUUID = () => (typeof globalThis.crypto !== 'undefined' && globalThis.crypto.randomUUID) ? globalThis.crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); });
 
 let _certIdCounter = 0;
 
@@ -26,7 +35,7 @@ export class CertificationEngine {
 
     const certId = `cert_${targetType.toLowerCase()}_${Date.now()}_${++_certIdCounter}`;
     const payloadStr = JSON.stringify({ targetType, targetId, evidenceData });
-    const signature = createHash('sha256').update(payloadStr).digest('hex');
+    const signature = fnv1aHash(payloadStr) + fnv1aHash(payloadStr.split('').reverse().join(''));
 
     const certificate = Object.freeze({
       certId,
@@ -65,7 +74,7 @@ export class CertificationEngine {
       evidenceData: cert.evidenceSummary
     });
 
-    const recomputedSignature = createHash('sha256').update(payloadStr).digest('hex');
+    const recomputedSignature = fnv1aHash(payloadStr) + fnv1aHash(payloadStr.split('').reverse().join(''));
     const valid = recomputedSignature === cert.signature && Date.now() < cert.validUntil;
 
     return Object.freeze({
