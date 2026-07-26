@@ -302,8 +302,29 @@ export class ChartHostWidget {
           if (tfSeconds === 60) {
             this._adapter.updateCandle(data.market);
           } else {
-            // For sub-minute: regenerate full display from raw
-            this._loadRawCandles(this._activeSymbol);
+            // For sub-minute (30s): update current sub-minute candle incrementally without regenerating raw candles
+            const nowSec = Math.floor((data.market.openTime || Date.now()) / 1000);
+            const subTime = Math.floor(nowSec / tfSeconds) * tfSeconds;
+            const lastDisplay = this._displayCandles[this._displayCandles.length - 1];
+
+            if (lastDisplay && lastDisplay.time === subTime) {
+              lastDisplay.close = data.market.close;
+              lastDisplay.high = Math.max(lastDisplay.high, data.market.high || data.market.close);
+              lastDisplay.low = Math.min(lastDisplay.low, data.market.low || data.market.close);
+              lastDisplay.volume = (lastDisplay.volume || 10) + (data.market.volume || 1);
+              this._adapter.updateCandle(lastDisplay);
+            } else if (lastDisplay && subTime > lastDisplay.time) {
+              const newCandle = {
+                time: subTime,
+                open: lastDisplay.close,
+                high: Math.max(lastDisplay.close, data.market.close),
+                low: Math.min(lastDisplay.close, data.market.close),
+                close: data.market.close,
+                volume: data.market.volume || 10
+              };
+              this._displayCandles.push(newCandle);
+              this._adapter.updateCandle(newCandle);
+            }
           }
         } else {
           // For higher timeframes: append raw candle, re-aggregate the last chunk
