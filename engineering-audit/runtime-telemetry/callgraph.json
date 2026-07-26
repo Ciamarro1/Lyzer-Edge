@@ -1,0 +1,26 @@
+[
+  {
+    "module": "TruthKernel",
+    "loadMs": 0.0262000000000171
+  },
+  {
+    "module": "ConstitutionalCourt",
+    "loadMs": 1.9817999999999643
+  },
+  {
+    "module": "InstitutionalEventBus",
+    "loadMs": 0.0776000000000181
+  },
+  {
+    "module": "UniversalContextEngine",
+    "loadMs": 0.0846000000000231
+  },
+  {
+    "module": "MultiTierStorageRouterEngine",
+    "loadMs": 0.0262000000000171
+  },
+  {
+    "module": "StreamEngine",
+    "loadMs": 0.26539999999999964
+  }
+]

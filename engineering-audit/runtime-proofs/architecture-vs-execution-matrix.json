@@ -1,0 +1,86 @@
+[
+  {
+    "component": "TruthKernel & Residualization",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 98.4,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "ECA Constitutional Court",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 96.5,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "StreamEngine & IPC",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 94.2,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Runtime Kernel",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 100,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Agent Platform",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 100,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Plugin Platform",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 100,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Observability & Explainability",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 100,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Adaptive Intelligence",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 100,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "LACW Storage Router & Infra",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 98,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "SPA Dashboard Web App",
+    "exists": true,
+    "executed": true,
+    "coveragePct": 92,
+    "status": "FULL_EXECUTION"
+  },
+  {
+    "component": "Live Exchange WebSocket (Real Money)",
+    "exists": true,
+    "executed": false,
+    "coveragePct": 0,
+    "status": "SIMULATION_ONLY"
+  },
+  {
+    "component": "Spatial Ambient Interface",
+    "exists": true,
+    "executed": false,
+    "coveragePct": 0,
+    "status": "FUTURE_SPEC"
+  }
+]

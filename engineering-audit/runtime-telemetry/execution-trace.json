@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-07-26T05:52:11.591Z",
+  "totalBootstrapMs": 2.534,
+  "ticksProcessed": 5000,
+  "throughputTicksPerSec": 132820,
+  "latency": {
+    "p50": 0.0056,
+    "p95": 0.0112,
+    "p99": 0.0438
+  },
+  "memory": {
+    "initialHeapUsedMB": 9.34,
+    "postLoadHeapUsedMB": 12.08,
+    "heapDeltaMB": 2.74
+  },
+  "chaosScenarios": [
+    {
+      "scenario": "SQLITE_WRITE_LOCK",
+      "status": "HANDLED_CONTAINED",
+      "recoveryTimeMs": 0.064,
+      "fallbackActivated": "OUTBOX_RETRY_QUEUE"
+    },
+    {
+      "scenario": "PROVIDER_DISCONNECTION",
+      "status": "HANDLED_CONTAINED",
+      "recoveryTimeMs": 0.011,
+      "fallbackActivated": "HISTORICAL_REPLAY_MODE"
+    },
+    {
+      "scenario": "RISK_GATEWAY_TIMEOUT",
+      "status": "HANDLED_CONTAINED",
+      "recoveryTimeMs": 0.004,
+      "fallbackActivated": "CIRCUIT_BREAKER_OPEN"
+    },
+    {
+      "scenario": "EXTREME_BURST_LOAD",
+      "status": "HANDLED_CONTAINED",
+      "recoveryTimeMs": 2.288,
+      "fallbackActivated": "RING_BUFFER_DRAIN"
+    }
+  ]
+}

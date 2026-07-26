@@ -1,0 +1,9 @@
+{
+  "truthKernelMs": 0.039,
+  "courtMs": 1.985,
+  "eventBusMs": 0.082,
+  "contextEngineMs": 0.087,
+  "storageRouterMs": 0.028,
+  "streamEngineMs": 0.267,
+  "totalBootstrapMs": 2.534
+}

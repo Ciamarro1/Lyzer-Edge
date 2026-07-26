@@ -130,6 +130,33 @@ export class ChartAdapter {
     }
   }
 
+  createPriceLine(options = {}) {
+    const { price, color = '#22c55e', title = 'TP', lineStyle = 2 } = options;
+    if (this._engine === 'lightweight-charts' && this._seriesInstance && typeof this._seriesInstance.createPriceLine === 'function') {
+      return this._seriesInstance.createPriceLine({
+        price,
+        color,
+        lineWidth: 2,
+        lineStyle,
+        axisLabelVisible: true,
+        title
+      });
+    } else {
+      this._priceLines = this._priceLines || [];
+      const lineObj = { price, color, title };
+      this._priceLines.push(lineObj);
+      if (this._engine === 'canvas') this._renderCanvas();
+      return {
+        applyOptions: (opt) => Object.assign(lineObj, opt)
+      };
+    }
+  }
+
+  clearPriceLines() {
+    this._priceLines = [];
+    if (this._engine === 'canvas') this._renderCanvas();
+  }
+
   _handleResize(w, h) {
     if (this._engine === 'lightweight-charts' && this._chartInstance) {
       this._chartInstance.applyOptions({ width: w, height: h });

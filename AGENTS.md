@@ -10,7 +10,7 @@
 
 - **Backend server**: `lyzer edge/backend/server.js` — Express 5 + WebSocket on port 7860, spawns 6 StreamEngine instances
 - **Frontend SPA**: `lyzer edge/src/main.js` → `app.js` (hash-based router, 24 routes)
-- **StreamEngine**: `lyzer edge/backend/streamEngine.js` (483 LoC) — orchestrates data ingestion → signal evaluation → TruthKernel → ECA court → execution
+- **StreamEngine**: `lyzer edge/backend/streamEngine.js` — orchestrates data ingestion → signal evaluation → TruthKernel → ECA court → execution
 - **Docker**: Hugging Face Spaces (`sdk: docker`), 2-stage build on `rust:1.78-bookworm` → `ubuntu:24.04`
 
 ## Developer Commands
@@ -25,6 +25,7 @@ All commands run from `lyzer edge/`:
 | `npm run full` | Concurrently: backend + Vite dev |
 | `npm test` | `vitest run` (jsdom env) |
 | `npm run test:watch` | `vitest` watch mode |
+| `npm run test:verify` | `vitest run tests/verification` (focused smoke tests) |
 | `npm run lint` | `eslint .` |
 | `npm run coverage` | `vitest run --coverage` |
 
@@ -53,11 +54,12 @@ Copy `lyzer edge/.env.template` → `.env`. Key vars:
 ## Important Conventions & Gotchas
 
 - **`court` is a module-level singleton** (`export const court = new ConstitutionalCourt()`). Call `court.configure(cclistConfig, molConfig)` at startup to set parameters — see `streamEngine.js` for example.
-- **`truthKernel` and `signalEngine` are module-level singletons** in `streamEngine.js` (shared across all 6 asset engines).
+- **`signalEngine` is a module-level singleton** (created at module scope in `streamEngine.js`, shared by all 6 engines). Each StreamEngine creates its own `TruthKernel` instance.
+- **Workspace packages imported via relative paths**: `@lyzer/shared` and `@lyzer/constitution` are declared npm workspace packages but all code imports them via `../../packages/lyzer-shared/src/...` relative paths, never by package name.
 - **Vite alias**: `@` maps to `lyzer edge/src/`.
 - **Test env**: `vitest` with `jsdom` + `globals: true`.
 - **ESM everywhere**: all packages use `"type": "module"`. Backend imports use full `.js` extensions.
-- **Protobuf**: gRPC services defined in `src-proto/lyzer.proto`. Requires `protoc` for Rust builds.
+- **Protobuf**: gRPC services defined in `lyzer edge/src-proto/lyzer.proto`. Requires `protoc` for Rust builds.
 - **Rust on Windows**: requires **MinGW-w64** toolchain (`x86_64-pc-windows-gnu` target). See `.cargo/config.toml`.
 - **Certification tests** require startup order: `nats-server -js` → risk-gateway binary → `npx tsx src-ts/scripts/setup-nats.ts` → test runner.
 - **Docker CMD order**: `python3 backup_restore.py restore; nats-server -js & lyzer-core-hub & node backend/server.js`
@@ -76,5 +78,8 @@ Copy `lyzer edge/.env.template` → `.env`. Key vars:
 ## Testing
 
 - `npm test` runs vitest (unit/integration in jsdom)
+- `npm run test:verify` runs `vitest run tests/verification` (focused ad-hoc smoke tests)
+- Verification scripts: `verify_*.js` files in `lyzer edge/tests/verification/` for ad-hoc checks
+- E2E suite: `tests/e2e_smc/e2e_suite.test.js` (126 cases, 4-tier methodology per `TEST_INFRA.md`)
 - Certification suites: `npx tsx src-ts/scripts/boundary-certification-suite.ts` (requires NATS + risk-gateway running)
-- Verification scripts: 12 `verify_*.js` files at `lyzer edge/` root for ad-hoc checks
+- Root-level `run_*.js` scripts: ad-hoc audit/validation tools, not part of build pipeline
