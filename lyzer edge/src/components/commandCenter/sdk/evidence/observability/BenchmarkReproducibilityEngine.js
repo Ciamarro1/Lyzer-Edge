@@ -15,7 +15,15 @@
  * Strictly observational. Zero trade execution signals emitted.
  */
 
-import { createHash } from 'crypto';
+/** Browser-safe FNV-1a 32-bit hash — no Node.js crypto dependency. */
+function fnv1aHash(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = (h * 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, '0');
+}
 
 export class BenchmarkReproducibilityEngine {
   constructor() {
@@ -176,7 +184,10 @@ export class BenchmarkReproducibilityEngine {
 
   _hashObject(obj) {
     const str = typeof obj === 'string' ? obj : JSON.stringify(obj);
-    return createHash('sha256').update(str).digest('hex').slice(0, 16);
+    // Compute two FNV-1a passes over different string slices for a 16-char fingerprint.
+    const h1 = fnv1aHash(str);
+    const h2 = fnv1aHash(str.split('').reverse().join(''));
+    return (h1 + h2).slice(0, 16);
   }
 
   _assertNotDisposed() {
