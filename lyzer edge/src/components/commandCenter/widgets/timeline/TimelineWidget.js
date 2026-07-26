@@ -45,7 +45,7 @@ export class TimelineWidget {
   }
 
   _subscribe() {
-    if (typeof this._runtime.subscribeSnapshot === 'function') {
+    if (this._runtime && typeof this._runtime.subscribeSnapshot === 'function') {
       this._disposable = this._runtime.subscribeSnapshot((snapshot) => {
         this._addTraceItem('SNAPSHOT_UPDATE', `Reality: ${snapshot.realityTag || 'OBSERVED'}`, '#98c379');
       });

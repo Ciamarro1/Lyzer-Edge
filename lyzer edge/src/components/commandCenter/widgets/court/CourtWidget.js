@@ -58,12 +58,12 @@ export class CourtWidget {
 
   async _subscribe() {
     try {
-      if (typeof this._runtime.getDecisionLedger === 'function') {
+      if (this._runtime && typeof this._runtime.getDecisionLedger === 'function') {
         const history = await this._runtime.getDecisionLedger({ limit: 10 });
         this._renderLedger(history);
       }
 
-      if (typeof this._runtime.subscribeDecisionLedger === 'function') {
+      if (this._runtime && typeof this._runtime.subscribeDecisionLedger === 'function') {
         this._disposable = await this._runtime.subscribeDecisionLedger((entry) => {
           this._addLedgerEntry(entry);
         });

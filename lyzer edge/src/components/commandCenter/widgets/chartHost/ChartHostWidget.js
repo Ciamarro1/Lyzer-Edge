@@ -43,7 +43,7 @@ export class ChartHostWidget {
   }
 
   _subscribe() {
-    if (typeof this._runtime.subscribeMarketData === 'function') {
+    if (this._runtime && typeof this._runtime.subscribeMarketData === 'function') {
       this._disposable = this._runtime.subscribeMarketData(
         { symbol: 'BTCUSDT', timeframe: '1m' },
         (data) => {
