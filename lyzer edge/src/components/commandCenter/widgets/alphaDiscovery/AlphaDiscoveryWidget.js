@@ -33,27 +33,27 @@ export class AlphaDiscoveryWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; background: #070913; color: #f8fafc; border-radius: 6px; font-size: 11px; border: 1px solid #1e293b;">
         <div style="font-weight: bold; color: #10b981; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 8px; display: flex; justify-content: space-between;">
-          <span>🎯 EMPIRICAL ALPHA DISCOVERY & RESEARCH SCHEDULER</span>
+          <span>EMPIRICAL ALPHA DISCOVERY & RESEARCH SCHEDULER</span>
           <span style="color: #38bdf8;">PHASE 9</span>
         </div>
 
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">📈 Net Alpha Metrics:</div>
+          <div style="color: #94a3b8; font-weight: bold;">Net Alpha Metrics:</div>
           <div style="color: #4ade80;">Net Alpha: <strong>+${(alphaMetrics.netAlpha * 100).toFixed(2)}%</strong> | IR: ${alphaMetrics.informationRatio} | t-stat: <strong style="color: #38bdf8;">${alphaMetrics.tStatistic}</strong> (t > 2.0)</div>
         </div>
 
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">🎓 8-Stage Alpha Graduation Pipeline:</div>
+          <div style="color: #94a3b8; font-weight: bold;">8-Stage Alpha Graduation Pipeline:</div>
           <div style="color: #facc15;">Hypothesis ${advanced.alphaId} Stage: <strong>[${advanced.currentStage}]</strong> (${advanced.currentStageIndex + 1}/8)</div>
         </div>
 
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">⏰ 24/7 Autonomous Research Scheduler:</div>
+          <div style="color: #94a3b8; font-weight: bold;">24/7 Autonomous Research Scheduler:</div>
           <div style="color: #a855f7;">Job ${job.cycleId}: Generated PR <strong>#${job.autoPullRequest.prNumber}</strong> (${job.autoPullRequest.status})</div>
         </div>
 
         <div style="background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">🔥 Hypothesis Falsification Machine:</div>
+          <div style="color: #94a3b8; font-weight: bold;">Hypothesis Falsification Machine:</div>
           <div style="color: #f43f5e;">Discarded: <strong>${falsStats.discardedCount}</strong> | Proven: ${falsStats.provenCount} | Discard Rate: <strong>${falsStats.discardRatePct}%</strong></div>
         </div>
       </div>

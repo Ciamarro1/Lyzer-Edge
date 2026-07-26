@@ -52,7 +52,7 @@ export class AlphaIntegrityMonitor {
     this._container.innerHTML = `
       <div class="command-center-alpha-integrity" style="background: #0a0d14; color: #e0e6ed; padding: 20px; font-family: 'JetBrains Mono', monospace; border: 1px solid #1a2333;">
         <h2 style="font-size: 1.1rem; color: #ffffff; margin: 0 0 16px 0; border-bottom: 1px solid #1a2333; padding-bottom: 8px;">
-          🛡️ ALPHA INTEGRITY MONITOR (CRYPTOGRAPHIC IMMUTABILITY)
+          ALPHA INTEGRITY MONITOR (CRYPTOGRAPHIC IMMUTABILITY)
         </h2>
 
         <div style="display: flex; flex-direction: column; gap: 12px;">

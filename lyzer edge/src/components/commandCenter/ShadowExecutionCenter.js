@@ -51,7 +51,7 @@ export class ShadowExecutionCenter {
     this._container.innerHTML = `
       <div class="command-center-shadow-exec" style="background: #0a0d14; color: #e0e6ed; padding: 20px; font-family: 'JetBrains Mono', monospace; border: 1px solid #1a2333;">
         <h2 style="font-size: 1.1rem; color: #ffffff; margin: 0 0 16px 0; border-bottom: 1px solid #1a2333; padding-bottom: 8px;">
-          ⚖️ SHADOW EXECUTION CENTER (HYPOTHETICAL MICROSTRUCTURE)
+          SHADOW EXECUTION CENTER (HYPOTHETICAL MICROSTRUCTURE)
         </h2>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">

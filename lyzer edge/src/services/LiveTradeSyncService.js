@@ -193,7 +193,7 @@ class LiveTradeSyncService {
               marketState: 'simulated_live'
             });
           });
-          console.log(`[LiveTradeSync] 🟢 Telemetry Trade ABERTO no DB Local: ${tradeDoc.symbol} ${tradeDoc.direction}`);
+          console.log(`[LiveTradeSync] Telemetry Trade ABERTO no DB Local: ${tradeDoc.symbol} ${tradeDoc.direction}`);
         } else if (status === 'closed') {
           if (existingOpen) {
             await db.transaction('rw', [db.trades], async () => {
@@ -205,7 +205,7 @@ class LiveTradeSyncService {
                 pnl: pnlPct * 2000
               });
             });
-            console.log(`[LiveTradeSync] 🔴 Telemetry Trade FECHADO no DB Local (ID ${existingOpen.id}): PnL: ${data.trade.pnl}`);
+            console.log(`[LiveTradeSync] Telemetry Trade FECHADO no DB Local (ID ${existingOpen.id}): PnL: ${data.trade.pnl}`);
           } else {
             const lastTrade = await db.trades.orderBy('id').last();
             const nextId = lastTrade ? lastTrade.id + 1 : 1;
@@ -234,7 +234,7 @@ class LiveTradeSyncService {
                 marketState: 'simulated_live'
               });
             });
-            console.log(`[LiveTradeSync] 🟢 Telemetry Trade Registrada diretamente no DB Local: ${tradeDoc.symbol}`);
+            console.log(`[LiveTradeSync] Telemetry Trade Registrada diretamente no DB Local: ${tradeDoc.symbol}`);
           }
         }
       } catch (err) {
@@ -273,7 +273,7 @@ class LiveTradeSyncService {
           });
         });
 
-        console.log(`[LiveTradeSync] 🟢 Execução Registrada no DB Local: ${tradeDoc.symbol} ${tradeDoc.direction}`);
+        console.log(`[LiveTradeSync] Execução Registrada no DB Local: ${tradeDoc.symbol} ${tradeDoc.direction}`);
       } catch (err) {
         console.error('[LiveTradeSync] Falha ao gravar trade no IndexedDB:', err);
       }

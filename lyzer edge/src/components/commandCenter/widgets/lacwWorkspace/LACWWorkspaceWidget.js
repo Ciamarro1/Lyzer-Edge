@@ -43,7 +43,7 @@ export class LACWWorkspaceWidget {
         <!-- Header & State Bar -->
         <div style="font-weight: bold; color: #38bdf8; border-bottom: 1px solid #1e293b; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
           <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="font-size: 13px;">🧠 LYZER ADAPTIVE COGNITIVE WORKSPACE (LACW)</span>
+            <span style="font-size: 13px;">LYZER ADAPTIVE COGNITIVE WORKSPACE (LACW)</span>
             <span style="background: #1e1b4b; color: #a855f7; padding: 2px 6px; border-radius: 4px; font-size: 9px; border: 1px solid #4c1d95;">PRESET: ${layout.activePreset}</span>
           </div>
           <div style="color: #4ade80; font-size: 10px;">● COGNITIVE OS ACTIVE</div>
@@ -52,7 +52,7 @@ export class LACWWorkspaceWidget {
         <!-- Ctrl+K Command Bar -->
         <div style="margin-bottom: 10px; background: #0f172a; padding: 8px; border-radius: 6px; border: 1px solid #334155;">
           <div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #94a3b8;">
-            <span style="font-weight: bold; color: #facc15;">⌨️ Ctrl+K Universal Command Palette</span>
+            <span style="font-weight: bold; color: #facc15;">Ctrl+K Universal Command Palette</span>
             <span>(Raycast/Cursor Engine)</span>
           </div>
           <input
@@ -86,7 +86,7 @@ export class LACWWorkspaceWidget {
           <!-- Left Panel -->
           <div style="background: #0f172a; padding: 8px; border-radius: 4px; border: 1px solid #1e293b;">
             <div style="color: #38bdf8; font-weight: bold; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 6px;">
-              📌 LEFT PANEL
+              LEFT PANEL
             </div>
             ${layout.regions.LEFT_PANEL.widgets.map(w => `<div style="color: #4ade80; margin-bottom: 2px;">• \`${w}\`</div>`).join('')}
           </div>
@@ -94,9 +94,9 @@ export class LACWWorkspaceWidget {
           <!-- Center Canvas -->
           <div style="background: #0f172a; padding: 8px; border-radius: 4px; border: 1px solid #1e293b;">
             <div style="color: #38bdf8; font-weight: bold; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 6px; display: flex; justify-content: space-between;">
-              <span>🌐 CENTER CANVAS</span>
+              <span>CENTER CANVAS</span>
               <button id="lacw-explain-btn" style="background: #a855f7; color: white; border: none; padding: 2px 6px; border-radius: 3px; font-family: monospace; font-size: 9px; cursor: pointer;">
-                🔍 Explain Lineage
+                Explain Lineage
               </button>
             </div>
             ${layout.regions.CENTER_CANVAS.widgets.map(w => `<div style="color: #38bdf8; margin-bottom: 2px;">• \`${w}\`</div>`).join('')}
@@ -105,7 +105,7 @@ export class LACWWorkspaceWidget {
           <!-- Right Panel -->
           <div style="background: #0f172a; padding: 8px; border-radius: 4px; border: 1px solid #1e293b;">
             <div style="color: #38bdf8; font-weight: bold; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 6px;">
-              📊 RIGHT PANEL
+              RIGHT PANEL
             </div>
             ${layout.regions.RIGHT_PANEL.widgets.map(w => `<div style="color: #facc15; margin-bottom: 2px;">• \`${w}\`</div>`).join('')}
           </div>
@@ -113,7 +113,7 @@ export class LACWWorkspaceWidget {
 
         <!-- Event Bus Stream Footer -->
         <div style="background: #0f172a; padding: 6px; border-radius: 4px; border: 1px solid #1e293b;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">📡 Real-Time Event Bus History (Decoupled Stream):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Real-Time Event Bus History (Decoupled Stream):</div>
           ${history.length > 0 ? history.map(evt => `
             <div style="color: #cbd5e1; font-size: 10px;">
               <span style="color: #a855f7;">[${evt.priority}]</span> <strong style="color: #38bdf8;">${evt.topic}</strong>: ${JSON.stringify(evt.payload)}
@@ -125,7 +125,7 @@ export class LACWWorkspaceWidget {
         ${this._activeModal ? `
           <div style="margin-top: 10px; background: #1e1b4b; padding: 10px; border-radius: 6px; border: 1px solid #a855f7;">
             <div style="color: #a855f7; font-weight: bold; margin-bottom: 6px; display: flex; justify-content: space-between;">
-              <span>🔍 EXPLAINABILITY LINEAGE & ATTRIBUTION</span>
+              <span>EXPLAINABILITY LINEAGE & ATTRIBUTION</span>
               <button id="lacw-modal-close" style="background: none; border: none; color: #f87171; cursor: pointer; font-family: monospace;">[Close]</button>
             </div>
             <div style="color: #cbd5e1;">

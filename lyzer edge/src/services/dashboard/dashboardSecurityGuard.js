@@ -46,7 +46,7 @@ export class DashboardSecurityGuard {
       return {
         allowed: false,
         status: 403,
-        error: "🚨 [DASHBOARD_CONTROL_VETO] READ-ONLY FIDUCIARY VIOLATION: Mutações não são permitidas via Command Center v2.",
+        error: "[DASHBOARD_CONTROL_VETO] READ-ONLY FIDUCIARY VIOLATION: Mutações não são permitidas via Command Center v2.",
         vetoEvent
       };
     }

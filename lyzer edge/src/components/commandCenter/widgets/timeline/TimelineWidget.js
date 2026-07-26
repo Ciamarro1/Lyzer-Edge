@@ -26,7 +26,7 @@ export class TimelineWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; font-size: 11px; background: #1a1c23; color: #abb2bf; border: 1px solid #3e4451; border-radius: 6px; height: 100%; box-sizing: border-box; overflow-y: auto;">
         <div style="border-bottom: 1px solid #3e4451; padding-bottom: 6px; margin-bottom: 10px;">
-          <h4 style="margin: 0; color: #61afef; font-size: 13px; font-weight: bold;">⏱️ CAUSAL INTENT TIMELINE</h4>
+          <h4 style="margin: 0; color: #61afef; font-size: 13px; font-weight: bold;">CAUSAL INTENT TIMELINE</h4>
         </div>
 
         <div id="tw-timeline-list" style="display: flex; flex-direction: column; gap: 8px;">

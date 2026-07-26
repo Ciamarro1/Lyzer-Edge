@@ -779,9 +779,9 @@ canvas.ltv-chart {
 
         <!-- Mode Toggle Buttons moved to Infobar Header to avoid obscuring chart tools -->
         <div style="margin-left: auto; display: flex; gap: 6px; align-items: center;">
-          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#38bdf8; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">🌐 Binance TV</button>
-          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">📊 TV Lines (SL/TP)</button>
-          <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">⚡ Canvas</button>
+          <button id="btn-chart-tv" class="ltv-mode-btn" style="background:rgba(59,130,246,0.2); border:1px solid #3b82f6; color:#38bdf8; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">Binance TV</button>
+          <button id="btn-chart-lwc" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">TV Lines (SL/TP)</button>
+          <button id="btn-chart-canvas" class="ltv-mode-btn" style="background:${C.panel}; border:1px solid ${C.border}; color:${C.textMuted}; border-radius:4px; padding:4px 10px; cursor:pointer; font-weight:600; font-size:11px; display:flex; align-items:center; gap:4px;">Canvas</button>
         </div>
       </div>
 
@@ -803,10 +803,10 @@ canvas.ltv-chart {
               TradingView Paper Trading Console
             </span>
             <div style="display:flex; gap:2px; background:rgba(255,255,255,0.04); padding:2px; border-radius:6px;">
-              <button class="tv-paper-tab active" id="tv-tab-positions" style="background:rgba(59,130,246,0.2); color:#38bdf8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📊 Posições Abertas (<span id="count-positions">0</span>)</button>
-              <button class="tv-paper-tab" id="tv-tab-orders" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📋 Ordens (<span id="count-orders">0</span>)</button>
-              <button class="tv-paper-tab" id="tv-tab-history" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📜 Histórico (<span id="count-history">0</span>)</button>
-              <button class="tv-paper-tab" id="tv-tab-account" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">📈 Conta ($1.000)</button>
+              <button class="tv-paper-tab active" id="tv-tab-positions" style="background:rgba(59,130,246,0.2); color:#38bdf8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">Posições Abertas (<span id="count-positions">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-orders" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">Ordens (<span id="count-orders">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-history" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">Histórico (<span id="count-history">0</span>)</button>
+              <button class="tv-paper-tab" id="tv-tab-account" style="background:transparent; color:#94a3b8; border:none; padding:4px 10px; border-radius:4px; font-size:11px; font-weight:600; cursor:pointer;">Conta ($1.000)</button>
             </div>
           </div>
           <span style="font-size:11px; color:${C.textMuted}" id="log-count">0 operações</span>

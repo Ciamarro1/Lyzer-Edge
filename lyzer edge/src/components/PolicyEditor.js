@@ -50,7 +50,7 @@ export class PolicyEditor {
       for (const k of keys) {
         await db.settings.put({ key: k, value: this.policies[k] });
       }
-      alert("⚠️ Protocolos de Governança Salvos e Aplicados ao Motor.");
+      alert("Protocolos de Governança Salvos e Aplicados ao Motor.");
     } catch (err) {
       console.error(err);
       alert("Erro ao salvar policies.");
@@ -89,7 +89,7 @@ export class PolicyEditor {
   }
 
   async triggerDrill() {
-    if(confirm("⚠️ ATENÇÃO: Isso irá injetar pesadas perdas na base de dados local para testar a sobrevivência do motor de risco. Tem certeza?")) {
+    if(confirm("ATENÇÃO: Isso irá injetar pesadas perdas na base de dados local para testar a sobrevivência do motor de risco. Tem certeza?")) {
       const success = await RedTeamService.runDrill();
       if (success) alert("💣 Chaos Engine executado. Acesse a aba 'Alerts' ou 'Risk Analysis' para ver o estrago e a contenção.");
     }
@@ -127,7 +127,7 @@ export class PolicyEditor {
               Reset Defaults
             </button>
             <button id="btn-save-policies" class="btn" style="background: rgba(0, 200, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-              🛡️ Save Policies
+              Save Policies
             </button>
           </div>
         </div>

@@ -62,7 +62,7 @@ export class RealityObservatory {
     this._container.innerHTML = `
       <div class="command-center-reality-observatory" style="background: #0a0d14; color: #e0e6ed; padding: 20px; font-family: 'JetBrains Mono', monospace; border: 1px solid #1a2333;">
         <h2 style="font-size: 1.1rem; color: #ffffff; margin: 0 0 16px 0; border-bottom: 1px solid #1a2333; padding-bottom: 8px;">
-          🔬 PHYSICAL MICROSTRUCTURE OBSERVATORY (READ-ONLY)
+          PHYSICAL MICROSTRUCTURE OBSERVATORY (READ-ONLY)
         </h2>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">

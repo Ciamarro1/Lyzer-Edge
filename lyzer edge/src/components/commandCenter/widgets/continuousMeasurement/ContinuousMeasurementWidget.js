@@ -23,12 +23,12 @@ export class ContinuousMeasurementWidget {
     this._container.innerHTML = `
       <div style="padding: 12px; font-family: monospace; background: #060913; color: #f8fafc; border-radius: 6px; font-size: 11px; border: 1px solid #1e293b;">
         <div style="font-weight: bold; color: #38bdf8; border-bottom: 1px solid #1e293b; padding-bottom: 4px; margin-bottom: 8px; display: flex; justify-content: space-between;">
-          <span>📊 CONTINUOUS MEASUREMENT DASHBOARD</span>
+          <span>CONTINUOUS MEASUREMENT DASHBOARD</span>
           <span style="color: #a855f7;">PHASE 11 PLATFORM</span>
         </div>
 
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">📈 Telemetry Metrics Table (8 Dimensions):</div>
+          <div style="color: #94a3b8; font-weight: bold; margin-bottom: 4px;">Telemetry Metrics Table (8 Dimensions):</div>
           <table style="width: 100%; text-align: left; border-collapse: collapse; color: #cbd5e1; font-size: 10px;">
             <tr style="color: #94a3b8; border-bottom: 1px solid #1e293b;"><th>Category</th><th>Key Metrics</th><th>Status</th></tr>
             <tr><td style="color: #38bdf8;">Pesquisa</td><td>Hypotheses: ${snapshot.pesquisa.generatedCount} Gen / ${snapshot.pesquisa.approvedCount} Appr (${snapshot.pesquisa.approvalRatePct}%)</td><td style="color: #4ade80;">${snapshot.pesquisa.status}</td></tr>
@@ -41,12 +41,12 @@ export class ContinuousMeasurementWidget {
         </div>
 
         <div style="margin-bottom: 8px; background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">⚡ Real Workload Latency Quantiles (${profile.environment.nodeVersion} on ${profile.environment.platform}):</div>
+          <div style="color: #94a3b8; font-weight: bold;">Real Workload Latency Quantiles (${profile.environment.nodeVersion} on ${profile.environment.platform}):</div>
           <div style="color: #facc15;">P50: <strong>${profile.quantiles.p50Us}µs</strong> | P95: <strong>${profile.quantiles.p95Us}µs</strong> | P99: <strong style="color: #4ade80;">${profile.quantiles.p99Us}µs</strong> | P99.9: ${profile.quantiles.p99_9Us}µs</div>
         </div>
 
         <div style="background: #0f172a; padding: 6px; border-radius: 4px;">
-          <div style="color: #94a3b8; font-weight: bold;">🕸️ Dynamic Graph Execution Coverage:</div>
+          <div style="color: #94a3b8; font-weight: bold;">Dynamic Graph Execution Coverage:</div>
           <div style="color: #4ade80;">Coverage: <strong>${graphAudit.dynamicImportCoveragePct}%</strong> | Active Flags: ${graphAudit.activeFeatureFlags.join(', ')}</div>
         </div>
       </div>

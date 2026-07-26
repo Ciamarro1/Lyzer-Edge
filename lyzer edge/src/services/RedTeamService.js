@@ -52,7 +52,7 @@ export class RedTeamService {
         severity: 'critical',
         timestamp: new Date().toISOString(),
         read: false,
-        title: '⚠️ MAX VaR BREACHED (RED TEAM DRILL)',
+        title: 'MAX VaR BREACHED (RED TEAM DRILL)',
         message: `O Drawdown da conta excedeu a tolerância máxima de ${maxVar}%. Intervenção sistêmica imediata exigida.`
       });
 
@@ -95,7 +95,7 @@ export class RedTeamService {
         severity: 'critical',
         timestamp: new Date().toISOString(),
         read: false,
-        title: '🛑 EMERGENCY KILL SWITCH ACTIVATED',
+        title: 'EMERGENCY KILL SWITCH ACTIVATED',
         message: 'O sistema foi paralisado manualmente. Todas as execuções de ordens estão bloqueadas até o reinício da infraestrutura.'
       });
 

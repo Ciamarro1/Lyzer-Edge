@@ -233,11 +233,11 @@ export class ZSpaceDashboard {
 
         </div>
 
-        <!-- 🧬 ARL v3.1 Darwin Engine Strategy Panel -->
+        <!-- ARL v3.1 Darwin Engine Strategy Panel -->
         <div class="alpha-panel-v2 card" style="margin-top: 1.5rem; padding: 1.5rem; border-radius: var(--radius-xs, 2px); border: 1px solid var(--border-color);">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">
             <div>
-              <h2 style="font-size: 1.3rem; margin: 0; color: var(--text-primary);">🧬 EV Alpha Darwin Engine (v3.1)</h2>
+              <h2 style="font-size: 1.3rem; margin: 0; color: var(--text-primary);">EV Alpha Darwin Engine (v3.1)</h2>
               <p class="text-muted" style="font-size: 0.8rem; margin: 5px 0 0 0;">Autonomous genetic strategy discovery, mutation, and selective pressures.</p>
             </div>
             <div style="display: flex; gap: 1rem; align-items: center; font-family: var(--font-mono); font-size: 0.8rem;">
@@ -325,10 +325,10 @@ export class ZSpaceDashboard {
           </div>
         </div>
 
-        <!-- 🧬 ARL v3.2 — Meta-Selection Engine Panel -->
+        <!-- ARL v3.2 — Meta-Selection Engine Panel -->
         <div class="arl-v32-panel card" style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-xs, 2px); background: rgba(0,0,0,0.1);">
           <div class="panel-header" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; color: var(--text-primary);">
-            🧬 ARL v3.2 — Meta-Selection Engine (Co-Evolutionary Model)
+            ARL v3.2 — Meta-Selection Engine (Co-Evolutionary Model)
           </div>
 
           <div class="meta-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 1.5rem;">
@@ -356,17 +356,17 @@ export class ZSpaceDashboard {
           </div>
 
           <div class="selection-heatmap" style="margin-top: 1.5rem;">
-            <div class="heatmap-title" style="font-size: 0.95rem; font-weight: bold; margin-bottom: 10px; color: var(--text-secondary);">🔥 Selection Pressure distribution Map (Z-Space Bins)</div>
+            <div class="heatmap-title" style="font-size: 0.95rem; font-weight: bold; margin-bottom: 10px; color: var(--text-secondary);">Selection Pressure distribution Map (Z-Space Bins)</div>
             <div id="selectionHeatmap" class="heatmap-grid" style="display: grid; grid-template-columns: repeat(20, 1fr); gap: 4px; background: rgba(0,0,0,0.2); padding: 8px; border-radius: 4px; border: 1px solid var(--border-color);"></div>
           </div>
         </div>
 
-        <!-- 🧬 ARL v3.3 — Extinction Layer Panel -->
+        <!-- ARL v3.3 — Extinction Layer Panel -->
         <div class="arl-v33-panel card" id="extinction-panel" style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: var(--radius-xs, 2px); background: rgba(0,0,0,0.15); position: relative; transition: all 0.3s ease;">
           <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-bottom: 1rem;">
             <span style="font-size: 1.2rem; font-weight: bold; color: var(--text-primary);">💀 ARL v3.3 — Extinction & Ecological Resilience Layer</span>
             <button id="trigger-black-swan-btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.4); color: var(--color-danger, #ef4444); font-size: 0.75rem; font-family: var(--font-mono); padding: 4px 8px; border-radius: 2px; cursor: pointer; transition: all 0.2s ease; font-weight: bold;">
-              ⚡ TRIGGER BLACK SWAN SHOCK
+              TRIGGER BLACK SWAN SHOCK
             </button>
           </div>
 

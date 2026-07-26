@@ -47,7 +47,7 @@ export class Recommendations {
     if (edge.components.sampleConfidence === 0 || closedTrades.length < 30) {
       content.innerHTML = `
         <div class="card" style="text-align: center; padding: 3rem; border: 1px dashed var(--color-border, #333);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+          <div style="font-size: 2rem; margin-bottom: 1rem;"></div>
           <h3 style="color: var(--color-warning, #f59e0b);">Evidence Threshold Not Met</h3>
           <p class="text-muted" style="max-width: 400px; margin: 0 auto;">Recommendations are suppressed to prevent "infinite auto-coaching". Please gather at least 30 closed trades to generate statistically significant insights.</p>
           <p class="text-muted" style="margin-top: 1rem;">Current Sample Size: <strong>${closedTrades.length}</strong> trades</p>

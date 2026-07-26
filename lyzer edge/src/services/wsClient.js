@@ -19,7 +19,7 @@ class WSClient {
     this.ws = new WebSocket(wsUrl);
 
     this.ws.onopen = () => {
-      console.log("🟢 WS connected");
+      console.log("WS connected");
       this._drainBuffer();
     };
 
@@ -40,7 +40,7 @@ class WSClient {
       console.warn("WS disconnected");
       this.ws = null;
       setTimeout(() => {
-        console.log("🔄 WS attempting reconnect...");
+        console.log("WS attempting reconnect...");
         this.connect();
       }, 3000);
     };

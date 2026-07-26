@@ -29,7 +29,7 @@ export class Dashboard {
         
         <div class="card" style="margin-bottom: 8px; border: 1px solid var(--accent-cyan); background: rgba(0, 200, 255, 0.03);">
           <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="font-size: 2rem;">🧠</div>
+            <div style="font-size: 2rem;"></div>
             <div>
               <h2 style="color: var(--accent-cyan); margin-bottom: 8px; font-size: 1.25rem;">Welcome to Lyzer Edge Analyst</h2>
               <p style="color: var(--text-secondary); margin-bottom: 12px; font-size: 0.95rem;">This is your Epistemic Governance and Quantitative Edge command center. To get started:</p>
@@ -139,16 +139,16 @@ export class Dashboard {
             
             <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
               <button id="btn-seed-data" class="btn" style="background: rgba(0, 200, 255, 0.1); border: 1px solid var(--accent-cyan); color: var(--accent-cyan); padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                🚀 Gerar Histórico Sintético (Matemático)
+                Gerar Histórico Sintético (Matemático)
               </button>
 
               <button id="btn-seed-binance" class="btn" style="background: rgba(243, 186, 47, 0.1); border: 1px solid #F3BA2F; color: #F3BA2F; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 8px;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.33l-5.6 5.6L12 12.53l5.6-5.6zm7.25 7.25l-5.6 5.6 5.6 5.6 5.6-5.6zm-14.5 0l-5.6 5.6 5.6 5.6 5.6-5.6zM12 15.82l-5.6 5.6L12 27.02l5.6-5.6z" transform="translate(0, -2)"/></svg>
-                🌐 Ingerir Histórico Real (Binance Cripto)
+                Ingerir Histórico Real (Binance Cripto)
               </button>
 
               <button id="btn-wipe-data" class="btn" style="background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444; color: #EF4444; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-weight: bold;">
-                🗑️ Apagar Todos os Trades (Reset Geral)
+                Apagar Todos os Trades (Reset Geral)
               </button>
               
               <div style="border: 1px dashed var(--border-color); border-radius: 4px; padding: 8px 16px; color: var(--text-muted); font-size: 0.9rem; cursor: not-allowed; background: rgba(255,255,255,0.02);">
@@ -172,11 +172,11 @@ export class Dashboard {
           btnSeed.style.opacity = "0.5";
           const success = await DataSeederService.seedMassiveHistory(3000);
           if (success) {
-            alert("✅ Histórico Sintético Injetado com Sucesso! A página será recarregada.");
+            alert("Histórico Sintético Injetado com Sucesso! A página será recarregada.");
             window.location.reload();
           } else {
             alert("Erro ao injetar dados sintéticos.");
-            btnSeed.textContent = "🚀 Gerar Histórico Sintético (Matemático)";
+            btnSeed.textContent = "Gerar Histórico Sintético (Matemático)";
             btnSeed.style.opacity = "1";
           }
         }
@@ -192,11 +192,11 @@ export class Dashboard {
           btnBinance.style.opacity = "0.5";
           const success = await BinanceSeederService.seedRealCryptoHistory();
           if (success) {
-            alert("✅ Backtest Real de Criptomoedas Concluído! Trades Injetados com Sucesso. A página será recarregada.");
+            alert("Backtest Real de Criptomoedas Concluído! Trades Injetados com Sucesso. A página será recarregada.");
             window.location.reload();
           } else {
             alert("Erro ao puxar dados da Binance. Verifique a conexão.");
-            btnBinance.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.33l-5.6 5.6L12 12.53l5.6-5.6zm7.25 7.25l-5.6 5.6 5.6 5.6 5.6-5.6zm-14.5 0l-5.6 5.6 5.6 5.6 5.6-5.6zM12 15.82l-5.6 5.6L12 27.02l5.6-5.6z" transform="translate(0, -2)"/></svg> 🌐 Ingerir Histórico Real (Binance Cripto)`;
+            btnBinance.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.33l-5.6 5.6L12 12.53l5.6-5.6zm7.25 7.25l-5.6 5.6 5.6 5.6 5.6-5.6zm-14.5 0l-5.6 5.6 5.6 5.6 5.6-5.6zM12 15.82l-5.6 5.6L12 27.02l5.6-5.6z" transform="translate(0, -2)"/></svg> Ingerir Histórico Real (Binance Cripto)`;
             btnBinance.style.opacity = "1";
           }
         }
@@ -209,7 +209,7 @@ export class Dashboard {
       btnWipe.addEventListener('click', async () => {
         if(confirm("Tem certeza que deseja APAGAR COMPLETAMENTE todos os trades e histórico de análise do sistema? Essa ação não pode ser desfeita!")) {
           await wipeAllTrades();
-          alert("✅ Banco de dados local redefinido com sucesso!");
+          alert("Banco de dados local redefinido com sucesso!");
           window.location.reload();
         }
       });

@@ -319,6 +319,15 @@ export class ChartHostWidget {
     if (sl) this._adapter.createPriceLine({ price: sl, color: '#ef4444', title: `SL: ${sl}`, lineStyle: 2 });
     const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
     this._adapter.setMarkers([{ time: latestTime, position: side === 'BUY' ? 'belowBar' : 'aboveBar', color: side === 'BUY' ? '#10b981' : '#ef4444', shape: side === 'BUY' ? 'arrowUp' : 'arrowDown', text: `${title} @ ${entry || 'MARKET'}` }]);
+    this._flashReplay();
+  }
+
+  _flashReplay() {
+    const flash = document.createElement('div');
+    flash.style.cssText = 'position:absolute;inset:0;pointer-events:none;z-index:5;border:2px solid rgba(56,189,248,0.3);border-radius:4px;box-shadow:inset 0 0 60px rgba(56,189,248,0.08);opacity:1;transition:opacity 1s ease;';
+    this._container.appendChild(flash);
+    requestAnimationFrame(() => { flash.style.opacity = '0'; });
+    setTimeout(() => { if (flash.parentNode) flash.remove(); }, 1200);
   }
 
   dispose() {
