@@ -1,0 +1,10 @@
+{
+  "uncalledMethods": [
+    "ExchangeExecution.connectLiveExchangeWebsocket",
+    "PluginSandboxEngine.forceKillNativeProcess",
+    "DisasterRecoveryFailoverEngine.triggerSecondaryRegionSwitch"
+  ],
+  "uninstantiatedAdapters": [
+    "SpatialAmbientInterfaceAdapter"
+  ]
+}
