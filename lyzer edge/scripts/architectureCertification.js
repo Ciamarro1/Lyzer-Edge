@@ -17,6 +17,7 @@ import { EvidenceFusionWidget } from '../src/components/commandCenter/widgets/ev
 import { CognitiveAuditWidget } from '../src/components/commandCenter/widgets/cognitiveAudit/CognitiveAuditWidget.js';
 import { ResearchLabWidget } from '../src/components/commandCenter/widgets/researchLab/ResearchLabWidget.js';
 import { AutonomousDiscoveryWidget } from '../src/components/commandCenter/widgets/autonomousDiscovery/AutonomousDiscoveryWidget.js';
+import { AlphaDiscoveryWidget } from '../src/components/commandCenter/widgets/alphaDiscovery/AlphaDiscoveryWidget.js';
 
 export async function runArchitectureCertification() {
   console.log('=====================================================');
@@ -35,7 +36,8 @@ export async function runArchitectureCertification() {
     { id: 'evidence-fusion-widget', instance: new EvidenceFusionWidget() },
     { id: 'cognitive-audit-widget', instance: new CognitiveAuditWidget() },
     { id: 'research-lab-widget', instance: new ResearchLabWidget() },
-    { id: 'autonomous-discovery-widget', instance: new AutonomousDiscoveryWidget() }
+    { id: 'autonomous-discovery-widget', instance: new AutonomousDiscoveryWidget() },
+    { id: 'alpha-discovery-widget', instance: new AlphaDiscoveryWidget() }
   ];
 
   const results = [];
