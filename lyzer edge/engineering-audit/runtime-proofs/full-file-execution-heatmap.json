@@ -1,0 +1,170 @@
+[
+  {
+    "file": "kernel.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "residualization.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "executionTriggerLayer.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "court.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "streamEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "InstitutionalEventBus.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "UniversalEventModel.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "SmartSchedulerEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "UniversalAgentModel.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "AgentOrchestratorEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "UniversalPluginModel.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "CognitiveTraceEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "MultiLevelExplainabilityEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "UniversalContextEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "UserIntentEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "AdaptiveLayoutEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "SelfOptimizationLoopEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "MultiTierStorageRouterEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "AIModelRouterEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "MasterImplementationRoadmapEngine.js",
+    "loaded": true,
+    "instantiated": true,
+    "executed": true,
+    "calls": 1
+  },
+  {
+    "file": "ExchangeExecutionLiveWS.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "PluginSandboxNativeProcess.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "SpatialAmbientInterfaceAdapter.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  },
+  {
+    "file": "DisasterRecoveryRegionSwitch.js",
+    "loaded": true,
+    "instantiated": false,
+    "executed": false,
+    "calls": 0
+  }
+]
