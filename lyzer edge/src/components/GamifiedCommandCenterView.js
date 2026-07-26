@@ -388,18 +388,98 @@ export class GamifiedCommandCenterView {
     const setInt = (fn, ms) => { const id = setInterval(fn, ms); this._intervals.push(id); return id; };
     const clockEl = this._container.querySelector('#g-clock');
     setInt(() => { if (clockEl) { const d = new Date(); clockEl.innerText = d.toISOString().split('T')[1].split('.')[0] + ' UTC'; } }, 1000);
-    const toast = this._container.querySelector('#g-toast');
-    const balloon = this._container.querySelector('#g-trade-balloon');
-    setInt(() => {
-      if (!toast) return;
-      if (balloon?.classList.contains('show')) return;
-      const isVeto = Math.random() > 0.85;
-      toast.innerText = isVeto ? 'COURT VETO: LHDS THRESHOLD EXCEEDED' : 'ECA COURT: ALLOW_TRANSITION';
-      toast.style.background = isVeto ? '#ef4444' : '#10b981';
-      toast.style.color = isVeto ? '#fff' : '#020617';
-      toast.classList.add('show');
-      setTimeout(() => { toast.classList.remove('show'); }, 1200);
-    }, 6000);
+
+    const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
+    const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
+
+    // Generate a new mock trade with realistic TP/SL levels
+    const spawnTrade = () => {
+      const symbol = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+      const basePrice = BASE_PRICES[symbol] || 65000;
+      const price = basePrice * (0.995 + Math.random() * 0.01);
+      const direction = Math.random() > 0.5 ? 'LONG' : 'SHORT';
+      const dir = direction === 'LONG' ? 1 : -1;
+      const tpPct = 0.012 + Math.random() * 0.015;
+      const slPct = 0.006 + Math.random() * 0.008;
+      const entryPrice = Math.round(price * 100) / 100;
+      const takeProfit = Math.round(price * (1 + dir * tpPct) * 100) / 100;
+      const stopLoss = Math.round(price * (1 - dir * slPct) * 100) / 100;
+
+      // Track the current simulated price for tick movement
+      this._simPrices = this._simPrices || {};
+      this._simPrices[symbol] = entryPrice;
+
+      const trade = {
+        index: Date.now(), direction, price: entryPrice,
+        pnl: '0.00%', status: 'open',
+        stopLoss, takeProfit, governance: 'ALLOW'
+      };
+      const regime = ['TRENDING', 'RANGING', 'VOLATILE'][Math.floor(Math.random() * 3)];
+      const confidence = 60 + Math.random() * 35;
+      const entry = { symbol, market: null, kernel: null, signal: null, trade };
+      this._latestData[symbol] = entry;
+      this._updateMetrics({
+        symbol, trade,
+        kernel: { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.05 + Math.random() * 0.25, eef: true, scale_divergence_score: Math.random() * 0.3, confidence },
+        signal: { signal: dir > 0 ? 'go' : 'short', regime, confidence }
+      });
+      this._checkTradeNotification({ symbol, trade, market: null, kernel: { eef: true } });
+    };
+
+    // Tick simulation: move price towards TP or SL every 2s
+    const tickSim = () => {
+      this._simPrices = this._simPrices || {};
+      for (const [sym, entry] of Object.entries(this._latestData)) {
+        if (!entry.trade || entry.trade.status !== 'open') continue;
+        const t = entry.trade;
+        const dir = t.direction === 'LONG' ? 1 : -1;
+        const currentPrice = this._simPrices[sym] || t.price;
+        const target = dir > 0 ? t.takeProfit : t.stopLoss;
+        const remaining = target - currentPrice;
+        const step = remaining * (0.08 + Math.random() * 0.12);
+        const newPrice = currentPrice + step;
+        this._simPrices[sym] = newPrice;
+        t.price = Math.round(newPrice * 100) / 100;
+        const pnlPct = ((newPrice - entry.trade.price) / entry.trade.price) * dir * 100;
+        t.pnl = pnlPct.toFixed(2) + '%';
+        entry.market = {
+          openTime: Date.now(), open: currentPrice, close: newPrice,
+          high: Math.max(currentPrice, newPrice) * (1 + Math.random() * 0.001),
+          low: Math.min(currentPrice, newPrice) * (1 - Math.random() * 0.001),
+          volume: Math.floor(Math.random() * 800 + 100), closed: false
+        };
+        entry.kernel = { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.05 + Math.random() * 0.25, eef: true, scale_divergence_score: Math.random() * 0.3, confidence: 70 + Math.random() * 25 };
+        entry.signal = { signal: dir > 0 ? 'go' : 'short', regime: 'TRENDING', confidence: 70 + Math.random() * 25 };
+
+        // Check if TP or SL was hit
+        const hitLongTp = dir > 0 && newPrice >= t.takeProfit;
+        const hitLongSl = dir > 0 && newPrice <= t.stopLoss;
+        const hitShortTp = dir < 0 && newPrice <= t.takeProfit;
+        const hitShortSl = dir < 0 && newPrice >= t.stopLoss;
+        if (hitLongTp || hitShortTp) {
+          t.status = 'closed'; t.pnl = dir > 0 ? '+2.0%' : '+2.0%';
+        } else if (hitLongSl || hitShortSl) {
+          t.status = 'closed'; t.pnl = dir > 0 ? '-1.0%' : '-1.0%';
+        }
+        this._updateMetrics({ symbol: sym, kernel: entry.kernel });
+      }
+    };
+
+    // Seed initial data for all symbols so the chart always has base data
+    for (const sym of SYMBOLS) {
+      if (!this._latestData[sym]) {
+        this._latestData[sym] = {
+          symbol: sym, market: null,
+          kernel: { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.1 + Math.random() * 0.2, eef: Math.random() > 0.3, scale_divergence_score: Math.random() * 0.3, confidence: 60 + Math.random() * 35 },
+          signal: { signal: Math.random() > 0.5 ? 'go' : 'flat', regime: ['TRENDING', 'RANGING', 'VOLATILE'][Math.floor(Math.random() * 3)], confidence: 60 + Math.random() * 35 },
+          trade: null
+        };
+      }
+    }
+
+    spawnTrade();
+    setInt(spawnTrade, 18000);
+    setInt(tickSim, 2000);
   }
 
   unmount() {
