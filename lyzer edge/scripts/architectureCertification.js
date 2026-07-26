@@ -16,6 +16,7 @@ import { CausalGraphWidget } from '../src/components/commandCenter/widgets/causa
 import { EvidenceFusionWidget } from '../src/components/commandCenter/widgets/evidenceFusion/EvidenceFusionWidget.js';
 import { CognitiveAuditWidget } from '../src/components/commandCenter/widgets/cognitiveAudit/CognitiveAuditWidget.js';
 import { ResearchLabWidget } from '../src/components/commandCenter/widgets/researchLab/ResearchLabWidget.js';
+import { AutonomousDiscoveryWidget } from '../src/components/commandCenter/widgets/autonomousDiscovery/AutonomousDiscoveryWidget.js';
 
 export async function runArchitectureCertification() {
   console.log('=====================================================');
@@ -33,7 +34,8 @@ export async function runArchitectureCertification() {
     { id: 'causal-graph-widget', instance: new CausalGraphWidget() },
     { id: 'evidence-fusion-widget', instance: new EvidenceFusionWidget() },
     { id: 'cognitive-audit-widget', instance: new CognitiveAuditWidget() },
-    { id: 'research-lab-widget', instance: new ResearchLabWidget() }
+    { id: 'research-lab-widget', instance: new ResearchLabWidget() },
+    { id: 'autonomous-discovery-widget', instance: new AutonomousDiscoveryWidget() }
   ];
 
   const results = [];
