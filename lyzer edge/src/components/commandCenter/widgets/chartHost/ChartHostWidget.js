@@ -134,15 +134,16 @@ export class ChartHostWidget {
   }
 
   _loadRawCandles(symbol) {
-    const basePrice = BASE_PRICES[symbol] || 65000;
+    const targetPrice = (this._runtime && this._runtime.getLatestData && this._runtime.getLatestData()[symbol]?.market?.close)
+      || BASE_PRICES[symbol] || 65000;
     const candles = [];
     const nowSec = Math.floor(Date.now() / 1000);
-    let curr = basePrice;
+    let curr = targetPrice;
 
     for (let i = CANDLE_COUNT; i >= 0; i--) {
       const time = nowSec - i * 60;
-      const noise = (Math.random() - 0.495) * (basePrice * 0.004);
-      const volatility = basePrice * 0.002;
+      const noise = (Math.random() - 0.5) * (targetPrice * 0.003);
+      const volatility = targetPrice * 0.0015;
       const open = curr;
       const close = curr + noise;
       const high = Math.max(open, close) + Math.random() * volatility;
@@ -150,6 +151,18 @@ export class ChartHostWidget {
       curr = close;
       candles.push({ time, open, high, low, close, volume: Math.floor(Math.random() * 800 + 100) });
     }
+
+    // Shift candles so the latest candle ends precisely at targetPrice
+    if (candles.length > 0) {
+      const delta = targetPrice - candles[candles.length - 1].close;
+      for (const c of candles) {
+        c.open += delta;
+        c.high += delta;
+        c.low += delta;
+        c.close += delta;
+      }
+    }
+
     this._rawCandles = candles;
     this._applyTimeframe();
   }

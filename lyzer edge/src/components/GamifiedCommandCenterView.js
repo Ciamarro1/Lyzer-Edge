@@ -395,8 +395,8 @@ export class GamifiedCommandCenterView {
     // Generate a new mock trade with realistic TP/SL levels
     const spawnTrade = () => {
       const symbol = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-      const basePrice = BASE_PRICES[symbol] || 65000;
-      const price = basePrice * (0.995 + Math.random() * 0.01);
+      const activeClose = this._latestData[symbol]?.market?.close || this._simPrices?.[symbol] || BASE_PRICES[symbol] || 65000;
+      const price = activeClose;
       const direction = Math.random() > 0.5 ? 'LONG' : 'SHORT';
       const dir = direction === 'LONG' ? 1 : -1;
       const tpPct = 0.012 + Math.random() * 0.015;
