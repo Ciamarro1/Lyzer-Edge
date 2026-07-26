@@ -25,6 +25,7 @@ export class ChartHostWidget {
     this._displayCandles = [];
     this._plotListener = null;
     this._priceLevels = {};
+    this._plottedTrade = null;
   }
 
   async mount(container, runtime) {
@@ -257,6 +258,13 @@ export class ChartHostWidget {
     if (data.trade?.stopLoss) {
       this._adapter.createPriceLine({ price: data.trade.stopLoss, color: '#ef4444', title: `SL: ${data.trade.stopLoss}`, lineStyle: 2 });
     }
+    // Restore manually plotted trade lines (from trade log replay) across live updates
+    if (this._plottedTrade) {
+      const pt = this._plottedTrade;
+      if (pt.entry) this._adapter.createPriceLine({ price: pt.entry, color: '#38bdf8', title: `ENTRY (${pt.side || '--'}): ${pt.entry}`, lineStyle: 0 });
+      if (pt.tp) this._adapter.createPriceLine({ price: pt.tp, color: '#10b981', title: `TP: ${pt.tp}`, lineStyle: 2 });
+      if (pt.sl) this._adapter.createPriceLine({ price: pt.sl, color: '#ef4444', title: `SL: ${pt.sl}`, lineStyle: 2 });
+    }
   }
 
   _listenPlotTrade() {
@@ -313,6 +321,7 @@ export class ChartHostWidget {
       }
     }
     const { entry, tp, sl, side = 'BUY', title = 'TRADE_ENTRY' } = tradeData;
+    this._plottedTrade = { entry, tp, sl, side };
     this._adapter.clearPriceLines();
     if (entry) this._adapter.createPriceLine({ price: entry, color: '#38bdf8', title: `ENTRY (${side}): ${entry}`, lineStyle: 0 });
     if (tp) this._adapter.createPriceLine({ price: tp, color: '#10b981', title: `TP: ${tp}`, lineStyle: 2 });
