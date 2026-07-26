@@ -30,6 +30,7 @@ import { wsClient } from './services/wsClient.js';
 import { liveTradeSync } from './services/LiveTradeSyncService.js';
 import { activeConfig } from './db/activeConfig.js';
 import { CommandCenterView } from './components/CommandCenterView.js';
+import { GamifiedCommandCenterView } from './components/GamifiedCommandCenterView.js';
 import { ObservabilityView } from './components/ObservabilityView.js';
 
 // ── SVG Icons (inline, 18×18) ────────────────────────────────────────────────
@@ -146,7 +147,8 @@ function comingSoonView(title) {
 // ── Route Definitions ────────────────────────────────────────────────────────
 
 const ROUTES = [
-  { path: '/',             component: () => new CommandCenterView(), title: 'Command Center V2' },
+  { path: '/',             component: () => new GamifiedCommandCenterView(), title: 'Cognitive Cockpit' },
+  { path: '/command-center-classic', component: () => new CommandCenterView(), title: 'Command Center V2 (Classic)' },
   { path: '/observability', component: () => new ObservabilityView(), title: 'Architecture & Observability' },
   { path: '/legacy',       component: () => new Dashboard(), title: 'Dashboard (Legacy)' },
   { path: '/trades',       component: () => new TradeLog(),                                                      title: 'Trade Log' },
