@@ -12,6 +12,7 @@ import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/G
 import { EdgeDashboardWidget } from './commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js';
 import { PatternRecognitionWidget } from './commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js';
 import { wsClient } from '../services/wsClient.js';
+import db from '../db/database.js';
 
 export class GamifiedCommandCenterView {
   constructor() {
