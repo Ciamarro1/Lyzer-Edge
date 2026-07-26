@@ -138,6 +138,36 @@ export class CommandCenterRuntime {
     return disposable;
   }
 
+  /**
+   * Retrieves the immutable DecisionLedger audit entries.
+   * Requires 'court:read' capability.
+   * @param {Object} [filter] 
+   */
+  async getDecisionLedger(filter = {}) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.COURT_READ);
+    const { decisionLedger } = await import('./governance/DecisionLedger.js');
+    return decisionLedger.getEntries(filter);
+  }
+
+  /**
+   * Subscribes to real-time DecisionLedger emissions.
+   * Requires 'court:read' capability.
+   * @param {Function} callback 
+   * @returns {Promise<Object>} Disposable handle
+   */
+  async subscribeDecisionLedger(callback) {
+    this._checkDisposed();
+    this.checkCapability(WidgetCapabilities.COURT_READ);
+    if (typeof callback !== 'function') {
+      throw new WidgetError('ERR_INVALID_CALLBACK', 'Callback must be a function');
+    }
+    const { decisionLedger } = await import('./governance/DecisionLedger.js');
+    const disposable = decisionLedger.onDecision(callback);
+    this._disposableStack.use(disposable);
+    return disposable;
+  }
+
   // ── DATA ACCESS (ZERO-TRUST READ-ONLY) ───────────────────────────────
 
   /**
