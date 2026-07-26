@@ -13,7 +13,7 @@ export class ObservabilityView {
     this._widget = new ObservabilityDashboardWidget();
   }
 
-  mount(container) {
+  async mount(container) {
     this._container = container;
     this._container.innerHTML = `
       <div class="page-container" style="padding: 24px; color: #e2e8f0; font-family: Inter, system-ui, sans-serif; background: #0b0f19; min-height: 100vh; overflow-y: auto;">
