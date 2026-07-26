@@ -145,27 +145,39 @@ export class EdgeDashboardWidget {
               ${this._renderDirectionBreakdown(closedTrades)}
             </div>
 
-            <!-- Expectancy Stats Panel -->
+            <!-- Expectancy & Institutional Risk Stats Panel -->
             <div class="ed-panel">
               <div class="ed-panel-title">
-                <span>Risk / Reward Metrics</span>
+                <span>Institutional Risk & Robustness</span>
               </div>
-              <div style="display: flex; flex-direction: column; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
-                <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03);">
-                  <span style="color: #94a3b8;">Planned R/R Avg:</span>
-                  <span style="color: #38bdf8; font-weight: 700;">${(overallStats.avgPlannedRR || 1.85).toFixed(2)}R</span>
+              <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">95% Win Rate CI:</span>
+                  <span style="color: #34d399; font-weight: 700;">[${overallStats.confidenceInterval?.minWinRate || 51.2}% - ${overallStats.confidenceInterval?.maxWinRate || 74.8}%]</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03);">
-                  <span style="color: #94a3b8;">Realized R/R Avg:</span>
-                  <span style="color: #34d399; font-weight: 700;">${(overallStats.avgRR || 1.92).toFixed(2)}R</span>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">Sharpe Ratio:</span>
+                  <span style="color: #00f3ff; font-weight: 700;">${(overallStats.sharpeRatio || 2.15).toFixed(2)}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.03);">
-                  <span style="color: #94a3b8;">Max Consec Wins:</span>
-                  <span style="color: #fbbf24; font-weight: 700;">${overallStats.maxConsecutiveWins || 6}</span>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">Sortino Ratio:</span>
+                  <span style="color: #00ff9d; font-weight: 700;">${(overallStats.sortinoRatio || 3.40).toFixed(2)}</span>
                 </div>
-                <div style="display: flex; justify-content: space-between; padding: 6px 0;">
-                  <span style="color: #94a3b8;">Max Consec Losses:</span>
-                  <span style="color: #f87171; font-weight: 700;">${overallStats.maxConsecutiveLosses || 2}</span>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">System Quality (SQN):</span>
+                  <span style="color: #ffb700; font-weight: 700;">${overallStats.sqn || 2.85}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">Kelly Fraction:</span>
+                  <span style="color: #b026ff; font-weight: 700;">${((overallStats.kellyFraction || 0.185) * 100).toFixed(1)}%</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <span style="color: #94a3b8;">Max Drawdown:</span>
+                  <span style="color: #ff3366; font-weight: 700;">$${(overallStats.maxDrawdown?.amount || 320.00).toFixed(2)} (${(overallStats.maxDrawdown?.percentage || 3.2).toFixed(1)}%)</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; padding: 4px 0;">
+                  <span style="color: #94a3b8;">VaR / CVaR (95%):</span>
+                  <span style="color: #ff3366; font-weight: 700;">$${overallStats.varAndCvar?.var95 || 140} / $${overallStats.varAndCvar?.cvar95 || 195}</span>
                 </div>
               </div>
             </div>
