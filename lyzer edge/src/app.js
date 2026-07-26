@@ -30,6 +30,7 @@ import { wsClient } from './services/wsClient.js';
 import { liveTradeSync } from './services/LiveTradeSyncService.js';
 import { activeConfig } from './db/activeConfig.js';
 import { CommandCenterView } from './components/CommandCenterView.js';
+import { ObservabilityView } from './components/ObservabilityView.js';
 
 // ── SVG Icons (inline, 18×18) ────────────────────────────────────────────────
 
@@ -76,6 +77,7 @@ const LOGO_SVG = `<svg class="sidebar-logo-mark" xmlns="http://www.w3.org/2000/s
 const NAV_ITEMS = [
   { label: '🔴 Trading Ao Vivo', icon: 'chart', path: '#/live-trading', badge: 'NEW' },
   { label: 'Command Center V2',icon: 'dashboard', path: '#/',            badge: 'M1.3' },
+  { label: '🏛 Architecture & Audit', icon: 'shield', path: '#/observability', badge: 'AUDIT' },
   { label: 'Legacy Dashboard', icon: 'dashboard', path: '#/legacy',      badge: null },
   { label: 'Trade Log',      icon: 'list',      path: '#/trades',      badge: null },
   { label: 'New Trade',      icon: 'plus',      path: '#/trades/new',  badge: null },
@@ -145,6 +147,7 @@ function comingSoonView(title) {
 
 const ROUTES = [
   { path: '/',             component: () => new CommandCenterView(), title: 'Command Center V2' },
+  { path: '/observability', component: () => new ObservabilityView(), title: 'Architecture & Observability' },
   { path: '/legacy',       component: () => new Dashboard(), title: 'Dashboard (Legacy)' },
   { path: '/trades',       component: () => new TradeLog(),                                                      title: 'Trade Log' },
   { path: '/trades/new',   component: () => new TradeForm(),                                                     title: 'New Trade' },
