@@ -7,8 +7,9 @@ import { CausalGraphWidget } from './commandCenter/widgets/causalGraph/CausalGra
 import { ChartHostWidget } from './commandCenter/widgets/chartHost/ChartHostWidget.js';
 import { RuntimeInspectorWidget } from './commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
 import { RealityStatusWidget } from './commandCenter/widgets/realityStatus/RealityStatusWidget.js';
-import { EvolvedTradeLogWidget } from './commandCenter/widgets/tradeLog/EvolvedTradeLogWidget.js';
 import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/GamificationHUDWidget.js';
+import { EdgeDashboardWidget } from './commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js';
+import { PatternRecognitionWidget } from './commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js';
 import { wsClient } from '../services/wsClient.js';
 
 export class GamifiedCommandCenterView {
@@ -90,6 +91,8 @@ export class GamifiedCommandCenterView {
       'chart-host-widget': ChartHostWidget,
       'trade-log-widget': EvolvedTradeLogWidget,
       'gamification-hud-widget': GamificationHUDWidget,
+      'edge-dashboard-widget': EdgeDashboardWidget,
+      'pattern-recognition-widget': PatternRecognitionWidget,
       'lacw-workspace-widget': LACWWorkspaceWidget,
       'cognitive-audit-widget': CognitiveAuditWidget,
       'observability-dashboard-widget': ObservabilityDashboardWidget,
@@ -230,6 +233,8 @@ export class GamifiedCommandCenterView {
       { id: 'chart-host-widget', label: 'Chart & Decisions' },
       { id: 'trade-log-widget', label: 'Trade Log' },
       { id: 'gamification-hud-widget', label: '🏆 Level & Quests' },
+      { id: 'edge-dashboard-widget', label: '📊 Edge Dashboard' },
+      { id: 'pattern-recognition-widget', label: '🔍 Pattern Recognition' },
       { id: 'lacw-workspace-widget', label: 'LACW OS' },
       { id: 'cognitive-audit-widget', label: 'Cognitive Audit' },
       { id: 'observability-dashboard-widget', label: 'Observability' },
