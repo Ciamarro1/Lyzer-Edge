@@ -189,6 +189,79 @@ export class AgentHubWidget {
 
     html += '</div>';
     this._container.innerHTML = html;
+    this._bindEvents();
+  }
+
+  _bindEvents() {
+    if (!this._container) return;
+    const btns = this._container.querySelectorAll('.agent-delegate-btn');
+    btns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const model = this._models[index];
+        if (!model) return;
+        this._handleDelegate(model);
+      });
+    });
+  }
+
+  _handleDelegate(model) {
+    const snap = model.getAgentSnapshot();
+    if (snap.status === 'EXECUTING') {
+      this._showToast(`${snap.name} is currently executing a mission...`);
+      return;
+    }
+
+    const presets = [
+      'Audit BTC/USD Orderbook Liquidity & TRG',
+      'Scan ETH/USD for Toxic SMC Signatures',
+      'Recalibrate ECA Court Veto Thresholds',
+      'Benchmark UUIDv7 Execution Latency'
+    ];
+
+    const chosenMission = prompt(
+      `DELEGATE MISSION TO [${snap.name}]\n\nEnter custom objective or choose preset:\n1. ${presets[0]}\n2. ${presets[1]}\n3. ${presets[2]}\n4. ${presets[3]}`,
+      presets[0]
+    );
+
+    if (!chosenMission) return;
+
+    model.updateMission(chosenMission);
+    model.transitionLifecycle('EXECUTING');
+    this.render();
+
+    this._showToast(`Mission Delegated to ${snap.name}: "${chosenMission}"`);
+
+    window.dispatchEvent(new CustomEvent('lyzer:agent-mission-delegated', {
+      detail: { agentId: snap.id, agentName: snap.name, mission: chosenMission, timestamp: Date.now() }
+    }));
+
+    setTimeout(() => {
+      if (this._disposed) return;
+      model.updateMetrics({ accuracy: Math.min(0.99, snap.metrics.accuracy + 0.015) });
+      model.transitionLifecycle('AVAILABLE');
+      this.render();
+      this._showToast(`${snap.name} Completed Mission Successfully!`);
+    }, 4000);
+  }
+
+  _showToast(msg) {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
+      position: fixed; bottom: 80px; left: 24px; z-index: 999;
+      background: rgba(6, 10, 22, 0.4); backdrop-filter: blur(28px) saturate(1.8);
+      border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 12px;
+      padding: 12px 18px; color: #00f3ff; font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 700; box-shadow: 0 15px 40px rgba(0,0,0,0.7), 0 0 25px rgba(0,243,255,0.2), inset 0 1px 1px rgba(255,255,255,0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    `;
+    toast.innerText = msg;
+    document.body.appendChild(toast);
+    setTimeout(() => {
+      toast.style.opacity = '0';
+      toast.style.transform = 'translateY(-10px)';
+      setTimeout(() => toast.remove(), 300);
+    }, 3500);
   }
 
   dispose() {
