@@ -87,6 +87,25 @@ export class RealityOrchestrator {
     this._guard.commitTransition(oldProvider, targetProvider, reason);
     this._telemetry.attachTo(this._activeProvider);
     
+    // Record immutable decision entry in DecisionLedger
+    try {
+      const { decisionLedger } = await import('../governance/DecisionLedger.js');
+      decisionLedger.recordDecision({
+        component: 'RealityOrchestrator',
+        decision: 'ALLOW_TRANSITION',
+        from: oldProvider ? oldProvider.realityTag : 'UNINITIALIZED',
+        to: targetProvider.realityTag,
+        reason,
+        confidence: 0.98,
+        evidence: [
+          { key: 'providerId', value: targetProvider.id },
+          { key: 'healthStatus', value: targetProvider.healthStatus || 'HEALTHY' }
+        ]
+      });
+    } catch (e) {
+      // Ignore if dynamically loading decisionLedger fails
+    }
+
     return true;
   }
 

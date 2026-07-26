@@ -16,6 +16,12 @@ import { ChartHostWidget } from './components/commandCenter/widgets/chartHost/Ch
 import { chartHostManifest } from './components/commandCenter/widgets/chartHost/manifest.js';
 import { RuntimeInspectorWidget } from './components/commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
 import { runtimeInspectorManifest } from './components/commandCenter/widgets/runtimeInspector/manifest.js';
+import { CourtWidget } from './components/commandCenter/widgets/court/CourtWidget.js';
+import { courtManifest } from './components/commandCenter/widgets/court/manifest.js';
+import { TimelineWidget } from './components/commandCenter/widgets/timeline/TimelineWidget.js';
+import { timelineManifest } from './components/commandCenter/widgets/timeline/manifest.js';
+import { CausalGraphWidget } from './components/commandCenter/widgets/causalGraph/CausalGraphWidget.js';
+import { causalGraphManifest } from './components/commandCenter/widgets/causalGraph/manifest.js';
 import { WidgetRegistry } from './components/commandCenter/sdk/WidgetRegistry.js';
 import './styles/variables.css';
 import './styles/base.css';
@@ -41,22 +47,26 @@ async function main() {
       widgetRegistry.register(realityStatusManifest, RealityStatusWidget);
       widgetRegistry.register(chartHostManifest, ChartHostWidget);
       widgetRegistry.register(runtimeInspectorManifest, RuntimeInspectorWidget);
+      widgetRegistry.register(courtManifest, CourtWidget);
+      widgetRegistry.register(timelineManifest, TimelineWidget);
+      widgetRegistry.register(causalGraphManifest, CausalGraphWidget);
 
       const commandCenter = new CommandCenterApp(rootElement, widgetRegistry, orchestrator);
       
-      // Layout Config for Phase 3.3 Command Center
+      // Institutional Layout Config for Phase 3.4 Command Center
       const layoutConfig = {
         type: 'institutional',
         panes: {
-          LeftPane: '20%',
-          CenterPane: '55%',
+          LeftPane: '22%',
+          CenterPane: '53%',
           RightPane: '25%'
         }
       };
       
       const widgetMap = {
-        CenterPane: ['chart-host-widget'],
-        RightPane: ['runtime-inspector-widget', 'reality-status-widget']
+        LeftPane: ['timeline-widget'],
+        CenterPane: ['causal-graph-widget', 'chart-host-widget'],
+        RightPane: ['court-widget', 'runtime-inspector-widget', 'reality-status-widget']
       };
       
       await commandCenter.mount(layoutConfig, widgetMap);
