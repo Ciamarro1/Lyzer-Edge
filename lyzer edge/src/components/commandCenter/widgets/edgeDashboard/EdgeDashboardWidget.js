@@ -75,12 +75,11 @@ export class EdgeDashboardWidget {
         <div class="ed-header">
           <div>
             <div class="ed-title">
-              <span style="font-size: 20px;">📊</span>
               EDGE EXPLORER & QUANT DASHBOARD
             </div>
             <div class="ed-sub">Statistical edge analysis, expectancy, and multi-symbol attribution metrics</div>
           </div>
-          <span style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #34d399; padding: 4px 12px; border-radius: 20px; font-size: 9px; font-weight: 800; font-family: 'JetBrains Mono', monospace;">LIVE EDGE VERIFIED ✅</span>
+          <span style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); color: #34d399; padding: 4px 12px; border-radius: 20px; font-size: 9px; font-weight: 800; font-family: 'JetBrains Mono', monospace;">LIVE EDGE VERIFIED</span>
         </div>
 
         <!-- Top KPI Cards -->
@@ -221,7 +220,7 @@ export class EdgeDashboardWidget {
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 8px; padding: 12px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-size: 11px; font-weight: 800; color: #34d399;">🟢 LONG TRADES</span>
+            <span style="font-size: 11px; font-weight: 800; color: #34d399;">LONG TRADES</span>
             <span style="font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace;">${longs.length} Executions</span>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'JetBrains Mono', monospace;">
@@ -232,7 +231,7 @@ export class EdgeDashboardWidget {
 
         <div style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 12px;">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-            <span style="font-size: 11px; font-weight: 800; color: #f87171;">🔴 SHORT TRADES</span>
+            <span style="font-size: 11px; font-weight: 800; color: #f87171;">SHORT TRADES</span>
             <span style="font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace;">${shorts.length} Executions</span>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'JetBrains Mono', monospace;">

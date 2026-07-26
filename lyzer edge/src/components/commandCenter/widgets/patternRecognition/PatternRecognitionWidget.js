@@ -167,14 +167,13 @@ export class PatternRecognitionWidget {
         <div class="pr-header">
           <div>
             <div class="pr-title">
-              <span style="font-size: 20px;">🔍</span>
               PATTERN RECOGNITION & EPISTEMIC ANOMALY HUNTER
             </div>
             <div class="pr-sub">Automated cluster discovery, high-win alpha signatures, and toxic setup isolation</div>
           </div>
           <div style="display: flex; gap: 10px;">
-            <button class="pr-btn pr-btn-mock" id="pr-inject-btn">⚡ INJECT 50 MOCK TRADES</button>
-            <button class="pr-btn pr-btn-purge" id="pr-purge-btn">🗑️ PURGE DB</button>
+            <button class="pr-btn pr-btn-mock" id="pr-inject-btn">INJECT 50 MOCK TRADES</button>
+            <button class="pr-btn pr-btn-purge" id="pr-purge-btn">PURGE DB</button>
           </div>
         </div>
 
@@ -183,7 +182,7 @@ export class PatternRecognitionWidget {
           <!-- Top Alpha Clusters -->
           <div class="pr-panel">
             <div class="pr-panel-title" style="color: #34d399;">
-              <span>🏆 TOP ALPHA CLUSTERS</span>
+              <span>TOP ALPHA CLUSTERS</span>
               <span style="font-size: 9px; color: #94a3b8;">High Expectancy Patterns</span>
             </div>
             ${this.alphaClusters.map(a => `
@@ -201,7 +200,7 @@ export class PatternRecognitionWidget {
           <!-- Toxic Signatures -->
           <div class="pr-panel">
             <div class="pr-panel-title" style="color: #f87171;">
-              <span>⚠️ TOXIC SIGNATURES</span>
+              <span>TOXIC SIGNATURES</span>
               <span style="font-size: 9px; color: #94a3b8;">High Veto & Loss Risk</span>
             </div>
             ${this.toxicSignatures.map(t => `
