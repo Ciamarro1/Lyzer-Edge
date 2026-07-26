@@ -1,0 +1,42 @@
+[
+  {
+    "package": "express",
+    "loadedInV8": true,
+    "usageLocation": "backend/server.js"
+  },
+  {
+    "package": "ws",
+    "loadedInV8": true,
+    "usageLocation": "backend/server.js"
+  },
+  {
+    "package": "vitest",
+    "loadedInV8": true,
+    "usageLocation": "tests/"
+  },
+  {
+    "package": "vite",
+    "loadedInV8": true,
+    "usageLocation": "lyzer edge/"
+  },
+  {
+    "package": "better-sqlite3",
+    "loadedInV8": true,
+    "usageLocation": "src/causality/"
+  },
+  {
+    "package": "@huggingface/hub",
+    "loadedInV8": false,
+    "usageLocation": "UNLOADED (Dead static dep)"
+  },
+  {
+    "package": "isomorphic-git",
+    "loadedInV8": false,
+    "usageLocation": "UNLOADED (Dead static dep)"
+  },
+  {
+    "package": "ts-node",
+    "loadedInV8": false,
+    "usageLocation": "UNLOADED (Replaced by tsx)"
+  }
+]

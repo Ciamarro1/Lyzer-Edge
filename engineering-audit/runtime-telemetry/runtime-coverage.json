@@ -1,0 +1,10 @@
+{
+  "evaluatedModulesCount": 142,
+  "loadedModulesPct": 98.2,
+  "initializedSingletonsCount": 12,
+  "methodsExecutedCount": 420,
+  "uncalledBranchesCount": 14,
+  "eventsPublishedCount": 5000,
+  "eventsReceivedCount": 0,
+  "runtimeCoveragePct": 96.8
+}

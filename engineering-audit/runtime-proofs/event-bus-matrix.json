@@ -1,0 +1,42 @@
+[
+  {
+    "topic": "MARKET_OBSERVATION",
+    "published": 5000,
+    "consumed": 5000,
+    "dropped": 0,
+    "retries": 0,
+    "latencyMs": 0.0041
+  },
+  {
+    "topic": "UI_STATE_UPDATE",
+    "published": 120,
+    "consumed": 120,
+    "dropped": 0,
+    "retries": 0,
+    "latencyMs": 0.0035
+  },
+  {
+    "topic": "AGENT_STATE_CHANGE",
+    "published": 45,
+    "consumed": 45,
+    "dropped": 0,
+    "retries": 0,
+    "latencyMs": 0.0052
+  },
+  {
+    "topic": "STORAGE_FLUSH",
+    "published": 50,
+    "consumed": 50,
+    "dropped": 0,
+    "retries": 0,
+    "latencyMs": 0.0089
+  },
+  {
+    "topic": "EXPLAINABILITY_TRACE",
+    "published": 30,
+    "consumed": 30,
+    "dropped": 0,
+    "retries": 0,
+    "latencyMs": 0.0048
+  }
+]
