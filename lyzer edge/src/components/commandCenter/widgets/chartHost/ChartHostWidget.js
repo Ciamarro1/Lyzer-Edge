@@ -58,7 +58,7 @@ export class ChartHostWidget {
 
   _renderHeader() {
     const header = document.createElement('div');
-    header.style.cssText = 'display:flex;flex-direction:column;background:rgba(10,12,22,0.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid rgba(6,182,212,0.06);font-family:\'Inter\',system-ui,sans-serif;font-size:11px;';
+    header.style.cssText = 'display:flex;flex-direction:column;background:rgba(8,12,20,0.4);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border-bottom:1px solid rgba(56,189,248,0.06);font-family:\'Inter\',system-ui,sans-serif;font-size:11px;';
 
     const row1 = document.createElement('div');
     row1.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:6px 14px;';

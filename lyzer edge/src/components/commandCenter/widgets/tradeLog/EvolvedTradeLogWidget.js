@@ -15,7 +15,7 @@ export class EvolvedTradeLogWidget {
 
   async mount(container, context) {
     this._container = container;
-    this._container.style.cssText = 'padding:16px;font-family:\'Inter\',system-ui,sans-serif;background:rgba(8,10,18,0.6);color:#f1f5f9;font-size:11px;height:100%;box-sizing:border-box;overflow-y:auto;';
+    this._container.style.cssText = 'padding:16px;font-family:\'Inter\',system-ui,sans-serif;background:rgba(8,12,20,0.45);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);color:#f1f5f9;font-size:11px;height:100%;box-sizing:border-box;overflow-y:auto;border:1px solid rgba(56,189,248,0.06);border-radius:8px;';
     await this._loadTrades();
     this.render();
     this._liveInterval = setInterval(() => this._loadTrades(), 5000);
