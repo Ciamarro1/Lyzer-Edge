@@ -5,6 +5,14 @@ const CANDLE_COUNT = 1500;
 const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
 const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
 
+const TIMEFRAMES = [
+  { id: '30s', label: '30S', seconds: 30 },
+  { id: '1m', label: '1M', seconds: 60 },
+  { id: '5m', label: '5M', seconds: 300 },
+  { id: '15m', label: '15M', seconds: 900 },
+  { id: '1h', label: '1H', seconds: 3600 },
+];
+
 export class ChartHostWidget {
   constructor() {
     this.manifest = chartHostManifest;
@@ -12,7 +20,9 @@ export class ChartHostWidget {
     this._runtime = null;
     this._adapter = null;
     this._activeSymbol = 'BTCUSDT';
-    this._candles = [];
+    this._activeTf = '1m';
+    this._rawCandles = [];
+    this._displayCandles = [];
     this._plotListener = null;
     this._priceLevels = {};
   }
@@ -38,8 +48,9 @@ export class ChartHostWidget {
     this._adapter = new ChartAdapter();
     await this._adapter.createChart(chartHost, { bgColor: 'transparent', textColor: 'rgba(148,163,184,0.5)' });
 
-    this._loadHistoricalCandles(this._activeSymbol);
+    this._loadRawCandles(this._activeSymbol);
     this._bindAssetTabs();
+    this._bindTimeframeTabs();
     this._listenPlotTrade();
     this._startLiveUpdates();
   }
@@ -55,6 +66,12 @@ export class ChartHostWidget {
         ${SYMBOLS.map(s => {
           const active = s === this._activeSymbol;
           return `<button class="asset-tab ${active ? 'active' : ''}" data-sym="${s}" style="background:${active ? 'rgba(16,185,129,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#34d399' : 'rgba(148,163,184,0.6)'};border:1px solid ${active ? 'rgba(52,211,153,0.2)' : 'rgba(148,163,184,0.06)'};padding:3px 10px;border-radius:6px;font-weight:${active ? '700' : '500'};font-size:10px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;">${s.replace('USDT', '/USD')}</button>`;
+        }).join('')}
+      </div>
+      <div style="display:flex;gap:4px;align-items:center;" id="tf-tabs-container">
+        ${TIMEFRAMES.map(tf => {
+          const active = tf.id === this._activeTf;
+          return `<button class="tf-tab ${active ? 'active' : ''}" data-tf="${tf.id}" style="background:${active ? 'rgba(6,182,212,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#22d3ee' : 'rgba(148,163,184,0.5)'};border:1px solid ${active ? 'rgba(34,211,238,0.2)' : 'rgba(148,163,184,0.04)'};padding:2px 8px;border-radius:4px;font-weight:${active ? '700' : '500'};font-size:9px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;letter-spacing:0.3px;">${tf.label}</button>`;
         }).join('')}
       </div>
       <div id="decision-panel" style="display:flex;gap:12px;font-size:10px;align-items:center;font-family:'JetBrains Mono',monospace;">
@@ -89,22 +106,38 @@ export class ChartHostWidget {
       const sym = btn.dataset.sym;
       if (sym === this._activeSymbol) return;
       container.querySelectorAll('.asset-tab').forEach(b => {
-        b.style.background = '#1e293b'; b.style.color = '#94a3b8';
+        b.style.background = 'rgba(15,23,42,0.3)'; b.style.color = 'rgba(148,163,184,0.6)'; b.style.borderColor = 'rgba(148,163,184,0.06)';
       });
-      btn.style.background = '#10b981'; btn.style.color = '#020617';
+      btn.style.background = 'rgba(16,185,129,0.15)'; btn.style.color = '#34d399'; btn.style.borderColor = 'rgba(52,211,153,0.2)';
       this._activeSymbol = sym;
-      this._loadHistoricalCandles(sym);
+      this._loadRawCandles(sym);
       this._updateDecisionPanel();
     });
   }
 
-  _loadHistoricalCandles(symbol) {
+  _bindTimeframeTabs() {
+    const container = this._container.querySelector('#tf-tabs-container');
+    if (!container) return;
+    container.addEventListener('click', (e) => {
+      const btn = e.target.closest('.tf-tab');
+      if (!btn) return;
+      const tf = btn.dataset.tf;
+      if (tf === this._activeTf) return;
+      container.querySelectorAll('.tf-tab').forEach(b => {
+        b.style.background = 'rgba(15,23,42,0.3)'; b.style.color = 'rgba(148,163,184,0.5)'; b.style.borderColor = 'rgba(148,163,184,0.04)'; b.style.fontWeight = '500';
+      });
+      btn.style.background = 'rgba(6,182,212,0.15)'; btn.style.color = '#22d3ee'; btn.style.borderColor = 'rgba(34,211,238,0.2)'; btn.style.fontWeight = '700';
+      this._activeTf = tf;
+      this._applyTimeframe();
+    });
+  }
+
+  _loadRawCandles(symbol) {
     const basePrice = BASE_PRICES[symbol] || 65000;
     const candles = [];
     const nowSec = Math.floor(Date.now() / 1000);
     let curr = basePrice;
 
-    // Use a seeded-style random walk to get more realistic OHLC
     for (let i = CANDLE_COUNT; i >= 0; i--) {
       const time = nowSec - i * 60;
       const noise = (Math.random() - 0.495) * (basePrice * 0.004);
@@ -116,10 +149,69 @@ export class ChartHostWidget {
       curr = close;
       candles.push({ time, open, high, low, close, volume: Math.floor(Math.random() * 800 + 100) });
     }
-    this._candles = candles;
-    this._adapter.setCandles(candles);
+    this._rawCandles = candles;
+    this._applyTimeframe();
+  }
+
+  _applyTimeframe() {
+    const tfConfig = TIMEFRAMES.find(t => t.id === this._activeTf);
+    if (!tfConfig) return;
+    const seconds = tfConfig.seconds;
+
+    if (seconds === 60) {
+      this._displayCandles = this._rawCandles;
+    } else if (seconds < 60) {
+      this._displayCandles = this._interpolateToSubMinutes(this._rawCandles, seconds);
+    } else {
+      this._displayCandles = this._aggregateCandles(this._rawCandles, seconds);
+    }
+
+    this._adapter.setCandles(this._displayCandles);
     this._adapter.clearPriceLines();
     this._updateDecisionPanel();
+  }
+
+  _interpolateToSubMinutes(raw, targetSeconds) {
+    const subCandlesPerMin = 60 / targetSeconds;
+    const result = [];
+    for (let i = 0; i < raw.length; i++) {
+      const c = raw[i];
+      const prevClose = i > 0 ? raw[i - 1].close : c.open;
+      for (let s = 0; s < subCandlesPerMin; s++) {
+        const t0 = s / subCandlesPerMin;
+        const t1 = (s + 1) / subCandlesPerMin;
+        const open = t0 === 0 ? c.open : prevClose + (c.close - prevClose) * t0;
+        const close = prevClose + (c.close - prevClose) * t1;
+        const midRange = (c.high - c.low) * 0.15;
+        const high = Math.max(open, close) + Math.random() * midRange;
+        const low = Math.min(open, close) - Math.random() * midRange;
+        result.push({
+          time: c.time - 60 + (s + 1) * targetSeconds,
+          open, high, low, close,
+          volume: Math.ceil(c.volume / subCandlesPerMin)
+        });
+      }
+    }
+    return result;
+  }
+
+  _aggregateCandles(raw, targetSeconds) {
+    const groupSize = targetSeconds / 60;
+    const result = [];
+    for (let i = 0; i < raw.length; i += groupSize) {
+      const chunk = raw.slice(i, i + groupSize);
+      if (chunk.length === 0) continue;
+      const open = chunk[0].open;
+      const close = chunk[chunk.length - 1].close;
+      let high = -Infinity, low = Infinity, volume = 0;
+      for (const c of chunk) {
+        if (c.high > high) high = c.high;
+        if (c.low < low) low = c.low;
+        volume += c.volume;
+      }
+      result.push({ time: chunk[chunk.length - 1].time, open, high, low, close, volume });
+    }
+    return result;
   }
 
   _updateDecisionPanel() {
@@ -141,9 +233,8 @@ export class ChartHostWidget {
     setText('#dp-sds', (k.scale_divergence_score || 0).toFixed(3));
     setText('#dp-conf', data.signal?.confidence != null ? `${data.signal.confidence.toFixed(1)}%` : '--');
 
-    // Draw decision markers on chart if trade exists
     if (data.trade) {
-      const latestTime = this._candles.length > 0 ? this._candles[this._candles.length - 1].time : Math.floor(Date.now() / 1000);
+      const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
       const markers = [];
       if (data.trade.status === 'open' || data.trade.governance === 'ALLOW') {
         markers.push({
@@ -160,7 +251,6 @@ export class ChartHostWidget {
       if (markers.length > 0) this._adapter.setMarkers(markers);
     }
 
-    // Plot TP/SL lines if available
     if (data.trade?.takeProfit) {
       this._adapter.createPriceLine({ price: data.trade.takeProfit, color: '#10b981', title: `TP: ${data.trade.takeProfit}`, lineStyle: 2 });
     }
@@ -182,10 +272,28 @@ export class ChartHostWidget {
       if (!this._container || !this._container.isConnected) { clearInterval(this._liveInterval); return; }
       this._updateDecisionPanel();
 
-      // Update latest candle with real data if available
+      // Aggregate new raw candle into current timeframe
+      const tfConfig = TIMEFRAMES.find(t => t.id === this._activeTf);
+      const tfSeconds = tfConfig?.seconds || 60;
       const data = this._runtime.getLatestData()[this._activeSymbol];
       if (data?.market) {
-        this._adapter.updateCandle(data.market);
+        if (tfSeconds <= 60) {
+          if (tfSeconds === 60) {
+            this._adapter.updateCandle(data.market);
+          } else {
+            // For sub-minute: regenerate full display from raw
+            this._loadRawCandles(this._activeSymbol);
+          }
+        } else {
+          // For higher timeframes: append raw candle, re-aggregate the last chunk
+          this._rawCandles.push(data.market);
+          if (this._rawCandles.length > CANDLE_COUNT * 2) {
+            this._rawCandles = this._rawCandles.slice(-CANDLE_COUNT);
+          }
+          // Rebuild display candles from raw
+          this._displayCandles = this._aggregateCandles(this._rawCandles, tfSeconds);
+          this._adapter.setCandles(this._displayCandles);
+        }
       }
     }, 2000);
   }
@@ -194,13 +302,13 @@ export class ChartHostWidget {
     if (!this._adapter) return;
     if (tradeData.symbol && tradeData.symbol !== this._activeSymbol) {
       this._activeSymbol = tradeData.symbol;
-      this._loadHistoricalCandles(tradeData.symbol);
-      // Update active tab visual
+      this._loadRawCandles(tradeData.symbol);
       const container = this._container.querySelector('#asset-tabs-container');
       if (container) {
         container.querySelectorAll('.asset-tab').forEach(b => {
-          b.style.background = b.dataset.sym === tradeData.symbol ? '#10b981' : '#1e293b';
-          b.style.color = b.dataset.sym === tradeData.symbol ? '#020617' : '#94a3b8';
+          b.style.background = b.dataset.sym === tradeData.symbol ? 'rgba(16,185,129,0.15)' : 'rgba(15,23,42,0.3)';
+          b.style.color = b.dataset.sym === tradeData.symbol ? '#34d399' : 'rgba(148,163,184,0.6)';
+          b.style.borderColor = b.dataset.sym === tradeData.symbol ? 'rgba(52,211,153,0.2)' : 'rgba(148,163,184,0.06)';
         });
       }
     }
@@ -209,7 +317,7 @@ export class ChartHostWidget {
     if (entry) this._adapter.createPriceLine({ price: entry, color: '#38bdf8', title: `ENTRY (${side}): ${entry}`, lineStyle: 0 });
     if (tp) this._adapter.createPriceLine({ price: tp, color: '#10b981', title: `TP: ${tp}`, lineStyle: 2 });
     if (sl) this._adapter.createPriceLine({ price: sl, color: '#ef4444', title: `SL: ${sl}`, lineStyle: 2 });
-    const latestTime = this._candles.length > 0 ? this._candles[this._candles.length - 1].time : Math.floor(Date.now() / 1000);
+    const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
     this._adapter.setMarkers([{ time: latestTime, position: side === 'BUY' ? 'belowBar' : 'aboveBar', color: side === 'BUY' ? '#10b981' : '#ef4444', shape: side === 'BUY' ? 'arrowUp' : 'arrowDown', text: `${title} @ ${entry || 'MARKET'}` }]);
   }
 
