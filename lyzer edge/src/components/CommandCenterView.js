@@ -1,120 +1,92 @@
-import { widgetRegistry } from './commandCenter/sdk/WidgetRegistry.js';
-import { widgetLoader } from './commandCenter/sdk/WidgetLoader.js';
-import { StreamBuffer, Priority } from './commandCenter/sdk/StreamBuffer.js';
-import { BrowserClock } from './commandCenter/sdk/Clock.js';
-import { RenderScheduler } from './commandCenter/sdk/RenderScheduler.js';
-import { FrameMetricsCollector } from './commandCenter/sdk/FrameMetricsCollector.js';
+/**
+ * Lyzer Edge — CommandCenterView
+ * Mounts the Command Center V2 application shell into the main SPA container.
+ */
+
+import { CommandCenterApp } from './commandCenter/app/CommandCenterApp.js';
+import { ProviderRegistry } from './commandCenter/sdk/providers/ProviderRegistry.js';
+import { RealityOrchestrator } from './commandCenter/sdk/reality/RealityOrchestrator.js';
+import { LiveProvider } from './commandCenter/sdk/providers/LiveProvider.js';
+import { RealityStatusWidget } from './commandCenter/widgets/realityStatus/RealityStatusWidget.js';
+import { realityStatusManifest } from './commandCenter/widgets/realityStatus/manifest.js';
+import { ChartHostWidget } from './commandCenter/widgets/chartHost/ChartHostWidget.js';
+import { chartHostManifest } from './commandCenter/widgets/chartHost/manifest.js';
+import { RuntimeInspectorWidget } from './commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js';
+import { runtimeInspectorManifest } from './commandCenter/widgets/runtimeInspector/manifest.js';
+import { CourtWidget } from './commandCenter/widgets/court/CourtWidget.js';
+import { courtManifest } from './commandCenter/widgets/court/manifest.js';
+import { TimelineWidget } from './commandCenter/widgets/timeline/TimelineWidget.js';
+import { timelineManifest } from './commandCenter/widgets/timeline/manifest.js';
+import { CausalGraphWidget } from './commandCenter/widgets/causalGraph/CausalGraphWidget.js';
+import { causalGraphManifest } from './commandCenter/widgets/causalGraph/manifest.js';
+import { WidgetRegistry } from './commandCenter/sdk/WidgetRegistry.js';
 
 export class CommandCenterView {
   constructor() {
     this._container = null;
-    
-    // Core Engine
-    this.streamBuffer = new StreamBuffer();
-    this.scheduler = new RenderScheduler({
-      streamBuffer: this.streamBuffer,
-      clock: new BrowserClock(),
-      frameBudgetMs: 16.6
-    });
-    this.collector = new FrameMetricsCollector(this.scheduler);
-    
-    this._interval = null;
+    this._app = null;
+    this._orchestrator = null;
   }
 
-  mount(container) {
+  async mount(container) {
     this._container = container;
-    this._renderShell();
-    
-    // Start Engine
-    this.scheduler.start();
-    
-    // Define a dummy plugin to prove the engine works
-    const dummyManifest = {
-      id: 'lyzer.core.test-widget',
-      version: '1.0.0',
-      name: 'System Metrics Monitor',
-      targetPane: 'right',
-      capabilities: ['telemetry:read']
-    };
-    
-    const DummyPlugin = {
-      mount: async (context) => {
-        const pane = context.container;
-        pane.innerHTML = `
-          <div style="padding: 1rem; color: #a5a5a5;">
-            <h3 style="color: #fff;">Command Center V2 (M1.3 Engine)</h3>
-            <div id="metrics-output" style="font-family: monospace; font-size: 12px; margin-top: 1rem; background: #000; padding: 1rem; border-radius: 4px;">
-              Waiting for telemetry...
-            </div>
-          </div>
-        `;
-        
-        context.runtime.subscribe('metrics:update', (payload) => {
-          const el = pane.querySelector('#metrics-output');
-          if (el) {
-            el.innerHTML = `
-              FPS: ${(1000 / (payload.avgFrameTimeMs || 16.6)).toFixed(1)}<br>
-              Frame Time: ${payload.avgFrameTimeMs.toFixed(2)}ms<br>
-              Batched Events: ${payload.totalFrames}<br>
-              Throughput: ${payload.throughput.toFixed(2)} evt/s
-            `;
-          }
-        });
-      },
-      unmount: async () => {}
-    };
-    
-    if (!widgetRegistry.get(dummyManifest.id)) {
-      widgetRegistry.register(dummyManifest);
-    }
-    
-    const hostEl = this._container.querySelector('#command-center-pane');
-    widgetLoader.loadAndMount(dummyManifest.id, hostEl, DummyPlugin).then(record => {
-      // Setup mock data feed from StreamBuffer to the plugin
-      this.scheduler.registerProcessor((ev) => {
-        if (ev.topic === 'metrics:update' && record) {
-          record.runtime.publish('metrics:update', ev.payload);
-        }
-      });
-      
-      // Feed metrics into StreamBuffer every 100ms
-      this._interval = setInterval(() => {
-        this.streamBuffer.enqueue({
-          source: 'host',
-          topic: 'metrics:update',
-          priority: Priority.NORMAL,
-          payload: this.collector.getSnapshot()
-        });
-      }, 100);
-    });
-  }
+    this._container.innerHTML = '';
+    this._container.style.height = '100vh';
+    this._container.style.overflow = 'hidden';
 
-  _renderShell() {
-    this._container.innerHTML = `
-      <div class="page-container" style="height: 100vh; overflow: hidden; display: flex; flex-direction: column;">
-        <div class="page-header" style="flex: 0 0 auto;">
-          <h1 class="page-title">Institutional Command Center V2</h1>
-          <p class="page-subtitle">Powered by Zero-Trust Widget SDK & M1.3 60FPS Render Engine</p>
-        </div>
-        <div class="card" style="flex: 1 1 auto; margin-top: 1rem; display: flex;">
-          <div style="flex: 7; border-right: 1px solid var(--border-color); padding: 1rem; display: flex; align-items: center; justify-content: center;">
-            <div style="text-align: center; color: #555;">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-              <h2 style="margin-top: 1rem;">TradingView Core (Pending M1.4)</h2>
-              <p>Main Charting Pane (Left - 70%)</p>
-            </div>
-          </div>
-          <div id="command-center-pane" style="flex: 3; padding: 1rem; background: var(--bg-card-alt);">
-            <!-- Sandboxed widgets will mount here -->
-          </div>
-        </div>
-      </div>
-    `;
+    // 1. Initialize Providers & Reality Orchestrator
+    const providerRegistry = new ProviderRegistry();
+    const liveProvider = new LiveProvider('live-default');
+    providerRegistry.register(liveProvider);
+
+    this._orchestrator = new RealityOrchestrator({ eventBus: { emit: () => {} } }, providerRegistry);
+
+    // 2. Initialize Widget Registry & Register all 6 V2 Widgets
+    const widgetRegistry = new WidgetRegistry();
+    
+    widgetRegistry.register(realityStatusManifest, RealityStatusWidget);
+    widgetRegistry.register(chartHostManifest, ChartHostWidget);
+    widgetRegistry.register(runtimeInspectorManifest, RuntimeInspectorWidget);
+    widgetRegistry.register(courtManifest, CourtWidget);
+    widgetRegistry.register(timelineManifest, TimelineWidget);
+    widgetRegistry.register(causalGraphManifest, CausalGraphWidget);
+
+    // 3. Instantiate & Mount CommandCenterApp
+    this._app = new CommandCenterApp(this._container, widgetRegistry, this._orchestrator);
+
+    const layoutConfig = {
+      type: 'institutional',
+      panes: {
+        LeftPane: '22%',
+        CenterPane: '53%',
+        RightPane: '25%'
+      }
+    };
+
+    const widgetMap = {
+      LeftPane: ['timeline-widget'],
+      CenterPane: ['causal-graph-widget', 'chart-host-widget'],
+      RightPane: ['court-widget', 'runtime-inspector-widget', 'reality-status-widget']
+    };
+
+    await this._app.mount(layoutConfig, widgetMap);
+
+    // Auto-connect default provider
+    try {
+      await this._orchestrator.switchReality('live-default', 'system_init');
+    } catch (err) {
+      console.warn('[CommandCenterView] Initial reality switch warning:', err);
+    }
   }
 
   unmount() {
-    if (this._interval) clearInterval(this._interval);
-    this.scheduler.stop();
-    widgetLoader.unmountAll();
+    if (this._app) {
+      this._app.dispose();
+      this._app = null;
+    }
+    if (this._container) {
+      this._container.innerHTML = '';
+      this._container = null;
+    }
   }
 }
