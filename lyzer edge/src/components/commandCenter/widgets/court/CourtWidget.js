@@ -102,17 +102,21 @@ export class CourtWidget {
     item.style.borderBottom = '1px solid rgba(148,163,184,0.06)';
     item.style.paddingBottom = '6px';
 
-    const allowed = entry.decision.includes('ALLOW');
+    const decisionText = entry.decision || 'ALLOW_TRANSITION';
+    const allowed = decisionText.includes('ALLOW');
     const color = allowed ? '#10b981' : '#ef4444';
+    const component = entry.component || entry.actor || entry.symbol || 'ECA_Court';
+    const reason = entry.reason || (allowed ? 'VALIDATED' : 'LHDS_THRESHOLD');
+
     item.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center;">
         <span style="font-weight: 700; font-size: 10px; color: ${color}; display: flex; align-items: center; gap: 4px;">
           <span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: ${color}; box-shadow: 0 0 4px ${color};"></span>
-          ${entry.decision}
+          ${decisionText}
         </span>
-        <span style="color: rgba(148,163,184,0.3); font-size: 8px; font-family: 'JetBrains Mono', monospace;">${new Date(entry.timestamp).toLocaleTimeString()}</span>
+        <span style="color: rgba(148,163,184,0.3); font-size: 8px; font-family: 'JetBrains Mono', monospace;">${new Date(entry.timestamp || Date.now()).toLocaleTimeString()}</span>
       </div>
-      <div style="color: rgba(148,163,184,0.5); font-size: 9px; margin-top: 2px;">${entry.component}: ${entry.reason}</div>
+      <div style="color: rgba(148,163,184,0.5); font-size: 9px; margin-top: 2px;">${component}: ${reason}</div>
     `;
 
     this._ui.ledgerList.insertBefore(item, this._ui.ledgerList.firstChild);

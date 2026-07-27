@@ -42,7 +42,9 @@ export class GamifiedCommandCenterView {
         const entries = Object.values(this._latestData).map(d => ({
           decision: d.kernel?.eef === true ? 'ALLOW_TRANSITION' : 'VETO',
           timestamp: d.market?.timestamp || Date.now(),
-          symbol: d.symbol,
+          symbol: d.symbol || 'BTCUSDT',
+          component: 'TruthKernel',
+          reason: d.kernel?.reason || (d.kernel?.eef === true ? 'VALIDATED' : 'LHDS_THRESHOLD'),
           trg: d.kernel?.trg,
           dvf: d.kernel?.dvf,
           lhds: d.kernel?.lhds_df
@@ -50,7 +52,7 @@ export class GamifiedCommandCenterView {
         return entries.slice(-20);
       },
       subscribeDecisionLedger: (cb) => {
-        try { cb({ decision: 'ALLOW_TRANSITION', timestamp: Date.now() }); } catch(e){}
+        try { cb({ decision: 'ALLOW_TRANSITION', timestamp: Date.now(), component: 'TruthKernel', reason: 'VALIDATED' }); } catch(e){}
         return { dispose: () => {} };
       },
       getMarketData: (opts = {}) => {
