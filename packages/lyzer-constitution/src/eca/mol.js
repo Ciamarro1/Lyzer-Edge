@@ -4,11 +4,12 @@
  */
 
 export class MetaObservationLayer {
-  constructor({ sclThreshold } = {}) {
+  constructor({ sclThreshold, minCooldown } = {}) {
     this.state = 'EXECUTE'; // EXECUTE | VETO | RECOVERY
     this.durationOfInaction = 0; // DOI
     this.structuralCoherenceLock = 0; // SCL
-    this.sclThreshold = sclThreshold !== undefined ? sclThreshold : 3;
+    this.sclThreshold = sclThreshold !== undefined ? sclThreshold : 10;
+    this.minCooldown = minCooldown !== undefined ? minCooldown : 20;
   }
 
   /**
@@ -52,8 +53,8 @@ export class MetaObservationLayer {
         this.structuralCoherenceLock = 0;
       }
       
-      // Have we reached the threshold?
-      if (this.structuralCoherenceLock >= this.sclThreshold) {
+      // Have we reached the threshold and passed the minimum cool-down?
+      if (this.structuralCoherenceLock >= this.sclThreshold && this.durationOfInaction >= this.minCooldown) {
         // Successful Awakening
         this.state = 'EXECUTE';
         this.durationOfInaction = 0;

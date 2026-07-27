@@ -5,12 +5,14 @@
  */
 
 export class ContinuousCLIST {
-  constructor({ dvfFloor, stressAccumulation, lethalIllusionLimit, stressRelease } = {}) {
+  constructor({ dvfFloor, stressAccumulation, lethalIllusionLimit, stressDecay, recoveryThreshold } = {}) {
     this.stressLevel = 0.0;
     this.dvfFloor = dvfFloor !== undefined ? dvfFloor : 0.1;
     this.stressAccumulation = stressAccumulation !== undefined ? stressAccumulation : 0.002;
     this.lethalIllusionLimit = lethalIllusionLimit !== undefined ? lethalIllusionLimit : 0.9;
-    this.stressRelease = stressRelease !== undefined ? stressRelease : 0.1;
+    this.stressDecay = stressDecay !== undefined ? stressDecay : 0.95; // Exponential decay factor
+    this.recoveryThreshold = recoveryThreshold !== undefined ? recoveryThreshold : 0.3; // Hysteresis bottom limit
+    this.inLethalIllusion = false;
   }
 
   /**
@@ -26,7 +28,8 @@ export class ContinuousCLIST {
     if (dvf < this.dvfFloor) {
       this.stressLevel += this.stressAccumulation;
     } else {
-      this.stressLevel -= this.stressRelease;
+      // Exponential Decay Filter
+      this.stressLevel *= this.stressDecay;
     }
     
     // TRG explosion causes instant maximal stress
@@ -36,9 +39,16 @@ export class ContinuousCLIST {
 
     this.stressLevel = Math.max(0, Math.min(1.0, this.stressLevel));
 
+    // State Hysteresis to prevent rapid flapping
+    if (this.stressLevel >= this.lethalIllusionLimit) {
+      this.inLethalIllusion = true;
+    } else if (this.stressLevel <= this.recoveryThreshold) {
+      this.inLethalIllusion = false;
+    }
+
     return {
       stressLevel: this.stressLevel,
-      isLethalIllusion: this.stressLevel >= this.lethalIllusionLimit
+      isLethalIllusion: this.inLethalIllusion
     };
   }
 }

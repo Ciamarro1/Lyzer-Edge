@@ -1,7 +1,7 @@
 /**
  * @fileoverview ECA Court Ledger (Deliverable O)
  * Implements an append-only, tamper-proof audit log for the Constitutional Court.
- * The Court shall never learn, but it must remember to enforce Edge Riding limits.
+ * Persists records to SQLite (causal_memory.db) to enforce Edge Riding limits across restarts.
  */
 
 export class ConstitutionalLedger {
@@ -11,6 +11,37 @@ export class ConstitutionalLedger {
       drawdownNearMisses: 0,
       slippageNearMisses: 0
     };
+    this._db = null;
+    this._initDatabase();
+  }
+
+  async _initDatabase() {
+    if (typeof process !== 'undefined' && process.release?.name === 'node') {
+      try {
+        const sqlite3 = await import('sqlite3');
+        const path = await import('path');
+        const dbPath = path.resolve(process.cwd(), 'causal_memory.db');
+        
+        this._db = new sqlite3.default.Database(dbPath, (err) => {
+          if (!err && this._db) {
+            this._db.run(`
+              CREATE TABLE IF NOT EXISTS court_ledger (
+                id TEXT PRIMARY KEY,
+                timestamp INTEGER,
+                verdict TEXT,
+                reason TEXT,
+                token_id TEXT,
+                request_json TEXT,
+                state_json TEXT
+              )
+            `);
+          }
+        });
+      } catch (e) {
+        // Fallback to in-memory if sqlite3 not available in pure browser bundle
+        this._db = null;
+      }
+    }
   }
 
   /**
@@ -31,6 +62,17 @@ export class ConstitutionalLedger {
     
     this.entries.push(record);
     this._updateEdgeRidingMetrics(stateSnapshot, token);
+
+    // Asynchronous SQLite persistence
+    if (this._db) {
+      try {
+        this._db.run(
+          `INSERT INTO court_ledger (id, timestamp, verdict, reason, token_id, request_json, state_json) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          [token.id, record.timestamp, record.verdict, record.reason, token.id, JSON.stringify(requestPayload), JSON.stringify(stateSnapshot)],
+          (err) => { if (err) console.warn('[ConstitutionalLedger] DB append error:', err.message); }
+        );
+      } catch (e) {}
+    }
   }
 
   /**
@@ -38,22 +80,18 @@ export class ConstitutionalLedger {
    * @private
    */
   _updateEdgeRidingMetrics(stateSnapshot, token) {
-    // If the token was a VETO, reset near-misses as the system hit the wall.
     if (!token.granted) {
       this.edgeRidingCounters.drawdownNearMisses = 0;
       this.edgeRidingCounters.slippageNearMisses = 0;
       return;
     }
 
-    // Evaluate proximity to HARD limits (e.g. 95% of MAX_DRAWDOWN)
-    // Limits are static and deterministic.
     const MAX_DRAWDOWN = 0.05; // 5%
     const EDGE_THRESHOLD = 0.95; // 95% of limit
 
-    if (stateSnapshot.currentDrawdown >= (MAX_DRAWDOWN * EDGE_THRESHOLD)) {
+    if (stateSnapshot && stateSnapshot.currentDrawdown >= (MAX_DRAWDOWN * EDGE_THRESHOLD)) {
       this.edgeRidingCounters.drawdownNearMisses++;
     } else {
-      // Decay counter if system recovers
       this.edgeRidingCounters.drawdownNearMisses = Math.max(0, this.edgeRidingCounters.drawdownNearMisses - 1);
     }
   }
