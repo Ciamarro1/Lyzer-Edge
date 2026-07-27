@@ -390,7 +390,7 @@ export class ChartHostWidget {
         position: isBuy ? 'belowBar' : 'aboveBar',
         color: isBuy ? '#10b981' : '#ef4444',
         shape: isBuy ? 'arrowUp' : 'arrowDown',
-        text: `⚡ ENTRY ${symbolTrade.side || 'LONG'} @ ${symbolTrade.entry || 'MARKET'} (${symbolTrade.structure || 'BOS M15'})`
+        text: `ENTRY ${symbolTrade.side || 'LONG'} @ ${symbolTrade.entry || 'MARKET'} (${symbolTrade.structure || 'BOS M15'})`
       }]);
 
       this._renderMicroStructureCard(symbolTrade);
@@ -424,6 +424,13 @@ export class ChartHostWidget {
       `;
       this._container.style.position = 'relative';
       this._container.appendChild(overlay);
+
+      // Event delegation for close button
+      overlay.addEventListener('click', (e) => {
+        if (e.target.closest('.close-overlay-btn')) {
+          overlay.style.display = 'none';
+        }
+      });
     }
 
     if (!tradeData) {
@@ -449,6 +456,10 @@ export class ChartHostWidget {
     const regime = tradeData.regime || 'TRENDING_MARKET';
     const ev = tradeData.ev || '+0.38%';
 
+    const iconTarget = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`;
+    const iconZap = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    const iconClose = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+
     overlay.style.display = 'block';
     overlay.innerHTML = `
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid rgba(51,65,85,0.6); padding-bottom:6px;">
@@ -458,20 +469,25 @@ export class ChartHostWidget {
           </span>
           <span style="font-size:11px; font-weight:700; color:#94a3b8;">${this._activeSymbol}</span>
         </div>
-        <span style="font-size:10px; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.15); padding:2px 6px; border-radius:4px;">
-          R:R = 1:${rrRatio}
-        </span>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:10px; font-weight:700; color:#fbbf24; background:rgba(251,191,36,0.15); padding:2px 6px; border-radius:4px;">
+            R:R = 1:${rrRatio}
+          </span>
+          <button class="close-overlay-btn" style="background:transparent; border:none; color:#94a3b8; cursor:pointer; padding:0; display:flex; align-items:center; justify-content:center; transition:color 0.2s;" onmouseover="this.style.color='#ef4444'" onmouseout="this.style.color='#94a3b8'">
+            ${iconClose}
+          </button>
+        </div>
       </div>
 
       <div style="margin-bottom:8px;">
         <div style="font-size:10px; text-transform:uppercase; color:#64748b; font-weight:700; letter-spacing:0.05em;">Microestrutura Identificada</div>
         <div style="font-size:12px; font-weight:700; color:#38bdf8; margin-top:2px;">
-          ⚡ ${tradeData.structure || 'BOS M15 + Demand Zone'}
+          ${iconZap} ${tradeData.structure || 'BOS M15 + Demand Zone'}
         </div>
       </div>
 
       <div style="display:flex; flex-wrap:wrap; gap:4px; margin-bottom:10px;">
-        ${reasons.map(r => `<span style="font-size:9px; font-weight:700; background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); padding:2px 6px; border-radius:4px;">🎯 ${r}</span>`).join('')}
+        ${reasons.map(r => `<span style="display:inline-flex; align-items:center; font-size:9px; font-weight:700; background:rgba(56,189,248,0.12); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); padding:2px 6px; border-radius:4px;">${iconTarget} ${r}</span>`).join('')}
       </div>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:rgba(30,41,59,0.6); padding:8px; border-radius:6px; font-size:10px;">
