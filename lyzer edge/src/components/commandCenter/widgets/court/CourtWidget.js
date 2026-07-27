@@ -68,6 +68,26 @@ export class CourtWidget {
 
   async _subscribe() {
     try {
+      if (this._runtime && typeof this._runtime.subscribeSnapshot === 'function') {
+        this._snapshotUnsub = this._runtime.subscribeSnapshot((snap) => {
+          if (!this._ui) return;
+          if (this._ui.lhds && snap.lhds !== undefined) {
+            this._ui.lhds.innerText = Number(snap.lhds).toFixed(3);
+          }
+          if (this._ui.eef && snap.eef !== undefined) {
+            this._ui.eef.innerText = snap.eef ? 'VALID' : 'VETOED';
+            this._ui.eef.style.color = snap.eef ? '#4ade80' : '#ef4444';
+          }
+          if (this._ui.mol && snap.molState) {
+            this._ui.mol.innerText = snap.molState;
+          }
+          if (this._ui.status && snap.eef !== undefined) {
+            this._ui.status.innerText = snap.eef ? 'ALLOW' : 'VETO';
+            this._ui.status.style.color = snap.eef ? '#10b981' : '#ef4444';
+          }
+        });
+      }
+
       if (this._runtime && typeof this._runtime.getDecisionLedger === 'function') {
         const history = await this._runtime.getDecisionLedger({ limit: 10 });
         this._renderLedger(history);
@@ -123,6 +143,10 @@ export class CourtWidget {
   }
 
   dispose() {
+    if (this._snapshotUnsub && typeof this._snapshotUnsub.dispose === 'function') {
+      this._snapshotUnsub.dispose();
+      this._snapshotUnsub = null;
+    }
     if (this._disposable && typeof this._disposable.dispose === 'function') {
       this._disposable.dispose();
       this._disposable = null;
