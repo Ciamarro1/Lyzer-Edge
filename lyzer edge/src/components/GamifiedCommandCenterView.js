@@ -119,12 +119,18 @@ export class GamifiedCommandCenterView {
     this._container.style.display = 'grid';
     this._container.style.gridTemplateRows = '64px 1fr 56px';
     this._container.style.gridTemplateColumns = '300px 1fr 280px';
+    this._container.style.transition = 'grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     this._container.style.height = '100vh';
     this._container.style.width = '100vw';
     this._container.style.backgroundColor = '#03060e';
     this._container.style.color = '#f8fafc';
     this._container.style.fontFamily = "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif";
     this._container.style.overflow = 'hidden';
+
+    window.addEventListener('lyzer:toggle-left-sidebar', (e) => {
+      const isCollapsed = e.detail?.collapsed;
+      this._container.style.gridTemplateColumns = isCollapsed ? '50px 1fr 280px' : '300px 1fr 280px';
+    });
 
     this._renderShell();
     await this._mountStaticWidgets();
