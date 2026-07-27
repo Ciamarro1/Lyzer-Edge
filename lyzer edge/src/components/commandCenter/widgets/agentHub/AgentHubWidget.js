@@ -102,13 +102,15 @@ export class AgentHubWidget {
         .agent-progress-fg.EXECUTING { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
         .agent-progress-fg.LEARNING { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
         .agent-progress-fg.INITIALIZED { background: linear-gradient(90deg, #6366f1, #818cf8); }
-        .agent-delegate-btn {
-          width: 100%; padding: 6px; background: rgba(15, 23, 42, 0.3);
-          color: rgba(148, 163, 184, 0.6); border: 1px solid rgba(148, 163, 184, 0.06);
-          border-radius: 6px; cursor: pointer; font-family: 'Inter', system-ui, sans-serif;
-          font-size: 10px; font-weight: 500; transition: all 0.3s;
+        .agent-delegate-btn, .agent-toggle-btn {
+          width: 100%; padding: 6px 10px; background: rgba(10, 16, 32, 0.45);
+          backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+          color: rgba(148, 163, 184, 0.8); border: 1px solid rgba(0, 243, 255, 0.18);
+          border-radius: 8px; cursor: pointer; font-family: 'JetBrains Mono', monospace;
+          font-size: 10px; font-weight: 700; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        .agent-delegate-btn:hover { background: rgba(56, 189, 248, 0.06); color: #38bdf8; border-color: rgba(56, 189, 248, 0.15); }
+        .agent-delegate-btn:hover, .agent-toggle-btn:hover { background: rgba(0, 243, 255, 0.12); color: #00f3ff; border-color: #00f3ff; box-shadow: 0 0 15px rgba(0, 243, 255, 0.3); }
       `;
       document.head.appendChild(style);
     }
@@ -156,7 +158,7 @@ export class AgentHubWidget {
     
     if (this._isCollapsed) {
       let html = `<div style="padding: 12px 6px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-        <button id="ah-toggle-btn" class="agent-delegate-btn" style="padding: 8px 4px; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px;" title="Expand Agent Hub">
+        <button id="ah-toggle-btn" class="agent-toggle-btn" style="padding: 8px 4px; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px;" title="Expand Agent Hub">
           EXPAND AGENT HUB (${this._models.length})
         </button>
         <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 12px;">`;
@@ -166,7 +168,11 @@ export class AgentHubWidget {
       }
       html += `</div></div>`;
       this._container.innerHTML = html;
-      this._container.querySelector('#ah-toggle-btn')?.addEventListener('click', () => this.toggleCollapse());
+      this._container.querySelector('#ah-toggle-btn')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.toggleCollapse();
+      });
       return;
     }
 
@@ -177,7 +183,7 @@ export class AgentHubWidget {
           AGENT HUB
           <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
         </div>
-        <button id="ah-toggle-btn" class="agent-delegate-btn" style="width: auto; padding: 2px 8px; font-size: 9px;" title="Collapse Agent Hub">
+        <button id="ah-toggle-btn" class="agent-toggle-btn" style="width: auto; padding: 2px 8px; font-size: 9px;" title="Collapse Agent Hub">
           COLLAPSE
         </button>
       </div>
@@ -222,11 +228,19 @@ export class AgentHubWidget {
 
   _bindEvents() {
     if (!this._container) return;
-    this._container.querySelector('#ah-toggle-btn')?.addEventListener('click', () => this.toggleCollapse());
-    const btns = this._container.querySelectorAll('.agent-delegate-btn');
+    const toggleBtn = this._container.querySelector('#ah-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.toggleCollapse();
+      });
+    }
+    const btns = this._container.querySelectorAll('.agent-card .agent-delegate-btn');
     btns.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
+        e.preventDefault();
         const model = this._models[index];
         if (!model) return;
         this._handleDelegate(model);
