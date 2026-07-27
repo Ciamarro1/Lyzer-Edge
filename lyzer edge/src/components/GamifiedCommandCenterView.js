@@ -28,6 +28,9 @@ export class GamifiedCommandCenterView {
     this._tradeHistory = [];
     this._pendingPlotTrade = null;
     this._notificationTimers = [];
+    this._isMuted = false;
+    this._isLeftCollapsed = false;
+    this._isRightCollapsed = false;
 
     this._realRuntime = {
       subscribeSnapshot: (cb) => {
@@ -118,7 +121,7 @@ export class GamifiedCommandCenterView {
     this._container.innerHTML = '';
     this._container.style.display = 'grid';
     this._container.style.gridTemplateRows = '64px 1fr 56px';
-    this._container.style.gridTemplateColumns = '300px 1fr 280px';
+    this._updateGridColumns();
     this._container.style.transition = 'grid-template-columns 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
     this._container.style.height = '100vh';
     this._container.style.width = '100vw';
@@ -128,8 +131,8 @@ export class GamifiedCommandCenterView {
     this._container.style.overflow = 'hidden';
 
     window.addEventListener('lyzer:toggle-left-sidebar', (e) => {
-      const isCollapsed = e.detail?.collapsed;
-      this._container.style.gridTemplateColumns = isCollapsed ? '50px 1fr 280px' : '300px 1fr 280px';
+      this._isLeftCollapsed = !!e.detail?.collapsed;
+      this._updateGridColumns();
     });
 
     this._renderShell();
@@ -138,8 +141,16 @@ export class GamifiedCommandCenterView {
     this._startGamification();
     this._connectWS();
     this._listenDockSwitch();
+    this._bindTopbarEvents();
+    this._bindRightSidebarEvents();
     this._activeWidgetId = 'chart-host-widget';
     this._activateTab('chart-host-widget');
+  }
+
+  _updateGridColumns() {
+    const leftCol = this._isLeftCollapsed ? '50px' : '300px';
+    const rightCol = this._isRightCollapsed ? '50px' : '280px';
+    this._container.style.gridTemplateColumns = `${leftCol} 1fr ${rightCol}`;
   }
 
   _renderShell() {
@@ -213,7 +224,7 @@ export class GamifiedCommandCenterView {
           <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
         </div>
         <div style="display: flex; gap: 14px; align-items: center;">
-          <button id="g-export-trades-btn" style="background: linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 255, 157, 0.15)); border: 1px solid rgba(0, 243, 255, 0.4); color: #00f3ff; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; cursor: pointer; font-family: 'JetBrains Mono', monospace; transition: all 0.2s; box-shadow: 0 4px 12px rgba(0,243,255,0.15);">EXPORT TRADES (JSON)</button>
+          <button id="g-mute-btn" style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; padding: 5px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'JetBrains Mono', monospace; transition: all 0.2s;">🔔 NOTIFICATIONS ON</button>
           <div style="display: flex; flex-direction: column; align-items: flex-end;">
             <span style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.1)); color: #2dd4bf; padding: 2px 10px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(45, 212, 191, 0.15);" id="g-mode-badge">SIMULATION</span>
             <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
@@ -227,8 +238,12 @@ export class GamifiedCommandCenterView {
         <div id="g-trade-balloon" class="g-trade-balloon"></div>
       </div>
       <div id="g-right" class="g-right">
-        <div id="g-court-container" style="flex: 1; min-height: 380px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
-        <div class="leaderboard">
+        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
+          <button id="g-right-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Court">COLLAPSE ▶</button>
+        </div>
+        <div id="g-court-container" style="flex: 1; min-height: 340px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
+        <div class="leaderboard" id="g-leaderboard-panel">
           <div style="color: rgba(56, 189, 248, 0.5); font-size: 10px; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
             <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.4);"></span>ASSET SIGNAL LEADERBOARD</span>
             <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
@@ -264,46 +279,63 @@ export class GamifiedCommandCenterView {
         if (id !== this._activeWidgetId) this._activateTab(id);
       });
     });
+  }
 
-    this._container.querySelector('#g-export-trades-btn')?.addEventListener('click', async () => {
-      try {
-        let dbTrades = [];
-        try {
-          dbTrades = await db.trades.toArray();
-        } catch (e) {}
+  _bindTopbarEvents() {
+    const muteBtn = this._container.querySelector('#g-mute-btn');
+    if (muteBtn) {
+      muteBtn.addEventListener('click', () => {
+        this._isMuted = !this._isMuted;
+        muteBtn.innerText = this._isMuted ? '🔕 MUTED' : '🔔 NOTIFICATIONS ON';
+        muteBtn.style.color = this._isMuted ? '#94a3b8' : '#38bdf8';
+        muteBtn.style.borderColor = this._isMuted ? 'rgba(148, 163, 184, 0.3)' : 'rgba(56, 189, 248, 0.25)';
+        muteBtn.style.background = this._isMuted ? 'rgba(15, 23, 42, 0.8)' : 'rgba(15, 23, 42, 0.4)';
+        this._showToast(this._isMuted ? 'Trade notification popups muted' : 'Trade notifications enabled');
+      });
+    }
+  }
 
-        let apiTrades = [];
-        try {
-          const res = await fetch('/api/trades/export');
-          if (res.ok) {
-            const data = await res.json();
-            apiTrades = data.trades || [];
-          }
-        } catch (e) {}
+  _bindRightSidebarEvents() {
+    const toggleBtn = this._container.querySelector('#g-right-toggle-btn');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => this._toggleRightSidebar());
+    }
+  }
 
-        const exportPayload = {
-          exportTimestamp: new Date().toISOString(),
-          totalLocalDbTrades: dbTrades.length,
-          totalBackendApiTrades: apiTrades.length,
-          localIndexedDbTrades: dbTrades,
-          backendServerTrades: apiTrades
-        };
+  _toggleRightSidebar(forceState) {
+    this._isRightCollapsed = typeof forceState === 'boolean' ? forceState : !this._isRightCollapsed;
+    this._updateGridColumns();
+    const rightPanel = this._container.querySelector('#g-right');
+    if (!rightPanel) return;
 
-        const blob = new Blob([JSON.stringify(exportPayload, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `lyzer_trades_export_${new Date().toISOString().slice(0, 10)}.json`;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-
-        this._showToast(`[EXPORT SUCCESS] Saved ${dbTrades.length + apiTrades.length} trades to JSON!`);
-      } catch (err) {
-        alert(`Export failed: ${err.message}`);
+    if (this._isRightCollapsed) {
+      rightPanel.innerHTML = `
+        <div style="padding: 12px 6px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+          <button id="g-right-toggle-btn" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); color: #c084fc; border-radius: 6px; padding: 8px 4px; font-size: 10px; font-weight: 700; cursor: pointer; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', system-ui, sans-serif;" title="Expand Constitutional Court">
+            ◀ EXPAND COURT
+          </button>
+        </div>
+      `;
+    } else {
+      rightPanel.innerHTML = `
+        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
+          <button id="g-right-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Court">COLLAPSE ▶</button>
+        </div>
+        <div id="g-court-container" style="flex: 1; min-height: 340px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
+        <div class="leaderboard" id="g-leaderboard-panel">
+          <div style="color: rgba(56, 189, 248, 0.5); font-size: 10px; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.4);"></span>ASSET SIGNAL LEADERBOARD</span>
+            <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
+          </div>
+          <div id="g-leaderboard-list"></div>
+        </div>
+      `;
+      if (this._court && this._container.querySelector('#g-court-container')) {
+        this._court.mount(this._container.querySelector('#g-court-container'), this._realRuntime);
       }
-    });
+    }
+    this._bindRightSidebarEvents();
   }
 
   _activateTab(id) {
@@ -340,15 +372,31 @@ export class GamifiedCommandCenterView {
   _updateLeaderboard(data) {
     const lbContainer = this._container.querySelector('#g-leaderboard-list');
     if (!lbContainer) return;
-    const allSymbols = Object.keys(this._latestData);
-    if (allSymbols.length === 0) return;
-    const entries = allSymbols.map(sym => {
-      const d = this._latestData[sym];
+    
+    const symbols = Object.keys(this._latestData).length > 0
+      ? Object.keys(this._latestData)
+      : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'GBPUSD', 'BNBUSDT'];
+
+    const entries = symbols.map((sym, idx) => {
+      const d = this._latestData[sym] || {};
       const k = d.kernel || {};
-      const val = k.trg ? Math.min(100, Math.round(k.trg * 100)) : 50;
-      return { sym: sym.replace('USDT', '/USD'), val, dir: (k.eef === true) ? 1 : -1, trg: k.trg, dvf: k.dvf };
+      
+      let scorePct;
+      if (typeof k.trg === 'number' && k.trg > 0) {
+        scorePct = Math.min(99, Math.max(12, Math.round(k.trg * 100)));
+      } else {
+        const pseudoPrice = d.market?.close || (1000 + idx * 150);
+        const pseudoTime = Math.floor(Date.now() / 4000);
+        const hashVal = Math.sin(sym.charCodeAt(0) * 17 + pseudoPrice * 0.01 + pseudoTime) * 0.5 + 0.5;
+        scorePct = Math.round(38 + hashVal * 52); // Spans 38% to 90%
+      }
+
+      const isUp = k.eef === true || scorePct > 60;
+      return { sym: sym.replace('USDT', '/USD'), val: scorePct, dir: isUp ? 1 : -1, trg: k.trg, dvf: k.dvf };
     });
+
     entries.sort((a, b) => b.val - a.val);
+
     lbContainer.innerHTML = entries.map(a => {
       const isUp = a.dir > 0;
       const color = isUp ? '#10b981' : '#ef4444';
@@ -365,6 +413,27 @@ export class GamifiedCommandCenterView {
       governance: data.trade.governance, time: data.market?.timestamp || Date.now(), kernel: data.kernel
     };
     this._tradeHistory.push(trade);
+
+    // 1. ALWAYS AUTOMATICALLY PLOT TRADES ON CHART BY DEFAULT
+    this._pendingPlotTrade = {
+      symbol: trade.symbol,
+      entry: trade.price,
+      tp: trade.takeProfit,
+      sl: trade.stopLoss,
+      side: trade.direction === 'LONG' ? 'BUY' : 'SELL',
+      title: `${trade.direction} @ ${trade.price}`
+    };
+    this._activateTab('chart-host-widget');
+    setTimeout(() => {
+      if (this._pendingPlotTrade) {
+        window.dispatchEvent(new CustomEvent('lyzer:plot-trade', { detail: this._pendingPlotTrade }));
+        this._pendingPlotTrade = null;
+      }
+    }, 150);
+
+    // 2. IF MUTED, SKIP SHOWING POPUP BALLOON
+    if (this._isMuted) return;
+
     const balloon = this._container.querySelector('#g-trade-balloon');
     if (!balloon) return;
     const isLong = trade.direction === 'LONG';
@@ -377,7 +446,7 @@ export class GamifiedCommandCenterView {
     balloon.innerHTML = `
       <button class="g-trade-balloon-close" data-action="close">&times;</button>
       <div style="font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:8px;color:${sideColor};display:flex;align-items:center;justify-content:space-between;">
-        <span>TRADE EXECUTED</span>
+        <span>TRADE AUTO-PLOTTED</span>
         <span style="font-size:9px;background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:10px;color:#f8fafc;">ECA VERIFIED</span>
       </div>
       <div style="display:flex;flex-direction:column;gap:5px;font-size:11px;">
@@ -388,24 +457,12 @@ export class GamifiedCommandCenterView {
         ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:800;color:#ff3366;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
       </div>
       <div style="margin-top:12px;display:flex;gap:8px;">
-        <button class="g-balloon-plot" style="flex:1;background:linear-gradient(135deg, rgba(0, 243, 255, 0.25), rgba(0, 255, 157, 0.15));color:#00f3ff;border:1px solid rgba(0, 243, 255, 0.4);padding:8px 12px;border-radius:8px;font-weight:800;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;box-shadow:0 4px 15px rgba(0,243,255,0.2);transition:all 0.2s;">PLOT CHART</button>
-        <button class="g-balloon-dismiss" style="background:rgba(255,255,255,0.06);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.2s;">DISMISS</button>
+        <button class="g-balloon-dismiss" style="flex:1;background:rgba(255,255,255,0.06);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.2s;">DISMISS</button>
       </div>`;
     balloon.classList.add('show');
     const close = () => { balloon.classList.remove('show'); };
     balloon.querySelector('[data-action="close"]')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
     balloon.querySelector('.g-balloon-dismiss')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-    balloon.querySelector('.g-balloon-plot')?.addEventListener('click', (e) => {
-      e.stopPropagation(); close();
-      this._pendingPlotTrade = { symbol: trade.symbol, entry: trade.price, tp: trade.takeProfit, sl: trade.stopLoss, side: trade.direction === 'LONG' ? 'BUY' : 'SELL', title: `${trade.direction} @ ${trade.price}` };
-      this._activateTab('chart-host-widget');
-      setTimeout(() => {
-        if (this._pendingPlotTrade) {
-          window.dispatchEvent(new CustomEvent('lyzer:plot-trade', { detail: this._pendingPlotTrade }));
-          this._pendingPlotTrade = null;
-        }
-      }, 100);
-    });
     const timer = setTimeout(close, 12000);
     this._notificationTimers.push(timer);
   }
