@@ -10,6 +10,7 @@ export class AgentHubWidget {
     this._models = [];
     this._ticker = null;
     this._disposed = false;
+    this._isCollapsed = false;
   }
 
   async mount(container, context) {
@@ -153,11 +154,32 @@ export class AgentHubWidget {
   render() {
     if (!this._container || this._disposed) return;
     
+    if (this._isCollapsed) {
+      let html = `<div style="padding: 12px 6px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px;">
+        <button id="ah-toggle-btn" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; border-radius: 6px; padding: 8px 4px; font-size: 10px; font-weight: 700; cursor: pointer; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', system-ui, sans-serif;" title="Expand Agent Hub">
+          ▶ EXPAND AGENTS (${this._models.length})
+        </button>
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 12px;">`;
+      for (const model of this._models) {
+        const snap = model.getAgentSnapshot();
+        html += `<span class="agent-dot ${snap.status}" title="${snap.name} (${snap.status})"></span>`;
+      }
+      html += `</div></div>`;
+      this._container.innerHTML = html;
+      this._container.querySelector('#ah-toggle-btn')?.addEventListener('click', () => this.toggleCollapse());
+      return;
+    }
+
     let html = `<div style="padding: 16px; height: 100%; box-sizing: border-box; overflow-y: auto;">
-      <div style="color: rgba(56, 189, 248, 0.5); font-weight: 700; margin-bottom: 16px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; display: flex; align-items: center; gap: 8px;">
-        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px rgba(56,189,248,0.4);"></span>
-        AGENT HUB
-        <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
+      <div style="color: rgba(56, 189, 248, 0.5); font-weight: 700; margin-bottom: 16px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px rgba(56,189,248,0.4);"></span>
+          AGENT HUB
+          <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
+        </div>
+        <button id="ah-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Agent Hub">
+          ◀ COLLAPSE
+        </button>
       </div>
     `;
 
@@ -192,8 +214,15 @@ export class AgentHubWidget {
     this._bindEvents();
   }
 
+  toggleCollapse(forceState) {
+    this._isCollapsed = typeof forceState === 'boolean' ? forceState : !this._isCollapsed;
+    window.dispatchEvent(new CustomEvent('lyzer:toggle-left-sidebar', { detail: { collapsed: this._isCollapsed } }));
+    this.render();
+  }
+
   _bindEvents() {
     if (!this._container) return;
+    this._container.querySelector('#ah-toggle-btn')?.addEventListener('click', () => this.toggleCollapse());
     const btns = this._container.querySelectorAll('.agent-delegate-btn');
     btns.forEach((btn, index) => {
       btn.addEventListener('click', (e) => {
