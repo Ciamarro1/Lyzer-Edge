@@ -26,6 +26,7 @@ export class ChartHostWidget {
     this._plotListener = null;
     this._priceLevels = {};
     this._plottedTrades = {};
+    this._tradesVisible = true;
   }
 
   async mount(container, runtime) {
@@ -52,6 +53,7 @@ export class ChartHostWidget {
     this._loadRawCandles(this._activeSymbol);
     this._bindAssetTabs();
     this._bindTimeframeTabs();
+    this._bindTradeToggle();
     this._listenPlotTrade();
     this._startLiveUpdates();
   }
@@ -69,11 +71,20 @@ export class ChartHostWidget {
           return `<button class="asset-tab ${active ? 'active' : ''}" data-sym="${s}" style="background:${active ? 'rgba(16,185,129,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#34d399' : 'rgba(148,163,184,0.6)'};border:1px solid ${active ? 'rgba(52,211,153,0.2)' : 'rgba(148,163,184,0.06)'};padding:3px 10px;border-radius:6px;font-weight:${active ? '700' : '500'};font-size:10px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;">${s.replace('USDT', '/USD')}</button>`;
         }).join('')}
       </div>
-      <div style="display:flex;gap:4px;align-items:center;" id="tf-tabs-container">
-        ${TIMEFRAMES.map(tf => {
-          const active = tf.id === this._activeTf;
-          return `<button class="tf-tab ${active ? 'active' : ''}" data-tf="${tf.id}" style="background:${active ? 'rgba(6,182,212,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#22d3ee' : 'rgba(148,163,184,0.5)'};border:1px solid ${active ? 'rgba(34,211,238,0.2)' : 'rgba(148,163,184,0.04)'};padding:2px 8px;border-radius:4px;font-weight:${active ? '700' : '500'};font-size:9px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;letter-spacing:0.3px;">${tf.label}</button>`;
-        }).join('')}
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div style="display:flex;gap:4px;align-items:center;" id="tf-tabs-container">
+          ${TIMEFRAMES.map(tf => {
+            const active = tf.id === this._activeTf;
+            return `<button class="tf-tab ${active ? 'active' : ''}" data-tf="${tf.id}" style="background:${active ? 'rgba(6,182,212,0.15)' : 'rgba(15,23,42,0.3)'};color:${active ? '#22d3ee' : 'rgba(148,163,184,0.5)'};border:1px solid ${active ? 'rgba(34,211,238,0.2)' : 'rgba(148,163,184,0.04)'};padding:2px 8px;border-radius:4px;font-weight:${active ? '700' : '500'};font-size:9px;cursor:pointer;font-family:\'JetBrains Mono\',monospace;transition:all 0.2s;letter-spacing:0.3px;">${tf.label}</button>`;
+          }).join('')}
+        </div>
+        <button id="toggle-trades-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 10px; gap: 6px; display: flex; align-items: center;" title="Exibir/Ocultar e Recarregar Trades Plotados">
+          <svg id="eye-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span id="eye-label">SHOW TRADES</span>
+        </button>
       </div>
       <div id="decision-panel" style="display:flex;gap:12px;font-size:10px;align-items:center;font-family:'JetBrains Mono',monospace;">
         <span style="color:rgba(251,191,36,0.6);">TRG <strong id="dp-trg" style="color:#fbbf24;">--</strong></span>
@@ -247,37 +258,110 @@ export class ChartHostWidget {
     setText('#dp-sds', (k.scale_divergence_score || 0).toFixed(3));
     setText('#dp-conf', data.signal?.confidence != null ? `${data.signal.confidence.toFixed(1)}%` : '--');
 
-    if (data.trade) {
-      const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
-      const markers = [];
-      if (data.trade.status === 'open' || data.trade.governance === 'ALLOW') {
-        markers.push({
-          time: latestTime, position: 'belowBar', color: '#10b981',
-          shape: 'arrowUp', text: `${data.trade.direction} ALLOW @ ${data.trade.price}`
-        });
+    if (this._tradesVisible) {
+      if (data.trade) {
+        const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
+        const markers = [];
+        if (data.trade.status === 'open' || data.trade.governance === 'ALLOW') {
+          markers.push({
+            time: latestTime, position: 'belowBar', color: '#10b981',
+            shape: 'arrowUp', text: `${data.trade.direction} ALLOW @ ${data.trade.price}`
+          });
+        }
+        if (data.trade.governance === 'REJECT' || data.trade.status === 'rejected') {
+          markers.push({
+            time: latestTime, position: 'aboveBar', color: '#ef4444',
+            shape: 'arrowDown', text: 'VETOED'
+          });
+        }
+        if (markers.length > 0) this._adapter.setMarkers(markers);
       }
-      if (data.trade.governance === 'REJECT' || data.trade.status === 'rejected') {
-        markers.push({
-          time: latestTime, position: 'aboveBar', color: '#ef4444',
-          shape: 'arrowDown', text: 'VETOED'
-        });
+
+      if (data.trade?.takeProfit) {
+        this._adapter.createPriceLine({ price: data.trade.takeProfit, color: '#10b981', title: `TP: ${data.trade.takeProfit}`, lineStyle: 2 });
       }
-      if (markers.length > 0) this._adapter.setMarkers(markers);
+      if (data.trade?.stopLoss) {
+        this._adapter.createPriceLine({ price: data.trade.stopLoss, color: '#ef4444', title: `SL: ${data.trade.stopLoss}`, lineStyle: 2 });
+      }
+      // Restore manually plotted trade lines for THIS active symbol only
+      const symbolTrade = this._plottedTrades[this._activeSymbol];
+      if (symbolTrade) {
+        if (symbolTrade.entry) this._adapter.createPriceLine({ price: symbolTrade.entry, color: '#38bdf8', title: `ENTRY (${symbolTrade.side || '--'}): ${symbolTrade.entry}`, lineStyle: 0 });
+        if (symbolTrade.tp) this._adapter.createPriceLine({ price: symbolTrade.tp, color: '#10b981', title: `TP: ${symbolTrade.tp}`, lineStyle: 2 });
+        if (symbolTrade.sl) this._adapter.createPriceLine({ price: symbolTrade.sl, color: '#ef4444', title: `SL: ${symbolTrade.sl}`, lineStyle: 2 });
+      }
+    }
+  }
+
+  _bindTradeToggle() {
+    const btn = this._container.querySelector('#toggle-trades-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => this.toggleTrades());
+  }
+
+  toggleTrades() {
+    this._tradesVisible = !this._tradesVisible;
+    const btn = this._container.querySelector('#toggle-trades-btn');
+    const eyeIcon = this._container.querySelector('#eye-icon');
+    const eyeLabel = this._container.querySelector('#eye-label');
+
+    if (this._tradesVisible) {
+      if (btn) { btn.style.borderColor = 'rgba(0, 243, 255, 0.4)'; btn.style.color = '#00f3ff'; }
+      if (eyeLabel) eyeLabel.innerText = 'SHOW TRADES';
+      if (eyeIcon) {
+        eyeIcon.setAttribute('stroke', '#00f3ff');
+        eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+      }
+      this.reloadTradePlot();
+    } else {
+      if (btn) { btn.style.borderColor = 'rgba(239, 68, 68, 0.4)'; btn.style.color = '#ef4444'; }
+      if (eyeLabel) eyeLabel.innerText = 'HIDE TRADES';
+      if (eyeIcon) {
+        eyeIcon.setAttribute('stroke', '#ef4444');
+        eyeIcon.innerHTML = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
+      }
+      if (this._adapter) {
+        this._adapter.clearPriceLines();
+        this._adapter.setMarkers([]);
+      }
+    }
+  }
+
+  reloadTradePlot() {
+    if (!this._adapter) return;
+    this._adapter.clearPriceLines();
+    this._adapter.setMarkers([]);
+
+    let symbolTrade = this._plottedTrades[this._activeSymbol];
+    if (!symbolTrade && this._runtime && this._runtime.getLatestData) {
+      const data = this._runtime.getLatestData()[this._activeSymbol];
+      if (data?.trade && data.trade.governance === 'ALLOW' && data.trade.status === 'open') {
+        symbolTrade = {
+          entry: data.trade.price,
+          tp: data.trade.takeProfit,
+          sl: data.trade.stopLoss,
+          side: data.trade.direction === 'LONG' ? 'BUY' : 'SELL',
+          title: `${data.trade.direction} @ ${data.trade.price}`
+        };
+        this._plottedTrades[this._activeSymbol] = symbolTrade;
+      }
     }
 
-    if (data.trade?.takeProfit) {
-      this._adapter.createPriceLine({ price: data.trade.takeProfit, color: '#10b981', title: `TP: ${data.trade.takeProfit}`, lineStyle: 2 });
-    }
-    if (data.trade?.stopLoss) {
-      this._adapter.createPriceLine({ price: data.trade.stopLoss, color: '#ef4444', title: `SL: ${data.trade.stopLoss}`, lineStyle: 2 });
-    }
-    // Restore manually plotted trade lines for THIS active symbol only
-    const symbolTrade = this._plottedTrades[this._activeSymbol];
-    if (symbolTrade) {
+    if (symbolTrade && this._tradesVisible) {
       if (symbolTrade.entry) this._adapter.createPriceLine({ price: symbolTrade.entry, color: '#38bdf8', title: `ENTRY (${symbolTrade.side || '--'}): ${symbolTrade.entry}`, lineStyle: 0 });
       if (symbolTrade.tp) this._adapter.createPriceLine({ price: symbolTrade.tp, color: '#10b981', title: `TP: ${symbolTrade.tp}`, lineStyle: 2 });
       if (symbolTrade.sl) this._adapter.createPriceLine({ price: symbolTrade.sl, color: '#ef4444', title: `SL: ${symbolTrade.sl}`, lineStyle: 2 });
+      
+      const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
+      this._adapter.setMarkers([{
+        time: latestTime,
+        position: symbolTrade.side === 'BUY' ? 'belowBar' : 'aboveBar',
+        color: symbolTrade.side === 'BUY' ? '#10b981' : '#ef4444',
+        shape: symbolTrade.side === 'BUY' ? 'arrowUp' : 'arrowDown',
+        text: `${symbolTrade.title || 'TRADE'} @ ${symbolTrade.entry || 'MARKET'}`
+      }]);
     }
+    this._flashReplay();
   }
 
   _listenPlotTrade() {
@@ -348,15 +432,9 @@ export class ChartHostWidget {
     // Store trade plot per symbol in memory map so each asset maintains its own trade plot
     this._plottedTrades[targetSymbol] = { entry, tp, sl, side, title };
 
-    // Only update active chart if the trade belongs to currently open active symbol
-    if (targetSymbol === this._activeSymbol) {
-      this._adapter.clearPriceLines();
-      if (entry) this._adapter.createPriceLine({ price: entry, color: '#38bdf8', title: `ENTRY (${side}): ${entry}`, lineStyle: 0 });
-      if (tp) this._adapter.createPriceLine({ price: tp, color: '#10b981', title: `TP: ${tp}`, lineStyle: 2 });
-      if (sl) this._adapter.createPriceLine({ price: sl, color: '#ef4444', title: `SL: ${sl}`, lineStyle: 2 });
-      const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
-      this._adapter.setMarkers([{ time: latestTime, position: side === 'BUY' ? 'belowBar' : 'aboveBar', color: side === 'BUY' ? '#10b981' : '#ef4444', shape: side === 'BUY' ? 'arrowUp' : 'arrowDown', text: `${title} @ ${entry || 'MARKET'}` }]);
-      this._flashReplay();
+    // Only update active chart if trades are visible and symbol matches
+    if (targetSymbol === this._activeSymbol && this._tradesVisible) {
+      this.reloadTradePlot();
     }
   }
 
