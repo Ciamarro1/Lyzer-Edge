@@ -705,7 +705,7 @@ export function generateTradeAuditCertificate(trades) {
       sqn: stats.sqn,
       kellyFraction: `${(stats.kellyFraction * 100).toFixed(1)}%`,
       sharpeRatio: stats.sharpeRatio.toFixed(2),
-      maxDrawdown: `$${stats.maxDrawdown.amount.toFixed(2)} (${stats.maxDrawdown.percentage.toFixed(1)}%)`,
+      maxDrawdown: `$${(stats.maxDrawdown?.maxDrawdownAmount || 0).toFixed(2)} (${(stats.maxDrawdown?.maxDrawdown || 0).toFixed(1)}%)`,
       var95: `$${stats.varAndCvar.var95}`,
       cvar95: `$${stats.varAndCvar.cvar95}`
     }
