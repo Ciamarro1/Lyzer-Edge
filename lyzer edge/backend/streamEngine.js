@@ -30,6 +30,7 @@ import { DualRealityMonitor } from "./dualRealityMonitor.js";
 import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
 import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation } from "../src/observability/index.js";
+import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
 
 const signalEngine = new EvSignalEngine();
 const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
@@ -94,6 +95,7 @@ export class StreamEngine extends EventEmitter {
     this.isRunning = false;
     this.tradeHistory = [];
     this.activePosition = null;
+    this.dampener = new MicrostructureDampener({ minHoldingCandles: 5, cooldownCandles: 5, atrBarrierMultiplier: 1.2, minRiskReward: 1.5 });
 
     this.connectionState = 'CONNECTED';
     this.liveTradingEnabled = process.env.LIVE_TRADING_ENABLED === 'true';
@@ -600,6 +602,18 @@ export class StreamEngine extends EventEmitter {
       let exitReason = '';
 
       const pos = this.activePosition;
+      const currentCandleIdx = this.candles.length;
+      
+      // Calculate micro ATR for profit barrier evaluation
+      let microAtr = 0;
+      const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
+      if (candleList.length >= 5) {
+        const recent = candleList.slice(-14);
+        let sumRange = 0;
+        for (let i = 0; i < recent.length; i++) sumRange += (recent[i].high - recent[i].low);
+        microAtr = sumRange / recent.length;
+      }
+
       if (pos.direction === 'LONG') {
         if (candle.low <= pos.stopLoss) {
           closed = true;
@@ -609,14 +623,13 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (kernelResult.signal === 'no-go') {
-          closed = true;
-          exitPrice = candle.close;
-          exitReason = 'REVERSAL_TO_SHORT';
-        } else if (kernelResult.confidence < 50) {
-          closed = true;
-          exitPrice = candle.close;
-          exitReason = 'LOW_CONFIDENCE';
+        } else if (!kernelResult.eef || kernelResult.epistemicAuthority === 'VETO') {
+          const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
+          if (dampenerClose.canClose) {
+            closed = true;
+            exitPrice = candle.close;
+            exitReason = `KERNEL_VETO_${kernelResult.reason || 'REJECTED'}`;
+          }
         }
       } else {
         if (candle.high >= pos.stopLoss) {
@@ -627,14 +640,13 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (kernelResult.signal === 'go') {
-          closed = true;
-          exitPrice = candle.close;
-          exitReason = 'REVERSAL_TO_LONG';
-        } else if (kernelResult.confidence < 50) {
-          closed = true;
-          exitPrice = candle.close;
-          exitReason = 'LOW_CONFIDENCE';
+        } else if (!kernelResult.eef || kernelResult.epistemicAuthority === 'VETO') {
+          const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
+          if (dampenerClose.canClose) {
+            closed = true;
+            exitPrice = candle.close;
+            exitReason = `KERNEL_VETO_${kernelResult.reason || 'REJECTED'}`;
+          }
         }
       }
 
@@ -694,6 +706,7 @@ export class StreamEngine extends EventEmitter {
             .catch(e => console.error('[STREAM] Close order placement failed:', e.message));
         }
 
+        this.dampener.recordTradeExit(this.symbol, this.candles.length);
         this.activePosition = null;
         this.emit('state_changed');
       }
@@ -711,6 +724,17 @@ export class StreamEngine extends EventEmitter {
     } else if (isStabilized && kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
+      const currentCandleIdx = this.candles.length;
+      const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
+        entrySide: direction,
+        m15Signal: baseSignal.m15Signal || 'flat'
+      });
+
+      if (!dampenerCheck.permitted) {
+        // Blocked by anti-overtrading dampener (cooldown or MTF misalignment)
+        return;
+      }
+
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       const governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
       const rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
@@ -728,7 +752,7 @@ export class StreamEngine extends EventEmitter {
         quantity = Math.max(0.0001, Math.min(baseQty, quantity));
         quantity = parseFloat(quantity.toFixed(5));
 
-        // Micro-Scalp Risk/Reward (0.15% - 0.4% micro SL, 1:2 R:R) for sub-m5 timeframes
+        // Institutional Risk/Reward (min 1.2% ATR buffer, 1:2 R:R)
         let microAtr = 0;
         const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
         if (candleList.length >= 5) {
@@ -741,12 +765,12 @@ export class StreamEngine extends EventEmitter {
         }
 
         const entryPrice = candle.close;
-        let slDistance = 0.0025; // 0.25% micro SL fallback
-        let tpDistance = 0.0050; // 0.50% micro TP fallback (1:2 R:R)
+        let slDistance = 0.012; // 1.20% institutional SL fallback
+        let tpDistance = 0.024; // 2.40% institutional TP fallback (1:2 R:R)
 
         if (microAtr > 0 && entryPrice > 0) {
           const atrPct = microAtr / entryPrice;
-          slDistance = Math.max(0.0015, Math.min(0.004, atrPct * 1.5));
+          slDistance = Math.max(0.012, Math.min(0.040, atrPct * 1.8));
           tpDistance = slDistance * 2.0; // 1:2 R:R ratio
         }
 
@@ -761,6 +785,7 @@ export class StreamEngine extends EventEmitter {
         this.activePosition = {
           id: `trade_${index}`,
           timestamp: tradeTimestamp,
+          openCandleIndex: currentCandleIdx,
           direction,
           entryPrice,
           stopLoss,
