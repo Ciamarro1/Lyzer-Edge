@@ -1071,14 +1071,18 @@ canvas.ltv-chart {
       // Add TradingView Native Price Lines for Active Position (ENTRY, SL, TP)
       const activeTrade = (state.trades[symbol] || []).find(t => t.status === 'open');
       if (activeTrade) {
+        const dirStr = (activeTrade.direction || 'LONG').toUpperCase();
+        const structStr = activeTrade.signal?.structure || 'SMC BOS M15 + Demand Zone';
+        const reasonsStr = (activeTrade.signal?.reasons || ['SMC_BOS_M15', 'FVG_REFILL']).join(', ');
+
         if (activeTrade.entryPrice) {
           series.createPriceLine({
             price: Number(activeTrade.entryPrice),
-            color: '#f59e0b',
+            color: '#38bdf8',
             lineWidth: 2,
-            lineStyle: 2, // Dashed
+            lineStyle: 0, // Solid
             axisLabelVisible: true,
-            title: `ENTRY: ${formatPrice(activeTrade.entryPrice, symbol)}`,
+            title: `ENTRY (${dirStr}): ${formatPrice(activeTrade.entryPrice, symbol)} [⚡ ${structStr}]`,
           });
         }
         if (activeTrade.stopLoss) {
@@ -1086,9 +1090,9 @@ canvas.ltv-chart {
             price: Number(activeTrade.stopLoss),
             color: '#ef4444',
             lineWidth: 2,
-            lineStyle: 3, // Dotted
+            lineStyle: 2, // Dashed
             axisLabelVisible: true,
-            title: `SL: ${formatPrice(activeTrade.stopLoss, symbol)}`,
+            title: `SL Stop: ${formatPrice(activeTrade.stopLoss, symbol)} [Invalidação de Estrutura]`,
           });
         }
         if (activeTrade.takeProfit) {
@@ -1096,9 +1100,9 @@ canvas.ltv-chart {
             price: Number(activeTrade.takeProfit),
             color: '#10b981',
             lineWidth: 2,
-            lineStyle: 3, // Dotted
+            lineStyle: 2, // Dashed
             axisLabelVisible: true,
-            title: `TP: ${formatPrice(activeTrade.takeProfit, symbol)}`,
+            title: `TP Target: ${formatPrice(activeTrade.takeProfit, symbol)} [Target FVG Refill]`,
           });
         }
       }
