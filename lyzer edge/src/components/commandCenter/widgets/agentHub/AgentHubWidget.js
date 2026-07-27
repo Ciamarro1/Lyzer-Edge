@@ -156,8 +156,8 @@ export class AgentHubWidget {
     
     if (this._isCollapsed) {
       let html = `<div style="padding: 12px 6px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-        <button id="ah-toggle-btn" style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); color: #38bdf8; border-radius: 6px; padding: 8px 4px; font-size: 10px; font-weight: 700; cursor: pointer; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', system-ui, sans-serif;" title="Expand Agent Hub">
-          ▶ EXPAND AGENTS (${this._models.length})
+        <button id="ah-toggle-btn" class="agent-delegate-btn" style="padding: 8px 4px; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px;" title="Expand Agent Hub">
+          EXPAND AGENT HUB (${this._models.length})
         </button>
         <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; margin-top: 12px;">`;
       for (const model of this._models) {
@@ -177,8 +177,8 @@ export class AgentHubWidget {
           AGENT HUB
           <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
         </div>
-        <button id="ah-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Agent Hub">
-          ◀ COLLAPSE
+        <button id="ah-toggle-btn" class="agent-delegate-btn" style="width: auto; padding: 2px 8px; font-size: 9px;" title="Collapse Agent Hub">
+          COLLAPSE
         </button>
       </div>
     `;
@@ -203,7 +203,7 @@ export class AgentHubWidget {
           </div>
 
           <button class="agent-delegate-btn">
-            ${snap.status === 'AVAILABLE' ? '→ Delegate Mission' : snap.status === 'EXECUTING' ? '◉ Executing...' : '● Standby'}
+            ${snap.status === 'AVAILABLE' ? 'DELEGATE MISSION' : snap.status === 'EXECUTING' ? 'EXECUTING...' : 'STANDBY'}
           </button>
         </div>
       `;

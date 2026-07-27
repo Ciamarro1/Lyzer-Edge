@@ -166,9 +166,9 @@ export class GamifiedCommandCenterView {
         .g-metric::before { content: ''; position: absolute; inset: 0; border-radius: 10px; padding: 1px; background: linear-gradient(135deg, rgba(0,243,255,0.3), rgba(0,255,157,0.2), transparent); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
         .g-metric-label { font-size: 8px; color: rgba(148, 163, 184, 0.7); letter-spacing: 1.2px; font-weight: 800; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif; }
         .g-metric-value { font-size: 16px; font-weight: 800; font-family: 'JetBrains Mono', monospace; filter: drop-shadow(0 0 8px currentColor); }
-        .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 7px 14px; background: rgba(15, 23, 42, 0.35); color: rgba(148, 163, 184, 0.8); border: 1px solid rgba(0, 243, 255, 0.1); border-radius: 10px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 600; font-family: 'Inter', system-ui, sans-serif; box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
-        .g-dock-btn:hover { background: rgba(0, 243, 255, 0.12); color: #00f3ff; border-color: rgba(0, 243, 255, 0.35); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,243,255,0.15), inset 0 1px 0 rgba(255,255,255,0.15); }
-        .g-dock-btn.active { background: linear-gradient(135deg, rgba(0, 255, 157, 0.2) 0%, rgba(0, 243, 255, 0.15) 100%); color: #00ff9d; border-color: rgba(0, 255, 157, 0.4); font-weight: 800; box-shadow: 0 0 25px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2); }
+        .g-dock-btn { display: flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(10, 16, 32, 0.45); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: rgba(148, 163, 184, 0.8); border: 1px solid rgba(0, 243, 255, 0.18); border-radius: 10px; cursor: pointer; white-space: nowrap; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 10px; font-weight: 700; font-family: 'JetBrains Mono', monospace; box-shadow: 0 8px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15); }
+        .g-dock-btn:hover { background: rgba(0, 243, 255, 0.12); color: #00f3ff; border-color: #00f3ff; transform: translateY(-2px); box-shadow: 0 0 20px rgba(0, 243, 255, 0.3), inset 0 1px 0 rgba(255,255,255,0.25); }
+        .g-dock-btn.active { background: linear-gradient(135deg, rgba(0, 255, 157, 0.2) 0%, rgba(0, 243, 255, 0.15) 100%); color: #00ff9d; border-color: rgba(0, 255, 157, 0.5); font-weight: 800; box-shadow: 0 0 25px rgba(0, 255, 157, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.2); }
         .g-trade-balloon { position: absolute; bottom: 80px; right: 24px; background: rgba(6, 10, 22, 0.38); backdrop-filter: blur(32px) saturate(1.8); -webkit-backdrop-filter: blur(32px) saturate(1.8); border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 16px; padding: 20px 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(0, 243, 255, 0.2), inset 0 1px 1px rgba(255,255,255,0.25); z-index: 200; cursor: pointer; transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1); opacity: 0; transform: translateY(20px) scale(0.95); pointer-events: none; max-width: 380px; }
         .g-trade-balloon.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
         .g-trade-balloon:hover { border-color: #00f3ff; box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 45px rgba(0, 243, 255, 0.4), inset 0 1px 1px rgba(255,255,255,0.35); transform: translateY(-2px) scale(1.01); }
@@ -200,13 +200,6 @@ export class GamifiedCommandCenterView {
       </div>
       <div id="g-topbar" class="g-topbar">
         <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', system-ui, sans-serif;">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="14,2 26,8 26,20 14,26 2,20 2,8" fill="none" stroke="url(#logo-grad)" stroke-width="1.5"/>
-            <line x1="14" y1="2" x2="14" y2="26" stroke="url(#logo-grad)" stroke-width="0.75" opacity="0.4"/>
-            <line x1="2" y1="8" x2="26" y2="8" stroke="url(#logo-grad)" stroke-width="0.75" opacity="0.4"/>
-            <circle cx="14" cy="14" r="3" fill="#38bdf8" opacity="0.6"/>
-            <defs><linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28"><stop offset="0%" stop-color="#38bdf8"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs>
-          </svg>
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="background: linear-gradient(135deg, #f1f5f9 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2.5px; font-weight: 800; font-size: 16px; font-family: 'Inter', system-ui, sans-serif;">LYZER</span>
             <span style="color: rgba(148, 163, 184, 0.3); font-weight: 300; font-size: 14px;">|</span>
@@ -224,7 +217,7 @@ export class GamifiedCommandCenterView {
           <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
         </div>
         <div style="display: flex; gap: 14px; align-items: center;">
-          <button id="g-mute-btn" style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(56, 189, 248, 0.25); color: #38bdf8; padding: 5px 12px; border-radius: 6px; font-size: 10px; font-weight: 700; cursor: pointer; font-family: 'JetBrains Mono', monospace; transition: all 0.2s;">🔔 NOTIFICATIONS ON</button>
+          <button id="g-mute-btn" class="g-dock-btn" style="color: #38bdf8; padding: 6px 14px;">NOTIFICATIONS ON</button>
           <div style="display: flex; flex-direction: column; align-items: flex-end;">
             <span style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.1)); color: #2dd4bf; padding: 2px 10px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(45, 212, 191, 0.15);" id="g-mode-badge">SIMULATION</span>
             <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
@@ -286,7 +279,7 @@ export class GamifiedCommandCenterView {
     if (muteBtn) {
       muteBtn.addEventListener('click', () => {
         this._isMuted = !this._isMuted;
-        muteBtn.innerText = this._isMuted ? '🔕 MUTED' : '🔔 NOTIFICATIONS ON';
+        muteBtn.innerText = this._isMuted ? 'NOTIFICATIONS MUTED' : 'NOTIFICATIONS ON';
         muteBtn.style.color = this._isMuted ? '#94a3b8' : '#38bdf8';
         muteBtn.style.borderColor = this._isMuted ? 'rgba(148, 163, 184, 0.3)' : 'rgba(56, 189, 248, 0.25)';
         muteBtn.style.background = this._isMuted ? 'rgba(15, 23, 42, 0.8)' : 'rgba(15, 23, 42, 0.4)';
@@ -311,8 +304,8 @@ export class GamifiedCommandCenterView {
     if (this._isRightCollapsed) {
       rightPanel.innerHTML = `
         <div style="padding: 12px 6px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 16px;">
-          <button id="g-right-toggle-btn" style="background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); color: #c084fc; border-radius: 6px; padding: 8px 4px; font-size: 10px; font-weight: 700; cursor: pointer; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px; font-family: 'Inter', system-ui, sans-serif;" title="Expand Constitutional Court">
-            ◀ EXPAND COURT
+          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 8px 4px; writing-mode: vertical-rl; text-transform: uppercase; letter-spacing: 1px;" title="Expand Constitutional Court">
+            EXPAND COURT
           </button>
         </div>
       `;
@@ -320,7 +313,7 @@ export class GamifiedCommandCenterView {
       rightPanel.innerHTML = `
         <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
           <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
-          <button id="g-right-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Court">COLLAPSE ▶</button>
+          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 2px 8px; font-size: 9px;" title="Collapse Court">COLLAPSE COURT</button>
         </div>
         <div id="g-court-container" style="flex: 1; min-height: 340px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
         <div class="leaderboard" id="g-leaderboard-panel">
@@ -414,8 +407,8 @@ export class GamifiedCommandCenterView {
     };
     this._tradeHistory.push(trade);
 
-    // 1. ALWAYS AUTOMATICALLY PLOT TRADES ON CHART BY DEFAULT
-    this._pendingPlotTrade = {
+    // 1. SILENTLY PLOT TRADE FOR THIS ASSET (WITHOUT FORCING TAB SWITCH)
+    const plotDetail = {
       symbol: trade.symbol,
       entry: trade.price,
       tp: trade.takeProfit,
@@ -423,13 +416,7 @@ export class GamifiedCommandCenterView {
       side: trade.direction === 'LONG' ? 'BUY' : 'SELL',
       title: `${trade.direction} @ ${trade.price}`
     };
-    this._activateTab('chart-host-widget');
-    setTimeout(() => {
-      if (this._pendingPlotTrade) {
-        window.dispatchEvent(new CustomEvent('lyzer:plot-trade', { detail: this._pendingPlotTrade }));
-        this._pendingPlotTrade = null;
-      }
-    }, 150);
+    window.dispatchEvent(new CustomEvent('lyzer:plot-trade', { detail: plotDetail }));
 
     // 2. IF MUTED, SKIP SHOWING POPUP BALLOON
     if (this._isMuted) return;
