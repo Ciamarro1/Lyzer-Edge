@@ -25,7 +25,7 @@ export class ChartHostWidget {
     this._displayCandles = [];
     this._plotListener = null;
     this._priceLevels = {};
-    this._plottedTrade = null;
+    this._plottedTrades = {};
   }
 
   async mount(container, runtime) {
@@ -271,12 +271,12 @@ export class ChartHostWidget {
     if (data.trade?.stopLoss) {
       this._adapter.createPriceLine({ price: data.trade.stopLoss, color: '#ef4444', title: `SL: ${data.trade.stopLoss}`, lineStyle: 2 });
     }
-    // Restore manually plotted trade lines (from trade log replay) across live updates
-    if (this._plottedTrade) {
-      const pt = this._plottedTrade;
-      if (pt.entry) this._adapter.createPriceLine({ price: pt.entry, color: '#38bdf8', title: `ENTRY (${pt.side || '--'}): ${pt.entry}`, lineStyle: 0 });
-      if (pt.tp) this._adapter.createPriceLine({ price: pt.tp, color: '#10b981', title: `TP: ${pt.tp}`, lineStyle: 2 });
-      if (pt.sl) this._adapter.createPriceLine({ price: pt.sl, color: '#ef4444', title: `SL: ${pt.sl}`, lineStyle: 2 });
+    // Restore manually plotted trade lines for THIS active symbol only
+    const symbolTrade = this._plottedTrades[this._activeSymbol];
+    if (symbolTrade) {
+      if (symbolTrade.entry) this._adapter.createPriceLine({ price: symbolTrade.entry, color: '#38bdf8', title: `ENTRY (${symbolTrade.side || '--'}): ${symbolTrade.entry}`, lineStyle: 0 });
+      if (symbolTrade.tp) this._adapter.createPriceLine({ price: symbolTrade.tp, color: '#10b981', title: `TP: ${symbolTrade.tp}`, lineStyle: 2 });
+      if (symbolTrade.sl) this._adapter.createPriceLine({ price: symbolTrade.sl, color: '#ef4444', title: `SL: ${symbolTrade.sl}`, lineStyle: 2 });
     }
   }
 
@@ -341,28 +341,23 @@ export class ChartHostWidget {
   }
 
   plotTrade(tradeData) {
-    if (!this._adapter) return;
-    if (tradeData.symbol && tradeData.symbol !== this._activeSymbol) {
-      this._activeSymbol = tradeData.symbol;
-      this._loadRawCandles(tradeData.symbol);
-      const container = this._container.querySelector('#asset-tabs-container');
-      if (container) {
-        container.querySelectorAll('.asset-tab').forEach(b => {
-          b.style.background = b.dataset.sym === tradeData.symbol ? 'rgba(16,185,129,0.15)' : 'rgba(15,23,42,0.3)';
-          b.style.color = b.dataset.sym === tradeData.symbol ? '#34d399' : 'rgba(148,163,184,0.6)';
-          b.style.borderColor = b.dataset.sym === tradeData.symbol ? 'rgba(52,211,153,0.2)' : 'rgba(148,163,184,0.06)';
-        });
-      }
-    }
+    if (!this._adapter || !tradeData) return;
+    const targetSymbol = tradeData.symbol || this._activeSymbol;
     const { entry, tp, sl, side = 'BUY', title = 'TRADE_ENTRY' } = tradeData;
-    this._plottedTrade = { entry, tp, sl, side };
-    this._adapter.clearPriceLines();
-    if (entry) this._adapter.createPriceLine({ price: entry, color: '#38bdf8', title: `ENTRY (${side}): ${entry}`, lineStyle: 0 });
-    if (tp) this._adapter.createPriceLine({ price: tp, color: '#10b981', title: `TP: ${tp}`, lineStyle: 2 });
-    if (sl) this._adapter.createPriceLine({ price: sl, color: '#ef4444', title: `SL: ${sl}`, lineStyle: 2 });
-    const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
-    this._adapter.setMarkers([{ time: latestTime, position: side === 'BUY' ? 'belowBar' : 'aboveBar', color: side === 'BUY' ? '#10b981' : '#ef4444', shape: side === 'BUY' ? 'arrowUp' : 'arrowDown', text: `${title} @ ${entry || 'MARKET'}` }]);
-    this._flashReplay();
+    
+    // Store trade plot per symbol in memory map so each asset maintains its own trade plot
+    this._plottedTrades[targetSymbol] = { entry, tp, sl, side, title };
+
+    // Only update active chart if the trade belongs to currently open active symbol
+    if (targetSymbol === this._activeSymbol) {
+      this._adapter.clearPriceLines();
+      if (entry) this._adapter.createPriceLine({ price: entry, color: '#38bdf8', title: `ENTRY (${side}): ${entry}`, lineStyle: 0 });
+      if (tp) this._adapter.createPriceLine({ price: tp, color: '#10b981', title: `TP: ${tp}`, lineStyle: 2 });
+      if (sl) this._adapter.createPriceLine({ price: sl, color: '#ef4444', title: `SL: ${sl}`, lineStyle: 2 });
+      const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
+      this._adapter.setMarkers([{ time: latestTime, position: side === 'BUY' ? 'belowBar' : 'aboveBar', color: side === 'BUY' ? '#10b981' : '#ef4444', shape: side === 'BUY' ? 'arrowUp' : 'arrowDown', text: `${title} @ ${entry || 'MARKET'}` }]);
+      this._flashReplay();
+    }
   }
 
   _flashReplay() {
