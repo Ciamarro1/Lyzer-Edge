@@ -198,32 +198,31 @@ export class GamifiedCommandCenterView {
         <div style="position: absolute; top: -20%; left: -15%; width: 55%; height: 55%; background: radial-gradient(ellipse, rgba(56,189,248,0.04), transparent 70%); animation: ambient-glow 6s ease-in-out infinite; contain: paint;"></div>
         <div style="position: absolute; bottom: -20%; right: -15%; width: 50%; height: 50%; background: radial-gradient(ellipse, rgba(16,185,129,0.035), transparent 70%); animation: ambient-glow 8s ease-in-out infinite 2s; contain: paint;"></div>
       </div>
-      <div id="g-topbar" class="g-topbar">
-        <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', system-ui, sans-serif;">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <span style="background: linear-gradient(135deg, #f1f5f9 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2.5px; font-weight: 800; font-size: 16px; font-family: 'Inter', system-ui, sans-serif;">LYZER</span>
-            <span style="color: rgba(148, 163, 184, 0.3); font-weight: 300; font-size: 14px;">|</span>
-            <span style="color: #38bdf8; letter-spacing: 1px; font-weight: 400; font-size: 13px;">EDGE</span>
+        <div id="g-topbar" class="g-topbar">
+          <div style="font-weight: 700; font-size: 14px; display: flex; align-items: center; gap: 12px; font-family: 'Inter', system-ui, sans-serif;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="background: linear-gradient(135deg, #f1f5f9 0%, #38bdf8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 2.5px; font-weight: 800; font-size: 16px; font-family: 'Inter', system-ui, sans-serif;">LYZER</span>
+              <span style="color: rgba(148, 163, 184, 0.3); font-weight: 300; font-size: 14px;">|</span>
+              <span style="color: #38bdf8; letter-spacing: 1px; font-weight: 400; font-size: 13px;">EDGE</span>
+            </div>
           </div>
-          <span style="font-size: 9px; color: #10b981; background: rgba(16, 185, 129, 0.08); padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(16, 185, 129, 0.15); font-weight: 600; letter-spacing: 0.3px;">COCKPIT α</span>
-        </div>
-        <div style="display: flex; gap: 8px; align-items: center;">
-          <div class="g-metric"><span class="g-metric-label">TRG</span><span class="g-metric-value" style="color: #fbbf24;" id="g-trg">0.00</span></div>
-          <div class="g-metric"><span class="g-metric-label">DVF</span><span class="g-metric-value" style="color: #38bdf8;" id="g-dvf">0.00</span></div>
-          <div class="g-metric"><span class="g-metric-label">LHDS</span><span class="g-metric-value" style="color: #a855f7;" id="g-lhds-val">0.00</span></div>
-          <div class="g-metric"><span class="g-metric-label">EEF</span><span class="g-metric-value" style="color: #4ade80;" id="g-eef">--</span></div>
-          <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
-          <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence">--</span></div>
-          <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
-        </div>
-        <div style="display: flex; gap: 14px; align-items: center;">
-          <button id="g-mute-btn" class="g-dock-btn" style="color: #38bdf8; padding: 6px 14px;">NOTIFICATIONS ON</button>
-          <div style="display: flex; flex-direction: column; align-items: flex-end;">
-            <span style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.1)); color: #2dd4bf; padding: 2px 10px; border-radius: 4px; font-size: 9px; font-weight: 700; letter-spacing: 0.5px; font-family: 'JetBrains Mono', monospace; border: 1px solid rgba(45, 212, 191, 0.15);" id="g-mode-badge">SIMULATION</span>
-            <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <div class="g-metric"><span class="g-metric-label">TRG</span><span class="g-metric-value" style="color: #fbbf24;" id="g-trg">0.00</span></div>
+            <div class="g-metric"><span class="g-metric-label">DVF</span><span class="g-metric-value" style="color: #38bdf8;" id="g-dvf">0.00</span></div>
+            <div class="g-metric"><span class="g-metric-label">LHDS</span><span class="g-metric-value" style="color: #a855f7;" id="g-lhds-val">0.00</span></div>
+            <div class="g-metric"><span class="g-metric-label">EEF</span><span class="g-metric-value" style="color: #4ade80;" id="g-eef">--</span></div>
+            <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
+            <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence">--</span></div>
+            <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
+          </div>
+          <div style="display: flex; gap: 14px; align-items: center;">
+            <button id="g-mute-btn" class="g-dock-btn">NOTIFICATIONS ON</button>
+            <div style="display: flex; flex-direction: column; align-items: flex-end;">
+              <span class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; pointer-events: none;" id="g-mode-badge">SIMULATION</span>
+              <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
+            </div>
           </div>
         </div>
-      </div>
       <div id="g-left" class="g-left"></div>
       <div id="g-main" class="g-main">
         <div id="g-main-content" style="height: 100%; flex-grow: 1;"></div>
