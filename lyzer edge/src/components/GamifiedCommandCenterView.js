@@ -381,15 +381,34 @@ export class GamifiedCommandCenterView {
   }
 
   _updateMetrics(data) {
-    const k = data.kernel || {};
-    const setText = (id, val) => { const el = this._container.querySelector(id); if (el) el.innerText = val; };
-    setText('#g-trg', (k.trg || 0).toFixed(2));
-    setText('#g-dvf', (k.dvf || 0).toFixed(2));
-    setText('#g-lhds-val', (k.lhds_df || 0).toFixed(2));
-    setText('#g-eef', k.eef === true ? 'ALLOW' : (k.eef === false ? 'VETO' : '--'));
-    setText('#g-confidence', k.confidence ? `${k.confidence}` : '--');
-    setText('#g-sds', typeof k.scale_divergence_score === 'number' ? k.scale_divergence_score.toFixed(3) : '--');
-    setText('#g-mode-badge', data.mode || data.connectionState || 'SIMULATION');
+    if (!data) return;
+    const k = data.kernel;
+    if (k) {
+      const setText = (id, val) => {
+        if (val === undefined || val === null) return;
+        const el = this._container.querySelector(id);
+        if (el) el.innerText = val;
+      };
+
+      if (k.trg !== undefined) setText('#g-trg', Number(k.trg).toFixed(2));
+      if (k.dvf !== undefined) setText('#g-dvf', Number(k.dvf).toFixed(2));
+      
+      const lhdsVal = k.lhds_df !== undefined ? k.lhds_df : k.lhds;
+      if (lhdsVal !== undefined) setText('#g-lhds-val', Number(lhdsVal).toFixed(2));
+
+      if (k.eef !== undefined) setText('#g-eef', k.eef ? 'ALLOW' : 'VETO');
+
+      const confVal = k.confidence !== undefined ? k.confidence : k.conf;
+      if (confVal !== undefined) setText('#g-confidence', typeof confVal === 'number' ? `${Math.round(confVal)}%` : `${confVal}`);
+
+      const sdsVal = k.scale_divergence_score !== undefined ? k.scale_divergence_score : k.sds;
+      if (sdsVal !== undefined) setText('#g-sds', Number(sdsVal).toFixed(3));
+    }
+
+    if (data.mode || data.connectionState) {
+      const el = this._container.querySelector('#g-mode-badge');
+      if (el) el.innerText = data.mode || data.connectionState;
+    }
   }
 
   _updateLeaderboard(data) {
