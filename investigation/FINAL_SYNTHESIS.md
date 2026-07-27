@@ -52,7 +52,7 @@
 ┌─────────────────────────────────────────────────────────────┐
 │              7-Layer Pipeline (per tick)                     │
 │                                                             │
-│  1. Providers V1-V4 (SMC, SnD, RSI, IMCE)                  │
+│  1. Providers V1-V4 (SMC, SnD, RSI, IMCE)                 │
 │  2. ResidualizationLayer → DVF + TRG                        │
 │  3. ExecutionTriggerLayer → EEF ≥ 0.4                       │
 │  4. TruthKernel → LHDS veto, ontological collapse           │

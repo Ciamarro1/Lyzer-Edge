@@ -18,7 +18,9 @@ export class ConstitutionalLedger {
   async _initDatabase() {
     if (typeof process !== 'undefined' && process.release?.name === 'node') {
       try {
-        const sqlite3 = await import('sqlite3');
+        const sqliteModule = await import('sqlite3').catch(() => null);
+        if (!sqliteModule) return;
+        const sqlite3 = sqliteModule.default || sqliteModule;
         const path = await import('path');
         const dbPath = path.resolve(process.cwd(), 'causal_memory.db');
         
