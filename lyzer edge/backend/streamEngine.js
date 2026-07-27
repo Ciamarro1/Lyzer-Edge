@@ -547,10 +547,8 @@ export class StreamEngine extends EventEmitter {
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
     const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
 
-    // Update court C-CLIST stress and MOL state on every candle tick
+    // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()
     const cclistStart = performance.now();
-    this.court.cclist.evaluateStress(kernelResult.trg || 0, kernelResult.dvf || 0);
-    this.court.mol.evaluateState(kernelResult, { eef: kernelResult.eef });
     recordCclistEvaluation(this.symbol, (performance.now() - cclistStart) / 1000);
 
     // Update Spectrogram UI

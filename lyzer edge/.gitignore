@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.exp-*
+.env.production
+.env.local
+dist/
+coverage/
+*.log
+*.db
+*.sqlite
+*.sqlite3
+stderr.txt
+stdout.txt
