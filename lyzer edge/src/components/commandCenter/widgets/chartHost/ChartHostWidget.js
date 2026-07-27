@@ -27,6 +27,7 @@ export class ChartHostWidget {
     this._priceLevels = {};
     this._plottedTrades = {};
     this._tradesVisible = true;
+    this._microstructureVisible = true;
   }
 
   async mount(container, runtime) {
@@ -54,6 +55,7 @@ export class ChartHostWidget {
     this._bindAssetTabs();
     this._bindTimeframeTabs();
     this._bindTradeToggle();
+    this._bindMicrostructureToggle();
     this._listenPlotTrade();
     this._startLiveUpdates();
   }
@@ -84,6 +86,12 @@ export class ChartHostWidget {
             <circle cx="12" cy="12" r="3"></circle>
           </svg>
           <span id="eye-label">SHOW TRADES</span>
+        </button>
+        <button id="toggle-microstructure-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 10px; gap: 6px; display: flex; align-items: center; border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;" title="Ligar/Desligar Plotagem de Microestrutura (OB, FVG, BOS, Card)">
+          <svg id="ms-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+          <span id="ms-label">MICROSTRUCTURE ON</span>
         </button>
       </div>
       <div id="decision-panel" style="display:flex;gap:12px;font-size:10px;align-items:center;font-family:'JetBrains Mono',monospace;">
@@ -327,6 +335,32 @@ export class ChartHostWidget {
     }
   }
 
+  _bindMicrostructureToggle() {
+    const btn = this._container.querySelector('#toggle-microstructure-btn');
+    if (!btn) return;
+    btn.addEventListener('click', () => this.toggleMicrostructure());
+  }
+
+  toggleMicrostructure() {
+    this._microstructureVisible = !this._microstructureVisible;
+    const btn = this._container.querySelector('#toggle-microstructure-btn');
+    const msIcon = this._container.querySelector('#ms-icon');
+    const msLabel = this._container.querySelector('#ms-label');
+
+    if (this._microstructureVisible) {
+      if (btn) { btn.style.borderColor = 'rgba(56, 189, 248, 0.4)'; btn.style.color = '#38bdf8'; }
+      if (msLabel) msLabel.innerText = 'MICROSTRUCTURE ON';
+      if (msIcon) msIcon.setAttribute('stroke', '#38bdf8');
+      this.reloadTradePlot();
+    } else {
+      if (btn) { btn.style.borderColor = 'rgba(239, 68, 68, 0.4)'; btn.style.color = '#ef4444'; }
+      if (msLabel) msLabel.innerText = 'MICROSTRUCTURE OFF';
+      if (msIcon) msIcon.setAttribute('stroke', '#ef4444');
+      this._renderMicroStructureCard(null);
+      this.reloadTradePlot();
+    }
+  }
+
   reloadTradePlot() {
     if (!this._adapter) return;
     this._adapter.clearPriceLines();
@@ -384,6 +418,43 @@ export class ChartHostWidget {
         });
       }
 
+      // Plot SMC Microstructure lines if enabled
+      if (this._microstructureVisible) {
+        const isLong = symbolTrade.side === 'BUY' || symbolTrade.direction === 'LONG';
+        const entryPrice = Number(symbolTrade.entry);
+        
+        if (entryPrice > 0) {
+          const obLevel = isLong ? entryPrice * 0.996 : entryPrice * 1.004;
+          const fvgLevel = isLong ? entryPrice * 1.005 : entryPrice * 0.995;
+          const bosLevel = isLong ? entryPrice * 1.012 : entryPrice * 0.988;
+
+          this._adapter.createPriceLine({
+            price: Number(obLevel.toFixed(2)),
+            color: '#c084fc',
+            title: `OB ${isLong ? 'DEMAND' : 'SUPPLY'} ZONE [Order Block]`,
+            lineStyle: 3
+          });
+
+          this._adapter.createPriceLine({
+            price: Number(fvgLevel.toFixed(2)),
+            color: '#fbbf24',
+            title: `FVG REFILL GAP [Fair Value Gap]`,
+            lineStyle: 3
+          });
+
+          this._adapter.createPriceLine({
+            price: Number(bosLevel.toFixed(2)),
+            color: '#22d3ee',
+            title: `BOS BREAKOUT M15 [Structure Break]`,
+            lineStyle: 1
+          });
+        }
+
+        this._renderMicroStructureCard(symbolTrade);
+      } else {
+        this._renderMicroStructureCard(null);
+      }
+
       const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
       this._adapter.setMarkers([{
         time: latestTime,
@@ -392,8 +463,6 @@ export class ChartHostWidget {
         shape: isBuy ? 'arrowUp' : 'arrowDown',
         text: `ENTRY ${symbolTrade.side || 'LONG'} @ ${symbolTrade.entry || 'MARKET'} (${symbolTrade.structure || 'BOS M15'})`
       }]);
-
-      this._renderMicroStructureCard(symbolTrade);
     } else {
       this._renderMicroStructureCard(null);
     }
