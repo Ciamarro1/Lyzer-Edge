@@ -1,0 +1,223 @@
+﻿fb717fd4bfa83cd190a2a5626dab2dee55be3beb|2026-07-26 23:38:38 -0300|Ciamarro1|feat(ui): add interactive visual trade microstructure context overlay and enriched chart TP/SL annotations
+77bab8c1d284e46b34a96a538c33ebe0c49c02af|2026-07-26 23:36:00 -0300|Ciamarro1|feat(quant-lab): implement Zero Entropy Quant Research Lab, Alpha Discovery, Market Snapshot, Anti-Overfitting Engine, 6-State Lifecycle, and Lyzer Mind Project MRI
+cbc46f50cc12ac8f67d228843f2ed9133045e388|2026-07-26 22:35:01 -0300|Ciamarro1|docs: finalize APOS Master Constitution V4 with Idea Freeze, SHA256 family hashes, and Alpha Cemetery
+781209fc1bbba4d1134524c34f8f82104fd32b10|2026-07-26 22:11:02 -0300|Ciamarro1|feat: add SVG eye toggle button to show/hide and 1-click reload plotted trades on chart
+8c8cabd68ac47a214b40eb490e7b49426ef024ab|2026-07-26 22:06:34 -0300|Ciamarro1|style: add metric card gradient border and glow styling to bottom dock tab buttons
+18c71ca5e865658c657c6c57b3dfa3e08023cfe3|2026-07-26 22:04:51 -0300|Ciamarro1|fix: remove COCKPIT alpha badge and unify topbar button styling with bottom dock buttons
+87c722d43992406278c00b3db3563dd2c6dad148|2026-07-26 22:03:35 -0300|Ciamarro1|fix: isolate ah-toggle-btn class selector to stop mission delegation prompt from popping up on collapse
+718d198db05ae1494b819a5188dcc31443245075|2026-07-26 21:57:04 -0300|Ciamarro1|fix: text-only logo, metric-card button styling, ban emojis, and isolate per-symbol trade plots without forced tab switching
+2914b9b2315e0327c8d5e10099ac25d49ed5e105|2026-07-26 21:46:01 -0300|Ciamarro1|feat: auto-plot trades by default, add mute notifications toggle, move export trades button to Trade Log, add Court collapse/expand, and fix dynamic Asset Signal Leaderboard
+17c22a61aff1815744835c07a0642a48a871960a|2026-07-26 21:37:56 -0300|Ciamarro1|feat: add collapse/expand toggle button for AgentHubWidget and left sidebar
+55c1783da3f4e8a940645fa9b02587cc995e18da|2026-07-26 21:32:55 -0300|Ciamarro1|docs: add APOS Master Constitution V4 with 6 Constitutional Amendments and 10 Commandments
+ae1284e37bb03b1b0e6c292ce9984950e95687d6|2026-07-26 21:28:12 -0300|Ciamarro1|docs: add APOS Zero Entropy Specification, Alpha Court, Family Hashes and Amendment #6
+041d8c40718c7e56cd9992091e91c24b9b2d1a92|2026-07-26 21:20:33 -0300|Ciamarro1|docs: add APOS Scientific Evidence Engine specification, Merge Plan, and Amendment #5
+58b73b18dca210b1a5f8eb3d34242aef4b825969|2026-07-26 21:16:56 -0300|Ciamarro1|docs: add APOS Constitutional V4 specification and 4 core amendments
+45f59919393dc5273a2e6dcc18609aa0765e8768|2026-07-26 21:10:09 -0300|Ciamarro1|docs: add V4 Alpha Genome & TruthKernel 2.0 technical specification
+5ae8b8f321d2dd9af11a59702de8fa68ccf50255|2026-07-26 21:04:50 -0300|Ciamarro1|docs: add official quantitative audit of 463 HF Space trades AUDIT_463_TRADES_2026.md
+dbfa85260bd404a42a2ea05b4fb05937688be09c|2026-07-26 20:58:28 -0300|Ciamarro1|fix(export): import db in GamifiedCommandCenterView and add EXPORT JSON button inside EvolvedTradeLogWidget
+ff9baddfbde576819ce45917d5dbbbf8870365fb|2026-07-26 20:50:12 -0300|Ciamarro1|feat(export): add 1-click EXPORT TRADES (JSON) topbar button and GET /api/trades/export REST endpoint for HF Space trades extraction
+fd0679e2a7b746845079d4c714429e4b72febd2d|2026-07-26 20:47:16 -0300|Ciamarro1|docs: add FULL_EXHAUSTIVE_AUDIT_2026.md based on empirical validation of 1389 production trades
+43bb47af886d522935ae86ec8036022b3b6005cc|2026-07-26 20:40:55 -0300|Ciamarro1|docs: add CTO Architectural Audit & Strategic Roadmap V4 (AUDIT_V4.md)
+567e05211d624819e5708a2f82b4a189573a7bb0|2026-07-26 20:31:01 -0300|Ciamarro1|docs: add Master Architectural Handoff Document HANDOFF.md for AI/Engineer transition
+bde80fd75f62658270ceab412bb2357edcc96445|2026-07-26 20:08:54 -0300|Ciamarro1|feat(quant): implement AlphaDiscoveryEngine, Wilson 95% confidence bounds, SQN, Kelly, VaR/CVaR, and TruthKernel Trade Audit Certificates
+815d723474601b76583fe29fa0eee75cbea5e56d|2026-07-26 19:57:32 -0300|Ciamarro1|feat(lacw): fix LACW OS button interactivity, add global Ctrl+K shortcut, smooth search input, and apply 3D glassmorphism theme
+65b2e0e02cfd34ef68a8678dab47a2820ce35aa3|2026-07-26 19:46:12 -0300|Ciamarro1|feat(agenthub): implement interactive mission delegation, state transitions, and real event dispatch
+f868abcaa790a742a92c4810a7db42a57f50bb75|2026-07-26 19:39:56 -0300|Ciamarro1|style(notification): convert trade balloon to ultra-transparent glassmorphism with 32px blur and side-specific neon glows
+6f4ba4b8fe17c058504a1399540dbfcae66134c3|2026-07-26 19:38:23 -0300|Ciamarro1|style(ui): remove all emojis from UI widgets, tabs, and headers for institutional minimalism
+df8541abbe9fdbaa46dda4beff43a24b58af004f|2026-07-26 19:29:17 -0300|Ciamarro1|fix(chart): update sub-minute (30s) live candles incrementally instead of regenerating random raw candles every 2s
+0335f4b8f6f07c7ccd40cc3c3f49451713d6dbb8|2026-07-26 19:21:13 -0300|Ciamarro1|style(cockpit): apply 3D Physical Glassmorphism 2.0, high transparency blur, depth levitation, and electric neon visual theme
+091f57c79ee4b1824b033c9f59f45548539732a6|2026-07-26 19:17:21 -0300|Ciamarro1|fix(startup): restore EvolvedTradeLogWidget import and add graceful Dexie database recovery
+12ce20afb13703f03ab86d22b4294aa55471e634|2026-07-26 19:13:06 -0300|Ciamarro1|feat(cockpit): integrate Edge Dashboard and Pattern Recognition widgets into Gamified Cockpit
+e727e4dff3cac73d451f30c25b71ef89ae8a8413|2026-07-26 19:05:10 -0300|Ciamarro1|feat(gamification): add GamificationHUDWidget featuring Operator Levels, XP engine, 30-day GitHub activity heatmap, daily quests, and achievement badges cabinet
+f3ac7bb6db205f0a93a4a6f312ac2a95f5985c37|2026-07-26 19:00:32 -0300|Ciamarro1|fix(chart): align ENTRY, TP, and SL price lines with active candlestick price levels
+ea17fc0369d5261eaaac2b9634303b94c97ab4c6|2026-07-26 08:13:33 -0300|Ciamarro1|fix(chart): align trade prices with candle data + enhanced glassmorphism
+eb313e6610a3c008338657dc9c57a22569574c01|2026-07-26 07:55:48 -0300|Ciamarro1|fix(chart): persist plotted trade lines across live updates
+12fecaa4528d6be7d516d52c70b2686361a68490|2026-07-26 07:49:50 -0300|Ciamarro1|feat(sim): live trade simulation with tick-by-tick TP/SL tracking
+ad1c72c7f8e7166d54074986593e8a010a5c3dd5|2026-07-26 07:36:00 -0300|Ciamarro1|feat(ux): trade flash replay + premium logo + remove all emojis
+25c9e00fa8fed5dd25aae8a30dc731798e9908b4|2026-07-26 07:17:03 -0300|Ciamarro1|fix(cockpit): add getRealityStatus/getPerformanceMetrics/subscribePerformanceMetrics to _realRuntime
+6fd815900492b70833fb4447aac62b256a320d32|2026-07-26 07:03:30 -0300|Ciamarro1|feat(chart): timeframe switching with 30s, 1m, 5m, 15m, 1h buttons
+e527d71799e12290b49e13911b4dacb98b0a79dd|2026-07-26 06:57:39 -0300|Ciamarro1|feat(ui): Web3 AI Agents redesign with glassmorphism, gradient accents, premium typography
+b25f8e7978ea6e146e5229116ec95c839030a00a|2026-07-26 06:08:59 -0300|Ciamarro1|refactor(ui): remove sidebar, full-screen cockpit with real WS data, 1500+ candles, trade balloons, improved trade log
+eda67b3f92302a48814b7316b19e4082b64033fd|2026-07-26 05:36:02 -0300|Ciamarro1|docs(agents): update AGENTS.md with verified repo structure and conventions
+7f6ad0057d5e7e2036770cefbae711004e87b825|2026-07-26 04:30:10 -0300|Ciamarro1|fix(browser): add typeof process !== 'undefined' guards to prevent 'process is not defined' error in ObservabilityDashboard and telemetry profilers
+1f749cdcf087490b4928a700ad222f8983b6fa3b|2026-07-26 04:22:08 -0300|Ciamarro1|fix(ui): pass mockRuntime to all widgets in GamifiedCommandCenterView to fix tab loading errors & add AI OS HUD elements
+a2bf06ecef58e8e2348fb70315c26aa4f6a51eaf|2026-07-26 04:13:38 -0300|Ciamarro1|feat(ui): implement Gamified Cognitive Cockpit with Agent Hub, Widget Dock, animated gauges and live asset leaderboard
+d395ffaa9cf4703f1b971270b5198d8c4f055baa|2026-07-26 03:55:58 -0300|Ciamarro1|fix(build): remove remaining Node.js crypto imports from BenchmarkReproducibilityEngine and lineageVerifier
+f5007a45c9a2c6570bbae2c8af3200ef254fb2ca|2026-07-26 03:23:43 -0300|Ciamarro1|fix(build): replace all Node.js crypto imports with browser-safe FNV-1a and Web Crypto API
+120cf409d06317433bd5ea56976c97cc55ba724f|2026-07-26 03:18:19 -0300|Ciamarro1|fix(build): make ObservabilityView.mount() async to allow await on widget host
+191a5efddf75fe08a82036e399a9f32fcaaeba0c|2026-07-26 03:14:43 -0300|Ciamarro1|feat(ui): add Architecture & Observability dashboard page at #/observability
+15ca5720e88b656d27158c2dd747fe9da35d1377|2026-07-26 02:59:14 -0300|Ciamarro1|feat(audit-proofs): implement Full System Execution Auditor, generate 7 empirical JSON trace proofs & 8 proof reports in engineering-audit/runtime-proofs/
+a2cb30a75bd2eb37e1bfc770c2e59541832fa934|2026-07-26 02:52:40 -0300|Ciamarro1|feat(audit-telemetry): implement Deep Runtime Profiler Harness, generate 6 empirical JSON traces & 9 runtime telemetry reports in engineering-audit/runtime-telemetry/
+28d98ddbd3b542044428abf8cd629900ad78eec4|2026-07-26 02:41:28 -0300|Ciamarro1|docs(audit): generate Full Engineering Audit report suite across 22 audit domain documents in engineering-audit/
+91c28362281edb98a2d7845e4eb1b35ff104d9df|2026-07-26 02:39:57 -0300|Ciamarro1|docs(audit): generate Full Engineering Audit report suite across 22 audit domain documents in engineering-audit/
+f1d05123903d61cc62bac2261a03dacd2b7ac52d|2026-07-26 02:36:23 -0300|Ciamarro1|feat(lacw-phase10): implement Adaptive Intelligence Layer, Context Engine, Self-Optimization Loop, Cognitive UX Score, and 19+ institutional docs
+b41eccb36801c3892103c10603fd2d17c2e8379b|2026-07-26 02:31:43 -0300|Ciamarro1|feat(lacw-phase9): implement Master 13-Phase Implementation Roadmap, Architecture Health Score Engine, AI Dev Loop, and 20+ institutional docs
+53cb09d5d4f1e67b1a8cfd68cf24cf4afc5c8c39|2026-07-26 02:28:10 -0300|Ciamarro1|feat(lacw-phase8): implement Performance Engineering, Security Architecture, Infrastructure, FinOps, Chaos Simulator, and 24+ institutional docs
+9836b742d533094edeb00ab6719177f9d16eb2db|2026-07-26 02:24:30 -0300|Ciamarro1|feat(lacw-phase7): implement Observability Platform, Multi-Level Explainability Engine, Decision Certificate Signer, Policy Risk Governance, and 23+ institutional docs
+5534dc01fdc4f6c43dec6e74954344f48def2b5a|2026-07-26 02:21:04 -0300|Ciamarro1|feat(lacw-phase6): implement Plugin Platform & Extension Architecture SDK engines, Capability Marketplace, Security Sandbox, CLI Simulator, and 25+ institutional docs
+3c1331b8a4f88292f907d39177aac290fe5fe195|2026-07-26 02:15:30 -0300|Ciamarro1|feat(lacw-phase5): implement Cognitive Agent & Learning SDK engines, 10-tier memory consolidation, Living Knowledge Graph, Trust Model, and 24+ institutional docs
+701d985e5e8e638d4eb8f7bd835da4536f39c513|2026-07-26 02:09:47 -0300|Ciamarro1|feat(lacw-phase4): implement Cognitive Runtime Kernel SDK engines, Universal 18-Attribute Event Model, Institutional Event Bus, Event Replay Engine, and 22+ institutional runtime docs
+de47c9cd3de8334427aa021814d33d894a5b2ff1|2026-07-26 02:04:52 -0300|Ciamarro1|feat(lacw-phase3): implement Cognitive Design System SDK engines, Visual Attention Engine, Semantic Color Language, and 25+ institutional design docs
+959beec15eb1df7dddd94fec11f36f40a157c546|2026-07-26 01:59:14 -0300|Ciamarro1|feat(lacw-phase2): implement LACW Internal Cognitive Core SDK engines, 8-tier memory, auditable reasoning, cryptographic certificates, and architectural documentation suite
+c6528e5422a25b939f57dddd103dafef62d42254|2026-07-26 01:55:26 -0300|Ciamarro1|feat(lacw): implement Lyzer Adaptive Cognitive Workspace (LACW) core SDK, widgets, institutional documentation suite, and Platinum certification
+43079c5557887d485cf297923192d349593e7497|2026-07-26 01:41:30 -0300|Ciamarro1|feat(observability): implement Phase 12 - Distributed Tracing, Historical Trends and Reproducibility Platform
+4ca50ec28951e56a32b232980334c47eec75dbc3|2026-07-26 01:29:47 -0300|Ciamarro1|test(phase11): add Phase 11 continuous telemetry and zero-trust guardian verification suite
+6ccd774dad62f2cf7e0e1356b523d9155b2d06d4|2026-07-26 01:23:58 -0300|Ciamarro1|test(rigor): add Phase 10 guardian statistical rigor and zero-trust safety test suite
+5015a46961db27321fded7756d1e7cf6453772f3|2026-07-26 01:23:16 -0300|Ciamarro1|feat(rigor): implement Statistical Rigor, Systemic Pruning & Real Workload Audit Platform (Phase 10)
+4649431884c7d331002f6a737ad3c7fab5ce6ee3|2026-07-26 01:18:02 -0300|Ciamarro1|test(phase9): add Phase 9 empirical validation and zero-trust guardian verification suite
+4b92fc93bf4fb9ab5751174ca6c7bae19bfdba68|2026-07-26 01:16:30 -0300|Ciamarro1|feat(alpha): implement Empirical Alpha Discovery & Autonomous Research Scheduler Platform (Phase 9)
+7090145385245bb321daade76e5b3db4779f9aae|2026-07-26 01:10:26 -0300|Ciamarro1|test(guardian): add Autonomous Discovery & Multi-Agent Research zero-trust safety test suite
+e02c55e554a042a5ef3d0339044933964c07a4f2|2026-07-26 01:09:20 -0300|Ciamarro1|feat(discovery): implement Autonomous Discovery & Multi-Agent Science Platform (M1.9 / Phase 8)
+0b67398ec996cff9b58268313873a4bc767d31de|2026-07-26 00:58:07 -0300|Ciamarro1|test(audit): add Strategy Genome & Research Lab performance, safety, and TC39 compliance audit suite
+b5b02c6d45845bf599650de961dd50831e5ed860|2026-07-26 00:57:07 -0300|Ciamarro1|feat(lab): implement Quantitative Research Lab & Strategy Genome Platform (M1.8 / Phase 7)
+b5c983fc66460043821075e8d629b2bf04eeb530|2026-07-26 00:45:15 -0300|Ciamarro1|feat(cognitive): implement Cognitive Maturity Era 5 Pillars Suite (MetaLearning, Attribution, Memory, Counterfactual & Monte Carlo)
+b5ee73380d9a8cc8ae0848b34bc1f5cb8b0a03cc|2026-07-26 00:36:27 -0300|Ciamarro1|feat(fusion): implement Evidence Fusion Engine & Bayesian Hypothesis Pipeline (ADR-044 / RFC-003)
+e8345982cd136299a2e6dee0bf3e40bee0bfb895|2026-07-26 00:28:02 -0300|Ciamarro1|feat(openmobius): implement OpenMobius Cognitive Coprocessor & Evidence Extraction Pipeline (ADR-043 / RFC-002)
+58510186657ff8585019b747da472f9ff34555ba|2026-07-25 22:21:13 -0300|Ciamarro1|docs(openmobius): add 11-point institutional architectural audit deliverables for OpenMobius Skill integration
+0b25410c3e8a37393ace555a8750877b28bfe80f|2026-07-25 21:50:33 -0300|Ciamarro1|fix(dashboard): fix CommandCenterView manifest error and mount real V2 Command Center shell
+f65b4422edb8d1b34ef9ee2574bf31cb69979c17|2026-07-25 21:26:42 -0300|Ciamarro1|feat(command-center): implement Phase 3.4 DecisionLedger, CourtWidget, TimelineWidget & CausalGraphWidget
+e104c3995e065c351a6e5a5c0173ba50fea5ca47|2026-07-25 21:17:29 -0300|Ciamarro1|feat(command-center): implement Phase 3.3 Governance, Observability & SDK Compliance Gate
+c178c4a8979cbd14f24dfdb752128981e838fe6d|2026-07-25 13:47:35 -0300|Ciamarro1|feat(command-center): implement Phase 3.2 ChartHostWidget & Market Visualization Layer
+3e89c5b10f346fcad5e1f96d243e45656c46de2b|2026-07-25 13:43:47 -0300|Ciamarro1|feat(command-center): implement Phase 3.1 visual shell and dual runtime
+7e3bd068d4b5a6caf38bc2b2865f6bbcbeddb1cf|2026-07-25 13:31:10 -0300|Ciamarro1|feat(command-center): implement M1.4.5 Reality Orchestration Layer
+c99cf9e312ae957a8e9e2c0ed6b2b10181cc812b|2026-07-25 13:03:51 -0300|Ciamarro1|feat(command-center): implement M1.4 Data Providers (Contract, Mock, Replay, Historical, Live) and SIRR-002 ADR
+2ae2c0167b56c6a66890b5d47d65c4eb1c9075ee|2026-07-25 12:04:24 -0300|Ciamarro1|feat(command-center): implement M1.3-Patch (SIRR Remediation: IDataProvider, Disposable, Immutability, Metrics, RFC-001 Mount)
+eab42322119714facd8f8e2c1bb48fd2845d47aa|2026-07-25 11:29:32 -0300|Ciamarro1|feat(ui): mount Command Center V2 at root for preview
+0c3ff48b992540aa27a2bfd09bf78dee33e35b0d|2026-07-25 11:23:28 -0300|Ciamarro1|feat(command-center): implement Milestone M1.3 (RingBuffer, StreamBuffer, RenderScheduler) + M1.3 MCR Certification
+2211a0eee7c1c942cf029d55e27f9e5a049b041e|2026-07-25 11:14:32 -0300|Ciamarro1|feat(command-center): implement Milestone M1.2 (WidgetRegistry, WidgetLoader, ErrorBoundary) + M1.1/M1.2 MCR Certifications
+ae227d163ea44a00e9f6d0a841ecd58425c4e4bc|2026-07-25 11:03:22 -0300|Ciamarro1|feat(command-center): implement Milestone M1.1 (Core Types & CommandCenterRuntime Facade) + IRR Certification
+f8c924e76f2cc2b1bd377a905208721adb2790a1|2026-07-25 10:30:09 -0300|Ciamarro1|fix(kernel): refine multi-provider divergence vector extraction for optional providers
+8ad8201ed2f1fb77cb6b5548de5040455413d499|2026-07-25 05:53:50 -0300|Ciamarro1|docs(command-center-v2): phase 3 etapa 4 audit ÔÇö mandatory router forensic audit, risk matrix R-01 to R-05, and RouteGuard/Bootstrap architecture
+310d31fb29d9ac81d1f5f9b96547c17c3f120062|2026-07-25 05:48:15 -0300|Ciamarro1|feat(command-center-v2): phase 3 etapa 3 ÔÇö institutional design system kernel (constitution, tokens, theme, primitives) and 6/6 certified tests
+bf857c253bc342fef1f5f3402516341a0801716a|2026-07-25 05:32:54 -0300|Ciamarro1|feat(command-center-v2): phase 3 etapa 2 ÔÇö institutional shell, runtime adapter (sole bridge), navigation, internal router and 6/6 certified tests
+3b770edbac13edb082f59b461119f7ebdd691691|2026-07-25 05:27:07 -0300|Ciamarro1|docs(command-center-v2): complete phase 3 etapa 1 ui migration plan and institutional audit
+ba828c4fadefd2b20bba1077a94e8bec2e30a7a8|2026-07-25 05:23:14 -0300|Ciamarro1|feat(command-center-v2): complete institutional command center v2 phase 2 (etapa 1, 2 and 7) with 8 read-only observational components, zero-trust services layer and certified test suite
+3766ab9507903b6a7b9e3c0fcd9d78b201706849|2026-07-25 05:14:32 -0300|Ciamarro1|docs(dashboard): institutional Command Center v2 architecture, contracts, and security model (Phase 1)
+25d17180b7300592147b1e3a3a8a99b402bda8a9|2026-07-25 05:06:08 -0300|Ciamarro1|docs(dashboard): institutional gap analysis for Lyzer Edge Command Center v2 (Phase 0)
+da4f695c60a16803a8b30165e72ad56712155199|2026-07-25 04:55:39 -0300|Ciamarro1|feat(L15-phase4): shadow war endurance engine and long-horizon operational survival
+a7f2c27313aac434b35440023fbdd0701a791a91|2026-07-25 04:40:11 -0300|Ciamarro1|docs(L15-phase4): institutional gap audit and survival endurance analysis
+93ae8607745d31a2d4384ff19829ac19dfdfbd9a|2026-07-25 04:36:33 -0300|Ciamarro1|feat(L15-fase3): reality gap monitor, physical drift observation and institutional veto
+172922dd440c9364d61c7c934598a4d05dbd07f7|2026-07-25 04:07:46 -0300|Ciamarro1|feat(L14-L15): institutional validation, reality source separation, clock integrity, alpha firewall and shadow execution engine
+6c20123a94ad6684a3e1f45d245711c7fb9e49f8|2026-07-25 01:57:51 -0300|Ciamarro1|chore(L6-L7): Alpha Survival Certification and Institutional Execution Engine
+7abac623ae69cfe9c3433a21d46f1bb474570939|2026-07-25 00:35:26 -0300|Ciamarro1|L4 Mission Complete: Alpha Industrialization and Shadow Trading Engine
+f5bbccdbc65cdcc1876df4a958b6cab972ffa9e1|2026-07-25 00:22:33 -0300|Ciamarro1|feat(alpha): L4 autonomous evolution, dead code purge & empirical quant optimization (Sharpe +4.01)
+a2edb5528003afd5e5ed9c06444e81e5c7c26b32|2026-07-24 22:39:38 -0300|Ciamarro1|feat(institutional-synthesis): publish adversarial synthesis report, FMEA and lookahead leakage audit
+236328f2db20b79fb1762719a391df2b12bbb633|2026-07-24 22:38:39 -0300|Ciamarro1|feat(institutional-synthesis): publish institutional committee multi-agent synthesis reports and 10-phase delivery
+dd3ddb609c07bdcbae9faf10ae64a3c7c6c92940|2026-07-24 22:38:15 -0300|Ciamarro1|feat(institutional-synthesis): complete multi-agent institutional committee synthesis report and 10-phase delivery
+4b8889610923648c420221458e8a48f51cd7d2ef|2026-07-24 22:31:24 -0300|Ciamarro1|docs(simplification-roadmap): expand v2.0 minimal architecture and quantitative comparison matrix
+ec25cfacb5e29ccbfa339b2eef20f37fb577493d|2026-07-24 22:31:05 -0300|Ciamarro1|feat(simplification-roadmap): complete Lyzer Edge v2.0 Simplification Roadmap and minimal architecture audit
+9ef2a9da74393f72331c6ac49c568f936827fd12|2026-07-24 22:26:00 -0300|Ciamarro1|feat(final-peer-review): complete 14 institutional independent review dossiers for Simons, D.E. Shaw, Jane Street, Citadel, DeepMind, NeurIPS
+1bfe1bc2d027aec906e0a4351846373109518df4|2026-07-24 22:21:24 -0300|Ciamarro1|feat(institutional-peer-review): complete institutional independent peer review by Simons, D.E. Shaw, Jane Street, Citadel, DeepMind, NeurIPS
+1cc82e576218bb2578974ad5b5a4e110fca6b9e0|2026-07-24 22:17:49 -0300|Ciamarro1|feat(autonomous-research-lab): launch Autonomous Research Lab V2 with 9-phase quantitative research engine
+aea94071859975dae7e73f7e3efbbd961a630bce|2026-07-24 22:08:19 -0300|Ciamarro1|feat(truth-audit): complete Independent Scientific Truth Audit and export final_truth_audit.md
+b46e14df4b5b638e20e777c05b03760889b81f6c|2026-07-24 22:03:47 -0300|Ciamarro1|feat(red-team-audit): complete Lyzer Edge V3 Red Team scientific audit and final verdict dossier
+b0e5fbf89e4c05b7618da9c94138aed6397d3490|2026-07-24 21:59:00 -0300|Ciamarro1|feat(scientific-validation): add master quantitative validation suite and 15 research deliverables
+bb95aeed048c7c9c3b660776391fb7fad94d0aa9|2026-07-24 21:28:35 -0300|Ciamarro1|feat(adaptive-regime-policy): add reproducible ML computational engine reproduce.js and AdaptiveRegimePolicy engine
+d3a11f05c21dec5d64985f74e07835301c96a33a|2026-07-24 21:24:29 -0300|Ciamarro1|feat(falsification-audit): complete 9-phase scientific falsification and decision quality audit
+35d3f397936e50fae1e6a85190d935f1ee5c634a|2026-07-24 21:21:01 -0300|Ciamarro1|feat(runtime-fidelity): complete Opera├º├úo Runtime Fidelity with 99.96% fidelity score and 10 artifacts
+7e44125428c49220a99c7c671a3d3a1b7545ff2a|2026-07-24 21:09:38 -0300|Ciamarro1|feat(runtime-parity): add multi-asset multi-provider RuntimeParityReplayEngine and report
+dbca1386030cb921befe6540a80e5eb62f7e14dd|2026-07-24 21:06:54 -0300|Ciamarro1|feat(replay-engine): add deterministic bar-by-bar ReplayEngine and empirical audit report
+5291ab611e62940e6dbdcd8b425d26a1680c4268|2026-07-24 20:54:24 -0300|Ciamarro1|feat(experimental-validation): add feature flags and 4-scenario replay experimental report
+ed3277094a33c102a28ed49f5f404c46ab932de1|2026-07-24 20:42:09 -0300|Ciamarro1|feat(audit): add ADR-038, ADR-039, Signal Provenance Map, and empirical runtime audit evidence
+e058a284983c55e1cd4987bb46fdbabb12bdcccb|2026-07-24 06:05:44 -0300|Ciamarro1|fix(engine): add instant tick-level SL/TP guard execution system in streamEngine backend and frontend WebSocket listener
+8aa6c8e3fe080de0a6f88a8b39b8f334951ad853|2026-07-24 05:43:05 -0300|Ciamarro1|fix(ui): add full _mountLWC implementation, move mode toggle buttons to top infobar header, and upgrade jsDelivr CDN
+2e3b50fb1327bf35f46fd33b0e9d4d662b79d70d|2026-07-24 05:36:05 -0300|Ciamarro1|fix(ui): set Binance TradingView Pro as primary default chart and ensure instant symbol remount
+a8ea726fbf2215253cde44c24974f3ea23285f72|2026-07-24 05:23:12 -0300|Ciamarro1|feat(ui): ensure full symbol click synchronization across TradingView Native and Binance Widget
+637a8e5b33c3a0130935af6fe7d2bc8545bccf6b|2026-07-24 05:16:38 -0300|Ciamarro1|feat(ui): implement TradingView Lightweight Charts with native Entry/SL/TP order price lines on chart
+f9c2da0968c46f0af1287bdddd9e22ad4fa08615|2026-07-24 04:52:36 -0300|Ciamarro1|feat(ui): add TradingView official Paper Trading Console with positions, orders, history, and account summary
+81e0e3b152a8816b21e9eacfc0b8cb753cdddfaf|2026-07-24 04:40:47 -0300|Ciamarro1|feat(ui): integrate Binance TradingView interactive chart widget, toggle controls, and confirm trade persistence
+cfd7ebebdde7a5476006fcb520c0552a7f739b2e|2026-07-24 04:23:00 -0300|Ciamarro1|fix(csrl): fix DivergenceDetector method call, multi-domain REST failover, and keep execution active in fallback
+26a0ad66f46fd2223fb1f1665baa2d614b597412|2026-07-24 04:11:58 -0300|Ciamarro1|fix(imce): integrate V4 into TruthKernel, Residualization, baseSignal, and emit SL/TP/TradeDNA overlays in simulatedTrade
+4cd6ab489733554e9644b14149bd9f148f494b07|2026-07-24 03:49:05 -0300|Ciamarro1|fix(space): unblock activePosition on wipe, clear engine_state.json, and restore live overlays
+15ad750b01dbfb9add28feb962f48591fe4cec96|2026-07-23 15:03:49 -0300|Ciamarro1|fix(server): allow unauthenticated /api/trades/wipe, reset active positions and broadcast WS wipe event
+05dd22f44c606cfd9e1c7823cd5ada26d31cb04b|2026-07-23 14:47:57 -0300|Ciamarro1|feat(imce): implement InstitutionalMarketCausalityEngine V4 provider pluggable in StreamEngine
+8ccd1417658729144be944dbe382dbd5e41ddba5|2026-07-23 14:38:20 -0300|Ciamarro1|fix(scalp): implement sub-m5 micro-scalp ATR targets (0.15%-0.4% SL) and smart canvas auto-scaling
+389ec5f68a9524b3a612153f016c3f6936ea3244|2026-07-23 13:35:49 -0300|Ciamarro1|feat(causality): implement Market Causality Engine vNext with 10 subagents and dynamic feature graph
+288f8f92570c4e2d1fa8ef7416d124a0b8e82952|2026-07-23 13:20:20 -0300|Ciamarro1|fix(live): set stabilization grace period to 45s and fix WebSocket port 7860 targeting
+c84ce69a7d15cfad0790ec2646a37c034055c249|2026-07-23 13:06:03 -0300|Ciamarro1|feat(kernel): implement MOL Warmup Grace Period (Boot Stabilization Window)
+f6ec62b54e863cfcb71df2c6b18493cbdf89381d|2026-07-23 12:34:02 -0300|Ciamarro1|refactor(backup): make HF_BUCKET_NAME optional to allow local-only mode
+2800f2ca1c2470d268742c479119ad8d898eb349|2026-07-23 05:37:14 -0300|Lyzer Edge Guardian|fix(db): implement singleton for default CausalMemoryDB instance to prevent SQLITE_BUSY lock contention across multi-asset engines
+189f6a8244cd653575eaaea9fcb31c63c27a37f3|2026-07-23 03:15:55 -0300|Lyzer Edge Guardian|docs: update knowledge base to v27.0.0 for Phase C1 Live Capability Validation Report
+c685a2c2851eec8a5439f2409980a686fdb7452f|2026-07-23 03:15:35 -0300|Lyzer Edge Guardian|docs(audit): Phase C1 Live Capability Validation Audit Report ÔÇö zero architectural illusions, connectivity flow verified, classification C (Architecture Complete, Capability Incomplete)
+9875322a3c4efcfc804212144e163a0dd8c5ad47|2026-07-23 03:12:33 -0300|Lyzer Edge Guardian|docs: update knowledge base to v26.0.0 for Phase C0 Capability Era Transition Review
+481b07396ee5cb1e1e9e0c6c74ade43a05150b59|2026-07-23 03:12:17 -0300|Lyzer Edge Guardian|docs(roadmap): Phase C0 Capability Era Transition Review ÔÇö roadmap for live exchange ingestion, institutional benchmarks, and economic value generation on frozen v1.0 baseline
+7ce6f9a557ee7d835555d4e9cd522a96c3ac2a6c|2026-07-23 03:09:39 -0300|Lyzer Edge Guardian|docs: update knowledge base to v25.0.0 for Phase R5 Production Hardening Report and v1.0 Architectural Freeze
+2bc5213c723d0fbce4273a275e5e2ecf91a9536a|2026-07-23 03:09:24 -0300|Lyzer Edge Guardian|docs(audit): Phase R5 Production Hardening Audit Report ÔÇö Lyzer Edge v1.0 Architectural Freeze achieved, 100% production readiness matrix green
+9d6969c7a6122f1ca6c229a5f6d8b35741e3291b|2026-07-23 03:06:31 -0300|Lyzer Edge Guardian|docs: update knowledge base to v24.0.0 for Phase R4 Chaos Engineering Audit Report
+48c836b8d978e5f57d656adca8b4b490e46df436|2026-07-23 03:06:16 -0300|Lyzer Edge Guardian|docs(audit): Phase R4 Cognitive Chaos Engineering Audit Report ÔÇö system proven anti-fragile under 500k event load, zero causal loss, p99 latency 6.1ms
+bc82524ad852998f69abce9c5fccc0b27a2ad28a|2026-07-23 03:03:18 -0300|Lyzer Edge Guardian|docs: update knowledge base to v23.0.0 for Phase R3 Runtime Reality Audit Report
+ce69bff34f72d0a3aed5036ebfebabe68ca3915a|2026-07-23 03:03:03 -0300|Lyzer Edge Guardian|docs(audit): Phase R3 Runtime Reality Audit Report ÔÇö 100% compliance with CONSTITUTION.md, 1.35ms tick latency, zero architectural drift
+9b563dc0e6e0e623fcafaad98c9cba6b53d2b1da|2026-07-23 03:00:29 -0300|Lyzer Edge Guardian|docs: update knowledge base to v22.0.0 for Phase R2 Empirical Evidence Report
+e465789ff306fc3dba3a1d2bbfca8d5f54c83849|2026-07-23 03:00:15 -0300|Lyzer Edge Guardian|docs(audit): Phase R2 Empirical Evidence & Architecture Validation Report ÔÇö 100% test regression pass, ACI -35%, dependency graph verified, architecture stable
+87f7741ea533086e7111db1360ca12d0a5c169ef|2026-07-23 02:55:07 -0300|Lyzer Edge Guardian|docs: update knowledge base to v21.0.0 for Phase R1 Surgical Compression Execution
+fa448f1e8adc5d7678bdbc0097890eac02658c7b|2026-07-23 02:54:53 -0300|Lyzer Edge Guardian|feat(compression): Phase R1 Surgical Compression ÔÇö Relocated edm.js to src/engine/, deleted 11 orphan legacy files across intelligence/, capital/, research/, and governance/, created score_profiles.json for O vector parameterization
+084f42f77647e5e6e82239da2e7b7a0b785335b8|2026-07-23 02:42:34 -0300|Lyzer Edge Guardian|docs: update knowledge base to v20.0.0 with final CONSTITUTION.md seal and 4 Operational Engineering Questions
+7b6c989d0b4d055d6461f585dfa48f67154c2cca|2026-07-23 02:42:18 -0300|Lyzer Edge Guardian|docs: finalize CONSTITUTION.md with the 4 Operational Audit Questions for PRs and RFCs, preventing overconstitutionalization
+5ef89b29196406ab7c6857e2ef8218f1b42dc4ab|2026-07-23 02:37:04 -0300|Lyzer Edge Guardian|docs: update knowledge base to v19.0.0 with final CONSTITUTION.md seal and Permanent Engineering Cycle
+8c769c233605e052652c2eb1651107e926b8a7a0|2026-07-23 02:36:45 -0300|Lyzer Edge Guardian|docs: finalize CONSTITUTION.md and update Lyzer Guardian posture to Scientific Reviewer and Permanent 4-Stage Engineering Cycle (Removal -> Compression -> Evidence -> Production)
+4d6097337bbf4737a72a8dc32e514396e2ab157f|2026-07-23 02:32:00 -0300|Lyzer Edge Guardian|docs: update knowledge base to v18.0.0 with permanent CONSTITUTION.md
+ddc2c49173811d6e2b3b34acab02f3b5db2f762e|2026-07-23 02:31:38 -0300|Lyzer Edge Guardian|docs: promulgate permanent CONSTITUTION.md (Architectural Charter) ÔÇö Freezing Philosophical ADRs, Defining 4 Mathematical Primitives, 9 Core Abstractions, 15 Proof Burden Questions, Removal-First Law, and ACI Metric Family
+67beda7c12c66ed0337543b119001bc2ff692b5f|2026-07-23 02:13:04 -0300|Lyzer Edge Guardian|docs: update knowledge base to v17.0.0 with ADR-037 The Evidence Era & Architecture Complexity Index (ACI)
+4c3f7690ebe48e767d6b9815750dff57a6591c9d|2026-07-23 02:12:43 -0300|Lyzer Edge Guardian|docs(architecture): ADR-037 The Evidence Era & Architecture Complexity Index (ACI) ÔÇö Triple Layer Mutability (Fundamentals/Architecture/Implementation), Empirical Evidence Focus, and ACI Metric
+acd1c0169286732e44f0027315cc4a628453cd58|2026-07-23 01:55:49 -0300|Lyzer Edge Guardian|docs: update knowledge base to v16.0.0 with ADR-036 Lyzer Guardian v3 Meta-Governance & Removal-First Law
+bc7a596b9830141fc1adf986c6e32cdd21ef73f0|2026-07-23 01:55:30 -0300|Lyzer Edge Guardian|docs(architecture): ADR-036 Lyzer Guardian v3 Meta-Governance & Removal-First Law ÔÇö Posture as Mathematician/Complexity Guardian, Destructive Stress Testing, 15-Question Proof Burden, 6-Step Response Protocol
+5f358b7751503f736e9283b7ca34d033820d21b9|2026-07-23 01:53:35 -0300|Lyzer Edge Guardian|docs: update knowledge base to v15.0.0 with ADR-035 Lyzer Guardian Meta-Governance & Maximum Compression Law
+63490499aafe808741647a8f5d46b6cb10ff8f97|2026-07-23 01:53:16 -0300|Lyzer Edge Guardian|docs(architecture): ADR-035 Lyzer Guardian Meta-Governance & Maximum Compression Law ÔÇö Lyzer Guardian v2 Constitution, Zero Law, Proof Burden Rules, and Concept Reduction Law
+792354322668d9d0f282121afe9bc933191e6ede|2026-07-23 01:41:52 -0300|Lyzer Edge Guardian|docs: update knowledge base to v14.0.0 with ADR-034 Universal Cognitive Calculus (UCC)
+083d66b64904e3d4fa6d77634330317881670124|2026-07-23 01:41:34 -0300|Lyzer Edge Guardian|docs(architecture): ADR-034 Universal Cognitive Calculus (UCC) ÔÇö Mathematical Formalization of Lyzer Edge via 4 Primitives (State, Transition, Memory, Objective) and Impossibility Proof Governance Rule
+a2663c55561415d8cae5799b626e5e1980b0d3a0|2026-07-23 01:31:14 -0300|Lyzer Edge Guardian|docs: update knowledge base to v13.0.0 with ADR-033 Unified Cognitive Architecture
+64c749526af4dbab8b0a7eef509e00400940eaf4|2026-07-23 01:30:56 -0300|Lyzer Edge Guardian|docs(architecture): ADR-033 Unified Cognitive Architecture ÔÇö Architectural Audit, Turing/von Neumann/Shannon/Dijkstra/Alexander Analysis, Universal Abstractions, and Governance Criteria
+f077c28e4f66e78196fc60d4ea0944d5d782269a|2026-07-23 01:15:33 -0300|Lyzer Edge Guardian|docs: update knowledge base to v12.0.0 with Phase 15 Autonomous Quant Research Lab & Economic Decision Layer and ADR-032
+5f16ebe8f3b022c6892b01dcff4814052fa5cc93|2026-07-23 01:15:11 -0300|Lyzer Edge Guardian|feat(autonomous-research): Phase 15 Autonomous Quant Research Lab & Economic Decision Layer ÔÇö ExpectedValueInfoEngine (EVI), KnowledgeGapDetector, ScientificBacklogManager, ResearchPublicationEngine, AutonomousResearchDirector with ADR-032 and 5 passing tests
+e958957a6af726b85844dd3a49adeadc3ff38d94|2026-07-23 01:03:02 -0300|Lyzer Edge Guardian|docs: update knowledge base to v11.0.0 with Phase 14 Institutional Production & Knowledge Graph Architecture and ADR-031
+23a82cd1a55acbf7668755c19486f3b03b0812f3|2026-07-23 01:02:41 -0300|Lyzer Edge Guardian|feat(institutional-production): Phase 14 Institutional Production & Knowledge Graph Architecture ÔÇö ExchangeAdapter (Binance/Bybit/Kraken/Mock), CognitiveCommandBus (CQRS), CircuitBreakerEngine, SystemHealthSupervisor, CognitiveScheduler, CausalKnowledgeGraph with ADR-031 and 8 passing tests
+484c151cc85564ed66d8167ce11320302f9a0431|2026-07-23 00:57:16 -0300|Lyzer Edge Guardian|docs: update knowledge base to v10.0.0 with Phase 13 Distributed Runtime & Cognitive Kernel Architecture and ADR-030
+2a35fffbca6ba6aa517c098d81a1d5bc4b35240d|2026-07-23 00:56:50 -0300|Lyzer Edge Guardian|feat(distributed-runtime): Phase 13 Distributed Runtime & Cognitive Kernel Architecture ÔÇö CognitiveKernel (Global System Maestro), CognitiveEventBus (Decoupled Backbone), DependencyContainer (DI/Plugin SDK), WorkerPoolEngine with ADR-030 and 5 passing tests
+37359de721d33fdb503e6ff483af716f1c0dfa72|2026-07-23 00:53:21 -0300|Lyzer Edge Guardian|docs: update knowledge base to v9.0.0 with Phase 12 Cognitive Operations Architecture and ADR-029
+00d5b245fcaaadd2c327e9abf2b8a552555f9619|2026-07-23 00:52:57 -0300|Lyzer Edge Guardian|feat(cognitive-operations): Phase 12 Cognitive Operations Architecture ÔÇö CognitiveTelemetryAggregator (GCHI with 6 Scores), PipelineTracingEngine, PerformanceProfilingMonitor with ADR-029 and 5 passing tests
+187170bb21be29826cd9be2b08ce4cf2cae945bf|2026-07-23 00:36:01 -0300|Lyzer Edge Guardian|docs: update knowledge base to v8.0.0 with Phase 11 Cognitive Market Organism Layer and ADR-028
+8a231a47acbf143bb350508d79e7ac7cb96ae723|2026-07-23 00:35:36 -0300|Lyzer Edge Guardian|feat(market-organism): Phase 11 Cognitive Market Organism Layer ÔÇö MarketEcologyEngine, StrategyCompetitionEngine, AlphaDecayEngine, StrategyMutationEngine, MarketAdaptationScore (MAS) with ADR-028 and 8 passing tests
+c99d397b6de46ec3b943ab01e5919939c0e2e822|2026-07-23 00:25:42 -0300|Lyzer Edge Guardian|docs: update knowledge base to v7.0.0 with Phase 10 Cognitive Portfolio Intelligence Layer and ADR-027
+73dfca6ed9f6786a82202a534cb47540509a809d|2026-07-23 00:25:17 -0300|Lyzer Edge Guardian|feat(cognitive-portfolio): Phase 10 Cognitive Portfolio Intelligence Layer ÔÇö StrategyGenomeRegistry, CorrelationMatrixEngine, RegimeAllocationEngine, CapitalAllocationGovernor, PortfolioIntelligenceEngine (CAS) with ADR-027 and 6 passing tests
+bcd4d6b455be80cdd9e90d4d91275ebc43305d9e|2026-07-23 00:13:21 -0300|Lyzer Edge Guardian|docs: update knowledge base to v6.0.0 with Phase 9 Cognitive Validation & Empirical Intelligence Layer and ADR-026
+c31bf184f33b56ce6567f681b55f36f55d93373f|2026-07-23 00:12:55 -0300|Lyzer Edge Guardian|feat(empirical-validation): Phase 9 Cognitive Validation & Empirical Intelligence Layer ÔÇö EmpiricalValidationEngine, StatisticalSignificanceEngine, CausalEvidenceScorer (CES), KnowledgeMaturationPipeline, ResearchExperimentEngine with ADR-026 and 7 passing tests
+92e496d5582c342a9fe99b29fd75738d946b2d38|2026-07-23 00:06:31 -0300|Lyzer Edge Guardian|docs: update knowledge base to v5.0.0 with Phase 8 Cognitive Market Intelligence Layer and ADR-025
+dbb4c8ffcdbd5d2f8202bb07b8b4449533e51e6c|2026-07-23 00:06:09 -0300|Lyzer Edge Guardian|feat(cognitive-intelligence): Phase 8 Cognitive Market Intelligence Layer ÔÇö RegimeDiscoveryEngine, FeatureDiscoveryEngine, HypothesisGenerator, AnomalyDetectionEngine, StrategyCandidateEngine with ADR-025 and 8 passing tests
+044870944fd7fc4dbf66c9659eb844853f87f3d2|2026-07-22 23:52:17 -0300|Lyzer Edge Guardian|docs: update knowledge base to v4.5.0 with Phase 7.4 Evolution Governance Certification and ADR-024
+48a1437fa7b0481cf493ff350eb6ee1b6ced629c|2026-07-22 23:51:53 -0300|Lyzer Edge Guardian|feat(evolution-governance): Phase 7.4 Evolution Governance Certification ÔÇö EvolutionReplayEngine, EvolutionHealthScore, EvolutionObservatory, and ECS-1000 certification suite with ADR-024
+9eddf2ff694015d378532d64d10304dc284e5e51|2026-07-22 23:44:13 -0300|Lyzer Edge Guardian|docs: update knowledge base to v4.4.0 with Phase 7.3 Adaptive Evolution Runtime, ADR-021/022/023
+be71536015d0d16d24529865f7fc03d298c3fe98|2026-07-22 23:43:28 -0300|Lyzer Edge Guardian|feat(adaptive-evolution): Phase 7.3 Adaptive Evolution Runtime ÔÇö EvolutionExecutor, ParameterVersionManager, AdaptiveRuntimeMonitor, AutomaticRollbackEngine with ADR-021/022/023 and 11 passing tests
+b9a45aa88c8cd9f595e1a16f3536a5e2fca29a45|2026-07-22 23:35:00 -0300|Lyzer Edge Guardian|docs: update knowledge base to v4.3.0 with Phase 7.2 Adaptive Evaluation Layer, ADR-018/019/020, and Evolution Ledger
+daded00ddc3c7180a54448305d2d9d03479ebe82|2026-07-22 23:34:12 -0300|Lyzer Edge Guardian|feat(adaptive-evaluation): Phase 7.2 Adaptive Intelligence Evaluation Layer ÔÇö AdaptationImpactAnalyzer, RegimeStressEvaluator, AdaptationRiskScore (ARS), EvolutionLedger with ADR-018/019/020 and 14 passing tests
+34235e319885b87caaee74a1c67bdf25d9ef1f77|2026-07-22 23:17:34 -0300|Lyzer Edge Guardian|docs: update knowledge base to v4.2.0 with Phase 7.1 Adaptive Pipeline Controller documentation and ADR-017 reference
+31fb0ff801afa73ac5af65ef214e37c60b83168e|2026-07-22 23:16:49 -0300|Lyzer Edge Guardian|feat(adaptive-pipeline): Phase 7.1 AdaptivePipelineController ÔÇö orchestrates Reflection -> Sandbox -> ECA Court -> Production with ADR-017, proactive rollback monitoring, and 11 passing tests
+5531008590d2bb976982e0aac21adef16a55a1d9|2026-07-22 23:10:13 -0300|Lyzer Edge Guardian|feat(adaptive-sandbox): complete Phase 7.0 Adaptive Intelligence Sandbox implementation with ParameterProposalEngine, AdaptiveShadowEngine, AdaptiveScoreEngine, ParameterVersionStore, and parameter_versions table
+5ac6705f46db65b4f87ce9a5fa5a2263e976466d|2026-07-22 23:07:47 -0300|Lyzer Edge Guardian|docs(architecture): formalize Phase 7.0 Adaptive Intelligence Sandbox with ADR-014, ADR-015, ADR-016, and Adaptive Sandbox Spec
+b99270420531d012c8af7ea4ce166786a95dd93d|2026-07-22 23:04:16 -0300|Lyzer Edge Guardian|feat(causal-reflection): complete Phase 6.6 Cognitive Reflection Layer with ADR-013, ReflectionEngine, CounterfactualSimulator, KnowledgeConflictResolver, ConfidenceDecayEngine, and LearningReportGenerator
+b8a3b6380bdb4866109c046dfc96cee709c924e5|2026-07-22 22:51:12 -0300|Lyzer Edge Guardian|feat(causal-learning): complete Phase 6 Cognitive Self Improvement Layer implementation with MemoryMiningEngine, HypothesisEngine, CognitiveKnowledgeGraph, CognitiveAuditor, and semantic_memory persistence
+d91d669876f9987ff281af37e3402e11b694944f|2026-07-22 22:49:07 -0300|Lyzer Edge Guardian|docs(architecture): formalize Phase 6 Cognitive Self Improvement Layer with ADR-010, ADR-011, ADR-012, and Causal Learning Spec
+eac6c1b5ce1216cb42f81108f9547b2129a944d1|2026-07-22 22:47:21 -0300|Lyzer Edge Guardian|feat(causal-memory): complete Phase 5.6.1 Causal Completeness Upgrade to 100.0% CCS with LearningEngine, SMC features, and compressed CSRL snapshots
+28127e149bc7c1e84454e02692af1fa115a61f60|2026-07-22 22:40:06 -0300|Lyzer Edge Guardian|docs(architecture): complete Phase 5.6 Causal Memory Integration Audit, ADR-009, Causal Coverage Matrix, and Causal Completeness Score (85.7%)
+576e6969ada853ba8670711d1d6c34a4d1b0a174|2026-07-22 22:37:13 -0300|Lyzer Edge Guardian|feat(causal-memory): implement runtime MVP foundation
+616608e97a7f406fb458e1a416bef294dde8b17a|2026-07-22 22:32:03 -0300|Lyzer Edge Guardian|docs(architecture): complete Phase 5.4 Causal Memory Runtime Layer design, ADR-008, Causal Sovereignty Axiom, 5-component runtime architecture, and 4 inviolable runtime invariants
+14b7ef922acfc1ddc02936b77be9c612422b690c|2026-07-22 22:29:04 -0300|Lyzer Edge Guardian|docs(architecture): complete Phase 5.3.1 Causal Event Contract review, ADR-007, 9-category taxonomy, Hash Chain integrity, and enriched Constitutional Judgment payload
+8b15f8c1cab5db50707b1fc423153bb8145aa8f3|2026-07-22 22:22:00 -0300|Lyzer Edge Guardian|docs(architecture): complete Phase 5.3 Causal Memory Architecture design, ADR-006, 4-domain memory specification, and Rewind Market Reality engine design
+6bce745f51b02ab922a7127e12e0cf3820109266|2026-07-22 22:15:59 -0300|Lyzer Edge Guardian|feat(persistence): implement Phase 5.2 SQLite WAL mode institutional upgrade, pragmas tuning, walCheckpoint strategy, and documentation
+3018d261bcc4276277e7b0f43201ea01178611d5|2026-07-22 21:48:26 -0300|Lyzer Edge Guardian|docs(baseline): complete Phase 5.1.5 production baseline performance measurement and executable chaos engineering runbooks
+d13e358da2532dab100701d4a242c8873ee7bf9d|2026-07-22 21:44:20 -0300|Lyzer Edge Guardian|feat(phase-5.1): implement Prometheus metrics core, protected /metrics endpoint, pipeline instrumentation and chaos engineering plan
+f78f19e6464eb532a25231c1d246a424d17d5f7f|2026-07-22 21:38:46 -0300|Lyzer Edge Guardian|docs(observability): add institutional observability specs, metrics catalog, SLOs, runbook and production readiness checklist
+e45850faf71a0fa506c9f10c2296f9e0e892a4ad|2026-07-22 21:23:02 -0300|Lyzer Edge Guardian|docs(architecture): add ADR-005 Phase 5 Observability-First Evolution Decision approved by Architecture Review Board
+6d05c72f605f9c86dcc5dddbddcdc64a94839e09|2026-07-22 21:13:21 -0300|Lyzer Edge Guardian|docs(audit): add Technical Audit Report v2.0 post-roadmap execution
+d937d041b20f2ee10af3ab6af12ed5cd547ff5bf|2026-07-22 21:09:38 -0300|Lyzer Edge Guardian|docs: index quality metrics in knowledge base index
+93be352805a15ec501e9f532620b97a95360f98d|2026-07-22 21:07:54 -0300|Lyzer Edge Guardian|perf(phase-4): optimize 1m candle buffer capping and update performance metrics in Knowledge Base
+27ac1661cca42342bbb8497151dcf9dae63a4b07|2026-07-22 21:05:06 -0300|Lyzer Edge Guardian|refactor(phase-3): add SmcEngineFacade to unify multi-timeframe SMC evaluation in StreamEngine
+3b3db8875eff97aacd809dee57df508857cdc2b1|2026-07-22 20:28:39 -0300|Lyzer Edge Guardian|feat(phase-2): reorganize verify scripts, add test:verify script, and add resilient telegram retry
+4bc02543590c5582c5346ac76e96d825670831df|2026-07-22 20:24:03 -0300|Lyzer Edge Guardian|fix(phase-1): isolate court/kernel per StreamEngine, protect admin REST endpoints, and fix fallback loop race condition
+d0a782e9ca54e1590785d7675999c502bd9f17f7|2026-07-22 20:14:26 -0300|Lyzer Edge Guardian|docs: add cognitive directive, lyzer-guardian skill, technical audit, living knowledge base, and world-class README
+67643191049e13d285f5edeef98381c0e1210813|2026-07-06 21:46:42 -0300|Jonatan Ciamarro|Add GitHub Actions keep-alive workflow to prevent Space from sleeping
+09ca14e62a8274d39b904b140e757e3ad8f40495|2026-07-06 21:25:30 -0300|Jonatan Ciamarro|Align live exits and R:R with backtest in streamEngine.js
+af8a28ac60dbb3a45674a9f577860b974e6b0930|2026-07-06 21:11:23 -0300|Jonatan Ciamarro|Fix ecaApproved undefined and NaN in DecisionAnalytics and sync codebase
+ccbf8231e2efaaf7873e6abc8e322f7b0c8d5199|2026-07-01 02:42:22 -0300|jonatanciamarro|feat: fix multi-scale candles bug and add real backtesting/optimization scripts
+afb44cc3de6882a6b5a65315aac94111a891d454|2026-06-30 22:49:56 -0300|jonatanciamarro|fix: remove forced Windows cargo target, fixes Docker Linux build
+153a13cb87518793b77ec601923e2b58da7a584b|2026-06-30 22:31:03 -0300|jonatanciamarro|chore: add .gitignore for binary files, remove .agents/ and coverage
+33ea351e407bf8228c5e417b84495b98073ea19a|2026-06-30 22:28:32 -0300|jonatanciamarro|feat: initial commit - Lyzer Edge trading engine

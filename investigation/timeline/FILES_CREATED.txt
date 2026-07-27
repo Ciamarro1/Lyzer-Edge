@@ -1,0 +1,1128 @@
+﻿knowledge/red_team/scripts/red_team_audit.js
+knowledge/scientific_validation/scripts/scientific_validation.js
+lyzer edge/backend/alphaClusterEngine.js
+lyzer edge/backend/alphaDiscoveryEngine.js
+lyzer edge/backend/alphaSignals.js
+lyzer edge/backend/alphaTestRunner.js
+lyzer edge/backend/arbitrator.js
+lyzer edge/backend/CounterfactualWorldSimulator.js
+lyzer edge/backend/crossAssetInference.js
+lyzer edge/backend/db.js
+lyzer edge/backend/dualRealityMonitor.js
+lyzer edge/backend/EVAlphaResearchEngine.js
+lyzer edge/backend/EVAlphaResearchEngineV2.js
+lyzer edge/backend/EVAlphaResearchEngineV3.js
+lyzer edge/backend/EVAlphaResearchEngineV3_2.js
+lyzer edge/backend/EVAlphaResearchEngineV3_3.js
+lyzer edge/backend/eventsLogger.js
+lyzer edge/backend/exchangeExecution.js
+lyzer edge/backend/experimentManager.js
+lyzer edge/backend/experimentMetrics.js
+lyzer edge/backend/extinctionEngine.js
+lyzer edge/backend/historicalCsrlAnalysis.js
+lyzer edge/backend/historicalDataIngestor.js
+lyzer edge/backend/liveDataIngestor.js
+lyzer edge/backend/lyzerArcheologist.js
+lyzer edge/backend/lyzerMindMRI.js
+lyzer edge/backend/MetaFitnessEngine.js
+lyzer edge/backend/metricsTracker.js
+lyzer edge/backend/migrateLegacy.js
+lyzer edge/backend/overfitDetector.js
+lyzer edge/backend/providers/v1_fast/exchangeExecution.js
+lyzer edge/backend/providers/v1_fast/ipc_client.js
+lyzer edge/backend/providers/v1_fast/server.js
+lyzer edge/backend/providers/v1_fast/streamEngine.js
+lyzer edge/backend/providers/v2_deep/confidenceCalibration.js
+lyzer edge/backend/providers/v2_deep/exchangeExecution.js
+lyzer edge/backend/providers/v2_deep/ipc_client.js
+lyzer edge/backend/providers/v2_deep/lessonRegistry.js
+lyzer edge/backend/providers/v2_deep/outcomeResolutionEngine.js
+lyzer edge/backend/providers/v2_deep/server.js
+lyzer edge/backend/providers/v2_deep/streamEngine.js
+lyzer edge/backend/providers/v2_deep/tradeMemoryRegistry.js
+lyzer edge/backend/realityGapMonitor.js
+lyzer edge/backend/regime_conditioner.js
+lyzer edge/backend/regimeConditioner.js
+lyzer edge/backend/RegimePermutationLab.js
+lyzer edge/backend/replayStreamEngine.js
+lyzer edge/backend/router.js
+lyzer edge/backend/rsis_classifier.js
+lyzer edge/backend/SelectorGenome.js
+lyzer edge/backend/selectorPool.js
+lyzer edge/backend/server.js
+lyzer edge/backend/speciesManager.js
+lyzer edge/backend/spectrogramUI.js
+lyzer edge/backend/sports/sportsDataIngestor.js
+lyzer edge/backend/sports/sportsEngine.js
+lyzer edge/backend/sports/sportsExecution.js
+lyzer edge/backend/statePersistence.js
+lyzer edge/backend/streamEngine.js
+lyzer edge/backend/telegram.js
+lyzer edge/coverage/block-navigation.js
+lyzer edge/coverage/prettify.js
+lyzer edge/coverage/sorter.js
+lyzer edge/optimize_backtest.js
+lyzer edge/run_binance_backtest.js
+lyzer edge/run_live_testnet.js
+lyzer edge/run_sports.js
+lyzer edge/scripts/architectureCertification.js
+lyzer edge/scripts/widgetComplianceGate.js
+lyzer edge/search_script.js
+lyzer edge/src/adaptive-evaluation/AdaptationImpactAnalyzer.js
+lyzer edge/src/adaptive-evaluation/AdaptationRiskScore.js
+lyzer edge/src/adaptive-evaluation/EvolutionLedger.js
+lyzer edge/src/adaptive-evaluation/index.js
+lyzer edge/src/adaptive-evaluation/RegimeStressEvaluator.js
+lyzer edge/src/adaptive-evolution/AdaptiveRuntimeMonitor.js
+lyzer edge/src/adaptive-evolution/AutomaticRollbackEngine.js
+lyzer edge/src/adaptive-evolution/EvolutionExecutor.js
+lyzer edge/src/adaptive-evolution/index.js
+lyzer edge/src/adaptive-evolution/ParameterVersionManager.js
+lyzer edge/src/adaptive-sandbox/AdaptivePipelineController.js
+lyzer edge/src/adaptive-sandbox/AdaptiveScoreEngine.js
+lyzer edge/src/adaptive-sandbox/AdaptiveShadowEngine.js
+lyzer edge/src/adaptive-sandbox/index.js
+lyzer edge/src/adaptive-sandbox/ParameterProposalEngine.js
+lyzer edge/src/adaptive-sandbox/ParameterVersionStore.js
+lyzer edge/src/app.js
+lyzer edge/src/autonomous-research/AutonomousResearchDirector.js
+lyzer edge/src/autonomous-research/ExpectedValueInfoEngine.js
+lyzer edge/src/autonomous-research/index.js
+lyzer edge/src/autonomous-research/KnowledgeGapDetector.js
+lyzer edge/src/autonomous-research/ResearchPublicationEngine.js
+lyzer edge/src/autonomous-research/ScientificBacklogManager.js
+lyzer edge/src/capital/CapitalMemoryLayer.ts
+lyzer edge/src/capital/CapitalMigrationLogic.ts
+lyzer edge/src/capital/OpportunityCostEngine.ts
+lyzer edge/src/causal-learning/CognitiveAuditor.js
+lyzer edge/src/causal-learning/CognitiveKnowledgeGraph.js
+lyzer edge/src/causal-learning/HypothesisEngine.js
+lyzer edge/src/causal-learning/index.js
+lyzer edge/src/causal-learning/MemoryMiningEngine.js
+lyzer edge/src/causal-memory/EventFactory.js
+lyzer edge/src/causal-memory/EventStore.js
+lyzer edge/src/causal-memory/EventValidator.js
+lyzer edge/src/causal-memory/index.js
+lyzer edge/src/causal-memory/LearningEngine.js
+lyzer edge/src/causal-memory/ProjectionEngine.js
+lyzer edge/src/causal-memory/RewindEngine.js
+lyzer edge/src/causal-reflection/ConfidenceDecayEngine.js
+lyzer edge/src/causal-reflection/CounterfactualSimulator.js
+lyzer edge/src/causal-reflection/index.js
+lyzer edge/src/causal-reflection/KnowledgeConflictResolver.js
+lyzer edge/src/causal-reflection/LearningReportGenerator.js
+lyzer edge/src/causal-reflection/ReflectionEngine.js
+lyzer edge/src/cer/EDLWriter.ts
+lyzer edge/src/cer/FMCObservabilityLayer.ts
+lyzer edge/src/cer/RollupEngine.ts
+lyzer edge/src/cer/SchemaCompatibilityGate.ts
+lyzer edge/src/cer/SQLiteSchema.ts
+lyzer edge/src/cer/types.ts
+lyzer edge/src/cognitive-intelligence/AnomalyDetectionEngine.js
+lyzer edge/src/cognitive-intelligence/FeatureDiscoveryEngine.js
+lyzer edge/src/cognitive-intelligence/HypothesisGenerator.js
+lyzer edge/src/cognitive-intelligence/index.js
+lyzer edge/src/cognitive-intelligence/RegimeDiscoveryEngine.js
+lyzer edge/src/cognitive-intelligence/StrategyCandidateEngine.js
+lyzer edge/src/cognitive-operations/CognitiveTelemetryAggregator.js
+lyzer edge/src/cognitive-operations/index.js
+lyzer edge/src/cognitive-operations/PerformanceProfilingMonitor.js
+lyzer edge/src/cognitive-operations/PipelineTracingEngine.js
+lyzer edge/src/cognitive-portfolio/CapitalAllocationGovernor.js
+lyzer edge/src/cognitive-portfolio/CorrelationMatrixEngine.js
+lyzer edge/src/cognitive-portfolio/index.js
+lyzer edge/src/cognitive-portfolio/PortfolioIntelligenceEngine.js
+lyzer edge/src/cognitive-portfolio/RegimeAllocationEngine.js
+lyzer edge/src/cognitive-portfolio/StrategyGenomeRegistry.js
+lyzer edge/src/components/AlertsView.js
+lyzer edge/src/components/BehaviorView.js
+lyzer edge/src/components/commandCenter/AlphaIntegrityMonitor.js
+lyzer edge/src/components/commandCenter/app/CommandCenterApp.js
+lyzer edge/src/components/commandCenter/app/LayoutEngine.js
+lyzer edge/src/components/commandCenter/app/PaneManager.js
+lyzer edge/src/components/commandCenter/app/WidgetHost.js
+lyzer edge/src/components/commandCenter/app/WidgetLifecycle.js
+lyzer edge/src/components/commandCenter/BlackSwanDefensePanel.js
+lyzer edge/src/components/commandCenter/chart/ChartAdapter.js
+lyzer edge/src/components/commandCenter/chart/ChartDataMapper.js
+lyzer edge/src/components/commandCenter/chart/chartTypes.js
+lyzer edge/src/components/commandCenter/chart/ChartViewport.js
+lyzer edge/src/components/commandCenter/CommandCenterNavigation.js
+lyzer edge/src/components/commandCenter/CommandCenterRouter.js
+lyzer edge/src/components/commandCenter/CommandCenterShell.js
+lyzer edge/src/components/commandCenter/DataLineageForensics.js
+lyzer edge/src/components/commandCenter/ExecutiveOverview.js
+lyzer edge/src/components/commandCenter/HumanOversightPanel.js
+lyzer edge/src/components/commandCenter/OperationalSurvivalCenter.js
+lyzer edge/src/components/commandCenter/RealityObservatory.js
+lyzer edge/src/components/commandCenter/sdk/Clock.js
+lyzer edge/src/components/commandCenter/sdk/CommandCenterRuntime.js
+lyzer edge/src/components/commandCenter/sdk/DisposableStack.js
+lyzer edge/src/components/commandCenter/sdk/evidence/alpha/AlphaDiscoveryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/alpha/AlphaGraduationPipeline.js
+lyzer edge/src/components/commandCenter/sdk/evidence/alpha/AutonomousResearchScheduler.js
+lyzer edge/src/components/commandCenter/sdk/evidence/alpha/HypothesisFalsificationEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/calibration/DecisionReplayEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/calibration/ExperimentEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/calibration/OutOfSampleGuard.js
+lyzer edge/src/components/commandCenter/sdk/evidence/calibration/ProbabilityCalibrationEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/cognitive/CounterfactualEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/cognitive/EvidenceAttributionEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/cognitive/MarketMemoryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/cognitive/MetaLearningEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/cognitive/SimulationUniverseEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/ArchitecturalEvolutionEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/AutoFeatureDiscoveryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/BillionVectorMemoryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/CausalDiscoveryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/MarketFoundationModelEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/MultiAgentResearchLab.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/SelfSupervisedRepresentationEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/discovery/SymbolEmbeddingEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/fusion/EvidenceFusionEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/fusion/HypothesisGenerator.js
+lyzer edge/src/components/commandCenter/sdk/evidence/fusion/HypothesisRanker.js
+lyzer edge/src/components/commandCenter/sdk/evidence/lab/ConceptDriftEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/lab/EvidenceMarketplaceEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/lab/ModelRegistryEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/lab/ResearchLabEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/lab/StrategyGenomeEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/observability/BenchmarkReproducibilityEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/observability/DistributedTracingEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/observability/HistoricalTrendEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusEvidenceAdapter.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusEvidencePublisher.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusFeatureEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusLiquidityEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusPatternEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusRegimeDetector.js
+lyzer edge/src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusStructureAnalyzer.js
+lyzer edge/src/components/commandCenter/sdk/evidence/rigor/RealWorkloadBenchmarker.js
+lyzer edge/src/components/commandCenter/sdk/evidence/rigor/StatisticalRigorEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/rigor/SystemicPruningAuditor.js
+lyzer edge/src/components/commandCenter/sdk/evidence/telemetry/ContinuousMeasurementPlatformEngine.js
+lyzer edge/src/components/commandCenter/sdk/evidence/telemetry/DynamicGraphAuditor.js
+lyzer edge/src/components/commandCenter/sdk/evidence/telemetry/WorkloadLatencyProfiler.js
+lyzer edge/src/components/commandCenter/sdk/FrameMetricsCollector.js
+lyzer edge/src/components/commandCenter/sdk/governance/DecisionLedger.js
+lyzer edge/src/components/commandCenter/sdk/IWidgetPlugin.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/AdaptiveLayoutEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/AttentionScoringEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/CognitiveAssistantPlannerEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/CognitiveUXScoreCalculator.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/MultimodalContextAdapter.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/ProgressivePersonalizationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/SelfOptimizationLoopEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/SmartRecommendationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/UniversalContextEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/adaptive/UserIntentEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/AgentCommunicationBus.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/AgentMarketplaceFoundation.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/AgentOrchestratorEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/CognitiveTrustModelEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/ContinuousLearningLoopEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/EpisodicMemoryEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/HumanFeedbackEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/LivingKnowledgeGraphEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/MemoryGovernanceQualityEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/agents/UniversalAgentModel.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CapabilityEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CertificationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CognitiveKnowledgeEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CognitiveMemoryEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CognitiveRuntimeEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CognitiveStateEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/CognitiveWorkflowEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/ContextEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/ObservationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/cognitive/ReasoningEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/CognitiveGridEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/CognitiveNotificationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/DesignTokenEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/SemanticColorLanguage.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/UniversalInspectorEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/design/VisualAttentionEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/AdaptiveRenderingBudgetEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/AIModelRouterEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/ChaosEngineeringSimulator.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/CICDPipelineValidator.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/DisasterRecoveryFailoverEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/FinOpsCostManagementEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/MultiTierStorageRouterEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/SupplyChainSecurityScanner.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/WidgetPerformanceProfiler.js
+lyzer edge/src/components/commandCenter/sdk/lacw/infrastructure/ZeroTrustIdentityGateway.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWCommandPalette.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWEventBus.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWExplainabilityEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWLayoutEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWVisualizationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/LACWWidgetRegistry.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/CognitiveTraceEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/DecisionCertificateSigner.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/IncidentPostmortemEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/InstitutionalEvidenceGraphEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/MultiLevelExplainabilityEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/PolicyRiskConstraintEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/RootCauseAnomalyEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/StructuredLogIntelligenceEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/SystemicHealthManagerEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/observability/UniversalMetricsEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/AIModelConnectorEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/CapabilityContractEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/CapabilityDiscoveryEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/CompatibilityMigrationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/DataConnectorPlatformEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/PluginCertificationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/PluginCLICommandSimulator.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/PluginSandboxEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/ToolRegistryGovernanceEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/plugins/UniversalPluginModel.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/AIDevelopmentLoopEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/ArchitectureHealthScoreCalculator.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/AutomatedMigrationEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/FeatureLifecycleManager.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/GuardianGovernanceGatekeeper.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/MasterImplementationRoadmapEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/MultiLayerTestingFramework.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/OrchestratorDeliveryEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/ReleaseChannelManager.js
+lyzer edge/src/components/commandCenter/sdk/lacw/roadmap/TechnicalDebtRegistryEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/CognitiveMetricEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/EventReplayEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/FailureManagerEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/InstitutionalEventBus.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/RealtimePriorityEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/ResourceManagerEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/SimulationDigitalTwinEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/SmartSchedulerEngine.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/UniversalEventModel.js
+lyzer edge/src/components/commandCenter/sdk/lacw/runtime/UniversalExecutionEngine.js
+lyzer edge/src/components/commandCenter/sdk/observability/PerformanceMonitor.js
+lyzer edge/src/components/commandCenter/sdk/providers/HistoricalProvider.js
+lyzer edge/src/components/commandCenter/sdk/providers/IDataProvider.js
+lyzer edge/src/components/commandCenter/sdk/providers/LiveProvider.js
+lyzer edge/src/components/commandCenter/sdk/providers/MockProvider.js
+lyzer edge/src/components/commandCenter/sdk/providers/ProviderRegistry.js
+lyzer edge/src/components/commandCenter/sdk/providers/ReplayProvider.js
+lyzer edge/src/components/commandCenter/sdk/reality/ProviderTelemetry.js
+lyzer edge/src/components/commandCenter/sdk/reality/RealityOrchestrator.js
+lyzer edge/src/components/commandCenter/sdk/reality/RealityStateMachine.js
+lyzer edge/src/components/commandCenter/sdk/reality/RealityTransitionGuard.js
+lyzer edge/src/components/commandCenter/sdk/reality/realityTypes.js
+lyzer edge/src/components/commandCenter/sdk/RenderScheduler.js
+lyzer edge/src/components/commandCenter/sdk/RingBuffer.js
+lyzer edge/src/components/commandCenter/sdk/StreamBuffer.js
+lyzer edge/src/components/commandCenter/sdk/types.js
+lyzer edge/src/components/commandCenter/sdk/WidgetErrorBoundary.js
+lyzer edge/src/components/commandCenter/sdk/WidgetLoader.js
+lyzer edge/src/components/commandCenter/sdk/WidgetRegistry.js
+lyzer edge/src/components/commandCenter/ShadowExecutionCenter.js
+lyzer edge/src/components/commandCenter/widgets/agentHub/AgentHubWidget.js
+lyzer edge/src/components/commandCenter/widgets/agentHub/manifest.js
+lyzer edge/src/components/commandCenter/widgets/alphaDiscovery/AlphaDiscoveryWidget.js
+lyzer edge/src/components/commandCenter/widgets/alphaDiscovery/manifest.js
+lyzer edge/src/components/commandCenter/widgets/autonomousDiscovery/AutonomousDiscoveryWidget.js
+lyzer edge/src/components/commandCenter/widgets/autonomousDiscovery/manifest.js
+lyzer edge/src/components/commandCenter/widgets/calibrationDashboard/manifest.js
+lyzer edge/src/components/commandCenter/widgets/causalGraph/CausalGraphWidget.js
+lyzer edge/src/components/commandCenter/widgets/causalGraph/manifest.js
+lyzer edge/src/components/commandCenter/widgets/chartHost/ChartHostWidget.js
+lyzer edge/src/components/commandCenter/widgets/chartHost/manifest.js
+lyzer edge/src/components/commandCenter/widgets/cognitiveAudit/CognitiveAuditWidget.js
+lyzer edge/src/components/commandCenter/widgets/cognitiveAudit/manifest.js
+lyzer edge/src/components/commandCenter/widgets/continuousMeasurement/ContinuousMeasurementWidget.js
+lyzer edge/src/components/commandCenter/widgets/continuousMeasurement/manifest.js
+lyzer edge/src/components/commandCenter/widgets/court/CourtWidget.js
+lyzer edge/src/components/commandCenter/widgets/court/manifest.js
+lyzer edge/src/components/commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js
+lyzer edge/src/components/commandCenter/widgets/edgeDashboard/manifest.js
+lyzer edge/src/components/commandCenter/widgets/evidenceFusion/EvidenceFusionWidget.js
+lyzer edge/src/components/commandCenter/widgets/evidenceFusion/manifest.js
+lyzer edge/src/components/commandCenter/widgets/experimentDashboard/ExperimentDashboardWidget.js
+lyzer edge/src/components/commandCenter/widgets/experimentDashboard/manifest.js
+lyzer edge/src/components/commandCenter/widgets/gamificationHUD/GamificationHUDWidget.js
+lyzer edge/src/components/commandCenter/widgets/gamificationHUD/manifest.js
+lyzer edge/src/components/commandCenter/widgets/lacwWorkspace/LACWWorkspaceWidget.js
+lyzer edge/src/components/commandCenter/widgets/lacwWorkspace/manifest.js
+lyzer edge/src/components/commandCenter/widgets/observabilityDashboard/manifest.js
+lyzer edge/src/components/commandCenter/widgets/observabilityDashboard/ObservabilityDashboardWidget.js
+lyzer edge/src/components/commandCenter/widgets/patternRecognition/manifest.js
+lyzer edge/src/components/commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js
+lyzer edge/src/components/commandCenter/widgets/realityStatus/manifest.js
+lyzer edge/src/components/commandCenter/widgets/realityStatus/RealityStatusWidget.js
+lyzer edge/src/components/commandCenter/widgets/researchLab/manifest.js
+lyzer edge/src/components/commandCenter/widgets/researchLab/ResearchLabWidget.js
+lyzer edge/src/components/commandCenter/widgets/runtimeInspector/manifest.js
+lyzer edge/src/components/commandCenter/widgets/runtimeInspector/RuntimeInspectorWidget.js
+lyzer edge/src/components/commandCenter/widgets/statisticalRigor/manifest.js
+lyzer edge/src/components/commandCenter/widgets/statisticalRigor/StatisticalRigorWidget.js
+lyzer edge/src/components/commandCenter/widgets/timeline/manifest.js
+lyzer edge/src/components/commandCenter/widgets/timeline/TimelineWidget.js
+lyzer edge/src/components/commandCenter/widgets/tradeLog/EvolvedTradeLogWidget.js
+lyzer edge/src/components/commandCenter/widgets/tradeLog/manifest.js
+lyzer edge/src/components/CommandCenterView.js
+lyzer edge/src/components/Dashboard.js
+lyzer edge/src/components/DecisionAnalytics.js
+lyzer edge/src/components/DecisionStream.js
+lyzer edge/src/components/EdgeExplorerView.js
+lyzer edge/src/components/EdgeScoreRing.js
+lyzer edge/src/components/EvolutionView.js
+lyzer edge/src/components/ExecutionTerminal.js
+lyzer edge/src/components/GamifiedCommandCenterView.js
+lyzer edge/src/components/LiveTradingView.js
+lyzer edge/src/components/MonteCarloView.js
+lyzer edge/src/components/ObservabilityView.js
+lyzer edge/src/components/PatternRecognitionView.js
+lyzer edge/src/components/PolicyEditor.js
+lyzer edge/src/components/Recommendations.js
+lyzer edge/src/components/ReplayView.js
+lyzer edge/src/components/ReportsView.js
+lyzer edge/src/components/RiskAnalysisView.js
+lyzer edge/src/components/Settings.js
+lyzer edge/src/components/StrategyLab.js
+lyzer edge/src/components/SystemHealthView.js
+lyzer edge/src/components/TradeDetail.js
+lyzer edge/src/components/TradeForm.js
+lyzer edge/src/components/TradeLog.js
+lyzer edge/src/components/ZSpaceDashboard.js
+lyzer edge/src/db/activeConfig.js
+lyzer edge/src/db/database.js
+lyzer edge/src/db/historicalData.js
+lyzer edge/src/db/queries.js
+lyzer edge/src/db/robustness_results.js
+lyzer edge/src/designSystem/index.js
+lyzer edge/src/designSystem/primitives/index.js
+lyzer edge/src/designSystem/theme/index.js
+lyzer edge/src/designSystem/theme/institutionalTheme.js
+lyzer edge/src/designSystem/tokens/colors.js
+lyzer edge/src/designSystem/tokens/index.js
+lyzer edge/src/designSystem/tokens/spacing.js
+lyzer edge/src/designSystem/tokens/status.js
+lyzer edge/src/designSystem/tokens/typography.js
+lyzer edge/src/distributed-runtime/CognitiveEventBus.js
+lyzer edge/src/distributed-runtime/CognitiveKernel.js
+lyzer edge/src/distributed-runtime/DependencyContainer.js
+lyzer edge/src/distributed-runtime/index.js
+lyzer edge/src/distributed-runtime/WorkerPoolEngine.js
+lyzer edge/src/dsl/compiler.js
+lyzer edge/src/dsl/parser.js
+lyzer edge/src/dsl/validator.js
+lyzer edge/src/eca/axioms.js
+lyzer edge/src/eca/constraintEngine.js
+lyzer edge/src/eca/court.js
+lyzer edge/src/eca/killSwitch.js
+lyzer edge/src/eca/ledger.js
+lyzer edge/src/eca/permission.js
+lyzer edge/src/eca/proposalBudget.js
+lyzer edge/src/eca/realityAnchor.js
+lyzer edge/src/eca/riskPolicy.js
+lyzer edge/src/eca/vault.js
+lyzer edge/src/empirical-validation/CausalEvidenceScorer.js
+lyzer edge/src/empirical-validation/EmpiricalValidationEngine.js
+lyzer edge/src/empirical-validation/index.js
+lyzer edge/src/empirical-validation/KnowledgeMaturationPipeline.js
+lyzer edge/src/empirical-validation/ResearchExperimentEngine.js
+lyzer edge/src/empirical-validation/StatisticalSignificanceEngine.js
+lyzer edge/src/engine/alerts.js
+lyzer edge/src/engine/allocation.js
+lyzer edge/src/engine/AlphaDiscoveryEngine.js
+lyzer edge/src/engine/behavior.js
+lyzer edge/src/engine/cfr.js
+lyzer edge/src/engine/decay.js
+lyzer edge/src/engine/edgescore.js
+lyzer edge/src/engine/epe.js
+lyzer edge/src/engine/evDecompositionLab.js
+lyzer edge/src/engine/evFeatureCausalEngine.js
+lyzer edge/src/engine/evMTFEngine.js
+lyzer edge/src/engine/evOptimizer.js
+lyzer edge/src/engine/evProfiler.js
+lyzer edge/src/engine/evSignalRedesign.js
+lyzer edge/src/engine/executionReality.js
+lyzer edge/src/engine/fmc.js
+lyzer edge/src/engine/gal.js
+lyzer edge/src/engine/genome.js
+lyzer edge/src/engine/intelligence.js
+lyzer edge/src/engine/kernel.js
+lyzer edge/src/engine/montecarlo.js
+lyzer edge/src/engine/opportunity.js
+lyzer edge/src/engine/outliers.js
+lyzer edge/src/engine/patterndiscovery.js
+lyzer edge/src/engine/rdm.js
+lyzer edge/src/engine/regime.js
+lyzer edge/src/engine/reliability.js
+lyzer edge/src/engine/replay.js
+lyzer edge/src/engine/risk.js
+lyzer edge/src/engine/rsis.js
+lyzer edge/src/engine/scenarios.js
+lyzer edge/src/engine/segmentation.js
+lyzer edge/src/engine/signalEngine.js
+lyzer edge/src/engine/sizing.js
+lyzer edge/src/engine/sml.js
+lyzer edge/src/engine/stats.js
+lyzer edge/src/engine/stl.js
+lyzer edge/src/engine/zPolicyEngine.js
+lyzer edge/src/engine/zSpaceEVOptimizer.js
+lyzer edge/src/evolution-governance/EvolutionHealthScore.js
+lyzer edge/src/evolution-governance/EvolutionObservatory.js
+lyzer edge/src/evolution-governance/EvolutionReplayEngine.js
+lyzer edge/src/evolution-governance/index.js
+lyzer edge/src/governance/SystemThermodynamicsLayer.ts
+lyzer edge/src/institutional-production/CausalKnowledgeGraph.js
+lyzer edge/src/institutional-production/CircuitBreakerEngine.js
+lyzer edge/src/institutional-production/CognitiveCommandBus.js
+lyzer edge/src/institutional-production/CognitiveScheduler.js
+lyzer edge/src/institutional-production/ExchangeAdapter.js
+lyzer edge/src/institutional-production/index.js
+lyzer edge/src/institutional-production/SystemHealthSupervisor.js
+lyzer edge/src/intelligence/CapitalIntelligenceMonitor.ts
+lyzer edge/src/intelligence/CilPreparation.ts
+lyzer edge/src/intelligence/CounterfactualEngine.ts
+lyzer edge/src/intelligence/edm.ts
+lyzer edge/src/intelligence/ExternalFeedAdapter.ts
+lyzer edge/src/intelligence/MetaInsightLayer.ts
+lyzer edge/src/kernelAdapters/evidenceToConfidence.js
+lyzer edge/src/laboratory/adversarialTesting.js
+lyzer edge/src/laboratory/crossSimulatorValidator.js
+lyzer edge/src/laboratory/experimentRunner.js
+lyzer edge/src/laboratory/governanceCost.js
+lyzer edge/src/laboratory/governanceRemoval.js
+lyzer edge/src/laboratory/mutationSurvival.js
+lyzer edge/src/laboratory/regimeAdaptation.js
+lyzer edge/src/laboratory/semanticCorruption.js
+lyzer edge/src/laboratory/stressTest.js
+lyzer edge/src/lib/eventBus.js
+lyzer edge/src/lib/workerClient.js
+lyzer edge/src/main.js
+lyzer edge/src/market-organism/AlphaDecayEngine.js
+lyzer edge/src/market-organism/index.js
+lyzer edge/src/market-organism/MarketAdaptationScore.js
+lyzer edge/src/market-organism/MarketEcologyEngine.js
+lyzer edge/src/market-organism/StrategyCompetitionEngine.js
+lyzer edge/src/market-organism/StrategyMutationEngine.js
+lyzer edge/src/mic/adapters/abstractAdapter.js
+lyzer edge/src/mic/adapters/replayAdapter.js
+lyzer edge/src/mic/events.js
+lyzer edge/src/mic/gateway.js
+lyzer edge/src/mic/latency/scenarios.js
+lyzer edge/src/mic/zombieEngine.js
+lyzer edge/src/microstructure/contracts.ts
+lyzer edge/src/microstructure/evidenceHistory.js
+lyzer edge/src/microstructure/mdd.js
+lyzer edge/src/microstructure/mee.js
+lyzer edge/src/microstructure/microstructure.js
+lyzer edge/src/observability/index.js
+lyzer edge/src/observability/metricsRegistry.js
+lyzer edge/src/providers/v3_momentum_rsi.js
+lyzer edge/src/research/CapitalOpportunitySurface.ts
+lyzer edge/src/research/CapitalRotationStudy.ts
+lyzer edge/src/router.js
+lyzer edge/src/runtime/RuntimeSelector.js
+lyzer edge/src/services/BinanceSeederService.js
+lyzer edge/src/services/dashboard/dashboardDataProvider.js
+lyzer edge/src/services/dashboard/dashboardRuntimeAdapter.js
+lyzer edge/src/services/dashboard/dashboardSecurityGuard.js
+lyzer edge/src/services/dashboard/lineageVerifier.js
+lyzer edge/src/services/dashboard/metricValidator.js
+lyzer edge/src/services/dashboard/realityTagValidator.js
+lyzer edge/src/services/DataSeederService.js
+lyzer edge/src/services/experimentService.js
+lyzer edge/src/services/LiveTradeSyncService.js
+lyzer edge/src/services/RedTeamService.js
+lyzer edge/src/services/wsClient.js
+lyzer edge/src/sil/evolutionRegistry.js
+lyzer edge/src/sil/goalMutation.js
+lyzer edge/src/sil/meaningAuditor.js
+lyzer edge/src/sil/ontologyDrift.js
+lyzer edge/src/sil/semanticInterpreter.js
+lyzer edge/src/types/governanceContracts.ts
+lyzer edge/src/types/tradeLogSchema.js
+lyzer edge/src/vm/strategyVM.js
+lyzer edge/src/workers/worker.js
+lyzer edge/src-rust/lyzer-intent-registry/build.rs
+lyzer edge/src-rust/lyzer-intent-registry/src/main.rs
+lyzer edge/src-rust/lyzer-oms/build.rs
+lyzer edge/src-rust/lyzer-oms/src/main.rs
+lyzer edge/src-rust/lyzer-risk-gateway/build.rs
+lyzer edge/src-rust/lyzer-risk-gateway/src/main.rs
+lyzer edge/src-ts/bridge/hub_to_exchange.ts
+lyzer edge/src-ts/bridge/ingestor_to_hub.ts
+lyzer edge/src-ts/capital/allocation_engine.ts
+lyzer edge/src-ts/capital/attribution_engine.ts
+lyzer edge/src-ts/capital/capital_ledger.ts
+lyzer edge/src-ts/capital/execution_engine.ts
+lyzer edge/src-ts/capital/portfolio_engine.ts
+lyzer edge/src-ts/capital/risk_engine.ts
+lyzer edge/src-ts/discovery/anomaly_detection.ts
+lyzer edge/src-ts/discovery/feature_generation.ts
+lyzer edge/src-ts/discovery/hypothesis_forge.ts
+lyzer edge/src-ts/discovery/possibility_engine.ts
+lyzer edge/src-ts/epistemic/belief_audit.ts
+lyzer edge/src-ts/epistemic/death_pattern_analyzer.ts
+lyzer edge/src-ts/epistemic/epistemic_registry.ts
+lyzer edge/src-ts/epistemic/failure_taxonomy.ts
+lyzer edge/src-ts/epistemic/feature_ontology_drift.ts
+lyzer edge/src-ts/epistemic/feature_survival_analysis.ts
+lyzer edge/src-ts/epistemic/horizon_decay_analysis.ts
+lyzer edge/src-ts/epistemic/ontology_drift.ts
+lyzer edge/src-ts/epistemic/paradigm_registry.ts
+lyzer edge/src-ts/intelligence/belief_weigher.ts
+lyzer edge/src-ts/intelligence/confidence_arbiter.ts
+lyzer edge/src-ts/intelligence/conflict_resolver.ts
+lyzer edge/src-ts/intelligence/context_evaluator.ts
+lyzer edge/src-ts/intelligence/decision_audit.ts
+lyzer edge/src-ts/intelligence/decision_engine.ts
+lyzer edge/src-ts/intelligence/decision_ledger.ts
+lyzer edge/src-ts/intelligence/knowledge_interpreter.ts
+lyzer edge/src-ts/intelligence/reasoning_engine.ts
+lyzer edge/src-ts/knowledge/knowledge_lifecycle.ts
+lyzer edge/src-ts/knowledge/knowledge_registry.ts
+lyzer edge/src-ts/knowledge/knowledge_retirement.ts
+lyzer edge/src-ts/knowledge/replication_protocol.ts
+lyzer edge/src-ts/observation/crs_terminal.ts
+lyzer edge/src-ts/observation/fiel_sensor.ts
+lyzer edge/src-ts/observation/macro_features.ts
+lyzer edge/src-ts/observation/market_ingestion.ts
+lyzer edge/src-ts/observation/metadata_quality.ts
+lyzer edge/src-ts/observation/notification_layer.ts
+lyzer edge/src-ts/observation/pipeline_streamer.ts
+lyzer edge/src-ts/observation/regime_features.ts
+lyzer edge/src-ts/observation/test_notification.ts
+lyzer edge/src-ts/performance/attribution_audit.ts
+lyzer edge/src-ts/performance/learning_export.ts
+lyzer edge/src-ts/performance/outcome_analyzer.ts
+lyzer edge/src-ts/performance/performance_registry.ts
+lyzer edge/src-ts/scripts/boundary-certification-suite.ts
+lyzer edge/src-ts/scripts/boundary-test.ts
+lyzer edge/src-ts/scripts/cer_certification.ts
+lyzer edge/src-ts/scripts/first_blood/1_ingest_binance.ts
+lyzer edge/src-ts/scripts/first_blood/2_provenance_auditor.ts
+lyzer edge/src-ts/scripts/first_blood/3_end_to_end_simulator.ts
+lyzer edge/src-ts/scripts/setup-nats.ts
+lyzer edge/src-ts/scripts/sprint-0.5-certification.ts
+lyzer edge/src-ts/scripts/sprint-0.6-certification.ts
+lyzer edge/src-ts/scripts/sprint-1-certification.ts
+lyzer edge/src-ts/scripts/sprint-2.5-certification.ts
+lyzer edge/src-ts/scripts/sprint-2.6-certification.ts
+lyzer edge/src-ts/scripts/sprint-2.7.5-certification.ts
+lyzer edge/src-ts/scripts/sprint-2.7-certification.ts
+lyzer edge/src-ts/validation/destruction_suite.ts
+lyzer edge/src-ts/validation/embargo_engine.ts
+lyzer edge/src-ts/validation/purged_walkforward.ts
+lyzer edge/src-ts/validation/robustness_tests.ts
+lyzer edge/src-ts/validation/validation_crucible.ts
+lyzer edge/src-ts/validation/validation_intake.ts
+lyzer edge/src-ts/validation/validation_verdict.ts
+lyzer edge/test_command_center_shell.js
+lyzer edge/test_command_center_v2.js
+lyzer edge/test_design_system_kernel.js
+lyzer edge/test_robustness.js
+lyzer edge/tests/adaptive-evaluation/evaluationPipeline.test.js
+lyzer edge/tests/adaptive-evaluation/evolutionLedger.test.js
+lyzer edge/tests/adaptive-evaluation/impactAnalyzer.test.js
+lyzer edge/tests/adaptive-evaluation/regimeStress.test.js
+lyzer edge/tests/adaptive-evaluation/riskScore.test.js
+lyzer edge/tests/adaptive-evolution/evolutionExecutor.test.js
+lyzer edge/tests/adaptive-evolution/fullEvolutionPipeline.test.js
+lyzer edge/tests/adaptive-evolution/parameterVersion.test.js
+lyzer edge/tests/adaptive-evolution/rollbackEngine.test.js
+lyzer edge/tests/adaptive-evolution/runtimeMonitor.test.js
+lyzer edge/tests/adaptive-sandbox/adaptiveScore.test.js
+lyzer edge/tests/adaptive-sandbox/parameterProposal.test.js
+lyzer edge/tests/adaptive-sandbox/pipelineController.test.js
+lyzer edge/tests/adaptive-sandbox/sandboxPipeline.test.js
+lyzer edge/tests/adaptive-sandbox/shadowEngine.test.js
+lyzer edge/tests/adaptive-sandbox/versionStore.test.js
+lyzer edge/tests/autonomous-research/autonomousDiscoveryAndMultiAgentResearch.test.js
+lyzer edge/tests/autonomous-research/eviEngine.test.js
+lyzer edge/tests/autonomous-research/fullAutonomousResearchPipeline.test.js
+lyzer edge/tests/autonomous-research/knowledgeGapDetector.test.js
+lyzer edge/tests/autonomous-research/researchPublication.test.js
+lyzer edge/tests/autonomous-research/scientificBacklog.test.js
+lyzer edge/tests/autonomous-research/strategyGenomeMutationPerformance.test.js
+lyzer edge/tests/benchmarks/commandCenter_m1_3.benchmark.js
+lyzer edge/tests/browser/chartHost_stress.performance.test.js
+lyzer edge/tests/browser/commandCenter_shell.performance.test.js
+lyzer edge/tests/causality/causality_modules.test.js
+lyzer edge/tests/causal-learning/causalLearningPipeline.test.js
+lyzer edge/tests/causal-learning/cognitiveAuditor.test.js
+lyzer edge/tests/causal-learning/hypothesisEngine.test.js
+lyzer edge/tests/causal-learning/knowledgeGraph.test.js
+lyzer edge/tests/causal-learning/memoryMining.test.js
+lyzer edge/tests/causal-memory/causalPipeline.test.js
+lyzer edge/tests/causal-memory/csrlSnapshot.test.js
+lyzer edge/tests/causal-memory/eventFactory.test.js
+lyzer edge/tests/causal-memory/eventStore.test.js
+lyzer edge/tests/causal-memory/eventValidator.test.js
+lyzer edge/tests/causal-memory/learningLoop.test.js
+lyzer edge/tests/causal-memory/rewindEngine.test.js
+lyzer edge/tests/causal-memory/smcFeatureEvent.test.js
+lyzer edge/tests/causal-reflection/confidenceDecay.test.js
+lyzer edge/tests/causal-reflection/conflictResolver.test.js
+lyzer edge/tests/causal-reflection/counterfactualSimulator.test.js
+lyzer edge/tests/causal-reflection/reflectionEngine.test.js
+lyzer edge/tests/causal-reflection/reflectionPipeline.test.js
+lyzer edge/tests/cognitive-intelligence/anomalyDetection.test.js
+lyzer edge/tests/cognitive-intelligence/featureDiscovery.test.js
+lyzer edge/tests/cognitive-intelligence/fullIntelligencePipeline.test.js
+lyzer edge/tests/cognitive-intelligence/hypothesisGenerator.test.js
+lyzer edge/tests/cognitive-intelligence/regimeDiscovery.test.js
+lyzer edge/tests/cognitive-intelligence/strategyCandidate.test.js
+lyzer edge/tests/cognitive-operations/fullOperationsPipeline.test.js
+lyzer edge/tests/cognitive-operations/performanceProfiling.test.js
+lyzer edge/tests/cognitive-operations/pipelineTracing.test.js
+lyzer edge/tests/cognitive-operations/telemetryAggregator.test.js
+lyzer edge/tests/cognitive-portfolio/capitalGovernor.test.js
+lyzer edge/tests/cognitive-portfolio/correlationMatrix.test.js
+lyzer edge/tests/cognitive-portfolio/fullPortfolioPipeline.test.js
+lyzer edge/tests/cognitive-portfolio/genomeRegistry.test.js
+lyzer edge/tests/cognitive-portfolio/portfolioIntelligence.test.js
+lyzer edge/tests/cognitive-portfolio/regimeAllocation.test.js
+lyzer edge/tests/distributed-runtime/cognitiveKernel.test.js
+lyzer edge/tests/distributed-runtime/dependencyContainer.test.js
+lyzer edge/tests/distributed-runtime/eventBus.test.js
+lyzer edge/tests/distributed-runtime/fullDistributedRuntimePipeline.test.js
+lyzer edge/tests/distributed-runtime/workerPool.test.js
+lyzer edge/tests/e2e/cognitive_flow.test.js
+lyzer edge/tests/e2e/dual_reality_monitor.test.js
+lyzer edge/tests/e2e_smc/e2e_suite.test.js
+lyzer edge/tests/empirical-validation/causalEvidenceScorer.test.js
+lyzer edge/tests/empirical-validation/empiricalValidationEngine.test.js
+lyzer edge/tests/empirical-validation/fullEmpiricalPipeline.test.js
+lyzer edge/tests/empirical-validation/knowledgeMaturation.test.js
+lyzer edge/tests/empirical-validation/phase9Verification.test.js
+lyzer edge/tests/empirical-validation/researchExperiment.test.js
+lyzer edge/tests/empirical-validation/statisticalSignificance.test.js
+lyzer edge/tests/evolution-governance/evolutionCertification.test.js
+lyzer edge/tests/evolution-governance/evolutionHealthScore.test.js
+lyzer edge/tests/evolution-governance/evolutionObservatory.test.js
+lyzer edge/tests/evolution-governance/evolutionReplay.test.js
+lyzer edge/tests/institutional-production/circuitBreaker.test.js
+lyzer edge/tests/institutional-production/commandBus.test.js
+lyzer edge/tests/institutional-production/exchangeAdapters.test.js
+lyzer edge/tests/institutional-production/fullInstitutionalPipeline.test.js
+lyzer edge/tests/institutional-production/healthSupervisor.test.js
+lyzer edge/tests/institutional-production/knowledgeGraph.test.js
+lyzer edge/tests/institutional-production/scheduler.test.js
+lyzer edge/tests/market-organism/alphaDecay.test.js
+lyzer edge/tests/market-organism/fullOrganismPipeline.test.js
+lyzer edge/tests/market-organism/marketAdaptationScore.test.js
+lyzer edge/tests/market-organism/marketEcology.test.js
+lyzer edge/tests/market-organism/strategyCompetition.test.js
+lyzer edge/tests/market-organism/strategyMutation.test.js
+lyzer edge/tests/observability/benchmark_baseline.test.js
+lyzer edge/tests/observability/benchmark_persistence_wal.test.js
+lyzer edge/tests/observability/metrics.test.js
+lyzer edge/tests/providers/v4_imce.test.js
+lyzer edge/tests/research/researchEngine.test.js
+lyzer edge/tests/smc/adaptiveRegimePolicy.test.js
+lyzer edge/tests/smc/liquidityEngine.test.js
+lyzer edge/tests/smc/replayEngine.test.js
+lyzer edge/tests/smc/smcFacade.test.js
+lyzer edge/tests/smc/structureEngine.test.js
+lyzer edge/tests/smc/timeframeManager.test.js
+lyzer edge/tests/smc/trendEngine.test.js
+lyzer edge/tests/unit/commandCenter/app/lifecycle.test.js
+lyzer edge/tests/unit/commandCenter/app/shell.test.js
+lyzer edge/tests/unit/commandCenter/sdk/alphaDiscoverySuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/autonomousDiscoverySuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/cognitiveMaturitySuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/continuousMeasurementSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/continuousMeasurementVerification.test.js
+lyzer edge/tests/unit/commandCenter/sdk/evidenceFusion.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwAdaptiveSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwAgentsSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwCognitiveSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwDesignSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwInfrastructureSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwObservabilitySuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwPluginsSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwRoadmapSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwRuntimeSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/lacwSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/observabilityPlatformSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/observabilityPlatformVerification.test.js
+lyzer edge/tests/unit/commandCenter/sdk/openmobiusCoprocessor.test.js
+lyzer edge/tests/unit/commandCenter/sdk/researchLabSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/statisticalRigorSuite.test.js
+lyzer edge/tests/unit/commandCenter/sdk/statisticalRigorVerification.test.js
+lyzer edge/tests/unit/commandCenter/sdk/widgetComplianceGate.test.js
+lyzer edge/tests/unit/commandCenter_m1_1.test.js
+lyzer edge/tests/unit/commandCenter_m1_2.test.js
+lyzer edge/tests/unit/commandCenter_m1_3.test.js
+lyzer edge/tests/unit/commandCenter_m1_3_patch.test.js
+lyzer edge/tests/unit/components/commandCenterView.test.js
+lyzer edge/tests/unit/contracts/dataProvider.contract.js
+lyzer edge/tests/unit/providers/HistoricalProvider.test.js
+lyzer edge/tests/unit/providers/LiveProvider.test.js
+lyzer edge/tests/unit/providers/MockProvider.test.js
+lyzer edge/tests/unit/providers/ReplayProvider.test.js
+lyzer edge/tests/unit/reality/realityOrchestrator.test.js
+lyzer edge/tests/verification/full_system_execution_auditor.js
+lyzer edge/tests/verification/runtime_profiler_harness.js
+lyzer edge/tests/verification/verify_alpha.js
+lyzer edge/tests/verification/verify_compliance.js
+lyzer edge/tests/verification/verify_decomposition.js
+lyzer edge/tests/verification/verify_eca.js
+lyzer edge/tests/verification/verify_experiment_system.js
+lyzer edge/tests/verification/verify_fund_core.js
+lyzer edge/tests/verification/verify_mic.js
+lyzer edge/tests/verification/verify_mne.js
+lyzer edge/tests/verification/verify_robustness.js
+lyzer edge/tests/verification/verify_signals.js
+lyzer edge/tests/verification/verify_sil.js
+lyzer edge/tests/verification/verify_stream.js
+lyzer edge/tests/verification/verify_suite.test.js
+lyzer edge/tests/verification/verify_v02.js
+lyzer edge/tests/verification/verify_v03.js
+lyzer edge/verify_alpha.js
+lyzer edge/verify_compliance.js
+lyzer edge/verify_decomposition.js
+lyzer edge/verify_eca.js
+lyzer edge/verify_fund_core.js
+lyzer edge/verify_mic.js
+lyzer edge/verify_mne.js
+lyzer edge/verify_robustness.js
+lyzer edge/verify_signals.js
+lyzer edge/verify_sil.js
+lyzer edge/verify_stream.js
+lyzer edge/verify_v02.js
+lyzer edge/verify_v03.js
+lyzer edge/vite.config.js
+lyzer edge/vitest.config.js
+lyzer-workspace/lyzer-core-arbitration/src/lib.rs
+lyzer-workspace/lyzer-core-governance/src/channel.rs
+lyzer-workspace/lyzer-core-governance/src/lib.rs
+lyzer-workspace/lyzer-core-hub/src/main.rs
+lyzer-workspace/lyzer-core-memory/src/cer.rs
+lyzer-workspace/lyzer-core-memory/src/lib.rs
+lyzer-workspace/lyzer-core-models/src/lib.rs
+packages/lyzer-constitution/src/cer/EDLWriter.ts
+packages/lyzer-constitution/src/cer/FMCObservabilityLayer.ts
+packages/lyzer-constitution/src/cer/RollupEngine.ts
+packages/lyzer-constitution/src/cer/SchemaCompatibilityGate.ts
+packages/lyzer-constitution/src/cer/SQLiteSchema.ts
+packages/lyzer-constitution/src/cer/types.ts
+packages/lyzer-constitution/src/eca/axioms.js
+packages/lyzer-constitution/src/eca/c-clist.js
+packages/lyzer-constitution/src/eca/constraintEngine.js
+packages/lyzer-constitution/src/eca/court.js
+packages/lyzer-constitution/src/eca/killSwitch.js
+packages/lyzer-constitution/src/eca/ledger.js
+packages/lyzer-constitution/src/eca/mol.js
+packages/lyzer-constitution/src/eca/permission.js
+packages/lyzer-constitution/src/eca/proposalBudget.js
+packages/lyzer-constitution/src/eca/realityAnchor.js
+packages/lyzer-constitution/src/eca/riskPolicy.js
+packages/lyzer-constitution/src/eca/vault.js
+packages/lyzer-constitution/src/governance/SystemThermodynamicsLayer.ts
+packages/lyzer-constitution/src/sil/evolutionRegistry.js
+packages/lyzer-constitution/src/sil/goalMutation.js
+packages/lyzer-constitution/src/sil/meaningAuditor.js
+packages/lyzer-constitution/src/sil/ontologyDrift.js
+packages/lyzer-constitution/src/sil/semanticInterpreter.js
+packages/lyzer-shared/src/app.js
+packages/lyzer-shared/src/capital/CapitalMemoryLayer.ts
+packages/lyzer-shared/src/capital/CapitalMigrationLogic.ts
+packages/lyzer-shared/src/capital/OpportunityCostEngine.ts
+packages/lyzer-shared/src/causality/edgeValidator.js
+packages/lyzer-shared/src/causality/liquidityGraph.js
+packages/lyzer-shared/src/causality/marketStateEngine.js
+packages/lyzer-shared/src/causality/metaAgentValidator.js
+packages/lyzer-shared/src/components/BehaviorView.js
+packages/lyzer-shared/src/components/Dashboard.js
+packages/lyzer-shared/src/components/DecisionAnalytics.js
+packages/lyzer-shared/src/components/DecisionStream.js
+packages/lyzer-shared/src/components/EdgeExplorerView.js
+packages/lyzer-shared/src/components/EdgeScoreRing.js
+packages/lyzer-shared/src/components/EvolutionView.js
+packages/lyzer-shared/src/components/ExecutionTerminal.js
+packages/lyzer-shared/src/components/MonteCarloView.js
+packages/lyzer-shared/src/components/PolicyEditor.js
+packages/lyzer-shared/src/components/Recommendations.js
+packages/lyzer-shared/src/components/ReplayView.js
+packages/lyzer-shared/src/components/Settings.js
+packages/lyzer-shared/src/components/StrategyLab.js
+packages/lyzer-shared/src/components/SystemHealthView.js
+packages/lyzer-shared/src/components/TradeDetail.js
+packages/lyzer-shared/src/components/TradeForm.js
+packages/lyzer-shared/src/components/TradeLog.js
+packages/lyzer-shared/src/components/ZSpaceDashboard.js
+packages/lyzer-shared/src/csrl/CrossScaleTensorGraph.js
+packages/lyzer-shared/src/csrl/DivergenceDetector.js
+packages/lyzer-shared/src/csrl/InvariantExtractor.js
+packages/lyzer-shared/src/csrl/ScaleNormalizer.js
+packages/lyzer-shared/src/db/activeConfig.js
+packages/lyzer-shared/src/db/database.js
+packages/lyzer-shared/src/db/historicalData.js
+packages/lyzer-shared/src/db/queries.js
+packages/lyzer-shared/src/db/robustness_results.js
+packages/lyzer-shared/src/dsl/compiler.js
+packages/lyzer-shared/src/dsl/parser.js
+packages/lyzer-shared/src/dsl/validator.js
+packages/lyzer-shared/src/engine/alerts.js
+packages/lyzer-shared/src/engine/allocation.js
+packages/lyzer-shared/src/engine/behavior.js
+packages/lyzer-shared/src/engine/cfr.js
+packages/lyzer-shared/src/engine/decay.js
+packages/lyzer-shared/src/engine/decisionTrace.js
+packages/lyzer-shared/src/engine/edgescore.js
+packages/lyzer-shared/src/engine/epe.js
+packages/lyzer-shared/src/engine/evDecompositionLab.js
+packages/lyzer-shared/src/engine/evFeatureCausalEngine.js
+packages/lyzer-shared/src/engine/evMTFEngine.js
+packages/lyzer-shared/src/engine/evOptimizer.js
+packages/lyzer-shared/src/engine/evProfiler.js
+packages/lyzer-shared/src/engine/evSignalRedesign.js
+packages/lyzer-shared/src/engine/executionReality.js
+packages/lyzer-shared/src/engine/executionTriggerLayer.js
+packages/lyzer-shared/src/engine/fmc.js
+packages/lyzer-shared/src/engine/gal.js
+packages/lyzer-shared/src/engine/genome.js
+packages/lyzer-shared/src/engine/intelligence.js
+packages/lyzer-shared/src/engine/kernel.js
+packages/lyzer-shared/src/engine/montecarlo.js
+packages/lyzer-shared/src/engine/opportunity.js
+packages/lyzer-shared/src/engine/outliers.js
+packages/lyzer-shared/src/engine/patterndiscovery.js
+packages/lyzer-shared/src/engine/rdm.js
+packages/lyzer-shared/src/engine/regime.js
+packages/lyzer-shared/src/engine/reliability.js
+packages/lyzer-shared/src/engine/replay.js
+packages/lyzer-shared/src/engine/residualization.js
+packages/lyzer-shared/src/engine/risk.js
+packages/lyzer-shared/src/engine/rsis.js
+packages/lyzer-shared/src/engine/scenarios.js
+packages/lyzer-shared/src/engine/segmentation.js
+packages/lyzer-shared/src/engine/signalEngine.js
+packages/lyzer-shared/src/engine/sizing.js
+packages/lyzer-shared/src/engine/sml.js
+packages/lyzer-shared/src/engine/stats.js
+packages/lyzer-shared/src/engine/stl.js
+packages/lyzer-shared/src/engine/zPolicyEngine.js
+packages/lyzer-shared/src/engine/zSpaceEVOptimizer.js
+packages/lyzer-shared/src/intelligence/CapitalIntelligenceMonitor.ts
+packages/lyzer-shared/src/intelligence/CilPreparation.ts
+packages/lyzer-shared/src/intelligence/CounterfactualEngine.ts
+packages/lyzer-shared/src/intelligence/edm.ts
+packages/lyzer-shared/src/intelligence/ExternalFeedAdapter.ts
+packages/lyzer-shared/src/intelligence/MetaInsightLayer.ts
+packages/lyzer-shared/src/kernelAdapters/evidenceToConfidence.js
+packages/lyzer-shared/src/laboratory/adversarialTesting.js
+packages/lyzer-shared/src/laboratory/crossSimulatorValidator.js
+packages/lyzer-shared/src/laboratory/experimentRunner.js
+packages/lyzer-shared/src/laboratory/governanceCost.js
+packages/lyzer-shared/src/laboratory/governanceRemoval.js
+packages/lyzer-shared/src/laboratory/mutationSurvival.js
+packages/lyzer-shared/src/laboratory/regimeAdaptation.js
+packages/lyzer-shared/src/laboratory/semanticCorruption.js
+packages/lyzer-shared/src/laboratory/stressTest.js
+packages/lyzer-shared/src/lib/eventBus.js
+packages/lyzer-shared/src/lib/workerClient.js
+packages/lyzer-shared/src/main.js
+packages/lyzer-shared/src/mic/adapters/abstractAdapter.js
+packages/lyzer-shared/src/mic/adapters/replayAdapter.js
+packages/lyzer-shared/src/mic/events.js
+packages/lyzer-shared/src/mic/gateway.js
+packages/lyzer-shared/src/mic/latency/scenarios.js
+packages/lyzer-shared/src/mic/zombieEngine.js
+packages/lyzer-shared/src/microstructure/contracts.ts
+packages/lyzer-shared/src/microstructure/evidenceHistory.js
+packages/lyzer-shared/src/microstructure/mdd.js
+packages/lyzer-shared/src/microstructure/mee.js
+packages/lyzer-shared/src/microstructure/microstructure.js
+packages/lyzer-shared/src/providers/v1_smc_ict.js
+packages/lyzer-shared/src/providers/v2_snd_snr.js
+packages/lyzer-shared/src/providers/v3_momentum_rsi.js
+packages/lyzer-shared/src/providers/v4_imce.js
+packages/lyzer-shared/src/research/alphaContribution.js
+packages/lyzer-shared/src/research/alphaDecayCurve.js
+packages/lyzer-shared/src/research/alphaDecayMonitor.js
+packages/lyzer-shared/src/research/alphaEvolutionEngine.js
+packages/lyzer-shared/src/research/alphaGovernanceEngine.js
+packages/lyzer-shared/src/research/autoExperiments.js
+packages/lyzer-shared/src/research/CapitalOpportunitySurface.ts
+packages/lyzer-shared/src/research/CapitalRotationStudy.ts
+packages/lyzer-shared/src/research/datasetIntegrityValidator.js
+packages/lyzer-shared/src/research/execution/adversarialExecutionTest.js
+packages/lyzer-shared/src/research/execution/capitalGovernor.js
+packages/lyzer-shared/src/research/execution/executionReplayEngine.js
+packages/lyzer-shared/src/research/execution/liquiditySurvivalEngine.js
+packages/lyzer-shared/src/research/execution/portfolioManager.js
+packages/lyzer-shared/src/research/featureDiscovery.js
+packages/lyzer-shared/src/research/fetch_historical_ohlcv.js
+packages/lyzer-shared/src/research/governance/alphaLifecycleManager.js
+packages/lyzer-shared/src/research/governance/capitalAllocationGovernor.js
+packages/lyzer-shared/src/research/governance/decisionLedger.js
+packages/lyzer-shared/src/research/governance/investmentCommitteeEngine.js
+packages/lyzer-shared/src/research/governance/researchGovernanceEngine.js
+packages/lyzer-shared/src/research/historicalWarPipeline.js
+packages/lyzer-shared/src/research/liveShadow/alphaObservationFirewall.js
+packages/lyzer-shared/src/research/liveShadow/clockIntegrityMonitor.js
+packages/lyzer-shared/src/research/liveShadow/ExchangeDataProvider.js
+packages/lyzer-shared/src/research/liveShadow/marketDataObserver.js
+packages/lyzer-shared/src/research/liveShadow/realityGapMonitor.js
+packages/lyzer-shared/src/research/liveShadow/shadowExecutionEngine.js
+packages/lyzer-shared/src/research/liveShadow/shadowWarEnduranceSuite.js
+packages/lyzer-shared/src/research/liveShadow/test_fase1_observation_layer.js
+packages/lyzer-shared/src/research/liveShadow/test_reality_gap_monitor.js
+packages/lyzer-shared/src/research/liveShadow/test_shadow_execution_engine.js
+packages/lyzer-shared/src/research/liveShadow/test_shadow_war_endurance.js
+packages/lyzer-shared/src/research/lyzerStressInjectionEngine.js
+packages/lyzer-shared/src/research/lyzerSurvivalScore.js
+packages/lyzer-shared/src/research/monteCarloAdversarial.js
+packages/lyzer-shared/src/research/multiAsset/assetObservationEngine.js
+packages/lyzer-shared/src/research/multiAsset/correlationRiskEngine.js
+packages/lyzer-shared/src/research/multiAsset/crossAssetRegimeEngine.js
+packages/lyzer-shared/src/research/multiAsset/institutionalPortfolioManager.js
+packages/lyzer-shared/src/research/multiAsset/institutionalRiskAllocator.js
+packages/lyzer-shared/src/research/multiAsset/macroStressEngine.js
+packages/lyzer-shared/src/research/multiAsset/multiAssetChaosEngine.js
+packages/lyzer-shared/src/research/operations/blackSwanCertification2.js
+packages/lyzer-shared/src/research/operations/complianceEngine.js
+packages/lyzer-shared/src/research/operations/continuousAlphaAuditor.js
+packages/lyzer-shared/src/research/operations/dataLineageEngine.js
+packages/lyzer-shared/src/research/operations/digitalTwin/digitalTwinEngine.js
+packages/lyzer-shared/src/research/operations/fundAccountingEngine.js
+packages/lyzer-shared/src/research/operations/fundSimulator.js
+packages/lyzer-shared/src/research/operations/generate_tearsheet.js
+packages/lyzer-shared/src/research/operations/governance_attack.js
+packages/lyzer-shared/src/research/operations/humanOversightSimulator.js
+packages/lyzer-shared/src/research/operations/incidentResponseEngine.js
+packages/lyzer-shared/src/research/operations/independentValidationEngine.js
+packages/lyzer-shared/src/research/operations/institutionalChaosEngine.js
+packages/lyzer-shared/src/research/operations/institutionalKPIEngine.js
+packages/lyzer-shared/src/research/operations/institutionalMemoryEngine.js
+packages/lyzer-shared/src/research/operations/institutionalRealityEngine.js
+packages/lyzer-shared/src/research/operations/institutionalRealityScore.js
+packages/lyzer-shared/src/research/operations/institutionalReportingEngine.js
+packages/lyzer-shared/src/research/operations/investmentCommitteeAI.js
+packages/lyzer-shared/src/research/operations/metrics_integrity_test.js
+packages/lyzer-shared/src/research/operations/monteCarloExecutionWar.js
+packages/lyzer-shared/src/research/operations/observability/alphaHealthMonitor.js
+packages/lyzer-shared/src/research/operations/observability/dataIntegrityMonitor.js
+packages/lyzer-shared/src/research/operations/observability/executionHealthMonitor.js
+packages/lyzer-shared/src/research/operations/observability/observabilityLayer.js
+packages/lyzer-shared/src/research/operations/observability/riskHealthMonitor.js
+packages/lyzer-shared/src/research/operations/observability/systemHealthMonitor.js
+packages/lyzer-shared/src/research/operations/operationalChaosEngine.js
+packages/lyzer-shared/src/research/operations/run_governor_red_team.js
+packages/lyzer-shared/src/research/operations/run_l13_autonomous_suite.js
+packages/lyzer-shared/src/research/operations/run_l14_validation_suite.js
+packages/lyzer-shared/src/research/operations/run_l8_red_team.js
+packages/lyzer-shared/src/research/operations/runL11Simulation.js
+packages/lyzer-shared/src/research/operations/shadowFundEngine.js
+packages/lyzer-shared/src/research/operations/shadowTradingTelemetry.js
+packages/lyzer-shared/src/research/parameterSensitivity.js
+packages/lyzer-shared/src/research/productionGate.js
+packages/lyzer-shared/src/research/realityGapScore.js
+packages/lyzer-shared/src/research/redTeamDestructionTest.js
+packages/lyzer-shared/src/research/regimeClassifier.js
+packages/lyzer-shared/src/research/regimeDiscovery.js
+packages/lyzer-shared/src/research/replayEngine.js
+packages/lyzer-shared/src/research/researchDataset.js
+packages/lyzer-shared/src/research/researchScientist.js
+packages/lyzer-shared/src/research/run_adaptive_calibration.js
+packages/lyzer-shared/src/research/run_benchmark_generator.js
+packages/lyzer-shared/src/research/run_l6_war.js
+packages/lyzer-shared/src/research/run_v4_solo_experiment.js
+packages/lyzer-shared/src/research/run_walkforward_validation.js
+packages/lyzer-shared/src/research/statisticalValidator.js
+packages/lyzer-shared/src/router.js
+packages/lyzer-shared/src/services/wsClient.js
+packages/lyzer-shared/src/smc/adaptiveRegimePolicy.js
+packages/lyzer-shared/src/smc/liquidityEngine.js
+packages/lyzer-shared/src/smc/replayEngine.js
+packages/lyzer-shared/src/smc/runtimeParityReplay.js
+packages/lyzer-shared/src/smc/smcFacade.js
+packages/lyzer-shared/src/smc/structureEngine.js
+packages/lyzer-shared/src/smc/timeframeManager.js
+packages/lyzer-shared/src/smc/trendEngine.js
+packages/lyzer-shared/src/types/governanceContracts.ts
+packages/lyzer-shared/src/types/tradeLogSchema.js
+packages/lyzer-shared/src/vm/strategyVM.js
+packages/lyzer-shared/src/workers/worker.js
+reproduce.js
+run_autonomous_research_lab.js
+run_decision_quality_audit.js
+run_final_independent_review.js
+run_final_truth_audit.js
+run_institutional_committee_synthesis.js
+run_real_replay_validation.js
+run_runtime_fidelity_audit.js
+run_runtime_parity_experiment.js
+run_simplification_audit.js
+run_simplification_execution.js
+src/laboratory/adversarial/attackEcaConservatism.js
+src/laboratory/adversarial/attackGovCapture.js
+src/laboratory/adversarial/attackIwlNoise.js
+src/laboratory/adversarial/attackLongDecay.js
+src/laboratory/adversarial/attackObjectiveDrift.js
+src/laboratory/adversarial/attackRewardHacking.js
+src/laboratory/adversarial/attackSilAlpha.js
+src/laboratory/cel/celCandidateRegistry.js
+src/laboratory/cel/celCausalDeltaAnalyzer.js
+src/laboratory/cel/celCrossRegimeValidator.js
+src/laboratory/cel/celOntologyChecker.js
+src/laboratory/cel/celParallelSimulator.js
+src/laboratory/cel/celRegretEngine.js
+src/laboratory/cel/run_simulator.js
+src/laboratory/mgo/mgoCaptureDetector.js
+src/laboratory/mgo/mgoConservatismIndex.js
+src/laboratory/mgo/mgoGrdDetector.js
+src/laboratory/mgo/mgoObjectiveDriftDetector.js
+src/laboratory/mgo/mgoRewardHackingDetector.js
+src/laboratory/mgo/mgoZombieDetector.js
+src/laboratory/mgo/testRewardHacking.js
+src/laboratory/mil2/missionEvolutionEvaluator.js
+src/laboratory/monteCarlo.js
+src/lyzer_shm_intent.js
+src-rust/lyzer-binance-adapter/src/client.rs
+src-rust/lyzer-binance-adapter/src/dsl.rs
+src-rust/lyzer-binance-adapter/src/lib.rs
+src-rust/lyzer-binance-adapter/src/signer.rs
+src-rust/lyzer-eca/src/main.rs
+src-rust/lyzer-oal/src/acquisition/binance_feed.rs
+src-rust/lyzer-oal/src/acquisition/event_sequencer.rs
+src-rust/lyzer-oal/src/acquisition/mod.rs
+src-rust/lyzer-oal/src/archive/mod.rs
+src-rust/lyzer-oal/src/archive/parquet_sink.rs
+src-rust/lyzer-oal/src/bin/ignition.rs
+src-rust/lyzer-oal/src/distribution/mod.rs
+src-rust/lyzer-oal/src/distribution/notifier.rs
+src-rust/lyzer-oal/src/lib.rs
+src-rust/lyzer-oal/src/types.rs
+src-rust/lyzer-ocr/src/bin/mcff_run.rs
+src-rust/lyzer-ocr/src/bin/shadow_run.rs
+src-rust/lyzer-ocr/src/candidates/book_fracture.rs
+src-rust/lyzer-ocr/src/candidates/liquidity_vacuum.rs
+src-rust/lyzer-ocr/src/candidates/mod.rs
+src-rust/lyzer-ocr/src/candidates/tick_kurtosis.rs
+src-rust/lyzer-ocr/src/falsification_engine.rs
+src-rust/lyzer-ocr/src/lib.rs
+src-rust/lyzer-ocr/src/ocrl.rs
+src-rust/lyzer-ocr/src/reconciliation.rs
+src-rust/lyzer-ocr/src/types.rs
+src-rust/lyzer-reality-ws/src/book.rs
+src-rust/lyzer-reality-ws/src/lib.rs
+src-rust/lyzer-reality-ws/src/models.rs
+src-rust/lyzer-reality-ws/src/stream.rs
+src-rust/lyzer-shadow-oms/src/edi.rs
+src-rust/lyzer-shadow-oms/src/governance.rs
+src-rust/lyzer-shadow-oms/src/lib.rs
+src-rust/lyzer-shared/build.rs
+src-rust/lyzer-shared/src/lib.rs
+src-rust/lyzer-shm-spine/src/allocator.rs
+src-rust/lyzer-shm-spine/src/bootstrap.rs
+src-rust/lyzer-shm-spine/src/hardening.rs
+src-rust/lyzer-shm-spine/src/lib.rs
+src-rust/lyzer-shm-spine/src/main.rs
+src-rust/lyzer-shm-spine/src/manager.rs
+src-rust/lyzer-shm-spine/src/registry.rs
+src-ts/governance/change_control.ts
+src-ts/governance/constitutional_registry.ts
+src-ts/governance/governance_ledger.ts
+src-ts/governance/institutional_health.ts
+src-ts/governance/policy_engine.ts
+src-ts/governance/retirement_authority.ts
+src-ts/governance/test_collision.ts
