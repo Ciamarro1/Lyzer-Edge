@@ -11,6 +11,7 @@ import { EvolvedTradeLogWidget } from './commandCenter/widgets/tradeLog/EvolvedT
 import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/GamificationHUDWidget.js';
 import { EdgeDashboardWidget } from './commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js';
 import { PatternRecognitionWidget } from './commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js';
+import { ExperimentDashboardWidget } from './commandCenter/widgets/experimentDashboard/ExperimentDashboardWidget.js';
 import { wsClient } from '../services/wsClient.js';
 import db from '../db/database.js';
 

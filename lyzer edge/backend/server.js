@@ -7,6 +7,8 @@ import { loadEngineState, saveEngineState, clearEngineState } from './statePersi
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { sendTelegramAlert } from './telegram.js';
+import db from './db.js';
+import { ExperimentManager } from './experimentManager.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,6 +21,14 @@ process.env.MAX_DAILY_CAPITAL = process.env.MAX_DAILY_CAPITAL || '1000';
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
+
+// Initialize Quant Research Lab Experiment Manager
+const experimentManager = new ExperimentManager(db);
+experimentManager.initialize().then(() => {
+  console.log('🧪 [QUANT LAB] ExperimentManager initialized successfully.');
+}).catch(err => {
+  console.error('❌ [QUANT LAB] Failed to initialize ExperimentManager:', err);
+});
 
 // Serve static files from the Vite build output (dist)
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -45,7 +55,186 @@ app.get('/metrics', authenticateAdmin, async (req, res) => {
   }
 });
 
-// API endpoints for deleting, closing, and wiping trades from the backend engines
+// ── Quant Research Lab: Experiment API Endpoints ─────────────────────────
+
+// GET /api/experiments/dashboard — Full experiment ecosystem dashboard data
+app.get('/api/experiments/dashboard', async (req, res) => {
+  try {
+    const data = await experimentManager.getDashboardData();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /api/experiments/active — Active experiment details
+app.get('/api/experiments/active', async (req, res) => {
+  try {
+    const active = await experimentManager.getActiveExperiment();
+    if (!active) return res.status(404).json({ error: 'No active experiment found' });
+    res.json(active);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/experiments/freeze-and-new — FREEZE + NEW EXPERIMENT action
+app.post('/api/experiments/freeze-and-new', authenticateAdmin, async (req, res) => {
+  try {
+    const { reason = 'USER_TRIGGERED' } = req.body || {};
+    
+    // 1. Gather all trades across active in-memory engines
+    const allInMemoryTrades = engines.flatMap(e => e.tradeHistory || []);
+    
+    // 2. Execute atomic freeze + create new experiment
+    const result = await experimentManager.freezeAndCreateNew(reason);
+
+    // 3. Save all in-memory trades to the frozen experiment in DB if not already stored
+    for (const trade of allInMemoryTrades) {
+      try {
+        await db.insertExperimentTrade(result.frozenExperiment.experiment_id, trade);
+      } catch (e) {
+        // Trade might already be stored, ignore duplicate key error
+      }
+    }
+
+    // 4. Reset in-memory trade history for active engines without deleting historical DB trades
+    for (const engine of engines) {
+      engine.tradeHistory = [];
+      engine.bootTime = Date.now();
+      engine.emit('state_changed');
+    }
+    saveEngineState(engines);
+
+    // 5. Broadcast freeze & new experiment via WebSocket
+    broadcast({
+      type: 'experiment_frozen',
+      frozenExperiment: result.frozenExperiment,
+      newExperiment: result.newExperiment
+    });
+
+    console.log(`❄️ [QUANT LAB] Experiment ${result.frozenExperiment.experiment_id} FROZEN. New active: ${result.newExperiment.experiment_id}`);
+
+    res.json({
+      success: true,
+      message: `Experiment ${result.frozenExperiment.experiment_id} frozen as LEGACY. Created ${result.newExperiment.experiment_id}.`,
+      frozen: result.frozenExperiment,
+      newActive: result.newExperiment,
+      snapshot: result.snapshot
+    });
+  } catch (err) {
+    console.error('❌ [QUANT LAB] Freeze failed:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/experiments/promote-champion — Promote an experiment to Champion
+app.post('/api/experiments/promote-champion', authenticateAdmin, async (req, res) => {
+  try {
+    const { experimentId, force = false } = req.body;
+    if (!experimentId) return res.status(400).json({ error: 'experimentId is required' });
+    const champion = await experimentManager.promoteChampion(experimentId, force);
+    broadcast({ type: 'champion_promoted', champion });
+    res.json({ success: true, message: `Experiment ${experimentId} promoted to Champion!`, champion });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+// GET /api/experiments/alpha-discovery — Cross-experiment pattern discovery
+app.get('/api/experiments/alpha-discovery', async (req, res) => {
+  try {
+    const discovery = await experimentManager.alphaDiscoveryEngine.discoverAlpha();
+    res.json(discovery);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// POST /api/experiments/update-status — Update status (supporting 6-State Lifecycle)
+app.post('/api/experiments/update-status', authenticateAdmin, async (req, res) => {
+  try {
+    const { experimentId, status, reason } = req.body;
+    if (!experimentId || !status) {
+      return res.status(400).json({ error: 'experimentId and status are required.' });
+    }
+    const updated = await experimentManager.updateStatus(experimentId, status, reason);
+    broadcast({ type: 'experiment_status_updated', experiment: updated });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
+import { LyzerArcheologist } from './lyzerArcheologist.js';
+
+const archeologist = new LyzerArcheologist(path.join(__dirname, '../..'));
+
+// GET /api/archeologist/dna — Codebase DNA composition
+app.get('/api/archeologist/dna', async (req, res) => {
+  try {
+    const dna = await archeologist.analyzeCodebaseDNA();
+    res.json(dna);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /api/archeologist/rankings — Module importance ranking (0-100)
+app.get('/api/archeologist/rankings', (req, res) => {
+  res.json(archeologist.getModuleImportanceRankings());
+});
+
+// GET /api/archeologist/dead-code — Dead code & pruning audit
+app.get('/api/archeologist/dead-code', (req, res) => {
+  res.json(archeologist.detectDeadCodeCandidates());
+});
+
+import { LyzerMindMRI } from './lyzerMindMRI.js';
+
+const lyzerMind = new LyzerMindMRI(path.join(__dirname, '../..'));
+
+// GET /api/mind/mri — Project MRI Report
+app.get('/api/mind/mri', async (req, res) => {
+  try {
+    const mri = await lyzerMind.runFullMRI();
+    res.json(mri);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /api/archeologist/philosopher-report — Philosopher & CTO Strategic Synthesis Report
+app.get('/api/archeologist/philosopher-report', (req, res) => {
+  res.json(archeologist.generatePhilosopherReport());
+});
+
+// GET /api/experiments/ranking — Historical experiment leaderboard
+app.get('/api/experiments/ranking', async (req, res) => {
+  try {
+    const { sortBy = 'profit_factor', limit = 20 } = req.query;
+    const ranking = await experimentManager.getRanking(sortBy, parseInt(limit, 10));
+    res.json({ ranking });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// GET /api/experiments/:id — Get details of a single experiment
+app.get('/api/experiments/:id', async (req, res) => {
+  try {
+    const exp = await db.getExperiment(req.params.id);
+    if (!exp) return res.status(404).json({ error: 'Experiment not found' });
+    const snapshot = await db.getExperimentSnapshot(req.params.id);
+    const trades = await db.getExperimentTrades(req.params.id);
+    res.json({ experiment: exp, snapshot, trades });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// ── ZERO ENTROPY ENFORCEMENT: DELETION AND WIPING ARE DISABLED ────────────
+
+// API endpoint for closing trade manually (preserves history)
 app.post('/api/trades/close', authenticateAdmin, (req, res) => {
   const { symbol, id, exitPrice, exitDate, fees } = req.body;
   if (!symbol) return res.status(400).json({ error: 'Symbol is required' });
@@ -79,6 +268,12 @@ app.post('/api/trades/close', authenticateAdmin, (req, res) => {
     };
     engine.tradeHistory.push(resolvedTrade);
     engine.activePosition = null;
+
+    // Persist to active experiment in SQLite
+    experimentManager.getActiveExperiment().then(activeExp => {
+      if (activeExp) db.insertExperimentTrade(activeExp.experiment_id, resolvedTrade).catch(() => {});
+    });
+
     saveEngineState(engines);
     engine.emit('state_changed');
     engine.emit('arl', { type: 'tick', symbol: engine.symbol, mode: engine.mode });
@@ -87,56 +282,37 @@ app.post('/api/trades/close', authenticateAdmin, (req, res) => {
   return res.status(404).json({ error: 'Active trade not found for id' });
 });
 
+// DELETION BLOCKED — Zero Entropy Policy forbids deleting trades
 app.post('/api/trades/delete', authenticateAdmin, (req, res) => {
-  const { symbol, id } = req.body;
-  if (!symbol) return res.status(400).json({ error: 'Symbol is required' });
-  const targetSymbol = symbol.toUpperCase().replace('/USD', 'USDT');
-  const engine = engines.find(e => e.symbol === targetSymbol);
-  if (!engine) return res.status(404).json({ error: 'Engine not found for symbol' });
-
-  let deleted = false;
-  if (engine.activePosition && engine.activePosition.id === id) {
-    engine.activePosition = null;
-    deleted = true;
-  }
-  const originalLen = engine.tradeHistory.length;
-  engine.tradeHistory = engine.tradeHistory.filter(t => t.id !== id);
-  if (engine.tradeHistory.length < originalLen) {
-    deleted = true;
-  }
-
-  if (deleted) {
-    saveEngineState(engines);
-    engine.emit('state_changed');
-    engine.emit('arl', { type: 'tick', symbol: engine.symbol, mode: engine.mode });
-    return res.json({ success: true, message: 'Trade deleted successfully' });
-  }
-  return res.status(404).json({ error: 'Trade not found for id' });
-});
-
-app.post('/api/trades/wipe', (req, res) => {
-  for (const engine of engines) {
-    engine.activePosition = null;
-    engine.tradeHistory = [];
-    engine.bootTime = Date.now();
-    engine.emit('state_changed');
-    engine.emit('arl', { type: 'tick', symbol: engine.symbol, mode: engine.mode });
-  }
-  clearEngineState();
-  saveEngineState(engines);
-
-  clients.forEach(client => {
-    try {
-      if (client.readyState === 1) {
-        client.send(JSON.stringify({ type: 'wipe_trades' }));
-      }
-    } catch (e) {
-      console.error('[WS] Broadcast wipe failed:', e.message);
-    }
+  return res.status(403).json({
+    error: 'ZERO ENTROPY VIOLATION: Trade deletion is permanently disabled. All trade history must be preserved for quantitative research.'
   });
-
-  return res.json({ success: true, message: 'All trades wiped successfully' });
 });
+
+// WIPING TRANSFORMED — Redirects wipe requests to Freeze & New Experiment
+app.post('/api/trades/wipe', authenticateAdmin, async (req, res) => {
+  try {
+    const result = await experimentManager.freezeAndCreateNew('WIPE_REQUEST_REDIRECTED');
+    for (const engine of engines) {
+      engine.tradeHistory = [];
+      engine.activePosition = null;
+      engine.bootTime = Date.now();
+      engine.emit('state_changed');
+    }
+    saveEngineState(engines);
+    broadcast({ type: 'experiment_frozen', frozenExperiment: result.frozenExperiment, newExperiment: result.newExperiment });
+
+    return res.json({
+      success: true,
+      message: `ZERO ENTROPY POLICY: Trades frozen into LEGACY experiment (${result.frozenExperiment.experiment_id}) instead of wiped. Created new ACTIVE experiment (${result.newExperiment.experiment_id}).`,
+      frozenExperiment: result.frozenExperiment,
+      newExperiment: result.newExperiment
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 console.log(`\n======================================================`);
 console.log(`🌍 Lyzer Edge: MULTI-ASSET LIVE ENGINE STARTED`);
@@ -254,9 +430,19 @@ for (const symbol of targetAssets) {
   engine.on('arl', (payload) => broadcast(payload));
   engine.on('execution', (payload) => broadcast({ liveExecution: payload }));
   
-  // Listen to state changes to persist engine states
-  engine.on('state_changed', () => {
+  // Listen to state changes to persist engine states & sync trades to SQLite Zero Entropy DB
+  engine.on('state_changed', async () => {
     saveEngineState(engines);
+    try {
+      const activeExp = await experimentManager.getActiveExperiment();
+      if (activeExp && engine.tradeHistory) {
+        for (const trade of engine.tradeHistory) {
+          await db.insertExperimentTrade(activeExp.experiment_id, trade).catch(() => {});
+        }
+      }
+    } catch (e) {
+      // Ignore background sync errors
+    }
   });
 
   engines.push(engine);

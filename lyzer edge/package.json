@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "test:verify": "vitest run tests/verification",
     "coverage": "vitest run --coverage",
+    "investigate": "node backend/lyzerMindMRI.js",
     "lint": "eslint ."
   },
   "dependencies": {
