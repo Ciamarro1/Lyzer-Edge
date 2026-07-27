@@ -147,6 +147,83 @@ export class CausalMemoryDB {
 
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_module ON evolution_ledger (module, parameter)`);
             this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_type ON evolution_ledger (event_type)`);
+
+            // ── Quant Research Lab: Experiment Registry (Zero Entropy) ──
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS experiments (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    experiment_id TEXT NOT NULL UNIQUE,
+                    display_name TEXT,
+                    status TEXT NOT NULL DEFAULT 'ACTIVE',
+                    strategy_hash TEXT NOT NULL,
+                    config_snapshot_json TEXT NOT NULL,
+                    model_snapshot_json TEXT,
+                    champion_flag INTEGER NOT NULL DEFAULT 0,
+                    created_at INTEGER NOT NULL,
+                    frozen_at INTEGER,
+                    frozen_by TEXT,
+                    notes TEXT,
+                    parent_experiment_id TEXT
+                )
+            `);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_status ON experiments (status)`);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_champion ON experiments (champion_flag)`);
+
+            // ── Quant Research Lab: Experiment Trades (immutable, append-only) ──
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS experiment_trades (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    trade_id TEXT NOT NULL,
+                    experiment_id TEXT NOT NULL,
+                    symbol TEXT NOT NULL,
+                    direction TEXT NOT NULL,
+                    entry_price REAL NOT NULL,
+                    exit_price REAL,
+                    stop_loss REAL,
+                    take_profit REAL,
+                    quantity REAL,
+                    pnl REAL,
+                    pnl_pct REAL,
+                    status TEXT NOT NULL DEFAULT 'open',
+                    signal_json TEXT,
+                    regime TEXT,
+                    governance_decision TEXT,
+                    reason_codes_json TEXT,
+                    ev_json TEXT,
+                    entry_timestamp INTEGER NOT NULL,
+                    exit_timestamp INTEGER,
+                    created_at INTEGER NOT NULL
+                )
+            `);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_exp ON experiment_trades (experiment_id)`);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_symbol ON experiment_trades (experiment_id, symbol)`);
+            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_status ON experiment_trades (experiment_id, status)`);
+
+            // ── Quant Research Lab: Experiment Snapshots (frozen metrics) ──
+            this.db.run(`
+                CREATE TABLE IF NOT EXISTS experiment_snapshots (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    experiment_id TEXT NOT NULL UNIQUE,
+                    total_trades INTEGER NOT NULL DEFAULT 0,
+                    winning_trades INTEGER NOT NULL DEFAULT 0,
+                    losing_trades INTEGER NOT NULL DEFAULT 0,
+                    win_rate REAL NOT NULL DEFAULT 0,
+                    profit_factor REAL NOT NULL DEFAULT 0,
+                    total_pnl REAL NOT NULL DEFAULT 0,
+                    total_pnl_pct REAL NOT NULL DEFAULT 0,
+                    max_drawdown REAL NOT NULL DEFAULT 0,
+                    max_drawdown_pct REAL NOT NULL DEFAULT 0,
+                    sharpe_ratio REAL NOT NULL DEFAULT 0,
+                    avg_trade_pnl REAL NOT NULL DEFAULT 0,
+                    best_trade_pnl REAL NOT NULL DEFAULT 0,
+                    worst_trade_pnl REAL NOT NULL DEFAULT 0,
+                    avg_holding_time_ms INTEGER NOT NULL DEFAULT 0,
+                    equity_curve_json TEXT,
+                    drawdown_curve_json TEXT,
+                    monthly_returns_json TEXT,
+                    snapshot_timestamp INTEGER NOT NULL
+                )
+            `);
         });
     }
 
@@ -461,7 +538,264 @@ export class CausalMemoryDB {
         });
     }
     
-    close() {
-        this.db.close();
+    // ── Quant Research Lab: Experiment Lifecycle Methods ──────────────
+
+    getNextExperimentId() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT experiment_id FROM experiments WHERE experiment_id LIKE 'EXP-%' ORDER BY id DESC LIMIT 1`;
+            this.db.get(sql, [], (err, row) => {
+                if (err) return reject(err);
+                if (!row) return resolve('EXP-001');
+                const match = row.experiment_id.match(/EXP-(\d+)/);
+                if (!match) return resolve('EXP-001');
+                const next = parseInt(match[1], 10) + 1;
+                resolve(`EXP-${String(next).padStart(3, '0')}`);
+                });
+        });
     }
+
+    createExperiment({ experiment_id, display_name, status, strategy_hash, config_snapshot_json, model_snapshot_json, champion_flag, created_at, parent_experiment_id }) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO experiments
+                (experiment_id, display_name, status, strategy_hash, config_snapshot_json, model_snapshot_json, champion_flag, created_at, parent_experiment_id)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            this.db.run(sql, [
+                experiment_id,
+                display_name || null,
+                status || 'ACTIVE',
+                strategy_hash,
+                config_snapshot_json,
+                model_snapshot_json || null,
+                champion_flag || 0,
+                created_at || Date.now(),
+                parent_experiment_id || null
+            ], (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+    }
+
+    getActiveExperiment() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM experiments WHERE status = 'ACTIVE' ORDER BY id DESC LIMIT 1`;
+            this.db.get(sql, [], (err, row) => {
+                if (err) reject(err);
+                else resolve(row || null);
+            });
+        });
+    }
+
+    getExperiment(experimentId) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM experiments WHERE experiment_id = ?`;
+            this.db.get(sql, [experimentId], (err, row) => {
+                if (err) reject(err);
+                else resolve(row || null);
+            });
+        });
+    }
+
+    getAllExperiments() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM experiments ORDER BY id DESC`;
+            this.db.all(sql, [], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows || []);
+            });
+        });
+    }
+
+    freezeExperiment(experimentId, frozenAt, frozenBy = 'USER') {
+        return new Promise((resolve, reject) => {
+            const sql = `UPDATE experiments SET status = 'LEGACY', frozen_at = ?, frozen_by = ? WHERE experiment_id = ? AND status = 'ACTIVE'`;
+            this.db.run(sql, [frozenAt || Date.now(), frozenBy, experimentId], function(err) {
+                if (err) reject(err);
+                else resolve(this.changes);
+            });
+        });
+    }
+
+    insertExperimentTrade(experimentId, trade) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO experiment_trades
+                (trade_id, experiment_id, symbol, direction, entry_price, exit_price, stop_loss, take_profit,
+                 quantity, pnl, pnl_pct, status, signal_json, regime, governance_decision,
+                 reason_codes_json, ev_json, entry_timestamp, exit_timestamp, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            this.db.run(sql, [
+                trade.trade_id || trade.id,
+                experimentId,
+                trade.symbol,
+                trade.direction,
+                trade.entryPrice || trade.entry_price,
+                trade.exitPrice || trade.exit_price || null,
+                trade.stopLoss || trade.stop_loss || null,
+                trade.takeProfit || trade.take_profit || null,
+                trade.quantity || null,
+                trade.pnl || null,
+                trade.pnl != null ? trade.pnl * 100 : null,
+                trade.status || 'open',
+                trade.signal ? JSON.stringify(trade.signal) : null,
+                trade.regime || null,
+                trade.governanceDecision || trade.governance_decision || null,
+                trade.reasonCodes ? JSON.stringify(trade.reasonCodes) : (trade.reason_codes_json || null),
+                trade.ev ? JSON.stringify(trade.ev) : (trade.ev_json || null),
+                trade.timestamp || trade.entry_timestamp || Date.now(),
+                trade.exit_timestamp || null,
+                Date.now()
+            ], (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+    }
+
+    updateExperimentTrade(tradeId, experimentId, updateData) {
+        return new Promise((resolve, reject) => {
+            const sets = [];
+            const params = [];
+            if (updateData.exit_price !== undefined) { sets.push('exit_price = ?'); params.push(updateData.exit_price); }
+            if (updateData.pnl !== undefined) { sets.push('pnl = ?'); params.push(updateData.pnl); sets.push('pnl_pct = ?'); params.push(updateData.pnl * 100); }
+            if (updateData.status !== undefined) { sets.push('status = ?'); params.push(updateData.status); }
+            if (updateData.exit_timestamp !== undefined) { sets.push('exit_timestamp = ?'); params.push(updateData.exit_timestamp); }
+            if (updateData.reason_codes_json !== undefined) { sets.push('reason_codes_json = ?'); params.push(updateData.reason_codes_json); }
+            if (updateData.ev_json !== undefined) { sets.push('ev_json = ?'); params.push(updateData.ev_json); }
+
+            if (sets.length === 0) return resolve();
+
+            params.push(tradeId, experimentId);
+            const sql = `UPDATE experiment_trades SET ${sets.join(', ')} WHERE trade_id = ? AND experiment_id = ?`;
+            this.db.run(sql, params, (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+    }
+
+    getExperimentTrades(experimentId, opts = {}) {
+        return new Promise((resolve, reject) => {
+            const limit = opts.limit || 10000;
+            const offset = opts.offset || 0;
+            const sql = `SELECT * FROM experiment_trades WHERE experiment_id = ? ORDER BY entry_timestamp ASC LIMIT ? OFFSET ?`;
+            this.db.all(sql, [experimentId, limit, offset], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows || []);
+            });
+        });
+    }
+
+    getExperimentTradeCount(experimentId) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT COUNT(*) as count FROM experiment_trades WHERE experiment_id = ? AND status = 'closed'`;
+            this.db.get(sql, [experimentId], (err, row) => {
+                if (err) reject(err);
+                else resolve(row?.count || 0);
+            });
+        });
+    }
+
+    insertExperimentSnapshot(snapshot) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT OR REPLACE INTO experiment_snapshots
+                (experiment_id, total_trades, winning_trades, losing_trades, win_rate, profit_factor,
+                 total_pnl, total_pnl_pct, max_drawdown, max_drawdown_pct, sharpe_ratio,
+                 avg_trade_pnl, best_trade_pnl, worst_trade_pnl, avg_holding_time_ms,
+                 equity_curve_json, drawdown_curve_json, monthly_returns_json, snapshot_timestamp)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            this.db.run(sql, [
+                snapshot.experiment_id,
+                snapshot.totalTrades || 0,
+                snapshot.winningTrades || 0,
+                snapshot.losingTrades || 0,
+                snapshot.winRate || 0,
+                snapshot.profitFactor || 0,
+                snapshot.totalPnl || 0,
+                snapshot.totalPnlPct || 0,
+                snapshot.maxDrawdown || 0,
+                snapshot.maxDrawdownPct || 0,
+                snapshot.sharpeRatio || 0,
+                snapshot.avgTradePnl || 0,
+                snapshot.bestTradePnl || 0,
+                snapshot.worstTradePnl || 0,
+                snapshot.avgHoldingTimeMs || 0,
+                snapshot.equityCurve ? JSON.stringify(snapshot.equityCurve) : null,
+                snapshot.drawdownCurve ? JSON.stringify(snapshot.drawdownCurve) : null,
+                snapshot.monthlyReturns ? JSON.stringify(snapshot.monthlyReturns) : null,
+                snapshot.snapshot_timestamp || Date.now()
+            ], (err) => {
+                if (err) reject(err);
+                else resolve();
+            });
+        });
+    }
+
+    getExperimentSnapshot(experimentId) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM experiment_snapshots WHERE experiment_id = ?`;
+            this.db.get(sql, [experimentId], (err, row) => {
+                if (err) reject(err);
+                else resolve(row ? {
+                    ...row,
+                    equityCurve: row.equity_curve_json ? JSON.parse(row.equity_curve_json) : null,
+                    drawdownCurve: row.drawdown_curve_json ? JSON.parse(row.drawdown_curve_json) : null,
+                    monthlyReturns: row.monthly_returns_json ? JSON.parse(row.monthly_returns_json) : null
+                } : null);
+            });
+        });
+    }
+
+    setChampion(experimentId) {
+        return new Promise((resolve, reject) => {
+            this.db.serialize(() => {
+                this.db.run(`UPDATE experiments SET champion_flag = 0 WHERE champion_flag = 1`, (err) => {
+                    if (err) return reject(err);
+                });
+                this.db.run(`UPDATE experiments SET champion_flag = 1 WHERE experiment_id = ?`, [experimentId], (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+        });
+    }
+
+    getChampion() {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM experiments WHERE champion_flag = 1 LIMIT 1`;
+            this.db.get(sql, [], (err, row) => {
+                if (err) reject(err);
+                else resolve(row || null);
+            });
+        });
+    }
+
+    getExperimentRanking(sortBy = 'profit_factor', limit = 20) {
+        return new Promise((resolve, reject) => {
+            const validColumns = ['profit_factor', 'sharpe_ratio', 'win_rate', 'total_pnl_pct', 'total_trades'];
+            const col = validColumns.includes(sortBy) ? sortBy : 'profit_factor';
+            const sql = `
+                SELECT e.*, s.*
+                FROM experiments e
+                JOIN experiment_snapshots s ON e.experiment_id = s.experiment_id
+                WHERE e.status != 'ACTIVE'
+                ORDER BY s.${col} DESC
+                LIMIT ?
+            `;
+            this.db.all(sql, [limit], (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows || []);
+            });
+        });
+    }
+
 }
+
+export const db = new CausalMemoryDB();
+export default db;
+

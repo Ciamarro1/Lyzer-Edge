@@ -3,25 +3,48 @@
  * Isolates prom-client initialization and metric definitions.
  */
 
-import client from 'prom-client';
+let client = null;
+try {
+  client = (await import('prom-client')).default;
+} catch (e) {
+  // prom-client or opentelemetry dependency unavailable in dev environment
+}
 
-export const register = new client.Registry();
+class DummyMetric {
+  inc() {}
+  observe() {}
+  set() {}
+}
 
-// Enable default V8 process & runtime metrics
-client.collectDefaultMetrics({
-  register,
-  prefix: 'lyzer_runtime_'
-});
+const createMetric = (Type, options) => {
+  try {
+    if (!Type) return new DummyMetric();
+    return new Type(options);
+  } catch (err) {
+    return new DummyMetric();
+  }
+};
 
-// 1. Pipeline Metrics
-export const ticksReceivedCounter = new client.Counter({
+let reg = { metrics: () => '' };
+if (client) {
+  try {
+    reg = new client.Registry();
+    client.collectDefaultMetrics({ register: reg, prefix: 'lyzer_runtime_' });
+  } catch (e) {
+    console.warn('[Observability] prom-client initialization warning:', e.message);
+  }
+}
+
+export const register = reg;
+
+export const ticksReceivedCounter = createMetric(client?.Counter, {
   name: 'lyzer_pipeline_ticks_received_total',
   help: 'Total candle ticks received',
   labelNames: ['symbol', 'source'],
   registers: [register]
 });
 
-export const tickProcessingHistogram = new client.Histogram({
+export const tickProcessingHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_pipeline_tick_processing_duration_seconds',
   help: 'Tick processing duration in seconds',
   labelNames: ['symbol', 'status'],
@@ -29,7 +52,7 @@ export const tickProcessingHistogram = new client.Histogram({
   registers: [register]
 });
 
-export const csrlProcessingHistogram = new client.Histogram({
+export const csrlProcessingHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_pipeline_csrl_processing_duration_seconds',
   help: 'CSRL tensor alignment processing duration in seconds',
   labelNames: ['symbol'],
@@ -37,7 +60,7 @@ export const csrlProcessingHistogram = new client.Histogram({
   registers: [register]
 });
 
-export const cclistEvaluationHistogram = new client.Histogram({
+export const cclistEvaluationHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_pipeline_cclist_evaluation_duration_seconds',
   help: 'C-CLIST oracle stress evaluation duration in seconds',
   labelNames: ['symbol'],
@@ -45,22 +68,21 @@ export const cclistEvaluationHistogram = new client.Histogram({
   registers: [register]
 });
 
-// 2. Constitutional Metrics
-export const ecaEvaluationsCounter = new client.Counter({
+export const ecaEvaluationsCounter = createMetric(client?.Counter, {
   name: 'lyzer_constitution_evaluations_total',
   help: 'Total ECA Court evaluations',
   labelNames: ['symbol', 'decision'],
   registers: [register]
 });
 
-export const constitutionalVetoCounter = new client.Counter({
+export const constitutionalVetoCounter = createMetric(client?.Counter, {
   name: 'lyzer_constitution_veto_total',
   help: 'Total ECA Court veto decisions by reason code',
   labelNames: ['symbol', 'reason_code'],
   registers: [register]
 });
 
-export const riskGatewayLatencyHistogram = new client.Histogram({
+export const riskGatewayLatencyHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_constitution_risk_gateway_latency_seconds',
   help: 'Risk Gateway IPC gRPC latency in seconds',
   labelNames: ['service', 'status'],
@@ -68,8 +90,7 @@ export const riskGatewayLatencyHistogram = new client.Histogram({
   registers: [register]
 });
 
-// 3. Persistence Metrics
-export const sqliteWriteDurationHistogram = new client.Histogram({
+export const sqliteWriteDurationHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_persistence_sqlite_write_duration_seconds',
   help: 'SQLite write operation duration in seconds',
   labelNames: ['operation'],
@@ -77,7 +98,7 @@ export const sqliteWriteDurationHistogram = new client.Histogram({
   registers: [register]
 });
 
-export const sqliteLockWaitHistogram = new client.Histogram({
+export const sqliteLockWaitHistogram = createMetric(client?.Histogram, {
   name: 'lyzer_persistence_sqlite_lock_wait_seconds',
   help: 'SQLite lock wait duration in seconds',
   labelNames: ['db_name'],
@@ -85,15 +106,14 @@ export const sqliteLockWaitHistogram = new client.Histogram({
   registers: [register]
 });
 
-// 4. System Health Metrics
-export const systemErrorsCounter = new client.Counter({
+export const systemErrorsCounter = createMetric(client?.Counter, {
   name: 'lyzer_system_errors_total',
   help: 'Total system exceptions and errors',
   labelNames: ['component', 'error_type'],
   registers: [register]
 });
 
-export const activeConnectionsGauge = new client.Gauge({
+export const activeConnectionsGauge = createMetric(client?.Gauge, {
   name: 'lyzer_system_active_connections',
   help: 'Active network connections by protocol',
   labelNames: ['protocol'],
