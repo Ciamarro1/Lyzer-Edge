@@ -4,8 +4,8 @@
  * Executes trade-level ablactions, regime stress tests, and execution friction delta analysis.
  */
 
-import { getHistoricalCandles } from './src/db/historicalData.js';
-import { EvDecompositionLab } from './src/engine/evDecompositionLab.js';
+import { getHistoricalCandles } from '../../../packages/lyzer-shared/src/db/historicalData.js';
+import { EvDecompositionLab } from '../../src/engine/evDecompositionLab.js';
 
 console.log("========================================================================");
 console.log("        LYZER CORE — EV DECOMPOSITION LAB (v1 AUDIT RUN)");

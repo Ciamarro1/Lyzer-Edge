@@ -3,19 +3,19 @@
  * Comprehensive integration test simulating the entire governed adaptive execution pipeline.
  */
 
-import { getHistoricalCandles } from './src/db/historicalData.js';
-import { SignalEngine } from './src/engine/signalEngine.js';
-import { TruthKernel } from './src/engine/kernel.js';
-import { ConstitutionalCourt } from './src/eca/court.js';
-import { RealityAnchor } from './src/eca/realityAnchor.js';
-import { IrreversibilityVault } from './src/eca/vault.js';
-import { ConstitutionalLedger } from './src/eca/ledger.js';
-import { ProposalBudget } from './src/eca/proposalBudget.js';
-import { computeTradeEV } from './src/engine/evProfiler.js';
-import { runEVOptimization } from './src/engine/evOptimizer.js';
-import { evaluateExecution, calculateFillProbability } from './src/engine/executionReality.js';
-import { ZSpaceEVOptimizer } from './src/engine/zSpaceEVOptimizer.js';
-import { ZPolicyEngine } from './src/engine/zPolicyEngine.js';
+import { getHistoricalCandles } from '../../../packages/lyzer-shared/src/db/historicalData.js';
+import { SignalEngine } from '../../src/engine/signalEngine.js';
+import { TruthKernel } from '../../src/engine/kernel.js';
+import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
+import { RealityAnchor } from '../../../packages/lyzer-constitution/src/eca/realityAnchor.js';
+import { IrreversibilityVault } from '../../../packages/lyzer-constitution/src/eca/vault.js';
+import { ConstitutionalLedger } from '../../../packages/lyzer-constitution/src/eca/ledger.js';
+import { ProposalBudget } from '../../../packages/lyzer-constitution/src/eca/proposalBudget.js';
+import { computeTradeEV } from '../../../packages/lyzer-shared/src/engine/evProfiler.js';
+import { runEVOptimization } from '../../src/engine/evOptimizer.js';
+import { evaluateExecution, calculateFillProbability } from '../../src/engine/executionReality.js';
+import { ZSpaceEVOptimizer } from '../../src/engine/zSpaceEVOptimizer.js';
+import { ZPolicyEngine } from '../../src/engine/zPolicyEngine.js';
 
 // Global attribution memory tracking
 const tradeHistoryByAsset = {

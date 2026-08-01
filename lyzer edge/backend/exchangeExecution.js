@@ -4,6 +4,7 @@
  */
 
 import crypto from 'crypto';
+import { safeFetch, validateSymbol } from './utils/ssrfGuard.js';
 
 export class ExchangeExecution {
   constructor(apiKey, apiSecret, isTestnet = true) {
@@ -14,12 +15,14 @@ export class ExchangeExecution {
   }
 
   async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001) {
+    const cleanSymbol = validateSymbol(symbol);
+
     if (!this.apiKey || !this.apiSecret) {
-      console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${side} ${quantity} ${symbol}`);
+      console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${side} ${quantity} ${cleanSymbol}`);
       return {
         orderId: `sim_order_${Date.now()}`,
         status: 'FILLED_MOCK',
-        symbol,
+        symbol: cleanSymbol,
         side,
         type,
         qty: quantity,
@@ -30,25 +33,30 @@ export class ExchangeExecution {
     const timestamp = Date.now();
     const recvWindow = 5000;
 
-    let queryString = `symbol=${symbol.toUpperCase()}&side=${side.toUpperCase()}&type=${type.toUpperCase()}&quantity=${quantity}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    const cleanSide = encodeURIComponent(side.toUpperCase());
+    const cleanType = encodeURIComponent(type.toUpperCase());
+    const cleanQty = encodeURIComponent(String(quantity));
+
+    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${cleanQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
     
     const signature = crypto
       .createHmac('sha256', this.apiSecret)
       .update(queryString)
       .digest('hex');
 
-    queryString += `&signature=${signature}`;
+    queryString += `&signature=${encodeURIComponent(signature)}`;
     const url = `${this.baseUrl}/api/v3/order?${queryString}`;
 
-    console.log(`[EXECUTION] Placing live REST order on ${this.baseUrl}: ${side} ${quantity} ${symbol}...`);
+    console.log(`[EXECUTION] Placing live REST order on ${this.baseUrl}: ${side} ${quantity} ${cleanSymbol}...`);
 
     try {
-      const response = await fetch(url, {
+      const response = await safeFetch(url, {
         method: 'POST',
         headers: {
           'X-MBX-APIKEY': this.apiKey,
           'Content-Type': 'application/x-www-form-urlencoded'
-        }
+        },
+        redirect: 'error'
       });
 
       const data = await response.json();

@@ -4,7 +4,7 @@
  */
 
 // Simulated reference to the KillSwitch for system halts.
-import { KillSwitch } from '../eca/killSwitch.js';
+import { KillSwitch } from '../../../lyzer-constitution/src/eca/killSwitch.js';
 
 export class ZombieEngine {
   constructor() {

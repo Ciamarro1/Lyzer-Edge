@@ -31,10 +31,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // ── Imports ───────────────────────────────────────────────────────────────────
 
-import { getHistoricalCandles } from './src/db/historicalData.js';
-import { SignalEngine } from './src/engine/signalEngine.js';
-import { TruthKernel } from './src/engine/kernel.js';
-import { activeConfig } from './src/db/activeConfig.js';
+import { getHistoricalCandles } from '../../../packages/lyzer-shared/src/db/historicalData.js';
+import { SignalEngine } from '../../src/engine/signalEngine.js';
+import { TruthKernel } from '../../src/engine/kernel.js';
+import { activeConfig } from '../../../packages/lyzer-shared/src/db/activeConfig.js';
 
 // ── Governance Constants ──────────────────────────────────────────────────────
 

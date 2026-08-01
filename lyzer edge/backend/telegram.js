@@ -4,6 +4,8 @@
  * No external dependencies — uses native Node.js global fetch.
  */
 
+import { safeFetch, validateUrl } from './utils/ssrfGuard.js';
+
 export async function sendTelegramAlert(text) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -15,10 +17,14 @@ export async function sendTelegramAlert(text) {
 
   // Sanitize the URL to remove trailing slash if present
   const sanitizedBase = apiBase.replace(/\/$/, '');
+  
+  // Validate apiBase against allowlist and IP SSRF rules
+  await validateUrl(sanitizedBase, { allowedDomains: ['telegram.org'] });
+
   const url = `${sanitizedBase}/bot${token}/sendMessage`;
 
   try {
-    const res = await fetch(url, {
+    const res = await safeFetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -26,14 +32,15 @@ export async function sendTelegramAlert(text) {
         text: text,
         parse_mode: 'HTML',
         disable_web_page_preview: true
-      })
+      }),
+      allowedDomains: ['telegram.org']
     });
     if (!res.ok) {
-      const errorBody = await res.text();
-      throw new Error(`Telegram API Error: ${res.status} - ${errorBody}`);
+      throw new Error(`Telegram API Error: HTTP ${res.status}`);
     }
   } catch (e) {
-    throw new Error(`Erro ao conectar ao proxy/Telegram [API_BASE=${apiBase}]: ${e.message}`);
+    const safeMessage = e.message ? e.message.replace(/\/bot[^\/]+/g, '/bot[REDACTED]') : 'Unknown error';
+    throw new Error(`Erro ao conectar ao proxy/Telegram: ${safeMessage}`);
   }
 }
 

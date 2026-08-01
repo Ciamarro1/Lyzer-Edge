@@ -4,8 +4,8 @@
  */
 
 import EventEmitter from 'events';
-import { EvSignalEngine } from "../src/engine/evSignalRedesign.js";
-import { computeTradeEV } from "../src/engine/evProfiler.js";
+import { EvSignalEngine } from "../../../packages/lyzer-shared/src/engine/evSignalRedesign.js";
+import { computeTradeEV } from "../../../packages/lyzer-shared/src/engine/evProfiler.js";
 import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
 import { LiveDataIngestor } from "./liveDataIngestor.js";
 import { ExchangeExecution } from "./exchangeExecution.js";

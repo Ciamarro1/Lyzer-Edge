@@ -5,11 +5,11 @@
  */
 
 import assert from 'assert';
-import { MICGateway } from './src/mic/gateway.js';
-import { zombieEngine } from './src/mic/zombieEngine.js';
-import { ReplayAdapter } from './src/mic/adapters/replayAdapter.js';
-import { LATENCY_SCENARIOS, calculateStochasticLatency } from './src/mic/latency/scenarios.js';
-import { PermissionToken } from './src/eca/permission.js';
+import { MICGateway } from '../../../packages/lyzer-shared/src/mic/gateway.js';
+import { zombieEngine } from '../../../packages/lyzer-shared/src/mic/zombieEngine.js';
+import { ReplayAdapter } from '../../../packages/lyzer-shared/src/mic/adapters/replayAdapter.js';
+import { LATENCY_SCENARIOS, calculateStochasticLatency } from '../../../packages/lyzer-shared/src/mic/latency/scenarios.js';
+import { PermissionToken } from '../../../packages/lyzer-constitution/src/eca/permission.js';
 
 async function runMICVerification() {
   console.log('='.repeat(72));

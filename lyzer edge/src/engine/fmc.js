@@ -1,4 +1,4 @@
-import { eventBus } from '../lib/eventBus.js';
+import { eventBus } from '../../../packages/lyzer-shared/src/lib/eventBus.js';
 import { calculateEDM } from './edm.js';
 
 export class FailureModeCartography {

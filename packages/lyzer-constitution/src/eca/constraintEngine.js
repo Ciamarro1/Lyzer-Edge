@@ -26,6 +26,11 @@ export class ConstraintEngine {
    * @returns {Object} { passed: boolean, reason: string|null }
    */
   evaluate(state, ledger) {
+    // Governance Capture Protection (Checking if parameters mutated in memory)
+    if (!this.CONSTRAINTS?.HARD || this.CONSTRAINTS.HARD.MAX_DAILY_DRAWDOWN !== 0.05) {
+      return { passed: false, reason: 'VETO_PARAMETER_MUTATION' };
+    }
+
     if (state.currentDrawdown >= this.CONSTRAINTS.HARD.MAX_DAILY_DRAWDOWN) {
       return { passed: false, reason: 'VETO_HARD_LIMIT_DRAWDOWN' };
     }
@@ -38,11 +43,6 @@ export class ConstraintEngine {
     const drawdownMisses = ledger.getNearMissCount('drawdown');
     if (drawdownMisses >= this.CONSTRAINTS.HARD.MAX_EDGE_RIDING_HITS) {
       return { passed: false, reason: 'VETO_EDGE_RIDING' };
-    }
-
-    // Governance Capture Protection (Checking if parameters mutated in memory)
-    if (this.CONSTRAINTS.HARD.MAX_DAILY_DRAWDOWN !== 0.05) {
-      return { passed: false, reason: 'VETO_PARAMETER_MUTATION' };
     }
 
     return { passed: true, reason: null };

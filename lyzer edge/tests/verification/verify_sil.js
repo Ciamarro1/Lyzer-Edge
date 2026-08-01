@@ -1,6 +1,6 @@
-import { OntologyDriftDetector, DRIFT_LEVELS } from './src/sil/ontologyDrift.js';
-import { GoalMutationDetector } from './src/sil/goalMutation.js';
-import { MeaningConsistencyAuditor } from './src/sil/meaningAuditor.js';
+import { OntologyDriftDetector, DRIFT_LEVELS } from '../../../packages/lyzer-constitution/src/sil/ontologyDrift.js';
+import { GoalMutationDetector } from '../../../packages/lyzer-constitution/src/sil/goalMutation.js';
+import { MeaningConsistencyAuditor } from '../../../packages/lyzer-constitution/src/sil/meaningAuditor.js';
 
 console.log("=== SIL: Semantic Integrity Layer Verification ===\n");
 

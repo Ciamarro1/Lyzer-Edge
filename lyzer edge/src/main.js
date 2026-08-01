@@ -25,8 +25,8 @@ import { causalGraphManifest } from './components/commandCenter/widgets/causalGr
 import { WidgetRegistry } from './components/commandCenter/sdk/WidgetRegistry.js';
 import './styles/variables.css';
 import './styles/base.css';
-import './styles/components.css';
-import './styles/layout.css';
+import '@lyzer/shared/styles/components.css';
+import '@lyzer/shared/styles/layout.css';
 
 async function main() {
   try {

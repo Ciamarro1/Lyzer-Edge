@@ -9,6 +9,7 @@ export class TruthKernel extends CanonicalTruthKernel {
   constructor(options = {}) {
     // Support legacy masterSwitchThreshold mapping to trgThreshold if passed
     const trgThreshold = options.trgThreshold || (options.masterSwitchThreshold ? options.masterSwitchThreshold / 100 : 0.4);
-    super({ ...options, trgThreshold });
+    const masterSwitchThreshold = options.masterSwitchThreshold !== undefined ? options.masterSwitchThreshold : 50;
+    super({ ...options, trgThreshold, masterSwitchThreshold });
   }
 }

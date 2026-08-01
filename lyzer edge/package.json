@@ -17,6 +17,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@lyzer/constitution": "*",
+    "@lyzer/shared": "*",
     "@grpc/grpc-js": "^1.14.4",
     "@grpc/proto-loader": "^0.8.1",
     "apexcharts": "^3.45.0",

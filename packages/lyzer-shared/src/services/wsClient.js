@@ -1,3 +1,5 @@
+import { safeJsonParse } from '../utils/safeJson.js';
+
 class WSClient {
   constructor() {
     this.ws = null;
@@ -13,7 +15,7 @@ class WSClient {
     };
 
     this.ws.onmessage = (msg) => {
-      const data = JSON.parse(msg.data);
+      const data = safeJsonParse(msg.data);
       this.listeners.forEach(fn => {
         try {
           fn(data);

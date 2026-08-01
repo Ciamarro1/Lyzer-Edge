@@ -4,7 +4,7 @@
  * while maintaining backward-compatible helper methods.
  */
 
-import { EvSignalEngine } from './evSignalRedesign.js';
+import { EvSignalEngine } from '../../../packages/lyzer-shared/src/engine/evSignalRedesign.js';
 
 export class SignalEngine {
   constructor() {

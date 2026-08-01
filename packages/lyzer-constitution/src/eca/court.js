@@ -45,8 +45,20 @@ export class ConstitutionalCourt {
     }
 
     // 1.5 Meta-Observation Layer (MOL) Evaluation
-    // We observe the Kernel's reported state vs the raw reality
-    const molStatus = this.mol.evaluateState(rawState, requestPayload);
+    // We observe the Kernel's reported state vs the raw reality.
+    // NOTE: the Kernel result may arrive in EITHER argument depending on the
+    // caller convention (streamEngine passes kernelResult as rawState; some
+    // tests/verify scripts pass it as requestPayload). Normalize from both.
+    const molKernel = {
+      ...requestPayload,
+      epistemic_authority: requestPayload.epistemic_authority ?? rawState.epistemic_authority,
+      reason_codes: requestPayload.reason_codes ?? rawState.reason_codes,
+    };
+    const molState = {
+      ...rawState,
+      scale_divergence: rawState.scale_divergence ?? rawState.raw_metrics?.scale_divergence ?? 0.0,
+    };
+    const molStatus = this.mol.evaluateState(molState, molKernel);
     
     // Inject MOL metrics into the ledger record for traceability
     rawState.mol_state = molStatus.molState;
@@ -72,17 +84,23 @@ export class ConstitutionalCourt {
       return token;
     }
 
-    // 3. Execution Trigger Boundary
-    if (!requestPayload.eef) {
+    // 3. Deterministic Constraint Engine Fallback
+    const evaluation = this.engine.evaluate(rawState, ledger);
+    if (!evaluation.passed) {
+      const token = new PermissionToken(action, false, evaluation.reason);
+      ledger.appendRecord(requestPayload, token, rawState);
+      return token;
+    }
+
+    // 4. Execution Trigger Boundary
+    const eef = requestPayload.eef ?? true;
+    if (!eef) {
       // The Kernel did not detect geometrical divergence (Tail Risk).
       // We block not because it's wrong, but because there's no reason to survive yet.
       const token = new PermissionToken(action, false, 'VETO_NO_SURVIVAL_NECESSITY');
       ledger.appendRecord(requestPayload, token, rawState);
       return token;
     }
-
-    // 4. Deterministic Constraint Engine Fallback
-    const evaluation = this.engine.evaluate(rawState, ledger);
 
     // 5. Issue Token
     const token = new PermissionToken(action, evaluation.passed, evaluation.reason);

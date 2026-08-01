@@ -12,7 +12,7 @@ import { performance } from 'perf_hooks';
 
 // Import Core Pipeline Modules
 import { StreamEngine } from '../../backend/streamEngine.js';
-import { ConstitutionalCourt } from '../../src/eca/court.js';
+import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
 import { TruthKernel } from '../../../packages/lyzer-shared/src/engine/kernel.js';
 import { InstitutionalEventBus } from '../../src/components/commandCenter/sdk/lacw/runtime/InstitutionalEventBus.js';
 import { UniversalContextEngine } from '../../src/components/commandCenter/sdk/lacw/adaptive/UniversalContextEngine.js';

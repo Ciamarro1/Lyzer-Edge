@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { safeJsonParse, safeMerge } from '../../utils/safeJson.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,7 +40,7 @@ export function recordTradeOutcome(tradeData) {
         initializeRegistry();
         
         const rawData = fs.readFileSync(REGISTRY_PATH);
-        let registry = JSON.parse(rawData);
+        let registry = safeJsonParse(rawData, []);
 
         const memoryArtifact = {
             id: Date.now().toString(),
@@ -75,7 +76,7 @@ export function getPendingTrades() {
     try {
         if (!fs.existsSync(REGISTRY_PATH)) return [];
         const rawData = fs.readFileSync(REGISTRY_PATH);
-        const registry = JSON.parse(rawData);
+        const registry = safeJsonParse(rawData, []);
         return registry.filter(t => t.status === 'PENDING');
     } catch (err) {
         return [];
@@ -86,11 +87,11 @@ export function updateTradeResolution(tradeId, resolutionData) {
     try {
         if (!fs.existsSync(REGISTRY_PATH)) return;
         const rawData = fs.readFileSync(REGISTRY_PATH);
-        let registry = JSON.parse(rawData);
+        let registry = safeJsonParse(rawData, []);
         
         const idx = registry.findIndex(t => t.id === tradeId);
         if (idx !== -1) {
-            registry[idx] = { ...registry[idx], ...resolutionData, status: 'RESOLVED' };
+            registry[idx] = safeMerge({}, registry[idx], resolutionData, { status: 'RESOLVED' });
             fs.writeFileSync(REGISTRY_PATH, JSON.stringify(registry, null, 2));
             console.log(`[OIL] Trade ${tradeId} Resolved! Lesson: ${resolutionData.lesson}`);
         }

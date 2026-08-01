@@ -1,7 +1,7 @@
 import { getAllTrades, getSetting, getEdgeScoreHistory, wipeAllTrades } from '../db/queries.js';
 import { calcAllStats, calcEquityCurve } from '../engine/stats.js';
 import { calcEdgeScore } from '../engine/edgescore.js';
-import { EdgeScoreRing } from './EdgeScoreRing.js';
+import { EdgeScoreRing } from '../../../packages/lyzer-shared/src/components/EdgeScoreRing.js';
 import { createChart } from 'lightweight-charts';
 import ApexCharts from 'apexcharts';
 import { robustnessReport } from '../db/robustness_results.js';

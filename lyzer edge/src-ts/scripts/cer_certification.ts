@@ -1,8 +1,8 @@
 import * as crypto from 'crypto';
-import { EvidenceRecord } from '../cer/types';
-import { SchemaCompatibilityGate } from '../cer/SchemaCompatibilityGate';
-import { RollupEngine } from '../cer/RollupEngine';
-import { FMCObservabilityLayer } from '../cer/FMCObservabilityLayer';
+import { EvidenceRecord } from '@lyzer/constitution/cer/types';
+import { SchemaCompatibilityGate } from '@lyzer/constitution/cer/SchemaCompatibilityGate';
+import { RollupEngine } from '@lyzer/constitution/cer/RollupEngine';
+import { FMCObservabilityLayer } from '@lyzer/constitution/cer/FMCObservabilityLayer';
 
 console.log('--- CER VERIFICATION & SURVIVABILITY CERTIFICATION SUITE ---');
 

@@ -5,6 +5,8 @@
  */
 
 import WebSocket from 'ws';
+import { safeJsonParse } from './utils/safeJson.js';
+import { safeFetch, validateSymbol, validateInterval, validateUrl } from './utils/ssrfGuard.js';
 
 const BINANCE_BASE_URLS = [
   'https://api.binance.com',
@@ -26,8 +28,8 @@ const BASE_PRICES = {
 
 export class LiveDataIngestor {
   constructor(symbol = 'BTCUSDT', interval = '1m') {
-    this.symbol = symbol.toUpperCase();
-    this.interval = interval;
+    this.symbol = validateSymbol(symbol);
+    this.interval = validateInterval(interval);
     this.ws = null;
     this.currentUrlIndex = 0;
     this._pollTimer = null;
@@ -51,13 +53,13 @@ export class LiveDataIngestor {
 
   async warmupCandles() {
     for (let attempts = 0; attempts < BINANCE_BASE_URLS.length; attempts++) {
-      const url = `${this.baseUrl}/api/v3/klines?symbol=${this.symbol}&interval=${this.interval}&limit=101`;
+      const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=101`;
       try {
         console.log(`[INGESTOR] Fetching warmup candles for ${this.symbol} from ${url}...`);
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 4000);
         
-        const res = await fetch(url, { signal: controller.signal });
+        const res = await safeFetch(url, { signal: controller.signal });
         clearTimeout(timeoutId);
         
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -142,11 +144,11 @@ export class LiveDataIngestor {
 
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
-        const url = `${this.baseUrl}/api/v3/klines?symbol=${this.symbol}&interval=${this.interval}&limit=2`;
+        const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=2`;
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
         
-        const res = await fetch(url, { signal: controller.signal });
+        const res = await safeFetch(url, { signal: controller.signal });
         clearTimeout(timeoutId);
 
         if (res.ok) {
@@ -260,53 +262,62 @@ export class LiveDataIngestor {
       triggerStateChange('RECONNECTING');
     }
 
-    const wsUrl = `wss://stream.binance.com:9443/ws/${this.symbol.toLowerCase()}@kline_${this.interval}`;
-    this.ws = new WebSocket(wsUrl);
+    const wsUrl = `wss://stream.binance.com:9443/ws/${encodeURIComponent(this.symbol.toLowerCase())}@kline_${encodeURIComponent(this.interval)}`;
+    
+    validateUrl(wsUrl, { allowWs: true })
+      .then((validWsUrl) => {
+        this.ws = new WebSocket(validWsUrl);
 
-    this.ws.on('open', () => {
-      console.log(`🟢 [INGESTOR] Binance WebSocket connected: ${wsUrl}`);
-      this.reconnectAttempts = 0;
-      triggerStateChange('CONNECTED');
-    });
+        this.ws.on('open', () => {
+          console.log(`🟢 [INGESTOR] Binance WebSocket connected: ${validWsUrl}`);
+          this.reconnectAttempts = 0;
+          triggerStateChange('CONNECTED');
+        });
 
-    this.ws.on('message', (data) => {
-      try {
-        const payload = JSON.parse(data);
-        if (payload && payload.k) {
-          const kline = payload.k;
-          const candle = {
-            openTime: kline.t,
-            open: parseFloat(kline.o),
-            high: parseFloat(kline.h),
-            low: parseFloat(kline.l),
-            close: parseFloat(kline.c),
-            volume: parseFloat(kline.v),
-            closed: kline.x
-          };
-          if (this.onTick) this.onTick(candle);
-          if (kline.x) {
-            this.basePrice = candle.close;
-            console.log(`[INGESTOR] Closed kline received: $${candle.close} (Vol: ${candle.volume})`);
-            onCandleClose(candle);
+        this.ws.on('message', (data) => {
+          try {
+            const payload = safeJsonParse(data);
+            if (payload && payload.k) {
+              const kline = payload.k;
+              const candle = {
+                openTime: kline.t,
+                open: parseFloat(kline.o),
+                high: parseFloat(kline.h),
+                low: parseFloat(kline.l),
+                close: parseFloat(kline.c),
+                volume: parseFloat(kline.v),
+                closed: kline.x
+              };
+              if (this.onTick) this.onTick(candle);
+              if (kline.x) {
+                this.basePrice = candle.close;
+                console.log(`[INGESTOR] Closed kline received: $${candle.close} (Vol: ${candle.volume})`);
+                onCandleClose(candle);
+              }
+            }
+          } catch (e) {
+            console.error('[INGESTOR] WebSocket message parsing failed:', e);
           }
-        }
-      } catch (e) {
-        console.error('[INGESTOR] WebSocket message parsing failed:', e);
-      }
-    });
+        });
 
-    this.ws.on('close', () => {
-      if (!this.ws) return;
-      this.reconnectAttempts++;
-      triggerStateChange('RECONNECTING');
-      console.log(`🔴 [INGESTOR] Binance WebSocket disconnected for ${this.symbol}. Switching to polling...`);
-      this._startPolling(onCandleClose, onStateChange);
-    });
+        this.ws.on('close', () => {
+          if (!this.ws) return;
+          this.reconnectAttempts++;
+          triggerStateChange('RECONNECTING');
+          console.log(`🔴 [INGESTOR] Binance WebSocket disconnected for ${this.symbol}. Switching to polling...`);
+          this._startPolling(onCandleClose, onStateChange);
+        });
 
-    this.ws.on('error', () => {
-      this.reconnectAttempts++;
-      this._startPolling(onCandleClose, onStateChange);
-    });
+        this.ws.on('error', () => {
+          this.reconnectAttempts++;
+          this._startPolling(onCandleClose, onStateChange);
+        });
+      })
+      .catch((err) => {
+        console.error(`[INGESTOR] Invalid WebSocket URL: ${err.message}`);
+        this.reconnectAttempts++;
+        this._startPolling(onCandleClose, onStateChange);
+      });
   }
 
   stop() {

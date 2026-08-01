@@ -1,5 +1,5 @@
 import assert from 'assert';
-import { eventBus } from '../../src/lib/eventBus.js';
+import { eventBus } from '@lyzer/shared/lib/eventBus.js';
 import { CapitalIntelligenceMonitor } from '../../src/intelligence/CapitalIntelligenceMonitor.js';
 import { SystemMetacognitionLayer } from '../../src/engine/sml.js';
 import { FailureModeCartography } from '../../src/engine/fmc.js';

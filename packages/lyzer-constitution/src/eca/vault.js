@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { safeClone } from '../utils/safeJson.js';
 
 export class IrreversibilityVault {
   constructor(quarantineDir = './src/eca/quarantine') {
@@ -20,10 +21,10 @@ export class IrreversibilityVault {
     const snapshot = {
       id: `snapshot_${Date.now()}`,
       timestamp: Date.now(),
-      kernelState: JSON.parse(JSON.stringify(kernelState)),
-      dslState: JSON.parse(JSON.stringify(dslState)),
-      policies: JSON.parse(JSON.stringify(policies)),
-      riskConstraints: JSON.parse(JSON.stringify(riskConstraints))
+      kernelState: safeClone(kernelState),
+      dslState: safeClone(dslState),
+      policies: safeClone(policies),
+      riskConstraints: safeClone(riskConstraints)
     };
     this.history.push(snapshot);
     this.activeState = snapshot;

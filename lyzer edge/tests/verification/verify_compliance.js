@@ -28,12 +28,12 @@ async function runTests() {
 
   // ── TEST 1 & 4: CONFIG VALIDATION (EXIT CODE 2) ──────────────────────────
   try {
-    const configPath = path.join(__dirname, 'src', 'db', 'activeConfig.js');
+    const configPath = path.join(__dirname, '..', '..', '..', 'packages', 'lyzer-shared', 'src', 'db', 'activeConfig.js');
     if (!fs.existsSync(configPath)) {
       throw new Error(`activeConfig.js file is missing at expected location: ${configPath}`);
     }
 
-    const configModule = await import('./src/db/activeConfig.js');
+    const configModule = await import('../../../packages/lyzer-shared/src/db/activeConfig.js');
     const { activeConfig } = configModule;
 
     // FROZEN_CONFIG
@@ -71,7 +71,7 @@ async function runTests() {
   // ── TEST 3: KERNEL DI VALIDATION (EXIT CODE 3) ───────────────────────────
   try {
     console.log('[RUNNING] Test 3: KERNEL_DI...');
-    const kernelModule = await import('./src/engine/kernel.js');
+    const kernelModule = await import('../../src/engine/kernel.js');
     const { TruthKernel } = kernelModule;
 
     const defaultKernel = new TruthKernel();
@@ -80,7 +80,7 @@ async function runTests() {
     const customKernel = new TruthKernel({ masterSwitchThreshold: 75 });
     assert.strictEqual(customKernel.masterSwitchThreshold, 75, 'TruthKernel failed to load injected threshold');
 
-    const kernelPath = path.join(__dirname, 'src', 'engine', 'kernel.js');
+    const kernelPath = path.join(__dirname, '..', '..', 'src', 'engine', 'kernel.js');
     const kernelContent = fs.readFileSync(kernelPath, 'utf8');
     assert.strictEqual(kernelContent.includes('activeConfig.js'), false, 'TruthKernel must not import activeConfig.js directly');
     console.log('  [PASS] KERNEL_DI: TruthKernel conforms to clean constructor Dependency Injection.\n');
@@ -94,7 +94,7 @@ async function runTests() {
   // ── TEST 2 & 5: RUNTIME BLINDNESS & NO LEAKS (EXIT CODE 1) ───────────────
   try {
     console.log('[RUNNING] Test 2: RUNTIME_BLIND...');
-    const srcDir = path.join(__dirname, 'src');
+    const srcDir = path.join(__dirname, '..', '..', 'src');
 
     function stripComments(content) {
       return content
@@ -132,10 +132,10 @@ async function runTests() {
     // NO_SCORE_WEIGHTS
     console.log('[RUNNING] Test 5: NO_SCORE_WEIGHTS...');
     const executionFiles = [
-      'src/engine/kernel.js',
-      'src/engine/sizing.js',
-      'src/engine/signalEngine.js',
-      'src/components/DecisionStream.js'
+      '../../src/engine/kernel.js',
+      '../../src/engine/sizing.js',
+      '../../src/engine/signalEngine.js',
+      '../../src/components/DecisionStream.js'
     ];
 
     const bannedTerms = ['SCORE_WEIGHTS', 'ConfigCandidate', 'tournament', 'fragilityIndex'];
@@ -165,7 +165,7 @@ async function runTests() {
   try {
     console.log('[RUNNING] Test 6: GOVERNANCE_GUARD...');
 
-    const configPath = path.join(__dirname, 'src', 'db', 'activeConfig.js');
+    const configPath = path.join(__dirname, '..', '..', 'src', 'db', 'activeConfig.js');
     const originalConfigContent = fs.readFileSync(configPath, 'utf8');
 
     // Run verify_v02.js and check output

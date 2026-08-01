@@ -3,7 +3,7 @@
  * The central operational hub of the MIC. Routes between Court, Adapters, and the Zombie Engine.
  */
 
-import { verifyToken } from '../eca/permission.js';
+import { verifyToken } from '../../../lyzer-constitution/src/eca/permission.js';
 import { zombieEngine } from './zombieEngine.js';
 
 export class MICGateway {

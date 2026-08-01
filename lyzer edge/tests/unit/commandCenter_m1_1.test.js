@@ -8,7 +8,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { DisposableStack, createDisposable } from '../../src/components/commandCenter/sdk/DisposableStack.js';
 import { WidgetCapabilities, RealityTags, TargetPanes, validateManifest, WidgetError, shallowEquals, isWidgetPlugin } from '../../src/components/commandCenter/sdk/types.js';
 import { CommandCenterRuntime } from '../../src/components/commandCenter/sdk/CommandCenterRuntime.js';
-import { eventBus } from '../../src/lib/eventBus.js';
+import { eventBus } from '../../../packages/lyzer-shared/src/lib/eventBus.js';
 
 describe('Milestone M1.1: DisposableStack Unit Tests', () => {
   it('should execute disposables in LIFO order upon dispose()', () => {

@@ -5,10 +5,10 @@
  */
 
 import assert from 'assert';
-import { court } from './src/eca/court.js';
-import { ledger } from './src/eca/ledger.js';
-import { KillSwitch } from './src/eca/killSwitch.js';
-import { verifyToken } from './src/eca/permission.js';
+import { court } from '../../../packages/lyzer-constitution/src/eca/court.js';
+import { ledger } from '../../../packages/lyzer-constitution/src/eca/ledger.js';
+import { KillSwitch } from '../../../packages/lyzer-constitution/src/eca/killSwitch.js';
+import { verifyToken } from '../../../packages/lyzer-constitution/src/eca/permission.js';
 
 function runConstitutionalTests() {
   console.log('='.repeat(72));

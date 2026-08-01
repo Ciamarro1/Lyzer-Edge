@@ -6,17 +6,24 @@
 
 import crypto from 'crypto';
 
-const DEFAULT_COURT_SECRET = process.env.COURT_SECRET_KEY || 'LYZER_COURT_HMAC_SECRET_KEY_PROD_V1';
+/**
+ * Resolves the Court HMAC secret strictly from the environment.
+ * A hardcoded fallback would make PermissionToken signatures forgeable, so we
+ * throw instead when COURT_SECRET_KEY is absent. Exported so the backend can
+ * fail fast at boot.
+ * @returns {string}
+ */
+export function getCourtSecret() {
+  const s = typeof process !== 'undefined' && process.env ? process.env.COURT_SECRET_KEY : null;
+  if (!s) {
+    if (typeof window !== 'undefined') return 'BROWSER_MOCK_SECRET'; // Frontend doesn't sign tokens
+    throw new Error('COURT_SECRET_KEY env required: PermissionToken HMAC would be forgeable');
+  }
+  return s;
+}
 
 export class PermissionToken {
-  /**
-   * @param {string} action - The requested action (e.g., 'ALLOCATE_CAPITAL', 'MODE_TRANSITION')
-   * @param {boolean} granted - Whether the Court granted the action.
-   * @param {string} reason - The justification (or VETO constraint name) from the Court.
-   * @param {Object} metadata - Contextual data (e.g., size limits, cool-down periods).
-   * @param {string} [secretKey] - Optional override HMAC secret key.
-   */
-  constructor(action, granted, reason, metadata = {}, secretKey = DEFAULT_COURT_SECRET) {
+  constructor(action, granted, reason, metadata = {}, secretKey = getCourtSecret()) {
     this.id = (typeof globalThis.crypto !== 'undefined' && globalThis.crypto.randomUUID) ? globalThis.crypto.randomUUID() : (crypto.randomUUID ? crypto.randomUUID() : `perm_${Date.now()}_${Math.random()}`);
     this.timestamp = Date.now();
     this.action = action;
@@ -24,10 +31,7 @@ export class PermissionToken {
     this.reason = reason;
     this.metadata = metadata;
     
-    // Unforgeable HMAC-SHA256 signature representing Court Authority
     this.signature = this._signToken(secretKey);
-    
-    // The Token must be immutable once issued.
     Object.freeze(this);
   }
 
@@ -36,38 +40,16 @@ export class PermissionToken {
     if (typeof crypto !== 'undefined' && typeof crypto.createHmac === 'function') {
       return crypto.createHmac('sha256', secretKey).update(payload).digest('hex');
     }
-    // Browser fallback with keyed HMAC hashing
-    let h = 0x811c9dc5;
-    const str = `${secretKey}:${payload}`;
-    for (let i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h = (h * 0x01000193) >>> 0;
-    }
-    return h.toString(16).padStart(8, '0');
+    throw new Error('HMAC generation requires Node.js crypto module');
   }
 }
 
-/**
- * Validates the authenticity of a PermissionToken.
- * Ensures the token was not forged by the Execution Layer or third-party actors.
- * @param {PermissionToken} token 
- * @param {string} [secretKey]
- * @returns {boolean}
- */
-export function verifyToken(token, secretKey = DEFAULT_COURT_SECRET) {
+export function verifyToken(token, secretKey = getCourtSecret()) {
   if (!token || !token.id || !token.signature) return false;
   const payload = `${token.id}|${token.action}|${token.granted}|${token.reason}|${token.timestamp}`;
-  let expectedSignature = '';
   if (typeof crypto !== 'undefined' && typeof crypto.createHmac === 'function') {
-    expectedSignature = crypto.createHmac('sha256', secretKey).update(payload).digest('hex');
-  } else {
-    let h = 0x811c9dc5;
-    const str = `${secretKey}:${payload}`;
-    for (let i = 0; i < str.length; i++) {
-      h ^= str.charCodeAt(i);
-      h = (h * 0x01000193) >>> 0;
-    }
-    expectedSignature = h.toString(16).padStart(8, '0');
+    const expectedSignature = crypto.createHmac('sha256', secretKey).update(payload).digest('hex');
+    return token.signature === expectedSignature;
   }
-  return token.signature === expectedSignature;
+  return false;
 }

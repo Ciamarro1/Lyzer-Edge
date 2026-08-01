@@ -87,7 +87,7 @@ export class MicrostructureDampener {
    */
   canCloseTrade(position, currentCandleIndex, currentPrice, currentAtr, kernelResult = {}) {
     // Catastrophic LHDS Veto Override (Always allow emergency exit)
-    if (kernelResult.lhds > 0.8 || kernelResult.reason === 'VETO_REALITY_DIVERGENCE' || kernelResult.reason === 'VETO_ONTOLOGICAL_COLLAPSE') {
+    if (kernelResult.lhds > 0.8 || (kernelResult.reason_codes || []).includes('VETO_REALITY_DIVERGENCE') || kernelResult.reason === 'VETO_ONTOLOGICAL_COLLAPSE') {
       return { canClose: true, reason: 'EMERGENCY_LHDS_VETO_EXIT' };
     }
 

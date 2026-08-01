@@ -4,10 +4,10 @@
  * Performs ablactions, regime stress-testing, and execution drag calculations.
  */
 
-import { EvSignalEngine } from './evSignalRedesign.js';
+import { EvSignalEngine } from '../../../packages/lyzer-shared/src/engine/evSignalRedesign.js';
 import { evaluateExecution, calculateFillProbability } from './executionReality.js';
 import { TruthKernel } from './kernel.js';
-import { computeTradeEV } from './evProfiler.js';
+import { computeTradeEV } from '../../../packages/lyzer-shared/src/engine/evProfiler.js';
 
 export class EvDecompositionLab {
   constructor(candles, opponentCandles, baseConfig = {}) {

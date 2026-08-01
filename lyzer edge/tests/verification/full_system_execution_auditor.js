@@ -12,7 +12,7 @@ import { performance } from 'perf_hooks';
 
 // 1. Core Engines
 import { StreamEngine } from '../../backend/streamEngine.js';
-import { ConstitutionalCourt } from '../../src/eca/court.js';
+import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
 import { TruthKernel } from '../../../packages/lyzer-shared/src/engine/kernel.js';
 import { ResidualizationLayer } from '../../../packages/lyzer-shared/src/engine/residualization.js';
 import { ExecutionTriggerLayer } from '../../../packages/lyzer-shared/src/engine/executionTriggerLayer.js';

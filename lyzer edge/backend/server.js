@@ -9,14 +9,34 @@ import { fileURLToPath } from 'url';
 import { sendTelegramAlert } from './telegram.js';
 import db from './db.js';
 import { ExperimentManager } from './experimentManager.js';
+import { getCourtSecret } from '../../packages/lyzer-constitution/src/eca/permission.js';
+import { sanitizeBodyMiddleware, safeMerge } from './utils/safeJson.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // --- FORCED LIVE TESTNET CONFIGURATION ---
 process.env.ARL_MODE = process.env.ARL_MODE || 'TESTNET';
-process.env.LIVE_TRADING_ENABLED = process.env.LIVE_TRADING_ENABLED || 'true';
+process.env.LIVE_TRADING_ENABLED = process.env.LIVE_TRADING_ENABLED || 'false';
 process.env.MAX_DAILY_CAPITAL = process.env.MAX_DAILY_CAPITAL || '1000';
+
+// LIVE trading is strictly opt-in: emit a loud warning banner when explicitly enabled
+if (process.env.ARL_MODE === 'LIVE') {
+  if (process.env.LIVE_TRADING_ENABLED !== 'true') {
+    console.warn('⚠️  [BOOT] LIVE_TRADING_ENABLED must be exactly "true" for real trades. Disabling live trading.');
+    process.env.LIVE_TRADING_ENABLED = 'false';
+  } else {
+    console.warn('⚠️  [BOOT] WARNING: LIVE_TRADING_ENABLED=true with ARL_MODE=LIVE — REAL ORDERS WILL BE PLACED ON THE EXCHANGE.');
+  }
+}
+
+// COURT_SECRET_KEY is mandatory: without it, PermissionToken HMAC signatures would be forgeable
+try {
+  getCourtSecret();
+} catch (err) {
+  console.error('❌ [BOOT] Fatal: ' + err.message);
+  process.exit(1);
+}
 
 const app = express();
 const server = http.createServer(app);
@@ -33,6 +53,7 @@ experimentManager.initialize().then(() => {
 // Serve static files from the Vite build output (dist)
 app.use(express.static(path.join(__dirname, '../dist')));
 app.use(express.json());
+app.use(sanitizeBodyMiddleware);
 
 import { register } from '../src/observability/index.js';
 
@@ -40,7 +61,7 @@ import { register } from '../src/observability/index.js';
 const authenticateAdmin = (req, res, next) => {
   const adminKey = process.env.ADMIN_API_KEY;
   if (!adminKey) return next();
-  const keyHeader = req.headers['x-admin-key'] || req.query.adminKey || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
+  const keyHeader = req.headers['x-admin-key'] || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
   if (keyHeader === adminKey) return next();
   return res.status(401).json({ error: 'Unauthorized: Invalid or missing Admin API Key' });
 };
@@ -267,6 +288,7 @@ app.post('/api/trades/close', authenticateAdmin, (req, res) => {
       timingOffset: 0
     };
     engine.tradeHistory.push(resolvedTrade);
+    engine.releaseDailyCapital(pos);
     engine.activePosition = null;
 
     // Persist to active experiment in SQLite
@@ -324,12 +346,9 @@ app.get('/api/status', (req, res) => {
   res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
 });
 
-app.get('/api/trades/export', (req, res) => {
+app.get('/api/trades/export', authenticateAdmin, (req, res) => {
   try {
-    const allTrades = engines.flatMap(e => (e.tradeHistory || []).map(t => ({
-      ...t,
-      symbol: e.symbol
-    })));
+    const allTrades = engines.flatMap(e => (e.tradeHistory || []).map(t => safeMerge({}, t, { symbol: e.symbol })));
     res.setHeader('Content-Type', 'application/json');
     res.setHeader('Content-Disposition', `attachment; filename=lyzer_hf_trades_export_${new Date().toISOString().slice(0,10)}.json`);
     res.json({
@@ -342,7 +361,7 @@ app.get('/api/trades/export', (req, res) => {
   }
 });
 
-app.get('/api/test-telegram', async (req, res) => {
+app.get('/api/test-telegram', authenticateAdmin, async (req, res) => {
   try {
     await sendTelegramAlert('🧪 <b>[LYZER TEST] TESTE DE INTEGRAÇÃO</b>\nSua integração com o Telegram está funcionando perfeitamente!');
     res.json({ success: true, message: 'Test alert sent to Telegram!' });
@@ -395,7 +414,18 @@ app.get('/api/extinction/status', (req, res) => {
 
 let clients = [];
 
-wss.on('connection', (ws) => {
+wss.on('connection', (ws, req) => {
+  const adminKey = process.env.ADMIN_API_KEY;
+  if (adminKey) {
+    // Basic auth check via query param for WS
+    const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+    if (url.searchParams.get('key') !== adminKey) {
+      console.log('🔴 Rejected unauthenticated WS connection');
+      ws.close(1008, 'Unauthorized');
+      return;
+    }
+  }
+
   console.log('🟢 Frontend connected to WS');
   clients.push(ws);
 
@@ -465,11 +495,11 @@ app.use((req, res, next) => {
 });
 
 // --- AUTOMATIC BUCKET BACKUP SERVICE ---
-import { exec } from 'child_process';
+import { execFile } from 'child_process';
 const runBackup = () => {
   const scriptPath = path.join(__dirname, '../backup_restore.py');
   console.log('[BACKUP] Triggering database backup to Hugging Face Storage Bucket...');
-  exec(`python3 "${scriptPath}" backup`, (err, stdout, stderr) => {
+  execFile('python3', [scriptPath, 'backup'], (err, stdout, stderr) => {
     if (err) console.error('[BACKUP] Error running backup script:', err.message);
     if (stdout) console.log(stdout.trim());
     if (stderr) console.error(stderr.trim());

@@ -4,7 +4,9 @@ import { fileURLToPath, URL } from 'node:url';
 export default defineConfig({
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@lyzer/shared': fileURLToPath(new URL('../packages/lyzer-shared/src', import.meta.url)),
+      '@lyzer/constitution': fileURLToPath(new URL('../packages/lyzer-constitution/src', import.meta.url))
     }
   }
 });

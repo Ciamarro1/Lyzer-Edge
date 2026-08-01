@@ -2,7 +2,7 @@
  * Sprint 1 Verification — Fund Core Integration Test
  * Tests the full Portfolio Engine → Risk Constitution → Trade Ledger cycle.
  */
-import { PortfolioEngine } from './src/fund/portfolioEngine.js';
+import { PortfolioEngine } from '../../../packages/lyzer-shared/src/fund/portfolioEngine.js';
 
 console.log('╔══════════════════════════════════════════════╗');
 console.log('║  LYZER FUND V1 — Sprint 1 Verification      ║');

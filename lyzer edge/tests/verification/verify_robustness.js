@@ -5,16 +5,16 @@
  */
 
 import fs from 'fs';
-import { getHistoricalCandles } from './src/db/historicalData.js';
-import { SignalEngine } from './src/engine/signalEngine.js';
-import { TruthKernel } from './src/engine/kernel.js';
-import { ConstitutionalCourt } from './src/eca/court.js';
-import { RealityAnchor } from './src/eca/realityAnchor.js';
-import { IrreversibilityVault } from './src/eca/vault.js';
-import { ConstitutionalLedger } from './src/eca/ledger.js';
-import { ProposalBudget } from './src/eca/proposalBudget.js';
-import { SystemMetacognitionLayer } from './src/engine/sml.js';
-import { FailureModeCartography } from './src/engine/fmc.js';
+import { getHistoricalCandles } from '../../../packages/lyzer-shared/src/db/historicalData.js';
+import { SignalEngine } from '../../src/engine/signalEngine.js';
+import { TruthKernel } from '../../src/engine/kernel.js';
+import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
+import { RealityAnchor } from '../../../packages/lyzer-constitution/src/eca/realityAnchor.js';
+import { IrreversibilityVault } from '../../../packages/lyzer-constitution/src/eca/vault.js';
+import { ConstitutionalLedger } from '../../../packages/lyzer-constitution/src/eca/ledger.js';
+import { ProposalBudget } from '../../../packages/lyzer-constitution/src/eca/proposalBudget.js';
+import { SystemMetacognitionLayer } from '../../src/engine/sml.js';
+import { FailureModeCartography } from '../../src/engine/fmc.js';
 
 // Seeded random number generator for reproducibility
 function seedRandom(seed) {

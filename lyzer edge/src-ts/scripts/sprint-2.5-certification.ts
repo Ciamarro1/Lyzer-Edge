@@ -2,7 +2,7 @@ import assert from 'assert';
 import * as fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { eventBus } from '../../src/lib/eventBus.js';
+import { eventBus } from '@lyzer/shared/lib/eventBus.js';
 import * as ArchiveCML from '../../src/capital/CapitalMigrationLogic.js';
 import * as ArchiveOCE from '../../src/capital/OpportunityCostEngine.js';
 import { SystemThermodynamicsLayer } from '../../src/governance/SystemThermodynamicsLayer.js';

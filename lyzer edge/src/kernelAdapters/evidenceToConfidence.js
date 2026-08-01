@@ -7,7 +7,7 @@
  * All input values are expected to be in the range 0‑1 (or null which is
  * treated as 0). The resulting confidence is clamped to the range [0, 1].
  *
- * @param {import('../microstructure/contracts').EvidencePayload} payload
+ * @param {import('@lyzer/shared/microstructure/contracts').EvidencePayload} payload
  * @returns {{ confidence: number, confidence_components: { hit_rate: number, persistence: number, survival: number, decay_penalty: number } }}
  */
 export function evidenceToConfidence(payload) {

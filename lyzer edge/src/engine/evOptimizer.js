@@ -3,7 +3,7 @@
  * Optimization engine that maximizes robust EV across regimes and assets.
  */
 
-import { computeTradeEV } from "./evProfiler.js";
+import { computeTradeEV } from "../../../packages/lyzer-shared/src/engine/evProfiler.js";
 
 /* =========================================================
    CONFIG SEARCH SPACE

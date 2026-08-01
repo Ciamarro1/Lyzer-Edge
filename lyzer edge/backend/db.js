@@ -2,6 +2,8 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
 import { recordSqliteWrite } from '../src/observability/index.js';
+import { safeJsonParse } from './utils/safeJson.js';
+import { runMigrations, runTTLCleanup } from './migrations.js';
 
 // Use /tmp/data which is always writable in containerized environments
 const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
@@ -39,191 +41,101 @@ export class CausalMemoryDB {
             this.db.run(`PRAGMA cache_size = -64000;`); // 64MB Page Cache
             this.db.run(`PRAGMA mmap_size = 30000000000;`); // Memory Mapped I/O
             this.db.run(`PRAGMA wal_autocheckpoint = 1000;`);
+        });
 
-            // Create the candles table with indexed symbol, timeframe, and timestamp for fast lookups
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS candles (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    symbol TEXT NOT NULL,
-                    timeframe TEXT NOT NULL,
-                    timestamp INTEGER NOT NULL,
-                    open REAL NOT NULL,
-                    high REAL NOT NULL,
-                    low REAL NOT NULL,
-                    close REAL NOT NULL,
-                    volume REAL NOT NULL,
-                    close_time INTEGER NOT NULL
-                )
-            `);
+        this.migrationsPromise = runMigrations(this).catch(err => {
+            console.error('[DB] Schema migration failed:', err);
+        });
+    }
 
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_ts ON candles (symbol, timeframe, timestamp)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_symbol_tf_close ON candles (symbol, timeframe, close_time)`);
+    runTTLCleanup(options = {}) {
+        return runTTLCleanup(this, options);
+    }
 
-            // Create causal_events_log table (ADR-007 / ADR-008)
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS causal_events_log (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    event_id TEXT NOT NULL UNIQUE,
-                    timestamp INTEGER NOT NULL,
-                    event_type TEXT NOT NULL,
-                    source TEXT NOT NULL,
-                    causation_id TEXT,
-                    correlation_id TEXT NOT NULL,
-                    intent_id TEXT,
-                    parent_event TEXT,
-                    version TEXT NOT NULL DEFAULT '1.0.0',
-                    hash_prev TEXT NOT NULL,
-                    epistemic_regime TEXT NOT NULL,
-                    payload TEXT NOT NULL,
-                    context TEXT NOT NULL,
-                    hash TEXT NOT NULL
-                )
-            `);
+    startPeriodicTTLCleanup(intervalMs = 6 * 60 * 60 * 1000) {
+        if (this._ttlTimer) clearInterval(this._ttlTimer);
+        this._ttlTimer = setInterval(() => {
+            this.runTTLCleanup().catch(err => {
+                console.error('[DB] Periodic TTL Cleanup error:', err);
+            });
+        }, intervalMs);
+        if (typeof this._ttlTimer.unref === 'function') {
+            this._ttlTimer.unref();
+        }
+        return this._ttlTimer;
+    }
 
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_ts ON causal_events_log (timestamp)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_causal_correlation ON causal_events_log (correlation_id)`);
+    insertCourtLedgerEntry(entry) {
+        return new Promise((resolve, reject) => {
+            const sql = `
+                INSERT INTO court_ledger
+                (id, timestamp, action, verdict, reason, token_id, request_json, payload_json, state_json, granted, near_miss_type, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            `;
+            const now = Date.now();
+            const id = entry.id || entry.tokenId || entry.token_id || `CL-${now}-${Math.random().toString(36).substring(2, 7)}`;
+            const timestamp = entry.timestamp || now;
+            const action = entry.action || entry.verdict || null;
+            const verdict = entry.verdict || (entry.granted ? 'GRANT' : 'VETO');
+            const reason = entry.reason || null;
+            const tokenId = entry.tokenId || entry.token_id || id;
+            const requestJson = entry.request ? JSON.stringify(entry.request) : (entry.request_json || null);
+            const payloadJson = entry.payload ? JSON.stringify(entry.payload) : (entry.payload_json || null);
+            const stateJson = entry.state ? JSON.stringify(entry.state) : (entry.state_json || null);
+            const granted = entry.granted !== undefined ? (entry.granted ? 1 : 0) : (verdict === 'GRANT' ? 1 : 0);
+            const nearMissType = entry.near_miss_type || entry.nearMissType || null;
+            const createdAt = entry.created_at || now;
 
-            // Create semantic_memory table (ADR-012)
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS semantic_memory (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    pattern_id TEXT NOT NULL UNIQUE,
-                    pattern_type TEXT NOT NULL,
-                    conditions_json TEXT NOT NULL,
-                    observations_count INTEGER NOT NULL,
-                    success_rate REAL NOT NULL,
-                    avg_pnl REAL NOT NULL,
-                    confidence_score REAL NOT NULL,
-                    graph_edges_json TEXT NOT NULL,
-                    version TEXT NOT NULL DEFAULT '1.0.0',
-                    created_at INTEGER NOT NULL,
-                    updated_at INTEGER NOT NULL
-                )
-            `);
+            const params = [
+                id, timestamp, action, verdict, reason, tokenId, requestJson, payloadJson, stateJson, granted, nearMissType, createdAt
+            ];
 
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_semantic_pattern ON semantic_memory (pattern_id)`);
+            this.db.serialize(() => {
+                this.db.run(sql, params, (err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            });
+        });
+    }
 
-            // Create parameter_versions table (ADR-016)
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS parameter_versions (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    module TEXT NOT NULL,
-                    parameter TEXT NOT NULL,
-                    version TEXT NOT NULL UNIQUE,
-                    value_json TEXT NOT NULL,
-                    status TEXT NOT NULL DEFAULT 'ACTIVE',
-                    proposal_id TEXT NOT NULL,
-                    approved_by TEXT NOT NULL DEFAULT 'ECA_COURT',
-                    created_at INTEGER NOT NULL,
-                    rollback_reason TEXT
-                )
-            `);
+    getCourtLedgerEntries(limit = 1000) {
+        return new Promise((resolve, reject) => {
+            const sql = `SELECT * FROM court_ledger ORDER BY timestamp ASC LIMIT ?`;
+            this.db.all(sql, [limit], (err, rows) => {
+                if (err) reject(err);
+                else resolve((rows || []).map(r => ({
+                    ...r,
+                    request: r.request_json ? safeJsonParse(r.request_json) : (r.payload_json ? safeJsonParse(r.payload_json) : null),
+                    payload: r.payload_json ? safeJsonParse(r.payload_json) : null,
+                    state: r.state_json ? safeJsonParse(r.state_json) : null,
+                    granted: Boolean(r.granted)
+                })));
+            });
+        });
+    }
 
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_param_ver ON parameter_versions (module, parameter, status)`);
-
-            // Create evolution_ledger table (ADR-019)
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS evolution_ledger (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    ledger_id TEXT NOT NULL UNIQUE,
-                    event_type TEXT NOT NULL,
-                    module TEXT NOT NULL,
-                    parameter TEXT NOT NULL,
-                    from_version TEXT,
-                    to_version TEXT,
-                    from_value_json TEXT,
-                    to_value_json TEXT,
-                    acs_score REAL,
-                    ars_score REAL,
-                    regime_stability_json TEXT,
-                    impact_analysis_json TEXT,
-                    reason TEXT NOT NULL,
-                    proposal_id TEXT,
-                    decided_by TEXT NOT NULL DEFAULT 'ECA_COURT',
-                    observed_result_json TEXT,
-                    created_at INTEGER NOT NULL
-                )
-            `);
-
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_module ON evolution_ledger (module, parameter)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_evo_type ON evolution_ledger (event_type)`);
-
-            // ── Quant Research Lab: Experiment Registry (Zero Entropy) ──
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS experiments (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    experiment_id TEXT NOT NULL UNIQUE,
-                    display_name TEXT,
-                    status TEXT NOT NULL DEFAULT 'ACTIVE',
-                    strategy_hash TEXT NOT NULL,
-                    config_snapshot_json TEXT NOT NULL,
-                    model_snapshot_json TEXT,
-                    champion_flag INTEGER NOT NULL DEFAULT 0,
-                    created_at INTEGER NOT NULL,
-                    frozen_at INTEGER,
-                    frozen_by TEXT,
-                    notes TEXT,
-                    parent_experiment_id TEXT
-                )
-            `);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_status ON experiments (status)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_champion ON experiments (champion_flag)`);
-
-            // ── Quant Research Lab: Experiment Trades (immutable, append-only) ──
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS experiment_trades (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    trade_id TEXT NOT NULL,
-                    experiment_id TEXT NOT NULL,
-                    symbol TEXT NOT NULL,
-                    direction TEXT NOT NULL,
-                    entry_price REAL NOT NULL,
-                    exit_price REAL,
-                    stop_loss REAL,
-                    take_profit REAL,
-                    quantity REAL,
-                    pnl REAL,
-                    pnl_pct REAL,
-                    status TEXT NOT NULL DEFAULT 'open',
-                    signal_json TEXT,
-                    regime TEXT,
-                    governance_decision TEXT,
-                    reason_codes_json TEXT,
-                    ev_json TEXT,
-                    entry_timestamp INTEGER NOT NULL,
-                    exit_timestamp INTEGER,
-                    created_at INTEGER NOT NULL
-                )
-            `);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_exp ON experiment_trades (experiment_id)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_symbol ON experiment_trades (experiment_id, symbol)`);
-            this.db.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_status ON experiment_trades (experiment_id, status)`);
-
-            // ── Quant Research Lab: Experiment Snapshots (frozen metrics) ──
-            this.db.run(`
-                CREATE TABLE IF NOT EXISTS experiment_snapshots (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    experiment_id TEXT NOT NULL UNIQUE,
-                    total_trades INTEGER NOT NULL DEFAULT 0,
-                    winning_trades INTEGER NOT NULL DEFAULT 0,
-                    losing_trades INTEGER NOT NULL DEFAULT 0,
-                    win_rate REAL NOT NULL DEFAULT 0,
-                    profit_factor REAL NOT NULL DEFAULT 0,
-                    total_pnl REAL NOT NULL DEFAULT 0,
-                    total_pnl_pct REAL NOT NULL DEFAULT 0,
-                    max_drawdown REAL NOT NULL DEFAULT 0,
-                    max_drawdown_pct REAL NOT NULL DEFAULT 0,
-                    sharpe_ratio REAL NOT NULL DEFAULT 0,
-                    avg_trade_pnl REAL NOT NULL DEFAULT 0,
-                    best_trade_pnl REAL NOT NULL DEFAULT 0,
-                    worst_trade_pnl REAL NOT NULL DEFAULT 0,
-                    avg_holding_time_ms INTEGER NOT NULL DEFAULT 0,
-                    equity_curve_json TEXT,
-                    drawdown_curve_json TEXT,
-                    monthly_returns_json TEXT,
-                    snapshot_timestamp INTEGER NOT NULL
-                )
-            `);
+    async close() {
+        if (this._ttlTimer) {
+            clearInterval(this._ttlTimer);
+            this._ttlTimer = null;
+        }
+        if (this.migrationsPromise) {
+            try {
+                await this.migrationsPromise;
+            } catch (e) {
+                // Ignore migration errors during database close
+            }
+        }
+        return new Promise((resolve, reject) => {
+            if (this.db) {
+                this.db.close((err) => {
+                    if (err) reject(err);
+                    else resolve();
+                });
+            } else {
+                resolve();
+            }
         });
     }
 
@@ -260,7 +172,7 @@ export class CausalMemoryDB {
             const sql = `SELECT * FROM parameter_versions WHERE module = ? AND parameter = ? AND status = 'ACTIVE' ORDER BY id DESC LIMIT 1`;
             this.db.get(sql, [moduleName, parameterName], (err, row) => {
                 if (err) reject(err);
-                else resolve(row ? { ...row, value: JSON.parse(row.value_json) } : null);
+                else resolve(row ? { ...row, value: safeJsonParse(row.value_json) } : null);
             });
         });
     }
@@ -346,11 +258,11 @@ export class CausalMemoryDB {
     _parseEvolutionRow(row) {
         return {
             ...row,
-            from_value: row.from_value_json ? JSON.parse(row.from_value_json) : null,
-            to_value: row.to_value_json ? JSON.parse(row.to_value_json) : null,
-            regime_stability: row.regime_stability_json ? JSON.parse(row.regime_stability_json) : null,
-            impact_analysis: row.impact_analysis_json ? JSON.parse(row.impact_analysis_json) : null,
-            observed_result: row.observed_result_json ? JSON.parse(row.observed_result_json) : null
+            from_value: row.from_value_json ? safeJsonParse(row.from_value_json) : null,
+            to_value: row.to_value_json ? safeJsonParse(row.to_value_json) : null,
+            regime_stability: row.regime_stability_json ? safeJsonParse(row.regime_stability_json) : null,
+            impact_analysis: row.impact_analysis_json ? safeJsonParse(row.impact_analysis_json) : null,
+            observed_result: row.observed_result_json ? safeJsonParse(row.observed_result_json) : null
         };
     }
 
@@ -400,8 +312,8 @@ export class CausalMemoryDB {
                 if (err) reject(err);
                 else resolve(rows.map(r => ({
                     ...r,
-                    conditions: JSON.parse(r.conditions_json),
-                    graph_edges: JSON.parse(r.graph_edges_json)
+                    conditions: safeJsonParse(r.conditions_json),
+                    graph_edges: safeJsonParse(r.graph_edges_json)
                 })));
             });
         });
@@ -409,7 +321,9 @@ export class CausalMemoryDB {
 
     walCheckpoint(mode = 'PASSIVE') {
         return new Promise((resolve, reject) => {
-            this.db.run(`PRAGMA wal_checkpoint(${mode});`, (err) => {
+            const validModes = ['PASSIVE', 'FULL', 'RESTART', 'TRUNCATE'];
+            const safeMode = validModes.includes(mode?.toUpperCase()) ? mode.toUpperCase() : 'PASSIVE';
+            this.db.run(`PRAGMA wal_checkpoint(${safeMode});`, (err) => {
                 if (err) reject(err);
                 else resolve();
             });
@@ -473,8 +387,8 @@ export class CausalMemoryDB {
                 if (err) reject(err);
                 else resolve(rows.map(r => ({
                     ...r,
-                    payload: JSON.parse(r.payload),
-                    context: JSON.parse(r.context)
+                    payload: safeJsonParse(r.payload),
+                    context: safeJsonParse(r.context)
                 })));
             });
         });
@@ -487,8 +401,8 @@ export class CausalMemoryDB {
                 if (err) reject(err);
                 else resolve(rows.map(r => ({
                     ...r,
-                    payload: JSON.parse(r.payload),
-                    context: JSON.parse(r.context)
+                    payload: safeJsonParse(r.payload),
+                    context: safeJsonParse(r.context)
                 })));
             });
         });
@@ -706,8 +620,9 @@ export class CausalMemoryDB {
                 (experiment_id, total_trades, winning_trades, losing_trades, win_rate, profit_factor,
                  total_pnl, total_pnl_pct, max_drawdown, max_drawdown_pct, sharpe_ratio,
                  avg_trade_pnl, best_trade_pnl, worst_trade_pnl, avg_holding_time_ms,
-                 equity_curve_json, drawdown_curve_json, monthly_returns_json, snapshot_timestamp)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                 equity_curve_json, drawdown_curve_json, monthly_returns_json, snapshot_timestamp,
+                 metrics_json, market_snapshot_json, alpha_score, reason_for_snapshot)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             `;
             this.db.run(sql, [
                 snapshot.experiment_id,
@@ -728,7 +643,11 @@ export class CausalMemoryDB {
                 snapshot.equityCurve ? JSON.stringify(snapshot.equityCurve) : null,
                 snapshot.drawdownCurve ? JSON.stringify(snapshot.drawdownCurve) : null,
                 snapshot.monthlyReturns ? JSON.stringify(snapshot.monthlyReturns) : null,
-                snapshot.snapshot_timestamp || Date.now()
+                snapshot.snapshot_timestamp || Date.now(),
+                snapshot.metrics_json || null,
+                snapshot.market_snapshot_json || null,
+                snapshot.alpha_score || 0,
+                snapshot.reason_for_snapshot || null
             ], (err) => {
                 if (err) reject(err);
                 else resolve();
@@ -743,9 +662,9 @@ export class CausalMemoryDB {
                 if (err) reject(err);
                 else resolve(row ? {
                     ...row,
-                    equityCurve: row.equity_curve_json ? JSON.parse(row.equity_curve_json) : null,
-                    drawdownCurve: row.drawdown_curve_json ? JSON.parse(row.drawdown_curve_json) : null,
-                    monthlyReturns: row.monthly_returns_json ? JSON.parse(row.monthly_returns_json) : null
+                    equityCurve: row.equity_curve_json ? safeJsonParse(row.equity_curve_json) : null,
+                    drawdownCurve: row.drawdown_curve_json ? safeJsonParse(row.drawdown_curve_json) : null,
+                    monthlyReturns: row.monthly_returns_json ? safeJsonParse(row.monthly_returns_json) : null
                 } : null);
             });
         });
@@ -797,5 +716,6 @@ export class CausalMemoryDB {
 }
 
 export const db = new CausalMemoryDB();
+export { runMigrations, runTTLCleanup };
 export default db;
 

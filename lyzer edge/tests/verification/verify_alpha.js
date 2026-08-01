@@ -1,6 +1,6 @@
-import { calcAllStats } from './src/engine/stats.js';
-import { calcEdgeScore } from './src/engine/edgescore.js';
-import { calcOutlierImpact } from './src/engine/outliers.js';
+import { calcAllStats } from '../../src/engine/stats.js';
+import { calcEdgeScore } from '../../src/engine/edgescore.js';
+import { calcOutlierImpact } from '../../src/engine/outliers.js';
 
 // Generate 50 sample trades
 const trades = [];

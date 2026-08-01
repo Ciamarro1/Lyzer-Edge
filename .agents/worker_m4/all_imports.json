@@ -1,0 +1,387 @@
+[
+  {
+    "file": "lyzer edge\\backend\\providers\\v1_fast\\streamEngine.js",
+    "target": "../src/engine/evSignalRedesign.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\providers\\v1_fast\\streamEngine.js",
+    "target": "../src/engine/evProfiler.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\providers\\v2_deep\\streamEngine.js",
+    "target": "../src/engine/evSignalRedesign.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\providers\\v2_deep\\streamEngine.js",
+    "target": "../src/engine/evProfiler.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\streamEngine.js",
+    "target": "../../packages/lyzer-shared/src/engine/evSignalRedesign.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\streamEngine.js",
+    "target": "../../packages/lyzer-shared/src/engine/evProfiler.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\backend\\streamEngine.js",
+    "target": "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\optimize_backtest.js",
+    "target": "../packages/lyzer-shared/src/providers/v3_momentum_rsi.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\run_binance_backtest.js",
+    "target": "../packages/lyzer-shared/src/providers/v3_momentum_rsi.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\components\\commandCenter\\sdk\\CommandCenterRuntime.js",
+    "target": "../../../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\components\\DecisionStream.js",
+    "target": "../db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\components\\TradeForm.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\db\\queries.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\engine\\fmc.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\engine\\sml.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\kernelAdapters\\evidenceToConfidence.js",
+    "target": "../microstructure/contracts",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\laboratory\\adversarialTesting.js",
+    "target": "../db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\lib\\eventBus.js",
+    "target": "./lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src\\router.js",
+    "target": "./lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\cer_certification.ts",
+    "target": "../cer/types",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\cer_certification.ts",
+    "target": "../cer/SchemaCompatibilityGate",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\cer_certification.ts",
+    "target": "../cer/RollupEngine",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\cer_certification.ts",
+    "target": "../cer/FMCObservabilityLayer",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\sprint-2.5-certification.ts",
+    "target": "../../src/lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\sprint-2.6-certification.ts",
+    "target": "../../src/lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\src-ts\\scripts\\sprint-2.7.5-certification.ts",
+    "target": "../../src/lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\e2e_smc\\e2e_suite.test.js",
+    "target": "../../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\unit\\commandCenter_m1_1.test.js",
+    "target": "../../src/lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_compliance.js",
+    "target": "./src/db/activeConfig.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_decomposition.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_mic.js",
+    "target": "./src/mic/gateway.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_mic.js",
+    "target": "./src/mic/zombieEngine.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_mic.js",
+    "target": "./src/mic/adapters/replayAdapter.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_mne.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_robustness.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_signals.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_sil.js",
+    "target": "./src/sil/ontologyDrift.js",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_sil.js",
+    "target": "./src/sil/goalMutation.js",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_sil.js",
+    "target": "./src/sil/meaningAuditor.js",
+    "cat": "constitution"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_stream.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_stream.js",
+    "target": "./src/engine/evProfiler.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_v02.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_v02.js",
+    "target": "./src/db/activeConfig.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_v03.js",
+    "target": "./src/db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "lyzer edge\\tests\\verification\\verify_v03.js",
+    "target": "./src/db/activeConfig.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-constitution\\src\\governance\\SystemThermodynamicsLayer.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./router.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/Settings.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/TradeLog.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/TradeForm.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/TradeDetail.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/MonteCarloView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/EdgeExplorerView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/BehaviorView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/ReplayView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/EvolutionView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/SystemHealthView.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./components/DecisionStream.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\app.js",
+    "target": "./db/activeConfig.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\capital\\CapitalMemoryLayer.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\components\\DecisionStream.js",
+    "target": "../db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\components\\PolicyEditor.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\components\\PolicyEditor.js",
+    "target": "../dsl/compiler.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\components\\TradeForm.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\db\\queries.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\intelligence\\CapitalIntelligenceMonitor.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\intelligence\\CilPreparation.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\intelligence\\MetaInsightLayer.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\kernelAdapters\\evidenceToConfidence.js",
+    "target": "../microstructure/contracts",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\laboratory\\adversarialTesting.js",
+    "target": "../db/historicalData.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\lib\\eventBus.js",
+    "target": "./lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\research\\CapitalOpportunitySurface.ts",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\research\\replayEngine.js",
+    "target": "../providers/v3_momentum_rsi.js",
+    "cat": "shared"
+  },
+  {
+    "file": "packages\\lyzer-shared\\src\\router.js",
+    "target": "./lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "_archive\\engine\\fmc.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  },
+  {
+    "file": "_archive\\engine\\sml.js",
+    "target": "../lib/eventBus.js",
+    "cat": "shared"
+  }
+]

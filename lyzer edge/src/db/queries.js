@@ -8,7 +8,7 @@ import {
   TRADE_STATUS,
   TRADE_RESULT,
 } from './database.js';
-import { eventBus } from '../lib/eventBus.js';
+import { eventBus } from '@lyzer/shared/lib/eventBus.js';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 

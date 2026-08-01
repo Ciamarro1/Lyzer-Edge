@@ -8,7 +8,14 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
-    "types": ["node"]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@lyzer/shared/*": ["../packages/lyzer-shared/src/*"],
+      "@lyzer/shared": ["../packages/lyzer-shared/src/index.js"],
+      "@lyzer/constitution/*": ["../packages/lyzer-constitution/src/*"],
+      "@lyzer/constitution": ["../packages/lyzer-constitution/src/index.js"]
+    }
   },
   "include": ["src/**/*", "src-ts/**/*"]
 }

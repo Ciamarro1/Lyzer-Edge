@@ -9,6 +9,7 @@ import { computeTradeEV } from "../../packages/lyzer-shared/src/engine/evProfile
 import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
 import { LiveDataIngestor } from "./liveDataIngestor.js";
 import { ExchangeExecution } from "./exchangeExecution.js";
+import { safeMerge } from "./utils/safeJson.js";
 
 import { RealityGapMonitor } from "./realityGapMonitor.js";
 import { TruthKernel } from "../../packages/lyzer-shared/src/engine/kernel.js";
@@ -31,6 +32,7 @@ import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
 import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation } from "../src/observability/index.js";
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
+import { DynamicSizing } from "../src/engine/sizing.js";
 
 const signalEngine = new EvSignalEngine();
 const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
@@ -72,10 +74,10 @@ export class StreamEngine extends EventEmitter {
     this.candles = [];
     this.mtfCandles = { '1m': [], '5m': [], '15m': [], '1h': [], '4h': [], '1d': [] };
     this.setupMtfAliases();
-    this.v1 = new LiquidityReconstructionEngine();
-    this.v2 = new StructuralBoundaryEngine();
-    this.v3 = new MomentumRsiEngine();
-    this.v4 = new InstitutionalMarketCausalityEngine();
+    this.v1 = this.disabledProviders.has('v1') ? null : new LiquidityReconstructionEngine();
+    this.v2 = this.disabledProviders.has('v2') ? null : new StructuralBoundaryEngine();
+    this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine();
+    this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -87,6 +89,7 @@ export class StreamEngine extends EventEmitter {
     this.divergenceDetector = new DivergenceDetector();
     this.dualMonitor = new DualRealityMonitor();
     this.ui = new SpectrogramUI();
+    this.dynamicSizing = new DynamicSizing();
     
     if (shadowTradingEnabled) {
       this.realityGapMonitor = new RealityGapMonitor(this.symbol);
@@ -455,7 +458,7 @@ export class StreamEngine extends EventEmitter {
       };
 
       const ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
-      const tradeWithEv = { ...resolvedTrade, ev };
+      const tradeWithEv = safeMerge({}, resolvedTrade, { ev });
       this.tradeHistory.push(tradeWithEv);
 
       this.ui.logEvent(`⚡ [TICK GUARD] Position CLOSED via ${exitReason} for ${this.symbol}. Exit: ${exitPrice}, PnL: ${(rawPnl * 100).toFixed(2)}%`);
@@ -486,10 +489,12 @@ export class StreamEngine extends EventEmitter {
     const processStartTime = performance.now();
 
     // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI vs IMCE V4)
-    const v1Narrative = this.v1.reconstruct(this.mtfCandles);
-    const v2Narrative = this.v2.reconstruct(this.mtfCandles);
-    const v3Narrative = this.v3.reconstruct(this.mtfCandles);
-    const v4Narrative = this.v4.reconstruct(this.mtfCandles);
+    //    Disabled providers skip reconstruction entirely — downstream is null-safe.
+    const defaultNarrative = { signal: 'flat', confidence: 0, narrative: null, source: null, causalAnswers: null, explanationText: null, tradeDna: null };
+    const v1Narrative = this.disabledProviders.has('v1') ? defaultNarrative : this.v1.reconstruct(this.mtfCandles);
+    const v2Narrative = this.disabledProviders.has('v2') ? defaultNarrative : this.v2.reconstruct(this.mtfCandles);
+    const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(this.mtfCandles);
+    const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -623,12 +628,12 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (!kernelResult.eef || kernelResult.epistemicAuthority === 'VETO') {
+        } else if (!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') {
           const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
           if (dampenerClose.canClose) {
             closed = true;
             exitPrice = candle.close;
-            exitReason = `KERNEL_VETO_${kernelResult.reason || 'REJECTED'}`;
+            exitReason = `KERNEL_VETO_${(kernelResult.reason_codes && kernelResult.reason_codes[0]) || 'REJECTED'}`;
           }
         }
       } else {
@@ -640,12 +645,12 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (!kernelResult.eef || kernelResult.epistemicAuthority === 'VETO') {
+        } else if (!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') {
           const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
           if (dampenerClose.canClose) {
             closed = true;
             exitPrice = candle.close;
-            exitReason = `KERNEL_VETO_${kernelResult.reason || 'REJECTED'}`;
+            exitReason = `KERNEL_VETO_${(kernelResult.reason_codes && kernelResult.reason_codes[0]) || 'REJECTED'}`;
           }
         }
       }
@@ -676,7 +681,7 @@ export class StreamEngine extends EventEmitter {
         };
 
         ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
-        const tradeWithEv = { ...resolvedTrade, ev };
+        const tradeWithEv = safeMerge({}, resolvedTrade, { ev });
         this.tradeHistory.push(tradeWithEv);
         closedTradePayload = tradeWithEv;
 
@@ -707,6 +712,7 @@ export class StreamEngine extends EventEmitter {
         }
 
         this.dampener.recordTradeExit(this.symbol, this.candles.length);
+        this.releaseDailyCapital(this.activePosition);
         this.activePosition = null;
         this.emit('state_changed');
       }
@@ -744,13 +750,11 @@ export class StreamEngine extends EventEmitter {
         // Calculate dynamic quantity
         const confidence = baseSignal.confidence || 0.5;
         const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
-        const baseQty = 0.001;
         const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
-        const confMultiplier = confidence > 1 ? confidence / 100 : confidence;
-        const divMultiplier = Math.max(0, Math.min(1, diversity));
-        let quantity = baseQty * (1 - stress) * divMultiplier * confMultiplier;
-        quantity = Math.max(0.0001, Math.min(baseQty, quantity));
-        quantity = parseFloat(quantity.toFixed(5));
+        const allocationScore = (confidence > 1 ? confidence : confidence * 100) * (1 - stress);
+        const capacityScore = Math.max(0, Math.min(100, diversity * 100));
+        const csi = 1.0 - stress;
+        const coc = 1.0;
 
         // Institutional Risk/Reward (min 1.2% ATR buffer, 1:2 R:R)
         let microAtr = 0;
@@ -779,6 +783,12 @@ export class StreamEngine extends EventEmitter {
 
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
         const takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
+
+        // Apply sizing logic using DynamicSizing
+        const accountBalance = this.maxDailyCapital || 1000;
+        const sizingRec = this.dynamicSizing.getDynamicSize(accountBalance, entryPrice, stopLoss, allocationScore, capacityScore, csi, coc);
+        let quantity = sizingRec.positionSizeUnits;
+        quantity = Math.max(0.0001, parseFloat(quantity.toFixed(5)));
 
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
 
@@ -870,13 +880,12 @@ export class StreamEngine extends EventEmitter {
           source: v3Narrative.source
         }
       },
-      kernel: {
-        ...kernelResult,
+      kernel: safeMerge({}, kernelResult, {
         v1_narrative: v1Narrative.narrative,
         v2_narrative: v2Narrative.narrative,
         scale_divergence_score: sds,
         csrl_invariants: invariants
-      },
+      }),
       ev: ev ? {
         signalEV: ev.breakdown.signalEV,
         timingEV: ev.breakdown.timingEV,
@@ -933,7 +942,7 @@ export class StreamEngine extends EventEmitter {
       }
 
       this.ui.logEvent(`Executing ${simulatedTrade.direction} order. Target: ${this.mode}`);
-      this.handleExecution(simulatedTrade.direction, candle, this.activePosition.quantity);
+      await this.handleExecution(simulatedTrade.direction, candle, this.activePosition.quantity);
     }
   }
 
@@ -952,6 +961,11 @@ export class StreamEngine extends EventEmitter {
     } catch (e) {
       console.error('[STREAM] Order placement failed:', e.message);
     }
+  }
+
+  releaseDailyCapital(position) {
+    const released = (position.entryPrice || 0) * (position.quantity || 0);
+    this.dailyCapitalUsed = Math.max(0, this.dailyCapitalUsed - released);
   }
 
   stop() {

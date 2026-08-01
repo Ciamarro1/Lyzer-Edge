@@ -8,7 +8,7 @@
 
 import { runtimeAdapter } from '../../../services/dashboard/dashboardRuntimeAdapter.js';
 import { securityGuard } from '../../../services/dashboard/dashboardSecurityGuard.js';
-import { eventBus } from '../../../lib/eventBus.js';
+import { eventBus } from '@lyzer/shared/lib/eventBus.js';
 import { DisposableStack, createDisposable } from './DisposableStack.js';
 import { WidgetCapabilities, WidgetError, validateManifest, shallowEquals, freezePayload } from './types.js';
 import { performanceMonitor } from './observability/PerformanceMonitor.js';

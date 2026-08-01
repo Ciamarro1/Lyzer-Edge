@@ -1,5 +1,5 @@
-import { getHistoricalCandles } from './src/db/historicalData.js';
-import { SignalEngine } from './src/engine/signalEngine.js';
+import { getHistoricalCandles } from '../../../packages/lyzer-shared/src/db/historicalData.js';
+import { SignalEngine } from '../../src/engine/signalEngine.js';
 
 console.log("=============================================");
 console.log("         VERIFICATION SYSTEM STARTING        ");

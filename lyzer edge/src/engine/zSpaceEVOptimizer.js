@@ -4,7 +4,7 @@
  * Maps continuous latent state approximations (Z_t) to ex-post trade performance bins.
  */
 
-import { EVFeatureCausalEngine } from './evFeatureCausalEngine.js';
+import { EVFeatureCausalEngine } from '../../../packages/lyzer-shared/src/engine/evFeatureCausalEngine.js';
 
 export class ZSpaceEVOptimizer {
   constructor(candles, trades, params = {}) {

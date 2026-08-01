@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { safeJsonParse } from './utils/safeJson.js';
 
 const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
 const STATE_FILE = path.join(DATA_DIR, 'engine_state.json');
@@ -27,7 +28,7 @@ export function loadEngineState(engines) {
       return;
     }
     const raw = fs.readFileSync(STATE_FILE, 'utf-8');
-    const state = JSON.parse(raw);
+    const state = safeJsonParse(raw, {});
     for (const engine of engines) {
       if (state[engine.symbol]) {
         const saved = state[engine.symbol];

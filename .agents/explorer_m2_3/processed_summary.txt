@@ -1,0 +1,243 @@
+Total occurrences found: 134
+
+--- SUMMARY BY FILE ---
+
+[deploy-experiments.ps1] (8 matches) Patterns: url_literal_http, child_process_curl
+  L31 [url_literal_http]: $apiBase = "https://huggingface.co/api"
+  L39 [child_process_curl]: $response = curl.exe -s -X $method $url `
+  L44 [child_process_curl]: $response = curl.exe -s -X $method $url `
+  L56 [child_process_curl]: $testResp = curl.exe -s -o nul -w "%{http_code}" -H "Authorization: Bearer $Token" "$apiBase/spaces?author=$Username&limit=1"
+  L60 [url_literal_http]: Write-Host "  Token rejeitado (HTTP $testResp). Gere um novo token em https://huggingface.co/settings/tokens" -ForegroundColor Red
+  L122 [url_literal_http]: $remoteUrl = "https://${Username}:${Token}@huggingface.co/spaces/${spaceId}"
+  L145 [url_literal_http]: Write-Host "  git remote add hf-$($exp.Name) https://${Username}:TOKEN@huggingface.co/spaces/${spaceId}"
+  L153 [url_literal_http]: Write-Host "  https://huggingface.co/spaces/$Username/$($exp.Name)  [$($exp.Desc)]"
+
+[git-push-setup.ps1] (3 matches) Patterns: url_literal_http
+  L8 [url_literal_http]: [string]$HFSpaceUrl = "https://huggingface.co/spaces/jonatanciamarro/lyzer-edge"
+  L22 [url_literal_http]: $ghUrl = "https://${GHToken}@github.com/Ciamarro1/Lyzer-Edge.git"
+  L38 [url_literal_http]: $hfUrl = "https://jonatanciamarro:${HFToken}@huggingface.co/spaces/jonatanciamarro/lyzer-edge"
+
+[knowledge\dashboard\dashboard_metric_contracts.json] (1 matches) Patterns: url_literal_http
+  L2 [url_literal_http]: "$schema": "http://json-schema.org/draft-07/schema#",
+
+[lyzer edge\.agents\scripts\auto_preview.py] (2 matches) Patterns: url_literal_http
+  L88 [url_literal_http]: print(f"   URL: http://localhost:{port}")
+  L120 [url_literal_http]: url = "http://localhost:3000"
+
+[lyzer edge\.agents\scripts\checklist.py] (1 matches) Patterns: url_literal_http
+  L169 [url_literal_http]: python scripts/checklist.py . --url http://localhost:3000  # Include performance
+
+[lyzer edge\.agents\scripts\verify_all.py] (2 matches) Patterns: url_literal_http
+  L269 [url_literal_http]: python scripts/verify_all.py . --url http://localhost:3000
+  L270 [url_literal_http]: python scripts/verify_all.py . --url https://staging.example.com --no-e2e
+
+[lyzer edge\.agents\skills\performance-profiling\scripts\lighthouse_audit.py] (1 matches) Patterns: url_literal_http
+  L6 [url_literal_http]: Usage: python lighthouse_audit.py https://example.com
+
+[lyzer edge\.agents\skills\webapp-testing\scripts\playwright_runner.py] (3 matches) Patterns: url_literal_http
+  L157 [url_literal_http]: "python playwright_runner.py https://example.com",
+  L158 [url_literal_http]: "python playwright_runner.py https://example.com --screenshot",
+  L159 [url_literal_http]: "python playwright_runner.py https://example.com --a11y"
+
+[lyzer edge\.env] (1 matches) Patterns: url_literal_http
+  L4 [url_literal_http]: # Binance Testnet API Keys (https://testnet.binance.vision/)
+
+[lyzer edge\.env.template] (1 matches) Patterns: url_literal_http
+  L4 [url_literal_http]: # Binance Testnet API Keys (https://testnet.binance.vision/)
+
+[lyzer edge\backend\exchangeExecution.js] (2 matches) Patterns: url_literal_http, fetch
+  L13 [url_literal_http]: this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
+  L46 [fetch]: const response = await fetch(url, {
+
+[lyzer edge\backend\liveDataIngestor.js] (11 matches) Patterns: websocket_import, url_literal_http, fetch, ws_literal, websocket_instantiation
+  L7 [websocket_import]: import WebSocket from 'ws';
+  L10 [url_literal_http]: 'https://api.binance.com',
+  L11 [url_literal_http]: 'https://data-api.binance.vision',
+  L12 [url_literal_http]: 'https://api1.binance.com',
+  L13 [url_literal_http]: 'https://api2.binance.com',
+  L14 [url_literal_http]: 'https://api3.binance.com',
+  L15 [url_literal_http]: 'https://api4.binance.com'
+  L60 [fetch]: const res = await fetch(url, { signal: controller.signal });
+  L149 [fetch]: const res = await fetch(url, { signal: controller.signal });
+  L263 [ws_literal]: const wsUrl = `wss://stream.binance.com:9443/ws/${this.symbol.toLowerCase()}@kline_${this.interval}`;
+  L264 [websocket_instantiation]: this.ws = new WebSocket(wsUrl);
+
+[lyzer edge\backend\providers\v1_fast\exchangeExecution.js] (2 matches) Patterns: url_literal_http, fetch
+  L13 [url_literal_http]: this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
+  L46 [fetch]: const response = await fetch(url, {
+
+[lyzer edge\backend\providers\v1_fast\ipc_client.js] (2 matches) Patterns: http_import, http_get_request
+  L1 [http_import]: import http from 'http';
+  L17 [http_get_request]: const req = http.request(options, (res) => {
+
+[lyzer edge\backend\providers\v1_fast\server.js] (3 matches) Patterns: http_import, websocket_import, url_literal_http
+  L2 [http_import]: import http from 'http';
+  L3 [websocket_import]: import { WebSocketServer } from 'ws';
+  L78 [url_literal_http]: console.log(`🔥 Lyzer Backend running on http://localhost:${PORT}`);
+
+[lyzer edge\backend\providers\v2_deep\exchangeExecution.js] (2 matches) Patterns: url_literal_http, fetch
+  L14 [url_literal_http]: this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
+  L61 [fetch]: const response = await fetch(url, {
+
+[lyzer edge\backend\providers\v2_deep\ipc_client.js] (2 matches) Patterns: http_import, http_get_request
+  L1 [http_import]: import http from 'http';
+  L17 [http_get_request]: const req = http.request(options, (res) => {
+
+[lyzer edge\backend\providers\v2_deep\server.js] (3 matches) Patterns: http_import, websocket_import, url_literal_http
+  L2 [http_import]: import http from 'http';
+  L3 [websocket_import]: import { WebSocketServer } from 'ws';
+  L78 [url_literal_http]: console.log(`🔥 Lyzer Backend running on http://localhost:${PORT}`);
+
+[lyzer edge\backend\server.js] (3 matches) Patterns: http_import, websocket_import, url_literal_http
+  L3 [http_import]: import http from 'http';
+  L4 [websocket_import]: import { WebSocketServer } from 'ws';
+  L422 [url_literal_http]: const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
+
+[lyzer edge\backend\sports\sportsDataIngestor.js] (3 matches) Patterns: websocket_import, ws_literal, websocket_instantiation
+  L1 [websocket_import]: import WebSocket from 'ws';
+  L15 [ws_literal]: const wsUrl = `wss://api.odds-api.io/v3/ws?apiKey=${this.apiKey}`;
+  L16 [websocket_instantiation]: this.ws = new WebSocket(wsUrl);
+
+[lyzer edge\backend\telegram.js] (2 matches) Patterns: url_literal_http, fetch
+  L10 [url_literal_http]: const apiBase = process.env.TELEGRAM_API_URL || 'https://api.telegram.org';
+  L21 [fetch]: const res = await fetch(url, {
+
+[lyzer edge\install-deps.ps1] (3 matches) Patterns: url_literal_http
+  L10 [url_literal_http]: $NodeUrl = "https://nodejs.org/dist/v20.11.1/node-v20.11.1-win-x64.zip"
+  L19 [url_literal_http]: $NatsUrl = "https://github.com/nats-io/nats-server/releases/download/v2.10.11/nats-server-v2.10.11-windows-amd64.zip"
+  L29 [url_literal_http]: Invoke-WebRequest -Uri "https://win.rustup.rs/x86_64" -OutFile $RustupExe
+
+[lyzer edge\optimize_backtest.js] (2 matches) Patterns: url_literal_http, fetch
+  L25 [url_literal_http]: const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+  L26 [fetch]: const res = await fetch(url);
+
+[lyzer edge\run-certification.ps1] (2 matches) Patterns: url_literal_http
+  L18 [url_literal_http]: $MinGwUrl = "https://github.com/brechtsanders/winlibs_mingw/releases/download/13.2.0-16.0.6-11.0.1-msvcrt-r1/winlibs-x86_64-posix-seh-gcc-13.2.0-mingw
+  L29 [url_literal_http]: $ProtocUrl = "https://github.com/protocolbuffers/protobuf/releases/download/v25.3/protoc-25.3-win64.zip"
+
+[lyzer edge\run_binance_backtest.js] (2 matches) Patterns: url_literal_http, fetch
+  L25 [url_literal_http]: const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+  L27 [fetch]: const res = await fetch(url);
+
+[lyzer edge\scripts\widget-rules.json] (1 matches) Patterns: url_literal_http
+  L2 [url_literal_http]: "$schema": "http://json-schema.org/draft-07/schema#",
+
+[lyzer edge\scripts\widgetComplianceGate.js] (1 matches) Patterns: url_literal_http
+  L84 [url_literal_http]: location: { href: 'http://localhost/' },
+
+[lyzer edge\src\components\commandCenter\sdk\lacw\plugins\DataConnectorPlatformEngine.js] (1 matches) Patterns: ws_literal
+  L25 [ws_literal]: endpoint: adapterSpec.endpoint || 'wss://stream.binance.com:9443',
+
+[lyzer edge\src\components\commandCenter\sdk\lacw\plugins\PluginSandboxEngine.js] (1 matches) Patterns: url_literal_http
+  L12 [url_literal_http]: this._allowedOrigins = new Set(limits.allowedOrigins || ['https://huggingface.co', 'https://api.binance.com']);
+
+[lyzer edge\src\components\GamifiedCommandCenterView.js] (3 matches) Patterns: url_literal_http
+  L145 [url_literal_http]: link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap';
+  L147 [url_literal_http]: const preconnect1 = document.createElement('link'); preconnect1.rel = 'preconnect'; preconnect1.href = 'https://fonts.googleapis.com'; document.head.a
+  L148 [url_literal_http]: const preconnect2 = document.createElement('link'); preconnect2.rel = 'preconnect'; preconnect2.href = 'https://fonts.gstatic.com'; preconnect2.crossO
+
+[lyzer edge\src\components\LiveTradingView.js] (2 matches) Patterns: fetch
+  L1173 [fetch]: const res = await fetch(`/api/candles/${symbol}`);
+  L1555 [fetch]: <span><button onclick="fetch('/api/trades/wipe',{method:'POST'}).then(()=>location.reload())" style="background:rgba(239,68,68,0.15); border:1px solid
+
+[lyzer edge\src\components\ZSpaceDashboard.js] (1 matches) Patterns: fetch
+  L55 [fetch]: fetch('/api/extinction/trigger', { method: 'POST' })
+
+[lyzer edge\src\db\queries.js] (3 matches) Patterns: fetch
+  L169 [fetch]: await fetch('/api/trades/close', {
+  L210 [fetch]: await fetch('/api/trades/delete', {
+  L817 [fetch]: const res = await fetch('/api/trades/wipe', {
+
+[lyzer edge\src\services\BinanceSeederService.js] (1 matches) Patterns: fetch
+  L24 [fetch]: const response = await fetch(`https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=1d&limit=1000`);
+
+[lyzer edge\src\services\experimentService.js] (8 matches) Patterns: fetch
+  L15 [fetch]: const res = await fetch(`${this._baseUrl}/dashboard`);
+  L29 [fetch]: const res = await fetch(`${this._baseUrl}/active`);
+  L44 [fetch]: const res = await fetch(`${this._baseUrl}/freeze-and-new`, {
+  L66 [fetch]: const res = await fetch(`${this._baseUrl}/promote-champion`, {
+  L89 [fetch]: const res = await fetch(`${this._baseUrl}/ranking?sortBy=${sortBy}&limit=${limit}`);
+  L104 [fetch]: const res = await fetch(`${this._baseUrl}/${id}`);
+  L117 [fetch]: const res = await fetch(`${this._baseUrl}/alpha-discovery`);
+  L134 [fetch]: const res = await fetch(`${this._baseUrl}/update-status`, {
+
+[lyzer edge\src\services\LiveTradeSyncService.js] (1 matches) Patterns: fetch
+  L32 [fetch]: const res = await fetch(`/api/candles/${sym}`);
+
+[lyzer edge\src\services\wsClient.js] (1 matches) Patterns: websocket_instantiation
+  L19 [websocket_instantiation]: this.ws = new WebSocket(wsUrl);
+
+[lyzer edge\src-rust\lyzer-oms\src\main.rs] (2 matches) Patterns: url_literal_http
+  L80 [url_literal_http]: let mut registry_client = IntentRegistryClient::connect("http://[::1]:50052").await?;
+  L153 [url_literal_http]: let mut lag_monitor_client = IntentRegistryClient::connect("http://[::1]:50052").await?;
+
+[lyzer edge\src-ts\bridge\ingestor_to_hub.ts] (2 matches) Patterns: url_literal_http, fetch
+  L3 [url_literal_http]: const HUB_URL = "http://127.0.0.1:8080";
+  L7 [fetch]: const res = await fetch(HUB_URL, {
+
+[lyzer edge\src-ts\scripts\first_blood\1_ingest_binance.ts] (2 matches) Patterns: url_literal_http, fetch
+  L28 [url_literal_http]: const url = `https://api.binance.com/api/v3/klines?symbol=${SYMBOL}&interval=${INTERVAL}&startTime=${startTime}&endTime=${endTime}&limit=${LIMIT}`;
+  L29 [fetch]: const response = await fetch(url);
+
+[lyzer edge\tests\unit\commandCenter\sdk\lacwPluginsSuite.test.js] (1 matches) Patterns: ws_literal
+  L92 [ws_literal]: connectorPlatform.registerConnector('binance_ws', 'MARKET_DATA', { endpoint: 'wss://stream.binance.com' });
+
+[lyzer-workspace\lyzer-core-hub\run_empirical_test.ps1] (2 matches) Patterns: url_literal_http
+  L23 [url_literal_http]: Invoke-RestMethod -Uri "http://127.0.0.1:8080" -Method Post -Body $v1_payload -ContentType "application/json" | Out-Null
+  L35 [url_literal_http]: Invoke-RestMethod -Uri "http://127.0.0.1:8080" -Method Post -Body $v2_payload -ContentType "application/json" | Out-Null
+
+[packages\lyzer-shared\src\app.js] (15 matches) Patterns: url_literal_http
+  L30 [url_literal_http]: dashboard: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stro
+  L32 [url_literal_http]: list: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L34 [url_literal_http]: plus: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L36 [url_literal_http]: chart: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-l
+  L38 [url_literal_http]: dice: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L40 [url_literal_http]: shield: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-
+  L42 [url_literal_http]: grid: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L44 [url_literal_http]: brain: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-l
+  L46 [url_literal_http]: gear: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L48 [url_literal_http]: reports: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke
+  L50 [url_literal_http]: alerts: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-
+  L52 [url_literal_http]: replay: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-
+  L54 [url_literal_http]: activity: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" strok
+  L56 [url_literal_http]: menu: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-li
+  L61 [url_literal_http]: const LOGO_SVG = `<svg class="sidebar-logo-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+
+[packages\lyzer-shared\src\components\ZSpaceDashboard.js] (1 matches) Patterns: fetch
+  L51 [fetch]: fetch('/api/extinction/trigger', { method: 'POST' })
+
+[packages\lyzer-shared\src\research\fetch_historical_ohlcv.js] (2 matches) Patterns: url_literal_http, fetch
+  L11 [url_literal_http]: const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+  L14 [fetch]: const response = await fetch(url);
+
+[packages\lyzer-shared\src\research\liveShadow\orderbook_snapshot_schema.json] (1 matches) Patterns: url_literal_http
+  L2 [url_literal_http]: "$schema": "http://json-schema.org/draft-07/schema#",
+
+[packages\lyzer-shared\src\research\run_adaptive_calibration.js] (2 matches) Patterns: url_literal_http, fetch
+  L16 [url_literal_http]: const url = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1000';
+  L17 [fetch]: const response = await fetch(url);
+
+[packages\lyzer-shared\src\research\run_v4_solo_experiment.js] (2 matches) Patterns: url_literal_http, fetch
+  L10 [url_literal_http]: const url = 'https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=1000';
+  L11 [fetch]: const response = await fetch(url);
+
+[packages\lyzer-shared\src\research\run_walkforward_validation.js] (2 matches) Patterns: url_literal_http, fetch
+  L8 [url_literal_http]: const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+  L10 [fetch]: const response = await fetch(url);
+
+[packages\lyzer-shared\src\services\wsClient.js] (1 matches) Patterns: websocket_instantiation
+  L9 [websocket_instantiation]: this.ws = new WebSocket("ws://localhost:3001");
+
+[src-rust\lyzer-binance-adapter\src\client.rs] (3 matches) Patterns: rust_reqwest, url_literal_http
+  L1 [rust_reqwest]: use reqwest::{Client, header};
+  L10 [rust_reqwest]: NetworkError(#[from] reqwest::Error),
+  L43 [url_literal_http]: base_url: "https://testnet.binancefuture.com".to_string(),
+
+[src-rust\lyzer-oal\src\acquisition\binance_feed.rs] (3 matches) Patterns: rust_reqwest, ws_literal
+  L2 [rust_reqwest]: use reqwest;
+  L31 [ws_literal]: let agg_url = format!("wss://stream.binance.com:9443/ws/{}@aggTrade", sym_lower);
+  L32 [ws_literal]: let dep_url = format!("wss://stream.binance.com:9443/ws/{}@depth@100ms", sym_lower);
+
+[src-rust\lyzer-reality-ws\src\stream.rs] (2 matches) Patterns: ws_literal
+  L16 [ws_literal]: // e.g. "wss://fstream.binance.com/ws/btcusdt@depth/@100ms"
+  L17 [ws_literal]: let ws_url = format!("wss://fstream.binance.com/ws/{}@depth", symbol.to_lowercase());

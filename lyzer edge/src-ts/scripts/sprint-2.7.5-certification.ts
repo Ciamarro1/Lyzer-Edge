@@ -3,7 +3,7 @@ import { CounterfactualEngine, TimelineEvent } from '../../src/intelligence/Coun
 import { MetaInsightLayer } from '../../src/intelligence/MetaInsightLayer.js';
 import { FailureModeCartography } from '../../src/engine/fmc.js';
 import { calculateEDM } from '../../src/intelligence/edm.js';
-import { eventBus } from '../../src/lib/eventBus.js';
+import { eventBus } from '@lyzer/shared/lib/eventBus.js';
 
 async function runCertification() {
   console.log('================================================================================');

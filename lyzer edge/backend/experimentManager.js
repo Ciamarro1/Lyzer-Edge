@@ -138,10 +138,13 @@ export class ExperimentManager {
     const snapshotData = {
       experiment_id: activeExperiment.experiment_id,
       snapshot_time: Date.now(),
+      snapshot_timestamp: Date.now(),
       metrics_json: JSON.stringify(metrics),
       market_snapshot_json: JSON.stringify(marketSnapshot),
       alpha_score: metrics.alphaScore || 0,
-      reason_for_snapshot: reason
+      reason_for_snapshot: reason,
+      // camelCase fields expected by insertExperimentSnapshot (derived from ExperimentMetrics.computeFromTrades)
+      ...metrics
     };
     await this.db.insertExperimentSnapshot(snapshotData);
 
@@ -276,10 +279,13 @@ export class ExperimentManager {
     await this.db.insertExperimentSnapshot({
       experiment_id: experimentId,
       snapshot_time: Date.now(),
+      snapshot_timestamp: Date.now(),
       metrics_json: JSON.stringify(metrics),
       market_snapshot_json: JSON.stringify(marketSnapshot),
       alpha_score: metrics.alphaScore || 0,
-      reason_for_snapshot: 'Legacy import'
+      reason_for_snapshot: 'Legacy import',
+      // camelCase fields expected by insertExperimentSnapshot (derived from ExperimentMetrics.computeFromTrades)
+      ...metrics
     });
 
     return { experiment_id: experimentId, count: trades.length };
