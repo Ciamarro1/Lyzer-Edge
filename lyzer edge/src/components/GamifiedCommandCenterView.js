@@ -29,7 +29,7 @@ export class GamifiedCommandCenterView {
     this._tradeHistory = [];
     this._pendingPlotTrade = null;
     this._notificationTimers = [];
-    this._isMuted = false;
+    this._isMuted = true;
     this._isLeftCollapsed = false;
     this._isRightCollapsed = false;
 
@@ -247,7 +247,7 @@ export class GamifiedCommandCenterView {
             <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
           </div>
           <div style="display: flex; gap: 14px; align-items: center;">
-            <button id="g-mute-btn" class="g-dock-btn">NOTIFICATIONS ON</button>
+            <button id="g-mute-btn" class="g-dock-btn" style="background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);">NOTIFICATIONS MUTED</button>
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
               <span class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; pointer-events: none;" id="g-mode-badge">SIMULATION</span>
               <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
@@ -261,18 +261,18 @@ export class GamifiedCommandCenterView {
         <div id="g-trade-balloon" class="g-trade-balloon"></div>
       </div>
       <div id="g-right" class="g-right">
-        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
-          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
-          <button id="g-right-toggle-btn" style="background: rgba(15, 23, 42, 0.5); border: 1px solid rgba(148, 163, 184, 0.2); color: #94a3b8; border-radius: 4px; padding: 2px 6px; font-size: 9px; font-weight: 700; cursor: pointer; font-family: monospace;" title="Collapse Court">COLLAPSE ▶</button>
-        </div>
-        <div id="g-court-container" style="flex: 1; min-height: 340px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
-        <div class="leaderboard" id="g-leaderboard-panel">
-          <div style="color: rgba(56, 189, 248, 0.5); font-size: 10px; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
-            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.4);"></span>ASSET SIGNAL LEADERBOARD</span>
+        <div class="leaderboard" id="g-leaderboard-panel" style="border-bottom: 1px solid rgba(0, 243, 255, 0.12);">
+          <div style="color: rgba(56, 189, 248, 0.8); font-size: 10px; margin-bottom: 12px; font-weight: 800; display: flex; justify-content: space-between; letter-spacing: 1.2px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6);"></span>ASSET SIGNAL LEADERBOARD</span>
             <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
           </div>
           <div id="g-leaderboard-list"></div>
         </div>
+        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
+          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; font-family: 'JetBrains Mono', monospace;" title="Collapse Court">COLLAPSE ▶</button>
+        </div>
+        <div id="g-court-container" style="flex: 1; min-height: 280px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
       </div>
       <div id="g-dock" class="g-dock"></div>
     `;
@@ -479,27 +479,52 @@ export class GamifiedCommandCenterView {
     balloon.style.borderColor = sideColor;
     balloon.style.boxShadow = `0 25px 60px rgba(0,0,0,0.7), 0 0 35px ${glowColor}, inset 0 1px 1px rgba(255,255,255,0.25)`;
 
-    balloon.innerHTML = `
-      <button class="g-trade-balloon-close" data-action="close">&times;</button>
-      <div style="font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:8px;color:${sideColor};display:flex;align-items:center;justify-content:space-between;">
-        <span>TRADE AUTO-PLOTTED</span>
-        <span style="font-size:9px;background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:10px;color:#f8fafc;">ECA VERIFIED</span>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:5px;font-size:11px;">
-        <div><span style="color:#94a3b8;">Asset:</span> <span style="font-weight:800;color:#f8fafc;">${trade.symbol.replace('USDT', '/USD')}</span></div>
-        <div><span style="color:#94a3b8;">Direction:</span> <span style="font-weight:800;color:${sideColor};">${trade.direction}</span></div>
-        <div><span style="color:#94a3b8;">Entry:</span> <span style="font-weight:800;color:#00f3ff;">$${Number(trade.price).toLocaleString()}</span></div>
-        ${trade.takeProfit ? `<div><span style="color:#94a3b8;">TP:</span> <span style="font-weight:800;color:#00ff9d;">$${Number(trade.takeProfit).toLocaleString()}</span></div>` : ''}
-        ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:800;color:#ff3366;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
-      </div>
-      <div style="margin-top:12px;display:flex;gap:8px;">
-        <button class="g-balloon-dismiss" style="flex:1;background:rgba(255,255,255,0.06);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.2s;">DISMISS</button>
-      </div>`;
+    // Render in COLLAPSED state initially
+    let isExpanded = false;
+
+    const renderCollapsed = () => {
+      balloon.innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;" id="g-balloon-pill">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${sideColor};box-shadow:0 0 8px ${sideColor};"></span>
+            <span style="font-weight:800;color:${sideColor};font-size:11px;letter-spacing:0.5px;">🔔 TRADE SIGNAL: ${trade.symbol.replace('USDT', '/USD')} ${trade.direction}</span>
+          </div>
+          <span style="color:rgba(56,189,248,0.8);font-size:9px;font-weight:700;background:rgba(56,189,248,0.12);padding:2px 8px;border-radius:6px;border:1px solid rgba(56,189,248,0.2);">EXPAND 🔍</span>
+        </div>
+      `;
+      balloon.querySelector('#g-balloon-pill')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        renderExpanded();
+      });
+    };
+
+    const renderExpanded = () => {
+      isExpanded = true;
+      balloon.innerHTML = `
+        <button class="g-trade-balloon-close" data-action="close">&times;</button>
+        <div style="font-size:12px;font-weight:800;letter-spacing:1px;margin-bottom:8px;color:${sideColor};display:flex;align-items:center;justify-content:space-between;">
+          <span>TRADE AUTO-PLOTTED</span>
+          <span style="font-size:9px;background:rgba(255,255,255,0.1);padding:2px 8px;border-radius:10px;color:#f8fafc;">ECA VERIFIED</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:11px;">
+          <div><span style="color:#94a3b8;">Asset:</span> <span style="font-weight:800;color:#f8fafc;">${trade.symbol.replace('USDT', '/USD')}</span></div>
+          <div><span style="color:#94a3b8;">Direction:</span> <span style="font-weight:800;color:${sideColor};">${trade.direction}</span></div>
+          <div><span style="color:#94a3b8;">Entry:</span> <span style="font-weight:800;color:#00f3ff;">$${Number(trade.price).toLocaleString()}</span></div>
+          ${trade.takeProfit ? `<div><span style="color:#94a3b8;">TP:</span> <span style="font-weight:800;color:#00ff9d;">$${Number(trade.takeProfit).toLocaleString()}</span></div>` : ''}
+          ${trade.stopLoss ? `<div><span style="color:#94a3b8;">SL:</span> <span style="font-weight:800;color:#ff3366;">$${Number(trade.stopLoss).toLocaleString()}</span></div>` : ''}
+        </div>
+        <div style="margin-top:12px;display:flex;gap:8px;">
+          <button class="g-balloon-dismiss" style="flex:1;background:rgba(255,255,255,0.06);color:#94a3b8;border:1px solid rgba(255,255,255,0.12);padding:8px 12px;border-radius:8px;font-size:10px;font-family:'JetBrains Mono',monospace;cursor:pointer;transition:all 0.2s;">DISMISS</button>
+        </div>`;
+      const close = () => { balloon.classList.remove('show'); };
+      balloon.querySelector('[data-action="close"]')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+      balloon.querySelector('.g-balloon-dismiss')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    };
+
+    renderCollapsed();
     balloon.classList.add('show');
     const close = () => { balloon.classList.remove('show'); };
-    balloon.querySelector('[data-action="close"]')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-    balloon.querySelector('.g-balloon-dismiss')?.addEventListener('click', (e) => { e.stopPropagation(); close(); });
-    const timer = setTimeout(close, 12000);
+    const timer = setTimeout(close, 15000);
     this._notificationTimers.push(timer);
   }
 

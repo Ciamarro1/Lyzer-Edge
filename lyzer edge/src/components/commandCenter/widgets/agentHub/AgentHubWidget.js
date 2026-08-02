@@ -236,14 +236,14 @@ export class AgentHubWidget {
         this.toggleCollapse();
       });
     }
-    const btns = this._container.querySelectorAll('.agent-card .agent-delegate-btn');
-    btns.forEach((btn, index) => {
-      btn.addEventListener('click', (e) => {
+    const cards = this._container.querySelectorAll('.agent-card');
+    cards.forEach((card, index) => {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', (e) => {
         e.stopPropagation();
         e.preventDefault();
         const model = this._models[index];
-        if (!model) return;
-        this._handleDelegate(model);
+        if (model) this._handleDelegate(model);
       });
     });
   }
@@ -251,29 +251,25 @@ export class AgentHubWidget {
   _handleDelegate(model) {
     const snap = model.getAgentSnapshot();
     if (snap.status === 'EXECUTING') {
-      this._showToast(`${snap.name} is currently executing a mission...`);
+      this._showToast(`⚡ ${snap.name} is currently executing a mission...`);
       return;
     }
 
-    const presets = [
-      'Audit BTC/USD Orderbook Liquidity & TRG',
-      'Scan ETH/USD for Toxic SMC Signatures',
-      'Recalibrate ECA Court Veto Thresholds',
-      'Benchmark UUIDv7 Execution Latency'
-    ];
+    const presetMissions = {
+      ag_research: 'Analyzing SMC Liquidity & Order Block Structures',
+      ag_risk: 'Auditing LHDS Hazard & Vetoing Overexposure',
+      ag_alpha: 'Scanning Order Flow for High-Confidence Alpha Patterns',
+      ag_exec: 'Optimizing Execution Routes & Slippage Bounds',
+      ag_learn: 'Calibrating Multi-Timeframe Strategy Weights'
+    };
 
-    const chosenMission = prompt(
-      `DELEGATE MISSION TO [${snap.name}]\n\nEnter custom objective or choose preset:\n1. ${presets[0]}\n2. ${presets[1]}\n3. ${presets[2]}\n4. ${presets[3]}`,
-      presets[0]
-    );
-
-    if (!chosenMission) return;
+    const chosenMission = presetMissions[snap.id] || `Executing mission for ${snap.purpose}`;
 
     model.updateMission(chosenMission);
     model.transitionLifecycle('EXECUTING');
     this.render();
 
-    this._showToast(`Mission Delegated to ${snap.name}: "${chosenMission}"`);
+    this._showToast(`🤖 Mission Delegated to ${snap.name}: "${chosenMission}"`);
 
     window.dispatchEvent(new CustomEvent('lyzer:agent-mission-delegated', {
       detail: { agentId: snap.id, agentName: snap.name, mission: chosenMission, timestamp: Date.now() }
@@ -284,8 +280,8 @@ export class AgentHubWidget {
       model.updateMetrics({ accuracy: Math.min(0.99, snap.metrics.accuracy + 0.015) });
       model.transitionLifecycle('AVAILABLE');
       this.render();
-      this._showToast(`${snap.name} Completed Mission Successfully!`);
-    }, 4000);
+      this._showToast(`✅ ${snap.name} Completed Mission Successfully!`);
+    }, 2500);
   }
 
   _showToast(msg) {
