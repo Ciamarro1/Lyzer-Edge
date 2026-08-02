@@ -33,6 +33,8 @@ import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegr
 import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation } from "../src/observability/index.js";
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
 import { DynamicSizing } from "../src/engine/sizing.js";
+import { authorizeOrder } from './riskGatewayClient.js';
+import crypto from 'crypto';
 
 const signalEngine = new EvSignalEngine();
 const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
@@ -742,11 +744,40 @@ export class StreamEngine extends EventEmitter {
       }
 
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
-      const governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
-      const rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
+      let governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
+      let rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
+
+      // gRPC Decoupling authorization check (Rust RiskGateway)
+      if (permissionToken.granted) {
+        const correlationId = crypto.randomUUID();
+        const causationId = crypto.randomUUID();
+        const intentId = crypto.randomUUID();
+
+        try {
+          const grpcResult = await authorizeOrder({
+            execution_intent_id: intentId,
+            correlation_id: correlationId,
+            causation_id: causationId,
+            symbol: this.symbol,
+            side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
+            quantity: 0.001
+          });
+
+          if (!grpcResult.approved) {
+            governanceDecision = 'REJECT';
+            rejectionReason = grpcResult.rejection_reason || 'RUST_RISK_GATEWAY_VETO';
+            console.warn(`[gRPC VETO] Rust RiskGateway rejected execution intent ${intentId} for ${this.symbol}. Reason: ${rejectionReason}`);
+          } else {
+            console.log(`[gRPC APPROVED] Rust RiskGateway authorized execution intent ${intentId} for ${this.symbol}`);
+          }
+        } catch (grpcErr) {
+          console.warn(`⚠️ [gRPC Error] RiskGateway authorization check failed: ${grpcErr.message}. Defaulting to local permission token approval.`);
+        }
+      }
+
       recordEcaEvaluation(this.symbol, governanceDecision, rejectionReason);
 
-      if (permissionToken.granted) {
+      if (governanceDecision === 'ALLOW') {
         // Calculate dynamic quantity
         const confidence = baseSignal.confidence || 0.5;
         const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
