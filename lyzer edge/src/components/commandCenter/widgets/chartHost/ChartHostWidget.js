@@ -51,7 +51,7 @@ export class ChartHostWidget {
     this._adapter = new ChartAdapter();
     await this._adapter.createChart(chartHost, { bgColor: 'transparent', textColor: 'rgba(148,163,184,0.5)' });
 
-    this._loadRawCandles(this._activeSymbol);
+    this._loadRealCandles(this._activeSymbol);
     this._bindAssetTabs();
     this._bindTimeframeTabs();
     this._bindTradeToggle();
@@ -130,7 +130,7 @@ export class ChartHostWidget {
       });
       btn.style.background = 'rgba(16,185,129,0.15)'; btn.style.color = '#34d399'; btn.style.borderColor = 'rgba(52,211,153,0.2)';
       this._activeSymbol = sym;
-      this._loadRawCandles(sym);
+      this._loadRealCandles(sym);
       this._updateDecisionPanel();
     });
   }
@@ -152,38 +152,43 @@ export class ChartHostWidget {
     });
   }
 
-  _loadRawCandles(symbol) {
-    const targetPrice = (this._runtime && this._runtime.getLatestData && this._runtime.getLatestData()[symbol]?.market?.close)
-      || BASE_PRICES[symbol] || 65000;
-    const candles = [];
-    const nowSec = Math.floor(Date.now() / 1000);
-    let curr = targetPrice;
+  async _loadRealCandles(symbol) {
+    try {
+      const response = await fetch('/api/candles/' + symbol);
+      if (!response.ok) throw new Error('API failed');
+      const data = await response.json();
+      const candles = data.candles || [];
+      
+      this._rawCandles = candles.map(c => ({
+        time: Math.floor(new Date(c.timestamp || c.openTime || c.time).getTime() / 1000),
+        open: Number(c.open),
+        high: Number(c.high),
+        low: Number(c.low),
+        close: Number(c.close),
+        volume: Number(c.volume)
+      })).sort((a, b) => a.time - b.time);
 
-    for (let i = CANDLE_COUNT; i >= 0; i--) {
-      const time = nowSec - i * 60;
-      const noise = (Math.random() - 0.5) * (targetPrice * 0.003);
-      const volatility = targetPrice * 0.0015;
-      const open = curr;
-      const close = curr + noise;
-      const high = Math.max(open, close) + Math.random() * volatility;
-      const low = Math.min(open, close) - Math.random() * volatility;
-      curr = close;
-      candles.push({ time, open, high, low, close, volume: Math.floor(Math.random() * 800 + 100) });
-    }
-
-    // Shift candles so the latest candle ends precisely at targetPrice
-    if (candles.length > 0) {
-      const delta = targetPrice - candles[candles.length - 1].close;
-      for (const c of candles) {
-        c.open += delta;
-        c.high += delta;
-        c.low += delta;
-        c.close += delta;
+      if (data.trades && data.trades.length > 0) {
+        // Find the latest open or active trade to plot
+        const latestOpen = data.trades.find(t => t.status === 'open' || t.governanceDecision === 'ALLOW' || t.governanceDecision === 'ALLOW_TRANSITION');
+        if (latestOpen) {
+          this._plottedTrades[symbol] = {
+            entry: latestOpen.entryPrice,
+            tp: latestOpen.takeProfit,
+            sl: latestOpen.stopLoss,
+            side: latestOpen.direction === 'LONG' ? 'BUY' : 'SELL',
+            title: `${latestOpen.direction} @ ${latestOpen.entryPrice}`
+          };
+        }
       }
-    }
 
-    this._rawCandles = candles;
-    this._applyTimeframe();
+      this._applyTimeframe();
+    } catch (e) {
+      console.warn('[ChartHost] Falling back to placeholder due to error:', e);
+      // Fallback
+      this._rawCandles = [];
+      this._applyTimeframe();
+    }
   }
 
   _applyTimeframe() {
@@ -275,7 +280,7 @@ export class ChartHostWidget {
     setText('#dp-conf', typeof conf === 'number' ? `${conf.toFixed(1)}%` : `${conf}`);
 
     if (this._tradesVisible) {
-      if (data.trade) {
+      if (data?.trade) {
         const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
         const markers = [];
         if (data.trade.status === 'open' || data.trade.governance === 'ALLOW') {
