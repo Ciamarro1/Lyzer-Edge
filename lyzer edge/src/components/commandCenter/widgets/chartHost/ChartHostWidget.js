@@ -6,7 +6,6 @@ const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT
 const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
 
 const TIMEFRAMES = [
-  { id: '30s', label: '30S', seconds: 30 },
   { id: '1m', label: '1M', seconds: 60 },
   { id: '5m', label: '5M', seconds: 300 },
   { id: '15m', label: '15M', seconds: 900 },
@@ -196,10 +195,8 @@ export class ChartHostWidget {
     if (!tfConfig) return;
     const seconds = tfConfig.seconds;
 
-    if (seconds === 60) {
+    if (seconds <= 60) {
       this._displayCandles = this._rawCandles;
-    } else if (seconds < 60) {
-      this._displayCandles = this._interpolateToSubMinutes(this._rawCandles, seconds);
     } else {
       this._displayCandles = this._aggregateCandles(this._rawCandles, seconds);
     }
@@ -209,29 +206,6 @@ export class ChartHostWidget {
     this._updateDecisionPanel();
   }
 
-  _interpolateToSubMinutes(raw, targetSeconds) {
-    const subCandlesPerMin = 60 / targetSeconds;
-    const result = [];
-    for (let i = 0; i < raw.length; i++) {
-      const c = raw[i];
-      const prevClose = i > 0 ? raw[i - 1].close : c.open;
-      for (let s = 0; s < subCandlesPerMin; s++) {
-        const t0 = s / subCandlesPerMin;
-        const t1 = (s + 1) / subCandlesPerMin;
-        const open = t0 === 0 ? c.open : prevClose + (c.close - prevClose) * t0;
-        const close = prevClose + (c.close - prevClose) * t1;
-        const midRange = (c.high - c.low) * 0.15;
-        const high = Math.max(open, close) + Math.random() * midRange;
-        const low = Math.min(open, close) - Math.random() * midRange;
-        result.push({
-          time: c.time - 60 + (s + 1) * targetSeconds,
-          open, high, low, close,
-          volume: Math.ceil(c.volume / subCandlesPerMin)
-        });
-      }
-    }
-    return result;
-  }
 
   _aggregateCandles(raw, targetSeconds) {
     const groupSize = targetSeconds / 60;

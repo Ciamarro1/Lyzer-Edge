@@ -66,7 +66,8 @@ export class LiveDataIngestor {
         const data = await res.json();
         
         if (Array.isArray(data) && data.length > 0) {
-          const closedCandles = data.slice(0, 100).map(k => ({
+          // Exclude the last candle (currently open/unclosed) and take all closed ones
+          const closedCandles = data.slice(0, data.length - 1).map(k => ({
             openTime: k[0],
             open: parseFloat(k[1]),
             high: parseFloat(k[2]),

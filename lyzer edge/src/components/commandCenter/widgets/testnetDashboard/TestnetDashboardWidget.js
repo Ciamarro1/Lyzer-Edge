@@ -31,26 +31,59 @@ export class TestnetDashboardWidget {
             <div style="width: 8px; height: 8px; border-radius: 50%; background-color: var(--success-color);"></div>
             <h3 style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.5px; color: var(--text-bright);">TESTNET STATUS</h3>
           </div>
-          <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">Live Sync</span>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">Live Sync</span>
+            <button id="reset-trades-btn" style="font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(239,68,68,0.4); background: rgba(239,68,68,0.1); color: #ef4444; cursor: pointer; font-family: inherit;">⟳ Zerar Trades</button>
+          </div>
         </div>
         
         <div style="flex: 1; display: flex; flex-direction: column; gap: 16px;">
           <div>
-            <h4 style="margin: 0 0 8px 0; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Balances</h4>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Balances (Testnet)</h4>
             <div id="testnet-balances-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px;">
               <div style="color: var(--text-secondary); font-style: italic;">Loading...</div>
             </div>
           </div>
           
-          <div style="flex: 1; display: flex; flex-direction: column;">
-            <h4 style="margin: 0 0 8px 0; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Open Orders</h4>
-            <div id="testnet-orders-container" style="flex: 1; background: rgba(0,0,0,0.2); border-radius: 6px; padding: 8px; overflow-y: auto; max-height: 200px;">
+          <div>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Open Orders (Testnet)</h4>
+            <div id="testnet-orders-container" style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 8px; overflow-y: auto; max-height: 160px;">
+              <div style="color: var(--text-secondary); font-style: italic;">Loading...</div>
+            </div>
+          </div>
+
+          <div>
+            <h4 style="margin: 0 0 8px 0; font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px;">Engine Trade History</h4>
+            <div id="engine-trades-container" style="background: rgba(0,0,0,0.2); border-radius: 6px; padding: 8px; overflow-y: auto; max-height: 220px;">
               <div style="color: var(--text-secondary); font-style: italic;">Loading...</div>
             </div>
           </div>
         </div>
       </div>
     `;
+
+    const resetBtn = this._container.querySelector('#reset-trades-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => this._resetTrades());
+    }
+  }
+
+  async _resetTrades() {
+    const btn = this._container.querySelector('#reset-trades-btn');
+    if (btn) { btn.disabled = true; btn.textContent = '...'; }
+    try {
+      const res = await fetch('/api/reset-engine', { method: 'POST' });
+      const data = await res.json();
+      if (data.success) {
+        const c = this._container.querySelector('#engine-trades-container');
+        if (c) c.innerHTML = '<div style="color: var(--success-color);">✓ Trades zerados com sucesso!</div>';
+        setTimeout(() => this._fetchData(), 500);
+      }
+    } catch (e) {
+      console.error('[TestnetDashboard] Reset error:', e);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '⟳ Zerar Trades'; }
+    }
   }
 
   _startPolling() {
@@ -67,49 +100,65 @@ export class TestnetDashboardWidget {
 
   async _fetchData() {
     if (!this._mounted) return;
+    // Fetch testnet dashboard (Binance API)
     try {
       const response = await fetch('/api/testnet-dashboard');
       const data = await response.json();
       if (data.error) throw new Error(data.error);
-      this._updateUI(data);
+      this._updateTestnetUI(data);
     } catch (err) {
       console.error('[TestnetDashboard] Fetch error:', err);
       const ordersContainer = this._container.querySelector('#testnet-orders-container');
-      if (ordersContainer) ordersContainer.innerHTML = `<div style="color: var(--danger-color);">Error fetching data</div>`;
+      if (ordersContainer) ordersContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error: ${err.message}</div>`;
+    }
+
+    // Fetch engine trade history from candles API
+    try {
+      const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT'];
+      const allTrades = [];
+      await Promise.all(symbols.map(async sym => {
+        try {
+          const r = await fetch(`/api/candles/${sym}`);
+          const d = await r.json();
+          if (d.trades && Array.isArray(d.trades)) {
+            d.trades.forEach(t => allTrades.push({ ...t, symbol: sym }));
+          }
+        } catch (_) {}
+      }));
+      allTrades.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+      this._updateEngineTradesUI(allTrades);
+    } catch (err) {
+      console.error('[TestnetDashboard] Engine trades error:', err);
     }
   }
 
-  _updateUI({ account, orders }) {
+  _updateTestnetUI({ account, orders }) {
     if (!this._mounted) return;
 
-    // Render Balances
     const balancesContainer = this._container.querySelector('#testnet-balances-container');
     if (balancesContainer && account) {
       if (account.code) {
-        balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px; margin-bottom: 8px;">API Error: ${account.msg}</div>`;
+        balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error (${account.code}): ${account.msg}</div>`;
       } else if (account.balances) {
-        // Filter out empty balances
-      const activeBalances = account.balances.filter(b => parseFloat(b.free) > 0 || parseFloat(b.locked) > 0);
-      
-      if (activeBalances.length === 0) {
-        balancesContainer.innerHTML = '<div style="color: var(--text-secondary);">No balances</div>';
-      } else {
-        balancesContainer.innerHTML = activeBalances.map(b => `
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 10px; display: flex; flex-direction: column;">
-            <span style="font-weight: 600; font-size: 11px; color: var(--text-bright);">${b.asset}</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary);">${parseFloat(b.free).toFixed(4)}</span>
-            ${parseFloat(b.locked) > 0 ? `<span style="font-size: 9px; color: var(--warning-color);">${parseFloat(b.locked).toFixed(4)} LCK</span>` : ''}
-          </div>
-        `).join('');
+        const activeBalances = account.balances.filter(b => parseFloat(b.free) > 0 || parseFloat(b.locked) > 0);
+        if (activeBalances.length === 0) {
+          balancesContainer.innerHTML = '<div style="color: var(--text-secondary);">No balances</div>';
+        } else {
+          balancesContainer.innerHTML = activeBalances.map(b => `
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 10px; display: flex; flex-direction: column;">
+              <span style="font-weight: 600; font-size: 11px; color: var(--text-bright);">${b.asset}</span>
+              <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary);">${parseFloat(b.free).toFixed(4)}</span>
+              ${parseFloat(b.locked) > 0 ? `<span style="font-size: 9px; color: var(--warning-color);">${parseFloat(b.locked).toFixed(4)} LCK</span>` : ''}
+            </div>
+          `).join('');
+        }
       }
     }
-  }
 
-    // Render Orders
     const ordersContainer = this._container.querySelector('#testnet-orders-container');
     if (ordersContainer && orders) {
       if (orders.code) {
-        ordersContainer.innerHTML = `<div style="color: var(--danger-color); text-align: center; padding: 20px 0; font-size:10px;">API Error: ${orders.msg}</div>`;
+        ordersContainer.innerHTML = `<div style="color: var(--danger-color); text-align: center; padding: 20px 0; font-size:10px;">API Error (${orders.code}): ${orders.msg}</div>`;
       } else if (!Array.isArray(orders) || orders.length === 0) {
         ordersContainer.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 20px 0;">No open orders</div>';
       } else {
@@ -131,5 +180,33 @@ export class TestnetDashboardWidget {
         }).join('');
       }
     }
+  }
+
+  _updateEngineTradesUI(trades) {
+    if (!this._mounted) return;
+    const container = this._container.querySelector('#engine-trades-container');
+    if (!container) return;
+
+    if (trades.length === 0) {
+      container.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 16px 0;">Sem trades registrados</div>';
+      return;
+    }
+
+    container.innerHTML = trades.map(t => {
+      const isLong = t.direction === 'LONG';
+      const sideColor = isLong ? '#10b981' : '#ef4444';
+      const pnlVal = parseFloat(t.pnl);
+      const pnlColor = pnlVal >= 0 ? '#10b981' : '#ef4444';
+      const date = t.timestamp ? new Date(t.timestamp).toLocaleString('pt-BR', { hour12: false, timeStyle: 'short', dateStyle: 'short' }) : '--';
+      return `
+        <div style="display: grid; grid-template-columns: 60px 70px 1fr 1fr 60px; align-items: center; gap: 6px; padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.04); font-family: 'JetBrains Mono', monospace; font-size: 10px;">
+          <span style="color: ${sideColor}; font-weight: 700;">${t.direction || '--'}</span>
+          <span style="color: var(--text-secondary);">${t.symbol || '--'}</span>
+          <span style="color: var(--text-secondary);">${date}</span>
+          <span style="color: var(--text-primary);">E: ${t.entryPrice ? parseFloat(t.entryPrice).toFixed(2) : '--'}</span>
+          <span style="color: ${pnlColor}; font-weight: 600;">${isNaN(pnlVal) ? t.pnl || '--' : (pnlVal >= 0 ? '+' : '') + pnlVal.toFixed(2) + '%'}</span>
+        </div>
+      `;
+    }).join('');
   }
 }

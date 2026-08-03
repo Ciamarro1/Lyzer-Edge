@@ -336,6 +336,21 @@ app.post('/api/trades/wipe', authenticateAdmin, async (req, res) => {
   }
 });
 
+// Hard reset: clear all in-memory trades and persisted state
+app.post('/api/reset-engine', async (req, res) => {
+  try {
+    for (const engine of engines) {
+      engine.tradeHistory = [];
+      engine.activePosition = null;
+    }
+    clearEngineState();
+    broadcast({ type: 'engine_reset', message: 'Trade history wiped. Starting fresh.' });
+    res.json({ success: true, message: 'Engine state reset. All trades cleared.' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 
 console.log(`\n======================================================`);
 console.log(`🌍 Lyzer Edge: MULTI-ASSET LIVE ENGINE STARTED`);
