@@ -563,25 +563,39 @@ export class GamifiedCommandCenterView {
 
   async _mountActiveWidget() {
     const mainContent = this._container.querySelector('#g-main-content');
-    if (this._activeWidgetInstance) {
-      if (typeof this._activeWidgetInstance.dispose === 'function') {
-        try { this._activeWidgetInstance.dispose(); } catch (e) { console.warn(e); }
-      } else if (typeof this._activeWidgetInstance.unmount === 'function') {
-        try { this._activeWidgetInstance.unmount(); } catch (e) { console.warn(e); }
+    if (!this._widgetCache) this._widgetCache = {};
+
+    // Hide all currently mounted widgets
+    for (const id in this._widgetCache) {
+      if (this._widgetCache[id].container) {
+        this._widgetCache[id].container.style.display = 'none';
       }
     }
-    mainContent.innerHTML = '';
-    this._activeWidgetInstance = null;
-    const WidgetClass = this._widgetRegistry[this._activeWidgetId];
-    if (WidgetClass) {
-      try {
-        this._activeWidgetInstance = new WidgetClass();
-        await this._activeWidgetInstance.mount(mainContent, this._realRuntime);
-      } catch (e) {
-        mainContent.innerHTML = `<div style="padding:24px;color:#ef4444;font-family:monospace;">WIDGET LOAD ERROR [${this._activeWidgetId}]: ${e.message}</div>`;
-      }
+
+    if (this._widgetCache[this._activeWidgetId]) {
+      this._activeWidgetInstance = this._widgetCache[this._activeWidgetId].instance;
+      this._widgetCache[this._activeWidgetId].container.style.display = 'block';
     } else {
-      mainContent.innerHTML = `<div style="padding:24px;color:#94a3b8;font-family:monospace;">Widget '${this._activeWidgetId}' not found</div>`;
+      const WidgetClass = this._widgetRegistry[this._activeWidgetId];
+      if (WidgetClass) {
+        const widgetContainer = document.createElement('div');
+        widgetContainer.style.width = '100%';
+        widgetContainer.style.height = '100%';
+        mainContent.appendChild(widgetContainer);
+
+        try {
+          this._activeWidgetInstance = new WidgetClass();
+          await this._activeWidgetInstance.mount(widgetContainer, this._realRuntime);
+          this._widgetCache[this._activeWidgetId] = {
+            instance: this._activeWidgetInstance,
+            container: widgetContainer
+          };
+        } catch (e) {
+          widgetContainer.innerHTML = `<div style="padding:24px;color:#ef4444;font-family:monospace;">WIDGET LOAD ERROR [${this._activeWidgetId}]: ${e.message}</div>`;
+        }
+      } else {
+        mainContent.innerHTML = `<div style="padding:24px;color:#94a3b8;font-family:monospace;">Widget '${this._activeWidgetId}' not found</div>`;
+      }
     }
   }
 
@@ -593,105 +607,17 @@ export class GamifiedCommandCenterView {
     const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
     const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
 
-    // Generate a new mock trade with realistic TP/SL levels
-    const spawnTrade = () => {
-      const symbol = SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
-      const activeClose = this._latestData[symbol]?.market?.close || this._simPrices?.[symbol] || BASE_PRICES[symbol] || 65000;
-      const price = activeClose;
-      const direction = Math.random() > 0.5 ? 'LONG' : 'SHORT';
-      const dir = direction === 'LONG' ? 1 : -1;
-      const tpPct = 0.012 + Math.random() * 0.015;
-      const slPct = 0.006 + Math.random() * 0.008;
-      const entryPrice = Math.round(price * 100) / 100;
-      const takeProfit = Math.round(price * (1 + dir * tpPct) * 100) / 100;
-      const stopLoss = Math.round(price * (1 - dir * slPct) * 100) / 100;
-
-      // Track the current simulated price for tick movement
-      this._simPrices = this._simPrices || {};
-      this._simPrices[symbol] = entryPrice;
-
-      const trade = {
-        index: Date.now(), direction, price: entryPrice,
-        pnl: '0.00%', status: 'open',
-        stopLoss, takeProfit, governance: 'ALLOW'
-      };
-      const regime = ['TRENDING', 'RANGING', 'VOLATILE'][Math.floor(Math.random() * 3)];
-      const confidence = 60 + Math.random() * 35;
-      const open = entryPrice;
-      const close = entryPrice + (Math.random() - 0.5) * entryPrice * 0.002;
-      const entry = {
-        symbol,
-        market: {
-          openTime: Date.now(), open, close,
-          high: Math.max(open, close) + Math.random() * entryPrice * 0.001,
-          low: Math.min(open, close) - Math.random() * entryPrice * 0.001,
-          volume: Math.floor(Math.random() * 800 + 100), closed: false
-        },
-        kernel: null, signal: null, trade
-      };
-      this._latestData[symbol] = entry;
-      this._updateMetrics({
-        symbol, trade,
-        kernel: { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.05 + Math.random() * 0.25, eef: true, scale_divergence_score: Math.random() * 0.3, confidence },
-        signal: { signal: dir > 0 ? 'go' : 'short', regime, confidence }
-      });
-      this._checkTradeNotification({ symbol, trade, market: null, kernel: { eef: true } });
-    };
-
-    // Tick simulation: move price towards TP or SL every 2s
-    const tickSim = () => {
-      this._simPrices = this._simPrices || {};
-      for (const [sym, entry] of Object.entries(this._latestData)) {
-        if (!entry.trade || entry.trade.status !== 'open') continue;
-        const t = entry.trade;
-        const dir = t.direction === 'LONG' ? 1 : -1;
-        const currentPrice = this._simPrices[sym] || t.price;
-        const target = dir > 0 ? t.takeProfit : t.stopLoss;
-        const remaining = target - currentPrice;
-        const step = remaining * (0.08 + Math.random() * 0.12);
-        const newPrice = currentPrice + step;
-        this._simPrices[sym] = newPrice;
-        t.price = Math.round(newPrice * 100) / 100;
-        const pnlPct = ((newPrice - entry.trade.price) / entry.trade.price) * dir * 100;
-        t.pnl = pnlPct.toFixed(2) + '%';
-        entry.market = {
-          openTime: Date.now(), open: currentPrice, close: newPrice,
-          high: Math.max(currentPrice, newPrice) * (1 + Math.random() * 0.001),
-          low: Math.min(currentPrice, newPrice) * (1 - Math.random() * 0.001),
-          volume: Math.floor(Math.random() * 800 + 100), closed: false
-        };
-        entry.kernel = { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.05 + Math.random() * 0.25, eef: true, scale_divergence_score: Math.random() * 0.3, confidence: 70 + Math.random() * 25 };
-        entry.signal = { signal: dir > 0 ? 'go' : 'short', regime: 'TRENDING', confidence: 70 + Math.random() * 25 };
-
-        // Check if TP or SL was hit
-        const hitLongTp = dir > 0 && newPrice >= t.takeProfit;
-        const hitLongSl = dir > 0 && newPrice <= t.stopLoss;
-        const hitShortTp = dir < 0 && newPrice <= t.takeProfit;
-        const hitShortSl = dir < 0 && newPrice >= t.stopLoss;
-        if (hitLongTp || hitShortTp) {
-          t.status = 'closed'; t.pnl = dir > 0 ? '+2.0%' : '+2.0%';
-        } else if (hitLongSl || hitShortSl) {
-          t.status = 'closed'; t.pnl = dir > 0 ? '-1.0%' : '-1.0%';
-        }
-        this._updateMetrics({ symbol: sym, kernel: entry.kernel });
-      }
-    };
-
     // Seed initial data for all symbols so the chart always has base data
     for (const sym of SYMBOLS) {
       if (!this._latestData[sym]) {
         this._latestData[sym] = {
           symbol: sym, market: null,
-          kernel: { trg: 0.35 + Math.random() * 0.4, dvf: 0.2 + Math.random() * 0.3, lhds_df: 0.1 + Math.random() * 0.2, eef: Math.random() > 0.3, scale_divergence_score: Math.random() * 0.3, confidence: 60 + Math.random() * 35 },
-          signal: { signal: Math.random() > 0.5 ? 'go' : 'flat', regime: ['TRENDING', 'RANGING', 'VOLATILE'][Math.floor(Math.random() * 3)], confidence: 60 + Math.random() * 35 },
+          kernel: { trg: 0.65, dvf: 0.82, lhds_df: 0.012, eef: true, scale_divergence_score: 0.14, confidence: 94.2 },
+          signal: { signal: 'flat', regime: 'RANGING', confidence: 94.2 },
           trade: null
         };
       }
     }
-
-    spawnTrade();
-    setInt(spawnTrade, 18000);
-    setInt(tickSim, 2000);
 
     // Force-flush metrics for ALL seeded symbols 200ms after mount
     // This fixes the "ghost 0.0000" bug where topbar never received initial values
