@@ -22,12 +22,16 @@ export class PaneManager {
       throw new Error(`[PaneManager] Pane ${paneId} not found in current layout.`);
     }
 
-    // A real implementation might append to a stack of widgets inside a pane
-    // For V1, we just mount into a new container inside the pane
+    // Ensure the pane handles multiple widgets via Flexbox column stacking
+    paneEl.style.display = 'flex';
+    paneEl.style.flexDirection = 'column';
+
     const container = document.createElement('div');
     container.className = 'widget-container';
     container.style.width = '100%';
-    container.style.height = '100%';
+    container.style.flex = '1';
+    container.style.minHeight = '0';
+    container.style.overflow = 'hidden';
     paneEl.appendChild(container);
 
     const handle = await this._host.mount(widgetId, container);
