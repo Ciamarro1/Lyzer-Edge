@@ -80,12 +80,6 @@ export class PatternRecognitionWidget {
     this.alphaClusters = discovery.alphaClusters || [];
     this.toxicSignatures = discovery.toxicSignatures || [];
     this.certificate = discovery.certificate || null;
-
-    if (this.patterns.length === 0) {
-      this.patterns = this._generateSyntheticPatterns();
-      this.alphaClusters = this.patterns.filter(p => p.totalPnL > 0);
-      this.toxicSignatures = this.patterns.filter(p => p.totalPnL < 0);
-    }
   }
 
   _generateSyntheticPatterns() {

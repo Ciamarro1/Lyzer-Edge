@@ -62,11 +62,6 @@ export class EdgeDashboardWidget {
     
     let closedTrades = trades.filter(t => t.status === 'closed' || t.status === 'CLOSED');
 
-    // Generate fallback mock trades if Dexie DB has < 5 trades for instant visual feedback
-    if (closedTrades.length < 5) {
-      closedTrades = this._generateMockTrades();
-    }
-
     const overallStats = calcAllStats(closedTrades);
 
     this._container.innerHTML = `
