@@ -53,7 +53,7 @@ export class LiveDataIngestor {
 
   async warmupCandles() {
     for (let attempts = 0; attempts < BINANCE_BASE_URLS.length; attempts++) {
-      const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=101`;
+      const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=1000`;
       try {
         console.log(`[INGESTOR] Fetching warmup candles for ${this.symbol} from ${url}...`);
         const controller = new AbortController();
