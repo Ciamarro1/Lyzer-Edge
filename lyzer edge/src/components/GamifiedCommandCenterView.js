@@ -238,16 +238,16 @@ export class GamifiedCommandCenterView {
             </div>
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
-            <div class="g-metric"><span class="g-metric-label">TRG</span><span class="g-metric-value" style="color: #fbbf24;" id="g-trg">0.00</span></div>
-            <div class="g-metric"><span class="g-metric-label">DVF</span><span class="g-metric-value" style="color: #38bdf8;" id="g-dvf">0.00</span></div>
-            <div class="g-metric"><span class="g-metric-label">LHDS</span><span class="g-metric-value" style="color: #a855f7;" id="g-lhds-val">0.00</span></div>
-            <div class="g-metric"><span class="g-metric-label">EEF</span><span class="g-metric-value" style="color: #4ade80;" id="g-eef">--</span></div>
+            <div class="g-metric"><span class="g-metric-label">TRG</span><span class="g-metric-value" style="color: #fbbf24;" id="g-trg" title="Tail Risk Geometry">...</span></div>
+            <div class="g-metric"><span class="g-metric-label">DVF</span><span class="g-metric-value" style="color: #38bdf8;" id="g-dvf" title="Distributional Variance Filter">...</span></div>
+            <div class="g-metric"><span class="g-metric-label">LHDS</span><span class="g-metric-value" style="color: #a855f7;" id="g-lhds-val" title="Lethal Hazard Detection Score">...</span></div>
+            <div class="g-metric"><span class="g-metric-label">EEF</span><span class="g-metric-value" style="color: #4ade80;" id="g-eef" title="Execution Eligibility Flag">...</span></div>
             <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
-            <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence">--</span></div>
-            <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds">--</span></div>
+            <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence" title="Signal Confidence">...</span></div>
+            <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds" title="Scale Divergence Score">...</span></div>
           </div>
           <div style="display: flex; gap: 14px; align-items: center;">
-            <button id="g-mute-btn" class="g-dock-btn" style="background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);">NOTIFICATIONS MUTED</button>
+            <button id="g-mute-btn" class="g-dock-btn" style="background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);" title="Toggle trade notifications">🔕 NOTIF OFF</button>
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
               <span class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; pointer-events: none;" id="g-mode-badge">SIMULATION</span>
               <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
@@ -309,13 +309,25 @@ export class GamifiedCommandCenterView {
     if (muteBtn) {
       muteBtn.addEventListener('click', () => {
         this._isMuted = !this._isMuted;
-        muteBtn.innerText = this._isMuted ? 'NOTIFICATIONS MUTED' : 'NOTIFICATIONS ON';
+        muteBtn.innerText = this._isMuted ? '🔕 NOTIF OFF' : '🔔 NOTIF ON';
         muteBtn.style.color = this._isMuted ? '#94a3b8' : '#38bdf8';
-        muteBtn.style.borderColor = this._isMuted ? 'rgba(148, 163, 184, 0.3)' : 'rgba(56, 189, 248, 0.25)';
-        muteBtn.style.background = this._isMuted ? 'rgba(15, 23, 42, 0.8)' : 'rgba(15, 23, 42, 0.4)';
-        this._showToast(this._isMuted ? 'Trade notification popups muted' : 'Trade notifications enabled');
+        muteBtn.style.borderColor = this._isMuted ? 'rgba(148, 163, 184, 0.3)' : 'rgba(56, 189, 248, 0.5)';
+        muteBtn.style.background = this._isMuted ? 'rgba(15, 23, 42, 0.8)' : 'rgba(56, 189, 248, 0.08)';
+        this._showToast(this._isMuted ? '🔕 Notificações desativadas' : '🔔 Notificações ativadas');
       });
     }
+  }
+
+  _showToast(msg, type = 'info') {
+    const toastEl = this._container?.querySelector('#g-toast');
+    if (!toastEl) return;
+    const colors = { info: '#38bdf8', success: '#10b981', warn: '#f59e0b', error: '#ef4444' };
+    toastEl.innerText = msg;
+    toastEl.style.color = colors[type] || colors.info;
+    toastEl.style.borderColor = `${colors[type] || colors.info}33`;
+    toastEl.classList.add('show');
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2500);
   }
 
   _bindRightSidebarEvents() {
@@ -677,6 +689,17 @@ export class GamifiedCommandCenterView {
     spawnTrade();
     setInt(spawnTrade, 18000);
     setInt(tickSim, 2000);
+
+    // Force-flush metrics for ALL seeded symbols 200ms after mount
+    // This fixes the "ghost 0.0000" bug where topbar never received initial values
+    setTimeout(() => {
+      if (this._disposed) return;
+      for (const [sym, entry] of Object.entries(this._latestData)) {
+        if (entry?.kernel) {
+          this._updateMetrics({ symbol: sym, kernel: entry.kernel, signal: entry.signal, mode: entry.mode });
+        }
+      }
+    }, 200);
   }
 
   unmount() {

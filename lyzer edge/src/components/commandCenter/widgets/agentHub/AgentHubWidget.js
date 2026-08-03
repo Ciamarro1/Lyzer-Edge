@@ -208,8 +208,8 @@ export class AgentHubWidget {
             <span style="color: rgba(148, 163, 184, 0.4); font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;">${accPct}%</span>
           </div>
 
-          <button class="agent-delegate-btn">
-            ${snap.status === 'AVAILABLE' ? 'DELEGATE MISSION' : snap.status === 'EXECUTING' ? 'EXECUTING...' : 'STANDBY'}
+          <button class="agent-delegate-btn" ${snap.status === 'EXECUTING' ? 'disabled' : ''} style="${snap.status === 'EXECUTING' ? 'opacity:0.6;cursor:not-allowed;animation:card-glow 1.5s ease-in-out infinite;' : 'cursor:pointer;'}">
+            ${snap.status === 'AVAILABLE' ? '⚡ DELEGATE MISSION' : snap.status === 'EXECUTING' ? '⏳ EXECUTING...' : '💤 STANDBY'}
           </button>
         </div>
       `;
@@ -236,10 +236,11 @@ export class AgentHubWidget {
         this.toggleCollapse();
       });
     }
-    const cards = this._container.querySelectorAll('.agent-card');
-    cards.forEach((card, index) => {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', (e) => {
+
+    // Bind DELEGATE MISSION buttons directly (not relying on card-level delegation)
+    const delegateBtns = this._container.querySelectorAll('.agent-delegate-btn');
+    delegateBtns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
         e.stopPropagation();
         e.preventDefault();
         const model = this._models[index];
