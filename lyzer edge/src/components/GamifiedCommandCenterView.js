@@ -12,6 +12,7 @@ import { GamificationHUDWidget } from './commandCenter/widgets/gamificationHUD/G
 import { EdgeDashboardWidget } from './commandCenter/widgets/edgeDashboard/EdgeDashboardWidget.js';
 import { PatternRecognitionWidget } from './commandCenter/widgets/patternRecognition/PatternRecognitionWidget.js';
 import { ExperimentDashboardWidget } from './commandCenter/widgets/experimentDashboard/ExperimentDashboardWidget.js';
+import { TestnetDashboardWidget } from './commandCenter/widgets/testnetDashboard/TestnetDashboardWidget.js';
 import { wsClient } from '../services/wsClient.js';
 import db from '../db/database.js';
 
@@ -133,7 +134,8 @@ export class GamifiedCommandCenterView {
       'observability-dashboard-widget': ObservabilityDashboardWidget,
       'causal-graph-widget': CausalGraphWidget,
       'runtime-inspector-widget': RuntimeInspectorWidget,
-      'reality-status-widget': RealityStatusWidget
+      'reality-status-widget': RealityStatusWidget,
+      'testnet-dashboard-widget': TestnetDashboardWidget
     };
   }
 
@@ -279,6 +281,7 @@ export class GamifiedCommandCenterView {
 
     const dockContainer = this._container.querySelector('#g-dock');
     const tabs = [
+      { id: 'testnet-dashboard-widget', label: 'Testnet Status' },
       { id: 'chart-host-widget', label: 'Chart & Decisions' },
       { id: 'trade-log-widget', label: 'Trade Log' },
       { id: 'gamification-hud-widget', label: 'Level & Quests' },
