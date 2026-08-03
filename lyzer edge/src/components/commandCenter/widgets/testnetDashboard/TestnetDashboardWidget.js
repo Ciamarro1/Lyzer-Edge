@@ -197,7 +197,7 @@ export class TestnetDashboardWidget {
       const sideColor = isLong ? '#10b981' : '#ef4444';
       const pnlVal = parseFloat(t.pnl);
       const pnlColor = pnlVal >= 0 ? '#10b981' : '#ef4444';
-      const date = t.timestamp ? new Date(t.timestamp).toLocaleString('pt-BR', { hour12: false, timeStyle: 'short', dateStyle: 'short' }) : '--';
+      const date = t.timestamp ? new Date(t.timestamp * 1000).toLocaleString('pt-BR', { hour12: false, timeStyle: 'short', dateStyle: 'short' }) : '--';
       return `
         <div style="display: grid; grid-template-columns: 60px 70px 1fr 1fr 60px; align-items: center; gap: 6px; padding: 6px 4px; border-bottom: 1px solid rgba(255,255,255,0.04); font-family: 'JetBrains Mono', monospace; font-size: 10px;">
           <span style="color: ${sideColor}; font-weight: 700;">${t.direction || '--'}</span>

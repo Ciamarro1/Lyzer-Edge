@@ -5,12 +5,13 @@
  */
 
 export class ContinuousCLIST {
-  constructor({ dvfFloor, stressAccumulation, lethalIllusionLimit, stressDecay, recoveryThreshold } = {}) {
+  constructor({ dvfFloor, stressAccumulation, lethalIllusionLimit, stressDecay, recoveryThreshold, stressRelease } = {}) {
     this.stressLevel = 0.0;
     this.dvfFloor = dvfFloor !== undefined ? dvfFloor : 0.1;
     this.stressAccumulation = stressAccumulation !== undefined ? stressAccumulation : 0.002;
     this.lethalIllusionLimit = lethalIllusionLimit !== undefined ? lethalIllusionLimit : 0.9;
     this.stressDecay = stressDecay !== undefined ? stressDecay : 0.95; // Exponential decay factor
+    this.stressRelease = stressRelease !== undefined ? stressRelease : 0.1; // Linear release
     this.recoveryThreshold = recoveryThreshold !== undefined ? recoveryThreshold : 0.3; // Hysteresis bottom limit
     this.inLethalIllusion = false;
   }
@@ -28,8 +29,12 @@ export class ContinuousCLIST {
     if (dvf < this.dvfFloor) {
       this.stressLevel += this.stressAccumulation;
     } else {
-      // Exponential Decay Filter
-      this.stressLevel *= this.stressDecay;
+      if (this.stressRelease !== undefined && this.stressRelease !== null) {
+        this.stressLevel -= this.stressRelease;
+      } else {
+        // Exponential Decay Filter
+        this.stressLevel *= this.stressDecay;
+      }
     }
     
     // TRG explosion causes instant maximal stress

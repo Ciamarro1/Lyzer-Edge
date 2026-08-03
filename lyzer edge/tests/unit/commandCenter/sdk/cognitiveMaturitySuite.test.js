@@ -62,7 +62,7 @@ describe('Cognitive Maturity Era — 5 Pillars Suite', () => {
   });
 
   it('Pillar 5: SimulationUniverseEngine should execute 10,000 parallel Monte Carlo simulation universes with high throughput (> 10,000 sim/sec)', () => {
-    const simReport = simulation.runSimulationUniverse(10000);
+    const simReport = simulation.runSimulationUniverse(10000, { winRate: 0.75, avgWinR: 2.2, avgLossR: 1.0 });
 
     expect(simReport.numUniverses).toBe(10000);
     expect(simReport.throughputSimsPerSec).toBeGreaterThan(10000);

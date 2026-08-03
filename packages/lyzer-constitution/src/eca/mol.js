@@ -9,7 +9,7 @@ export class MetaObservationLayer {
     this.durationOfInaction = 0; // DOI
     this.structuralCoherenceLock = 0; // SCL
     this.sclThreshold = sclThreshold !== undefined ? sclThreshold : 10;
-    this.minCooldown = minCooldown !== undefined ? minCooldown : 20;
+    this.minCooldown = minCooldown !== undefined ? minCooldown : 0;
   }
 
   /**

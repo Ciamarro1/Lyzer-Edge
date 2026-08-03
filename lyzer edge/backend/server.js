@@ -364,10 +364,52 @@ app.get('/api/status', (req, res) => {
 
 app.get('/api/testnet-dashboard', async (req, res) => {
   try {
-    const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, true);
-    const account = await exchange.getAccount();
-    const orders = await exchange.getOpenOrders();
-    res.json({ account, orders });
+    const isLiveTrading = process.env.LIVE_TRADING_ENABLED === 'true';
+    if (isLiveTrading && process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE') {
+      const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, process.env.ARL_MODE !== 'LIVE');
+      const account = await exchange.getAccount();
+      const orders = await exchange.getOpenOrders();
+      return res.json({ account, orders });
+    }
+
+    // --- Paper Trading Local State ---
+    const initialCapital = parseFloat(process.env.MAX_DAILY_CAPITAL || 1000);
+    
+    let totalPnL = 0;
+    engines.forEach(e => {
+      (e.tradeHistory || []).forEach(t => {
+        totalPnL += parseFloat(t.pnl || 0);
+      });
+    });
+
+    let lockedMargin = 0;
+    const paperOrders = [];
+    
+    engines.forEach(e => {
+      if (e.activePosition) {
+        const pos = e.activePosition;
+        const qty = parseFloat(pos.quantity || 0);
+        const price = parseFloat(pos.entryPrice || 0);
+        lockedMargin += (qty * price);
+        
+        paperOrders.push({
+          symbol: e.symbol,
+          side: pos.direction === 'LONG' ? 'BUY' : 'SELL',
+          price: price.toString(),
+          origQty: qty.toString(),
+          orderId: `paper_${Date.now()}_${e.symbol}`
+        });
+      }
+    });
+
+    const freeUSDT = initialCapital + totalPnL - lockedMargin;
+    const account = {
+      balances: [
+        { asset: 'USDT', free: freeUSDT.toFixed(4), locked: lockedMargin.toFixed(4) }
+      ]
+    };
+
+    res.json({ account, orders: paperOrders });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

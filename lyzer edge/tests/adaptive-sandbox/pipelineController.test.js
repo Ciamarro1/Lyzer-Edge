@@ -3,8 +3,10 @@ import { CausalMemoryDB } from '../../backend/db.js';
 import { AdaptivePipelineController } from '../../src/adaptive-sandbox/AdaptivePipelineController.js';
 
 describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () => {
-  function createDb() {
-    return new CausalMemoryDB(`/tmp/data/test_pipeline_ctrl_${Date.now()}_${Math.floor(Math.random() * 10000)}.db`);
+  async function createDb() {
+    const db = new CausalMemoryDB(`/tmp/data/test_pipeline_ctrl_${Date.now()}_${Math.floor(Math.random() * 10000)}.db`);
+    await db.migrationsPromise;
+    return db;
   }
 
   function generateCandles(count = 20) {
@@ -19,7 +21,7 @@ describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () =
   }
 
   test('runs a complete adaptive cycle: REFLECT → EXTRACT → PROPOSE → AUDIT → SHADOW → SCORE', async () => {
-    const db = createDb();
+    const db = await createDb();
     const controller = new AdaptivePipelineController(db);
 
     // Seed semantic memory with patterns for dream cycle
@@ -50,7 +52,7 @@ describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () =
   });
 
   test('rejects proposals below ACS threshold (< 80%)', async () => {
-    const db = createDb();
+    const db = await createDb();
     const controller = new AdaptivePipelineController(db);
 
     // Seed causal events with timestamp (required by schema)
@@ -94,7 +96,7 @@ describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () =
   });
 
   test('monitors and executes proactive rollback on drawdown > 5%', async () => {
-    const db = createDb();
+    const db = await createDb();
     const controller = new AdaptivePipelineController(db);
 
     // Save a promoted version first
@@ -123,7 +125,7 @@ describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () =
   });
 
   test('returns HEALTHY when no degradation is detected', async () => {
-    const db = createDb();
+    const db = await createDb();
     const controller = new AdaptivePipelineController(db);
 
     const ver = `v_healthy_${Date.now()}`;
@@ -149,7 +151,7 @@ describe('Fase 7.1 — AdaptivePipelineController Full Cycle Verification', () =
   });
 
   test('pipeline log accumulates across multiple cycles', async () => {
-    const db = createDb();
+    const db = await createDb();
     const controller = new AdaptivePipelineController(db);
     const candles = generateCandles(20);
 
