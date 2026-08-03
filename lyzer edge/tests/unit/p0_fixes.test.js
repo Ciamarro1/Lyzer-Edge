@@ -14,9 +14,9 @@
 
 import { test, expect, beforeEach, afterEach, describe, beforeAll, afterAll, vi } from 'vitest';
 import crypto from 'crypto';
-import { ConstitutionalCourt } from '../../packages/lyzer-constitution/src/eca/court.js';
-import { MetaObservationLayer } from '../../packages/lyzer-constitution/src/eca/mol.js';
-import { getCourtSecret, PermissionToken, verifyToken } from '../../packages/lyzer-constitution/src/eca/permission.js';
+import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
+import { MetaObservationLayer } from '../../../packages/lyzer-constitution/src/eca/mol.js';
+import { getCourtSecret, PermissionToken, verifyToken } from '../../../packages/lyzer-constitution/src/eca/permission.js';
 import { StreamEngine } from '../backend/streamEngine.js';
 import { AlphaDiscoveryEngine } from '../backend/alphaDiscoveryEngine.js';
 

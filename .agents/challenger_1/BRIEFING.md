@@ -1,39 +1,48 @@
-# BRIEFING — 2026-08-01T13:54:35-03:00
+# BRIEFING — 2026-08-02T14:20:30Z
 
 ## Mission
-Empirically verify the ECA Court Logic fixes in `packages/lyzer-constitution/src/eca/`.
+Empirically challenge build and test integrity of `lyzer edge/` after dead code elimination.
 
 ## 🔒 My Identity
-- Archetype: empirical_challenger
+- Archetype: EMPIRICAL CHALLENGER
 - Roles: critic, specialist
-- Working directory: E:\projcts\lyzer\.agents\challenger_1
-- Original parent: db988c03-30f4-4c50-b063-e8610e45dff6
-- Milestone: ECA Court Logic Empirical Verification
+- Working directory: e:\projcts\lyzer\.agents\challenger_1
+- Original parent: ddd98b90-fad5-412c-b961-1fce8fd0775f
+- Milestone: Lyzer Edge Repository Cleanup Verification
 - Instance: 1 of 1
 
 ## 🔒 Key Constraints
-- Review & test only — do NOT modify implementation code in `packages/lyzer-constitution/src/eca/`.
-- Empirically verify: run tests, check exit codes, check for output facades/mocking tricks, write stress tests.
+- Empirically challenge, run verification code yourself
+- Do NOT modify implementation code (review / test execution role)
+- State verdict clearly (CONFIRMED or FAILED)
+- Output files: challenge.md, handoff.md, progress.md
 
 ## Current Parent
-- Conversation ID: db988c03-30f4-4c50-b063-e8610e45dff6
-- Updated: 2026-08-01T13:54:35-03:00
+- Conversation ID: ddd98b90-fad5-412c-b961-1fce8fd0775f
+- Updated: 2026-08-02T14:20:30Z
 
 ## Review Scope
-- **Files to review**: `packages/lyzer-constitution/src/eca/*`, `lyzer edge/tests/verification/verify_eca.js`
-- **Interface contracts**: `packages/lyzer-constitution/src/eca/` (ConstitutionalCourt, Ledger, etc.)
-- **Review criteria**: Genuine correctness, empirical test execution, stress test resilience under edge cases.
+- **Files to review**: `lyzer edge/` build artifacts, test runs, code base
+- **Interface contracts**: PROJECT.md, AGENTS.md
+- **Review criteria**: `npm run build` succeeds with bundle output, `npm run test:verify` (16 tests pass), `npm test` passes zero regression.
 
 ## Key Decisions Made
-- Executed `verify_eca.js` test suite ($env:COURT_SECRET_KEY="test_secret_key"): 5/5 tests passed with exit code 0.
-- Performed code audit of ECA implementation files: confirmed real HMAC crypto, frozen constraint objects, and genuine logic without output facades.
-- Built and executed `stress_harness.js` (10 edge-case stress scenarios): 10/10 stress tests passed with exit code 0.
-- Verdict: CONFIRMED.
-- Written 5-component handoff report to `E:\projcts\lyzer\.agents\challenger_1\handoff.md`.
+- Executed `npm run build`: PASSED (103 modules transformed, production dist/ created in 26.18s).
+- Executed `npm run test:verify`: PASSED (16/16 verification tests passed in 7.12s).
+- Executed `npm test`: FAILED (Exit Code 134: fatal SQLite N-API crash + 5 test file failures).
+- Final Verdict: FAILED.
+
+## Attack Surface
+- **Hypotheses tested**: Dead code removal breaking Vite bundling, verification suite, or full Vitest test suite.
+- **Vulnerabilities found**: `npm test` fails with exit code 134 due to missing SQLite table columns (`court_ledger`), missing tables (`parameter_versions`), performance threshold mismatch, compliance gate audit failure, and native C++ `napi_throw` crash.
+- **Untested angles**: Daemon boundary certification suite (`boundary-certification-suite.ts`).
+
+## Loaded Skills
+- None loaded explicitly
 
 ## Artifact Index
-- `E:\projcts\lyzer\.agents\challenger_1\ORIGINAL_REQUEST.md` — Original request log
-- `E:\projcts\lyzer\.agents\challenger_1\BRIEFING.md` — Persistent briefing state
-- `E:\projcts\lyzer\.agents\challenger_1\progress.md` — Progress log / liveness heartbeat
-- `E:\projcts\lyzer\.agents\challenger_1\stress_harness.js` — Empirical stress test harness (10 tests)
-- `E:\projcts\lyzer\.agents\challenger_1\handoff.md` — 5-component verification report
+- e:\projcts\lyzer\.agents\challenger_1\ORIGINAL_REQUEST.md — Original User Request
+- e:\projcts\lyzer\.agents\challenger_1\BRIEFING.md — Persistent memory state
+- e:\projcts\lyzer\.agents\challenger_1\progress.md — Progress log
+- e:\projcts\lyzer\.agents\challenger_1\challenge.md — Detailed challenge report
+- e:\projcts\lyzer\.agents\challenger_1\handoff.md — 5-component handoff report

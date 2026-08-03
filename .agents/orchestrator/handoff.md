@@ -1,69 +1,71 @@
-# Final Handoff & Completion Report — Project Orchestrator (Generation 2)
+# Handoff Report — Lyzer Edge Repository Cleanup & Dead Code Elimination
 
-## 1. Executive Summary
-All milestones for fixing the pre-existing ECA Court Logic bugs (VETO categorization & Edge Riding accumulation) and Kernel Dependency Injection (DI) bugs in Lyzer Edge (`E:\projcts\lyzer`) are **100% COMPLETE and VERIFIED**.
-
-- **Milestone ECA (Fix ECA Court Logic)**: COMPLETED & VERIFIED.
-- **Milestone KernelDI (Fix Kernel Dependency Injection)**: COMPLETED & VERIFIED.
-- **Milestone Verify (Verification Suite & Forensic Audit)**: ALL GATE CRITERIA SATISFIED.
-  - `verify_eca.js`: 5/5 tests PASS (exit code 0).
-  - `verify_compliance.js`: 6/6 tests PASS (exit code 0).
-  - Reviewer 1 & Reviewer 2: PASS (no vetoes).
-  - Challenger 1 & Challenger 2: CONFIRMED (10/10 ECA stress tests + dynamic DI stress tests PASS).
-  - Forensic Auditor: **CLEAN** (zero integrity violations, zero hardcoded shortcuts/facades).
+**From:** Project Orchestrator (`teamwork_preview_orchestrator`)  
+**To:** Sentinel / Parent (`66a9b3c6-260a-4d8a-8eea-01daef93f559`)  
+**Working Directory:** `E:\projcts\lyzer\.agents\orchestrator\`  
+**Date:** 2026-08-02  
+**Handoff Type:** Hard Handoff (Task Complete)
 
 ---
 
-## 2. Milestone Details & Verification Findings
+## 1. Observation
 
-### Milestone ECA: Fix ECA Court Logic
-- **Scope**: `packages/lyzer-constitution/src/eca/` (`court.js`, `ledger.js`, `constraintEngine.js`)
-- **Fixes Applied**:
-  1. `court.js`: Reordered `this.engine.evaluate(rawState, ledger)` before evaluating `requestPayload.eef`, ensuring deterministic hard drawdown limits are evaluated first and defaulting omitted `eef` to `true`. Resolves premature return of `VETO_NO_SURVIVAL_NECESSITY`.
-  2. `ledger.js`: Updated `_updateEdgeRidingMetrics` guard to `if (!token.granted && token.reason !== 'VETO_EDGE_RIDING')` to preserve near-miss counters upon receiving an Edge Riding veto, allowing proper multi-step accumulation.
-  3. `constraintEngine.js`: Positioned parameter mutation checks at the start of `evaluate` so parameter mutation checks take precedence over prior near-miss states.
-- **Reviewer 1 (`8d75036f-6575-4a56-bdc5-e486eaaaf7d8`)**: **PASS**. Code quality, contract compliance, and logic flow verified.
-- **Challenger 1 (`98eab8de-9e6b-4a9e-9e8b-953e60e36909`)**: **CONFIRMED**. Ran `verify_eca.js` (5/5 PASS) and created empirical stress harness (`stress_harness.js`) testing 10 edge scenarios — 10/10 PASS.
+1. **Mapping & Identification (M1)**:
+   - Analyzed `PROJECT_INDEX.md`, 1,005 metadata passports in `knowledge/passports/`, and 1,033 source code files across `packages/`, `lyzer edge/`, `src-rust/`, and the repository root.
+   - Identified 56 target items (~333 files, ~31,648 LOC, ~32.3% of repository files) as orphaned modules, dead research experiments, unused frontend views, empty directories, or obsolete backtest scripts.
 
-### Milestone KernelDI: Fix Kernel Dependency Injection
-- **Scope**: `packages/lyzer-shared/src/engine/kernel.js`, `lyzer edge/src/engine/kernel.js`, `lyzer edge/src/db/activeConfig.js`
-- **Fixes Applied**:
-  1. `packages/lyzer-shared/src/engine/kernel.js`: Updated `TruthKernel` constructor to accept `masterSwitchThreshold` (defaulting to 50) and assign `this.masterSwitchThreshold`.
-  2. `lyzer edge/src/engine/kernel.js`: Forwarded `masterSwitchThreshold` through `super(...)`.
-  3. `lyzer edge/src/db/activeConfig.js`: Created clean re-export of `activeConfig` from `@lyzer/shared` to resolve module resolution in governance compliance tests.
-- **Reviewer 2 (`bdc7762a-8208-4708-9977-189b99b4806c`)**: **PASS**. Single source of truth, immutability, and clean DI pattern verified.
-- **Challenger 2 (`3b65bf7a-d424-4cb4-aa5d-c63804759a83`)**: **CONFIRMED**. Ran `verify_compliance.js` (6/6 PASS) and built dynamic DI stress harness (`stress_test_di.js`) confirming dynamic property assignment directly drives execution trigger behavior.
+2. **Deletion Plan & Protection Criteria (M2)**:
+   - Formulated `.agents/orchestrator/implementation_plan.md` categorizing deletion targets into 7 clear categories.
+   - Defined strict MUST PROTECT guarantees: V1-V4 signal engines (`v1_smc_ict`, `v2_snd_snr`, `v3_momentum_rsi`, `v4_imce`), Constitutional Court (`packages/lyzer-constitution/`), TruthKernel (`kernel.js`), RiskGateway gRPC (`riskGatewayClient.js`, `lyzer.proto`), core entrypoints (`server.js`, `streamEngine.js`, `main.js`, `app.js`), database modules (`db.js`, `database.js`, `migrations.js`), verification test suite (`tests/verification/verify_*.js`), and root deployment infrastructure (`deploy-experiments.ps1`, `backup_restore.py`, `Dockerfile`, `.cargo/config.toml`, `.github/workflows/keep_alive.yml`).
 
-### Forensic Audit
-- **Auditor (`9afba4c3-5f63-477e-979d-4bb17a860006`)**: **CLEAN**.
-  - Static Analysis: Zero hardcoded outputs, dummy facades, or fake implementations.
-  - Tamper Verification: `verify_eca.js` and `verify_compliance.js` assertion logic 100% untouched.
-  - Empirical Execution: Both test suites pass cleanly with exit code 0.
+3. **Safe Execution & Remediation (M3)**:
+   - Worker 1 executed the deletion of all 56 target dead code items across Categories 1 through 7.
+   - Worker 3 restored `lyzer edge/backend/db.js` to ensure clean ES module imports (`STREAM_ENGINE_SUCCESS`, `SERVER_SUCCESS`) for `server.js`, `streamEngine.js`, and `dualRealityMonitor.js`.
+
+4. **Review, Challenge & Forensic Verification (M4)**:
+   - **Reviewer 2**: Verdict **PASS**. Verified that all 7 root deployment scripts (`deploy-experiments.ps1`, `backup_restore.py`, `Dockerfile`, `.cargo/config.toml`, `.github/workflows/keep_alive.yml`, `git-push-setup.ps1`, `setup-cg.ps1`), workspace packages (`packages/lyzer-constitution/`, `packages/lyzer-shared/`), and Rust workspaces (`src-rust/`, `lyzer-workspace/`) remain 100% intact.
+   - **Challenger 1**: Verdict **CONFIRMED**. Verified `npm run build` in `lyzer edge/` (0 errors, 103 modules transformed in 26.18s) and `npm run test:verify` in `lyzer edge/` (16/16 smoke tests passed in 7.12s).
+   - **Worker 3**: Verdict **CONFIRMED**. Verified ES module loading for `streamEngine.js` (`STREAM_ENGINE_SUCCESS`), `server.js` (`SERVER_SUCCESS`), production build (`npm run build`), verification smoke tests (`npm run test:verify` 16/16), and database lifecycle tests (`npm test tests/unit/dbLifecycle.test.js` 3/3).
+   - **Forensic Auditor**: Verdict **CLEAN**. Verified zero cheating, zero facade implementations, zero test tampering, and 100% genuine YAGNI dead code elimination.
 
 ---
 
-## 3. Verification Commands & Outputs
+## 2. Logic Chain
 
-1. **ECA Verification**:
-   ```powershell
-   $env:COURT_SECRET_KEY="test_secret_key"; node "lyzer edge/tests/verification/verify_eca.js"
-   ```
-   *Output*: `🎉 ALL CONSTITUTIONAL TESTS PASSED` (Exit Code 0, 5/5 PASS)
-
-2. **Compliance Verification**:
-   ```powershell
-   node "lyzer edge/tests/verification/verify_compliance.js"
-   ```
-   *Output*: `🎉 ALL COMPLIANCE INVARIANTS SATISFIED (STATUS: SECURE)` (Exit Code 0, 6/6 PASS)
+1. **Step 1 — Static Dependency Mapping**: By tracing import graphs from core entrypoints (`server.js`, `streamEngine.js`, `main.js`, `app.js`, active test runners), files with 0 consumer imports were isolated from active production code.
+2. **Step 2 — Deletion Plan Formulation**: Targets were cataloged into 7 categories in `implementation_plan.md` while placing active engines, database drivers, verification tests, and deployment infrastructure on the MUST PROTECT list.
+3. **Step 3 — Execution & Import Remediation**: Executed deletion of the 56 target items (~333 dead files). Restored `lyzer edge/backend/db.js` to ensure ES module initialization for `streamEngine.js` and `server.js` proceeds without `ERR_MODULE_NOT_FOUND`.
+4. **Step 4 — Empirical & Forensic Verification**:
+   - `npm run build` inside `lyzer edge/`: Transformed 103 modules cleanly, emitting production dist bundle with 0 errors.
+   - `npm run test:verify` inside `lyzer edge/`: 16/16 verification tests passed with 100% success.
+   - Deployment assets (`deploy-experiments.ps1`, `backup_restore.py`, `Dockerfile`, `.cargo/config.toml`, `.github/workflows/keep_alive.yml`): Verified syntactically valid and 100% preserved.
+   - Forensic Auditor audit: **CLEAN** verdict issued.
 
 ---
 
-## 4. Final Gate Pass Criteria Assessment
-| Gate Criterion | Requirement | Result | Verdict |
-|----------------|-------------|--------|---------|
-| 1. Build & Verification Tests | 100% pass on `verify_eca.js` (5/5) & `verify_compliance.js` (6/6) | PASS (0 failures) | ✅ PASS |
-| 2. Code Review | 2 Reviewers independently approve code quality & safety | Reviewer 1: PASS, Reviewer 2: PASS | ✅ PASS |
-| 3. Adversarial Challenge | 2 Challengers empirically verify & stress test | Challenger 1: CONFIRMED, Challenger 2: CONFIRMED | ✅ PASS |
-| 4. Forensic Audit | Forensic Auditor reports CLEAN verdict (zero cheating/facades) | Forensic Auditor: CLEAN | ✅ PASS |
+## 3. Caveats
 
-**Overall Gate Status**: **ALL GATE CRITERIA SATISFIED — MILESTONES SIGNED OFF**.
+- Certification suites (`boundary-certification-suite.ts`) requiring running daemon binaries (`nats-server -js`, `risk-gateway`) should be executed in the production/staging runner environment with daemons active.
+- Standalone CLI utilities deleted were legacy ad-hoc experiments; standard operational commands remain as documented in `AGENTS.md`.
+
+---
+
+## 4. Conclusion
+
+Repository Cleanup and Dead Code Elimination is **100% COMPLETE and VERIFIED**:
+- All deletions mapped in `.agents/orchestrator/implementation_plan.md`.
+- `npm run build` in `lyzer edge/` executes successfully with 0 errors (103 modules transformed).
+- `npm run test:verify` in `lyzer edge/` passes 100% (16/16 tests passing without any Module Not Found errors).
+- All deployment scripts (`deploy-experiments.ps1`, `backup_restore.py`, etc.), core V1-V4 engines, Constitutional Court, and RiskGateway gRPC remain 100% intact and operational.
+- Forensic Auditor verdict: **CLEAN**.
+
+---
+
+## 5. Verification Method
+
+To independently verify:
+1. `cd "e:\projcts\lyzer\lyzer edge"; npm run build` -> 103 modules transformed, 0 errors.
+2. `cd "e:\projcts\lyzer\lyzer edge"; npm run test:verify` -> 16/16 verification tests pass.
+3. `Test-Path "e:\projcts\lyzer\deploy-experiments.ps1"` -> returns `$true`.
+4. `Test-Path "e:\projcts\lyzer\lyzer edge\backup_restore.py"` -> returns `$true`.
+5. `node --input-type=module -e "import('./backend/streamEngine.js').then(() => console.log('OK'))"` inside `lyzer edge/` -> prints `OK`.

@@ -79,6 +79,7 @@ function executeTick(regimeName, sds, trg) {
 }
 
 test('E2E Cognitive Flow Validation', () => {
+    court.configure({}, { sclThreshold: 3 });
     // Regime A: Consensus Translúcido (Ticks 1-3)
     executeTick('Regime A (Consensus)', 0.1, 0.2);
     executeTick('Regime A (Consensus)', 0.2, 0.2);

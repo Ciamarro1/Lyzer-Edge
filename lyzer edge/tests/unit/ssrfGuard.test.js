@@ -10,8 +10,6 @@ import {
 import { LiveDataIngestor } from '../../backend/liveDataIngestor.js';
 import { sendTelegramAlert } from '../../backend/telegram.js';
 import { ExchangeExecution } from '../../backend/exchangeExecution.js';
-import { ExchangeExecution as FastExchangeExecution } from '../../backend/providers/v1_fast/exchangeExecution.js';
-import { ExchangeExecution as DeepExchangeExecution } from '../../backend/providers/v2_deep/exchangeExecution.js';
 
 describe('ssrfGuard Utility Suite', () => {
   describe('isPrivateIp', () => {
@@ -218,12 +216,6 @@ describe('ssrfGuard Utility Suite', () => {
       it('enforces symbol validation on order placement', async () => {
         const rootExec = new ExchangeExecution('key', 'secret');
         await expect(rootExec.placeOrder('BAD;SYMBOL', 'BUY')).rejects.toThrow();
-
-        const fastExec = new FastExchangeExecution('key', 'secret');
-        await expect(fastExec.placeOrder('BAD;SYMBOL', 'BUY')).rejects.toThrow();
-
-        const deepExec = new DeepExchangeExecution('key', 'secret');
-        await expect(deepExec.placeOrder('BAD;SYMBOL', 'BUY')).rejects.toThrow();
       });
 
       it('executes safeFetch with encoded query string parameters', async () => {

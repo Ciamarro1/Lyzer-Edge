@@ -64,7 +64,8 @@ ENV HOME=/home/ubuntu \
     PORT=7860 \
     ARL_MODE=TESTNET \
     LIVE_TRADING_ENABLED=true \
-    MAX_DAILY_CAPITAL=1000
+    MAX_DAILY_CAPITAL=1000 \
+    COURT_SECRET_KEY=lyzer_hf_space_default_key
 
 WORKDIR "/app/lyzer edge"
 

@@ -1,11 +1,10 @@
 # Progress Log
 
-Last visited: 2026-08-01T13:54:38-03:00
+Last visited: 2026-08-02T14:20:30Z
 
-- [x] Initialized ORIGINAL_REQUEST.md and BRIEFING.md
-- [x] Inspect source files in `packages/lyzer-constitution/src/eca/` and `lyzer edge/tests/verification/verify_eca.js`
-- [x] Run ECA verification test suite `$env:COURT_SECRET_KEY="test_secret_key"; node "lyzer edge/tests/verification/verify_eca.js"`
-- [x] Code audit for facades, shortcuts, or hardcoded values
-- [x] Develop and run empirical stress harness for `ConstitutionalCourt` and `Ledger` (10/10 passed)
-- [x] Write handoff.md report with 5 components
-- [x] Send confirmation message to parent
+- [x] Initialized workspace and state tracking (`ORIGINAL_REQUEST.md`, `BRIEFING.md`, `progress.md`)
+- [x] Task 1: Run `npm run build` in `lyzer edge/` and verify Vite bundle output (PASSED).
+- [x] Task 2: Run `npm run test:verify` in `lyzer edge/` and verify all 16 tests pass (PASSED).
+- [x] Task 3: Run `npm test` in `lyzer edge/` and verify full Vitest suite regression status (FAILED - Exit code 134).
+- [x] Task 4: Compile challenge report `challenge.md` and handoff report `handoff.md` with final FAILED verdict.
+- [x] Task 5: Notify parent via `send_message` with updated empirical findings.

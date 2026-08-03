@@ -1,105 +1,86 @@
-# ECA Court Logic Empirical Verification Handoff Report
+# Handoff Report — Lyzer Edge Repository Cleanup Verification
 
 ## 1. Observation
+Direct empirical observations recorded during execution in `e:\projcts\lyzer\lyzer edge`:
 
-- **Primary Test Execution**:
-  Command executed: `$env:COURT_SECRET_KEY="test_secret_key"; node "lyzer edge/tests/verification/verify_eca.js"`
-  Working Directory: `E:\projcts\lyzer`
-  Result / Exit Code: 0
-  Verbatim output:
-  ```
-  ========================================================================
-    ECA CONSTITUTIONAL TEST SUITE (STATUS: AUDIT)
-  ========================================================================
-    [PASS] T1: VETO_CONFIDENCE_ARROGANCE is enforced
-    [PASS] T2: VETO_HARD_LIMIT_DRAWDOWN is enforced
-    [PASS] T3: VETO_EDGE_RIDING is enforced after accumulated near-misses
-    [PASS] T4: VETO_PARAMETER_MUTATION (Governance Capture) is enforced
-  !!! CONSTITUTIONAL KILL-SWITCH ACTIVATED !!!
-  Terminating Execution Node immediately...
-    [PASS] T5: Kill Switch executes SIGKILL simulation
-  ========================================================================
-    🎉 ALL CONSTITUTIONAL TESTS PASSED
-  ```
+- **Command 1**: `npm run build`
+  - Exit code: 0
+  - Verbatim Output:
+    ```
+    > lyzer-edge-analyst@0.0.0 build
+    > vite build
 
-- **Source Code Integrity Audit**:
-  - `packages/lyzer-constitution/src/eca/court.js`: Evaluates requests through MOL, C-CLIST, ConstraintEngine, and Execution Trigger Boundary.
-  - `packages/lyzer-constitution/src/eca/ledger.js`: Maintains frozen `record` objects (`Object.freeze(...)`), calculates near-miss metrics via `_updateEdgeRidingMetrics`, exports deep isolated clones via `exportLedger()` using `safeClone`.
-  - `packages/lyzer-constitution/src/eca/constraintEngine.js`: Contains double-frozen `CONSTRAINTS` (`Object.freeze` on top level and nested `HARD`/`SOFT` objects). Line 30 explicitly enforces runtime parameter integrity check `(!this.CONSTRAINTS?.HARD || this.CONSTRAINTS.HARD.MAX_DAILY_DRAWDOWN !== 0.05)`.
-  - `packages/lyzer-constitution/src/eca/permission.js`: Calculates real HMAC-SHA256 signatures via Node.js `crypto.createHmac('sha256', secretKey)` and throws if `COURT_SECRET_KEY` is missing in Node environment.
-  - `packages/lyzer-constitution/src/eca/killSwitch.js`: Handles process exit or emulated error throw when `NODE_ENV === 'test'`.
+    vite v5.4.21 building for production...
+    transforming...
+    ✓ 103 modules transformed.
+    rendering chunks...
+    computing gzip size...
+    dist/index.html                                          1.88 kB │ gzip:  0.95 kB
+    dist/assets/index-BOf0E2dm.css                           7.83 kB │ gzip:  2.34 kB
+    dist/assets/DecisionLedger-DNrtSqcH.js                   1.30 kB │ gzip:  0.66 kB
+    dist/assets/lightweight-charts.production-C-4kb1nc.js  162.81 kB │ gzip: 51.97 kB
+    dist/assets/index-Brq9h-_d.js                          351.41 kB │ gzip: 97.01 kB
+    ✓ built in 26.18s
+    ```
 
-- **Empirical Stress Test Execution**:
-  Command executed: `$env:COURT_SECRET_KEY="test_secret_key"; node ".agents/challenger_1/stress_harness.js"`
-  Result / Exit Code: 0
-  Verbatim output:
-  ```
-  ========================================================================
-    EMPIRICAL CHALLENGER STRESS HARNESS — ECA COURT LOGIC
-  ========================================================================
-  [PASS] S1: Valid Payload returns PERMISSION_GRANTED with valid signature
-  [PASS] S2: Tampered Token payload invalidates HMAC signature
-  [PASS] S3: getCourtSecret throws when COURT_SECRET_KEY is missing in Node environment
-  [PASS] S4: Hard limit drawdown exact boundary test
-  [PASS] S5: Edge Riding near-miss accumulation and decay
-  [PASS] S6: ConstraintEngine immunity to parameter mutations
-  [PASS] S7: C-CLIST Lethal Stability Illusion veto trigger
-  [PASS] S8: MOL VETO state transition and False Awakening blocking
-  [PASS] S9: Ledger entries original immutability & export isolation
-  !!! CONSTITUTIONAL KILL-SWITCH ACTIVATED !!!
-  Terminating Execution Node immediately...
-  [PASS] S10: Kill Switch hard kill emulation in test environment
-  ========================================================================
-  STRESS TEST RESULTS: 10 / 10 PASSED
-    🎉 ALL STRESS TESTS PASSED SUCCESSFULLY
-  ```
+- **Command 2**: `npm run test:verify`
+  - Exit code: 0
+  - Verbatim Output:
+    ```
+    RUN  v1.6.1 E:/projcts/lyzer/lyzer edge
+
+    ✓ tests/verification/verify_suite.test.js (16)
+      ✓ Verification Suite (16)
+        ✓ Alpha Strategy V1 loads and runs correctly
+        ✓ Compliance Engine correctly evaluates limits
+        ✓ State Decomposition maintains invariant
+        ✓ ECA Court enforces governance laws
+        ✓ Experiment System loads configuration variants
+        ✓ Fund Core maintains double-entry invariants
+        ✓ Market Impact Calculator estimates dynamic slippage
+        ✓ Multi-Node Engine synchronizes state across instances
+        ✓ Robustness Test passes stress limits
+        ✓ Signal Engine combines multi-provider inputs
+        ✓ SIL Integration evaluates execution triggers
+        ✓ Stream Engine processes candle flow end-to-end
+        ✓ V02 Engine executes legacy rule subset
+        ✓ V03 Engine executes modern rule subset
+        ✓ Runtime Profiler tracks latency distribution
+        ✓ Full System Execution Auditor validates end-to-end trace
+
+    Test Files  1 passed (1)
+         Tests  16 passed (16)
+      Duration  7.12s
+    ```
+
+- **Command 3**: `npm test`
+  - Exit code: 134 (FATAL PROCESS CRASH)
+  - Verbatim Log Excerpts (`task-25.log`):
+    - `tests/e2e/cognitive_flow.test.js`: `E2E FAILED: System failed to Awaken after reaching SCL threshold.` / `SQLITE_ERROR: table court_ledger has no column named granted`
+    - `tests/unit/commandCenter/sdk/openmobiusCoprocessor.test.js`: `expected 5177.257117136505 to be greater than 20000`
+    - `tests/unit/commandCenter/sdk/widgetComplianceGate.test.js`: `audits RealityStatusWidget and assigns Gold or Platinum certification -> expected false to be true`
+    - `tests/causal-memory/eventFactory.test.js`: `creates valid event conforming to ADR-007 schema -> expected '92964f7836912fe4' to have a length of 64 but got 16`
+    - `tests/adaptive-sandbox/versionStore.test.js`: `SQLITE_ERROR: no such table: parameter_versions`
+    - Fatal error: `FATAL ERROR: Error::ThrowAsJavaScriptException napi_throw` / `npm error code 134`
 
 ## 2. Logic Chain
-
-1. **Test Suite Verification (Observation 1)**: Executing `verify_eca.js` with `COURT_SECRET_KEY` set runs all 5 core constitutional checks without errors or unhandled rejections, exiting with exit code 0.
-2. **Facade & Mocking Audit (Observation 2)**: Code review of `packages/lyzer-constitution/src/eca/` confirmed that crypto operations (HMAC-SHA256 in `permission.js`), state validations, ledger record freezes (`ledger.js`), and immutability checks (`constraintEngine.js`) use real mathematical and logic routines without hardcoded facades or mock overrides.
-3. **Boundary & Stress Resistance (Observation 3)**:
-   - S1 & S2 proved that valid payloads receive signed tokens that pass HMAC verification, while tampered payloads or invalid secret keys fail HMAC verification.
-   - S3 confirmed strict environment requirements (`COURT_SECRET_KEY`).
-   - S4 verified boundary behavior: drawdown at 0.0499 is granted, while drawdown at 0.0500 and above triggers `VETO_HARD_LIMIT_DRAWDOWN`.
-   - S5 proved near-miss tracking in `ledger.js`: 4 near-misses accumulate to count 4, 2 safe requests decay the counter to 2, and reaching 5 near-misses triggers `VETO_EDGE_RIDING` on the 6th call.
-   - S6 confirmed strict immutability of `CONSTRAINTS` in `ConstraintEngine`, throwing `TypeError` on attempted mutation and evaluating to `VETO_PARAMETER_MUTATION` if modified.
-   - S7 confirmed C-CLIST stress accumulation under low DVF conditions, triggering `VETO_LETHAL_STABILITY_ILLUSION` upon reaching lethal limit.
-   - S8 confirmed MOL state transitions (VETO -> RECOVERY) and blocking premature False Awakening with `VETO_MOL_RECOVERY_PENDING`.
-   - S9 confirmed ledger record immutability (`Object.freeze`) and isolated export cloning (`safeClone`).
-   - S10 confirmed `KillSwitch.executeHardKill()` behavior under test environment mode.
+1. **From Command 1**: `npm run build` finished with exit code 0 and generated valid bundle assets under `dist/`. Vite bundle creation and module transformation pass cleanly.
+2. **From Command 2**: `npm run test:verify` finished with exit code 0 and all 16 verification tests in `tests/verification/verify_suite.test.js` passed.
+3. **From Command 3**: `npm test` (`vitest run` without file filtering) failed with exit code 134. Five separate test files failed, including SQLite schema errors (`court_ledger`, missing `parameter_versions` table), throughput timing failures, compliance gate failures, ADR-007 hash length mismatch, and a fatal C++ native exception (`napi_throw`).
+4. **Conclusion**: Because `npm test` fails with process crash code 134, repository test integrity for the full test suite cannot be confirmed as passing.
 
 ## 3. Caveats
-
-- **SQLite Database Persistence**: When `sqlite3` module is installed, `ConstitutionalLedger` asynchronously logs to `causal_memory.db`. In environments without `sqlite3`, it seamlessly degrades to in-memory audit trailing. Both modes preserve in-memory immutability and near-miss metrics.
-- No other caveats.
+- The focused smoke tests (`npm run test:verify` and `tests/e2e_smc/e2e_suite.test.js`) pass when executed directly.
+- The failure of `npm test` appears tied to unmigrated SQLite tables (`court_ledger`, `parameter_versions`), strict throughput expectations, and native sqlite3 addon binding crashes on Windows.
 
 ## 4. Conclusion
+**Verdict**: **FAILED**
 
-- **Verdict**: **CONFIRMED**
-- The ECA Court Logic fixes in `packages/lyzer-constitution/src/eca/` are empirically verified as genuine, robust, and mathematically sound.
-- All 5 constitutional verification tests pass cleanly (exit code 0).
-- All 10 adversarial stress test scenarios pass cleanly without failure modes or facades.
+Vite build (`npm run build`) and verification suite (`npm run test:verify`) pass, but the primary test runner script `npm test` fails with exit code 134 due to test assertion failures and a fatal SQLite N-API crash.
 
 ## 5. Verification Method
-
-To independently reproduce and verify this assessment:
-
-1. Run the official test suite:
-   ```powershell
-   $env:COURT_SECRET_KEY="test_secret_key"; node "lyzer edge/tests/verification/verify_eca.js"
-   ```
-   Check that output reports 5/5 passed and process exits with code 0.
-
-2. Run the empirical stress harness created by Challenger 1:
-   ```powershell
-   $env:COURT_SECRET_KEY="test_secret_key"; node ".agents/challenger_1/stress_harness.js"
-   ```
-   Check that output reports 10/10 stress tests passed and process exits with code 0.
-
-3. Inspect files:
-   - `packages/lyzer-constitution/src/eca/court.js`
-   - `packages/lyzer-constitution/src/eca/ledger.js`
-   - `packages/lyzer-constitution/src/eca/constraintEngine.js`
-   - `packages/lyzer-constitution/src/eca/permission.js`
-   - `.agents/challenger_1/stress_harness.js`
+To independently verify:
+1. `cd "e:\projcts\lyzer\lyzer edge"`
+2. Run `npm run build` — expected exit code 0.
+3. Run `npm run test:verify` — expected exit code 0.
+4. Run `npm test` — observe exit code 134 and test failures in `tests/e2e/cognitive_flow.test.js`, `tests/adaptive-sandbox/versionStore.test.js`, `tests/causal-memory/eventFactory.test.js`, and `tests/unit/commandCenter/sdk/widgetComplianceGate.test.js`.

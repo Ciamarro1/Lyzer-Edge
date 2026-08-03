@@ -1,48 +1,38 @@
-# BRIEFING — 2026-08-01T13:54:30-03:00
+# BRIEFING — 2026-08-02T18:44:31Z
 
 ## Mission
-Empirically verify Kernel Dependency Injection (DI) and Boundary Compliance fixes in lyzer edge.
+Empirically challenge ES module import resolution, build process, and verification test suite for Lyzer Edge repository cleanup.
 
 ## 🔒 My Identity
-- Archetype: EMPIRICAL CHALLENGER
+- Archetype: Empirical Challenger
 - Roles: critic, specialist
-- Working directory: E:\projcts\lyzer\.agents\challenger_2
-- Original parent: db988c03-30f4-4c50-b063-e8610e45dff6
-- Milestone: Empirical Verification of Kernel DI and Boundary Compliance
-- Instance: 2 of 2
+- Working directory: e:\projcts\lyzer\.agents\challenger_2
+- Original parent: ddd98b90-fad5-412c-b961-1fce8fd0775f
+- Milestone: Final Import Resolution & Test Challenge
+- Instance: 1 of 1
 
 ## 🔒 Key Constraints
-- Review-only — do NOT modify implementation code (only run test suites, create stress test scripts in workspace, verify code empirically)
-- Run empirical verification and stress tests directly
+- Review-only & Empirical Challenge — write tests/run commands, do NOT modify implementation code unless reported as findings.
+- Operate from working directory `e:\projcts\lyzer\.agents\challenger_2\` for artifacts.
+- Target execution directory for npm/node commands: `e:\projcts\lyzer\lyzer edge`
 
 ## Current Parent
-- Conversation ID: db988c03-30f4-4c50-b063-e8610e45dff6
-- Updated: 2026-08-01T13:54:30-03:00
+- Conversation ID: ddd98b90-fad5-412c-b961-1fce8fd0775f
+- Updated: 2026-08-02T18:44:31Z
 
 ## Review Scope
-- **Files to review**: lyzer edge codebase, kernel DI implementation, compliance verification tests (`verify_compliance.js`), boundary guards, `activeConfig.js`.
-- **Interface contracts**: Boundary compliance specifications, DI interfaces.
-- **Review criteria**: Genuine pass of compliance suite (6 tests), dynamic DI stress test, check for facades/fake outputs.
+- **Files to review/challenge**: `lyzer edge/backend/server.js`, `lyzer edge/backend/streamEngine.js`, package scripts, Vite build bundle output, verification test suite.
+- **Interface contracts**: `AGENTS.md` rules and ES module dynamic import resolution.
+- **Review criteria**: Empirical execution success without module import errors, unhandled rejections, build failures, or test failures.
 
 ## Key Decisions Made
-- Executed `verify_compliance.js` — all 6 compliance tests passed with exit code 0.
-- Source code inspection of `verify_compliance.js`, `kernel.js`, `activeConfig.js`, `verify_v02.js`, `verify_v03.js`, `residualization.js`, and `executionTriggerLayer.js` confirmed no mock facades exist.
-- Designed and executed empirical stress test script `stress_test_di.js` testing varied DI parameters (10, 50, 75, 100, 0, custom `trgThreshold`). Confirmed dynamic execution trigger (EEF) behavior.
+- Will run exact node import challenge commands from `lyzer edge/` directory.
+- Will execute `npm run build` and check build outputs in `lyzer edge/dist/`.
+- Will execute `npm run test:verify` and evaluate output.
 
 ## Artifact Index
-- E:\projcts\lyzer\.agents\challenger_2\ORIGINAL_REQUEST.md — Initial user request
-- E:\projcts\lyzer\.agents\challenger_2\BRIEFING.md — Persistent briefing context
-- E:\projcts\lyzer\.agents\challenger_2\progress.md — Liveness heartbeat
-- E:\projcts\lyzer\.agents\challenger_2\stress_test_di.js — DI empirical stress test script
-- E:\projcts\lyzer\.agents\challenger_2\handoff.md — Empirical verification report
-
-## Attack Surface
-- **Hypotheses tested**: 
-  1. `verify_compliance.js` passes all 6 tests with exit code 0 (CONFIRMED).
-  2. `TruthKernel` constructor DI is dynamic and modulates runtime EEF decisioning without direct `activeConfig` imports (CONFIRMED).
-  3. Tests pass genuinely without hardcoded output facades (CONFIRMED).
-- **Vulnerabilities found**: None. System adheres strictly to DI and boundary compliance invariants.
-- **Untested angles**: All targeted compliance invariants and DI scenarios tested empirically.
-
-## Loaded Skills
-- None
+- `e:\projcts\lyzer\.agents\challenger_2\ORIGINAL_REQUEST.md` — Original prompt text
+- `e:\projcts\lyzer\.agents\challenger_2\BRIEFING.md` — Working context briefing
+- `e:\projcts\lyzer\.agents\challenger_2\progress.md` — Step progress and timestamp heartbeat
+- `e:\projcts\lyzer\.agents\challenger_2\challenge.md` — Challenge report with verdict
+- `e:\projcts\lyzer\.agents\challenger_2\handoff.md` — Handoff report

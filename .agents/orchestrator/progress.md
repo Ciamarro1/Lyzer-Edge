@@ -1,29 +1,21 @@
-# Progress Log — Lyzer Edge Orchestration
+# Progress Log — Lyzer Edge Repository Cleanup & Dead Code Elimination
 
 ## Current Status
-Last visited: 2026-08-01T13:55:00Z (Generation 2)
+Last visited: 2026-08-02T18:46:00Z (Generation 3 - Verification & Final Sign-off Track)
 
 ## Iteration Status
-Current iteration: 3 / 32
+Current iteration: 5 / 32
 
 ## Checklist
-- [x] Update orchestrator metadata and ORIGINAL_REQUEST.md for ECA & Kernel DI bugs
-- [x] Milestone ECA: Fix ECA Court Logic (VETO categorization & Edge Riding accumulation)
-  - [x] Explorers dispatched for `packages/lyzer-constitution/src/eca/` & `verify_eca.js`
-  - [x] Root causes identified (court.js check ordering & ledger.js counter reset)
-  - [x] Implementation complete (Worker Conv ID: 969b7d60-46e7-4f97-81d8-f8f147709803)
-  - [x] Review & Challenge complete (Reviewer 1: PASS, Challenger 1: CONFIRMED)
-- [x] Milestone KernelDI: Fix Kernel Dependency Injection (`packages/lyzer-shared/src/engine/kernel.js`)
-  - [x] Explorers dispatched for `kernel.js` & `verify_compliance.js`
-  - [x] Root cause identified (missing masterSwitchThreshold property on TruthKernel)
-  - [x] Implementation complete (Worker Conv ID: 969b7d60-46e7-4f97-81d8-f8f147709803)
-  - [x] Review & Challenge complete (Reviewer 2: PASS, Challenger 2: CONFIRMED)
-- [x] Milestone Verify: Verification Suite & E2E Acceptance
-  - [x] `node "lyzer edge/tests/verification/verify_eca.js"` passes 5/5
-  - [x] `node "lyzer edge/tests/verification/verify_compliance.js"` passes 6/6
-  - [x] Forensic Audit final verdict CLEAN (Auditor: CLEAN)
+- [x] Create/update `plan.md`, `progress.md`, `ORIGINAL_REQUEST.md`, and `BRIEFING.md` for Cleanup & Dead Code Elimination
+- [x] Milestone M1: Dead Code & Orphan Mapping (Explorers 1, 2, 3 mapped 333 dead files / 56 target items)
+- [x] Milestone M2: Deletion Plan Formulation (Created `implementation_plan.md` artifact with MUST PROTECT guarantees)
+- [x] Milestone M3: Safe Dead Code Elimination (Worker 1 deleted 56 dead target items; Worker 3 restored `db.js`)
+- [ ] Milestone M4: Architectural Protection & Forensic Verification (Worker 4 dispatched for restoration re-verification; Reviewer/Challenger/Auditor pending)
+- [ ] Final Synthesis & Handoff Sign-off
 
 ## Retrospective Notes
-- Initialized ECA Court Logic & Kernel Dependency Injection bug resolution track.
-- Preparing exploration dispatch for `packages/lyzer-constitution/src/eca/`, `packages/lyzer-shared/src/engine/kernel.js`, and verification tests.
+- Repository cleanup executed (333 dead files removed).
+- Worker 4 dispatched to verify `lyzer edge/backend/db.js` presence, run `npm run build` and `npm run test:verify`, and assert `node -e "import('./backend/server.js')"` executes without `ERR_MODULE_NOT_FOUND`.
+- Reviewer 3, Challenger 2, and Forensic Auditor to be dispatched upon Worker 4 completion for final sign-off.
 
