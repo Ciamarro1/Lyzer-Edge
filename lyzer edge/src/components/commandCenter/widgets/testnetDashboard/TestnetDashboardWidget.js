@@ -84,8 +84,11 @@ export class TestnetDashboardWidget {
 
     // Render Balances
     const balancesContainer = this._container.querySelector('#testnet-balances-container');
-    if (balancesContainer && account && account.balances) {
-      // Filter out empty balances
+    if (balancesContainer && account) {
+      if (account.code) {
+        balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px; margin-bottom: 8px;">API Error: ${account.msg}</div>`;
+      } else if (account.balances) {
+        // Filter out empty balances
       const activeBalances = account.balances.filter(b => parseFloat(b.free) > 0 || parseFloat(b.locked) > 0);
       
       if (activeBalances.length === 0) {
@@ -100,11 +103,14 @@ export class TestnetDashboardWidget {
         `).join('');
       }
     }
+  }
 
     // Render Orders
     const ordersContainer = this._container.querySelector('#testnet-orders-container');
     if (ordersContainer && orders) {
-      if (orders.length === 0) {
+      if (orders.code) {
+        ordersContainer.innerHTML = `<div style="color: var(--danger-color); text-align: center; padding: 20px 0; font-size:10px;">API Error: ${orders.msg}</div>`;
+      } else if (!Array.isArray(orders) || orders.length === 0) {
         ordersContainer.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 20px 0;">No open orders</div>';
       } else {
         ordersContainer.innerHTML = orders.map(o => {

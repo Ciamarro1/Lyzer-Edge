@@ -30,8 +30,8 @@ export class ExchangeExecution {
       };
     }
 
-    const timestamp = Date.now();
-    const recvWindow = 5000;
+    const timestamp = Date.now() - 2000;
+    const recvWindow = 60000;
 
     const cleanSide = encodeURIComponent(side.toUpperCase());
     const cleanType = encodeURIComponent(type.toUpperCase());
@@ -75,8 +75,8 @@ export class ExchangeExecution {
 
   async getAccount() {
     if (!this.apiKey || !this.apiSecret) return { balances: [] };
-    const timestamp = Date.now();
-    const recvWindow = 5000;
+    const timestamp = Date.now() - 2000;
+    const recvWindow = 60000;
     let queryString = `timestamp=${timestamp}&recvWindow=${recvWindow}`;
     const signature = crypto.createHmac('sha256', this.apiSecret).update(queryString).digest('hex');
     queryString += `&signature=${encodeURIComponent(signature)}`;
@@ -95,8 +95,8 @@ export class ExchangeExecution {
 
   async getOpenOrders(symbol = null) {
     if (!this.apiKey || !this.apiSecret) return [];
-    const timestamp = Date.now();
-    const recvWindow = 5000;
+    const timestamp = Date.now() - 2000;
+    const recvWindow = 60000;
     let queryString = `timestamp=${timestamp}&recvWindow=${recvWindow}`;
     if (symbol) {
       queryString = `symbol=${encodeURIComponent(validateSymbol(symbol))}&${queryString}`;
