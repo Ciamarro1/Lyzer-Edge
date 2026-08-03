@@ -1,14 +1,13 @@
-import { WidgetContext } from '../../sdk/WidgetContext.js';
-
 export class TestnetDashboardWidget {
-  constructor(container, options = {}) {
-    this._container = container;
-    this._ctx = new WidgetContext('testnet-dashboard-widget', options);
+  constructor() {
+    this._container = null;
     this._pollInterval = null;
     this._mounted = false;
   }
 
-  async mount() {
+  mount(container, runtime) {
+    this._container = container;
+    this._runtime = runtime;
     this._mounted = true;
     this._renderFrame();
     this._startPolling();
@@ -76,7 +75,7 @@ export class TestnetDashboardWidget {
     } catch (err) {
       console.error('[TestnetDashboard] Fetch error:', err);
       const ordersContainer = this._container.querySelector('#testnet-orders-container');
-      if (ordersContainer) ordersContainer.innerHTML = \`<div style="color: var(--danger-color);">Error fetching data</div>\`;
+      if (ordersContainer) ordersContainer.innerHTML = `<div style="color: var(--danger-color);">Error fetching data</div>`;
     }
   }
 
@@ -92,13 +91,13 @@ export class TestnetDashboardWidget {
       if (activeBalances.length === 0) {
         balancesContainer.innerHTML = '<div style="color: var(--text-secondary);">No balances</div>';
       } else {
-        balancesContainer.innerHTML = activeBalances.map(b => \`
+        balancesContainer.innerHTML = activeBalances.map(b => `
           <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 10px; display: flex; flex-direction: column;">
-            <span style="font-weight: 600; font-size: 11px; color: var(--text-bright);">\${b.asset}</span>
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary);">\${parseFloat(b.free).toFixed(4)}</span>
-            \${parseFloat(b.locked) > 0 ? \`<span style="font-size: 9px; color: var(--warning-color);">\${parseFloat(b.locked).toFixed(4)} LCK</span>\` : ''}
+            <span style="font-weight: 600; font-size: 11px; color: var(--text-bright);">${b.asset}</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary);">${parseFloat(b.free).toFixed(4)}</span>
+            ${parseFloat(b.locked) > 0 ? `<span style="font-size: 9px; color: var(--warning-color);">${parseFloat(b.locked).toFixed(4)} LCK</span>` : ''}
           </div>
-        \`).join('');
+        `).join('');
       }
     }
 
@@ -111,18 +110,18 @@ export class TestnetDashboardWidget {
         ordersContainer.innerHTML = orders.map(o => {
           const isBuy = o.side === 'BUY';
           const sideColor = isBuy ? 'var(--success-color)' : 'var(--danger-color)';
-          return \`
+          return `
             <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px 4px; border-bottom: 1px solid rgba(255,255,255,0.05); font-family: 'JetBrains Mono', monospace; font-size: 11px;">
               <div style="display: flex; align-items: center; gap: 8px;">
-                <span style="color: \${sideColor}; font-weight: bold; width: 36px;">\${o.side}</span>
-                <span style="color: var(--text-bright);">\${o.symbol}</span>
+                <span style="color: ${sideColor}; font-weight: bold; width: 36px;">${o.side}</span>
+                <span style="color: var(--text-bright);">${o.symbol}</span>
               </div>
               <div style="display: flex; align-items: center; gap: 12px; text-align: right;">
-                <span style="color: var(--text-secondary);">\${parseFloat(o.origQty).toString()} @</span>
-                <span style="color: var(--text-primary); font-weight: 500;">\${parseFloat(o.price).toString()}</span>
+                <span style="color: var(--text-secondary);">${parseFloat(o.origQty).toString()} @</span>
+                <span style="color: var(--text-primary); font-weight: 500;">${parseFloat(o.price).toString()}</span>
               </div>
             </div>
-          \`;
+          `;
         }).join('');
       }
     }
