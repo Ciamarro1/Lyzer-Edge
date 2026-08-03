@@ -22,6 +22,8 @@ import { TimelineWidget } from './components/commandCenter/widgets/timeline/Time
 import { timelineManifest } from './components/commandCenter/widgets/timeline/manifest.js';
 import { CausalGraphWidget } from './components/commandCenter/widgets/causalGraph/CausalGraphWidget.js';
 import { causalGraphManifest } from './components/commandCenter/widgets/causalGraph/manifest.js';
+import { TestnetDashboardWidget } from './components/commandCenter/widgets/testnetDashboard/TestnetDashboardWidget.js';
+import { testnetDashboardManifest } from './components/commandCenter/widgets/testnetDashboard/manifest.js';
 import { WidgetRegistry } from './components/commandCenter/sdk/WidgetRegistry.js';
 import './styles/variables.css';
 import './styles/base.css';
@@ -50,6 +52,7 @@ async function main() {
       widgetRegistry.register(courtManifest, CourtWidget);
       widgetRegistry.register(timelineManifest, TimelineWidget);
       widgetRegistry.register(causalGraphManifest, CausalGraphWidget);
+      widgetRegistry.register(testnetDashboardManifest, TestnetDashboardWidget);
 
       const commandCenter = new CommandCenterApp(rootElement, widgetRegistry, orchestrator);
       
@@ -64,7 +67,7 @@ async function main() {
       };
       
       const widgetMap = {
-        LeftPane: ['timeline-widget'],
+        LeftPane: ['testnet-dashboard-widget', 'timeline-widget'],
         CenterPane: ['causal-graph-widget', 'chart-host-widget'],
         RightPane: ['court-widget', 'runtime-inspector-widget', 'reality-status-widget']
       };

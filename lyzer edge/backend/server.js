@@ -11,6 +11,7 @@ import db from './db.js';
 import { ExperimentManager } from './experimentManager.js';
 import { getCourtSecret } from '../../packages/lyzer-constitution/src/eca/permission.js';
 import { sanitizeBodyMiddleware, safeMerge } from './utils/safeJson.js';
+import { ExchangeExecution } from './exchangeExecution.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -344,6 +345,17 @@ console.log(`======================================================\n`);
 
 app.get('/api/status', (req, res) => {
   res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
+});
+
+app.get('/api/testnet-dashboard', async (req, res) => {
+  try {
+    const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, true);
+    const account = await exchange.getAccount();
+    const orders = await exchange.getOpenOrders();
+    res.json({ account, orders });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 app.get('/api/trades/export', authenticateAdmin, (req, res) => {

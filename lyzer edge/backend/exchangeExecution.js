@@ -72,4 +72,47 @@ export class ExchangeExecution {
       throw e;
     }
   }
+
+  async getAccount() {
+    if (!this.apiKey || !this.apiSecret) return { balances: [] };
+    const timestamp = Date.now();
+    const recvWindow = 5000;
+    let queryString = `timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    const signature = crypto.createHmac('sha256', this.apiSecret).update(queryString).digest('hex');
+    queryString += `&signature=${encodeURIComponent(signature)}`;
+    const url = `${this.baseUrl}/api/v3/account?${queryString}`;
+    try {
+      const response = await safeFetch(url, {
+        method: 'GET',
+        headers: { 'X-MBX-APIKEY': this.apiKey }
+      });
+      return await response.json();
+    } catch (e) {
+      console.error(`[EXECUTION] ❌ Failed to fetch account:`, e);
+      return { balances: [] };
+    }
+  }
+
+  async getOpenOrders(symbol = null) {
+    if (!this.apiKey || !this.apiSecret) return [];
+    const timestamp = Date.now();
+    const recvWindow = 5000;
+    let queryString = `timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    if (symbol) {
+      queryString = `symbol=${encodeURIComponent(validateSymbol(symbol))}&${queryString}`;
+    }
+    const signature = crypto.createHmac('sha256', this.apiSecret).update(queryString).digest('hex');
+    queryString += `&signature=${encodeURIComponent(signature)}`;
+    const url = `${this.baseUrl}/api/v3/openOrders?${queryString}`;
+    try {
+      const response = await safeFetch(url, {
+        method: 'GET',
+        headers: { 'X-MBX-APIKEY': this.apiKey }
+      });
+      return await response.json();
+    } catch (e) {
+      console.error(`[EXECUTION] ❌ Failed to fetch open orders:`, e);
+      return [];
+    }
+  }
 }
