@@ -295,13 +295,15 @@ export class ChartHostWidget {
             shape: 'arrowDown', text: 'VETOED'
           });
         }
-        if (markers.length > 0) this._adapter.setMarkers(markers);
+        this._adapter.setMarkers(markers);
+      } else {
+        this._adapter.setMarkers([]);
       }
 
-      if (data.trade?.takeProfit) {
+      if (data?.trade?.takeProfit) {
         this._adapter.createPriceLine({ price: data.trade.takeProfit, color: '#10b981', title: `TP: ${data.trade.takeProfit}`, lineStyle: 2 });
       }
-      if (data.trade?.stopLoss) {
+      if (data?.trade?.stopLoss) {
         this._adapter.createPriceLine({ price: data.trade.stopLoss, color: '#ef4444', title: `SL: ${data.trade.stopLoss}`, lineStyle: 2 });
       }
       // Restore manually plotted trade lines for THIS active symbol only
