@@ -364,12 +364,29 @@ app.get('/api/status', (req, res) => {
 
 app.get('/api/testnet-dashboard', async (req, res) => {
   try {
-    const isLiveTrading = process.env.ARL_MODE === 'LIVE' && process.env.LIVE_TRADING_ENABLED === 'true';
-    if (isLiveTrading && process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE') {
-      const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, false);
-      const account = await exchange.getAccount();
-      const orders = await exchange.getOpenOrders();
-      return res.json({ account, orders });
+    const hasKeys = process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE';
+    let binanceAccount = null;
+    let binanceOrders = null;
+    let useBinance = false;
+
+    if (hasKeys && (process.env.ARL_MODE === 'LIVE' || process.env.ARL_MODE === 'TESTNET')) {
+      try {
+        const isTestnet = process.env.ARL_MODE === 'TESTNET';
+        const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, isTestnet);
+        binanceAccount = await exchange.getAccount();
+        binanceOrders = await exchange.getOpenOrders();
+        
+        // If Binance didn't throw an error and returned an account array, we successfully authenticated
+        if (!binanceAccount.code && binanceAccount.balances) {
+          useBinance = true;
+        }
+      } catch (e) {
+        console.log(`[DASHBOARD] Binance API fetch failed (invalid keys or network). Falling back to Local Paper Trading state. Error: ${e.message}`);
+      }
+    }
+
+    if (useBinance) {
+      return res.json({ account: binanceAccount, orders: binanceOrders });
     }
 
     // --- Paper Trading Local State ---
