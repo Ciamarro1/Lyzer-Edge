@@ -364,9 +364,9 @@ app.get('/api/status', (req, res) => {
 
 app.get('/api/testnet-dashboard', async (req, res) => {
   try {
-    const isLiveTrading = process.env.LIVE_TRADING_ENABLED === 'true';
+    const isLiveTrading = process.env.ARL_MODE === 'LIVE' && process.env.LIVE_TRADING_ENABLED === 'true';
     if (isLiveTrading && process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE') {
-      const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, process.env.ARL_MODE !== 'LIVE');
+      const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, false);
       const account = await exchange.getAccount();
       const orders = await exchange.getOpenOrders();
       return res.json({ account, orders });

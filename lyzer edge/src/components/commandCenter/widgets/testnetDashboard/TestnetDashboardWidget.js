@@ -109,7 +109,9 @@ export class TestnetDashboardWidget {
     } catch (err) {
       console.error('[TestnetDashboard] Fetch error:', err);
       const ordersContainer = this._container.querySelector('#testnet-orders-container');
+      const balancesContainer = this._container.querySelector('#testnet-balances-container');
       if (ordersContainer) ordersContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error: ${err.message}</div>`;
+      if (balancesContainer) balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error: ${err.message}</div>`;
     }
 
     // Fetch engine trade history from candles API
