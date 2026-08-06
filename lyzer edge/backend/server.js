@@ -369,7 +369,7 @@ app.post('/api/test-order', async (req, res) => {
     const side = (req.body.side || 'BUY').toUpperCase();
     const quantity = parseFloat(req.body.quantity || 0.001);
 
-    const isTestnet = process.env.ARL_MODE === 'TESTNET';
+    const isTestnet = process.env.ARL_MODE === 'TESTNET' || process.env.ARL_MODE !== 'LIVE';
     const exchange = new ExchangeExecution(
       process.env.BINANCE_API_KEY,
       process.env.BINANCE_API_SECRET,
@@ -378,7 +378,41 @@ app.post('/api/test-order', async (req, res) => {
 
     console.log(`[TEST ORDER] Manual test order trigger received: ${side} ${quantity} ${symbol}...`);
     const orderResult = await exchange.placeOrder(symbol, side, 'MARKET', quantity);
-    res.json({ success: true, symbol, side, quantity, orderResult });
+
+    const engine = engines.find(e => e.symbol === symbol);
+    const fillPrice = (orderResult.fills && orderResult.fills.length > 0)
+      ? parseFloat(orderResult.fills[0].price)
+      : (engine && engine.candles.length > 0 ? engine.candles[engine.candles.length - 1].close : 95000);
+
+    const liveExecDoc = {
+      id: orderResult.orderId || `order_${Date.now()}`,
+      symbol: symbol,
+      side: side,
+      price: fillPrice,
+      quantity: quantity,
+      timestamp: Date.now(),
+      mode: process.env.ARL_MODE || 'TESTNET'
+    };
+
+    // Broadcast execution to frontend WebSockets so LiveTradeSyncService logs it in IndexedDB
+    broadcast({ liveExecution: liveExecDoc, mode: process.env.ARL_MODE || 'TESTNET' });
+
+    if (engine) {
+      const tradeDoc = {
+        id: orderResult.orderId || `trade_${Date.now()}`,
+        symbol: symbol,
+        direction: side === 'BUY' ? 'LONG' : 'SHORT',
+        entryPrice: fillPrice,
+        status: 'open',
+        timestamp: Date.now(),
+        pnl: 0,
+        mode: process.env.ARL_MODE || 'TESTNET'
+      };
+      engine.tradeHistory.push(tradeDoc);
+      engine.emit('state_changed');
+    }
+
+    res.json({ success: true, symbol, side, quantity, fillPrice, orderResult });
   } catch (err) {
     console.error(`[TEST ORDER] Failed to place test order:`, err.message);
     res.status(500).json({ success: false, error: err.message });
