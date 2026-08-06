@@ -362,6 +362,29 @@ app.get('/api/status', (req, res) => {
   res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
 });
 
+// POST /api/test-order — Trigger a manual test order on Binance Testnet/Live
+app.post('/api/test-order', async (req, res) => {
+  try {
+    const symbol = (req.body.symbol || 'BTCUSDT').toUpperCase();
+    const side = (req.body.side || 'BUY').toUpperCase();
+    const quantity = parseFloat(req.body.quantity || 0.001);
+
+    const isTestnet = process.env.ARL_MODE === 'TESTNET';
+    const exchange = new ExchangeExecution(
+      process.env.BINANCE_API_KEY,
+      process.env.BINANCE_API_SECRET,
+      isTestnet
+    );
+
+    console.log(`[TEST ORDER] Manual test order trigger received: ${side} ${quantity} ${symbol}...`);
+    const orderResult = await exchange.placeOrder(symbol, side, 'MARKET', quantity);
+    res.json({ success: true, symbol, side, quantity, orderResult });
+  } catch (err) {
+    console.error(`[TEST ORDER] Failed to place test order:`, err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 app.get('/api/testnet-dashboard', async (req, res) => {
   try {
     const hasKeys = process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE';
