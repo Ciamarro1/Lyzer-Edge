@@ -18,7 +18,7 @@ pinned: false
 [![Rust](https://img.shields.io/badge/Rust-1.78%2B%202024-000000?style=for-the-badge&logo=rust&logoColor=white)](https://www.rust-lang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.4-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Express](https://img.shields.io/badge/Express-5.0-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 [Visão Geral](#-visão-executiva) • [Arquitetura](#-arquitetura-do-sistema) • [Primeiros Passos](#-guia-de-primeiros-passos--onboarding) • [Funcionalidades](#-matriz-de-funcionalidades) • [Base de Conhecimento](#-base-de-conhecimento-knowledge) • [Contribuição](#-como-contribuir)
 
