@@ -36,7 +36,7 @@ if (process.env.ARL_MODE === 'LIVE') {
 try {
   getCourtSecret();
 } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
   console.error('❌ [BOOT] Fatal: ' + err.message);
   process.exit(1);
 }
@@ -75,7 +75,7 @@ app.get('/metrics', authenticateAdmin, async (req, res) => {
     res.set('Content-Type', register.contentType);
     res.end(await register.metrics());
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).end(err);
   }
 });
@@ -88,7 +88,7 @@ app.get('/api/experiments/dashboard', async (req, res) => {
     const data = await experimentManager.getDashboardData();
     res.json(data);
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -100,7 +100,7 @@ app.get('/api/experiments/active', async (req, res) => {
     if (!active) return res.status(404).json({ error: 'No active experiment found' });
     res.json(active);
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -121,7 +121,7 @@ app.post('/api/experiments/freeze-and-new', authenticateAdmin, async (req, res) 
       try {
         await db.insertExperimentTrade(result.frozenExperiment.experiment_id, trade);
       } catch (e) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
         // Trade might already be stored, ignore duplicate key error
       }
     }
@@ -151,7 +151,7 @@ app.post('/api/experiments/freeze-and-new', authenticateAdmin, async (req, res) 
       snapshot: result.snapshot
     });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     console.error('❌ [QUANT LAB] Freeze failed:', err);
     res.status(500).json({ error: err.message });
   }
@@ -166,7 +166,7 @@ app.post('/api/experiments/promote-champion', authenticateAdmin, async (req, res
     broadcast({ type: 'champion_promoted', champion });
     res.json({ success: true, message: `Experiment ${experimentId} promoted to Champion!`, champion });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(400).json({ error: err.message });
   }
 });
@@ -177,7 +177,7 @@ app.get('/api/experiments/alpha-discovery', async (req, res) => {
     const discovery = await experimentManager.alphaDiscoveryEngine.discoverAlpha();
     res.json(discovery);
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -192,7 +192,7 @@ app.post('/api/experiments/update-status', authenticateAdmin, async (req, res) =
     const updated = await experimentManager.updateStatus(experimentId, status, reason);
     broadcast({ type: 'experiment_status_updated', experiment: updated });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(400).json({ error: err.message });
   }
 });
@@ -207,7 +207,7 @@ app.get('/api/archeologist/dna', async (req, res) => {
     const dna = await archeologist.analyzeCodebaseDNA();
     res.json(dna);
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -232,7 +232,7 @@ app.get('/api/mind/mri', async (req, res) => {
     const mri = await lyzerMind.runFullMRI();
     res.json(mri);
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -249,7 +249,7 @@ app.get('/api/experiments/ranking', async (req, res) => {
     const ranking = await experimentManager.getRanking(sortBy, parseInt(limit, 10));
     res.json({ ranking });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -263,7 +263,7 @@ app.get('/api/experiments/:id', async (req, res) => {
     const trades = await db.getExperimentTrades(req.params.id);
     res.json({ experiment: exp, snapshot, trades });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -346,7 +346,7 @@ app.post('/api/trades/wipe', authenticateAdmin, async (req, res) => {
       newExperiment: result.newExperiment
     });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -362,7 +362,7 @@ app.post('/api/reset-engine', async (req, res) => {
     broadcast({ type: 'engine_reset', message: 'Trade history wiped. Starting fresh.' });
     res.json({ success: true, message: 'Engine state reset. All trades cleared.' });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -433,7 +433,7 @@ app.post('/api/test-order', async (req, res) => {
 
     res.json({ success: true, symbol, side, quantity, fillPrice, orderResult });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     console.error(`[TEST ORDER] Failed to place test order:`, err.message);
     res.status(500).json({ success: false, error: err.message });
   }
@@ -458,7 +458,7 @@ app.get('/api/testnet-dashboard', async (req, res) => {
           useBinance = true;
         }
       } catch (e) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
         console.log(`[DASHBOARD] Binance API fetch failed (invalid keys or network). Falling back to Local Paper Trading state. Error: ${e.message}`);
       }
     }
@@ -506,7 +506,7 @@ app.get('/api/testnet-dashboard', async (req, res) => {
 
     res.json({ account, orders: paperOrders });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -522,7 +522,7 @@ app.get('/api/trades/export', authenticateAdmin, (req, res) => {
       trades: allTrades
     });
   } catch (err) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ error: err.message });
   }
 });
@@ -532,7 +532,7 @@ app.get('/api/test-telegram', authenticateAdmin, async (req, res) => {
     await sendTelegramAlert('🧪 <b>[LYZER TEST] TESTE DE INTEGRAÇÃO</b>\nSua integração com o Telegram está funcionando perfeitamente!');
     res.json({ success: true, message: 'Test alert sent to Telegram!' });
   } catch (e) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
     res.status(500).json({ success: false, error: e.message });
   }
 });
@@ -658,7 +658,7 @@ for (const symbol of targetAssets) {
         }
       }
     } catch (e) {
-    recordSystemError(\'Server\', \'API_ERROR\');
+    recordSystemError('Server', 'API_ERROR');
       // Ignore background sync errors
     }
   });
