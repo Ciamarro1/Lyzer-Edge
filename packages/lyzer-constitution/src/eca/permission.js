@@ -49,6 +49,16 @@ export function verifyToken(token, secretKey = getCourtSecret()) {
   const payload = `${token.id}|${token.action}|${token.granted}|${token.reason}|${token.timestamp}`;
   if (typeof crypto !== 'undefined' && typeof crypto.createHmac === 'function') {
     const expectedSignature = crypto.createHmac('sha256', secretKey).update(payload).digest('hex');
+    if (typeof Buffer !== 'undefined' && typeof crypto.timingSafeEqual === 'function') {
+      try {
+        const sigBuf = Buffer.from(token.signature, 'hex');
+        const expectedBuf = Buffer.from(expectedSignature, 'hex');
+        if (sigBuf.length !== expectedBuf.length) return false;
+        return crypto.timingSafeEqual(sigBuf, expectedBuf);
+      } catch (e) {
+        return false;
+      }
+    }
     return token.signature === expectedSignature;
   }
   return false;

@@ -2,7 +2,7 @@
   "timestamp": "2026-07-26T05:52:11.591Z",
   "totalBootstrapMs": 2.534,
   "ticksProcessed": 5000,
-  "throughputTicksPerSec": 132820,
+  "throughputTicksPerSec": null,
   "latency": {
     "p50": 0.0056,
     "p95": 0.0112,

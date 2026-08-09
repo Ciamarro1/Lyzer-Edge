@@ -2,6 +2,8 @@ import * as grpc from '@grpc/grpc-js';
 import * as protoLoader from '@grpc/proto-loader';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { recordRiskGatewayLatency } from '../src/observability/index.js';
+import { recordSystemError } from '../src/observability/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +27,7 @@ try {
   isConnected = true;
   console.log('🔌 [gRPC Client] RiskGateway loaded and pointing to localhost:50051');
 } catch (err) {
+  recordSystemError('RiskGatewayClient', 'PROTO_LOAD_ERROR');
   console.warn('⚠️ [gRPC Client] Failed to load RiskGateway proto: ' + err.message);
 }
 
@@ -56,11 +59,15 @@ export function authorizeOrder(intent) {
       request_timestamp_ms: Date.now()
     };
 
+    const startTime = performance.now();
     client.Authorize(authorizeRequest, (error, response) => {
+      const durationSec = (performance.now() - startTime) / 1000;
       if (error) {
+        recordRiskGatewayLatency('AuthorizeOrder', 'error', durationSec);
         console.warn('⚠️ [gRPC Client] Authorize call failed: ' + error.message + '. Fallback to local approval.');
         return resolve({ approved: true, rejection_reason: '' });
       }
+      recordRiskGatewayLatency('AuthorizeOrder', 'success', durationSec);
       console.log(`[gRPC Client] RiskDecision received: approved=${response.approved}, reason="${response.rejection_reason}"`);
       resolve(response);
     });

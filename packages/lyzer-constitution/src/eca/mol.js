@@ -4,12 +4,22 @@
  */
 
 export class MetaObservationLayer {
-  constructor({ sclThreshold, minCooldown } = {}) {
+  constructor({ sclThreshold, minCooldown, stabilizationWindowMs } = {}) {
     this.state = 'EXECUTE'; // EXECUTE | VETO | RECOVERY
     this.durationOfInaction = 0; // DOI
     this.structuralCoherenceLock = 0; // SCL
     this.sclThreshold = sclThreshold !== undefined ? sclThreshold : 10;
     this.minCooldown = minCooldown !== undefined ? minCooldown : 0;
+    
+    this.bootTime = Date.now();
+    const isTestEnv = process.env?.NODE_ENV === 'test' || Boolean(process.env?.VITEST) || process.env?.ARL_MODE === 'SIMULATION';
+    this.stabilizationWindowMs = stabilizationWindowMs !== undefined 
+      ? stabilizationWindowMs 
+      : (isTestEnv ? 0 : 45000);
+      
+    if (process.env?.MOL_STABILIZATION_WINDOW_MS !== undefined && stabilizationWindowMs === undefined) {
+      this.stabilizationWindowMs = parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS);
+    }
   }
 
   /**
@@ -22,6 +32,24 @@ export class MetaObservationLayer {
   evaluateState(rawState, kernelResult) {
     const authority = kernelResult.epistemic_authority; // OBSERVED | INFERRED | VETO
     const isKernelVetoing = (authority === 'VETO');
+    
+    // Check if the system is still in its boot stabilization period
+    const isStabilized = (Date.now() - this.bootTime) >= this.stabilizationWindowMs;
+    if (!isStabilized) {
+      const secondsLeft = Math.ceil((this.stabilizationWindowMs - (Date.now() - this.bootTime)) / 1000);
+      if (!this._lastStabilizationLogged || Date.now() - this._lastStabilizationLogged > 30000) {
+        console.log(`[STABILIZATION] Warmup grace period active (${secondsLeft}s remaining). Holding execution.`);
+        this._lastStabilizationLogged = Date.now();
+      }
+      this.state = 'RECOVERY';
+      return { 
+        canExecute: false, 
+        molState: 'RECOVERY', 
+        reason: 'VETO_MOL_STABILIZATION_WARMUP',
+        doi: this.durationOfInaction, 
+        scl: this.structuralCoherenceLock 
+      };
+    }
     
     if (isKernelVetoing) {
       // The system is broken. Enter or maintain VETO state.

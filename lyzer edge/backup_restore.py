@@ -1,6 +1,5 @@
 import os
 import sys
-from huggingface_hub import create_bucket, sync_bucket
 
 # Get token and bucket name from environment (leave HF_BUCKET_NAME empty to disable cloud backup/restore)
 token = os.environ.get("HF_TOKEN")
@@ -8,6 +7,12 @@ bucket_name = os.environ.get("HF_BUCKET_NAME", "")
 
 if not token or not bucket_name:
     print("[BACKUP] Cloud backup/restore disabled (HF_TOKEN or HF_BUCKET_NAME not set). Operating in local mode.")
+    sys.exit(0)
+
+try:
+    from huggingface_hub import create_bucket, sync_bucket
+except ImportError:
+    print("[BACKUP] huggingface_hub package not installed. Operating in local mode.")
     sys.exit(0)
 
 username = os.environ.get("HF_USERNAME", "jonatanciamarro")

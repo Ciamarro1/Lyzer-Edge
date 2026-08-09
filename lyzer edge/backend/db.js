@@ -1,7 +1,7 @@
 import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
-import { recordSqliteWrite } from '../src/observability/index.js';
+import { recordSqliteWrite, recordSqliteLockWait, recordSystemError } from '../src/observability/index.js';
 import { safeJsonParse } from './utils/safeJson.js';
 import { runMigrations, runTTLCleanup } from './migrations.js';
 
@@ -25,6 +25,27 @@ export class CausalMemoryDB {
                 console.log(`[DB] Connected to SQLite Causal Memory Database (${targetPath}).`);
             }
         });
+
+        // Instrument queries for Lock Wait Latency Tracking
+        const wrapMethod = (methodName) => {
+            const orig = this.db[methodName];
+            this.db[methodName] = (...args) => {
+                const startTime = performance.now();
+                const lastArg = args[args.length - 1];
+                if (typeof lastArg === 'function') {
+                    args[args.length - 1] = function(...cbArgs) {
+                        const durationSec = (performance.now() - startTime) / 1000;
+                        recordSqliteLockWait('causal_memory', durationSec);
+                        return lastArg.apply(this, cbArgs);
+                    };
+                }
+                return orig.apply(this.db, args);
+            };
+        };
+        wrapMethod('run');
+        wrapMethod('get');
+        wrapMethod('all');
+
         this.init();
         if (!customDbPath) {
             sharedInstance = this;
@@ -44,6 +65,7 @@ export class CausalMemoryDB {
         });
 
         this.migrationsPromise = runMigrations(this).catch(err => {
+            recordSystemError('CausalMemoryDB', 'MIGRATION_ERROR');
             console.error('[DB] Schema migration failed:', err);
         });
     }
@@ -56,6 +78,7 @@ export class CausalMemoryDB {
         if (this._ttlTimer) clearInterval(this._ttlTimer);
         this._ttlTimer = setInterval(() => {
             this.runTTLCleanup().catch(err => {
+                recordSystemError('CausalMemoryDB', 'TTL_CLEANUP_ERROR');
                 console.error('[DB] Periodic TTL Cleanup error:', err);
             });
         }, intervalMs);
@@ -92,7 +115,10 @@ export class CausalMemoryDB {
 
             this.db.serialize(() => {
                 this.db.run(sql, params, (err) => {
-                    if (err) reject(err);
+                    if (err) {
+                        recordSystemError('CausalMemoryDB', 'INSERT_COURT_LEDGER_ERROR');
+                        reject(err);
+                    }
                     else resolve();
                 });
             });
@@ -103,7 +129,10 @@ export class CausalMemoryDB {
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM court_ledger ORDER BY timestamp ASC LIMIT ?`;
             this.db.all(sql, [limit], (err, rows) => {
-                if (err) reject(err);
+                if (err) {
+                    recordSystemError('CausalMemoryDB', 'GET_COURT_LEDGER_ERROR');
+                    reject(err);
+                }
                 else resolve((rows || []).map(r => ({
                     ...r,
                     request: r.request_json ? safeJsonParse(r.request_json) : (r.payload_json ? safeJsonParse(r.payload_json) : null),
@@ -124,13 +153,17 @@ export class CausalMemoryDB {
             try {
                 await this.migrationsPromise;
             } catch (e) {
+                recordSystemError('CausalMemoryDB', 'MIGRATION_ERROR');
                 // Ignore migration errors during database close
             }
         }
         return new Promise((resolve, reject) => {
             if (this.db) {
                 this.db.close((err) => {
-                    if (err) reject(err);
+                    if (err) {
+                        recordSystemError('CausalMemoryDB', 'CLOSE_ERROR');
+                        reject(err);
+                    }
                     else resolve();
                 });
             } else {

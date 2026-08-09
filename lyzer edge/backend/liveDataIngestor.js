@@ -115,7 +115,8 @@ export class LiveDataIngestor {
         low,
         close,
         volume,
-        closed: true
+        closed: true,
+        isSynthetic: true
       });
     }
 
@@ -213,7 +214,8 @@ export class LiveDataIngestor {
         low,
         close,
         volume,
-        closed: false
+        closed: false,
+        isSynthetic: true
       };
 
       if (this.onTick) this.onTick(liveCandle);

@@ -16,7 +16,8 @@ export class RealityObservatory {
       liquidityReality: 0.95,
       slippageDivergence: 1.2,
       latencyImpact: 14.5,
-      clockIntegrity: 0.4
+      clockIntegrity: 0.4,
+      regime: 'SYNTHETIC_REALITY'
     };
   }
 
@@ -58,11 +59,16 @@ export class RealityObservatory {
     const gapColor = this._getSemaphoreColor(this.state.realityGapScore, 'gap');
     const execColor = this._getSemaphoreColor(this.state.executionQuality, 'exec');
     const clockColor = this._getSemaphoreColor(this.state.clockIntegrity, 'clock');
+    
+    const regimeBadge = this.state.regime === 'OBSERVED_REALITY' 
+      ? '<span style="background: #00E676; color: #0a0d14; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-left: 12px; border: 1px solid #00E676;">LIVE / OBSERVED</span>'
+      : '<span style="background: #111622; color: #FFEA00; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; margin-left: 12px; border: 1px solid #FFEA00;">PAPER / SYNTHETIC</span>';
 
     this._container.innerHTML = `
       <div class="command-center-reality-observatory" style="background: #0a0d14; color: #e0e6ed; padding: 20px; font-family: 'JetBrains Mono', monospace; border: 1px solid #1a2333;">
-        <h2 style="font-size: 1.1rem; color: #ffffff; margin: 0 0 16px 0; border-bottom: 1px solid #1a2333; padding-bottom: 8px;">
-          PHYSICAL MICROSTRUCTURE OBSERVATORY (READ-ONLY)
+        <h2 style="display: flex; align-items: center; font-size: 1.1rem; color: #ffffff; margin: 0 0 16px 0; border-bottom: 1px solid #1a2333; padding-bottom: 8px;">
+          REALITY BOUNDARY OBSERVATORY (M1.4)
+          ${regimeBadge}
         </h2>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">

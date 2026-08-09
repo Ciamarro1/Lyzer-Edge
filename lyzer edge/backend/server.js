@@ -12,6 +12,7 @@ import { ExperimentManager } from './experimentManager.js';
 import { getCourtSecret } from '../../packages/lyzer-constitution/src/eca/permission.js';
 import { sanitizeBodyMiddleware, safeMerge } from './utils/safeJson.js';
 import { ExchangeExecution } from './exchangeExecution.js';
+import { recordSystemError } from '../src/observability/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -35,6 +36,7 @@ if (process.env.ARL_MODE === 'LIVE') {
 try {
   getCourtSecret();
 } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
   console.error('❌ [BOOT] Fatal: ' + err.message);
   process.exit(1);
 }
@@ -73,6 +75,7 @@ app.get('/metrics', authenticateAdmin, async (req, res) => {
     res.set('Content-Type', register.contentType);
     res.end(await register.metrics());
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).end(err);
   }
 });
@@ -85,6 +88,7 @@ app.get('/api/experiments/dashboard', async (req, res) => {
     const data = await experimentManager.getDashboardData();
     res.json(data);
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -96,6 +100,7 @@ app.get('/api/experiments/active', async (req, res) => {
     if (!active) return res.status(404).json({ error: 'No active experiment found' });
     res.json(active);
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -116,6 +121,7 @@ app.post('/api/experiments/freeze-and-new', authenticateAdmin, async (req, res) 
       try {
         await db.insertExperimentTrade(result.frozenExperiment.experiment_id, trade);
       } catch (e) {
+    recordSystemError(\'Server\', \'API_ERROR\');
         // Trade might already be stored, ignore duplicate key error
       }
     }
@@ -145,6 +151,7 @@ app.post('/api/experiments/freeze-and-new', authenticateAdmin, async (req, res) 
       snapshot: result.snapshot
     });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     console.error('❌ [QUANT LAB] Freeze failed:', err);
     res.status(500).json({ error: err.message });
   }
@@ -159,6 +166,7 @@ app.post('/api/experiments/promote-champion', authenticateAdmin, async (req, res
     broadcast({ type: 'champion_promoted', champion });
     res.json({ success: true, message: `Experiment ${experimentId} promoted to Champion!`, champion });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(400).json({ error: err.message });
   }
 });
@@ -169,6 +177,7 @@ app.get('/api/experiments/alpha-discovery', async (req, res) => {
     const discovery = await experimentManager.alphaDiscoveryEngine.discoverAlpha();
     res.json(discovery);
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -183,6 +192,7 @@ app.post('/api/experiments/update-status', authenticateAdmin, async (req, res) =
     const updated = await experimentManager.updateStatus(experimentId, status, reason);
     broadcast({ type: 'experiment_status_updated', experiment: updated });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(400).json({ error: err.message });
   }
 });
@@ -197,6 +207,7 @@ app.get('/api/archeologist/dna', async (req, res) => {
     const dna = await archeologist.analyzeCodebaseDNA();
     res.json(dna);
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -221,6 +232,7 @@ app.get('/api/mind/mri', async (req, res) => {
     const mri = await lyzerMind.runFullMRI();
     res.json(mri);
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -237,6 +249,7 @@ app.get('/api/experiments/ranking', async (req, res) => {
     const ranking = await experimentManager.getRanking(sortBy, parseInt(limit, 10));
     res.json({ ranking });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -250,6 +263,7 @@ app.get('/api/experiments/:id', async (req, res) => {
     const trades = await db.getExperimentTrades(req.params.id);
     res.json({ experiment: exp, snapshot, trades });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -332,6 +346,7 @@ app.post('/api/trades/wipe', authenticateAdmin, async (req, res) => {
       newExperiment: result.newExperiment
     });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -347,6 +362,7 @@ app.post('/api/reset-engine', async (req, res) => {
     broadcast({ type: 'engine_reset', message: 'Trade history wiped. Starting fresh.' });
     res.json({ success: true, message: 'Engine state reset. All trades cleared.' });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -357,6 +373,9 @@ console.log(`🌍 Lyzer Edge: MULTI-ASSET LIVE ENGINE STARTED`);
 console.log(`MODE: ${process.env.ARL_MODE}`);
 console.log(`CAPITAL LIMIT: $${process.env.MAX_DAILY_CAPITAL}`);
 console.log(`======================================================\n`);
+
+app.get('/healthz', (req, res) => res.status(200).send('OK'));
+app.get('/readyz', (req, res) => res.status(200).send('OK'));
 
 app.get('/api/status', (req, res) => {
   res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
@@ -414,6 +433,7 @@ app.post('/api/test-order', async (req, res) => {
 
     res.json({ success: true, symbol, side, quantity, fillPrice, orderResult });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     console.error(`[TEST ORDER] Failed to place test order:`, err.message);
     res.status(500).json({ success: false, error: err.message });
   }
@@ -438,6 +458,7 @@ app.get('/api/testnet-dashboard', async (req, res) => {
           useBinance = true;
         }
       } catch (e) {
+    recordSystemError(\'Server\', \'API_ERROR\');
         console.log(`[DASHBOARD] Binance API fetch failed (invalid keys or network). Falling back to Local Paper Trading state. Error: ${e.message}`);
       }
     }
@@ -485,6 +506,7 @@ app.get('/api/testnet-dashboard', async (req, res) => {
 
     res.json({ account, orders: paperOrders });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -500,6 +522,7 @@ app.get('/api/trades/export', authenticateAdmin, (req, res) => {
       trades: allTrades
     });
   } catch (err) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ error: err.message });
   }
 });
@@ -509,6 +532,7 @@ app.get('/api/test-telegram', authenticateAdmin, async (req, res) => {
     await sendTelegramAlert('🧪 <b>[LYZER TEST] TESTE DE INTEGRAÇÃO</b>\nSua integração com o Telegram está funcionando perfeitamente!');
     res.json({ success: true, message: 'Test alert sent to Telegram!' });
   } catch (e) {
+    recordSystemError(\'Server\', \'API_ERROR\');
     res.status(500).json({ success: false, error: e.message });
   }
 });
@@ -557,7 +581,27 @@ app.get('/api/extinction/status', (req, res) => {
 
 let clients = [];
 
+const wsHeartbeatInterval = setInterval(() => {
+  wss.clients.forEach((ws) => {
+    if (ws.isAlive === false) {
+      console.log('🔴 Terminating dead WS connection (heartbeat failed)');
+      return ws.terminate();
+    }
+    ws.isAlive = false;
+    ws.ping();
+  });
+}, 30000);
+
+wss.on('close', () => {
+  clearInterval(wsHeartbeatInterval);
+});
+
 wss.on('connection', (ws, req) => {
+  ws.isAlive = true;
+  ws.on('pong', () => {
+    ws.isAlive = true;
+  });
+
   const adminKey = process.env.ADMIN_API_KEY;
   if (adminKey) {
     // Basic auth check via query param for WS
@@ -614,6 +658,7 @@ for (const symbol of targetAssets) {
         }
       }
     } catch (e) {
+    recordSystemError(\'Server\', \'API_ERROR\');
       // Ignore background sync errors
     }
   });
@@ -641,8 +686,9 @@ app.use((req, res, next) => {
 import { execFile } from 'child_process';
 const runBackup = () => {
   const scriptPath = path.join(__dirname, '../backup_restore.py');
+  const pythonBin = process.env.PYTHON_BIN || (process.platform === 'win32' ? 'python' : 'python3');
   console.log('[BACKUP] Triggering database backup to Hugging Face Storage Bucket...');
-  execFile('python3', [scriptPath, 'backup'], (err, stdout, stderr) => {
+  execFile(pythonBin, [scriptPath, 'backup'], (err, stdout, stderr) => {
     if (err) console.error('[BACKUP] Error running backup script:', err.message);
     if (stdout) console.log(stdout.trim());
     if (stderr) console.error(stderr.trim());

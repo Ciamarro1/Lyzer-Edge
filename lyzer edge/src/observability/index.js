@@ -12,8 +12,12 @@ import {
   ecaEvaluationsCounter,
   constitutionalVetoCounter,
   sqliteWriteDurationHistogram,
+  sqliteLockWaitHistogram,
+  riskGatewayLatencyHistogram,
   systemErrorsCounter,
-  activeConnectionsGauge
+  activeConnectionsGauge,
+  signalGeneratedCounter,
+  kernelEvaluatedCounter
 } from './metricsRegistry.js';
 
 export { register };
@@ -45,8 +49,24 @@ export function recordSqliteWrite(operation, durationSeconds) {
   sqliteWriteDurationHistogram.observe({ operation }, durationSeconds);
 }
 
+export function recordSqliteLockWait(dbName, durationSeconds) {
+  sqliteLockWaitHistogram.observe({ db_name: dbName }, durationSeconds);
+}
+
+export function recordRiskGatewayLatency(service, status, durationSeconds) {
+  riskGatewayLatencyHistogram.observe({ service, status }, durationSeconds);
+}
+
 export function recordSystemError(component, errorType) {
   systemErrorsCounter.inc({ component, error_type: errorType });
+}
+
+export function recordSignalGenerated(symbol, signal) {
+  signalGeneratedCounter.inc({ symbol, signal });
+}
+
+export function recordKernelEvaluated(symbol, eef, epistemicAuthority) {
+  kernelEvaluatedCounter.inc({ symbol, eef: String(eef), epistemic_authority: epistemicAuthority });
 }
 
 export function setActiveConnections(protocol, count) {

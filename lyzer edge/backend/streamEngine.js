@@ -30,7 +30,7 @@ import { DivergenceDetector } from "../../packages/lyzer-shared/src/csrl/Diverge
 import { DualRealityMonitor } from "./dualRealityMonitor.js";
 import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
-import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation } from "../src/observability/index.js";
+import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation, recordSystemError, recordSignalGenerated, recordKernelEvaluated } from "../src/observability/index.js";
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
 import { DynamicSizing } from "../src/engine/sizing.js";
 import { authorizeOrder } from './riskGatewayClient.js';
@@ -108,12 +108,7 @@ export class StreamEngine extends EventEmitter {
     this.dailyCapitalUsed = 0;
     this.fallbackInterval = null;
     this.isFallbackActive = false;
-    this.bootTime = Date.now();
-    const isTestEnv = process.env.NODE_ENV === 'test' || Boolean(process.env.VITEST) || (this.mode === 'SIMULATION');
-    const defaultWindow = isTestEnv ? 0 : 45000; // Default 45 seconds boot stabilization grace period
-    this.stabilizationWindowMs = process.env.MOL_STABILIZATION_WINDOW_MS !== undefined
-      ? parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS)
-      : defaultWindow;
+
 
     this.globalEVMemory = {
       signalBuckets: {},
@@ -124,8 +119,7 @@ export class StreamEngine extends EventEmitter {
 
   async start() {
     this.isRunning = true;
-    this.bootTime = Date.now();
-    console.log(`[STREAM] Initializing StreamEngine in ${this.mode} mode for ${this.symbol} (Stabilization Window: ${Math.round(this.stabilizationWindowMs / 1000)}s)...`);
+    console.log(`[STREAM] Initializing StreamEngine in ${this.mode} mode for ${this.symbol}...`);
 
     if (this.mode === 'SIMULATION') {
       this.warmupSyntheticCandles();
@@ -223,9 +217,13 @@ export class StreamEngine extends EventEmitter {
         
         this.updateMtfCandles(candle);
         
+        const processStartTime = performance.now();
         try {
           await this.processCandle(candle, this.candles.length - 1);
+          recordTickDuration(this.symbol, 'SUCCESS', (performance.now() - processStartTime) / 1000);
         } catch (e) {
+          recordSystemError('StreamEngine', 'PROCESS_CANDLE_ERROR');
+          recordTickDuration(this.symbol, 'FAIL', (performance.now() - processStartTime) / 1000);
           console.error('[STREAM] Error in processCandle:', e);
         }
       },
@@ -238,6 +236,7 @@ export class StreamEngine extends EventEmitter {
   }
 
   updateMtfCandles(candle) {
+    candle.trace_id = crypto.randomUUID();
     recordTickReceived(this.symbol, 'websocket');
     this.mtfCandles['1m'].push(candle);
     this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
@@ -531,6 +530,7 @@ export class StreamEngine extends EventEmitter {
         sds = this.divergenceDetector.detect(topology);
       }
     } catch (csrlErr) {
+      recordSystemError('StreamEngine', 'CSRL_ERROR');
       console.warn(`[STREAM] CSRL divergence calculation fallback for ${this.symbol}: ${csrlErr.message}`);
     }
     recordCsrlDuration(this.symbol, (performance.now() - csrlStart) / 1000);
@@ -555,10 +555,9 @@ export class StreamEngine extends EventEmitter {
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
     const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
+    recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
     // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()
-    const cclistStart = performance.now();
-    recordCclistEvaluation(this.symbol, (performance.now() - cclistStart) / 1000);
 
     // Update Spectrogram UI
     if (this.mode === 'LIVE' || this.mode === 'TESTNET') {
@@ -597,6 +596,7 @@ export class StreamEngine extends EventEmitter {
       tradeDna: v4Narrative ? v4Narrative.tradeDna : null,
       Z_t: kernelResult.dvf * 10
     };
+    recordSignalGenerated(this.symbol, baseSignal.signal);
 
     let simulatedTrade = null;
     let ev = null;
@@ -721,15 +721,7 @@ export class StreamEngine extends EventEmitter {
     }
 
     // B. Check for new trade execution
-    const isStabilized = (Date.now() - this.bootTime) >= this.stabilizationWindowMs;
-
-    if (!isStabilized && kernelResult.eef && !this.activePosition) {
-      const secondsLeft = Math.ceil((this.stabilizationWindowMs - (Date.now() - this.bootTime)) / 1000);
-      if (!this._lastStabilizationLogged || Date.now() - this._lastStabilizationLogged > 30000) {
-        console.log(`[STABILIZATION] Warmup grace period active for ${this.symbol} (${secondsLeft}s remaining). Holding execution.`);
-        this._lastStabilizationLogged = Date.now();
-      }
-    } else if (isStabilized && kernelResult.eef && !this.activePosition) {
+    if (kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
       const currentCandleIdx = this.candles.length;
@@ -771,6 +763,7 @@ export class StreamEngine extends EventEmitter {
             console.log(`[gRPC APPROVED] Rust RiskGateway authorized execution intent ${intentId} for ${this.symbol}`);
           }
         } catch (grpcErr) {
+          recordSystemError('StreamEngine', 'GRPC_ERROR');
           console.warn(`⚠️ [gRPC Error] RiskGateway authorization check failed: ${grpcErr.message}. Defaulting to local permission token approval.`);
         }
       }
@@ -990,6 +983,7 @@ export class StreamEngine extends EventEmitter {
         quantity
       });
     } catch (e) {
+      recordSystemError('StreamEngine', 'EXECUTION_ERROR');
       console.error('[STREAM] Order placement failed:', e.message);
     }
   }

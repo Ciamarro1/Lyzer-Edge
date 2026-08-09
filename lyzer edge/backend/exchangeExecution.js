@@ -14,11 +14,28 @@ export class ExchangeExecution {
     this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
   }
 
-  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001) {
+  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001, currentPrice = null) {
     const cleanSymbol = validateSymbol(symbol);
 
     if (!this.apiKey || !this.apiSecret) {
       console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${side} ${quantity} ${cleanSymbol}`);
+      
+      let fillPrice = currentPrice || 0;
+      let fundingRateCost = 0;
+      
+      if (fillPrice > 0) {
+        // Slippage model: 0.05% slippage on MARKET orders
+        const slippageBps = 5; 
+        const slippageMultiplier = slippageBps / 10000;
+        
+        fillPrice = side.toUpperCase() === 'BUY' 
+          ? fillPrice * (1 + slippageMultiplier) 
+          : fillPrice * (1 - slippageMultiplier);
+          
+        // Synthetic funding rate simulation per trade (e.g. 0.01% standard fee)
+        fundingRateCost = fillPrice * quantity * 0.0001; 
+      }
+
       return {
         orderId: `sim_order_${Date.now()}`,
         status: 'FILLED_MOCK',
@@ -26,7 +43,10 @@ export class ExchangeExecution {
         side,
         type,
         qty: quantity,
-        transactTime: Date.now()
+        price: fillPrice,
+        fundingRateCost, // Modeled simulated cost
+        transactTime: Date.now(),
+        reality_tag: 'SYNTHETIC_REALITY'
       };
     }
 

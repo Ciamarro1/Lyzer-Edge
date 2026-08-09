@@ -1,0 +1,94 @@
+\src-ts\capital\allocation_engine.ts:3 - AllocationProposal (used in module)
+\src-ts\capital\allocation_engine.ts:16 - AllocationEngine
+\src-ts\capital\attribution_engine.ts:3 - AttributionRecord (used in module)
+\src-ts\capital\attribution_engine.ts:17 - AttributionEngine
+\src-ts\capital\capital_ledger.ts:13 - CapitalLedger
+\src-ts\capital\execution_engine.ts:3 - EmpiricalExecution (used in module)
+\src-ts\capital\execution_engine.ts:21 - ExecutionEngine
+\src-ts\capital\portfolio_engine.ts:3 - SurvivalState (used in module)
+\src-ts\capital\portfolio_engine.ts:4 - SurvivalDecision (used in module)
+\src-ts\capital\portfolio_engine.ts:6 - CorrelationAdjustedAllocation (used in module)
+\src-ts\capital\portfolio_engine.ts:22 - PortfolioEngine
+\src-ts\capital\risk_engine.ts:3 - RiskAssessment (used in module)
+\src-ts\capital\risk_engine.ts:18 - RiskEngine
+\src-ts\discovery\anomaly_detection.ts:3 - AnomalySeverity (used in module)
+\src-ts\discovery\anomaly_detection.ts:5 - StatisticalAnomaly (used in module)
+\src-ts\discovery\anomaly_detection.ts:24 - AnomalyDetection
+\src-ts\discovery\feature_generation.ts:3 - FeatureVector (used in module)
+\src-ts\discovery\feature_generation.ts:20 - FeatureGeneration
+\src-ts\discovery\hypothesis_forge.ts:4 - HypothesisCandidate (used in module)
+\src-ts\discovery\hypothesis_forge.ts:26 - HypothesisForge
+\src-ts\discovery\possibility_engine.ts:14 - Possibility (used in module)
+\src-ts\discovery\possibility_engine.ts:22 - PossibilityEngine
+\src-ts\epistemic\belief_audit.ts:3 - Conviction (used in module)
+\src-ts\epistemic\belief_audit.ts:16 - BeliefAudit
+\src-ts\epistemic\death_pattern_analyzer.ts:1 - EpistemicRecommendation (used in module)
+\src-ts\epistemic\death_pattern_analyzer.ts:18 - DeathPatternAnalyzer
+\src-ts\epistemic\epistemic_registry.ts:10 - EpistemicRegistry
+\src-ts\epistemic\failure_taxonomy.ts:9 - FailureCategory (used in module)
+\src-ts\epistemic\failure_taxonomy.ts:17 - DiagnosedFailure
+\src-ts\epistemic\failure_taxonomy.ts:23 - FailureTaxonomy
+\src-ts\epistemic\feature_ontology_drift.ts:15 - FeatureOntologyDrift
+\src-ts\epistemic\feature_survival_analysis.ts:10 - ContextualSurvivalRate (used in module)
+\src-ts\epistemic\feature_survival_analysis.ts:16 - FeatureSurvivalAnalysis
+\src-ts\epistemic\horizon_decay_analysis.ts:9 - HorizonDecayAnalysis
+\src-ts\epistemic\ontology_drift.ts:8 - OntologyDriftMonitor
+\src-ts\epistemic\paradigm_registry.ts:12 - ParadigmRegistry
+\src-ts\intelligence\belief_weigher.ts:11 - WeighedBelief (used in module)
+\src-ts\intelligence\belief_weigher.ts:17 - BeliefWeigher
+\src-ts\intelligence\confidence_arbiter.ts:4 - ArbitratedSignal (used in module)
+\src-ts\intelligence\confidence_arbiter.ts:18 - ConfidenceArbiter
+\src-ts\intelligence\conflict_resolver.ts:12 - ResolvedBelief (used in module)
+\src-ts\intelligence\conflict_resolver.ts:18 - ConflictResolver
+\src-ts\intelligence\context_evaluator.ts:1 - MarketContext (used in module)
+\src-ts\intelligence\context_evaluator.ts:8 - ContextualizedInsight (used in module)
+\src-ts\intelligence\context_evaluator.ts:22 - ContextEvaluator
+\src-ts\intelligence\decision_audit.ts:10 - DecisionAudit
+\src-ts\intelligence\decision_engine.ts:10 - DecisionCandidate (used in module)
+\src-ts\intelligence\decision_engine.ts:29 - DecisionEngine
+\src-ts\intelligence\decision_ledger.ts:10 - DecisionLedger
+\src-ts\intelligence\knowledge_interpreter.ts:3 - ActionableInsight (used in module)
+\src-ts\intelligence\knowledge_interpreter.ts:16 - KnowledgeInterpreter
+\src-ts\intelligence\reasoning_engine.ts:9 - IntelligenceTrigger (used in module)
+\src-ts\intelligence\reasoning_engine.ts:16 - ContextSnapshot
+\src-ts\intelligence\reasoning_engine.ts:22 - AwakenedThesis (used in module)
+\src-ts\intelligence\reasoning_engine.ts:29 - ReasoningEngine
+\src-ts\knowledge\knowledge_lifecycle.ts:11 - KnowledgeLifecycleMonitor
+\src-ts\knowledge\knowledge_registry.ts:3 - KnowledgeStatus (used in module)
+\src-ts\knowledge\knowledge_registry.ts:5 - RegisteredKnowledge (used in module)
+\src-ts\knowledge\knowledge_registry.ts:18 - KnowledgeRegistry
+\src-ts\knowledge\knowledge_retirement.ts:11 - KnowledgeRetirement
+\src-ts\knowledge\replication_protocol.ts:3 - ReplicationEvidence (used in module)
+\src-ts\knowledge\replication_protocol.ts:9 - ActiveKnowledge (used in module)
+\src-ts\knowledge\replication_protocol.ts:24 - ReplicationProtocol
+\src-ts\observation\fiel_sensor.ts:4 - EventType (used in module)
+\src-ts\observation\fiel_sensor.ts:5 - Actor (used in module)
+\src-ts\observation\macro_features.ts:1 - MacroState (used in module)
+\src-ts\observation\macro_features.ts:16 - MacroFeatures
+\src-ts\observation\market_ingestion.ts:1 - LyzerStandardBar (used in module)
+\src-ts\observation\market_ingestion.ts:22 - MarketIngestionEngine
+\src-ts\observation\metadata_quality.ts:3 - QualityLevel (used in module)
+\src-ts\observation\metadata_quality.ts:5 - QualityReport (used in module)
+\src-ts\observation\metadata_quality.ts:19 - MetadataQuality
+\src-ts\observation\regime_features.ts:3 - ContextState (used in module)
+\src-ts\observation\regime_features.ts:18 - RegimeFeatures
+\src-ts\performance\attribution_audit.ts:11 - AttributionAudit
+\src-ts\performance\learning_export.ts:12 - LearningExport
+\src-ts\performance\outcome_analyzer.ts:3 - AnalyzedOutcome (used in module)
+\src-ts\performance\outcome_analyzer.ts:17 - OutcomeAnalyzer
+\src-ts\performance\performance_registry.ts:9 - PerformanceRegistry
+\src-ts\validation\destruction_suite.ts:1 - FalsificationResult (used in module)
+\src-ts\validation\destruction_suite.ts:14 - DestructionSuite
+\src-ts\validation\embargo_engine.ts:8 - EmbargoEngine
+\src-ts\validation\purged_walkforward.ts:4 - WalkForwardResult (used in module)
+\src-ts\validation\purged_walkforward.ts:18 - PurgedWalkForward
+\src-ts\validation\robustness_tests.ts:3 - RobustnessReport (used in module)
+\src-ts\validation\robustness_tests.ts:17 - RobustnessTests
+\src-ts\validation\validation_crucible.ts:4 - ValidationOutcome (used in module)
+\src-ts\validation\validation_crucible.ts:6 - ValidationRecord (used in module)
+\src-ts\validation\validation_crucible.ts:25 - ValidationCrucible
+\src-ts\validation\validation_intake.ts:3 - ValidationJob (used in module)
+\src-ts\validation\validation_intake.ts:16 - ValidationIntake
+\src-ts\validation\validation_verdict.ts:5 - VerdictResult (used in module)
+\src-ts\validation\validation_verdict.ts:7 - FinalVerdict (used in module)
+\src-ts\validation\validation_verdict.ts:20 - ValidationVerdict
