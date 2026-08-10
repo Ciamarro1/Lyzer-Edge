@@ -133,22 +133,31 @@ export class AgentHubWidget {
 
     this.render();
 
-    this._ticker = setInterval(() => {
-      if (this._disposed) return;
-      const available = this._models.filter(m => m.getAgentSnapshot().status === 'AVAILABLE');
-      if (available.length > 0) {
-        const selected = available[Math.floor(Math.random() * available.length)];
-        selected.transitionLifecycle('EXECUTING');
-        this.render();
-        setTimeout(() => {
-          if (this._disposed) return;
-          if (selected.getAgentSnapshot().status === 'EXECUTING') {
-            selected.transitionLifecycle('AVAILABLE');
-            this.render();
+    if (context && typeof context.subscribeSnapshot === 'function') {
+      context.subscribeSnapshot((snap) => {
+        if (this._disposed || !snap || !snap.agents) return;
+        
+        let shouldRender = false;
+        this._models.forEach(model => {
+          const mSnap = model.getAgentSnapshot();
+          const backendAgent = snap.agents[mSnap.id];
+          if (backendAgent) {
+            if (mSnap.status !== backendAgent.status) {
+              model.transitionLifecycle(backendAgent.status);
+              shouldRender = true;
+            }
+            if (JSON.stringify(model._backendMetrics) !== JSON.stringify(backendAgent.metrics)) {
+              model._backendMetrics = backendAgent.metrics;
+              shouldRender = true;
+            }
           }
-        }, 1500);
-      }
-    }, 3000);
+        });
+        
+        if (shouldRender) {
+          this.render();
+        }
+      });
+    }
 
     return { dispose: () => this.dispose() };
   }
@@ -191,7 +200,28 @@ export class AgentHubWidget {
 
     for (const model of this._models) {
       const snap = model.getAgentSnapshot();
-      const accPct = (snap.metrics.accuracy * 100).toFixed(1);
+      const metrics = model._backendMetrics || {};
+      
+      let missionStatus = snap.mission;
+      let accPct = (snap.metrics.accuracy * 100).toFixed(1);
+      
+      // Customize mission and progress based on actual backend metrics
+      if (snap.id === 'ag_research' && metrics.stress !== undefined) {
+        missionStatus = `Regime: ${metrics.regime || 'UNKNOWN'} | Stress: ${(metrics.stress * 100).toFixed(0)}%`;
+        accPct = Math.max(0, 100 - (metrics.stress * 100)).toFixed(1);
+      } else if (snap.id === 'ag_risk' && metrics.lhds !== undefined) {
+        missionStatus = `LHDS: ${metrics.lhds.toFixed(3)} | TRG: ${(metrics.trg * 100).toFixed(2)}%`;
+        accPct = Math.max(0, 100 - (metrics.lhds * 100)).toFixed(1);
+      } else if (snap.id === 'ag_alpha' && metrics.signal) {
+        missionStatus = `Signal: ${metrics.signal} | Conf: ${(metrics.confidence * 100).toFixed(0)}%`;
+        accPct = (metrics.confidence * 100).toFixed(1) || accPct;
+      } else if (snap.id === 'ag_exec') {
+        missionStatus = metrics.activePosition ? 'Position Active - Guarding SL/TP' : 'Awaiting Setup Validation';
+        accPct = metrics.activePosition ? '100.0' : '0.0';
+      } else if (snap.id === 'ag_learn' && metrics.lastTradeEV) {
+        missionStatus = `Latest EV: ${metrics.lastTradeEV.toFixed(4)}`;
+      }
+
       html += `
         <div class="agent-card ${snap.status}">
           <div class="agent-header">
@@ -199,7 +229,7 @@ export class AgentHubWidget {
             <span class="agent-badge ${snap.status}"><span class="agent-dot ${snap.status}"></span>${snap.status}</span>
           </div>
           <div class="agent-purpose">${snap.purpose}</div>
-          <div class="agent-mission">"${snap.mission}"</div>
+          <div class="agent-mission">"${missionStatus}"</div>
           
           <div class="agent-progress">
             <div class="agent-progress-bg">
@@ -208,9 +238,9 @@ export class AgentHubWidget {
             <span style="color: rgba(148, 163, 184, 0.4); font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600;">${accPct}%</span>
           </div>
 
-          <button class="agent-delegate-btn" ${snap.status === 'EXECUTING' ? 'disabled' : ''} style="${snap.status === 'EXECUTING' ? 'opacity:0.6;cursor:not-allowed;animation:card-glow 1.5s ease-in-out infinite;' : 'cursor:pointer;'}">
-            ${snap.status === 'AVAILABLE' ? '⚡ DELEGATE MISSION' : snap.status === 'EXECUTING' ? '⏳ EXECUTING...' : '💤 STANDBY'}
-          </button>
+          <div class="agent-delegate-btn" style="text-align:center; opacity:0.8; cursor:default; background: ${snap.status === 'EXECUTING' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(10, 16, 32, 0.45)'}; border-color: ${snap.status === 'EXECUTING' ? 'rgba(245, 158, 11, 0.3)' : 'rgba(0, 243, 255, 0.18)'};">
+            ${snap.status === 'EXECUTING' ? '⚡ LIVE MONITORING' : '👁️ SYSTEM STANDBY'}
+          </div>
         </div>
       `;
     }
@@ -250,39 +280,7 @@ export class AgentHubWidget {
   }
 
   _handleDelegate(model) {
-    const snap = model.getAgentSnapshot();
-    if (snap.status === 'EXECUTING') {
-      this._showToast(`⚡ ${snap.name} is currently executing a mission...`);
-      return;
-    }
-
-    const presetMissions = {
-      ag_research: 'Analyzing SMC Liquidity & Order Block Structures',
-      ag_risk: 'Auditing LHDS Hazard & Vetoing Overexposure',
-      ag_alpha: 'Scanning Order Flow for High-Confidence Alpha Patterns',
-      ag_exec: 'Optimizing Execution Routes & Slippage Bounds',
-      ag_learn: 'Calibrating Multi-Timeframe Strategy Weights'
-    };
-
-    const chosenMission = presetMissions[snap.id] || `Executing mission for ${snap.purpose}`;
-
-    model.updateMission(chosenMission);
-    model.transitionLifecycle('EXECUTING');
-    this.render();
-
-    this._showToast(`🤖 Mission Delegated to ${snap.name}: "${chosenMission}"`);
-
-    window.dispatchEvent(new CustomEvent('lyzer:agent-mission-delegated', {
-      detail: { agentId: snap.id, agentName: snap.name, mission: chosenMission, timestamp: Date.now() }
-    }));
-
-    setTimeout(() => {
-      if (this._disposed) return;
-      model.updateMetrics({ accuracy: Math.min(0.99, snap.metrics.accuracy + 0.015) });
-      model.transitionLifecycle('AVAILABLE');
-      this.render();
-      this._showToast(`✅ ${snap.name} Completed Mission Successfully!`);
-    }, 2500);
+    // Legacy function, no longer used. Button was replaced by passive status indicator.
   }
 
   _showToast(msg) {

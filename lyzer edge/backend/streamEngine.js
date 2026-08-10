@@ -949,7 +949,29 @@ export class StreamEngine extends EventEmitter {
         status: 'rejected',
         governance: simulatedTrade.governanceDecision
       } : null)),
-      arl: arlReport
+      arl: arlReport,
+      agents: {
+        ag_research: {
+          status: 'AVAILABLE',
+          metrics: { stress: this.ecoEngine.stressLevel || 0, regime: baseSignal.regime }
+        },
+        ag_risk: {
+          status: kernelResult.epistemic_authority === 'VETO' || !kernelResult.eef ? 'EXECUTING' : 'AVAILABLE',
+          metrics: { lhds: kernelResult.lhds_df !== undefined ? kernelResult.lhds_df : kernelResult.lhds, dvf: kernelResult.dvf, trg: kernelResult.trg }
+        },
+        ag_alpha: {
+          status: baseSignal.signal !== 'flat' ? 'EXECUTING' : 'AVAILABLE',
+          metrics: { signal: baseSignal.signal, confidence: baseSignal.confidence }
+        },
+        ag_exec: {
+          status: this.activePosition ? 'EXECUTING' : 'AVAILABLE',
+          metrics: { activePosition: !!this.activePosition }
+        },
+        ag_learn: {
+          status: closedTradePayload ? 'EXECUTING' : 'AVAILABLE',
+          metrics: { lastTradeEV: ev ? ev.totalEV : null }
+        }
+      }
     };
 
     this.emit('arl', payload);
