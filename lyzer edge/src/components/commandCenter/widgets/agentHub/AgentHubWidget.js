@@ -239,7 +239,7 @@ export class AgentHubWidget {
           </div>
 
           <div class="agent-delegate-btn" style="text-align:center; opacity:0.8; cursor:default; background: ${snap.status === 'EXECUTING' ? 'rgba(245, 158, 11, 0.1)' : 'rgba(10, 16, 32, 0.45)'}; border-color: ${snap.status === 'EXECUTING' ? 'rgba(245, 158, 11, 0.3)' : 'rgba(0, 243, 255, 0.18)'};">
-            ${snap.status === 'EXECUTING' ? '⚡ LIVE MONITORING' : '👁️ SYSTEM STANDBY'}
+            ${snap.status === 'EXECUTING' ? 'LIVE MONITORING' : 'SYSTEM STANDBY'}
           </div>
         </div>
       `;
