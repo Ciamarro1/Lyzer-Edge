@@ -6,7 +6,10 @@ import {
   recordCsrlDuration,
   recordCclistEvaluation,
   recordEcaEvaluation,
-  recordSqliteWrite
+  recordSqliteWrite,
+  recordBreakEvenTrade,
+  breakEvenTrades,
+  tradesProtected
 } from '../../src/observability/index.js';
 
 describe('Observability Layer Suite', () => {
@@ -25,6 +28,11 @@ describe('Observability Layer Suite', () => {
     recordEcaEvaluation('BTCUSDT', 'ALLOW');
     recordEcaEvaluation('BTCUSDT', 'REJECT', 'VETO_NO_SURVIVAL_NECESSITY');
     recordSqliteWrite('insert_batch', 0.0008);
+    recordBreakEvenTrade('BTCUSDT', 'LONG');
+
+    expect(breakEvenTrades).toBeDefined();
+    expect(tradesProtected).toBeDefined();
+    expect(breakEvenTrades).toBe(tradesProtected);
 
     const metricsString = await register.metrics();
     expect(metricsString).toContain('lyzer_pipeline_ticks_received_total');
@@ -32,5 +40,6 @@ describe('Observability Layer Suite', () => {
     expect(metricsString).toContain('lyzer_constitution_evaluations_total');
     expect(metricsString).toContain('lyzer_constitution_veto_total');
     expect(metricsString).toContain('lyzer_persistence_sqlite_write_duration_seconds');
+    expect(metricsString).toContain('lyzer_pipeline_break_even_trades_total');
   });
 });

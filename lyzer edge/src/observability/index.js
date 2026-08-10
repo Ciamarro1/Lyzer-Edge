@@ -17,10 +17,18 @@ import {
   systemErrorsCounter,
   activeConnectionsGauge,
   signalGeneratedCounter,
-  kernelEvaluatedCounter
+  kernelEvaluatedCounter,
+  breakEvenTradesCounter,
+  breakEvenTrades,
+  tradesProtected
 } from './metricsRegistry.js';
 
-export { register };
+export {
+  register,
+  breakEvenTradesCounter,
+  breakEvenTrades,
+  tradesProtected
+};
 
 export function recordTickReceived(symbol, source = 'websocket') {
   ticksReceivedCounter.inc({ symbol, source });
@@ -67,6 +75,10 @@ export function recordSignalGenerated(symbol, signal) {
 
 export function recordKernelEvaluated(symbol, eef, epistemicAuthority) {
   kernelEvaluatedCounter.inc({ symbol, eef: String(eef), epistemic_authority: epistemicAuthority });
+}
+
+export function recordBreakEvenTrade(symbol, direction = 'UNKNOWN') {
+  breakEvenTradesCounter.inc({ symbol, direction });
 }
 
 export function setActiveConnections(protocol, count) {

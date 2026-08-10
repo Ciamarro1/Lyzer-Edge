@@ -31,7 +31,7 @@ import { DivergenceDetector } from "../../packages/lyzer-shared/src/csrl/Diverge
 import { DualRealityMonitor } from "./dualRealityMonitor.js";
 import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
-import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation, recordSystemError, recordSignalGenerated, recordKernelEvaluated } from "../src/observability/index.js";
+import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation, recordSystemError, recordSignalGenerated, recordKernelEvaluated, recordBreakEvenTrade } from "../src/observability/index.js";
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
 import { DynamicSizing } from "../src/engine/sizing.js";
 import { authorizeOrder } from './riskGatewayClient.js';
@@ -637,6 +637,7 @@ export class StreamEngine extends EventEmitter {
           pos.stopLoss = pos.entryPrice * 1.0025;
           pos.breakEvenApplied = true;
           console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
+          recordBreakEvenTrade(this.symbol, 'LONG');
         }
         if (candle.low <= pos.stopLoss) {
           closed = true;
@@ -659,6 +660,7 @@ export class StreamEngine extends EventEmitter {
           pos.stopLoss = pos.entryPrice * 0.9975;
           pos.breakEvenApplied = true;
           console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
+          recordBreakEvenTrade(this.symbol, 'SHORT');
         }
         if (candle.high >= pos.stopLoss) {
           closed = true;

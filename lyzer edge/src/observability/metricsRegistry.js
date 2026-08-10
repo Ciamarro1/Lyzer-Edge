@@ -127,6 +127,16 @@ export const kernelEvaluatedCounter = createMetric(client?.Counter, {
   registers: [register]
 });
 
+export const breakEvenTradesCounter = createMetric(client?.Counter, {
+  name: 'lyzer_pipeline_break_even_trades_total',
+  help: 'Total trades protected by break-even trailing stop',
+  labelNames: ['symbol', 'direction'],
+  registers: [register]
+});
+
+export const breakEvenTrades = breakEvenTradesCounter;
+export const tradesProtected = breakEvenTradesCounter;
+
 export const activeConnectionsGauge = createMetric(client?.Gauge, {
   name: 'lyzer_system_active_connections',
   help: 'Active network connections by protocol',
