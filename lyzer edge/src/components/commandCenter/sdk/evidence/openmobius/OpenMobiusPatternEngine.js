@@ -2,6 +2,8 @@
  * Lyzer Edge — OpenMobiusPatternEngine
  * Fair Value Gap (FVG) and Order Block (OB) structure detector.
  * Emits non-directional structural pattern observations.
+ *
+ * WARNING: PER ADR-042, THIS ENGINE SHALL NEVER GENERATE IMPERATIVE SIGNALS (LONG/SHORT), ONLY STRUCTURAL METADATA. STANDALONE EXECUTION IS STRICTLY FORBIDDEN.
  */
 
 export class OpenMobiusPatternEngine {

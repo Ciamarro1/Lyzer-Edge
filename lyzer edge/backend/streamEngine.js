@@ -543,8 +543,8 @@ export class StreamEngine extends EventEmitter {
     const providers = {
         v1: v1Sig,
         v2: v2Sig,
-        v3: v3Sig,
-        v4: v4Sig
+        v3: { signal: 'flat', confidence: 0 }, // [Lyzer Guardian] V3 Quarantined
+        v4: { signal: 'flat', confidence: 0 }  // [Lyzer Guardian] V4 Quarantined
     };
     
     // 2.5 Dual Reality Divergence Validation
@@ -567,33 +567,36 @@ export class StreamEngine extends EventEmitter {
 
     // Baseline for telemetry filler with IMCE V4 priority
     let combinedSignal = 'flat';
-    if (v4Narrative && v4Narrative.signal !== 'flat') {
+    // [Lyzer Guardian] V3 and V4 Quarantined (Observation Mode)
+    /* if (v4Narrative && v4Narrative.signal !== 'flat') {
       combinedSignal = v4Narrative.signal;
-    } else if (v1Narrative.signal !== 'flat') {
+    } else */
+    if (v1Narrative.signal !== 'flat') {
       combinedSignal = v1Narrative.signal;
     } else if (v2Narrative.signal !== 'flat') {
       combinedSignal = v2Narrative.signal;
-    } else {
-      combinedSignal = v3Narrative.signal;
     }
+    /* else {
+      combinedSignal = v3Narrative.signal;
+    } */
 
     const baseSignal = { 
       signal: combinedSignal, 
       confidence: Math.max(
         v1Narrative.confidence, 
-        v2Narrative.confidence, 
-        v3Narrative.confidence, 
-        (v4Narrative ? v4Narrative.confidence : 0)
+        v2Narrative.confidence
+        // v3Narrative.confidence, 
+        // (v4Narrative ? v4Narrative.confidence : 0)
       ), 
-      regime: (v4Narrative && v4Narrative.causalAnswers) ? v4Narrative.causalAnswers.whatHappened : 'MTF_OBSERVATION', 
+      regime: 'MTF_OBSERVATION', // (v4Narrative && v4Narrative.causalAnswers) ? v4Narrative.causalAnswers.whatHappened : 'MTF_OBSERVATION', 
       reasons: [
         v1Narrative.narrative, 
-        v2Narrative.narrative, 
-        v3Narrative.narrative,
-        (v4Narrative ? v4Narrative.narrative : '')
+        v2Narrative.narrative
+        // v3Narrative.narrative,
+        // (v4Narrative ? v4Narrative.narrative : '')
       ],
-      explanationText: v4Narrative ? v4Narrative.explanationText : null,
-      tradeDna: v4Narrative ? v4Narrative.tradeDna : null,
+      explanationText: null, // v4Narrative ? v4Narrative.explanationText : null,
+      tradeDna: null, // v4Narrative ? v4Narrative.tradeDna : null,
       Z_t: kernelResult.dvf * 10
     };
     recordSignalGenerated(this.symbol, baseSignal.signal);
