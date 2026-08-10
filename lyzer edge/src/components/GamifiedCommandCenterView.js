@@ -164,6 +164,19 @@ export class GamifiedCommandCenterView {
       this._updateGridColumns();
     });
 
+    // Chart widget notifies us when the user switches asset
+    window.addEventListener('lyzer:active-symbol', (e) => {
+      this._activeHudSymbol = e.detail?.symbol || 'BTCUSDT';
+      // Immediately refresh HUD with the new symbol's data
+      const d = this._latestData[this._activeHudSymbol];
+      if (d) {
+        this._updateMetrics(d);
+        // Update symbol badge
+        const badge = this._container.querySelector('#g-active-symbol');
+        if (badge) badge.innerText = this._activeHudSymbol.replace('USDT', '/USD');
+      }
+    });
+
     this._renderShell();
     await this._mountStaticWidgets();
     await this._mountActiveWidget();
@@ -244,6 +257,8 @@ export class GamifiedCommandCenterView {
             <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
             <div class="g-metric"><span class="g-metric-label">CONF</span><span class="g-metric-value" style="color: #f472b6;" id="g-confidence" title="Signal Confidence">...</span></div>
             <div class="g-metric"><span class="g-metric-label">SDS</span><span class="g-metric-value" style="color: #c084fc;" id="g-sds" title="Scale Divergence Score">...</span></div>
+            <div style="width:1px; height:24px; background: rgba(148,163,184,0.1); margin: 0 4px;"></div>
+            <span id="g-active-symbol" style="font-size:10px;font-weight:800;font-family:'JetBrains Mono',monospace;color:#22d3ee;background:rgba(34,211,238,0.08);border:1px solid rgba(34,211,238,0.25);padding:2px 9px;border-radius:6px;letter-spacing:0.5px;" title="Active asset being displayed">BTC/USD</span>
           </div>
           <div style="display: flex; gap: 14px; align-items: center;">
             <button id="g-mute-btn" class="g-dock-btn" style="background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);" title="Toggle trade notifications">🔕 NOTIF OFF</button>
@@ -406,6 +421,9 @@ export class GamifiedCommandCenterView {
 
   _updateMetrics(data) {
     if (!data) return;
+    // Only update the top HUD if this data belongs to the active symbol
+    // (prevents last-processed WS symbol from overwriting the one user selected)
+    if (this._activeHudSymbol && data.symbol && data.symbol !== this._activeHudSymbol) return;
     const k = data.kernel;
     if (k) {
       const setText = (id, val) => {
@@ -427,6 +445,10 @@ export class GamifiedCommandCenterView {
 
       const sdsVal = k.scale_divergence_score !== undefined ? k.scale_divergence_score : k.sds;
       if (sdsVal !== undefined) setText('#g-sds', Number(sdsVal).toFixed(3));
+
+      // Update symbol badge in HUD
+      const badge = this._container.querySelector('#g-active-symbol');
+      if (badge && data.symbol) badge.innerText = data.symbol.replace('USDT', '/USD');
     }
 
     const mode = data.mode || data.connectionState;

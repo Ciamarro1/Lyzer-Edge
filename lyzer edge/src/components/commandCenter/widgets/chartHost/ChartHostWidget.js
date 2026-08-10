@@ -119,6 +119,8 @@ export class ChartHostWidget {
   _bindAssetTabs() {
     const container = this._container.querySelector('#asset-tabs-container');
     if (!container) return;
+    // Announce initial symbol on mount
+    window.dispatchEvent(new CustomEvent('lyzer:active-symbol', { detail: { symbol: this._activeSymbol } }));
     container.addEventListener('click', (e) => {
       const btn = e.target.closest('.asset-tab');
       if (!btn) return;
@@ -131,6 +133,8 @@ export class ChartHostWidget {
       this._activeSymbol = sym;
       this._loadRealCandles(sym);
       this._updateDecisionPanel();
+      // Notify GamifiedCommandCenterView to switch HUD to this symbol
+      window.dispatchEvent(new CustomEvent('lyzer:active-symbol', { detail: { symbol: sym } }));
     });
   }
 
