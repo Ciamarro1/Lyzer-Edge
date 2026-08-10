@@ -444,9 +444,21 @@ export class StreamEngine extends EventEmitter {
     }
 
     if (closed) {
-      const rawPnl = pos.direction === 'LONG'
+      let rawPnl = pos.direction === 'LONG'
         ? (exitPrice - pos.entryPrice) / pos.entryPrice
         : (pos.entryPrice - exitPrice) / pos.entryPrice;
+
+      // [Alpha de Liquidez] - Fee Structure Simulation
+      // Entry was always LIMIT (Maker rebate = +0.01%)
+      rawPnl += 0.0001; 
+      
+      if (exitReason === 'TAKE_PROFIT') {
+        // TP exit is LIMIT (Maker rebate = +0.01%)
+        rawPnl += 0.0001;
+      } else {
+        // SL or Break-Even exit is MARKET (Taker fee = -0.05%)
+        rawPnl -= 0.0005;
+      }
 
       const resolvedTrade = {
         id: pos.id,
@@ -486,7 +498,8 @@ export class StreamEngine extends EventEmitter {
       if (this.execution) {
         const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
         const closeQty = pos.quantity || 0.001;
-        this.execution.placeOrder(this.symbol, closeSide, 'MARKET', closeQty).catch(e => console.error('[STREAM] Close order failed:', e.message));
+        const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
+        this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice).catch(e => console.error('[STREAM] Close order failed:', e.message));
       }
 
       this.dampener.recordTradeExit(this.symbol, this.tickCounter);
@@ -723,9 +736,18 @@ export class StreamEngine extends EventEmitter {
       }
 
       if (closed) {
-        const rawPnl = pos.direction === 'LONG'
+        let rawPnl = pos.direction === 'LONG'
           ? (exitPrice - pos.entryPrice) / pos.entryPrice
           : (pos.entryPrice - exitPrice) / pos.entryPrice;
+
+        // [Alpha de Liquidez] - Fee Structure Simulation
+        rawPnl += 0.0001; // LIMIT entry rebate
+        
+        if (exitReason === 'TAKE_PROFIT') {
+          rawPnl += 0.0001; // LIMIT exit rebate
+        } else {
+          rawPnl -= 0.0005; // MARKET exit fee
+        }
 
         const resolvedTrade = {
           id: pos.id,
@@ -1067,7 +1089,7 @@ export class StreamEngine extends EventEmitter {
   async handleExecution(direction, candle, quantity) {
     try {
       const side = direction === 'LONG' ? 'BUY' : 'SELL';
-      const order = await this.execution.placeOrder(this.symbol, side, 'MARKET', quantity);
+      const order = await this.execution.placeOrder(this.symbol, side, 'LIMIT', quantity, candle.close);
 
       this.emit('execution', {
         symbol: this.symbol,

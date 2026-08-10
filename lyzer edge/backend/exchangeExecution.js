@@ -18,22 +18,28 @@ export class ExchangeExecution {
     const cleanSymbol = validateSymbol(symbol);
 
     if (!this.apiKey || !this.apiSecret) {
-      console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${side} ${quantity} ${cleanSymbol}`);
+      console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${type} ${side} ${quantity} ${cleanSymbol} at ${currentPrice || 'MARKET'}`);
       
       let fillPrice = currentPrice || 0;
       let fundingRateCost = 0;
       
       if (fillPrice > 0) {
-        // Slippage model: 0.05% slippage on MARKET orders
-        const slippageBps = 5; 
-        const slippageMultiplier = slippageBps / 10000;
-        
-        fillPrice = side.toUpperCase() === 'BUY' 
-          ? fillPrice * (1 + slippageMultiplier) 
-          : fillPrice * (1 - slippageMultiplier);
+        if (type === 'MARKET') {
+          // Slippage model: 0.05% slippage on MARKET orders
+          const slippageBps = 5; 
+          const slippageMultiplier = slippageBps / 10000;
           
-        // Synthetic funding rate simulation per trade (e.g. 0.01% standard fee)
-        fundingRateCost = fillPrice * quantity * 0.0001; 
+          fillPrice = side.toUpperCase() === 'BUY' 
+            ? fillPrice * (1 + slippageMultiplier) 
+            : fillPrice * (1 - slippageMultiplier);
+            
+          // Synthetic funding rate / Taker fee simulation per trade (e.g. 0.05% taker fee)
+          fundingRateCost = fillPrice * quantity * 0.0005; 
+        } else if (type === 'LIMIT') {
+          // Zero slippage for LIMIT orders. We act as Maker.
+          // Synthetic Maker Rebate simulation (e.g. -0.01% fee meaning we get paid to provide liquidity)
+          fundingRateCost = fillPrice * quantity * -0.0001; 
+        }
       }
 
       return {
@@ -44,7 +50,7 @@ export class ExchangeExecution {
         type,
         qty: quantity,
         price: fillPrice,
-        fundingRateCost, // Modeled simulated cost
+        fundingRateCost, // Modeled simulated cost (Negative means rebate!)
         transactTime: Date.now(),
         reality_tag: 'SYNTHETIC_REALITY'
       };
@@ -58,6 +64,10 @@ export class ExchangeExecution {
     const cleanQty = encodeURIComponent(String(quantity));
 
     let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${cleanQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    
+    if (type === 'LIMIT' && currentPrice) {
+      queryString += `&price=${encodeURIComponent(String(currentPrice))}&timeInForce=GTC`;
+    }
     
     const signature = crypto
       .createHmac('sha256', this.apiSecret)
