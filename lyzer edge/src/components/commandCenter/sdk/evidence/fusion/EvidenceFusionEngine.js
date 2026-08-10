@@ -10,12 +10,13 @@ export class EvidenceFusionEngine {
     this._alpha = alpha; // EWMA smoothing factor for online performance updates
     this._weights = {
       LYZER_NATIVE: 0.05,
-      OPENMOBIUS_SMC: 0.40,
+      OPENMOBIUS_SMC: 0.25,
       LIQUIDITY_ENGINE: 0.15,
       MACRO_REGIME: 0.05,
       VOLATILITY_ENGINE: 0.05,
-      WYCKOFF_VOLUME_ENGINE: 0.30,
-      MARKET_PROFILE_ENGINE: 0.20
+      WYCKOFF_VOLUME_ENGINE: 0.20,
+      MARKET_PROFILE_ENGINE: 0.20,
+      TAPE_READING_ENGINE: 0.25
     };
     this._historicalPerformance = {
       LYZER_NATIVE: 0.65,
@@ -24,7 +25,8 @@ export class EvidenceFusionEngine {
       MACRO_REGIME: 0.60,
       VOLATILITY_ENGINE: 0.55,
       WYCKOFF_VOLUME_ENGINE: 0.80,
-      MARKET_PROFILE_ENGINE: 0.20
+      MARKET_PROFILE_ENGINE: 0.20,
+      TAPE_READING_ENGINE: 0.25
     };
     this._disposed = false;
   }
@@ -42,15 +44,17 @@ export class EvidenceFusionEngine {
       this._weights.VOLATILITY_ENGINE = 0.05;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
       this._weights.MARKET_PROFILE_ENGINE = 0.40;
+      this._weights.TAPE_READING_ENGINE = 0.10;
     } else if (regime === 'HIGH_VOLATILITY') {
-      // In volatile markets, Volatility & Macro Regime take precedence
-      this._weights.VOLATILITY_ENGINE = 0.35;
-      this._weights.MACRO_REGIME = 0.30;
-      this._weights.LYZER_NATIVE = 0.15;
-      this._weights.OPENMOBIUS_SMC = 0.10;
-      this._weights.LIQUIDITY_ENGINE = 0.10;
-      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
+      // In volatile markets, Volatility & Macro Regime take precedence, and Tape Reading dominates
+      this._weights.VOLATILITY_ENGINE = 0.20;
+      this._weights.MACRO_REGIME = 0.20;
+      this._weights.LYZER_NATIVE = 0.10;
+      this._weights.OPENMOBIUS_SMC = 0.05;
+      this._weights.LIQUIDITY_ENGINE = 0.05;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.05;
       this._weights.MARKET_PROFILE_ENGINE = 0.10;
+      this._weights.TAPE_READING_ENGINE = 0.45;
     } else {
       // Default balanced Bayesian weights
       this._weights.LYZER_NATIVE = 0.30;
@@ -60,6 +64,7 @@ export class EvidenceFusionEngine {
       this._weights.VOLATILITY_ENGINE = 0.10;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
       this._weights.MARKET_PROFILE_ENGINE = 0.20;
+      this._weights.TAPE_READING_ENGINE = 0.25;
     }
 
     this._normalizeWeights();
@@ -108,7 +113,8 @@ export class EvidenceFusionEngine {
                         src.includes('LIQUIDITY') ? 'LIQUIDITY_ENGINE' :
                         src.includes('VOLATILITY') ? 'VOLATILITY_ENGINE' :
                         src.includes('MACRO') ? 'MACRO_REGIME' :
-                        src.includes('WYCKOFF') ? 'WYCKOFF_VOLUME_ENGINE' : 'LYZER_NATIVE';
+                        src.includes('WYCKOFF') ? 'WYCKOFF_VOLUME_ENGINE' :
+                        src.includes('TAPE_READING') ? 'TAPE_READING_ENGINE' : 'LYZER_NATIVE';
 
       const weight = (this._weights[weightKey] || 0.20) * (this._historicalPerformance[weightKey] || 0.70);
       const metrics = ev.evidenceMetrics || { confidence: 0.5, probability: 0.5, uncertainty: 0.5 };

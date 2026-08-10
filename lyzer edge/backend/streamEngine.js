@@ -20,6 +20,7 @@ import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_
 import { InstitutionalMarketCausalityEngine } from "../../packages/lyzer-shared/src/providers/v4_imce.js";
 import { WyckoffVolumeProfileEngine } from "../../packages/lyzer-shared/src/providers/v5_wyckoff_volume_profile.js";
 import { MarketProfileEngine } from "../../packages/lyzer-shared/src/providers/v6_market_profile.js";
+import { TapeReadingEngine } from "../../packages/lyzer-shared/src/providers/v7_tape_reading.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
@@ -87,6 +88,7 @@ export class StreamEngine extends EventEmitter {
     this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
     this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine();
     this.v6 = new MarketProfileEngine();
+    this.v7 = new TapeReadingEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -510,6 +512,7 @@ export class StreamEngine extends EventEmitter {
     const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
     const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(this.mtfCandles);
     const v6Narrative = this.v6.reconstruct(this.mtfCandles);
+    const v7Narrative = this.v7.reconstruct(this.mtfCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -598,7 +601,9 @@ export class StreamEngine extends EventEmitter {
     let combinedSignal = 'flat';
     
     // [Lyzer Guardian] Priority shifted to V5 (Wyckoff) and V3 (Momentum) for 1m microscalping
-    if (v6Narrative.signal === 'flat') {
+    if (v7Narrative.signal === 'Absorption' || v7Narrative.signal === 'Exhaustion' || v7Narrative.signal === 'CVD Divergence' || (v7Narrative.signal && v7Narrative.signal !== 'flat')) {
+      combinedSignal = v7Narrative.signal;
+    } else if (v6Narrative.signal === 'flat') {
       combinedSignal = 'flat';
     } else if (v5Narrative.signal !== 'flat') {
       combinedSignal = v5Narrative.signal;
@@ -782,7 +787,7 @@ export class StreamEngine extends EventEmitter {
     }
 
     // B. Check for new trade execution
-    console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
+    // console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
     if (kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
