@@ -9,14 +9,14 @@ export class EvidenceFusionEngine {
   constructor(alpha = 0.15) {
     this._alpha = alpha; // EWMA smoothing factor for online performance updates
     this._weights = {
-      LYZER_NATIVE: 0.05,
-      OPENMOBIUS_SMC: 0.25,
-      LIQUIDITY_ENGINE: 0.15,
-      MACRO_REGIME: 0.05,
-      VOLATILITY_ENGINE: 0.05,
-      WYCKOFF_VOLUME_ENGINE: 0.20,
-      MARKET_PROFILE_ENGINE: 0.20,
-      TAPE_READING_ENGINE: 0.25
+      LYZER_NATIVE: 0.40,
+      OPENMOBIUS_SMC: 0.30,
+      LIQUIDITY_ENGINE: 0.00,
+      MACRO_REGIME: 0.00,
+      VOLATILITY_ENGINE: 0.00,
+      WYCKOFF_VOLUME_ENGINE: 0.30,
+      MARKET_PROFILE_ENGINE: 0.00,
+      TAPE_READING_ENGINE: 0.00
     };
     this._historicalPerformance = {
       LYZER_NATIVE: 0.65,
@@ -80,7 +80,7 @@ export class EvidenceFusionEngine {
       this._historicalPerformance[sourceKey] = (1 - this._alpha) * prev + this._alpha * accuracyScore;
 
       // Dynamic Kill-Switch
-      if (this._historicalPerformance[sourceKey] < 0.30) {
+      if (this._historicalPerformance[sourceKey] < 0.45) {
         this._weights[sourceKey] = 0;
         console.warn(`KILL-SWITCH TRIGGERED: ${sourceKey} quarantined due to toxic win rate.`);
       }

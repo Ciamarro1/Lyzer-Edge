@@ -52,11 +52,16 @@ export class TruthKernel {
       epistemicAuthority = 'VETO';
       eef = false;
       reason = 'VETO_REALITY_DIVERGENCE';
-    } else if (micro.isNearInstitutionalSnr === false) {
-      // Veto Espacial: Trades no meio do vácuo (No Man's Land) são abolidos
-      epistemicAuthority = 'VETO';
-      eef = false;
-      reason = 'VETO_NO_MANS_LAND';
+    } else if (micro.distanceFromGoldenZone !== undefined) {
+      // Golden Zone Geometric Filter: Continuous Expected Shortfall (ES) bound
+      const topoRisk = micro.distanceFromGoldenZone || 1.0; 
+      const dynamicTrgThreshold = this.ett.trgThreshold * (1 + topoRisk);
+      
+      if (trg.trg < dynamicTrgThreshold) {
+        epistemicAuthority = 'VETO';
+        eef = false;
+        reason = 'VETO_UNBOUNDED_EXPECTED_SHORTFALL'; // Replaces VETO_NO_MANS_LAND
+      }
     } else if (sds < 0.3) {
       epistemicAuthority = 'OBSERVED';
     } else if (sds <= 0.7) {

@@ -1,8 +1,9 @@
 export class WyckoffVolumeProfileEngine {
     constructor(config = {}) {
-        this.lookback = config.lookback || 120;
-        this.volumeThreshold = config.volumeThreshold || 2.5;
-        this.pocProximity = config.pocProximity || 0.001; // 0.1% distance
+        this.lookback = config.lookback || 60; // Reduced from 120 for 1m microscalping
+        this.volumeZScore = config.volumeZScore || 2.5; // Replaces static volumeThreshold
+        this.pocProximity = config.pocProximity || 0.0005; // Tightened from 0.001 to 0.05%
+        this.minPierceATR = config.minPierceATR || 1.0; // New: Minimum pierce distance in ATR
     }
 
     reconstruct(mtfCandles) {
@@ -13,34 +14,48 @@ export class WyckoffVolumeProfileEngine {
             return { signal: 'flat', confidence: 0, narrative: 'Not enough data', poc: null };
         }
 
-        const last20 = candles.slice(-this.lookback);
+        const lookbackCandles = candles.slice(-this.lookback);
         
         // 2. Calculate POC (Point of Control)
-        const poc = this._calculatePOC(last20);
+        const poc = this._calculatePOC(lookbackCandles);
         
         // 3 & 4. Check for Wyckoff Spring and Upthrust
-        const current = last20[last20.length - 1];
-        const previousCandles = last20.slice(0, -1);
+        const current = lookbackCandles[lookbackCandles.length - 1];
+        const previousCandles = lookbackCandles.slice(0, -1);
         
         const recentLow = Math.min(...previousCandles.map(c => c.low));
         const recentHigh = Math.max(...previousCandles.map(c => c.high));
         
-        const avgVolume = last20.reduce((sum, c) => sum + c.volume, 0) / last20.length;
+        // Dynamic Volume Threshold (Z-Score)
+        const volumes = lookbackCandles.map(c => c.volume);
+        const avgVolume = volumes.reduce((sum, v) => sum + v, 0) / volumes.length;
+        const volVariance = volumes.reduce((sum, v) => sum + Math.pow(v - avgVolume, 2), 0) / volumes.length;
+        const volStdDev = Math.sqrt(volVariance);
         
-        const highVolume = current.volume > avgVolume * this.volumeThreshold;
+        const highVolume = current.volume > (avgVolume + this.volumeZScore * volStdDev);
+        
+        // Local Volatility (Simplified ATR / StdDev of High-Low)
+        const ranges = previousCandles.map(c => c.high - c.low);
+        const avgRange = ranges.reduce((sum, r) => sum + r, 0) / ranges.length;
+        const minPierceDistance = avgRange * this.minPierceATR;
+
         const nearPoc = poc !== null && (Math.abs(current.close - poc) / poc <= this.pocProximity);
         
-        // Wyckoff Spring: price dips below a recent swing low, closes above it, high volume, near POC
-        const isSpring = current.low < recentLow && current.close > recentLow && highVolume && nearPoc;
-        
-        // Wyckoff Upthrust: price spikes above a recent swing high, closes below it, high volume, near POC
-        const isUpthrust = current.high > recentHigh && current.close < recentHigh && highVolume && nearPoc;
+        // Wyckoff Spring: Meaningful pierce below recent swing low
+        const isSpring = current.low < (recentLow - minPierceDistance) && 
+                         current.close > recentLow && 
+                         highVolume && nearPoc;
+                         
+        // Wyckoff Upthrust: Meaningful pierce above recent swing high
+        const isUpthrust = current.high > (recentHigh + minPierceDistance) && 
+                           current.close < recentHigh && 
+                           highVolume && nearPoc;
         
         if (isSpring) {
             return {
                 signal: 'LONG',
                 confidence: 0.85,
-                narrative: 'Wyckoff Spring detected: Price dipped below recent swing low and closed above it on high volume near POC.',
+                narrative: `Wyckoff Spring: Pierced support by >${this.minPierceATR} ATR, closed above it on anomalous volume (Z-Score > ${this.volumeZScore}) near POC.`,
                 poc
             };
         }
@@ -49,17 +64,12 @@ export class WyckoffVolumeProfileEngine {
             return {
                 signal: 'SHORT',
                 confidence: 0.85,
-                narrative: 'Wyckoff Upthrust detected: Price spiked above recent swing high and closed below it on high volume near POC.',
+                narrative: `Wyckoff Upthrust: Pierced resistance by >${this.minPierceATR} ATR, closed below it on anomalous volume (Z-Score > ${this.volumeZScore}) near POC.`,
                 poc
             };
         }
         
-        return {
-            signal: 'flat',
-            confidence: 0,
-            narrative: 'No Wyckoff schematic detected.',
-            poc
-        };
+        return { signal: 'flat', confidence: 0, narrative: 'No Wyckoff schematic detected.', poc };
     }
 
     _calculatePOC(candles) {

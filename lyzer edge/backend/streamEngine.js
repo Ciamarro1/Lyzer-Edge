@@ -542,14 +542,13 @@ export class StreamEngine extends EventEmitter {
       topographicalAtr = sumRange / recent.length;
     }
 
-    // [Lyzer Guardian] SnR Topographical Proximity Check
-    let isNearInstitutionalSnr = false;
-    let snrDistance = Infinity;
+    // [Lyzer Guardian] SnR Topographical Proximity Check / Golden Zone Continuous Filter
+    let distanceFromGoldenZone = Infinity;
     const currentPrice = candle.close;
-    const atrPct = topographicalAtr ? (topographicalAtr / currentPrice) : 0.0015;
-    const maxSnrDistance = Math.max(0.0005, atrPct); // Tolerância igual ao ATR
-
-    if (smcLiquidityResult && smcLiquidityResult.activeZones) {
+    
+    // Normalize SNR distance relative to ATR for the topographical risk penalty
+    if (smcLiquidityResult && smcLiquidityResult.activeZones && smcLiquidityResult.activeZones.length > 0) {
+        let minRawDist = Infinity;
         for (const zone of smcLiquidityResult.activeZones) {
             let d = 0;
             if (currentPrice < zone.lower_bound) {
@@ -557,13 +556,12 @@ export class StreamEngine extends EventEmitter {
             } else if (currentPrice > zone.upper_bound) {
                 d = (currentPrice - zone.upper_bound) / currentPrice;
             }
-            if (d < snrDistance) snrDistance = d;
+            if (d < minRawDist) minRawDist = d;
         }
-    }
-    
-    // Validar ancoragem institucional 
-    if (smcLiquidityResult && smcLiquidityResult.activeZones && smcLiquidityResult.activeZones.length > 0) {
-        isNearInstitutionalSnr = (snrDistance <= maxSnrDistance);
+        
+        // Normalize the raw distance by the ATR percentage (e.g. 0 means inside the zone, 1.0 means 1 ATR away, etc.)
+        const atrPct = topographicalAtr ? (topographicalAtr / currentPrice) : 0.0015;
+        distanceFromGoldenZone = minRawDist / atrPct;
     }
     
     // Extract static S/R levels from V2 engine for legacy compatibility
@@ -622,7 +620,7 @@ export class StreamEngine extends EventEmitter {
     }
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, isNearInstitutionalSnr });
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone });
     recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
     // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()

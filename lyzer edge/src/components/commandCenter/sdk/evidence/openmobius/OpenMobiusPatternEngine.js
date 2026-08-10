@@ -27,16 +27,32 @@ export class OpenMobiusPatternEngine {
     const c2 = this._candleHistory[n - 2];
     const c3 = this._candleHistory[n - 1];
 
-    // Calculate SMA20 Volume for Displacement Check
+    // Calculate SMA20 Volume and ATR20 for Displacement & Noise Check
     let sumVol = 0;
-    const volLookback = Math.min(n, 20);
-    for (let i = n - volLookback; i < n; i++) {
-      sumVol += this._candleHistory[i].volume;
+    let sumTR = 0;
+    const lookback = Math.min(n, 20);
+    
+    for (let i = n - lookback; i < n; i++) {
+      const current = this._candleHistory[i];
+      sumVol += current.volume;
+      
+      // True Range (TR)
+      let tr = current.high - current.low;
+      if (i > 0) {
+        const prev = this._candleHistory[i - 1];
+        const gapHigh = Math.abs(current.high - prev.close);
+        const gapLow = Math.abs(current.low - prev.close);
+        tr = Math.max(tr, gapHigh, gapLow);
+      }
+      sumTR += tr;
     }
-    const sma20Vol = sumVol / volLookback;
+    const sma20Vol = sumVol / lookback;
+    const atr20 = sumTR / lookback;
 
-    // Minimum Gap Size (3 basis points to cover 0.05% stop loss logic)
-    const minGap = c3.close * 0.0003; 
+    // Minimum Gap Size: dynamic noise filter (61.8% of ATR) to prevent 1m micro-noise 
+    // vs the static 3 basis point minimum.
+    const dynamicMinGap = atr20 * 0.618;
+    const minGap = Math.max(c3.close * 0.0003, dynamicMinGap);
 
     // Causal Displacement Check (Institutional momentum required)
     const validDisplacement = c2.volume > 1.5 * sma20Vol;

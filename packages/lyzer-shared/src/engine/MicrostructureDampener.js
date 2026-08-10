@@ -87,9 +87,22 @@ export class MicrostructureDampener {
    * @returns {{ canClose: boolean, reason?: string }}
    */
   canCloseTrade(position, currentCandleIndex, currentPrice, currentAtr, kernelResult = {}) {
+    const reasonCodes = kernelResult.reason_codes || [];
+
     // Catastrophic LHDS Veto Override (Always allow emergency exit)
-    if (kernelResult.lhds > 0.8 || (kernelResult.reason_codes || []).includes('VETO_REALITY_DIVERGENCE') || kernelResult.reason === 'VETO_ONTOLOGICAL_COLLAPSE') {
+    if (kernelResult.lhds > 0.8 || reasonCodes.includes('VETO_REALITY_DIVERGENCE') || kernelResult.reason === 'VETO_ONTOLOGICAL_COLLAPSE') {
       return { canClose: true, reason: 'EMERGENCY_LHDS_VETO_EXIT' };
+    }
+
+    // OpenMobius / Wyckoff / FVG Counter-Signal Override (Early Exit to minimize SL hits)
+    const openMobiusVetos = [
+      'VETO_FVG_AGAINST_POSITION', 
+      'VETO_WYCKOFF_DISTRIBUTION',
+      'VETO_OPENMOBIUS_COUNTER_SIGNAL'
+    ];
+    
+    if (reasonCodes.some(code => openMobiusVetos.includes(code)) || kernelResult.openMobiusFvgAgainst) {
+      return { canClose: true, reason: 'EMERGENCY_OPENMOBIUS_COUNTER_SIGNAL' };
     }
 
     // 1. Minimum Holding Time (MHT) Candle Lock
