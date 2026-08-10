@@ -532,7 +532,41 @@ export class StreamEngine extends EventEmitter {
     const smcStructureResult = smcResult.structure;
     const smcLiquidityResult = smcResult.liquidity;
 
-    // Extract S/R levels from V2 engine
+    // Calculate ATR for Topographical Veto
+    let topographicalAtr = 0;
+    const topCandleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
+    if (topCandleList.length >= 5) {
+      const recent = topCandleList.slice(-14);
+      let sumRange = 0;
+      for (let i = 0; i < recent.length; i++) sumRange += (recent[i].high - recent[i].low);
+      topographicalAtr = sumRange / recent.length;
+    }
+
+    // [Lyzer Guardian] SnR Topographical Proximity Check
+    let isNearInstitutionalSnr = false;
+    let snrDistance = Infinity;
+    const currentPrice = candle.close;
+    const atrPct = topographicalAtr ? (topographicalAtr / currentPrice) : 0.0015;
+    const maxSnrDistance = Math.max(0.0005, atrPct); // Tolerância igual ao ATR
+
+    if (smcLiquidityResult && smcLiquidityResult.activeZones) {
+        for (const zone of smcLiquidityResult.activeZones) {
+            let d = 0;
+            if (currentPrice < zone.lower_bound) {
+                d = (zone.lower_bound - currentPrice) / currentPrice;
+            } else if (currentPrice > zone.upper_bound) {
+                d = (currentPrice - zone.upper_bound) / currentPrice;
+            }
+            if (d < snrDistance) snrDistance = d;
+        }
+    }
+    
+    // Validar ancoragem institucional 
+    if (smcLiquidityResult && smcLiquidityResult.activeZones && smcLiquidityResult.activeZones.length > 0) {
+        isNearInstitutionalSnr = (snrDistance <= maxSnrDistance);
+    }
+    
+    // Extract static S/R levels from V2 engine for legacy compatibility
     const v2Candles = this.mtfCandles['15m'] || this.mtfCandles['1m'] || [];
     let srLevels = [];
     if (v2Candles.length >= 10) {
@@ -588,7 +622,7 @@ export class StreamEngine extends EventEmitter {
     }
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants });
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, isNearInstitutionalSnr });
     recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
     // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()
@@ -694,7 +728,7 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') {
+        } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
           const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
           if (dampenerClose.canClose) {
             closed = true;
@@ -725,7 +759,7 @@ export class StreamEngine extends EventEmitter {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
-        } else if (!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') {
+        } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
           const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
           if (dampenerClose.canClose) {
             closed = true;
@@ -889,12 +923,6 @@ export class StreamEngine extends EventEmitter {
         const entryPrice = candle.close;
         let slDistance = 0.0010; // 0.10% SL for 1m microscalping
         let tpDistance = 0.0025; // 0.25% TP for 1m microscalping
-
-        if (microAtr > 0 && entryPrice > 0) {
-          const atrPct = microAtr / entryPrice;
-          slDistance = Math.max(0.0010, Math.min(0.0030, atrPct * 1.5));
-          tpDistance = Math.max(0.0025, slDistance * 2.5);
-        }
 
         if (process.env.SCALP_SL_PCT) slDistance = parseFloat(process.env.SCALP_SL_PCT);
         if (process.env.SCALP_TP_PCT) tpDistance = parseFloat(process.env.SCALP_TP_PCT);
