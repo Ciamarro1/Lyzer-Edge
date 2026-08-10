@@ -438,7 +438,13 @@ export class GamifiedCommandCenterView {
       const lhdsVal = k.lhds_df !== undefined ? k.lhds_df : k.lhds;
       if (lhdsVal !== undefined) setText('#g-lhds-val', Number(lhdsVal).toFixed(2));
 
-      if (k.eef !== undefined) setText('#g-eef', k.eef ? 'ALLOW' : 'VETO');
+      if (k.eef !== undefined) {
+        const eefEl = this._container.querySelector('#g-eef');
+        if (eefEl) {
+          eefEl.innerText = k.eef ? 'ALLOW' : 'VETO';
+          eefEl.style.color = k.eef ? '#4ade80' : '#ef4444';
+        }
+      }
 
       const confVal = k.confidence !== undefined ? k.confidence : k.conf;
       if (confVal !== undefined) setText('#g-confidence', typeof confVal === 'number' ? `${Math.round(confVal)}%` : `${confVal}`);
