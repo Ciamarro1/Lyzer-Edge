@@ -1,0 +1,85 @@
+/**
+ * Event-Sourced Backtester
+ * 
+ * Applies principles from:
+ * 1. Event Sourcing (Dilger / Hoffman): The history is a deterministic sequence of immutable events.
+ * 2. Causal Memory (Kleppmann): The state at time T is perfectly reproducible by replaying events [0...T].
+ * 3. The Court Shall Never Learn: The execution engine (StreamEngine) is unaware it is in a backtest.
+ */
+
+import { StreamEngine } from './streamEngine.js';
+
+export class EventSourcedBacktester {
+  /**
+   * @param {Object} db - The mock or real CausalMemory DB instance
+   */
+  constructor(db) {
+    this.db = db;
+    
+    // We instantiate a real stream engine, but force it into SIMULATION mode so it doesn't hit Binance
+    this.engine = new StreamEngine('SIMULATION');
+    // We override the default interval to prevent its internal loop from polluting our event stream
+    this.engine.startSimulationLoop = () => { console.log('[BACKTESTER] Hijacked simulation loop. Operating in deterministic Event-Sourced mode.'); };
+  }
+
+  /**
+   * Executes the backtest deterministically.
+   * @param {Array} cleanCandles - The sanitized array of candles from HistoricalDataSanitizer
+   */
+  async run(cleanCandles) {
+    console.log(`[BACKTESTER] Commencing deterministic replay of ${cleanCandles.length} events...`);
+    
+    // Warmup the engine with the first 100 candles to populate indicators (e.g. RSI, EMA)
+    const warmupCount = Math.min(100, cleanCandles.length);
+    for (let i = 0; i < warmupCount; i++) {
+        const c = cleanCandles[i];
+        this.engine.updateMtfCandles({
+            open: c.open, high: c.high, low: c.low, close: c.close, volume: c.volume, timestamp: c.openTime, openTime: c.openTime, closed: true
+        });
+    }
+    
+    console.log(`[BACKTESTER] Engine warmed up with ${warmupCount} candles.`);
+    
+    // Process the remaining candles as if they were live websocket ticks
+    for (let i = warmupCount; i < cleanCandles.length; i++) {
+      const candle = cleanCandles[i];
+      const tickEvent = {
+        open: candle.open,
+        high: candle.high,
+        low: candle.low,
+        close: candle.close,
+        volume: candle.volume,
+        timestamp: candle.openTime,
+        openTime: candle.openTime,
+        closed: true
+      };
+
+      this.engine.updateMtfCandles(tickEvent);
+      await this.engine.processCandle(tickEvent, this.engine.candles.length - 1);
+    }
+
+    console.log('[BACKTESTER] Replay completed. Generating Audit Trail...');
+    return this.generateAuditTrail();
+  }
+
+  generateAuditTrail() {
+    const stats = this.engine.globalEVMemory.governanceStats;
+    const trades = this.engine.tradeHistory;
+    
+    const profitTrades = trades.filter(t => t.pnl > 0).length;
+    const lossTrades = trades.filter(t => t.pnl < 0).length;
+    const winRate = trades.length > 0 ? (profitTrades / trades.length) * 100 : 0;
+    
+    const totalPnl = trades.reduce((sum, t) => sum + (t.pnl || 0), 0);
+    const breakEvenTrades = trades.filter(t => t.breakEvenApplied === true).length;
+
+    return {
+      totalEventsReplayed: this.engine.candles.length,
+      tradesExecuted: trades.length,
+      breakEvenTrades,
+      winRate: winRate.toFixed(2) + '%',
+      totalPnl: totalPnl.toFixed(4),
+      courtGovernance: stats
+    };
+  }
+}

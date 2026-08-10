@@ -18,6 +18,7 @@ import { LiquidityReconstructionEngine } from "../../packages/lyzer-shared/src/p
 import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/providers/v2_snd_snr.js";
 import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js";
 import { InstitutionalMarketCausalityEngine } from "../../packages/lyzer-shared/src/providers/v4_imce.js";
+import { WyckoffVolumeProfileEngine } from "../../packages/lyzer-shared/src/providers/v5_wyckoff_volume_profile.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
@@ -37,7 +38,7 @@ import { authorizeOrder } from './riskGatewayClient.js';
 import crypto from 'crypto';
 
 const signalEngine = new EvSignalEngine();
-const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.4');
+const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.15');
 const trgExponent = parseFloat(process.env.TRG_EXPONENT || '2');
 const consensusLimit = parseFloat(process.env.RESIDUAL_CONSENSUS_LIMIT || '0.1');
 const lhdsVetoLimit = parseFloat(process.env.LHDS_VETO_LIMIT || '0.8');
@@ -50,7 +51,7 @@ const cclistConfig = {
   stressRelease: parseFloat(process.env.CCLIST_STRESS_RELEASE || '0.1'),
 };
 const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
-const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || 'v1,v3').split(',').map(s => s.trim().toLowerCase());
+const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || '').split(',').map(s => s.trim().toLowerCase());
 const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
 export class StreamEngine extends EventEmitter {
@@ -80,6 +81,7 @@ export class StreamEngine extends EventEmitter {
     this.v2 = this.disabledProviders.has('v2') ? null : new StructuralBoundaryEngine();
     this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine();
     this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
+    this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -100,7 +102,7 @@ export class StreamEngine extends EventEmitter {
     this.isRunning = false;
     this.tradeHistory = [];
     this.activePosition = null;
-    this.dampener = new MicrostructureDampener({ minHoldingCandles: 5, cooldownCandles: 5, atrBarrierMultiplier: 1.2, minRiskReward: 1.5 });
+    this.dampener = new MicrostructureDampener({ minHoldingCandles: 5, cooldownCandles: 5, atrBarrierMultiplier: 1.2, minRiskReward: 0.8 });
 
     this.connectionState = 'CONNECTED';
     this.liveTradingEnabled = process.env.LIVE_TRADING_ENABLED === 'true';
@@ -496,6 +498,7 @@ export class StreamEngine extends EventEmitter {
     const v2Narrative = this.disabledProviders.has('v2') ? defaultNarrative : this.v2.reconstruct(this.mtfCandles);
     const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(this.mtfCandles);
     const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
+    const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(this.mtfCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -539,12 +542,14 @@ export class StreamEngine extends EventEmitter {
     const v2Sig = this.disabledProviders.has('v2') ? { signal: 'flat', confidence: 0 } : { signal: v2Narrative.signal, confidence: v2Narrative.confidence };
     const v3Sig = this.disabledProviders.has('v3') ? { signal: 'flat', confidence: 0 } : { signal: v3Narrative.signal, confidence: v3Narrative.confidence };
     const v4Sig = this.disabledProviders.has('v4') ? { signal: 'flat', confidence: 0 } : { signal: v4Narrative.signal, confidence: v4Narrative.confidence };
+    const v5Sig = this.disabledProviders.has('v5') ? { signal: 'flat', confidence: 0 } : { signal: v5Narrative.signal, confidence: v5Narrative.confidence };
 
     const providers = {
         v1: v1Sig,
         v2: v2Sig,
-        v3: { signal: 'flat', confidence: 0 }, // [Lyzer Guardian] V3 Quarantined
-        v4: { signal: 'flat', confidence: 0 }  // [Lyzer Guardian] V4 Quarantined
+        v3: v3Sig, // [Lyzer Guardian] V3 Unquarantined
+        v4: { signal: 'flat', confidence: 0 },  // [Lyzer Guardian] V4 Quarantined
+        v5: v5Sig
     };
     
     // 2.5 Dual Reality Divergence Validation
@@ -567,7 +572,7 @@ export class StreamEngine extends EventEmitter {
 
     // Baseline for telemetry filler with IMCE V4 priority
     let combinedSignal = 'flat';
-    // [Lyzer Guardian] V3 and V4 Quarantined (Observation Mode)
+    // [Lyzer Guardian] V4 Quarantined (Observation Mode)
     /* if (v4Narrative && v4Narrative.signal !== 'flat') {
       combinedSignal = v4Narrative.signal;
     } else */
@@ -575,24 +580,27 @@ export class StreamEngine extends EventEmitter {
       combinedSignal = v1Narrative.signal;
     } else if (v2Narrative.signal !== 'flat') {
       combinedSignal = v2Narrative.signal;
-    }
-    /* else {
+    } else if (v3Narrative.signal !== 'flat') {
       combinedSignal = v3Narrative.signal;
-    } */
+    } else if (v5Narrative.signal !== 'flat') {
+      combinedSignal = v5Narrative.signal;
+    }
 
     const baseSignal = { 
       signal: combinedSignal, 
       confidence: Math.max(
         v1Narrative.confidence, 
-        v2Narrative.confidence
-        // v3Narrative.confidence, 
+        v2Narrative.confidence,
+        v3Narrative.confidence,
+        v5Narrative.confidence
         // (v4Narrative ? v4Narrative.confidence : 0)
       ), 
       regime: 'MTF_OBSERVATION', // (v4Narrative && v4Narrative.causalAnswers) ? v4Narrative.causalAnswers.whatHappened : 'MTF_OBSERVATION', 
       reasons: [
         v1Narrative.narrative, 
-        v2Narrative.narrative
-        // v3Narrative.narrative,
+        v2Narrative.narrative,
+        v3Narrative.narrative,
+        v5Narrative.narrative
         // (v4Narrative ? v4Narrative.narrative : '')
       ],
       explanationText: null, // v4Narrative ? v4Narrative.explanationText : null,
@@ -625,6 +633,11 @@ export class StreamEngine extends EventEmitter {
       }
 
       if (pos.direction === 'LONG') {
+        if (!pos.breakEvenApplied && candle.high >= pos.entryPrice * 1.005) {
+          pos.stopLoss = pos.entryPrice * 1.0025;
+          pos.breakEvenApplied = true;
+          console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
+        }
         if (candle.low <= pos.stopLoss) {
           closed = true;
           exitPrice = pos.stopLoss;
@@ -642,6 +655,11 @@ export class StreamEngine extends EventEmitter {
           }
         }
       } else {
+        if (!pos.breakEvenApplied && candle.low <= pos.entryPrice * 0.995) {
+          pos.stopLoss = pos.entryPrice * 0.9975;
+          pos.breakEvenApplied = true;
+          console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
+        }
         if (candle.high >= pos.stopLoss) {
           closed = true;
           exitPrice = pos.stopLoss;
@@ -682,7 +700,8 @@ export class StreamEngine extends EventEmitter {
           slippage: 0.0001,
           spread: 0.0001,
           distortionFactor: 1.0,
-          timingOffset: 0
+          timingOffset: 0,
+          breakEvenApplied: pos.breakEvenApplied || false
         };
 
         ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
@@ -802,8 +821,8 @@ export class StreamEngine extends EventEmitter {
         }
 
         const entryPrice = candle.close;
-        let slDistance = 0.012; // 1.20% institutional SL fallback
-        let tpDistance = 0.024; // 2.40% institutional TP fallback (1:2 R:R)
+        let slDistance = 0.010; // 1.00% institutional SL fallback (Micro-scalping)
+        let tpDistance = 0.010; // 1.00% institutional TP fallback (Micro-scalping)
 
         if (microAtr > 0 && entryPrice > 0) {
           const atrPct = microAtr / entryPrice;

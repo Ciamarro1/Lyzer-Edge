@@ -9,18 +9,20 @@ export class EvidenceFusionEngine {
   constructor(alpha = 0.05) {
     this._alpha = alpha; // EWMA smoothing factor for online performance updates
     this._weights = {
-      LYZER_NATIVE: 0.80,
+      LYZER_NATIVE: 0.65,
       OPENMOBIUS_SMC: 0.00,
       LIQUIDITY_ENGINE: 0.00,
       MACRO_REGIME: 0.20,
-      VOLATILITY_ENGINE: 0.00
+      VOLATILITY_ENGINE: 0.00,
+      WYCKOFF_VOLUME_ENGINE: 0.15
     };
     this._historicalPerformance = {
       LYZER_NATIVE: 0.75,
       OPENMOBIUS_SMC: 0.70,
       LIQUIDITY_ENGINE: 0.72,
       MACRO_REGIME: 0.68,
-      VOLATILITY_ENGINE: 0.65
+      VOLATILITY_ENGINE: 0.65,
+      WYCKOFF_VOLUME_ENGINE: 0.15
     };
     this._disposed = false;
   }
@@ -36,6 +38,7 @@ export class EvidenceFusionEngine {
       this._weights.LYZER_NATIVE = 0.15;
       this._weights.MACRO_REGIME = 0.10;
       this._weights.VOLATILITY_ENGINE = 0.05;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
     } else if (regime === 'HIGH_VOLATILITY') {
       // In volatile markets, Volatility & Macro Regime take precedence
       this._weights.VOLATILITY_ENGINE = 0.35;
@@ -43,6 +46,7 @@ export class EvidenceFusionEngine {
       this._weights.LYZER_NATIVE = 0.15;
       this._weights.OPENMOBIUS_SMC = 0.10;
       this._weights.LIQUIDITY_ENGINE = 0.10;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
     } else {
       // Default balanced Bayesian weights
       this._weights.LYZER_NATIVE = 0.30;
@@ -50,6 +54,7 @@ export class EvidenceFusionEngine {
       this._weights.LIQUIDITY_ENGINE = 0.20;
       this._weights.MACRO_REGIME = 0.15;
       this._weights.VOLATILITY_ENGINE = 0.10;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
     }
 
     this._normalizeWeights();
@@ -96,7 +101,8 @@ export class EvidenceFusionEngine {
       const weightKey = src.includes('OPENMOBIUS') ? 'OPENMOBIUS_SMC' :
                         src.includes('LIQUIDITY') ? 'LIQUIDITY_ENGINE' :
                         src.includes('VOLATILITY') ? 'VOLATILITY_ENGINE' :
-                        src.includes('MACRO') ? 'MACRO_REGIME' : 'LYZER_NATIVE';
+                        src.includes('MACRO') ? 'MACRO_REGIME' :
+                        src.includes('WYCKOFF') ? 'WYCKOFF_VOLUME_ENGINE' : 'LYZER_NATIVE';
 
       const weight = (this._weights[weightKey] || 0.20) * (this._historicalPerformance[weightKey] || 0.70);
       const metrics = ev.evidenceMetrics || { confidence: 0.5, probability: 0.5, uncertainty: 0.5 };
