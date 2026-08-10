@@ -397,9 +397,10 @@ export class GamifiedCommandCenterView {
         ...data,
         kernel: data.kernel || existing.kernel
       };
-      this._updateMetrics(data);
-      this._updateLeaderboard(data);
-      this._checkTradeNotification(data);
+      const merged = this._latestData[data.symbol];
+      this._updateMetrics(merged);
+      this._updateLeaderboard(merged);
+      this._checkTradeNotification(merged);
     });
   }
 
@@ -466,22 +467,23 @@ export class GamifiedCommandCenterView {
       ? Object.keys(this._latestData)
       : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'GBPUSD', 'BNBUSDT'];
 
+    const t = Math.floor(Date.now() / 5000); // changes every 5s for micro-animation
     const entries = symbols.map((sym, idx) => {
       const d = this._latestData[sym] || {};
       const k = d.kernel || {};
-      
-      let scorePct;
-      if (typeof k.trg === 'number' && k.trg > 0) {
-        scorePct = Math.min(99, Math.max(12, Math.round(k.trg * 100)));
-      } else {
-        const pseudoPrice = d.market?.close || (1000 + idx * 150);
-        const pseudoTime = Math.floor(Date.now() / 4000);
-        const hashVal = Math.sin(sym.charCodeAt(0) * 17 + pseudoPrice * 0.01 + pseudoTime) * 0.5 + 0.5;
-        scorePct = Math.round(38 + hashVal * 52); // Spans 38% to 90%
-      }
 
-      const isUp = k.eef === true || scorePct > 60;
-      return { sym: sym.replace('USDT', '/USD'), val: scorePct, dir: isUp ? 1 : -1, trg: k.trg, dvf: k.dvf };
+      // Composite score: weighted blend of TRG + DVF + conf, with per-symbol noise
+      const trg = typeof k.trg === 'number' ? k.trg : 0.45;
+      const dvf = typeof k.dvf === 'number' ? k.dvf : 0.5;
+      const conf = typeof k.confidence === 'number' ? k.confidence / 100 : 0.5;
+      // Per-symbol micro-variation so assets with same TRG still differ visually
+      const symSeed = (sym.charCodeAt(0) * 31 + sym.charCodeAt(1) * 7 + idx) % 100;
+      const noise = Math.sin(symSeed + t * 0.3) * 0.04;
+      const composite = (trg * 0.5 + dvf * 0.3 + conf * 0.2) + noise;
+      const scorePct = Math.min(99, Math.max(12, Math.round(composite * 100)));
+
+      const isUp = k.eef === true || scorePct > 55;
+      return { sym: sym.replace('USDT', '/USD').replace('USD', '/USD'), val: scorePct, dir: isUp ? 1 : -1 };
     });
 
     entries.sort((a, b) => b.val - a.val);
@@ -490,7 +492,7 @@ export class GamifiedCommandCenterView {
       const isUp = a.dir > 0;
       const color = isUp ? '#10b981' : '#ef4444';
       const gradient = isUp ? 'linear-gradient(90deg, #10b981, #34d399)' : 'linear-gradient(90deg, #ef4444, #f87171)';
-      return `<div class="lb-row"><span style="width:60px;font-weight:600;color:#f1f5f9;font-size:10px;">${a.sym}</span><div class="lb-bar-bg"><div class="lb-bar-fg" style="width:${a.val}%;background:${gradient};"></div></div><span style="width:50px;text-align:right;color:${color};font-weight:600;font-size:10px;font-family:'JetBrains Mono',monospace;">${a.val}%</span></div>`;
+      return `<div class="lb-row"><span style="width:60px;font-weight:600;color:#f1f5f9;font-size:10px;">${a.sym}</span><div class="lb-bar-bg"><div class="lb-bar-fg" style="width:${a.val}%;background:${gradient};transition:width 0.8s ease;"></div></div><span style="width:50px;text-align:right;color:${color};font-weight:600;font-size:10px;font-family:'JetBrains Mono',monospace;">${a.val}%</span></div>`;
     }).join('');
   }
 
@@ -639,21 +641,34 @@ export class GamifiedCommandCenterView {
     const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
     const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
 
-    // Seed initial data for all symbols so the chart always has base data
+    // Seed initial data with per-symbol varied kernels (not all 0.65)
+    const SEED_KERNELS = {
+      BTCUSDT: { trg: 0.62, dvf: 0.80, lhds_df: 0.013, confidence: 91 },
+      ETHUSDT: { trg: 0.58, dvf: 0.75, lhds_df: 0.011, confidence: 88 },
+      SOLUSDT: { trg: 0.71, dvf: 0.85, lhds_df: 0.009, confidence: 95 },
+      BNBUSDT: { trg: 0.55, dvf: 0.70, lhds_df: 0.015, confidence: 82 },
+      EURUSDT: { trg: 0.48, dvf: 0.65, lhds_df: 0.010, confidence: 78 },
+      GBPUSDT: { trg: 0.52, dvf: 0.68, lhds_df: 0.012, confidence: 80 },
+    };
     for (const sym of SYMBOLS) {
       if (!this._latestData[sym]) {
+        const sk = SEED_KERNELS[sym] || { trg: 0.55, dvf: 0.72, lhds_df: 0.012, confidence: 85 };
         this._latestData[sym] = {
           symbol: sym, market: null,
-          kernel: {
-            trg: 0.65, dvf: 0.82, lhds_df: 0.012, eef: true,
-            scale_divergence_score: 0.14, confidence: 94.2,
-            reason_codes: ['NO_ACTION_GEOMETRY_FLAT']
-          },
-          signal: { signal: 'flat', regime: 'RANGING', confidence: 94.2 },
+          kernel: { ...sk, eef: sk.trg > 0.6, scale_divergence_score: 0.14, reason_codes: ['NO_ACTION_GEOMETRY_FLAT'] },
+          signal: { signal: 'flat', regime: 'RANGING', confidence: sk.confidence },
           trade: null
         };
       }
     }
+
+    // Refresh leaderboard every 5s to keep micro-animation alive between candles
+    setInt(() => {
+      if (Object.keys(this._latestData).length > 0) {
+        this._updateLeaderboard(Object.values(this._latestData)[0]);
+      }
+    }, 5000);
+
 
     // Force-flush metrics for ALL seeded symbols 200ms after mount
     // This fixes the "ghost 0.0000" bug where topbar never received initial values
