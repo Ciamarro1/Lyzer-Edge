@@ -72,4 +72,4 @@ WORKDIR "/app/lyzer edge"
 EXPOSE 7860
 
 # Start NATS, Rust IPC Hub and Node.js server concurrently, after restoring database from Hugging Face Bucket
-CMD ["sh", "-c", "python3 backup_restore.py restore; nats-server -js & lyzer-core-hub & node backend/server.js"]
+CMD ["sh", "-c", "python3 backup_restore.py restore; (nats-server -js 2>&1 | grep -v 'Client parser ERROR' &) ; lyzer-core-hub & node backend/server.js"]

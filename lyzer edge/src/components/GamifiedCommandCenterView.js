@@ -420,9 +420,33 @@ export class GamifiedCommandCenterView {
       if (sdsVal !== undefined) setText('#g-sds', Number(sdsVal).toFixed(3));
     }
 
-    if (data.mode || data.connectionState) {
+    const mode = data.mode || data.connectionState;
+    if (mode) {
       const el = this._container.querySelector('#g-mode-badge');
-      if (el) el.innerText = data.mode || data.connectionState;
+      if (el) {
+        el.innerText = mode;
+        if (mode === 'LIVE') {
+          el.style.color = '#f87171';
+          el.style.borderColor = 'rgba(248, 113, 113, 0.5)';
+          el.style.background = 'rgba(248, 113, 113, 0.12)';
+          el.style.boxShadow = '0 0 10px rgba(248,113,113,0.2)';
+        } else if (mode === 'TESTNET') {
+          el.style.color = '#38bdf8';
+          el.style.borderColor = 'rgba(56, 189, 248, 0.5)';
+          el.style.background = 'rgba(56, 189, 248, 0.12)';
+          el.style.boxShadow = '0 0 10px rgba(56,189,248,0.2)';
+        } else if (mode === 'SIMULATION') {
+          el.style.color = '#94a3b8';
+          el.style.borderColor = 'rgba(148, 163, 184, 0.3)';
+          el.style.background = 'rgba(15, 23, 42, 0.8)';
+          el.style.boxShadow = 'none';
+        } else {
+          el.style.color = '#fbbf24';
+          el.style.borderColor = 'rgba(251, 191, 36, 0.4)';
+          el.style.background = 'rgba(251, 191, 36, 0.08)';
+          el.style.boxShadow = 'none';
+        }
+      }
     }
   }
 

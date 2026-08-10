@@ -616,6 +616,18 @@ wss.on('connection', (ws, req) => {
   console.log('🟢 Frontend connected to WS');
   clients.push(ws);
 
+  // Unfreeze frontend HUD by sending immediate engine states
+  engines.forEach(engine => {
+    ws.send(JSON.stringify({
+      type: 'arl',
+      symbol: engine.symbol,
+      index: engine.candles.length,
+      mode: engine.mode,
+      connectionState: engine.connectionState || 'CONNECTED',
+      market: engine.candles[engine.candles.length - 1] || null
+    }));
+  });
+
   ws.on('close', () => {
     console.log('🔴 Frontend disconnected from WS');
     clients = clients.filter(c => c !== ws);
