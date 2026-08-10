@@ -721,6 +721,7 @@ export class StreamEngine extends EventEmitter {
     }
 
     // B. Check for new trade execution
+    console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
     if (kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
@@ -732,6 +733,7 @@ export class StreamEngine extends EventEmitter {
 
       if (!dampenerCheck.permitted) {
         // Blocked by anti-overtrading dampener (cooldown or MTF misalignment)
+        console.log(`[DEBUG] Blocked by dampener: ${dampenerCheck.reason}`);
         return;
       }
 
@@ -740,6 +742,8 @@ export class StreamEngine extends EventEmitter {
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       let governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
       let rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
+
+      console.log(`[DEBUG] Court decision: ${governanceDecision}, reason: ${rejectionReason}`);
 
       // gRPC Decoupling authorization check (Rust RiskGateway)
       if (permissionToken.granted) {

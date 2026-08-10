@@ -90,8 +90,9 @@ export class RealityStatusWidget {
       
       if (this._uiElements.eef) {
         const eefVal = status.eef !== undefined ? status.eef : true;
-        this._uiElements.eef.textContent = eefVal ? 'VALID' : 'VETOED';
-        this._uiElements.eef.style.color = eefVal ? '#4ade80' : '#ef4444';
+        const isAllow = (eefVal === true || eefVal === 'ALLOW' || eefVal === 'ALLOW_TRANSITION');
+        this._uiElements.eef.textContent = isAllow ? 'VALID' : 'VETOED';
+        this._uiElements.eef.style.color = isAllow ? '#4ade80' : '#ef4444';
       }
       if (this._uiElements.dvf && status.dvf !== undefined) {
         this._uiElements.dvf.textContent = Number(status.dvf).toFixed(2);

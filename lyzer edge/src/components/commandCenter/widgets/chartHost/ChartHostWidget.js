@@ -250,8 +250,9 @@ export class ChartHostWidget {
     setText('#dp-trg', Number(trg).toFixed(2));
     setText('#dp-dvf', Number(dvf).toFixed(2));
     setText('#dp-lhds', Number(lhds).toFixed(3));
-    setText('#dp-eef', `<strong style="color:${eef ? '#10b981' : '#ef4444'};">${eef ? 'ALLOW' : 'VETO'}</strong>`);
-    setText('#dp-court', `<strong style="color:${eef ? '#10b981' : '#ef4444'};">${eef ? 'ALLOW_TRANSITION' : 'VETOED'}</strong>`);
+    const isAllowEef = (eef === true || eef === 'ALLOW' || eef === 'ALLOW_TRANSITION');
+    setText('#dp-eef', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW' : 'VETO'}</strong>`);
+    setText('#dp-court', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW_TRANSITION' : 'VETOED'}</strong>`);
     setText('#dp-signal', signal);
     setText('#dp-regime', regime);
     setText('#dp-sds', Number(sds).toFixed(3));

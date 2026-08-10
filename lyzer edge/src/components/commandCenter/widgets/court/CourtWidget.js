@@ -75,15 +75,17 @@ export class CourtWidget {
             this._ui.lhds.innerText = Number(snap.lhds).toFixed(3);
           }
           if (this._ui.eef && snap.eef !== undefined) {
-            this._ui.eef.innerText = snap.eef ? 'VALID' : 'VETOED';
-            this._ui.eef.style.color = snap.eef ? '#4ade80' : '#ef4444';
+            const isAllow = (snap.eef === true || snap.eef === 'ALLOW' || snap.eef === 'ALLOW_TRANSITION');
+            this._ui.eef.innerText = isAllow ? 'VALID' : 'VETOED';
+            this._ui.eef.style.color = isAllow ? '#4ade80' : '#ef4444';
           }
           if (this._ui.mol && snap.molState) {
             this._ui.mol.innerText = snap.molState;
           }
           if (this._ui.status && snap.eef !== undefined) {
-            this._ui.status.innerText = snap.eef ? 'ALLOW' : 'VETO';
-            this._ui.status.style.color = snap.eef ? '#10b981' : '#ef4444';
+            const isAllow = (snap.eef === true || snap.eef === 'ALLOW' || snap.eef === 'ALLOW_TRANSITION');
+            this._ui.status.innerText = isAllow ? 'ALLOW' : 'VETO';
+            this._ui.status.style.color = isAllow ? '#10b981' : '#ef4444';
           }
         });
       }

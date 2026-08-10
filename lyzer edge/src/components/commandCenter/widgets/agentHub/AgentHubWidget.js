@@ -15,6 +15,7 @@ export class AgentHubWidget {
 
   async mount(container, context) {
     this._container = container;
+    this._runtime = context;
     
     if (!document.getElementById('agent-hub-styles')) {
       const style = document.createElement('style');
@@ -191,6 +192,7 @@ export class AgentHubWidget {
           <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #38bdf8; box-shadow: 0 0 8px rgba(56,189,248,0.4);"></span>
           AGENT HUB
           <span style="color: rgba(148, 163, 184, 0.2); font-size: 9px;">(${this._models.length})</span>
+          <span style="color: #38bdf8; font-size: 9px; padding: 2px 6px; background: rgba(56, 189, 248, 0.1); border-radius: 4px; font-weight: 600; margin-left: 4px;">${this._runtime?.getActiveSymbol ? this._runtime.getActiveSymbol() : 'BTCUSDT'}</span>
         </div>
         <button id="ah-toggle-btn" class="agent-toggle-btn" style="width: auto; padding: 2px 8px; font-size: 9px;" title="Collapse Agent Hub">
           COLLAPSE

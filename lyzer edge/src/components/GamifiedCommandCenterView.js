@@ -37,9 +37,11 @@ export class GamifiedCommandCenterView {
     this._realRuntime = {
       subscribeSnapshot: (cb) => {
         const emitSnapshot = () => {
-          const data = Object.values(this._latestData)[0];
-          const k = data?.kernel || {};
           try {
+            const activeSym = this._activeSymbol || Object.keys(this._latestData)[0] || 'BTCUSDT';
+            const data = this._latestData[activeSym];
+            if (!data) return;
+            const k = data.kernel || {};
             cb({
               realityTag: 'OBSERVED_REALITY',
               providerId: 'live-binance-v4',
@@ -74,14 +76,16 @@ export class GamifiedCommandCenterView {
         this._decisionLedgerListeners.add(cb);
         return { dispose: () => { if (this._decisionLedgerListeners) this._decisionLedgerListeners.delete(cb); } };
       },
+      setActiveSymbol: (sym) => { this._activeSymbol = sym; },
+      getActiveSymbol: () => this._activeSymbol || 'BTCUSDT',
       getMarketData: (opts = {}) => {
-        const sym = opts.symbol || 'BTCUSDT';
+        const sym = opts.symbol || this._activeSymbol || 'BTCUSDT';
         const data = this._latestData[sym];
         if (data?.market) return [data.market];
         return [];
       },
       subscribeTicks: (cb) => {
-        try { cb({ time: Date.now(), price: 65550, symbol: 'BTCUSDT' }); } catch(e){}
+        try { cb({ time: Date.now(), price: 65550, symbol: this._activeSymbol || 'BTCUSDT' }); } catch(e){}
         return { dispose: () => {} };
       },
       getSystemMetrics: () => ({ cpu: '4.2%', heapMb: 42.8, eventLoopLagMs: 0.04 }),
@@ -89,7 +93,8 @@ export class GamifiedCommandCenterView {
       getLatestData: () => this._latestData,
       getTradeHistory: () => this._tradeHistory,
       getRealityStatus: () => {
-        const data = Object.values(this._latestData)[0];
+        const activeSym = this._activeSymbol || Object.keys(this._latestData)[0] || 'BTCUSDT';
+        const data = this._latestData[activeSym];
         const k = data?.kernel || {};
         return {
           providerId: 'live-binance-v4',
@@ -441,8 +446,9 @@ export class GamifiedCommandCenterView {
       if (k.eef !== undefined) {
         const eefEl = this._container.querySelector('#g-eef');
         if (eefEl) {
-          eefEl.innerText = k.eef ? 'ALLOW' : 'VETO';
-          eefEl.style.color = k.eef ? '#4ade80' : '#ef4444';
+          const isAllow = (k.eef === true || k.eef === 'ALLOW' || k.eef === 'ALLOW_TRANSITION');
+          eefEl.innerText = isAllow ? 'ALLOW' : 'VETO';
+          eefEl.style.color = isAllow ? '#4ade80' : '#ef4444';
         }
       }
 
@@ -698,6 +704,22 @@ export class GamifiedCommandCenterView {
     }, 5000);
 
 
+    // Setup interval loop for UI time
+    this._intervals.push(setInterval(() => {
+      if (this._disposed) return;
+      const tElement = document.getElementById('utc-clock');
+      if (tElement) tElement.textContent = new Date().toISOString().substring(11, 19) + ' UTC';
+    }, 1000));
+
+    // Listen for symbol changes from ChartHostWidget
+    this._activeSymbolListener = (e) => {
+      const sym = e.detail?.symbol;
+      if (sym && this._realRuntime && this._realRuntime.setActiveSymbol) {
+        this._realRuntime.setActiveSymbol(sym);
+      }
+    };
+    window.addEventListener('lyzer:active-symbol', this._activeSymbolListener);
+
     // Force-flush metrics for ALL seeded symbols 200ms after mount
     // This fixes the "ghost 0.0000" bug where topbar never received initial values
     setTimeout(() => {
@@ -716,6 +738,10 @@ export class GamifiedCommandCenterView {
     this._intervals = [];
     this._notificationTimers.forEach(t => clearTimeout(t));
     this._notificationTimers = [];
+    if (this._activeSymbolListener) {
+      window.removeEventListener('lyzer:active-symbol', this._activeSymbolListener);
+      this._activeSymbolListener = null;
+    }
     if (this._wsUnsub) { wsClient.offData(this._wsUnsub); this._wsUnsub = null; }
     if (this._agentHub) { try { this._agentHub.dispose(); } catch (e) {} this._agentHub = null; }
     if (this._court) { try { this._court.dispose(); } catch (e) {} this._court = null; }
