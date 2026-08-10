@@ -251,7 +251,7 @@ export class GamifiedCommandCenterView {
           <div style="display: flex; gap: 14px; align-items: center;">
             <button id="g-mute-btn" class="g-dock-btn" style="background: rgba(15, 23, 42, 0.8); color: #94a3b8; border-color: rgba(148, 163, 184, 0.3);" title="Toggle trade notifications">🔕 NOTIF OFF</button>
             <div style="display: flex; flex-direction: column; align-items: flex-end;">
-              <span class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; pointer-events: none;" id="g-mode-badge">SIMULATION</span>
+              <span class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; pointer-events: none;" id="g-mode-badge">CONNECTING...</span>
               <span id="g-clock" style="color: rgba(148, 163, 184, 0.4); font-size: 9px; font-family: 'JetBrains Mono', monospace; margin-top: 2px;">00:00:00 UTC</span>
             </div>
           </div>
