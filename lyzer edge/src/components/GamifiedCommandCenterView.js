@@ -51,7 +51,8 @@ export class GamifiedCommandCenterView {
               conf: k.confidence !== undefined ? k.confidence : (k.conf !== undefined ? k.conf : 94.2),
               eef: k.eef !== undefined ? k.eef : true,
               molState: 'EXECUTE',
-              reason: k.reason || 'VALIDATED'
+              reason: k.reason || (k.reason_codes && k.reason_codes[0]) || (k.eef ? 'VALIDATED' : 'VETO_UNKNOWN'),
+              reason_codes: k.reason_codes || []
             });
           } catch(e) {}
         };
@@ -66,7 +67,9 @@ export class GamifiedCommandCenterView {
           timestamp: d.market?.timestamp || Date.now(),
           symbol: d.symbol || 'BTCUSDT',
           component: 'TruthKernel',
-          reason: d.kernel?.reason || (d.kernel?.eef === true ? 'VALIDATED' : 'LHDS_THRESHOLD'),
+          reason: d.kernel?.reason
+            || (d.kernel?.reason_codes && d.kernel.reason_codes[0])
+            || (d.kernel?.eef === true ? 'VALIDATED' : 'VETO_UNKNOWN'),
           trg: d.kernel?.trg || 0.65,
           dvf: d.kernel?.dvf || 0.82,
           lhds: d.kernel?.lhds_df || 0.012

@@ -93,9 +93,27 @@ export class CourtWidget {
         this._renderLedger(history);
       }
 
+      // Live WS-driven ledger updates
       if (this._runtime && typeof this._runtime.subscribeDecisionLedger === 'function') {
         this._disposable = await this._runtime.subscribeDecisionLedger((entry) => {
           this._addLedgerEntry(entry);
+        });
+      }
+
+      // Also subscribe to snapshots to keep ledger updated with every kernel evaluation
+      if (this._runtime && typeof this._runtime.subscribeSnapshot === 'function' && !this._snapshotLedgerBound) {
+        this._snapshotLedgerBound = true;
+        this._runtime.subscribeSnapshot((snap) => {
+          if (snap && snap.eef !== undefined) {
+            this._addLedgerEntry({
+              decision: snap.eef ? 'ALLOW_TRANSITION' : 'VETO',
+              timestamp: Date.now(),
+              component: 'TruthKernel',
+              reason: snap.reason
+                || (snap.reason_codes && snap.reason_codes[0])
+                || (snap.eef ? 'VALIDATED' : 'VETO_UNKNOWN')
+            });
+          }
         });
       }
     } catch (e) {
@@ -126,7 +144,9 @@ export class CourtWidget {
     const allowed = decisionText.includes('ALLOW');
     const color = allowed ? '#10b981' : '#ef4444';
     const component = entry.component || entry.actor || entry.symbol || 'ECA_Court';
-    const reason = entry.reason || (allowed ? 'VALIDATED' : 'LHDS_THRESHOLD');
+    const reason = entry.reason
+      || (entry.reason_codes && entry.reason_codes[0])
+      || (allowed ? 'VALIDATED' : 'VETO_UNKNOWN');
 
     item.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center;">
