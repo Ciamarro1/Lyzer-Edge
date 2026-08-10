@@ -27,6 +27,7 @@ export class EventSourcedBacktester {
    * @param {Array} cleanCandles - The sanitized array of candles from HistoricalDataSanitizer
    */
   async run(cleanCandles) {
+    this.totalProcessed = cleanCandles.length;
     console.log(`[BACKTESTER] Commencing deterministic replay of ${cleanCandles.length} events...`);
     
     // Warmup the engine with the first 100 candles to populate indicators (e.g. RSI, EMA)
@@ -55,7 +56,7 @@ export class EventSourcedBacktester {
       };
 
       this.engine.updateMtfCandles(tickEvent);
-      await this.engine.processCandle(tickEvent, this.engine.candles.length - 1);
+      await this.engine.processCandle(tickEvent, this.engine.tickCounter);
     }
 
     console.log('[BACKTESTER] Replay completed. Generating Audit Trail...');
@@ -74,7 +75,7 @@ export class EventSourcedBacktester {
     const breakEvenTrades = trades.filter(t => t.breakEvenApplied === true).length;
 
     return {
-      totalEventsReplayed: this.engine.candles.length,
+      totalEventsReplayed: this.totalProcessed || this.engine.candles.length,
       tradesExecuted: trades.length,
       breakEvenTrades,
       winRate: winRate.toFixed(2) + '%',

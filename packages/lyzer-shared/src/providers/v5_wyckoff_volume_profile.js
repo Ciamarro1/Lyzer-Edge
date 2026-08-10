@@ -1,8 +1,8 @@
 export class WyckoffVolumeProfileEngine {
     constructor(config = {}) {
-        this.lookback = config.lookback || 20;
-        this.volumeThreshold = config.volumeThreshold || 1.5;
-        this.pocProximity = config.pocProximity || 0.05; // 5% distance
+        this.lookback = config.lookback || 120;
+        this.volumeThreshold = config.volumeThreshold || 2.5;
+        this.pocProximity = config.pocProximity || 0.001; // 0.1% distance
     }
 
     reconstruct(mtfCandles) {

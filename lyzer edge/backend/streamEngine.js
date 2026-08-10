@@ -23,6 +23,9 @@ import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEn
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
 
+import { EvidenceFusionEngine } from '../src/components/commandCenter/sdk/evidence/fusion/EvidenceFusionEngine.js';
+import { OpenMobiusPatternEngine } from '../src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusPatternEngine.js';
+
 // CSRL Subsystem Imports
 import { ScaleNormalizer } from "../../packages/lyzer-shared/src/csrl/ScaleNormalizer.js";
 import { CrossScaleTensorGraph } from "../../packages/lyzer-shared/src/csrl/CrossScaleTensorGraph.js";
@@ -85,6 +88,8 @@ export class StreamEngine extends EventEmitter {
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
+    this.evidenceFusion = new EvidenceFusionEngine();
+    this.openMobius = new OpenMobiusPatternEngine();
     
     // CSRL Instance Initialization
     this.scaleNormalizer = new ScaleNormalizer();
@@ -221,7 +226,7 @@ export class StreamEngine extends EventEmitter {
         
         const processStartTime = performance.now();
         try {
-          await this.processCandle(candle, this.candles.length - 1);
+          await this.processCandle(candle, this.tickCounter);
           recordTickDuration(this.symbol, 'SUCCESS', (performance.now() - processStartTime) / 1000);
         } catch (e) {
           recordSystemError('StreamEngine', 'PROCESS_CANDLE_ERROR');
@@ -238,6 +243,7 @@ export class StreamEngine extends EventEmitter {
   }
 
   updateMtfCandles(candle) {
+    this.tickCounter = (this.tickCounter || 0) + 1;
     candle.trace_id = crypto.randomUUID();
     recordTickReceived(this.symbol, 'websocket');
     this.mtfCandles['1m'].push(candle);
@@ -479,6 +485,8 @@ export class StreamEngine extends EventEmitter {
         this.execution.placeOrder(this.symbol, closeSide, 'MARKET', closeQty).catch(e => console.error('[STREAM] Close order failed:', e.message));
       }
 
+      this.dampener.recordTradeExit(this.symbol, this.tickCounter);
+      this.releaseDailyCapital(this.activePosition);
       this.activePosition = null;
       this.emit('state_changed');
       this.emit('arl', { type: 'arl', symbol: this.symbol, trade: tradeWithEv, mode: this.mode });
@@ -570,32 +578,35 @@ export class StreamEngine extends EventEmitter {
         this.ui.render(lhds, kernelResult.epistemic_authority || 'UNKNOWN', reason);
     }
 
+    // Process structural evidence
+    this.openMobius.processCandle(candle);
+    
+    // Evaluate Fusion Engine
+    const evidenceArray = [
+      { sourceEngine: 'LYZER_NATIVE', evidenceMetrics: { confidence: Math.max(v1Sig.confidence, v2Sig.confidence, v3Sig.confidence), probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'WYCKOFF_VOLUME_ENGINE', evidenceMetrics: { confidence: v5Sig.confidence, probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'OPENMOBIUS_SMC', evidenceMetrics: { confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0, probability: 0.5, uncertainty: 0.5 } }
+    ];
+    const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray);
+
     // Baseline for telemetry filler with IMCE V4 priority
     let combinedSignal = 'flat';
-    // [Lyzer Guardian] V4 Quarantined (Observation Mode)
-    /* if (v4Narrative && v4Narrative.signal !== 'flat') {
-      combinedSignal = v4Narrative.signal;
-    } else */
-    if (v1Narrative.signal !== 'flat') {
+    
+    // [Lyzer Guardian] Priority shifted to V5 (Wyckoff) and V3 (Momentum) for 1m microscalping
+    if (v5Narrative.signal !== 'flat') {
+      combinedSignal = v5Narrative.signal;
+    } else if (v3Narrative.signal !== 'flat') {
+      combinedSignal = v3Narrative.signal;
+    } else if (v1Narrative.signal !== 'flat') {
       combinedSignal = v1Narrative.signal;
     } else if (v2Narrative.signal !== 'flat') {
       combinedSignal = v2Narrative.signal;
-    } else if (v3Narrative.signal !== 'flat') {
-      combinedSignal = v3Narrative.signal;
-    } else if (v5Narrative.signal !== 'flat') {
-      combinedSignal = v5Narrative.signal;
     }
 
     const baseSignal = { 
       signal: combinedSignal, 
-      confidence: Math.max(
-        v1Narrative.confidence, 
-        v2Narrative.confidence,
-        v3Narrative.confidence,
-        v5Narrative.confidence
-        // (v4Narrative ? v4Narrative.confidence : 0)
-      ), 
-      regime: 'MTF_OBSERVATION', // (v4Narrative && v4Narrative.causalAnswers) ? v4Narrative.causalAnswers.whatHappened : 'MTF_OBSERVATION', 
+      confidence: fusionResult.fusedConfidence, 
+      regime: fusionResult.primaryRegime || 'MTF_OBSERVATION', 
       reasons: [
         v1Narrative.narrative, 
         v2Narrative.narrative,
@@ -633,11 +644,19 @@ export class StreamEngine extends EventEmitter {
       }
 
       if (pos.direction === 'LONG') {
-        if (!pos.breakEvenApplied && candle.high >= pos.entryPrice * 1.005) {
-          pos.stopLoss = pos.entryPrice * 1.0025;
-          pos.breakEvenApplied = true;
-          console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
-          recordBreakEvenTrade(this.symbol, 'LONG');
+        const minLongStop = pos.entryPrice * 1.0005; // Entry + 0.05% for slippage/fees
+        if (candle.high >= pos.entryPrice * 1.0015) {
+          if (!pos.breakEvenApplied) {
+            pos.stopLoss = minLongStop;
+            pos.breakEvenApplied = true;
+            console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
+            recordBreakEvenTrade(this.symbol, 'LONG');
+          }
+          // Trailing Stop: trail by 0.15% from the high, but never lower than the current stop loss
+          const trailingStop = candle.high * 0.9985;
+          if (trailingStop > pos.stopLoss) {
+            pos.stopLoss = trailingStop;
+          }
         }
         if (candle.low <= pos.stopLoss) {
           closed = true;
@@ -656,11 +675,19 @@ export class StreamEngine extends EventEmitter {
           }
         }
       } else {
-        if (!pos.breakEvenApplied && candle.low <= pos.entryPrice * 0.995) {
-          pos.stopLoss = pos.entryPrice * 0.9975;
-          pos.breakEvenApplied = true;
-          console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
-          recordBreakEvenTrade(this.symbol, 'SHORT');
+        const minShortStop = pos.entryPrice * 0.9995; // Entry - 0.05% for slippage/fees
+        if (candle.low <= pos.entryPrice * 0.9985) {
+          if (!pos.breakEvenApplied) {
+            pos.stopLoss = minShortStop;
+            pos.breakEvenApplied = true;
+            console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
+            recordBreakEvenTrade(this.symbol, 'SHORT');
+          }
+          // Trailing Stop: trail by 0.15% from the low, but never higher than current stop loss
+          const trailingStop = candle.low * 1.0015;
+          if (trailingStop < pos.stopLoss) {
+            pos.stopLoss = trailingStop;
+          }
         }
         if (candle.high >= pos.stopLoss) {
           closed = true;
@@ -737,7 +764,7 @@ export class StreamEngine extends EventEmitter {
             .catch(e => console.error('[STREAM] Close order placement failed:', e.message));
         }
 
-        this.dampener.recordTradeExit(this.symbol, this.candles.length);
+        this.dampener.recordTradeExit(this.symbol, index);
         this.releaseDailyCapital(this.activePosition);
         this.activePosition = null;
         this.emit('state_changed');
@@ -749,7 +776,7 @@ export class StreamEngine extends EventEmitter {
     if (kernelResult.eef && !this.activePosition) {
       const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
       
-      const currentCandleIdx = this.candles.length;
+      const currentCandleIdx = index;
       const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
         entrySide: direction,
         m15Signal: baseSignal.m15Signal || 'flat'
@@ -823,12 +850,12 @@ export class StreamEngine extends EventEmitter {
         }
 
         const entryPrice = candle.close;
-        let slDistance = 0.010; // 1.00% institutional SL fallback (Micro-scalping)
-        let tpDistance = 0.010; // 1.00% institutional TP fallback (Micro-scalping)
+        let slDistance = 0.0015; // 0.15% SL for 1m microscalping
+        let tpDistance = 0.0030; // 0.30% TP for 1m microscalping
 
         if (microAtr > 0 && entryPrice > 0) {
           const atrPct = microAtr / entryPrice;
-          slDistance = Math.max(0.012, Math.min(0.040, atrPct * 1.8));
+          slDistance = Math.max(0.0015, Math.min(0.0050, atrPct * 1.5));
           tpDistance = slDistance * 2.0; // 1:2 R:R ratio
         }
 

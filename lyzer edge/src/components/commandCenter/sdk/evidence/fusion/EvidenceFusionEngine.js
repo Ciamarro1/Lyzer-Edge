@@ -6,23 +6,23 @@
  */
 
 export class EvidenceFusionEngine {
-  constructor(alpha = 0.05) {
+  constructor(alpha = 0.15) {
     this._alpha = alpha; // EWMA smoothing factor for online performance updates
     this._weights = {
-      LYZER_NATIVE: 0.65,
-      OPENMOBIUS_SMC: 0.00,
-      LIQUIDITY_ENGINE: 0.00,
-      MACRO_REGIME: 0.20,
-      VOLATILITY_ENGINE: 0.00,
-      WYCKOFF_VOLUME_ENGINE: 0.15
+      LYZER_NATIVE: 0.05,
+      OPENMOBIUS_SMC: 0.40,
+      LIQUIDITY_ENGINE: 0.15,
+      MACRO_REGIME: 0.05,
+      VOLATILITY_ENGINE: 0.05,
+      WYCKOFF_VOLUME_ENGINE: 0.30
     };
     this._historicalPerformance = {
-      LYZER_NATIVE: 0.75,
-      OPENMOBIUS_SMC: 0.70,
-      LIQUIDITY_ENGINE: 0.72,
-      MACRO_REGIME: 0.68,
-      VOLATILITY_ENGINE: 0.65,
-      WYCKOFF_VOLUME_ENGINE: 0.15
+      LYZER_NATIVE: 0.65,
+      OPENMOBIUS_SMC: 0.85,
+      LIQUIDITY_ENGINE: 0.80,
+      MACRO_REGIME: 0.60,
+      VOLATILITY_ENGINE: 0.55,
+      WYCKOFF_VOLUME_ENGINE: 0.80
     };
     this._disposed = false;
   }
@@ -70,7 +70,7 @@ export class EvidenceFusionEngine {
       this._historicalPerformance[sourceKey] = (1 - this._alpha) * prev + this._alpha * accuracyScore;
 
       // Dynamic Kill-Switch
-      if (this._historicalPerformance[sourceKey] < 0.45) {
+      if (this._historicalPerformance[sourceKey] < 0.30) {
         this._weights[sourceKey] = 0;
         console.warn(`KILL-SWITCH TRIGGERED: ${sourceKey} quarantined due to toxic win rate.`);
       }

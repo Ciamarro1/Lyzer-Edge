@@ -27,37 +27,57 @@ export class OpenMobiusPatternEngine {
     const c2 = this._candleHistory[n - 2];
     const c3 = this._candleHistory[n - 1];
 
-    // Bullish FVG: Low of candle 3 is strictly above High of candle 1
-    if (c3.low > c1.high) {
-      this._fvgs.push({
-        id: `fvg_bull_${c3.timestamp}`,
-        type: 'BULLISH',
-        top: c3.low,
-        bottom: c1.high,
-        gapSize: c3.low - c1.high,
-        timestamp: c3.timestamp,
-        mitigated: false
-      });
+    // Calculate SMA20 Volume for Displacement Check
+    let sumVol = 0;
+    const volLookback = Math.min(n, 20);
+    for (let i = n - volLookback; i < n; i++) {
+      sumVol += this._candleHistory[i].volume;
     }
-    // Bearish FVG: High of candle 3 is strictly below Low of candle 1
-    else if (c3.high < c1.low) {
-      this._fvgs.push({
-        id: `fvg_bear_${c3.timestamp}`,
-        type: 'BEARISH',
-        top: c1.low,
-        bottom: c3.high,
-        gapSize: c1.low - c3.high,
-        timestamp: c3.timestamp,
-        mitigated: false
-      });
+    const sma20Vol = sumVol / volLookback;
+
+    // Minimum Gap Size (3 basis points to cover 0.05% stop loss logic)
+    const minGap = c3.close * 0.0003; 
+
+    // Causal Displacement Check (Institutional momentum required)
+    const validDisplacement = c2.volume > 1.5 * sma20Vol;
+
+    // Bullish FVG
+    if (validDisplacement && c3.low > c1.high) {
+      const gapSize = c3.low - c1.high;
+      if (gapSize >= minGap) {
+        this._fvgs.push({
+          id: `fvg_bull_${c3.timestamp}`,
+          type: 'BULLISH',
+          top: c3.low,
+          bottom: c1.high,
+          gapSize: gapSize,
+          timestamp: c3.timestamp,
+          mitigated: false
+        });
+      }
+    }
+    // Bearish FVG
+    else if (validDisplacement && c3.high < c1.low) {
+      const gapSize = c1.low - c3.high;
+      if (gapSize >= minGap) {
+        this._fvgs.push({
+          id: `fvg_bear_${c3.timestamp}`,
+          type: 'BEARISH',
+          top: c1.low,
+          bottom: c3.high,
+          gapSize: gapSize,
+          timestamp: c3.timestamp,
+          mitigated: false
+        });
+      }
     }
 
-    // Check mitigation of existing FVGs by latest candle
+    // Check mitigation using 50% Consequent Encroachment (Close basis)
     for (const fvg of this._fvgs) {
       if (!fvg.mitigated) {
-        if (fvg.type === 'BULLISH' && c3.low <= fvg.top) {
+        if (fvg.type === 'BULLISH' && c3.close < fvg.bottom + (fvg.gapSize * 0.5)) {
           fvg.mitigated = true;
-        } else if (fvg.type === 'BEARISH' && c3.high >= fvg.bottom) {
+        } else if (fvg.type === 'BEARISH' && c3.close > fvg.top - (fvg.gapSize * 0.5)) {
           fvg.mitigated = true;
         }
       }

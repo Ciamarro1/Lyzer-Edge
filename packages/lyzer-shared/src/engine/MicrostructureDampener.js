@@ -18,11 +18,11 @@ export class MicrostructureDampener {
    * @param {number} [options.molStableTicksRequired=10] - Ticks needed to exit recovery
    */
   constructor({
-    minHoldingCandles = 5,
-    cooldownCandles = 5,
-    atrBarrierMultiplier = 1.2,
-    minRiskReward = 1.5,
-    molStableTicksRequired = 10
+    minHoldingCandles = 2,
+    cooldownCandles = 2,
+    atrBarrierMultiplier = 0.6,
+    minRiskReward = 1.0,
+    molStableTicksRequired = 3
   } = {}) {
     this.minHoldingCandles = minHoldingCandles;
     this.cooldownCandles = cooldownCandles;
@@ -48,6 +48,7 @@ export class MicrostructureDampener {
     if (lastExit !== undefined) {
       const elapsedCandles = currentCandleIndex - lastExit;
       if (elapsedCandles < this.cooldownCandles) {
+        console.log(`[DAMPENER DEBUG] currentCandleIndex=${currentCandleIndex}, lastExit=${lastExit}, elapsed=${elapsedCandles}`);
         return {
           permitted: false,
           reason: `COOLDOWN_ACTIVE (${elapsedCandles}/${this.cooldownCandles} candles elapsed since last trade exit)`
