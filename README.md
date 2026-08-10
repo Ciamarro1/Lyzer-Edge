@@ -64,7 +64,7 @@ Every execution intent faces the **ECA Constitutional Court** and the **C-CLIST 
 
 ### 4. 100% Win-Rate Micro-Scalping Break-Even Trailing Stop
 
-A heavily engineered execution mechanism designed for asymmetric protection. This high-frequency trailing stop protocol enforces break-even absolute recovery during micro-scalping, statistically anchoring the system towards a theoretical 100% win-rate condition under specific bounded parameters.
+A heavily engineered execution mechanism designed for asymmetric protection. This high-frequency trailing stop protocol enforces break-even absolute recovery during micro-scalping, statistically anchoring the system towards a theoretical 100% win-rate condition under specific bounded parameters. The system now runs with a **Hyper-Aggressive Microscalping configuration**: Take-Profit fixed at 0.25%, Stop-Loss at 0.10%, and a dynamic Trailing Break-Even triggering at 0.15% profit.
 
 ### 5. Event Sourced Causal Backtester
 

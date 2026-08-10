@@ -850,13 +850,13 @@ export class StreamEngine extends EventEmitter {
         }
 
         const entryPrice = candle.close;
-        let slDistance = 0.0015; // 0.15% SL for 1m microscalping
-        let tpDistance = 0.0030; // 0.30% TP for 1m microscalping
+        let slDistance = 0.0010; // 0.10% SL for 1m microscalping
+        let tpDistance = 0.0025; // 0.25% TP for 1m microscalping
 
         if (microAtr > 0 && entryPrice > 0) {
           const atrPct = microAtr / entryPrice;
-          slDistance = Math.max(0.0015, Math.min(0.0050, atrPct * 1.5));
-          tpDistance = slDistance * 2.0; // 1:2 R:R ratio
+          slDistance = Math.max(0.0010, Math.min(0.0030, atrPct * 1.5));
+          tpDistance = Math.max(0.0025, slDistance * 2.5);
         }
 
         if (process.env.SCALP_SL_PCT) slDistance = parseFloat(process.env.SCALP_SL_PCT);
