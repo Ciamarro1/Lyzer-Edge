@@ -62,19 +62,9 @@ export class GamifiedCommandCenterView {
         return { dispose: () => clearInterval(id) };
       },
       getDecisionLedger: async () => {
-        const entries = Object.values(this._latestData).map(d => ({
-          decision: d.kernel?.eef === true ? 'ALLOW_TRANSITION' : 'VETO',
-          timestamp: d.market?.timestamp || Date.now(),
-          symbol: d.symbol || 'BTCUSDT',
-          component: 'TruthKernel',
-          reason: d.kernel?.reason
-            || (d.kernel?.reason_codes && d.kernel.reason_codes[0])
-            || (d.kernel?.eef === true ? 'VALIDATED' : 'VETO_UNKNOWN'),
-          trg: d.kernel?.trg || 0.65,
-          dvf: d.kernel?.dvf || 0.82,
-          lhds: d.kernel?.lhds_df || 0.012
-        }));
-        return entries.slice(-20);
+        // Return empty — the live stream via subscribeDecisionLedger handles the ledger.
+        // Returning stale per-symbol states caused 6 simultaneous VETO entries on mount.
+        return [];
       },
       subscribeDecisionLedger: (cb) => {
         // Send one initial entry to prevent empty ledger
@@ -365,12 +355,12 @@ export class GamifiedCommandCenterView {
       rightPanel.innerHTML = `
         <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
           <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
-          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 2px 8px; font-size: 9px;" title="Collapse Court">COLLAPSE COURT</button>
+          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; font-family: 'JetBrains Mono', monospace;" title="Collapse Court">COLLAPSE COURT</button>
         </div>
-        <div id="g-court-container" style="flex: 1; min-height: 340px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
-        <div class="leaderboard" id="g-leaderboard-panel">
-          <div style="color: rgba(56, 189, 248, 0.5); font-size: 10px; margin-bottom: 12px; font-weight: 700; display: flex; justify-content: space-between; letter-spacing: 1px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
-            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.4);"></span>ASSET SIGNAL LEADERBOARD</span>
+        <div id="g-court-container" style="flex: 1; min-height: 280px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
+        <div class="leaderboard" id="g-leaderboard-panel" style="border-top: 1px solid rgba(0, 243, 255, 0.12);">
+          <div style="color: rgba(56, 189, 248, 0.8); font-size: 10px; margin-bottom: 12px; font-weight: 800; display: flex; justify-content: space-between; letter-spacing: 1.2px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
+            <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6);"></span>ASSET SIGNAL LEADERBOARD</span>
             <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
           </div>
           <div id="g-leaderboard-list"></div>
@@ -379,7 +369,7 @@ export class GamifiedCommandCenterView {
       if (this._court && this._container.querySelector('#g-court-container')) {
         this._court.mount(this._container.querySelector('#g-court-container'), this._realRuntime);
       }
-      // Re-populate leaderboard immediately with cached data so it never appears blank
+      // Re-populate leaderboard immediately with cached data
       if (Object.keys(this._latestData).length > 0) {
         this._updateLeaderboard(Object.values(this._latestData)[0]);
       }
@@ -399,7 +389,14 @@ export class GamifiedCommandCenterView {
   _connectWS() {
     this._wsUnsub = wsClient.onData((data) => {
       if (!data || !data.symbol) return;
-      this._latestData[data.symbol] = data;
+      // Merge instead of replace — preserve existing kernel when new data (e.g. initial
+      // connection snapshot) doesn't carry kernel information.
+      const existing = this._latestData[data.symbol] || {};
+      this._latestData[data.symbol] = {
+        ...existing,
+        ...data,
+        kernel: data.kernel || existing.kernel
+      };
       this._updateMetrics(data);
       this._updateLeaderboard(data);
       this._checkTradeNotification(data);
