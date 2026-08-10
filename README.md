@@ -30,12 +30,17 @@ pinned: false
 
 **Lyzer Edge** não é um robô tradicional de negociação nem uma caixa-preta de aprendizado de máquina preditivo. É uma **plataforma quantitativa institucional e um motor de execução determinística** projetado para operar em ambientes financeiros não-estacionários e adversariais (*Non-Stationary Switching Processes*).
 
-O sistema opera sob o axioma fundamental da engenharia de risco:
+O sistema opera sob o axioma fundamental da engenharia de risco institucional:
 
 $$\text{Sobrevivência (Survival)} > \text{Governança} > \text{Otimização de Curto Prazo}$$
 
-### 🎯 O Problema que Resolvermos
-A maioria dos algoritmos de negociação falha em produção porque otimizam estatísticas do passado (*overfitting*) e confiam cegamente em modelos probabilísticos em momentos de choque de volatilidade. O Lyzer Edge introduz um **Oráculo de Estresse Epistêmico ($\text{C-CLIST}$)** e uma **Corte Constitucional Soberana (`ConstitutionalCourt`)** que vetam ativamente qualquer execução durante momentos de "Campo de Ilusão de Estabilidade".
+Em sua arquitetura mais recente, o Lyzer Edge passa a operar sob o **EvidenceFusionEngine**, um motor de consolidação que utiliza pesos bayesianos acoplados a um **Dynamic Kill-Switch**, garantindo proteção absoluta de capital através do corte autônomo e imediato de provedores de sinal tóxicos em tempo real.
+
+### 🎯 O Problema que Resolvemos
+
+A esmagadora maioria dos algoritmos de negociação falha estruturalmente em produção porque otimiza estatísticas do passado (*overfitting*) e confia cegamente em modelos probabilísticos durante choques de volatilidade. Para erradicar esse risco, o Lyzer Edge utiliza um **Oráculo de Estresse Epistêmico ($\text{C-CLIST}$)** e uma **Corte Constitucional Soberana (`ConstitutionalCourt`)** que vetam implacavelmente qualquer execução em estados de "Campo de Ilusão de Estabilidade".
+
+Além de prever falhas de mercado, o sistema agora resolve o problema da degradação de modelos internos e de estratégias ao longo do tempo. Através do **EvidenceFusionEngine** e do **Dynamic Kill-Switch**, o sistema detecta e expurga componentes que se tornam nocivos. A prova empírica desse design foi consolidada de forma implacável em benchmarks recentes, onde os provedores de sinal V3 e V4 apresentaram sangramento de capital e foram **imediatamente isolados e colocados em quarentena** pelo sistema. Isso comprova, de forma matemática, a capacidade do Lyzer Edge de isolar falhas subjacentes, preservar o patrimônio e manter sua integridade operacional (anti-fragilidade) sem qualquer intervenção humana.
 
 ---
 
@@ -84,12 +89,12 @@ graph TB
 
 ### 2. Pipeline Quantitativo em 7 Camadas
 
-Toda proposta de ordem transita obrigatoriamente por 7 etapas rígidas de governança antes do envio à corretora:
+Toda proposta de ordem transita obrigatoriamente por 7 etapas rígidas de governança antes do envio à corretora. Na nova topologia de fusão, o OpenMobius atua de forma isolada, provendo evidências estruturais para o motor de fusão bayesiano:
 
 ```mermaid
 graph TD
-    C1[1. Signal Providers - V1 SMC/ICT, V2 SnD, V3 Momentum] --> C2[2. ResidualizationLayer - Consensus Destruction]
-    C2 --> C3[3. ExecutionTriggerLayer - TRG >= 0.4]
+    C1[1. Signal Providers - V1, V2 Signals] --> C3[3. EvidenceFusionEngine - Bayesian Weights & Dynamic Kill-Switch]
+    C2[2. OpenMobius - Coprocessor ADR-042 / Structural Evidence] --> C3
     C3 --> C4[4. TruthKernel - LHDS Veto & Ontological Check]
     C4 --> C5[5. C-CLIST - Stress Oracle / Lethal Illusion Check]
     C5 --> C6[6. MOL - Meta-Observation Recovery State SCL]
@@ -170,13 +175,30 @@ Todos os comandos devem ser executados a partir do diretório `lyzer edge/`:
 
 ---
 
+### 📈 Benchmark de Provedores e Verificação de Anti-Fragilidade
+
+Para provar matematicamente a anti-fragilidade do sistema e testar a performance individual dos provedores (*Signal Providers*) em relação à governança do **Fusion Engine**, utilize o nosso script de verificação dedicado.
+
+A partir do diretório `lyzer edge/`, execute o seguinte comando:
+
+```bash
+node tests/verification/benchmark_providers.js
+```
+
+> **Por que este teste é vital?**
+> Este comando aciona um *smoke test* focado e um ambiente adversário, submetendo os sinais e ruídos gerados isoladamente por cada provedor à bateria do TruthKernel e da Corte Constitucional. O resultado é a evidência clara de como o motor unificado do Lyzer Edge vetará falsos consensos e evitará colapsos catastróficos, demonstrando na prática sua característica *anti-frágil* comparado à frágil execução direta dos sinais individuais.
+
+---
+
 ## 📊 Matriz de Funcionalidades & Estado Atual
 
 | Categoria | Funcionalidade | Estado | Descrição |
 |---|---|---|---|
-| **Pipeline** | Provedores V1 (SMC/ICT), V2 (SnD), V3 (Momentum) | ✅ Implementado | Geração de propostas de sinal por narrativa de mercado. |
+| **Pipeline** | Provedores V1 (SMC/ICT), V2 (SnD), V3 (Momentum), V4 | ✅ V1/V2 Ativos<br>⚠️ V3/V4 (Quarantine) | Geração de propostas de sinal por narrativa de mercado. (V3 e V4 atualmente em Observation Mode). |
+| **Pipeline** | EvidenceFusionEngine | ✅ Implementado | Bayesian Fusion with Dynamic Kill-Switch. |
 | **Pipeline** | TruthKernel & Geometria TRG | ✅ Implementado | Cálculo de Tail Risk Geometry e veto por colapso ontológico. |
 | **Governança** | ECA Constitutional Court & C-CLIST | ✅ Implementado | Oráculo de estresse epistêmico e arbitragem soberana. |
+| **Governança** | OpenMobius | ✅ Implementado | Restricted Coprocessor per ADR-042. |
 | **Execução** | Adaptador Binance (Live / Testnet / Mock) | ✅ Implementado | Execução de ordens REST com travas de capital diário. |
 | **Interface** | Frontend SPA Z-Space (Vite + Vanilla JS) | ✅ Implementado | Gráficos interativos com overlays SMC (FVG, OB, SR). |
 | **Notificações**| Bot Telegram Notifier | ✅ Implementado | Notificações de execução e alertas de emergência do sistema. |
