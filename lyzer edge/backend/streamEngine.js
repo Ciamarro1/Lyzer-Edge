@@ -735,7 +735,9 @@ export class StreamEngine extends EventEmitter {
         return;
       }
 
-      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', kernelResult, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
+      const courtState = { ...kernelResult };
+      delete courtState.confidence;
+      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       let governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
       let rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
 
