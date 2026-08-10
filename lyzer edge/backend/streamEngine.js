@@ -19,6 +19,7 @@ import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/provid
 import { MomentumRsiEngine } from "../../packages/lyzer-shared/src/providers/v3_momentum_rsi.js";
 import { InstitutionalMarketCausalityEngine } from "../../packages/lyzer-shared/src/providers/v4_imce.js";
 import { WyckoffVolumeProfileEngine } from "../../packages/lyzer-shared/src/providers/v5_wyckoff_volume_profile.js";
+import { MarketProfileEngine } from "../../packages/lyzer-shared/src/providers/v6_market_profile.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
@@ -85,6 +86,7 @@ export class StreamEngine extends EventEmitter {
     this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine();
     this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
     this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine();
+    this.v6 = new MarketProfileEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -507,6 +509,7 @@ export class StreamEngine extends EventEmitter {
     const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(this.mtfCandles);
     const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
     const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(this.mtfCandles);
+    const v6Narrative = this.v6.reconstruct(this.mtfCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -551,13 +554,15 @@ export class StreamEngine extends EventEmitter {
     const v3Sig = this.disabledProviders.has('v3') ? { signal: 'flat', confidence: 0 } : { signal: v3Narrative.signal, confidence: v3Narrative.confidence };
     const v4Sig = this.disabledProviders.has('v4') ? { signal: 'flat', confidence: 0 } : { signal: v4Narrative.signal, confidence: v4Narrative.confidence };
     const v5Sig = this.disabledProviders.has('v5') ? { signal: 'flat', confidence: 0 } : { signal: v5Narrative.signal, confidence: v5Narrative.confidence };
+    const v6Sig = { signal: v6Narrative.signal, confidence: v6Narrative.confidence };
 
     const providers = {
         v1: v1Sig,
         v2: v2Sig,
         v3: v3Sig, // [Lyzer Guardian] V3 Unquarantined
         v4: { signal: 'flat', confidence: 0 },  // [Lyzer Guardian] V4 Quarantined
-        v5: v5Sig
+        v5: v5Sig,
+        v6: v6Sig
     };
     
     // 2.5 Dual Reality Divergence Validation
@@ -593,7 +598,9 @@ export class StreamEngine extends EventEmitter {
     let combinedSignal = 'flat';
     
     // [Lyzer Guardian] Priority shifted to V5 (Wyckoff) and V3 (Momentum) for 1m microscalping
-    if (v5Narrative.signal !== 'flat') {
+    if (v6Narrative.signal === 'flat') {
+      combinedSignal = 'flat';
+    } else if (v5Narrative.signal !== 'flat') {
       combinedSignal = v5Narrative.signal;
     } else if (v3Narrative.signal !== 'flat') {
       combinedSignal = v3Narrative.signal;
@@ -601,6 +608,8 @@ export class StreamEngine extends EventEmitter {
       combinedSignal = v1Narrative.signal;
     } else if (v2Narrative.signal !== 'flat') {
       combinedSignal = v2Narrative.signal;
+    } else if (v6Narrative.signal !== 'flat') {
+      combinedSignal = v6Narrative.signal;
     }
 
     const baseSignal = { 
@@ -611,7 +620,8 @@ export class StreamEngine extends EventEmitter {
         v1Narrative.narrative, 
         v2Narrative.narrative,
         v3Narrative.narrative,
-        v5Narrative.narrative
+        v5Narrative.narrative,
+        v6Narrative.narrative
         // (v4Narrative ? v4Narrative.narrative : '')
       ],
       explanationText: null, // v4Narrative ? v4Narrative.explanationText : null,

@@ -14,7 +14,8 @@ export class EvidenceFusionEngine {
       LIQUIDITY_ENGINE: 0.15,
       MACRO_REGIME: 0.05,
       VOLATILITY_ENGINE: 0.05,
-      WYCKOFF_VOLUME_ENGINE: 0.30
+      WYCKOFF_VOLUME_ENGINE: 0.30,
+      MARKET_PROFILE_ENGINE: 0.20
     };
     this._historicalPerformance = {
       LYZER_NATIVE: 0.65,
@@ -22,7 +23,8 @@ export class EvidenceFusionEngine {
       LIQUIDITY_ENGINE: 0.80,
       MACRO_REGIME: 0.60,
       VOLATILITY_ENGINE: 0.55,
-      WYCKOFF_VOLUME_ENGINE: 0.80
+      WYCKOFF_VOLUME_ENGINE: 0.80,
+      MARKET_PROFILE_ENGINE: 0.20
     };
     this._disposed = false;
   }
@@ -31,7 +33,7 @@ export class EvidenceFusionEngine {
    * Dynamically adapts weights based on market regime and online performance calibration.
    */
   adaptWeightsForRegime(regime) {
-    if (regime === 'RANGING' || regime === 'CONSOLIDATION') {
+    if (regime === 'RANGING' || regime === 'CONSOLIDATION' || regime === 'CHOPPY') {
       // In ranging markets, SMC structure (OpenMobius) and Liquidity pools gain higher weight
       this._weights.OPENMOBIUS_SMC = 0.40;
       this._weights.LIQUIDITY_ENGINE = 0.30;
@@ -39,6 +41,7 @@ export class EvidenceFusionEngine {
       this._weights.MACRO_REGIME = 0.10;
       this._weights.VOLATILITY_ENGINE = 0.05;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
+      this._weights.MARKET_PROFILE_ENGINE = 0.40;
     } else if (regime === 'HIGH_VOLATILITY') {
       // In volatile markets, Volatility & Macro Regime take precedence
       this._weights.VOLATILITY_ENGINE = 0.35;
@@ -47,6 +50,7 @@ export class EvidenceFusionEngine {
       this._weights.OPENMOBIUS_SMC = 0.10;
       this._weights.LIQUIDITY_ENGINE = 0.10;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
+      this._weights.MARKET_PROFILE_ENGINE = 0.10;
     } else {
       // Default balanced Bayesian weights
       this._weights.LYZER_NATIVE = 0.30;
@@ -55,6 +59,7 @@ export class EvidenceFusionEngine {
       this._weights.MACRO_REGIME = 0.15;
       this._weights.VOLATILITY_ENGINE = 0.10;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
+      this._weights.MARKET_PROFILE_ENGINE = 0.20;
     }
 
     this._normalizeWeights();
@@ -99,6 +104,7 @@ export class EvidenceFusionEngine {
     for (const ev of evidenceArray) {
       const src = ev.sourceEngine || 'OPENMOBIUS_SMC';
       const weightKey = src.includes('OPENMOBIUS') ? 'OPENMOBIUS_SMC' :
+                        src.includes('MARKET_PROFILE') ? 'MARKET_PROFILE_ENGINE' :
                         src.includes('LIQUIDITY') ? 'LIQUIDITY_ENGINE' :
                         src.includes('VOLATILITY') ? 'VOLATILITY_ENGINE' :
                         src.includes('MACRO') ? 'MACRO_REGIME' :
