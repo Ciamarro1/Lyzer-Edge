@@ -270,18 +270,18 @@ export class GamifiedCommandCenterView {
         <div id="g-trade-balloon" class="g-trade-balloon"></div>
       </div>
       <div id="g-right" class="g-right">
-        <div class="leaderboard" id="g-leaderboard-panel" style="border-bottom: 1px solid rgba(0, 243, 255, 0.12);">
+        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
+          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
+          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; font-family: 'JetBrains Mono', monospace;" title="Collapse Court">COLLAPSE COURT</button>
+        </div>
+        <div id="g-court-container" style="flex: 1; min-height: 280px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
+        <div class="leaderboard" id="g-leaderboard-panel" style="border-top: 1px solid rgba(0, 243, 255, 0.12);">
           <div style="color: rgba(56, 189, 248, 0.8); font-size: 10px; margin-bottom: 12px; font-weight: 800; display: flex; justify-content: space-between; letter-spacing: 1.2px; text-transform: uppercase; font-family: 'Inter', system-ui, sans-serif;">
             <span style="display: flex; align-items: center; gap: 6px;"><span style="display: inline-block; width: 5px; height: 5px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 6px rgba(74,222,128,0.6);"></span>ASSET SIGNAL LEADERBOARD</span>
             <span style="color: #4ade80; font-size: 8px; font-family: 'JetBrains Mono', monospace;" id="g-lb-status">LIVE</span>
           </div>
           <div id="g-leaderboard-list"></div>
         </div>
-        <div id="g-right-header" style="padding: 10px 14px; border-bottom: 1px solid rgba(0, 243, 255, 0.1); display: flex; align-items: center; justify-content: space-between; font-size: 10px; font-weight: 700; color: rgba(56, 189, 248, 0.6); letter-spacing: 1px; text-transform: uppercase;">
-          <span style="display: flex; align-items: center; gap: 6px;"><span style="width: 6px; height: 6px; border-radius: 50%; background: #a855f7; box-shadow: 0 0 8px rgba(168,85,247,0.5);"></span>CONSTITUTIONAL COURT</span>
-          <button id="g-right-toggle-btn" class="g-dock-btn" style="padding: 3px 10px; font-size: 9px; font-family: 'JetBrains Mono', monospace;" title="Collapse Court">COLLAPSE ▶</button>
-        </div>
-        <div id="g-court-container" style="flex: 1; min-height: 280px; border-bottom: 1px solid rgba(6, 182, 212, 0.06);"></div>
       </div>
       <div id="g-dock" class="g-dock"></div>
     `;
@@ -403,23 +403,6 @@ export class GamifiedCommandCenterView {
       this._updateMetrics(data);
       this._updateLeaderboard(data);
       this._checkTradeNotification(data);
-
-      // Push real kernel decisions into the decision ledger stream
-      if (data.kernel && data.kernel.eef !== undefined) {
-        const k = data.kernel;
-        const entry = {
-          decision: k.eef ? 'ALLOW_TRANSITION' : 'VETO',
-          timestamp: data.market?.timestamp || Date.now(),
-          component: 'TruthKernel',
-          symbol: data.symbol,
-          reason: (k.reason_codes && k.reason_codes[0]) || (k.eef ? 'VALIDATED' : 'NO_ACTION_GEOMETRY_FLAT'),
-          reason_codes: k.reason_codes || []
-        };
-        // Emit to any subscribeDecisionLedger listeners registered by widgets
-        if (this._decisionLedgerListeners) {
-          this._decisionLedgerListeners.forEach(cb => { try { cb(entry); } catch(e) {} });
-        }
-      }
     });
   }
 
