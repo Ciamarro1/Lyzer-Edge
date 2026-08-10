@@ -101,10 +101,13 @@ export class CourtWidget {
       }
 
       // Also subscribe to snapshots to keep ledger updated with every kernel evaluation
+      // Only adds ONE entry per eef state change (not every second tick)
       if (this._runtime && typeof this._runtime.subscribeSnapshot === 'function' && !this._snapshotLedgerBound) {
         this._snapshotLedgerBound = true;
+        let _lastEef = undefined;
         this._runtime.subscribeSnapshot((snap) => {
-          if (snap && snap.eef !== undefined) {
+          if (snap && snap.eef !== undefined && snap.eef !== _lastEef) {
+            _lastEef = snap.eef;
             this._addLedgerEntry({
               decision: snap.eef ? 'ALLOW_TRANSITION' : 'VETO',
               timestamp: Date.now(),
@@ -127,6 +130,21 @@ export class CourtWidget {
     entries.forEach(e => this._addLedgerEntry(e));
   }
 
+  // Maps internal engine reason codes to human-readable labels
+  _translateReason(code, allowed) {
+    const map = {
+      'EXECUTION_TRIGGERED_BY_ASYMMETRY': 'GEOMETRY_ASYMMETRY_CONFIRMED',
+      'NO_ACTION_GEOMETRY_FLAT': 'FLAT_GEOMETRY / TRG BELOW THRESHOLD',
+      'BLOCKED_BY_FALSE_CONSENSUS': 'CONSENSUS DETECTED / EXECUTION BLOCKED',
+      'VETO_REALITY_DIVERGENCE': 'LHDS EXCEEDED / REALITY DIVERGENCE',
+      'VETO_ONTOLOGICAL_COLLAPSE': 'ONTOLOGICAL COLLAPSE (SDS+TRG)',
+      'VETO_CONFIDENCE_ARROGANCE': 'CONFIDENCE OVERFITTING DETECTED',
+      'VALIDATED': 'VALIDATED',
+      'VETO_UNKNOWN': allowed ? 'VALIDATED' : 'VETO / REASON UNSPECIFIED'
+    };
+    return map[code] || code || (allowed ? 'VALIDATED' : 'VETO / UNSPECIFIED');
+  }
+
   _addLedgerEntry(entry) {
     if (!this._ui.ledgerList) return;
     
@@ -144,9 +162,10 @@ export class CourtWidget {
     const allowed = decisionText.includes('ALLOW');
     const color = allowed ? '#10b981' : '#ef4444';
     const component = entry.component || entry.actor || entry.symbol || 'ECA_Court';
-    const reason = entry.reason
+    const rawReason = entry.reason
       || (entry.reason_codes && entry.reason_codes[0])
-      || (allowed ? 'VALIDATED' : 'VETO_UNKNOWN');
+      || null;
+    const reason = this._translateReason(rawReason, allowed);
 
     item.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -160,6 +179,11 @@ export class CourtWidget {
     `;
 
     this._ui.ledgerList.insertBefore(item, this._ui.ledgerList.firstChild);
+
+    // Cap ledger at 20 visible entries
+    while (this._ui.ledgerList.children.length > 20) {
+      this._ui.ledgerList.removeChild(this._ui.ledgerList.lastChild);
+    }
   }
 
   dispose() {

@@ -375,6 +375,10 @@ export class GamifiedCommandCenterView {
       if (this._court && this._container.querySelector('#g-court-container')) {
         this._court.mount(this._container.querySelector('#g-court-container'), this._realRuntime);
       }
+      // Re-populate leaderboard immediately with cached data so it never appears blank
+      if (Object.keys(this._latestData).length > 0) {
+        this._updateLeaderboard(Object.values(this._latestData)[0]);
+      }
     }
     this._bindRightSidebarEvents();
   }
