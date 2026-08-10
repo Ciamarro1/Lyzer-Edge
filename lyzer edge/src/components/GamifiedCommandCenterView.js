@@ -77,8 +77,12 @@ export class GamifiedCommandCenterView {
         return entries.slice(-20);
       },
       subscribeDecisionLedger: (cb) => {
-        try { cb({ decision: 'ALLOW_TRANSITION', timestamp: Date.now(), component: 'TruthKernel', reason: 'VALIDATED' }); } catch(e){}
-        return { dispose: () => {} };
+        // Send one initial entry to prevent empty ledger
+        try { cb({ decision: 'ALLOW_TRANSITION', timestamp: Date.now(), component: 'TruthKernel', reason: 'VALIDATED', reason_codes: ['VALIDATED'] }); } catch(e){}
+        // Register listener for live WS-driven decisions
+        if (!this._decisionLedgerListeners) this._decisionLedgerListeners = new Set();
+        this._decisionLedgerListeners.add(cb);
+        return { dispose: () => { if (this._decisionLedgerListeners) this._decisionLedgerListeners.delete(cb); } };
       },
       getMarketData: (opts = {}) => {
         const sym = opts.symbol || 'BTCUSDT';
@@ -399,6 +403,23 @@ export class GamifiedCommandCenterView {
       this._updateMetrics(data);
       this._updateLeaderboard(data);
       this._checkTradeNotification(data);
+
+      // Push real kernel decisions into the decision ledger stream
+      if (data.kernel && data.kernel.eef !== undefined) {
+        const k = data.kernel;
+        const entry = {
+          decision: k.eef ? 'ALLOW_TRANSITION' : 'VETO',
+          timestamp: data.market?.timestamp || Date.now(),
+          component: 'TruthKernel',
+          symbol: data.symbol,
+          reason: (k.reason_codes && k.reason_codes[0]) || (k.eef ? 'VALIDATED' : 'NO_ACTION_GEOMETRY_FLAT'),
+          reason_codes: k.reason_codes || []
+        };
+        // Emit to any subscribeDecisionLedger listeners registered by widgets
+        if (this._decisionLedgerListeners) {
+          this._decisionLedgerListeners.forEach(cb => { try { cb(entry); } catch(e) {} });
+        }
+      }
     });
   }
 
@@ -643,7 +664,11 @@ export class GamifiedCommandCenterView {
       if (!this._latestData[sym]) {
         this._latestData[sym] = {
           symbol: sym, market: null,
-          kernel: { trg: 0.65, dvf: 0.82, lhds_df: 0.012, eef: true, scale_divergence_score: 0.14, confidence: 94.2 },
+          kernel: {
+            trg: 0.65, dvf: 0.82, lhds_df: 0.012, eef: true,
+            scale_divergence_score: 0.14, confidence: 94.2,
+            reason_codes: ['NO_ACTION_GEOMETRY_FLAT']
+          },
           signal: { signal: 'flat', regime: 'RANGING', confidence: 94.2 },
           trade: null
         };
