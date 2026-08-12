@@ -24,7 +24,7 @@ class LiveTradeSyncService {
   }
 
   async syncWithBackend() {
-    const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
+    const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
     console.log('[LiveTradeSync] Sincronizando histórico de trades com o backend...');
     
     for (const sym of symbols) {

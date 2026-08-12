@@ -3,8 +3,8 @@ import { ChartAdapter } from '../../chart/ChartAdapter.js';
 import { wsClient } from '../../../../services/wsClient.js';
 
 const CANDLE_COUNT = 1500;
-const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
-const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
+const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
+const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, XRPUSDT: 0.6, BNBUSDT: 580, ADAUSDT: 0.5 };
 
 const TIMEFRAMES = [
   { id: '1m', label: '1M', seconds: 60 },

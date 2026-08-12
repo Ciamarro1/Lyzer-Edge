@@ -644,7 +644,7 @@ const broadcast = (payload) => {
 };
 
 // --- INITIALIZE MULTI-ASSET FLEET ---
-const targetAssets = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
+const targetAssets = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
 const engines = [];
 
 for (const symbol of targetAssets) {
