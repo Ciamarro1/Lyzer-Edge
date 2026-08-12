@@ -10,6 +10,7 @@ import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
 import { LiveDataIngestor } from "./liveDataIngestor.js";
 import { ExchangeExecution } from "./exchangeExecution.js";
 import { safeMerge } from "./utils/safeJson.js";
+import { RegimeEngine } from "./regimeEngine.js";
 
 import { RealityGapMonitor } from "./realityGapMonitor.js";
 import { TruthKernel } from "../../packages/lyzer-shared/src/engine/kernel.js";
@@ -112,6 +113,7 @@ export class StreamEngine extends EventEmitter {
     this.tradeHistory = [];
     this.activePosition = null;
     this.dampener = new MicrostructureDampener({ minHoldingCandles: 5, cooldownCandles: 5, atrBarrierMultiplier: 1.2, minRiskReward: 0.8 });
+    this.regimeEngine = new RegimeEngine();
 
     this.connectionState = 'CONNECTED';
     this.liveTradingEnabled = process.env.LIVE_TRADING_ENABLED === 'true';
@@ -329,7 +331,23 @@ export class StreamEngine extends EventEmitter {
   checkTickPositionExit(candle) {
     if (!this.activePosition) return null;
 
+    // TRACK MFE and MAE
     const pos = this.activePosition;
+    if (pos.direction === 'LONG') {
+        const mfe = (candle.high - pos.entryPrice) / pos.entryPrice;
+        const mae = (candle.low - pos.entryPrice) / pos.entryPrice;
+        pos.mfe = Math.max(pos.mfe || 0, mfe);
+        pos.mae = Math.min(pos.mae || 0, mae);
+    } else {
+        const mfe = (pos.entryPrice - candle.low) / pos.entryPrice;
+        const mae = (pos.entryPrice - candle.high) / pos.entryPrice;
+        pos.mfe = Math.max(pos.mfe || 0, mfe);
+        pos.mae = Math.min(pos.mae || 0, mae);
+    }
+
+    // Evaluate action from Regime Engine
+    let action = this.regimeEngine.evaluate(pos, candle, this.mtfCandles);
+
     let closed = false;
     let exitPrice = 0;
     let exitReason = '';
@@ -338,26 +356,35 @@ export class StreamEngine extends EventEmitter {
     const high = candle.high || price;
     const low = candle.low || price;
 
-    if (pos.direction === 'LONG') {
-      if (low <= pos.stopLoss || price <= pos.stopLoss) {
-        closed = true;
-        exitPrice = pos.stopLoss;
-        exitReason = 'STOP_LOSS';
-      } else if (high >= pos.takeProfit || price >= pos.takeProfit) {
-        closed = true;
-        exitPrice = pos.takeProfit;
-        exitReason = 'TAKE_PROFIT';
+    if (action.type === 'HOLD') {
+      if (action.newStopLoss) {
+        pos.stopLoss = action.newStopLoss;
       }
-    } else {
-      if (high >= pos.stopLoss || price >= pos.stopLoss) {
-        closed = true;
-        exitPrice = pos.stopLoss;
-        exitReason = 'STOP_LOSS';
-      } else if (low <= pos.takeProfit || price <= pos.takeProfit) {
-        closed = true;
-        exitPrice = pos.takeProfit;
-        exitReason = 'TAKE_PROFIT';
+      
+      // Basic Stop Loss check
+      if (pos.direction === 'LONG' && low <= pos.stopLoss) {
+          action = { type: 'EXIT_STOP' };
+      } else if (pos.direction === 'SHORT' && high >= pos.stopLoss) {
+          action = { type: 'EXIT_STOP' };
+      } else if (pos.takeProfit && pos.direction === 'LONG' && high >= pos.takeProfit) {
+          action = { type: 'EXIT_TAKE' };
+      } else if (pos.takeProfit && pos.direction === 'SHORT' && low <= pos.takeProfit) {
+          action = { type: 'EXIT_TAKE' };
       }
+    }
+
+    if (action.type === 'EXIT_STOP') {
+      closed = true;
+      exitPrice = pos.stopLoss || price;
+      exitReason = 'STOP_LOSS';
+    } else if (action.type === 'EXIT_TAKE') {
+      closed = true;
+      exitPrice = pos.takeProfit || price;
+      exitReason = 'TAKE_PROFIT';
+    } else if (action.type === 'EXIT_EXHAUSTION') {
+      closed = true;
+      exitPrice = price;
+      exitReason = 'EXHAUSTION';
     }
 
     if (closed) {
@@ -385,6 +412,9 @@ export class StreamEngine extends EventEmitter {
         entryPrice: pos.entryPrice,
         exitPrice: exitPrice,
         pnl: rawPnl,
+        mfe: pos.mfe || 0,
+        mae: pos.mae || 0,
+        initialStopLoss: pos.initialStopLoss || pos.stopLoss,
         status: 'closed',
         signal: pos.signal,
         regime: pos.regime,
@@ -539,6 +569,13 @@ export class StreamEngine extends EventEmitter {
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
     const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone });
+    
+    if (process.env.ABLATION_NO_LHDS === 'true') {
+        kernelResult.eef = true;
+        kernelResult.epistemic_authority = 'ALLOW';
+        kernelResult.reason_codes = [];
+    }
+
     recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
     // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()
@@ -585,7 +622,7 @@ export class StreamEngine extends EventEmitter {
     const utcHours = dateObj.getUTCHours();
     const isGoldenHour = (utcHours >= 8 && utcHours < 12) || (utcHours >= 19 && utcHours < 21);
     
-    if (!isGoldenHour && combinedSignal !== 'flat') {
+    if (process.env.ABLATION_NO_GOLDEN_HOURS !== 'true' && !isGoldenHour && combinedSignal !== 'flat') {
         combinedSignal = 'flat';
         v1Narrative.narrative = 'VETO: OUTSIDE_GOLDEN_HOURS';
     }
@@ -629,7 +666,9 @@ export class StreamEngine extends EventEmitter {
         let sumRange = 0;
         for (let i = 0; i < recent.length; i++) sumRange += (recent[i].high - recent[i].low);
         microAtr = sumRange / recent.length;
-           if (pos.direction === 'LONG') {
+      }
+      
+      if (pos.direction === 'LONG') {
         const minLongStop = pos.entryPrice * 1.0005; // Entry + 0.05% for slippage/fees
         
         // 1. Track peak favorable price
@@ -638,7 +677,7 @@ export class StreamEngine extends EventEmitter {
         }
         
         // 2. Trigger Break-Even at +1.0 ATR
-        if (!pos.breakEvenApplied && pos.peakFavorablePrice >= pos.entryPrice + microAtr) {
+        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && pos.peakFavorablePrice >= pos.entryPrice + microAtr) {
             pos.stopLoss = minLongStop;
             pos.breakEvenApplied = true;
             console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
@@ -646,18 +685,25 @@ export class StreamEngine extends EventEmitter {
         }
         
         // 3. Trail Stop Loss at 1.5 ATR from peak
-        if (pos.breakEvenApplied) {
+        if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
             const trailingStop = pos.peakFavorablePrice - (1.5 * microAtr);
             if (trailingStop > pos.stopLoss) {
                 pos.stopLoss = trailingStop;
             }
         }
 
-        if (candle.low <= pos.stopLoss) {
+        const isSLHit = candle.low <= pos.stopLoss;
+        const isTPHit = candle.high >= pos.takeProfit;
+
+        if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
           closed = true;
           exitPrice = pos.stopLoss;
           exitReason = 'STOP_LOSS';
-        } else if (candle.high >= pos.takeProfit) {
+        } else if (isSLHit) {
+          closed = true;
+          exitPrice = pos.stopLoss;
+          exitReason = 'STOP_LOSS';
+        } else if (isTPHit) {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
@@ -678,7 +724,7 @@ export class StreamEngine extends EventEmitter {
         }
         
         // 2. Trigger Break-Even at +1.0 ATR
-        if (!pos.breakEvenApplied && pos.peakFavorablePrice <= pos.entryPrice - microAtr) {
+        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && pos.peakFavorablePrice <= pos.entryPrice - microAtr) {
             pos.stopLoss = minShortStop;
             pos.breakEvenApplied = true;
             console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
@@ -686,18 +732,25 @@ export class StreamEngine extends EventEmitter {
         }
         
         // 3. Trail Stop Loss at 1.5 ATR from peak
-        if (pos.breakEvenApplied) {
+        if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
             const trailingStop = pos.peakFavorablePrice + (1.5 * microAtr);
             if (trailingStop < pos.stopLoss) {
                 pos.stopLoss = trailingStop;
             }
         }
 
-        if (candle.high >= pos.stopLoss) {
+        const isSLHit = candle.high >= pos.stopLoss;
+        const isTPHit = candle.low <= pos.takeProfit;
+
+        if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
           closed = true;
           exitPrice = pos.stopLoss;
           exitReason = 'STOP_LOSS';
-        } else if (candle.low <= pos.takeProfit) {
+        } else if (isSLHit) {
+          closed = true;
+          exitPrice = pos.stopLoss;
+          exitReason = 'STOP_LOSS';
+        } else if (isTPHit) {
           closed = true;
           exitPrice = pos.takeProfit;
           exitReason = 'TAKE_PROFIT';
@@ -889,6 +942,7 @@ export class StreamEngine extends EventEmitter {
           direction,
           entryPrice,
           stopLoss,
+          initialStopLoss: stopLoss,
           takeProfit,
           quantity,
           tradeDna: baseSignal.tradeDna,
