@@ -132,19 +132,39 @@ export class StreamEngine extends EventEmitter {
   }
 
   async startLiveMode() {
-    // 1m, 5m, 15m intervals mapped by LiveDataIngestor
     this.ingestor = new LiveDataIngestor(this.symbol);
 
     console.log(`[STREAM] Fetching MTF closed candles for warmup for ${this.symbol}...`);
     this.mtfCandles = {};
     const tfs = ['1m', '5m', '15m', '1h', '4h', '1d'];
+    
+    // Fallback standard warmup
     for (const tf of tfs) {
       const ing = new LiveDataIngestor(this.symbol, tf);
       this.mtfCandles[tf] = await ing.warmupCandles();
     }
     this.setupMtfAliases();
-    // For legacy fallback
     this.candles = this.mtfCandles['1m'];
+
+    console.log(`[STREAM] Performing Deep Warmup (Cold Start Cure) for ${this.symbol}...`);
+    try {
+      const fs = await import('fs/promises');
+      const path = await import('path');
+      const filename = path.join(process.cwd(), `historical_data_${this.symbol}.json`);
+      const rawData = await fs.readFile(filename, 'utf8');
+      const allCandles = JSON.parse(rawData);
+      const warmupCandles = allCandles.slice(-10000); // 34 days of 5m candles
+      
+      console.log(`[STREAM] Loaded ${warmupCandles.length} historical candles. Warming up TruthKernel...`);
+      for (const c of warmupCandles) {
+        const tickEvent = { ...c, timestamp: c.openTime, closed: true };
+        this.updateMtfCandles(tickEvent);
+        await this.processCandle(tickEvent, this.tickCounter, true);
+      }
+      console.log(`[STREAM] Deep Warmup Complete. LHDS should now be stabilized.`);
+    } catch (err) {
+      console.warn(`[STREAM] Deep Warmup skipped (no local JSON found). Error: ${err.message}`);
+    }
 
     // 2. Setup execution layer
     this.initializeExecution();
@@ -560,6 +580,16 @@ export class StreamEngine extends EventEmitter {
       combinedSignal = v6Narrative.signal;
     }
 
+    // [Lyzer Golden Hours] Time-Windowing filter
+    const dateObj = new Date(candle.timestamp || candle.openTime || Date.now());
+    const utcHours = dateObj.getUTCHours();
+    const isGoldenHour = (utcHours >= 8 && utcHours < 12) || (utcHours >= 19 && utcHours < 21);
+    
+    if (!isGoldenHour && combinedSignal !== 'flat') {
+        combinedSignal = 'flat';
+        v1Narrative.narrative = 'VETO: OUTSIDE_GOLDEN_HOURS';
+    }
+
     const baseSignal = { 
       signal: combinedSignal, 
       confidence: fusionResult.fusedConfidence, 
@@ -599,23 +629,30 @@ export class StreamEngine extends EventEmitter {
         let sumRange = 0;
         for (let i = 0; i < recent.length; i++) sumRange += (recent[i].high - recent[i].low);
         microAtr = sumRange / recent.length;
-      }
-
-      if (pos.direction === 'LONG') {
+           if (pos.direction === 'LONG') {
         const minLongStop = pos.entryPrice * 1.0005; // Entry + 0.05% for slippage/fees
-        if (candle.high >= pos.entryPrice * 1.0015) {
-          if (!pos.breakEvenApplied) {
+        
+        // 1. Track peak favorable price
+        if (!pos.peakFavorablePrice || candle.high > pos.peakFavorablePrice) {
+          pos.peakFavorablePrice = candle.high;
+        }
+        
+        // 2. Trigger Break-Even at +1.0 ATR
+        if (!pos.breakEvenApplied && pos.peakFavorablePrice >= pos.entryPrice + microAtr) {
             pos.stopLoss = minLongStop;
             pos.breakEvenApplied = true;
             console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
             recordBreakEvenTrade(this.symbol, 'LONG');
-          }
-          // Trailing Stop: trail by 0.15% from the high, but never lower than the current stop loss
-          const trailingStop = candle.high * 0.9985;
-          if (trailingStop > pos.stopLoss) {
-            pos.stopLoss = trailingStop;
-          }
         }
+        
+        // 3. Trail Stop Loss at 1.5 ATR from peak
+        if (pos.breakEvenApplied) {
+            const trailingStop = pos.peakFavorablePrice - (1.5 * microAtr);
+            if (trailingStop > pos.stopLoss) {
+                pos.stopLoss = trailingStop;
+            }
+        }
+
         if (candle.low <= pos.stopLoss) {
           closed = true;
           exitPrice = pos.stopLoss;
@@ -629,24 +666,33 @@ export class StreamEngine extends EventEmitter {
           if (dampenerClose.canClose) {
             closed = true;
             exitPrice = candle.close;
-            exitReason = `KERNEL_VETO_${(kernelResult.reason_codes && kernelResult.reason_codes[0]) || 'REJECTED'}`;
+            exitReason = dampenerClose.reason;
           }
         }
-      } else {
+      } else if (pos.direction === 'SHORT') {
         const minShortStop = pos.entryPrice * 0.9995; // Entry - 0.05% for slippage/fees
-        if (candle.low <= pos.entryPrice * 0.9985) {
-          if (!pos.breakEvenApplied) {
+        
+        // 1. Track peak favorable price
+        if (!pos.peakFavorablePrice || candle.low < pos.peakFavorablePrice) {
+          pos.peakFavorablePrice = candle.low;
+        }
+        
+        // 2. Trigger Break-Even at +1.0 ATR
+        if (!pos.breakEvenApplied && pos.peakFavorablePrice <= pos.entryPrice - microAtr) {
             pos.stopLoss = minShortStop;
             pos.breakEvenApplied = true;
             console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
             recordBreakEvenTrade(this.symbol, 'SHORT');
-          }
-          // Trailing Stop: trail by 0.15% from the low, but never higher than current stop loss
-          const trailingStop = candle.low * 1.0015;
-          if (trailingStop < pos.stopLoss) {
-            pos.stopLoss = trailingStop;
-          }
         }
+        
+        // 3. Trail Stop Loss at 1.5 ATR from peak
+        if (pos.breakEvenApplied) {
+            const trailingStop = pos.peakFavorablePrice + (1.5 * microAtr);
+            if (trailingStop < pos.stopLoss) {
+                pos.stopLoss = trailingStop;
+            }
+        }
+
         if (candle.high >= pos.stopLoss) {
           closed = true;
           exitPrice = pos.stopLoss;
@@ -660,7 +706,7 @@ export class StreamEngine extends EventEmitter {
           if (dampenerClose.canClose) {
             closed = true;
             exitPrice = candle.close;
-            exitReason = `KERNEL_VETO_${(kernelResult.reason_codes && kernelResult.reason_codes[0]) || 'REJECTED'}`;
+            exitReason = dampenerClose.reason;
           }
         }
       }
