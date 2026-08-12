@@ -6,13 +6,16 @@
 export class CounterfactualWorldSimulator {
   simulate(strategy, nScenarios = 5) {
     const results = [];
+    const regimes = ['trend_up', 'trend_down', 'low_vol', 'chop', 'high_vol'];
+    const stressFactors = [0.0, 0.02, -0.02, 0.04, -0.04];
+
     for (let i = 0; i < nScenarios; i++) {
-      const noise = Math.random() * 0.05;
+      const factor = stressFactors[i % stressFactors.length];
       results.push({
-        EV: strategy.EV * (1 + noise - 0.025),
-        drawdown: strategy.drawdown * (1 + noise),
-        stability: strategy.stability * (1 - noise),
-        regime: ['trend_up','trend_down','low_vol','chop'][Math.floor(Math.random()*4)]
+        EV: strategy.EV * (1 + factor),
+        drawdown: strategy.drawdown * (1 + Math.abs(factor)),
+        stability: strategy.stability * (1 - Math.abs(factor)),
+        regime: regimes[i % regimes.length]
       });
     }
     return results;

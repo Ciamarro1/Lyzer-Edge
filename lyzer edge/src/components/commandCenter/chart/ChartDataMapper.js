@@ -14,7 +14,7 @@ export class ChartDataMapper {
   static mapCandle(rawCandle) {
     if (!isValidCandle(rawCandle)) return null;
 
-    let timeSec = rawCandle.time ?? rawCandle.timestamp;
+    let timeSec = rawCandle.time ?? rawCandle.timestamp ?? rawCandle.openTime;
     // Convert ms timestamp to seconds if > 1e11
     if (timeSec > 1e11) {
       timeSec = Math.floor(timeSec / 1000);

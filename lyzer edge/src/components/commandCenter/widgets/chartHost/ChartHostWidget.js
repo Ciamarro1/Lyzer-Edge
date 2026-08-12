@@ -1,5 +1,6 @@
 import { chartHostManifest } from './manifest.js';
 import { ChartAdapter } from '../../chart/ChartAdapter.js';
+import { wsClient } from '../../../../services/wsClient.js';
 
 const CANDLE_COUNT = 1500;
 const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
@@ -94,11 +95,11 @@ export class ChartHostWidget {
         </button>
       </div>
       <div id="decision-panel" style="display:flex;gap:12px;font-size:10px;align-items:center;font-family:'JetBrains Mono',monospace;">
-        <span style="color:rgba(251,191,36,0.8);">TRG <strong id="dp-trg" style="color:#fbbf24;font-weight:800;">0.65</strong></span>
-        <span style="color:rgba(56,189,248,0.8);">DVF <strong id="dp-dvf" style="color:#38bdf8;font-weight:800;">0.82</strong></span>
-        <span style="color:rgba(168,85,247,0.8);">LHDS <strong id="dp-lhds" style="color:#a855f7;font-weight:800;">0.012</strong></span>
-        <span style="color:rgba(74,222,128,0.8);">EEF <span id="dp-eef" style="color:#4ade80;font-weight:800;">ALLOW</span></span>
-        <span style="color:rgba(148,163,184,0.6);">COURT <span id="dp-court" style="color:#4ade80;font-weight:800;">ALLOW_TRANSITION</span></span>
+        <span style="color:rgba(251,191,36,0.8);">TRG <strong id="dp-trg" style="color:#fbbf24;font-weight:800;">--</strong></span>
+        <span style="color:rgba(56,189,248,0.8);">DVF <strong id="dp-dvf" style="color:#38bdf8;font-weight:800;">--</strong></span>
+        <span style="color:rgba(168,85,247,0.8);">LHDS <strong id="dp-lhds" style="color:#a855f7;font-weight:800;">--</strong></span>
+        <span style="color:rgba(74,222,128,0.8);">EEF <span id="dp-eef" style="color:#94a3b8;font-weight:800;">--</span></span>
+        <span style="color:rgba(148,163,184,0.6);">COURT <span id="dp-court" style="color:#94a3b8;font-weight:800;">--</span></span>
       </div>
     `;
     header.appendChild(row1);
@@ -106,10 +107,10 @@ export class ChartHostWidget {
     const row2 = document.createElement('div');
     row2.style.cssText = 'display:flex;gap:16px;padding:3px 14px 6px;font-size:9px;color:rgba(100,116,139,0.7);font-family:\'JetBrains Mono\',monospace;';
     row2.innerHTML = `
-      <span>Signal <strong id="dp-signal" style="color:#38bdf8;font-weight:700;">LONG</strong></span>
-      <span>Regime <strong id="dp-regime" style="color:#f59e0b;font-weight:700;">TRENDING_MARKET</strong></span>
-      <span>SDS <strong id="dp-sds" style="color:#c084fc;font-weight:700;">0.140</strong></span>
-      <span>α-Confidence <strong id="dp-conf" style="color:#34d399;font-weight:700;">87.5%</strong></span>
+      <span>Signal <strong id="dp-signal" style="color:#94a3b8;font-weight:700;">--</strong></span>
+      <span>Regime <strong id="dp-regime" style="color:#94a3b8;font-weight:700;">--</strong></span>
+      <span>SDS <strong id="dp-sds" style="color:#94a3b8;font-weight:700;">--</strong></span>
+      <span>α-Confidence <strong id="dp-conf" style="color:#94a3b8;font-weight:700;">--</strong></span>
     `;
     header.appendChild(row2);
 
@@ -237,26 +238,31 @@ export class ChartHostWidget {
     const reality = runtime && runtime.getRealityStatus ? runtime.getRealityStatus() : {};
 
     const k = data?.kernel || {};
-    const trg = k.trg !== undefined ? k.trg : (reality.trg !== undefined ? reality.trg : 0.65);
-    const dvf = k.dvf !== undefined ? k.dvf : (reality.dvf !== undefined ? reality.dvf : 0.82);
-    const lhds = k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : (reality.lhds !== undefined ? reality.lhds : 0.012));
-    const eef = k.eef !== undefined ? k.eef : (reality.eef !== undefined ? reality.eef : true);
-    const sds = k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : (reality.sds !== undefined ? reality.sds : 0.14));
-    const conf = data?.signal?.confidence !== undefined ? data.signal.confidence : (k.confidence !== undefined ? k.confidence : (reality.conf !== undefined ? reality.conf : 87.5));
-    const signal = data?.signal?.signal ? String(data.signal.signal).toUpperCase() : (eef ? 'LONG' : 'FLAT');
-    const regime = data?.signal?.regime || 'TRENDING_MARKET';
+    const trg = k.trg !== undefined ? k.trg : (reality.trg !== undefined ? reality.trg : null);
+    const dvf = k.dvf !== undefined ? k.dvf : (reality.dvf !== undefined ? reality.dvf : null);
+    const lhds = k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : (reality.lhds !== undefined ? reality.lhds : null));
+    const eef = k.eef !== undefined ? k.eef : (reality.eef !== undefined ? reality.eef : null);
+    const sds = k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : (reality.sds !== undefined ? reality.sds : null));
+    const conf = data?.signal?.confidence !== undefined ? data.signal.confidence : (k.confidence !== undefined ? k.confidence : (reality.conf !== undefined ? reality.conf : null));
+    const signal = data?.signal?.signal ? String(data.signal.signal).toUpperCase() : (eef === true ? 'LONG' : (eef === false ? 'VETO' : '--'));
+    const regime = data?.signal?.regime || '--';
 
     const setText = (id, val) => { const el = this._container.querySelector(id); if (el) el.innerHTML = val; };
-    setText('#dp-trg', Number(trg).toFixed(2));
-    setText('#dp-dvf', Number(dvf).toFixed(2));
-    setText('#dp-lhds', Number(lhds).toFixed(3));
-    const isAllowEef = (eef === true || eef === 'ALLOW' || eef === 'ALLOW_TRANSITION');
-    setText('#dp-eef', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW' : 'VETO'}</strong>`);
-    setText('#dp-court', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW_TRANSITION' : 'VETOED'}</strong>`);
+    setText('#dp-trg', trg !== null ? Number(trg).toFixed(2) : '--');
+    setText('#dp-dvf', dvf !== null ? Number(dvf).toFixed(2) : '--');
+    setText('#dp-lhds', lhds !== null ? Number(lhds).toFixed(3) : '--');
+    if (eef === null) {
+      setText('#dp-eef', `<strong style="color:#64748b;">--</strong>`);
+      setText('#dp-court', `<strong style="color:#64748b;">AWAITING DATA</strong>`);
+    } else {
+      const isAllowEef = (eef === true || eef === 'ALLOW' || eef === 'ALLOW_TRANSITION');
+      setText('#dp-eef', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW' : 'VETO'}</strong>`);
+      setText('#dp-court', `<strong style="color:${isAllowEef ? '#10b981' : '#ef4444'};">${isAllowEef ? 'ALLOW_TRANSITION' : 'VETOED'}</strong>`);
+    }
     setText('#dp-signal', signal);
     setText('#dp-regime', regime);
-    setText('#dp-sds', Number(sds).toFixed(3));
-    setText('#dp-conf', typeof conf === 'number' ? `${conf.toFixed(1)}%` : `${conf}`);
+    setText('#dp-sds', sds !== null ? Number(sds).toFixed(3) : '--');
+    setText('#dp-conf', conf !== null ? (typeof conf === 'number' ? `${conf.toFixed(1)}%` : `${conf}`) : '--');
 
     if (this._tradesVisible) {
       if (data?.trade) {
@@ -370,12 +376,12 @@ export class ChartHostWidget {
           sl: data.trade.stopLoss,
           side: data.trade.direction === 'LONG' ? 'BUY' : 'SELL',
           title: `${data.trade.direction} @ ${data.trade.price}`,
-          reasons: data.trade.signal?.reasons || ['SMC_BOS_M15', 'ORDER_BLOCK_DEMAND', 'FVG_REFILL'],
-          confidence: data.trade.signal?.confidence || 87.5,
-          structure: data.trade.signal?.structure || 'BOS M15 + Demand Zone',
-          trg: data.kernel?.trg || 0.65,
-          regime: data.signal?.regime || 'TRENDING_MARKET',
-          ev: data.trade.ev?.totalEV ? `${(data.trade.ev.totalEV * 100).toFixed(2)}%` : '+0.38%'
+          reasons: data.trade.signal?.reasons || [],
+          confidence: data.trade.signal?.confidence || null,
+          structure: data.trade.signal?.structure || null,
+          trg: data.kernel?.trg || null,
+          regime: data.signal?.regime || null,
+          ev: data.trade.ev?.totalEV ? `${(data.trade.ev.totalEV * 100).toFixed(2)}%` : null
         };
         this._plottedTrades[this._activeSymbol] = symbolTrade;
       }
@@ -398,7 +404,7 @@ export class ChartHostWidget {
         this._adapter.createPriceLine({
           price: symbolTrade.tp,
           color: '#10b981',
-          title: `TP Target: ${symbolTrade.tp} [Alvo FVG Refill]`,
+          title: `TP Target: ${symbolTrade.tp}`,
           lineStyle: 2
         });
       }
@@ -407,43 +413,38 @@ export class ChartHostWidget {
         this._adapter.createPriceLine({
           price: symbolTrade.sl,
           color: '#ef4444',
-          title: `SL Stop: ${symbolTrade.sl} [Invalidação de Demanda]`,
+          title: `SL Stop: ${symbolTrade.sl}`,
           lineStyle: 2
         });
       }
 
-      // Plot SMC Microstructure lines if enabled
-      if (this._microstructureVisible) {
-        const isLong = symbolTrade.side === 'BUY' || symbolTrade.direction === 'LONG';
-        const entryPrice = Number(symbolTrade.entry);
-        
-        if (entryPrice > 0) {
-          const obLevel = isLong ? entryPrice * 0.996 : entryPrice * 1.004;
-          const fvgLevel = isLong ? entryPrice * 1.005 : entryPrice * 0.995;
-          const bosLevel = isLong ? entryPrice * 1.012 : entryPrice * 0.988;
-
+      // Plot SMC Microstructure lines only if provided by real server stream
+      if (this._microstructureVisible && symbolTrade.microstructure) {
+        const ms = symbolTrade.microstructure;
+        if (ms.obLevel) {
           this._adapter.createPriceLine({
-            price: Number(obLevel.toFixed(2)),
+            price: Number(ms.obLevel),
             color: '#c084fc',
-            title: `OB ${isLong ? 'DEMAND' : 'SUPPLY'} ZONE [Order Block]`,
+            title: `OB ZONE [Order Block]`,
             lineStyle: 3
           });
-
+        }
+        if (ms.fvgLevel) {
           this._adapter.createPriceLine({
-            price: Number(fvgLevel.toFixed(2)),
+            price: Number(ms.fvgLevel),
             color: '#fbbf24',
-            title: `FVG REFILL GAP [Fair Value Gap]`,
+            title: `FVG GAP [Fair Value Gap]`,
             lineStyle: 3
           });
-
+        }
+        if (ms.bosLevel) {
           this._adapter.createPriceLine({
-            price: Number(bosLevel.toFixed(2)),
+            price: Number(ms.bosLevel),
             color: '#22d3ee',
-            title: `BOS BREAKOUT M15 [Structure Break]`,
+            title: `BOS BREAKOUT [Structure Break]`,
             lineStyle: 1
           });
         }
-
         this._renderMicroStructureCard(symbolTrade);
       } else {
         this._renderMicroStructureCard(null);
@@ -509,15 +510,15 @@ export class ChartHostWidget {
     const tp = Number(tradeData.tp || tradeData.takeProfit || 0);
     const sl = Number(tradeData.sl || tradeData.stopLoss || 0);
 
-    const tpPct = entry > 0 && tp > 0 ? (((tp - entry) / entry) * 100).toFixed(2) : '2.10';
-    const slPct = entry > 0 && sl > 0 ? (((entry - sl) / entry) * 100).toFixed(2) : '0.95';
-    const rrRatio = Math.abs(Number(slPct)) > 0 ? (Math.abs(Number(tpPct)) / Math.abs(Number(slPct))).toFixed(2) : '2.21';
+    const tpPct = entry > 0 && tp > 0 ? (((tp - entry) / entry) * 100).toFixed(2) : '--';
+    const slPct = entry > 0 && sl > 0 ? (((entry - sl) / entry) * 100).toFixed(2) : '--';
+    const rrRatio = Math.abs(Number(slPct)) > 0 ? (Math.abs(Number(tpPct)) / Math.abs(Number(slPct))).toFixed(2) : '--';
 
-    const reasons = tradeData.reasons || ['SMC_BOS_M15', 'FVG_REFILL', 'ORDER_BLOCK_DEMAND'];
-    const confidence = tradeData.confidence ? `${Number(tradeData.confidence).toFixed(1)}%` : '87.5%';
-    const trg = tradeData.trg ? Number(tradeData.trg).toFixed(2) : '0.65';
-    const regime = tradeData.regime || 'TRENDING_MARKET';
-    const ev = tradeData.ev || '+0.38%';
+    const reasons = tradeData.reasons || [];
+    const confidence = tradeData.confidence ? `${Number(tradeData.confidence).toFixed(1)}%` : '--';
+    const trg = tradeData.trg ? Number(tradeData.trg).toFixed(2) : '--';
+    const regime = tradeData.regime || '--';
+    const ev = tradeData.ev || '--';
 
     const iconTarget = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`;
     const iconZap = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
@@ -575,56 +576,68 @@ export class ChartHostWidget {
   }
 
   _startLiveUpdates() {
-    if (!this._runtime || !this._runtime.getLatestData) return;
-    this._liveInterval = setInterval(() => {
-      if (!this._container || !this._container.isConnected) { clearInterval(this._liveInterval); return; }
-      this._updateDecisionPanel();
+    // Subscribe directly to wsClient for tick-by-tick real-time updates
 
-      // Aggregate new raw candle into current timeframe
+    this._wsUnsubChart = wsClient.onData((data) => {
+      if (!this._container || !this._container.isConnected) {
+        if (this._wsUnsubChart) { wsClient.offData(this._wsUnsubChart); this._wsUnsubChart = null; }
+        return;
+      }
+      if (!data || !data.symbol || data.symbol !== this._activeSymbol) return;
+      if (!data.market) return;
+
+      const market = data.market;
       const tfConfig = TIMEFRAMES.find(t => t.id === this._activeTf);
       const tfSeconds = tfConfig?.seconds || 60;
-      const data = this._runtime.getLatestData()[this._activeSymbol];
-      if (data?.market) {
-        if (tfSeconds <= 60) {
-          if (tfSeconds === 60) {
-            this._adapter.updateCandle(data.market);
-          } else {
-            // For sub-minute (30s): update current sub-minute candle incrementally without regenerating raw candles
-            const nowSec = Math.floor((data.market.openTime || Date.now()) / 1000);
-            const subTime = Math.floor(nowSec / tfSeconds) * tfSeconds;
-            const lastDisplay = this._displayCandles[this._displayCandles.length - 1];
 
-            if (lastDisplay && lastDisplay.time === subTime) {
-              lastDisplay.close = data.market.close;
-              lastDisplay.high = Math.max(lastDisplay.high, data.market.high || data.market.close);
-              lastDisplay.low = Math.min(lastDisplay.low, data.market.low || data.market.close);
-              lastDisplay.volume = (lastDisplay.volume || 10) + (data.market.volume || 1);
-              this._adapter.updateCandle(lastDisplay);
-            } else if (lastDisplay && subTime > lastDisplay.time) {
-              const newCandle = {
-                time: subTime,
-                open: lastDisplay.close,
-                high: Math.max(lastDisplay.close, data.market.close),
-                low: Math.min(lastDisplay.close, data.market.close),
-                close: data.market.close,
-                volume: data.market.volume || 10
-              };
-              this._displayCandles.push(newCandle);
-              this._adapter.updateCandle(newCandle);
-            }
-          }
-        } else {
-          // For higher timeframes: append raw candle, re-aggregate the last chunk
-          this._rawCandles.push(data.market);
+      // Normalize time to seconds for the chart
+      const rawTime = market.openTime || market.time || market.timestamp || Date.now();
+      const timeSec = rawTime > 1e11 ? Math.floor(rawTime / 1000) : rawTime;
+      // Bucket the time into the active timeframe grid
+      const bucketTime = Math.floor(timeSec / tfSeconds) * tfSeconds;
+
+      const chartCandle = {
+        time: bucketTime,
+        open: Number(market.open),
+        high: Number(market.high),
+        low: Number(market.low),
+        close: Number(market.close),
+        volume: Number(market.volume || 0)
+      };
+
+      // Update internal _rawCandles and _displayCandles for consistency
+      const lastDisplay = this._displayCandles[this._displayCandles.length - 1];
+      if (lastDisplay && lastDisplay.time === bucketTime) {
+        // Same candle — update OHLCV in place
+        lastDisplay.high = Math.max(lastDisplay.high, chartCandle.high);
+        lastDisplay.low = Math.min(lastDisplay.low, chartCandle.low);
+        lastDisplay.close = chartCandle.close;
+        lastDisplay.volume = chartCandle.volume;
+        this._adapter.updateCandle(lastDisplay);
+      } else if (!lastDisplay || bucketTime > lastDisplay.time) {
+        // New candle in the timeframe
+        this._displayCandles.push(chartCandle);
+        // Also push to raw candles if we're on 1m
+        if (tfSeconds <= 60 && market.closed) {
+          this._rawCandles.push(chartCandle);
           if (this._rawCandles.length > CANDLE_COUNT * 2) {
             this._rawCandles = this._rawCandles.slice(-CANDLE_COUNT);
           }
-          // Rebuild display candles from raw
-          this._displayCandles = this._aggregateCandles(this._rawCandles, tfSeconds);
-          this._adapter.setCandles(this._displayCandles);
         }
+        this._adapter.updateCandle(chartCandle);
       }
-    }, 2000);
+
+      // Update the decision panel metrics on every tick for a lively HUD
+      if (data.kernel) {
+        this._updateDecisionPanel();
+      }
+    });
+
+    // Also keep a slower interval for decision panel refresh (catches kernel updates from full ARL payloads)
+    this._liveInterval = setInterval(() => {
+      if (!this._container || !this._container.isConnected) { clearInterval(this._liveInterval); return; }
+      this._updateDecisionPanel();
+    }, 5000);
   }
 
   plotTrade(tradeData) {
@@ -651,6 +664,7 @@ export class ChartHostWidget {
 
   dispose() {
     if (this._liveInterval) { clearInterval(this._liveInterval); this._liveInterval = null; }
+    if (this._wsUnsubChart) { wsClient.offData(this._wsUnsubChart); this._wsUnsubChart = null; }
     if (this._plotListener) { window.removeEventListener('lyzer:plot-trade', this._plotListener); this._plotListener = null; }
     if (this._adapter) { this._adapter.dispose(); this._adapter = null; }
     if (this._container) { this._container.innerHTML = ''; this._container = null; }

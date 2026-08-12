@@ -60,9 +60,34 @@ export class EdgeDashboardWidget {
       trades = await getAllTrades();
     } catch(e) {}
     
-    let closedTrades = trades.filter(t => t.status === 'closed' || t.status === 'CLOSED');
-
+    let closedTrades = (trades || []).filter(t => t && (t.status === 'closed' || t.status === 'CLOSED'));
+    const hasTrades = closedTrades.length > 0;
     const overallStats = calcAllStats(closedTrades);
+
+    const winRateStr = hasTrades && typeof overallStats.winRate === 'number' ? `${overallStats.winRate.toFixed(1)}%` : '--';
+    const totalPnlStr = hasTrades && typeof overallStats.totalPnl === 'number' ? `$${overallStats.totalPnl.toFixed(2)}` : '$0.00';
+    const expectancyStr = hasTrades && typeof overallStats.expectancy === 'number' ? `$${overallStats.expectancy.toFixed(2)} / trade` : '--';
+    const profitFactorStr = hasTrades && overallStats.profitFactor !== undefined ? (overallStats.profitFactor === Infinity ? '∞' : Number(overallStats.profitFactor || 0).toFixed(2)) : '--';
+    const avgRStr = hasTrades && typeof overallStats.avgRMultiple === 'number' ? `${overallStats.avgRMultiple.toFixed(2)}R` : '--';
+
+    const sharpeStr = hasTrades && typeof overallStats.sharpeRatio === 'number' ? overallStats.sharpeRatio.toFixed(2) : '--';
+    const sortinoStr = hasTrades && typeof overallStats.sortinoRatio === 'number' ? overallStats.sortinoRatio.toFixed(2) : '--';
+    const sqnStr = hasTrades && overallStats.sqn !== undefined ? String(overallStats.sqn) : '--';
+    const kellyStr = hasTrades && typeof overallStats.kellyFraction === 'number' ? `${(overallStats.kellyFraction * 100).toFixed(1)}%` : '--';
+    
+    const ddAmount = overallStats.maxDrawdown?.maxDrawdownAmount ?? overallStats.maxDrawdown?.amount;
+    const ddPct = overallStats.maxDrawdown?.maxDrawdown ?? overallStats.maxDrawdown?.percentage;
+    const maxDdStr = hasTrades && typeof ddAmount === 'number' && typeof ddPct === 'number'
+      ? `$${ddAmount.toFixed(2)} (${ddPct.toFixed(1)}%)`
+      : '--';
+
+    const varStr = hasTrades && overallStats.varAndCvar && typeof overallStats.varAndCvar.var95 === 'number' && typeof overallStats.varAndCvar.cvar95 === 'number'
+      ? `$${overallStats.varAndCvar.var95} / $${overallStats.varAndCvar.cvar95}`
+      : '--';
+
+    const ciStr = hasTrades && overallStats.confidenceInterval && typeof overallStats.confidenceInterval.minWinRate === 'number'
+      ? `[${overallStats.confidenceInterval.minWinRate}% - ${overallStats.confidenceInterval.maxWinRate}%]`
+      : '--';
 
     this._container.innerHTML = `
       <div class="ed-container">
@@ -81,27 +106,27 @@ export class EdgeDashboardWidget {
         <div class="ed-kpi-grid">
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Total Closed Trades</div>
-            <div class="ed-kpi-val" style="color: #38bdf8;">${overallStats.totalTrades || closedTrades.length}</div>
+            <div class="ed-kpi-val" style="color: #38bdf8;">${overallStats.totalTrades ?? closedTrades.length}</div>
           </div>
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Win Rate</div>
-            <div class="ed-kpi-val" style="color: ${(overallStats.winRate || 0) >= 50 ? '#34d399' : '#ef4444'};">${(overallStats.winRate || 0).toFixed(1)}%</div>
+            <div class="ed-kpi-val" style="color: ${(overallStats.winRate || 0) >= 50 ? '#34d399' : '#ef4444'};">${winRateStr}</div>
           </div>
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Net Realized PnL</div>
-            <div class="ed-kpi-val" style="color: ${(overallStats.totalPnl || 0) >= 0 ? '#34d399' : '#ef4444'};">$${(overallStats.totalPnl || 0).toFixed(2)}</div>
+            <div class="ed-kpi-val" style="color: ${(overallStats.totalPnl || 0) >= 0 ? '#34d399' : '#ef4444'};">${totalPnlStr}</div>
           </div>
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Expectancy</div>
-            <div class="ed-kpi-val" style="color: #fbbf24;">$${(overallStats.expectancy || 0).toFixed(2)} / trade</div>
+            <div class="ed-kpi-val" style="color: #fbbf24;">${expectancyStr}</div>
           </div>
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Profit Factor</div>
-            <div class="ed-kpi-val" style="color: #c084fc;">${overallStats.profitFactor === Infinity ? '∞' : (overallStats.profitFactor || 0).toFixed(2)}</div>
+            <div class="ed-kpi-val" style="color: #c084fc;">${profitFactorStr}</div>
           </div>
           <div class="ed-kpi-card">
             <div class="ed-kpi-lbl">Avg R-Multiple</div>
-            <div class="ed-kpi-val" style="color: #22d3ee;">${(overallStats.avgRMultiple || 0).toFixed(2)}R</div>
+            <div class="ed-kpi-val" style="color: #22d3ee;">${avgRStr}</div>
           </div>
         </div>
 
@@ -148,31 +173,31 @@ export class EdgeDashboardWidget {
               <div style="display: flex; flex-direction: column; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px;">
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">95% Win Rate CI:</span>
-                  <span style="color: #34d399; font-weight: 700;">[${overallStats.confidenceInterval?.minWinRate || 51.2}% - ${overallStats.confidenceInterval?.maxWinRate || 74.8}%]</span>
+                  <span style="color: #34d399; font-weight: 700;">${ciStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">Sharpe Ratio:</span>
-                  <span style="color: #00f3ff; font-weight: 700;">${(overallStats.sharpeRatio || 2.15).toFixed(2)}</span>
+                  <span style="color: #00f3ff; font-weight: 700;">${sharpeStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">Sortino Ratio:</span>
-                  <span style="color: #00ff9d; font-weight: 700;">${(overallStats.sortinoRatio || 3.40).toFixed(2)}</span>
+                  <span style="color: #00ff9d; font-weight: 700;">${sortinoStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">System Quality (SQN):</span>
-                  <span style="color: #ffb700; font-weight: 700;">${overallStats.sqn || 2.85}</span>
+                  <span style="color: #ffb700; font-weight: 700;">${sqnStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">Kelly Fraction:</span>
-                  <span style="color: #b026ff; font-weight: 700;">${((overallStats.kellyFraction || 0.185) * 100).toFixed(1)}%</span>
+                  <span style="color: #b026ff; font-weight: 700;">${kellyStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.04);">
                   <span style="color: #94a3b8;">Max Drawdown:</span>
-                  <span style="color: #ff3366; font-weight: 700;">$${(overallStats.maxDrawdown?.amount || 320.00).toFixed(2)} (${(overallStats.maxDrawdown?.percentage || 3.2).toFixed(1)}%)</span>
+                  <span style="color: #ff3366; font-weight: 700;">${maxDdStr}</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; padding: 4px 0;">
                   <span style="color: #94a3b8;">VaR / CVaR (95%):</span>
-                  <span style="color: #ff3366; font-weight: 700;">$${overallStats.varAndCvar?.var95 || 140} / $${overallStats.varAndCvar?.cvar95 || 195}</span>
+                  <span style="color: #ff3366; font-weight: 700;">${varStr}</span>
                 </div>
               </div>
             </div>
@@ -184,7 +209,8 @@ export class EdgeDashboardWidget {
 
   _groupBySymbol(trades) {
     const map = {};
-    for (const t of trades) {
+    for (const t of (trades || [])) {
+      if (!t) continue;
       const sym = t.symbol || 'BTCUSDT';
       if (!map[sym]) map[sym] = [];
       map[sym].push(t);
@@ -194,11 +220,15 @@ export class EdgeDashboardWidget {
 
   _renderSymbolRows(trades) {
     const grouped = this._groupBySymbol(trades);
-    return Object.entries(grouped).map(([sym, symTrades]) => {
+    const entries = Object.entries(grouped);
+    if (entries.length === 0) {
+      return `<tr><td colspan="6" style="text-align: center; color: #64748b; padding: 24px;">Nenhum trade fechado registrado. Aguardando execuções do sistema...</td></tr>`;
+    }
+    return entries.map(([sym, symTrades]) => {
       const s = calcAllStats(symTrades);
-      const winRate = s.winRate || 0;
-      const pnl = s.totalPnl || 0;
-      const pf = s.profitFactor === Infinity ? '∞' : (s.profitFactor || 0).toFixed(2);
+      const winRate = typeof s.winRate === 'number' ? s.winRate : 0;
+      const pnl = typeof s.totalPnl === 'number' ? s.totalPnl : 0;
+      const pf = s.profitFactor === Infinity ? '∞' : Number(s.profitFactor || 0).toFixed(2);
       const isPos = pnl >= 0;
       const barColor = isPos ? 'linear-gradient(90deg, #10b981, #34d399)' : 'linear-gradient(90deg, #ef4444, #f87171)';
       return `
@@ -211,17 +241,22 @@ export class EdgeDashboardWidget {
           </td>
           <td style="color: ${isPos ? '#34d399' : '#ef4444'}; font-weight: 700;">$${pnl.toFixed(2)}</td>
           <td>${pf}</td>
-          <td style="color: #fbbf24;">${(s.avgRMultiple || 0).toFixed(2)}R</td>
+          <td style="color: #fbbf24;">${Number(s.avgRMultiple || 0).toFixed(2)}R</td>
         </tr>
       `;
     }).join('');
   }
 
   _renderDirectionBreakdown(trades) {
-    const longs = trades.filter(t => (t.direction || '').toLowerCase() === 'long');
-    const shorts = trades.filter(t => (t.direction || '').toLowerCase() === 'short');
+    const longs = (trades || []).filter(t => (t.direction || '').toLowerCase() === 'long');
+    const shorts = (trades || []).filter(t => (t.direction || '').toLowerCase() === 'short');
     const longStats = calcAllStats(longs);
     const shortStats = calcAllStats(shorts);
+
+    const longWinRateStr = longs.length > 0 && typeof longStats.winRate === 'number' ? `${longStats.winRate.toFixed(1)}%` : '--';
+    const longPnlStr = longs.length > 0 && typeof longStats.totalPnl === 'number' ? `$${longStats.totalPnl.toFixed(2)}` : '$0.00';
+    const shortWinRateStr = shorts.length > 0 && typeof shortStats.winRate === 'number' ? `${shortStats.winRate.toFixed(1)}%` : '--';
+    const shortPnlStr = shorts.length > 0 && typeof shortStats.totalPnl === 'number' ? `$${shortStats.totalPnl.toFixed(2)}` : '$0.00';
 
     return `
       <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -231,8 +266,8 @@ export class EdgeDashboardWidget {
             <span style="font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace;">${longs.length} Executions</span>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'JetBrains Mono', monospace;">
-            <span>Win Rate: <strong style="color: #34d399;">${longStats.winRate.toFixed(1)}%</strong></span>
-            <span>Net PnL: <strong style="color: ${longStats.totalPnl >= 0 ? '#34d399' : '#ef4444'};">$${longStats.totalPnl.toFixed(2)}</strong></span>
+            <span>Win Rate: <strong style="color: #34d399;">${longWinRateStr}</strong></span>
+            <span>Net PnL: <strong style="color: ${(longStats.totalPnl || 0) >= 0 ? '#34d399' : '#ef4444'};">${longPnlStr}</strong></span>
           </div>
         </div>
 
@@ -242,35 +277,12 @@ export class EdgeDashboardWidget {
             <span style="font-size: 10px; color: #94a3b8; font-family: 'JetBrains Mono', monospace;">${shorts.length} Executions</span>
           </div>
           <div style="display: flex; justify-content: space-between; font-size: 10px; font-family: 'JetBrains Mono', monospace;">
-            <span>Win Rate: <strong style="color: #34d399;">${shortStats.winRate.toFixed(1)}%</strong></span>
-            <span>Net PnL: <strong style="color: ${shortStats.totalPnl >= 0 ? '#34d399' : '#ef4444'};">$${shortStats.totalPnl.toFixed(2)}</strong></span>
+            <span>Win Rate: <strong style="color: #34d399;">${shortWinRateStr}</strong></span>
+            <span>Net PnL: <strong style="color: ${(shortStats.totalPnl || 0) >= 0 ? '#34d399' : '#ef4444'};">${shortPnlStr}</strong></span>
           </div>
         </div>
       </div>
     `;
-  }
-
-  _generateMockTrades() {
-    const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
-    const mock = [];
-    for (let i = 0; i < 40; i++) {
-      const symbol = symbols[i % symbols.length];
-      const isLong = Math.random() > 0.45;
-      const isWin = Math.random() > 0.38;
-      const pnl = isWin ? (Math.random() * 240 + 60) : -(Math.random() * 120 + 30);
-      mock.push({
-        id: i + 1,
-        symbol,
-        direction: isLong ? 'long' : 'short',
-        status: 'closed',
-        result: isWin ? 'win' : 'loss',
-        pnl,
-        rMultiple: isWin ? (1.5 + Math.random() * 1.5) : -1.0,
-        plannedRR: 2.0,
-        realizedRR: isWin ? 2.1 : -1.0
-      });
-    }
-    return mock;
   }
 
   dispose() {

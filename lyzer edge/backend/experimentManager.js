@@ -50,17 +50,31 @@ export class ExperimentManager {
    * @returns {Promise<Object>} Market snapshot payload.
    */
   async fetchMarketSnapshot() {
+    const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT'];
+    const now = Date.now();
+    const changes = {};
+
+    for (const sym of symbols) {
+      try {
+        const candles = await this.db.getVisibleHistory(sym, '1h', now, 25);
+        if (candles && candles.length >= 2) {
+          const first = candles[0].close || candles[0].c;
+          const last = candles[candles.length - 1].close || candles[candles.length - 1].c;
+          changes[sym] = Math.round(((last - first) / first) * 1000) / 10;
+        } else {
+          changes[sym] = 0;
+        }
+      } catch (e) {
+        changes[sym] = 0;
+      }
+    }
+
     return {
       timestamp: Date.now(),
-      btcPricePct24h: 17.2,
-      ethPricePct24h: 8.4,
-      solPricePct24h: 24.1,
-      btcDominancePct: 65.4,
-      fearAndGreedIndex: 72,
-      fearAndGreedLabel: 'GREED',
-      btcVolatility: 'HIGH',
-      altcoinRegime: 'BULLISH',
-      marketRegime: 'TRENDING_MARKET'
+      btcPricePct24h: changes['BTCUSDT'] || 0,
+      ethPricePct24h: changes['ETHUSDT'] || 0,
+      solPricePct24h: changes['SOLUSDT'] || 0,
+      marketSource: 'SQLITE_CAUSAL_MEMORY'
     };
   }
 

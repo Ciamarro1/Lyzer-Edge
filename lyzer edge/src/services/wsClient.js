@@ -1,14 +1,46 @@
+export const WS_STATUS = {
+  DISCONNECTED: 'DISCONNECTED',
+  CONNECTING: 'CONNECTING',
+  CONNECTED: 'CONNECTED',
+  RECONNECTING: 'RECONNECTING'
+};
+
 class WSClient {
   constructor() {
     this.ws = null;
     this.listeners = [];
+    this.statusListeners = [];
+    this.status = WS_STATUS.DISCONNECTED;
     this._buffer = [];
+  }
+
+  getStatus() {
+    return this.status;
+  }
+
+  _setStatus(newStatus) {
+    if (this.status === newStatus) return;
+    this.status = newStatus;
+    this.statusListeners.forEach(fn => {
+      try { fn(newStatus); } catch (e) { console.error("WS status listener error:", e); }
+    });
+  }
+
+  onStatusChange(fn) {
+    this.statusListeners.push(fn);
+    fn(this.status);
+    return fn;
+  }
+
+  offStatusChange(fn) {
+    this.statusListeners = this.statusListeners.filter(listener => listener !== fn);
   }
 
   connect() {
     if (this.ws && (this.ws.readyState === WebSocket.CONNECTING || this.ws.readyState === WebSocket.OPEN)) {
       return;
     }
+    this._setStatus(this.ws ? WS_STATUS.RECONNECTING : WS_STATUS.CONNECTING);
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     const host = window.location.host;
     let wsUrl = protocol + '//' + host;
@@ -20,24 +52,31 @@ class WSClient {
 
     this.ws.onopen = () => {
       console.log("WS connected");
+      this._setStatus(WS_STATUS.CONNECTED);
       this._drainBuffer();
     };
 
     this.ws.onmessage = (msg) => {
-      const data = JSON.parse(msg.data);
-      if (this.listeners.length === 0) {
-        this._buffer.push(data);
-        return;
+      try {
+        const data = JSON.parse(msg.data);
+        if (this.listeners.length === 0) {
+          this._buffer.push(data);
+          return;
+        }
+        this._broadcast(data);
+      } catch (e) {
+        console.error("WS message parse error:", e);
       }
-      this._broadcast(data);
     };
 
     this.ws.onerror = (err) => {
       console.error("WS error", err);
+      this._setStatus(WS_STATUS.DISCONNECTED);
     };
 
     this.ws.onclose = () => {
       console.warn("WS disconnected");
+      this._setStatus(WS_STATUS.DISCONNECTED);
       this.ws = null;
       setTimeout(() => {
         console.log("WS attempting reconnect...");

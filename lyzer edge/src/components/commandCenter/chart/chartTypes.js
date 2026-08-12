@@ -17,7 +17,7 @@ export const ChartTypes = Object.freeze({
  */
 export function isValidCandle(candle) {
   if (!candle || typeof candle !== 'object') return false;
-  const time = candle.time ?? candle.timestamp;
+  const time = candle.time ?? candle.timestamp ?? candle.openTime;
   if (typeof time !== 'number' || isNaN(time)) return false;
   if (typeof candle.open !== 'number' || typeof candle.high !== 'number' || 
       typeof candle.low !== 'number' || typeof candle.close !== 'number') {

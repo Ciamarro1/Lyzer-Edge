@@ -34,9 +34,8 @@ try {
 export function authorizeOrder(intent) {
   return new Promise((resolve) => {
     if (!client || !isConnected) {
-      // Offline fallback: log warning and approve (resilient baseline)
-      console.warn('⚠️ [gRPC Client] RiskGateway offline. Fallback to local approval.');
-      return resolve({ approved: true, rejection_reason: '' });
+      console.error('🛑 [gRPC Client] RiskGateway offline. FAIL-CLOSED enforcement active.');
+      return resolve({ approved: false, rejection_reason: 'RISK_GATEWAY_UNAVAILABLE' });
     }
 
     const authorizeRequest = {
@@ -64,8 +63,8 @@ export function authorizeOrder(intent) {
       const durationSec = (performance.now() - startTime) / 1000;
       if (error) {
         recordRiskGatewayLatency('AuthorizeOrder', 'error', durationSec);
-        console.warn('⚠️ [gRPC Client] Authorize call failed: ' + error.message + '. Fallback to local approval.');
-        return resolve({ approved: true, rejection_reason: '' });
+        console.error('🛑 [gRPC Client] Authorize call failed: ' + error.message + '. FAIL-CLOSED enforcement active.');
+        return resolve({ approved: false, rejection_reason: `RISK_GATEWAY_ERROR: ${error.message}` });
       }
       recordRiskGatewayLatency('AuthorizeOrder', 'success', durationSec);
       console.log(`[gRPC Client] RiskDecision received: approved=${response.approved}, reason="${response.rejection_reason}"`);

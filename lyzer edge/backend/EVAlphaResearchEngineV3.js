@@ -145,8 +145,7 @@ export class EVAlphaResearchEngineV3 {
     genome.fitness =
       genome.ev * 0.35 +
       genome.stability * 0.25 +
-      (1 - genome.drawdown) * 0.25 +
-      Math.random() * 0.05; // exploration noise
+      (1 - genome.drawdown) * 0.25;
   }
 
   // ----------------------

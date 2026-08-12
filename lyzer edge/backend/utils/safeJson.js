@@ -79,7 +79,15 @@ export function sanitizeObject(obj, seen = new WeakSet()) {
  * @returns {any} Parsed and sanitized object/primitive, or fallback.
  */
 export function safeJsonParse(jsonString, fallback = null) {
-  if (typeof jsonString !== 'string' || jsonString === null || jsonString === undefined) {
+  // WebSocket 'ws' library delivers messages as Buffer objects — convert first
+  if (jsonString !== null && jsonString !== undefined && typeof jsonString !== 'string') {
+    if (typeof jsonString.toString === 'function') {
+      jsonString = jsonString.toString('utf8');
+    } else {
+      return fallback;
+    }
+  }
+  if (typeof jsonString !== 'string' || jsonString.length === 0) {
     return fallback;
   }
 

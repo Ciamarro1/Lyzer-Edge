@@ -1,6 +1,5 @@
 import { patternRecognitionManifest } from './manifest.js';
-import { getAllTrades, getMarketContext, createTrade, setMarketContext } from '../../../../db/queries.js';
-import { TRADE_STATUS, TRADE_RESULT } from '../../../../db/database.js';
+import { getAllTrades, getMarketContext } from '../../../../db/queries.js';
 import db from '../../../../db/database.js';
 import { alphaDiscoveryEngine } from '../../../../engine/AlphaDiscoveryEngine.js';
 
@@ -16,7 +15,6 @@ export class PatternRecognitionWidget {
     this.certificate = null;
     this.showCertModal = false;
 
-    this.injectMockData = this.injectMockData.bind(this);
     this.purgeDatabase = this.purgeDatabase.bind(this);
   }
 
@@ -83,39 +81,7 @@ export class PatternRecognitionWidget {
   }
 
   _generateSyntheticPatterns() {
-    return [
-      { signature: 'LONG | New York | Trending', count: 18, wins: 15, losses: 3, totalPnL: 2450.00, winRate: 83.3, direction: 'LONG', session: 'New York', mktState: 'Trending' },
-      { signature: 'SHORT | London | Breakout', count: 14, wins: 11, losses: 3, totalPnL: 1820.50, winRate: 78.6, direction: 'SHORT', session: 'London', mktState: 'Breakout' },
-      { signature: 'LONG | Asia | Liquidity Sweep', count: 9, wins: 7, losses: 2, totalPnL: 940.00, winRate: 77.7, direction: 'LONG', session: 'Asia', mktState: 'Liquidity Sweep' },
-      { signature: 'SHORT | Asia | Ranging', count: 12, wins: 2, losses: 10, totalPnL: -1280.00, winRate: 16.6, direction: 'SHORT', session: 'Asia', mktState: 'Ranging' },
-      { signature: 'LONG | London | High Volatility', count: 10, wins: 3, losses: 7, totalPnL: -890.00, winRate: 30.0, direction: 'LONG', session: 'London', mktState: 'High Volatility' }
-    ];
-  }
-
-  async injectMockData() {
-    try {
-      const sessions = ['London', 'New York', 'Asia'];
-      const states = ['Trending', 'Ranging', 'Volatile'];
-      const directions = ['long', 'short'];
-      
-      for (let i = 0; i < 50; i++) {
-        const direction = directions[Math.floor(Math.random() * directions.length)];
-        const isWin = Math.random() > 0.45;
-        const session = sessions[Math.floor(Math.random() * sessions.length)];
-        const state = states[Math.floor(Math.random() * states.length)];
-        let forcedWin = direction === 'long' && session === 'New York' && state === 'Trending' ? Math.random() > 0.15 : isWin;
-        const pnl = forcedWin ? (Math.random() * 200 + 50) : -(Math.random() * 150 + 50);
-
-        try {
-          const tradeId = await createTrade({ symbol: 'BTCUSDT', direction, entryPrice: 65000, positionSize: 1, status: TRADE_STATUS.CLOSED });
-          await db.trades.update(tradeId, { status: TRADE_STATUS.CLOSED, result: forcedWin ? TRADE_RESULT.WIN : TRADE_RESULT.LOSS, pnl });
-          await setMarketContext(tradeId, { session, marketState: state });
-        } catch(e){}
-      }
-      await this.refresh();
-    } catch(err) {
-      console.error(err);
-    }
+    return [];
   }
 
   async purgeDatabase() {
@@ -148,7 +114,6 @@ export class PatternRecognitionWidget {
           </div>
           <div style="display: flex; gap: 10px;">
             <button class="pr-btn pr-btn-cert" id="pr-cert-btn">AUDIT CERTIFICATE</button>
-            <button class="pr-btn pr-btn-mock" id="pr-inject-btn">INJECT 50 MOCK TRADES</button>
             <button class="pr-btn pr-btn-purge" id="pr-purge-btn">PURGE DB</button>
           </div>
         </div>
@@ -161,17 +126,17 @@ export class PatternRecognitionWidget {
               <span>TOP ALPHA CLUSTERS (DYNAMIC DISCOVERY)</span>
               <span style="font-size: 9px; color: #94a3b8;">High Expectancy & SQN</span>
             </div>
-            ${this.alphaClusters.map(a => `
+            ${this.alphaClusters.length === 0 ? '<div style="color: #64748b; font-size: 11px; padding: 12px; font-family: \'JetBrains Mono\', monospace;">Nenhum cluster de alpha detectado ainda. Aguardando trades...</div>' : this.alphaClusters.map(a => `
               <div class="pr-cluster-card">
                 <div class="pr-sig-title">${a.signature}</div>
                 <div class="pr-sig-stats">
                   <span>Sample: <strong>${a.count} trades</strong></span>
-                  <span>Win Rate (95% CI): <strong style="color: #34d399;">${a.winRate.toFixed(1)}% ${a.confidenceInterval || ''}</strong></span>
+                  <span>Win Rate (95% CI): <strong style="color: #34d399;">${Number(a.winRate || 0).toFixed(1)}% ${a.confidenceInterval || ''}</strong></span>
                 </div>
                 <div class="pr-sig-stats" style="margin-top: 4px;">
-                  <span>Expectancy: <strong style="color: #00f3ff;">+$${(a.expectancy || (a.totalPnL / (a.count || 1))).toFixed(2)}</strong></span>
+                  <span>Expectancy: <strong style="color: #00f3ff;">+$${(a.expectancy || ((a.totalPnL || 0) / (a.count || 1))).toFixed(2)}</strong></span>
                   <span>SQN: <strong style="color: #ffb700;">${a.sqn || 2.45}</strong></span>
-                  <span>Net PnL: <strong style="color: #34d399;">+$${a.totalPnL.toFixed(2)}</strong></span>
+                  <span>Net PnL: <strong style="color: #34d399;">+$${Number(a.totalPnL || 0).toFixed(2)}</strong></span>
                 </div>
               </div>
             `).join('')}
@@ -183,16 +148,16 @@ export class PatternRecognitionWidget {
               <span>TOXIC SIGNATURES (DYNAMIC DISCOVERY)</span>
               <span style="font-size: 9px; color: #94a3b8;">High Veto & Loss Risk</span>
             </div>
-            ${this.toxicSignatures.map(t => `
+            ${this.toxicSignatures.length === 0 ? '<div style="color: #64748b; font-size: 11px; padding: 12px; font-family: \'JetBrains Mono\', monospace;">Nenhuma assinatura tóxica identificada.</div>' : this.toxicSignatures.map(t => `
               <div class="pr-toxic-card">
                 <div class="pr-sig-title">${t.signature}</div>
                 <div class="pr-sig-stats">
                   <span>Sample: <strong>${t.count} trades</strong></span>
-                  <span>Win Rate (95% CI): <strong style="color: #f87171;">${t.winRate.toFixed(1)}% ${t.confidenceInterval || ''}</strong></span>
+                  <span>Win Rate (95% CI): <strong style="color: #f87171;">${Number(t.winRate || 0).toFixed(1)}% ${t.confidenceInterval || ''}</strong></span>
                 </div>
                 <div class="pr-sig-stats" style="margin-top: 4px;">
-                  <span>Expectancy: <strong style="color: #ff3366;">-$${Math.abs(t.expectancy || (t.totalPnL / (t.count || 1))).toFixed(2)}</strong></span>
-                  <span>Net PnL: <strong style="color: #f87171;">-$${Math.abs(t.totalPnL).toFixed(2)}</strong></span>
+                  <span>Expectancy: <strong style="color: #ff3366;">-$${Math.abs(t.expectancy || ((t.totalPnL || 0) / (t.count || 1))).toFixed(2)}</strong></span>
+                  <span>Net PnL: <strong style="color: #f87171;">-$${Math.abs(t.totalPnL || 0).toFixed(2)}</strong></span>
                 </div>
               </div>
             `).join('')}
@@ -214,12 +179,12 @@ export class PatternRecognitionWidget {
                 <div>Timestamp: <span style="color: #94a3b8;">${this.certificate.auditTimestamp}</span></div>
               </div>
               <div style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 14px;">
-                <div>Win Rate (95% CI): <strong style="color: #00ff9d;">${this.certificate.metrics.winRate} ${this.certificate.metrics.winRateCI95}</strong></div>
-                <div>Profit Factor: <strong style="color: #b026ff;">${this.certificate.metrics.profitFactor}</strong></div>
-                <div>Expectancy: <strong style="color: #00f3ff;">${this.certificate.metrics.expectancy}</strong></div>
-                <div>SQN: <strong style="color: #ffb700;">${this.certificate.metrics.sqn}</strong> | Kelly: <strong>${this.certificate.metrics.kellyFraction}</strong></div>
-                <div>Max Drawdown: <strong style="color: #ff3366;">${this.certificate.metrics.maxDrawdown}</strong></div>
-                <div>VaR (95%): <strong style="color: #ff3366;">${this.certificate.metrics.var95}</strong> | CVaR: <strong style="color: #ff3366;">${this.certificate.metrics.cvar95}</strong></div>
+                <div>Win Rate (95% CI): <strong style="color: #00ff9d;">${this.certificate.metrics?.winRate || '--'} ${this.certificate.metrics?.winRateCI95 || ''}</strong></div>
+                <div>Profit Factor: <strong style="color: #b026ff;">${this.certificate.metrics?.profitFactor || '--'}</strong></div>
+                <div>Expectancy: <strong style="color: #00f3ff;">${this.certificate.metrics?.expectancy || '--'}</strong></div>
+                <div>SQN: <strong style="color: #ffb700;">${this.certificate.metrics?.sqn || '--'}</strong> | Kelly: <strong>${this.certificate.metrics?.kellyFraction || '--'}</strong></div>
+                <div>Max Drawdown: <strong style="color: #ff3366;">${this.certificate.metrics?.maxDrawdown || '--'}</strong></div>
+                <div>VaR (95%): <strong style="color: #ff3366;">${this.certificate.metrics?.var95 || '--'}</strong> | CVaR: <strong style="color: #ff3366;">${this.certificate.metrics?.cvar95 || '--'}</strong></div>
               </div>
             </div>
             <div style="margin-top: 14px; font-size: 9px; color: #64748b; font-family: monospace;">
@@ -247,15 +212,15 @@ export class PatternRecognitionWidget {
               </tr>
             </thead>
             <tbody>
-              ${this.patterns.map(p => `
+              ${this.patterns.length === 0 ? '<tr><td colspan="7" style="text-align: center; color: #64748b; padding: 24px;">Nenhum padrão identificado ainda. Aguardando execuções de mercado...</td></tr>' : this.patterns.map(p => `
                 <tr>
                   <td style="font-weight: 800; color: #f8fafc;">${p.signature}</td>
                   <td><span style="color: ${p.direction === 'LONG' ? '#34d399' : '#f87171'}; font-weight: 700;">${p.direction}</span></td>
                   <td>${p.session}</td>
                   <td>${p.mktState}</td>
                   <td>${p.count}</td>
-                  <td style="color: ${p.winRate >= 50 ? '#34d399' : '#f87171'}; font-weight: 700;">${p.winRate.toFixed(1)}%</td>
-                  <td style="color: ${p.totalPnL >= 0 ? '#34d399' : '#f87171'}; font-weight: 700;">$${p.totalPnL.toFixed(2)}</td>
+                  <td style="color: ${(p.winRate || 0) >= 50 ? '#34d399' : '#f87171'}; font-weight: 700;">${Number(p.winRate || 0).toFixed(1)}%</td>
+                  <td style="color: ${(p.totalPnL || 0) >= 0 ? '#34d399' : '#f87171'}; font-weight: 700;">$${Number(p.totalPnL || 0).toFixed(2)}</td>
                 </tr>
               `).join('')}
             </tbody>
@@ -271,9 +236,6 @@ export class PatternRecognitionWidget {
     this._container.querySelector('#pr-cert-close')?.addEventListener('click', () => {
       this.showCertModal = false;
       this.render();
-    });
-    this._container.querySelector('#pr-inject-btn')?.addEventListener('click', async () => {
-      await this.injectMockData();
     });
     this._container.querySelector('#pr-purge-btn')?.addEventListener('click', async () => {
       await this.purgeDatabase();

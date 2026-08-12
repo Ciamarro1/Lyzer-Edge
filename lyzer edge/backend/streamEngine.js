@@ -117,9 +117,6 @@ export class StreamEngine extends EventEmitter {
     this.liveTradingEnabled = process.env.LIVE_TRADING_ENABLED === 'true';
     this.maxDailyCapital = parseFloat(process.env.MAX_DAILY_CAPITAL || '0');
     this.dailyCapitalUsed = 0;
-    this.fallbackInterval = null;
-    this.isFallbackActive = false;
-
 
     this.globalEVMemory = {
       signalBuckets: {},
@@ -131,67 +128,7 @@ export class StreamEngine extends EventEmitter {
   async start() {
     this.isRunning = true;
     console.log(`[STREAM] Initializing StreamEngine in ${this.mode} mode for ${this.symbol}...`);
-
-    if (this.mode === 'SIMULATION') {
-      this.warmupSyntheticCandles();
-      this.startSimulationLoop();
-    } else {
-      await this.startLiveMode();
-    }
-  }
-
-  warmupSyntheticCandles() {
-    let currentPrice = 60000.0;
-    let timestamp = Date.now() - 120 * 60000;
-
-    for (let i = 0; i < 110; i++) {
-      const open = currentPrice;
-      const change = (Math.random() - 0.5) * 40;
-      const close = currentPrice + change;
-      const high = Math.max(open, close) + Math.random() * 15;
-      const low = Math.min(open, close) - Math.random() * 15;
-      const volume = Math.floor(Math.random() * 10 + 2);
-      
-      this.candles.push({
-        open,
-        high,
-        low,
-        close,
-        volume,
-        timestamp: timestamp + i * 60000,
-        datetime: new Date(timestamp + i * 60000).toISOString(),
-        closed: true
-      });
-      currentPrice = close;
-    }
-  }
-
-  startSimulationLoop() {
-    this.simInterval = setInterval(() => {
-      const nextIndex = this.candles.length;
-      const prevCandle = this.candles[nextIndex - 1];
-      const open = prevCandle.close;
-      const trend = Math.sin(nextIndex / 15) * 20;
-      const change = (Math.random() - 0.5) * 35 + trend;
-      const close = open + change;
-      const high = Math.max(open, close) + Math.random() * 15;
-      const low = Math.min(open, close) - Math.random() * 15;
-      const volume = Math.floor(Math.random() * 15 + 3);
-
-      const fakeCandle = {
-        open,
-        high,
-        low,
-        close,
-        volume,
-        timestamp: Date.now(),
-        datetime: new Date().toISOString(),
-        closed: true
-      };
-
-      this.candles.push(fakeCandle);
-      this.processCandle(fakeCandle, nextIndex);
-    }, 500);
+    await this.startLiveMode();
   }
 
   async startLiveMode() {
@@ -363,49 +300,9 @@ export class StreamEngine extends EventEmitter {
 
     this.initializeExecution();
     if (state === 'CONNECTED') {
-      this.stopFallbackLoop();
+      console.log(`[STREAM] Live real data streaming active for ${this.symbol}`);
     } else {
-      this.startFallbackLoop();
-    }
-  }
-
-  startFallbackLoop() {
-    if (this.connectionState === 'CONNECTED' || this.fallbackInterval) return;
-    this.isFallbackActive = true;
-    console.log(`[STREAM] ⚠️ Starting fallback simulation loop to keep ARL active for ${this.symbol}...`);
-    
-    this.fallbackInterval = setInterval(() => {
-      const nextIndex = this.candles.length;
-      const prevCandle = this.candles[nextIndex - 1] || { close: 60000 };
-      const open = prevCandle.close;
-      const change = (Math.random() - 0.5) * 35;
-      const close = open + change;
-      const high = Math.max(open, close) + Math.random() * 15;
-      const low = Math.min(open, close) - Math.random() * 15;
-      const volume = Math.floor(Math.random() * 15 + 3);
-
-      const fakeCandle = {
-        open,
-        high,
-        low,
-        close,
-        volume,
-        timestamp: Date.now(),
-        datetime: new Date().toISOString(),
-        closed: true
-      };
-
-      this.candles.push(fakeCandle);
-      this.processCandle(fakeCandle, nextIndex);
-    }, 60000); // 1-minute tick to emulate actual bar closes
-  }
-
-  stopFallbackLoop() {
-    if (this.fallbackInterval) {
-      console.log(`[STREAM] Restored live connection for ${this.symbol}. Stopping fallback simulation loop.`);
-      clearInterval(this.fallbackInterval);
-      this.fallbackInterval = null;
-      this.isFallbackActive = false;
+      console.warn(`[STREAM] Connection degraded (${state}) for ${this.symbol}. Execution paused.`);
     }
   }
 
@@ -615,8 +512,9 @@ export class StreamEngine extends EventEmitter {
     
     // 2.5 Dual Reality Divergence Validation
     let lhds = 0.0;
-    if (this.dualMonitor && candle.timestamp) {
-        lhds = await this.dualMonitor.calculateDivergence(this.symbol, candle.timestamp, this.mtfCandles);
+    const currentCandleTime = candle.timestamp || candle.openTime || candle.time;
+    if (this.dualMonitor && currentCandleTime) {
+        lhds = await this.dualMonitor.calculateDivergence(this.symbol, currentCandleTime, this.mtfCandles);
     }
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
@@ -890,7 +788,9 @@ export class StreamEngine extends EventEmitter {
           }
         } catch (grpcErr) {
           recordSystemError('StreamEngine', 'GRPC_ERROR');
-          console.warn(`⚠️ [gRPC Error] RiskGateway authorization check failed: ${grpcErr.message}. Defaulting to local permission token approval.`);
+          governanceDecision = 'REJECT';
+          rejectionReason = `GRPC_UNREACHABLE: ${grpcErr.message}`;
+          console.error(`🛑 [FAIL-CLOSED] RiskGateway check failed (${grpcErr.message}). Execution vetoed.`);
         }
       }
 
@@ -1025,6 +925,8 @@ export class StreamEngine extends EventEmitter {
         }
       },
       kernel: safeMerge({}, kernelResult, {
+        lhds: lhds,
+        confidence: baseSignal.confidence, // Already in 0-100 percentage format
         v1_narrative: v1Narrative.narrative,
         v2_narrative: v2Narrative.narrative,
         scale_divergence_score: sds,
@@ -1137,11 +1039,6 @@ export class StreamEngine extends EventEmitter {
 
   stop() {
     this.isRunning = false;
-    this.stopFallbackLoop();
-    if (this.simInterval) {
-      clearInterval(this.simInterval);
-      this.simInterval = null;
-    }
     if (this.ingestor) {
       this.ingestor.stop();
       this.ingestor = null;
@@ -1151,7 +1048,7 @@ export class StreamEngine extends EventEmitter {
 
 // Global compat singleton instance
 export const arlEngineInstance = new StreamEngine({
-  mode: process.env.MODE || 'SIMULATION',
+  mode: process.env.MODE || 'TESTNET',
   symbol: 'BTCUSDT'
 });
 

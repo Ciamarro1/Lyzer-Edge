@@ -18,42 +18,7 @@ export class ExchangeExecution {
     const cleanSymbol = validateSymbol(symbol);
 
     if (!this.apiKey || !this.apiSecret) {
-      console.log(`[EXECUTION] ⚠️ Missing credentials. Simulating Spot Order: ${type} ${side} ${quantity} ${cleanSymbol} at ${currentPrice || 'MARKET'}`);
-      
-      let fillPrice = currentPrice || 0;
-      let fundingRateCost = 0;
-      
-      if (fillPrice > 0) {
-        if (type === 'MARKET') {
-          // Slippage model: 0.05% slippage on MARKET orders
-          const slippageBps = 5; 
-          const slippageMultiplier = slippageBps / 10000;
-          
-          fillPrice = side.toUpperCase() === 'BUY' 
-            ? fillPrice * (1 + slippageMultiplier) 
-            : fillPrice * (1 - slippageMultiplier);
-            
-          // Synthetic funding rate / Taker fee simulation per trade (e.g. 0.05% taker fee)
-          fundingRateCost = fillPrice * quantity * 0.0005; 
-        } else if (type === 'LIMIT') {
-          // Zero slippage for LIMIT orders. We act as Maker.
-          // Synthetic Maker Rebate simulation (e.g. -0.01% fee meaning we get paid to provide liquidity)
-          fundingRateCost = fillPrice * quantity * -0.0001; 
-        }
-      }
-
-      return {
-        orderId: `sim_order_${Date.now()}`,
-        status: 'FILLED_MOCK',
-        symbol: cleanSymbol,
-        side,
-        type,
-        qty: quantity,
-        price: fillPrice,
-        fundingRateCost, // Modeled simulated cost (Negative means rebate!)
-        transactTime: Date.now(),
-        reality_tag: 'SYNTHETIC_REALITY'
-      };
+      throw new Error(`[EXECUTION] ❌ Cannot execute order for ${cleanSymbol}: BINANCE_API_KEY and BINANCE_API_SECRET are required.`);
     }
 
     const timestamp = Date.now() - 2000;

@@ -17,15 +17,6 @@ const BINANCE_BASE_URLS = [
   'https://api4.binance.com'
 ];
 
-const BASE_PRICES = {
-  BTCUSDT: 95000,
-  ETHUSDT: 3300,
-  SOLUSDT: 220,
-  BNBUSDT: 680,
-  EURUSDT: 1.05,
-  GBPUSDT: 1.26
-};
-
 export class LiveDataIngestor {
   constructor(symbol = 'BTCUSDT', interval = '1m') {
     this.symbol = validateSymbol(symbol);
@@ -35,12 +26,11 @@ export class LiveDataIngestor {
     this._pollTimer = null;
     this._lastClosedOpenTime = null;
     this._usingPolling = false;
-    this.connectionState = 'RECONNECTING';
+    this.connectionState = 'INITIALIZING';
     this.reconnectAttempts = 0;
     this.reconnectTimeout = null;
     this.onTick = null;
-    
-    this.basePrice = BASE_PRICES[this.symbol] || 100;
+    this.basePrice = 0;
   }
 
   get baseUrl() {
@@ -88,49 +78,17 @@ export class LiveDataIngestor {
       }
     }
 
-    console.log(`[INGESTOR] Remote endpoints offline. Generating synthetic warmup baseline for ${this.symbol}...`);
-    return this._generateSyntheticWarmup();
-  }
-
-  _generateSyntheticWarmup() {
-    const candles = [];
-    let price = this.basePrice;
-    const now = Date.now();
-    const intervalMs = 60000;
-
-    for (let i = 99; i >= 0; i--) {
-      const openTime = now - i * intervalMs;
-      const change = (Math.random() - 0.49) * (price * 0.002);
-      const open = price;
-      const close = price + change;
-      const high = Math.max(open, close) + Math.random() * (price * 0.001);
-      const low = Math.min(open, close) - Math.random() * (price * 0.001);
-      const volume = Math.floor(Math.random() * 50 + 10);
-      price = close;
-
-      candles.push({
-        openTime,
-        open,
-        high,
-        low,
-        close,
-        volume,
-        closed: true,
-        isSynthetic: true
-      });
-    }
-
-    this.basePrice = price;
-    return candles;
+    console.error(`[INGESTOR] ❌ All remote endpoints offline. Real market warmup failed for ${this.symbol}. Zero synthetic data generated.`);
+    return [];
   }
 
   _startPolling(onCandleClose, onStateChange) {
     if (this._usingPolling) return;
     this._usingPolling = true;
 
-    console.log(`🟡 [INGESTOR] [${this.symbol}] Active on REST / Fallback Ingestion Loop`);
-    this.connectionState = 'CONNECTED';
-    onStateChange('CONNECTED');
+    console.log(`🟡 [INGESTOR] [${this.symbol}] Active on Real REST Polling Failover Loop`);
+    this.connectionState = 'DEGRADED';
+    onStateChange('DEGRADED');
 
     this._schedulePoll(onCandleClose, onStateChange);
   }
@@ -197,40 +155,17 @@ export class LiveDataIngestor {
     }
 
     if (!fetchedSuccess) {
-      // Fallback synthetic tick generator to keep engine active
-      const now = Date.now();
-      const change = (Math.random() - 0.49) * (this.basePrice * 0.0015);
-      const open = this.basePrice;
-      const close = this.basePrice + change;
-      const high = Math.max(open, close) + Math.random() * (this.basePrice * 0.0005);
-      const low = Math.min(open, close) - Math.random() * (this.basePrice * 0.0005);
-      const volume = Math.floor(Math.random() * 20 + 5);
-      this.basePrice = close;
-
-      const liveCandle = {
-        openTime: now,
-        open,
-        high,
-        low,
-        close,
-        volume,
-        closed: false,
-        isSynthetic: true
-      };
-
-      if (this.onTick) this.onTick(liveCandle);
-
-      if (!this._lastClosedOpenTime || now - this._lastClosedOpenTime >= 60000) {
-        this._lastClosedOpenTime = now;
-        const closedCandle = { ...liveCandle, closed: true };
-        console.log(`[INGESTOR] [SYNTHETIC] Candle closed for ${this.symbol}: $${closedCandle.close.toFixed(2)}`);
-        onCandleClose(closedCandle);
+      // Real data backoff: rotate mirror endpoint, update state, and wait for next poll without generating fake data
+      this.rotateUrl();
+      if (this.connectionState !== 'RECONNECTING') {
+        this.connectionState = 'RECONNECTING';
+        onStateChange('RECONNECTING');
       }
-    }
-
-    if (this.connectionState !== 'CONNECTED') {
-      this.connectionState = 'CONNECTED';
-      onStateChange('CONNECTED');
+    } else {
+      if (this.connectionState !== 'DEGRADED') {
+        this.connectionState = 'DEGRADED';
+        onStateChange('DEGRADED');
+      }
     }
 
     this._schedulePoll(onCandleClose, onStateChange);
@@ -260,10 +195,6 @@ export class LiveDataIngestor {
       console.log(`[INGESTOR] Connection State changed to: ${newState}`);
       onStateChange(newState);
     };
-
-    if (this.reconnectAttempts === 0) {
-      triggerStateChange('RECONNECTING');
-    }
 
     const wsUrl = `wss://stream.binance.com:9443/ws/${encodeURIComponent(this.symbol.toLowerCase())}@kline_${encodeURIComponent(this.interval)}`;
     

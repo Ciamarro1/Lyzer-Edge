@@ -54,7 +54,8 @@ export class TruthKernel {
       reason = 'VETO_REALITY_DIVERGENCE';
     } else if (micro.distanceFromGoldenZone !== undefined) {
       // Golden Zone Geometric Filter: Continuous Expected Shortfall (ES) bound
-      const topoRisk = micro.distanceFromGoldenZone || 1.0; 
+      let topoRisk = micro.distanceFromGoldenZone !== undefined ? micro.distanceFromGoldenZone : 1.0;
+      if (topoRisk === Infinity) topoRisk = 10.0;
       const dynamicTrgThreshold = this.ett.trgThreshold * (1 + topoRisk);
       
       if (trg.trg < dynamicTrgThreshold) {

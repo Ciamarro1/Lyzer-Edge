@@ -46,12 +46,12 @@ export class GamifiedCommandCenterView {
               realityTag: 'OBSERVED_REALITY',
               providerId: 'live-binance-v4',
               status: 'HEALTHY',
-              trg: k.trg !== undefined ? k.trg : (0.64 + Math.sin(Date.now() / 3000) * 0.12),
-              dvf: k.dvf !== undefined ? k.dvf : (0.82 + Math.cos(Date.now() / 4000) * 0.08),
-              lhds: k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : (0.012 + Math.random() * 0.005)),
-              sds: k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : (0.14 + Math.random() * 0.04)),
-              conf: k.confidence !== undefined ? k.confidence : (k.conf !== undefined ? k.conf : 94.2),
-              eef: k.eef !== undefined ? k.eef : true,
+              trg: k.trg !== undefined ? k.trg : null,
+              dvf: k.dvf !== undefined ? k.dvf : null,
+              lhds: k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : null),
+              sds: k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : null),
+              conf: k.confidence !== undefined ? k.confidence : (k.conf !== undefined ? k.conf : null),
+              eef: k.eef !== undefined ? k.eef : null,
               molState: 'EXECUTE',
               reason: k.reason || (k.reason_codes && k.reason_codes[0]) || (k.eef ? 'VALIDATED' : 'VETO_UNKNOWN'),
               reason_codes: k.reason_codes || []
@@ -85,7 +85,6 @@ export class GamifiedCommandCenterView {
         return [];
       },
       subscribeTicks: (cb) => {
-        try { cb({ time: Date.now(), price: 65550, symbol: this._activeSymbol || 'BTCUSDT' }); } catch(e){}
         return { dispose: () => {} };
       },
       getSystemMetrics: () => ({ cpu: '4.2%', heapMb: 42.8, eventLoopLagMs: 0.04 }),
@@ -100,13 +99,13 @@ export class GamifiedCommandCenterView {
           providerId: 'live-binance-v4',
           realityTag: 'OBSERVED_REALITY',
           healthStatus: data ? 'HEALTHY' : 'STANDBY',
-          latencyMs: data?.market?.timestamp ? Math.floor((Date.now() - data.market.timestamp) / 10) : 42,
-          trg: k.trg !== undefined ? k.trg : 0.65,
-          dvf: k.dvf !== undefined ? k.dvf : 0.82,
-          lhds: k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : 0.012),
-          sds: k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : 0.14),
-          conf: k.confidence !== undefined ? k.confidence : (k.conf !== undefined ? k.conf : 94.2),
-          eef: k.eef !== undefined ? k.eef : true,
+          latencyMs: data?.market?.timestamp ? Math.floor((Date.now() - data.market.timestamp) / 10) : null,
+          trg: k.trg !== undefined ? k.trg : null,
+          dvf: k.dvf !== undefined ? k.dvf : null,
+          lhds: k.lhds_df !== undefined ? k.lhds_df : (k.lhds !== undefined ? k.lhds : null),
+          sds: k.scale_divergence_score !== undefined ? k.scale_divergence_score : (k.sds !== undefined ? k.sds : null),
+          conf: k.confidence !== undefined ? k.confidence : (k.conf !== undefined ? k.conf : null),
+          eef: k.eef !== undefined ? k.eef : null,
           molState: 'EXECUTE'
         };
       },
@@ -497,24 +496,21 @@ export class GamifiedCommandCenterView {
     const lbContainer = this._container.querySelector('#g-leaderboard-list');
     if (!lbContainer) return;
     
-    const symbols = Object.keys(this._latestData).length > 0
-      ? Object.keys(this._latestData)
-      : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'GBPUSD', 'BNBUSDT'];
+    const symbols = Object.keys(this._latestData);
+    if (symbols.length === 0) {
+      lbContainer.innerHTML = '<div style="color:#64748b;font-size:11px;padding:8px;">Aguardando dados de mercado...</div>';
+      return;
+    }
 
-    const t = Math.floor(Date.now() / 5000); // changes every 5s for micro-animation
-    const entries = symbols.map((sym, idx) => {
+    const entries = symbols.map((sym) => {
       const d = this._latestData[sym] || {};
       const k = d.kernel || {};
 
-      // Composite score: weighted blend of TRG + DVF + conf, with per-symbol noise
-      const trg = typeof k.trg === 'number' ? k.trg : 0.45;
-      const dvf = typeof k.dvf === 'number' ? k.dvf : 0.5;
-      const conf = typeof k.confidence === 'number' ? k.confidence / 100 : 0.5;
-      // Per-symbol micro-variation so assets with same TRG still differ visually
-      const symSeed = (sym.charCodeAt(0) * 31 + sym.charCodeAt(1) * 7 + idx) % 100;
-      const noise = Math.sin(symSeed + t * 0.3) * 0.04;
-      const composite = (trg * 0.5 + dvf * 0.3 + conf * 0.2) + noise;
-      const scorePct = Math.min(99, Math.max(12, Math.round(composite * 100)));
+      const trg = typeof k.trg === 'number' ? k.trg : 0;
+      const dvf = typeof k.dvf === 'number' ? k.dvf : 0;
+      const conf = typeof k.confidence === 'number' ? k.confidence / 100 : 0;
+      const composite = (trg * 0.5 + dvf * 0.3 + conf * 0.2);
+      const scorePct = Math.min(100, Math.max(0, Math.round(composite * 100)));
 
       const isUp = k.eef === true || scorePct > 55;
       return { sym: sym.replace('USDT', '/USD').replace('USD', '/USD'), val: scorePct, dir: isUp ? 1 : -1 };
@@ -672,29 +668,8 @@ export class GamifiedCommandCenterView {
     const clockEl = this._container.querySelector('#g-clock');
     setInt(() => { if (clockEl) { const d = new Date(); clockEl.innerText = d.toISOString().split('T')[1].split('.')[0] + ' UTC'; } }, 1000);
 
-    const BASE_PRICES = { BTCUSDT: 65000, ETHUSDT: 3450, SOLUSDT: 185, BNBUSDT: 580, EURUSDT: 1.08, GBPUSDT: 1.27 };
-    const SYMBOLS = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'EURUSDT', 'GBPUSDT'];
-
-    // Seed initial data with per-symbol varied kernels (not all 0.65)
-    const SEED_KERNELS = {
-      BTCUSDT: { trg: 0.62, dvf: 0.80, lhds_df: 0.013, confidence: 91 },
-      ETHUSDT: { trg: 0.58, dvf: 0.75, lhds_df: 0.011, confidence: 88 },
-      SOLUSDT: { trg: 0.71, dvf: 0.85, lhds_df: 0.009, confidence: 95 },
-      BNBUSDT: { trg: 0.55, dvf: 0.70, lhds_df: 0.015, confidence: 82 },
-      EURUSDT: { trg: 0.48, dvf: 0.65, lhds_df: 0.010, confidence: 78 },
-      GBPUSDT: { trg: 0.52, dvf: 0.68, lhds_df: 0.012, confidence: 80 },
-    };
-    for (const sym of SYMBOLS) {
-      if (!this._latestData[sym]) {
-        const sk = SEED_KERNELS[sym] || { trg: 0.55, dvf: 0.72, lhds_df: 0.012, confidence: 85 };
-        this._latestData[sym] = {
-          symbol: sym, market: null,
-          kernel: { ...sk, eef: sk.trg > 0.6, scale_divergence_score: 0.14, reason_codes: ['NO_ACTION_GEOMETRY_FLAT'] },
-          signal: { signal: 'flat', regime: 'RANGING', confidence: sk.confidence },
-          trade: null
-        };
-      }
-    }
+    // Clean initialization: live data arrives strictly via WebSocket stream
+    this._latestData = {};
 
     // Refresh leaderboard every 5s to keep micro-animation alive between candles
     setInt(() => {
