@@ -2,6 +2,8 @@ export class SpectrogramUI {
     constructor() {
         this.history = [];
         this.maxBars = 30;
+        this.lastEvent = null;
+        this.lastRenderTime = 0;
     }
 
     render(lhds, epistemicAuthority, kernelReason) {
@@ -13,7 +15,24 @@ export class SpectrogramUI {
             this.history.shift();
         }
 
-        // ASCII blocks
+        const isTTY = Boolean(process.stdout && process.stdout.isTTY);
+        const now = Date.now();
+        const eventToLog = this.lastEvent;
+        this.lastEvent = null; // Clear consumed event to prevent infinite loop printing
+
+        // In non-interactive/Docker logs, avoid spamming console.clear() every 100ms
+        if (!isTTY) {
+            if (eventToLog) {
+                console.log(`[SYSTEM EVENT] : ${eventToLog}`);
+            }
+            if (epistemicAuthority === 'VETO' && now - this.lastRenderTime > 5000) {
+                this.lastRenderTime = now;
+                console.warn(`⚠️ [DRCVS VETO] Epistemic: VETO | LHDS: ${(lhds * 100).toFixed(2)}% | Reason: ${kernelReason || 'NONE'}`);
+            }
+            return;
+        }
+
+        // ASCII blocks for interactive TTY
         const blocks = [' ', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
         
         let visualStr = "";
@@ -49,8 +68,8 @@ export class SpectrogramUI {
         console.log(`|${visualStr.padEnd(this.maxBars * 10, ' ')}| [MAX: 80% VETO]`);
         console.log(`------------------------------------------------------`);
         
-        if (this.lastEvent) {
-            console.log(`\n[SYSTEM EVENT] : ${this.lastEvent}`);
+        if (eventToLog) {
+            console.log(`\n[SYSTEM EVENT] : ${eventToLog}`);
         }
     }
 

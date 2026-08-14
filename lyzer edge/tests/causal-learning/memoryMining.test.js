@@ -1,11 +1,20 @@
-import { describe, test, expect } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 import { CausalMemoryDB } from '../../backend/db.js';
 import { CausalMemoryAdapter } from '../../src/causal-memory/index.js';
 import { MemoryMiningEngine } from '../../src/causal-learning/MemoryMiningEngine.js';
+import fs from 'fs';
 
 describe('Fase 6.1 — MemoryMiningEngine Verification', () => {
+  const dbPath = '/tmp/data/test_memory_mining.db';
+
+  beforeEach(() => {
+    if (fs.existsSync(dbPath)) {
+      try { fs.unlinkSync(dbPath); } catch (e) {}
+    }
+  });
+
   test('mines repeating epistemic patterns from causal memory', async () => {
-    const db = new CausalMemoryDB('/tmp/data/test_memory_mining.db');
+    const db = new CausalMemoryDB(dbPath);
     const adapter = new CausalMemoryAdapter(db);
     const miner = new MemoryMiningEngine(db);
 

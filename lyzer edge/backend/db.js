@@ -70,6 +70,16 @@ export class CausalMemoryDB {
         });
     }
 
+    async ensureReady() {
+        if (this.migrationsPromise) {
+            try {
+                await this.migrationsPromise;
+            } catch (e) {
+                // Migration error already recorded in init()
+            }
+        }
+    }
+
     runTTLCleanup(options = {}) {
         return runTTLCleanup(this, options);
     }
@@ -88,7 +98,8 @@ export class CausalMemoryDB {
         return this._ttlTimer;
     }
 
-    insertCourtLedgerEntry(entry) {
+    async insertCourtLedgerEntry(entry) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO court_ledger
@@ -125,7 +136,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getCourtLedgerEntries(limit = 1000) {
+    async getCourtLedgerEntries(limit = 1000) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM court_ledger ORDER BY timestamp ASC LIMIT ?`;
             this.db.all(sql, [limit], (err, rows) => {
@@ -172,7 +184,8 @@ export class CausalMemoryDB {
         });
     }
 
-    insertParameterVersion(paramVersion) {
+    async insertParameterVersion(paramVersion) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO parameter_versions
@@ -200,7 +213,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getActiveParameterVersion(moduleName, parameterName) {
+    async getActiveParameterVersion(moduleName, parameterName) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM parameter_versions WHERE module = ? AND parameter = ? AND status = 'ACTIVE' ORDER BY id DESC LIMIT 1`;
             this.db.get(sql, [moduleName, parameterName], (err, row) => {
@@ -210,7 +224,8 @@ export class CausalMemoryDB {
         });
     }
 
-    rollbackParameterVersion(version, reason) {
+    async rollbackParameterVersion(version, reason) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             this.db.serialize(() => {
                 const sql1 = `UPDATE parameter_versions SET status = 'ROLLED_BACK', rollback_reason = ? WHERE version = ?`;
@@ -222,7 +237,8 @@ export class CausalMemoryDB {
         });
     }
 
-    insertEvolutionLedgerEntry(entry) {
+    async insertEvolutionLedgerEntry(entry) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO evolution_ledger
@@ -258,7 +274,8 @@ export class CausalMemoryDB {
         });
     }
 
-    updateEvolutionLedgerResult(ledgerId, observedResult) {
+    async updateEvolutionLedgerResult(ledgerId, observedResult) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `UPDATE evolution_ledger SET observed_result_json = ? WHERE ledger_id = ?`;
             this.db.run(sql, [JSON.stringify(observedResult), ledgerId], (err) => {
@@ -268,7 +285,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getEvolutionLedgerEntries(module, parameter) {
+    async getEvolutionLedgerEntries(module, parameter) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM evolution_ledger WHERE module = ? AND parameter = ? ORDER BY created_at ASC`;
             this.db.all(sql, [module, parameter], (err, rows) => {
@@ -278,7 +296,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getAllEvolutionLedgerEntries() {
+    async getAllEvolutionLedgerEntries() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM evolution_ledger ORDER BY created_at ASC`;
             this.db.all(sql, [], (err, rows) => {
@@ -299,7 +318,8 @@ export class CausalMemoryDB {
         };
     }
 
-    insertSemanticPattern(pattern) {
+    async insertSemanticPattern(pattern) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO semantic_memory
@@ -338,7 +358,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getSemanticPatterns() {
+    async getSemanticPatterns() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM semantic_memory ORDER BY confidence_score DESC`;
             this.db.all(sql, [], (err, rows) => {
@@ -352,7 +373,8 @@ export class CausalMemoryDB {
         });
     }
 
-    walCheckpoint(mode = 'PASSIVE') {
+    async walCheckpoint(mode = 'PASSIVE') {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const validModes = ['PASSIVE', 'FULL', 'RESTART', 'TRUNCATE'];
             const safeMode = validModes.includes(mode?.toUpperCase()) ? mode.toUpperCase() : 'PASSIVE';
@@ -363,7 +385,8 @@ export class CausalMemoryDB {
         });
     }
 
-    insertCausalEvent(event) {
+    async insertCausalEvent(event) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const startTime = performance.now();
             const sql = `
@@ -401,7 +424,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getLastCausalEventHash() {
+    async getLastCausalEventHash() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
             this.db.serialize(() => {
@@ -413,7 +437,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getCausalEventsUntil(timestampMs) {
+    async getCausalEventsUntil(timestampMs) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM causal_events_log WHERE timestamp <= ? ORDER BY id ASC`;
             this.db.all(sql, [timestampMs], (err, rows) => {
@@ -427,7 +452,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getCausalEventsByCorrelation(correlationId) {
+    async getCausalEventsByCorrelation(correlationId) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM causal_events_log WHERE correlation_id = ? ORDER BY id ASC`;
             this.db.all(sql, [correlationId], (err, rows) => {
@@ -442,7 +468,8 @@ export class CausalMemoryDB {
     }
 
     // Insert multiple candles inside a transaction for massive performance gain
-    insertBatch(symbol, timeframe, candles) {
+    async insertBatch(symbol, timeframe, candles) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const startTime = performance.now();
             this.db.serialize(() => {
@@ -468,7 +495,8 @@ export class CausalMemoryDB {
     }
 
     // Get the most recent N candles that are strictly closed before or exactly at currentMs
-    getVisibleHistory(symbol, timeframe, currentMs, limit) {
+    async getVisibleHistory(symbol, timeframe, currentMs, limit) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const query = `
                 SELECT timestamp as t, open as o, high as h, low as l, close as c, volume as v, close_time as T
@@ -487,7 +515,8 @@ export class CausalMemoryDB {
     
     // ── Quant Research Lab: Experiment Lifecycle Methods ──────────────
 
-    getNextExperimentId() {
+    async getNextExperimentId() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT experiment_id FROM experiments WHERE experiment_id LIKE 'EXP-%' ORDER BY id DESC LIMIT 1`;
             this.db.get(sql, [], (err, row) => {
@@ -501,7 +530,8 @@ export class CausalMemoryDB {
         });
     }
 
-    createExperiment({ experiment_id, display_name, status, strategy_hash, config_snapshot_json, model_snapshot_json, champion_flag, created_at, parent_experiment_id }) {
+    async createExperiment({ experiment_id, display_name, status, strategy_hash, config_snapshot_json, model_snapshot_json, champion_flag, created_at, parent_experiment_id }) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO experiments
@@ -525,7 +555,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getActiveExperiment() {
+    async getActiveExperiment() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM experiments WHERE status = 'ACTIVE' ORDER BY id DESC LIMIT 1`;
             this.db.get(sql, [], (err, row) => {
@@ -535,7 +566,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getExperiment(experimentId) {
+    async getExperiment(experimentId) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM experiments WHERE experiment_id = ?`;
             this.db.get(sql, [experimentId], (err, row) => {
@@ -545,7 +577,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getAllExperiments() {
+    async getAllExperiments() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM experiments ORDER BY id DESC`;
             this.db.all(sql, [], (err, rows) => {
@@ -555,7 +588,8 @@ export class CausalMemoryDB {
         });
     }
 
-    freezeExperiment(experimentId, frozenAt, frozenBy = 'USER') {
+    async freezeExperiment(experimentId, frozenAt, frozenBy = 'USER') {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `UPDATE experiments SET status = 'LEGACY', frozen_at = ?, frozen_by = ? WHERE experiment_id = ? AND status = 'ACTIVE'`;
             this.db.run(sql, [frozenAt || Date.now(), frozenBy, experimentId], function(err) {
@@ -565,7 +599,8 @@ export class CausalMemoryDB {
         });
     }
 
-    insertExperimentTrade(experimentId, trade) {
+    async insertExperimentTrade(experimentId, trade) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT INTO experiment_trades
@@ -602,7 +637,8 @@ export class CausalMemoryDB {
         });
     }
 
-    updateExperimentTrade(tradeId, experimentId, updateData) {
+    async updateExperimentTrade(tradeId, experimentId, updateData) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sets = [];
             const params = [];
@@ -624,7 +660,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getExperimentTrades(experimentId, opts = {}) {
+    async getExperimentTrades(experimentId, opts = {}) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const limit = opts.limit || 10000;
             const offset = opts.offset || 0;
@@ -636,7 +673,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getExperimentTradeCount(experimentId) {
+    async getExperimentTradeCount(experimentId) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT COUNT(*) as count FROM experiment_trades WHERE experiment_id = ? AND status = 'closed'`;
             this.db.get(sql, [experimentId], (err, row) => {
@@ -646,7 +684,8 @@ export class CausalMemoryDB {
         });
     }
 
-    insertExperimentSnapshot(snapshot) {
+    async insertExperimentSnapshot(snapshot) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `
                 INSERT OR REPLACE INTO experiment_snapshots
@@ -688,7 +727,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getExperimentSnapshot(experimentId) {
+    async getExperimentSnapshot(experimentId) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM experiment_snapshots WHERE experiment_id = ?`;
             this.db.get(sql, [experimentId], (err, row) => {
@@ -703,7 +743,8 @@ export class CausalMemoryDB {
         });
     }
 
-    setChampion(experimentId) {
+    async setChampion(experimentId) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             this.db.serialize(() => {
                 this.db.run(`UPDATE experiments SET champion_flag = 0 WHERE champion_flag = 1`, (err) => {
@@ -717,7 +758,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getChampion() {
+    async getChampion() {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM experiments WHERE champion_flag = 1 LIMIT 1`;
             this.db.get(sql, [], (err, row) => {
@@ -727,7 +769,8 @@ export class CausalMemoryDB {
         });
     }
 
-    getExperimentRanking(sortBy = 'profit_factor', limit = 20) {
+    async getExperimentRanking(sortBy = 'profit_factor', limit = 20) {
+        await this.ensureReady();
         return new Promise((resolve, reject) => {
             const validColumns = ['profit_factor', 'sharpe_ratio', 'win_rate', 'total_pnl_pct', 'total_trades'];
             const col = validColumns.includes(sortBy) ? sortBy : 'profit_factor';
@@ -751,4 +794,3 @@ export class CausalMemoryDB {
 export const db = new CausalMemoryDB();
 export { runMigrations, runTTLCleanup };
 export default db;
-

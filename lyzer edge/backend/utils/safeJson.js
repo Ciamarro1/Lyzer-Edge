@@ -81,7 +81,7 @@ export function sanitizeObject(obj, seen = new WeakSet()) {
 export function safeJsonParse(jsonString, fallback = null) {
   // WebSocket 'ws' library delivers messages as Buffer objects — convert first
   if (jsonString !== null && jsonString !== undefined && typeof jsonString !== 'string') {
-    if (typeof jsonString.toString === 'function') {
+    if (typeof Buffer !== 'undefined' && Buffer.isBuffer(jsonString)) {
       jsonString = jsonString.toString('utf8');
     } else {
       return fallback;

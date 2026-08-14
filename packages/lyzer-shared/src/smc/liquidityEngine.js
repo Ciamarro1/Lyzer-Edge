@@ -44,10 +44,13 @@ export class LiquidityEngine {
         // k_sigma controls how aggressive a move must be to be considered Institutional
         const k_sigma = 1.0 * this.volatility;
 
-        // Find starting index for new zones (only process fully closed candles)
-        let startIndex = 2;
+        const isLastClosed = lastCandle.closed === true;
+        const endIndex = isLastClosed ? n : n - 1;
+
+        // Find starting index for new zones
+        let startIndex = 1;
         if (this.lastProcessedTime > 0) {
-            for (let i = n - 2; i >= 0; i--) {
+            for (let i = endIndex - 1; i >= 0; i--) {
                 const t = candles[i].openTime !== undefined ? candles[i].openTime : candles[i].timestamp;
                 if (t <= this.lastProcessedTime) {
                     startIndex = i + 1;
@@ -55,38 +58,40 @@ export class LiquidityEngine {
                 }
             }
         }
-        if (startIndex < 2) startIndex = 2;
+        if (startIndex < 1) startIndex = 1;
 
-        // 1 & 2. Detect FVGs and OBs on CLOSED candles only
-        for (let i = startIndex; i < n - 1; i++) {
-            const prev2 = candles[i - 2];
+        // 1 & 2. Detect FVGs and OBs on CLOSED candles
+        for (let i = startIndex; i < endIndex; i++) {
             const prev1 = candles[i - 1];
             const curr = candles[i];
             const candleTime = curr.openTime !== undefined ? curr.openTime : curr.timestamp;
 
-            // Bullish FVG
-            if (prev2.high < curr.low) {
-                const gap = (curr.low - prev2.high) / prev2.high;
-                if (gap >= k_sigma * 0.5) { // Needs some volatility backing
-                    this.activeZones.push({
-                        id: `FVG_BULLISH_${candleTime}`, type: 'FVG', direction: 'BULLISH',
-                        price: (prev2.high + curr.low) / 2, upper_bound: curr.low, lower_bound: prev2.high,
-                        timeframe, strength: gap / this.volatility, score: 1.0, created_at: candleTime,
-                        mitigated: false, source_pattern: 'FVG_BULLISH'
-                    });
+            // Bullish FVG (needs 3 candles: i-2, i-1, i)
+            if (i >= 2) {
+                const prev2 = candles[i - 2];
+                if (prev2.high < curr.low) {
+                    const gap = (curr.low - prev2.high) / prev2.high;
+                    if (gap >= k_sigma * 0.5) {
+                        this.activeZones.push({
+                            id: `FVG_BULLISH_${candleTime}`, type: 'FVG', direction: 'BULLISH',
+                            price: (prev2.high + curr.low) / 2, upper_bound: curr.low, lower_bound: prev2.high,
+                            timeframe, strength: gap / this.volatility, score: 1.0, created_at: candleTime,
+                            mitigated: false, source_pattern: 'FVG_BULLISH'
+                        });
+                    }
                 }
-            }
 
-            // Bearish FVG
-            if (prev2.low > curr.high) {
-                const gap = (prev2.low - curr.high) / curr.high;
-                if (gap >= k_sigma * 0.5) {
-                    this.activeZones.push({
-                        id: `FVG_BEARISH_${candleTime}`, type: 'FVG', direction: 'BEARISH',
-                        price: (prev2.low + curr.high) / 2, upper_bound: prev2.low, lower_bound: curr.high,
-                        timeframe, strength: gap / this.volatility, score: 1.0, created_at: candleTime,
-                        mitigated: false, source_pattern: 'FVG_BEARISH'
-                    });
+                // Bearish FVG
+                if (prev2.low > curr.high) {
+                    const gap = (prev2.low - curr.high) / curr.high;
+                    if (gap >= k_sigma * 0.5) {
+                        this.activeZones.push({
+                            id: `FVG_BEARISH_${candleTime}`, type: 'FVG', direction: 'BEARISH',
+                            price: (prev2.low + curr.high) / 2, upper_bound: prev2.low, lower_bound: curr.high,
+                            timeframe, strength: gap / this.volatility, score: 1.0, created_at: candleTime,
+                            mitigated: false, source_pattern: 'FVG_BEARISH'
+                        });
+                    }
                 }
             }
 
@@ -117,6 +122,66 @@ export class LiquidityEngine {
             }
         }
 
+        // 2.5 Detect EQH / EQL from market structure markers
+        const eqhMarkers = (marketStructure && marketStructure.markers || []).filter(m => m.type === 'SWING_HIGH');
+        for (let i = 0; i < eqhMarkers.length; i++) {
+            for (let j = i + 1; j < eqhMarkers.length; j++) {
+                const m1 = eqhMarkers[i];
+                const m2 = eqhMarkers[j];
+                const diff = Math.abs(m1.price - m2.price) / Math.max(m1.price, m2.price);
+                if (diff <= 0.001) {
+                    const lower = Math.min(m1.price, m2.price);
+                    const upper = Math.max(m1.price, m2.price);
+                    const id = `EQH_${m1.timestamp || 0}_${m2.timestamp || 0}`;
+                    if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                        this.activeZones.push({
+                            id,
+                            type: 'EQH',
+                            direction: 'BEARISH',
+                            price: (lower + upper) / 2,
+                            lower_bound: lower,
+                            upper_bound: upper,
+                            timeframe,
+                            strength: 1.0,
+                            score: 1.0,
+                            created_at: m2.timestamp || Date.now(),
+                            mitigated: false,
+                            source_pattern: 'EQH'
+                        });
+                    }
+                }
+            }
+        }
+        const eqlMarkers = (marketStructure && marketStructure.markers || []).filter(m => m.type === 'SWING_LOW');
+        for (let i = 0; i < eqlMarkers.length; i++) {
+            for (let j = i + 1; j < eqlMarkers.length; j++) {
+                const m1 = eqlMarkers[i];
+                const m2 = eqlMarkers[j];
+                const diff = Math.abs(m1.price - m2.price) / Math.max(m1.price, m2.price);
+                if (diff <= 0.001) {
+                    const lower = Math.min(m1.price, m2.price);
+                    const upper = Math.max(m1.price, m2.price);
+                    const id = `EQL_${m1.timestamp || 0}_${m2.timestamp || 0}`;
+                    if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                        this.activeZones.push({
+                            id,
+                            type: 'EQL',
+                            direction: 'BULLISH',
+                            price: (lower + upper) / 2,
+                            lower_bound: lower,
+                            upper_bound: upper,
+                            timeframe,
+                            strength: 1.0,
+                            score: 1.0,
+                            created_at: m2.timestamp || Date.now(),
+                            mitigated: false,
+                            source_pattern: 'EQL'
+                        });
+                    }
+                }
+            }
+        }
+
         // 3. Sweeps Evaluation on the Live Candle (O(S) where S is max 20 recent swings)
         let sweep = { swept: null, level: 0 };
         const swingHighs = (marketStructure && marketStructure.markers || []).filter(m => m.type === 'SWING_HIGH').slice(-20);
@@ -125,11 +190,47 @@ export class LiquidityEngine {
         for (const sh of swingHighs) {
             if (lastCandle.high > sh.price && lastCandle.close <= sh.price) {
                 sweep = { swept: 'BSL', level: sh.price };
+                const candleTime = lastCandle.openTime !== undefined ? lastCandle.openTime : (lastCandle.timestamp || Date.now());
+                const id = `SWEEP_BSL_${candleTime}`;
+                if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                    this.activeZones.push({
+                        id,
+                        type: 'SWEEP',
+                        direction: 'BEARISH',
+                        price: sh.price,
+                        lower_bound: sh.price,
+                        upper_bound: lastCandle.high,
+                        timeframe,
+                        strength: 1.0,
+                        score: 1.0,
+                        created_at: candleTime,
+                        mitigated: false,
+                        source_pattern: 'SWEEP_BSL'
+                    });
+                }
             }
         }
         for (const sl of swingLows) {
             if (lastCandle.low < sl.price && lastCandle.close >= sl.price) {
                 sweep = { swept: 'SSL', level: sl.price };
+                const candleTime = lastCandle.openTime !== undefined ? lastCandle.openTime : (lastCandle.timestamp || Date.now());
+                const id = `SWEEP_SSL_${candleTime}`;
+                if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                    this.activeZones.push({
+                        id,
+                        type: 'SWEEP',
+                        direction: 'BULLISH',
+                        price: sl.price,
+                        lower_bound: lastCandle.low,
+                        upper_bound: sl.price,
+                        timeframe,
+                        strength: 1.0,
+                        score: 1.0,
+                        created_at: candleTime,
+                        mitigated: false,
+                        source_pattern: 'SWEEP_SSL'
+                    });
+                }
             }
         }
 

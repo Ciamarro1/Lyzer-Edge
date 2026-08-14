@@ -697,11 +697,14 @@ app.use((req, res, next) => {
 // --- AUTOMATIC BUCKET BACKUP SERVICE ---
 import { execFile } from 'child_process';
 const runBackup = () => {
+  if (process.env.BUCKET_BACKUP_ENABLED !== 'true' && !process.env.HF_TOKEN) {
+    return;
+  }
   const scriptPath = path.join(__dirname, '../backup_restore.py');
   const pythonBin = process.env.PYTHON_BIN || (process.platform === 'win32' ? 'python' : 'python3');
   console.log('[BACKUP] Triggering database backup to Hugging Face Storage Bucket...');
   execFile(pythonBin, [scriptPath, 'backup'], (err, stdout, stderr) => {
-    if (err) console.error('[BACKUP] Error running backup script:', err.message);
+    if (err) console.warn('[BACKUP] Backup skipped or failed:', err.message);
     if (stdout) console.log(stdout.trim());
     if (stderr) console.error(stderr.trim());
   });

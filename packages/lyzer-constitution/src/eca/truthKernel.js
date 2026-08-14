@@ -14,7 +14,7 @@ import { ExecutionTriggerLayer } from '../../../lyzer-shared/src/engine/executio
 export class TruthKernel {
   constructor(options = {}) {
     // Consolidated legacy masterSwitchThreshold fallback mapping to trgThreshold
-    const trgThreshold = options.trgThreshold || (options.masterSwitchThreshold ? options.masterSwitchThreshold / 100 : 0.4);
+    const trgThreshold = options.trgThreshold !== undefined ? options.trgThreshold : (options.masterSwitchThreshold !== undefined ? options.masterSwitchThreshold / 100 : 0.4);
     const masterSwitchThreshold = options.masterSwitchThreshold !== undefined ? options.masterSwitchThreshold : 50;
 
     this.masterSwitchThreshold = masterSwitchThreshold;

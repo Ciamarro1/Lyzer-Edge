@@ -127,7 +127,7 @@ if (-not $NoPush) {
     & cmd /c "git remote add hf-$($exp.Name) $remoteUrl 2>nul"
     Write-Host "    Enviando codigo..."
     $tmpOut = [System.IO.Path]::GetTempFileName()
-    & cmd /c "git push hf-$($exp.Name) master:main --force > `"$tmpOut`" 2>&1"
+    & cmd /c "git push hf-$($exp.Name) HEAD:main --force > `"$tmpOut`" 2>&1"
     $pushExit = $LASTEXITCODE
     Get-Content $tmpOut -ErrorAction SilentlyContinue | ForEach-Object { Write-Host "      $_" }
     Remove-Item $tmpOut -Force -ErrorAction SilentlyContinue
@@ -143,7 +143,7 @@ if (-not $NoPush) {
   foreach ($exp in $experiments) {
     $spaceId = "$Username/$($exp.Name)"
     Write-Host "  git remote add hf-$($exp.Name) https://${Username}:TOKEN@huggingface.co/spaces/${spaceId}"
-    Write-Host "  git push hf-$($exp.Name) master:main"
+    Write-Host "  git push hf-$($exp.Name) HEAD:main"
   }
 }
 

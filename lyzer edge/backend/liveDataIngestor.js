@@ -41,16 +41,20 @@ export class LiveDataIngestor {
     this.currentUrlIndex = (this.currentUrlIndex + 1) % BINANCE_BASE_URLS.length;
   }
 
-  async warmupCandles() {
+  async warmupCandles(limit = 500) {
+    const safeLimit = Math.max(10, Math.min(1000, Number(limit) || 500));
     for (let attempts = 0; attempts < BINANCE_BASE_URLS.length; attempts++) {
-      const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=1000`;
+      const url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=${safeLimit}`;
+      let controller = null;
+      let timeoutId = null;
       try {
         console.log(`[INGESTOR] Fetching warmup candles for ${this.symbol} from ${url}...`);
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 4000);
+        controller = new AbortController();
+        timeoutId = setTimeout(() => controller.abort(), 8000);
         
         const res = await safeFetch(url, { signal: controller.signal });
         clearTimeout(timeoutId);
+        timeoutId = null;
         
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const data = await res.json();
@@ -73,8 +77,10 @@ export class LiveDataIngestor {
           return closedCandles;
         }
       } catch (e) {
+        if (timeoutId) clearTimeout(timeoutId);
         console.warn(`[INGESTOR] Warmup failed via ${this.baseUrl}: ${e.message}. Trying next endpoint...`);
         this.rotateUrl();
+        await new Promise(r => setTimeout(r, 250));
       }
     }
 

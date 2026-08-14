@@ -1,11 +1,20 @@
-import { describe, test, expect } from 'vitest';
+import { describe, test, expect, beforeEach } from 'vitest';
 import { CausalMemoryDB } from '../../backend/db.js';
 import { CausalMemoryAdapter } from '../../src/causal-memory/index.js';
 import { CounterfactualSimulator } from '../../src/causal-reflection/CounterfactualSimulator.js';
+import fs from 'fs';
 
 describe('Fase 6.6 — CounterfactualSimulator Verification', () => {
+  const dbPath = '/tmp/data/test_counterfactual_sim.db';
+
+  beforeEach(() => {
+    if (fs.existsSync(dbPath)) {
+      try { fs.unlinkSync(dbPath); } catch (e) {}
+    }
+  });
+
   test('simulates counterfactual what-if scenarios on historical judgments', async () => {
-    const db = new CausalMemoryDB('/tmp/data/test_counterfactual_sim.db');
+    const db = new CausalMemoryDB(dbPath);
     const adapter = new CausalMemoryAdapter(db);
     const simulator = new CounterfactualSimulator(db);
     const correlationId = `sim_test_${Date.now()}`;

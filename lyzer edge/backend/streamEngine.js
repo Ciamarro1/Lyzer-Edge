@@ -71,9 +71,7 @@ export class StreamEngine extends EventEmitter {
     this.signalEngine = signalEngine;
     this.truthKernel = new TruthKernel({ trgThreshold, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
     
-    const activeCclistConfig = config.cclistConfig || cclistConfig;
-    const activeMolConfig = config.molConfig || { sclThreshold: molSclThreshold };
-    this.court = config.court || new ConstitutionalCourt(activeCclistConfig, activeMolConfig);
+    this.court = config.court || court;
 
     this.ecoEngine = new EVAlphaResearchEngineV3_3();
     this.extinctionEngine = this.ecoEngine.extinctionEngine;
@@ -138,12 +136,20 @@ export class StreamEngine extends EventEmitter {
 
     console.log(`[STREAM] Fetching MTF closed candles for warmup for ${this.symbol}...`);
     this.mtfCandles = {};
-    const tfs = ['1m', '5m', '15m', '1h', '4h', '1d'];
+    const tfLimits = {
+      '1m': 500,
+      '5m': 200,
+      '15m': 100,
+      '1h': 60,
+      '4h': 50,
+      '1d': 30
+    };
     
-    // Fallback standard warmup
-    for (const tf of tfs) {
+    // Fallback standard warmup with optimized limits
+    for (const [tf, lim] of Object.entries(tfLimits)) {
       const ing = new LiveDataIngestor(this.symbol, tf);
-      this.mtfCandles[tf] = await ing.warmupCandles();
+      this.mtfCandles[tf] = await ing.warmupCandles(lim);
+      await new Promise(r => setTimeout(r, 100)); // Pace requests to avoid buffer congestion
     }
     this.setupMtfAliases();
     this.candles = this.mtfCandles['1m'];
@@ -154,8 +160,9 @@ export class StreamEngine extends EventEmitter {
       const path = await import('path');
       const filename = path.join(process.cwd(), `historical_data_${this.symbol}.json`);
       const rawData = await fs.readFile(filename, 'utf8');
-      const allCandles = JSON.parse(rawData);
-      const warmupCandles = allCandles.slice(-10000); // 34 days of 5m candles
+      let allCandles = JSON.parse(rawData);
+      const warmupCandles = allCandles.slice(-3000); // 10 days of 5m candles is optimal for LHDS stabilization
+      allCandles = null; // Dereference immediately to reclaim heap
       
       console.log(`[STREAM] Loaded ${warmupCandles.length} historical candles. Warming up TruthKernel...`);
       for (const c of warmupCandles) {
@@ -279,6 +286,25 @@ export class StreamEngine extends EventEmitter {
       get: () => this.mtfCandles['1h'] || [],
       configurable: true
     });
+  }
+
+  warmupSyntheticCandles(count = 110) {
+    const basePrice = 50000;
+    const now = Date.now();
+    for (let i = count - 1; i >= 0; i--) {
+      const openTime = now - i * 60000;
+      const candle = {
+        openTime,
+        open: basePrice,
+        high: basePrice + 10,
+        low: basePrice - 10,
+        close: basePrice + (Math.sin(i / 5) * 5),
+        volume: 100,
+        closed: true,
+        timestamp: openTime
+      };
+      this.updateMtfCandles(candle);
+    }
   }
 
   initializeExecution() {
@@ -578,7 +604,9 @@ export class StreamEngine extends EventEmitter {
 
     recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
-    // C-CLIST stress accumulation and MOL state evaluation occur strictly inside court.requestPermission()
+    // C-CLIST stress accumulation and telemetry tracking on every tick
+    const cclistEvaluation = this.court.cclist.evaluateStress(kernelResult.trg, kernelResult.dvf);
+    recordCclistEvaluation(this.symbol, cclistEvaluation.stressLevel, cclistEvaluation.isLethalIllusion);
 
     // Update Spectrogram UI
     if (this.mode === 'LIVE' || this.mode === 'TESTNET') {
@@ -875,7 +903,8 @@ export class StreamEngine extends EventEmitter {
             causation_id: causationId,
             symbol: this.symbol,
             side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
-            quantity: 0.001
+            quantity: 0.001,
+            mode: this.mode
           });
 
           if (!grpcResult.approved) {

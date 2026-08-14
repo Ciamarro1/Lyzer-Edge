@@ -158,7 +158,8 @@ export class ChartHostWidget {
 
   async _loadRealCandles(symbol) {
     try {
-      const response = await fetch('/api/candles/' + symbol);
+      const origin = (typeof window !== 'undefined' && window.location && window.location.origin && window.location.origin !== 'null') ? window.location.origin : 'http://localhost:5173';
+      const response = await fetch(`${origin}/api/candles/${symbol}?limit=1500`);
       if (!response.ok) throw new Error('API failed');
       const data = await response.json();
       const candles = data.candles || [];
@@ -204,6 +205,7 @@ export class ChartHostWidget {
   }
 
   _applyTimeframe() {
+    if (!this._adapter) return;
     const tfConfig = TIMEFRAMES.find(t => t.id === this._activeTf);
     if (!tfConfig) return;
     const seconds = tfConfig.seconds;
@@ -584,8 +586,40 @@ export class ChartHostWidget {
   }
 
   _startLiveUpdates() {
-    // Subscribe directly to wsClient for tick-by-tick real-time updates
+    // If runtime provides subscribeMarketData, subscribe through runtime
+    if (this._runtime && typeof this._runtime.subscribeMarketData === 'function') {
+      this._runtimeMarketUnsub = this._runtime.subscribeMarketData({ symbol: this._activeSymbol }, (market) => {
+        if (!market) return;
+        const tfConfig = TIMEFRAMES.find(t => t.id === this._activeTf);
+        const tfSeconds = tfConfig?.seconds || 60;
+        const rawTime = market.openTime || market.time || market.timestamp || Date.now();
+        const timeSec = rawTime > 1e11 ? Math.floor(rawTime / 1000) : rawTime;
+        const bucketTime = Math.floor(timeSec / tfSeconds) * tfSeconds;
 
+        const chartCandle = {
+          time: bucketTime,
+          open: Number(market.open),
+          high: Number(market.high),
+          low: Number(market.low),
+          close: Number(market.close),
+          volume: Number(market.volume || 0)
+        };
+
+        const lastDisplay = this._displayCandles[this._displayCandles.length - 1];
+        if (lastDisplay && lastDisplay.time === bucketTime) {
+          lastDisplay.high = Math.max(lastDisplay.high, chartCandle.high);
+          lastDisplay.low = Math.min(lastDisplay.low, chartCandle.low);
+          lastDisplay.close = chartCandle.close;
+          lastDisplay.volume = chartCandle.volume;
+          this._adapter.updateCandle(lastDisplay);
+        } else if (!lastDisplay || bucketTime > lastDisplay.time) {
+          this._displayCandles.push(chartCandle);
+          this._adapter.updateCandle(chartCandle);
+        }
+      });
+    }
+
+    // Subscribe directly to wsClient for tick-by-tick real-time updates
     this._wsUnsubChart = wsClient.onData((data) => {
       if (!this._container || !this._container.isConnected) {
         if (this._wsUnsubChart) { wsClient.offData(this._wsUnsubChart); this._wsUnsubChart = null; }
@@ -672,6 +706,11 @@ export class ChartHostWidget {
 
   dispose() {
     if (this._liveInterval) { clearInterval(this._liveInterval); this._liveInterval = null; }
+    if (this._runtimeMarketUnsub) {
+      if (typeof this._runtimeMarketUnsub === 'function') this._runtimeMarketUnsub();
+      else if (typeof this._runtimeMarketUnsub.dispose === 'function') this._runtimeMarketUnsub.dispose();
+      this._runtimeMarketUnsub = null;
+    }
     if (this._wsUnsubChart) { wsClient.offData(this._wsUnsubChart); this._wsUnsubChart = null; }
     if (this._plotListener) { window.removeEventListener('lyzer:plot-trade', this._plotListener); this._plotListener = null; }
     if (this._adapter) { this._adapter.dispose(); this._adapter = null; }

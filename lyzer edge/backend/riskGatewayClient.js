@@ -31,10 +31,10 @@ try {
   console.warn('⚠️ [gRPC Client] Failed to load RiskGateway proto: ' + err.message);
 }
 
-export function authorizeOrder(intent) {
+export function authorizeOrder(intent = {}) {
   return new Promise((resolve) => {
-    const mode = (process.env.ARL_MODE || '').trim();
-    if (mode === 'SIMULATION' || mode === 'TESTNET') {
+    const mode = (intent.mode || process.env.ARL_MODE || 'SIMULATION').trim();
+    if (mode !== 'LIVE') {
       return resolve({ approved: true, rejection_reason: '' });
     }
     
