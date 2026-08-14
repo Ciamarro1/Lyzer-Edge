@@ -1,9 +1,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
-
-dotenv.config({ path: path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../../.env') });
+import '../env.js';
 process.env.ARL_MODE = 'SIMULATION';
 process.env.COURT_SECRET_KEY = "MOCK_SECRET";
 process.env.TRG_THRESHOLD = "0.35";
