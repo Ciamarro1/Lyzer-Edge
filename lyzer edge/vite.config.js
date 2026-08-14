@@ -2,7 +2,9 @@ import { defineConfig } from 'vite';
 import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
+  envDir: '../',
   server: {
+    port: 5173,
     proxy: {
       '/api': {
         target: 'http://127.0.0.1:7860',
