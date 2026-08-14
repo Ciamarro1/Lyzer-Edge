@@ -1,5 +1,5 @@
 # --- STAGE 1: Build Rust Hub, Node.js packages and download NATS ---
-FROM rust:1.85-bookworm as builder
+FROM rust:latest as builder
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
