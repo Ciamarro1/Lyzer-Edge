@@ -52,8 +52,8 @@ COPY --from=builder /usr/local/bin/nats-server /usr/local/bin/nats-server
 COPY --from=builder /app/lyzer-workspace/target/release/lyzer-core-hub /usr/local/bin/lyzer-core-hub
 
 # Copy Rust RiskGateway and IntentRegistry
-COPY --from=builder "/app/lyzer edge/src-rust/target/release/lyzer-risk-gateway" /usr/local/bin/lyzer-risk-gateway
-COPY --from=builder "/app/lyzer edge/src-rust/target/release/lyzer-intent-registry" /usr/local/bin/lyzer-intent-registry
+COPY --from=builder ["/app/lyzer edge/src-rust/target/release/lyzer-risk-gateway", "/usr/local/bin/lyzer-risk-gateway"]
+COPY --from=builder ["/app/lyzer edge/src-rust/target/release/lyzer-intent-registry", "/usr/local/bin/lyzer-intent-registry"]
 
 # Copy the rest of the application files
 COPY --from=builder /app /app
