@@ -163,6 +163,14 @@ export class ChartHostWidget {
       const data = await response.json();
       const candles = data.candles || [];
       
+      if (candles.length === 0) {
+        console.log(`[ChartHost] No candles yet for ${symbol} (engine might be warming up), retrying in 3s...`);
+        setTimeout(() => {
+          if (this._activeSymbol === symbol) this._loadRealCandles(symbol);
+        }, 3000);
+        return;
+      }
+
       this._rawCandles = candles.map(c => ({
         time: Math.floor(new Date(c.timestamp || c.openTime || c.time).getTime() / 1000),
         open: Number(c.open),
