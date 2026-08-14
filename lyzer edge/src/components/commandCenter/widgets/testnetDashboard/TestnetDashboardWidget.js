@@ -103,6 +103,9 @@ export class TestnetDashboardWidget {
     // Fetch testnet dashboard (Binance API)
     try {
       const response = await fetch('/api/testnet-dashboard');
+      if (!response.ok) {
+        throw new Error(`HTTP Error: ${response.status} ${response.statusText}`);
+      }
       const data = await response.json();
       if (data.error) throw new Error(data.error);
       this._updateTestnetUI(data);
@@ -118,17 +121,24 @@ export class TestnetDashboardWidget {
     try {
       const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT'];
       const allTrades = [];
+      let hadError = false;
       await Promise.all(symbols.map(async sym => {
         try {
           const r = await fetch(`/api/candles/${sym}`);
+          if (!r.ok) {
+            hadError = true;
+            return;
+          }
           const d = await r.json();
           if (d.trades && Array.isArray(d.trades)) {
             d.trades.forEach(t => allTrades.push({ ...t, symbol: sym }));
           }
-        } catch (_) {}
+        } catch (_) {
+          hadError = true;
+        }
       }));
       allTrades.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-      this._updateEngineTradesUI(allTrades);
+      this._updateEngineTradesUI(allTrades, hadError);
     } catch (err) {
       console.error('[TestnetDashboard] Engine trades error:', err);
     }
@@ -184,10 +194,15 @@ export class TestnetDashboardWidget {
     }
   }
 
-  _updateEngineTradesUI(trades) {
+  _updateEngineTradesUI(trades, hadError = false) {
     if (!this._mounted) return;
     const container = this._container.querySelector('#engine-trades-container');
     if (!container) return;
+
+    if (hadError) {
+      container.innerHTML = '<div style="color: var(--danger-color); text-align: center; padding: 16px 0; font-size: 11px;">Erro ao carregar trades (HTTP Error)</div>';
+      return;
+    }
 
     if (trades.length === 0) {
       container.innerHTML = '<div style="color: var(--text-secondary); text-align: center; padding: 16px 0;">Sem trades registrados</div>';
