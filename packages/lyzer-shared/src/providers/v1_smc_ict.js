@@ -19,10 +19,10 @@ export class LiquidityReconstructionEngine {
      */
     reconstruct(mtfCandles) {
         // Fallback to intermediate (M5) for structural liquidity mapping
-        const candles = (mtfCandles.intermediate && mtfCandles.intermediate.length >= 5)
+        const candles = (mtfCandles.intermediate && mtfCandles.intermediate.length >= 21)
             ? mtfCandles.intermediate
             : (mtfCandles.fast || []);
-        if (candles.length < 5) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
+        if (candles.length < 21) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
 
         const current = candles[candles.length - 1];
         const prev1 = candles[candles.length - 2];
@@ -47,18 +47,37 @@ export class LiquidityReconstructionEngine {
             confidence += 30;
         }
 
-        // 2. Detect Liquidity Sweep
-        // Bullish Sweep: current goes below prev1 low but closes above it
-        if (current.low < prev1.low && current.close > prev1.low) {
-            narrative = 'SELL_SIDE_LIQUIDITY_SWEPT';
-            signal = 'long';
-            confidence += 40;
+        // 2. Detect Liquidity Sweep (Structural Sweep N=20)
+        const lookback = parseInt(process.env.SMC_LOOKBACK) || 20;
+        
+        // We need enough candles for the lookback + current
+        if (candles.length < lookback + 1) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
+
+        let majorHigh = -Infinity;
+        let majorLow = Infinity;
+
+        for (let i = candles.length - 1 - lookback; i < candles.length - 1; i++) {
+            if (candles[i].high > majorHigh) majorHigh = candles[i].high;
+            if (candles[i].low < majorLow) majorLow = candles[i].low;
         }
-        // Bearish Sweep: current goes above prev1 high but closes below it
-        if (current.high > prev1.high && current.close < prev1.high) {
-            narrative = 'BUY_SIDE_LIQUIDITY_SWEPT';
+
+        const totalRange = current.high - current.low;
+        const tailThreshold = totalRange * 0.5;
+
+        // Bullish Sweep (Sell-Side Liquidity): price pierces majorLow but rejects forming a bullish pin bar
+        const isBullishPinBar = (current.close - current.low) >= tailThreshold && (current.open - current.low) >= tailThreshold;
+        if (current.low < majorLow && current.close > majorLow && isBullishPinBar) {
+            narrative = 'MAJOR_SSL_SWEPT_WITH_REJECTION';
+            signal = 'long';
+            confidence += 85;
+        }
+
+        // Bearish Sweep (Buy-Side Liquidity): price pierces majorHigh but rejects forming a bearish pin bar
+        const isBearishPinBar = (current.high - current.close) >= tailThreshold && (current.high - current.open) >= tailThreshold;
+        if (current.high > majorHigh && current.close < majorHigh && isBearishPinBar) {
+            narrative = 'MAJOR_BSL_SWEPT_WITH_REJECTION';
             signal = 'short';
-            confidence += 40;
+            confidence += 85;
         }
 
         // Normalize confidence

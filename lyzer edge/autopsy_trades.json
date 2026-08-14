@@ -1,0 +1,1018 @@
+[
+  {
+    "id": "trade_53378",
+    "timestamp": 1782208800,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 62561.58,
+    "exitPrice": 62586,
+    "pnl": -0.0007903354103268852,
+    "mfe": 0.0028066746396111443,
+    "mae": -0.00039033541032688516,
+    "initialStopLoss": 62624.141579999996,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 10.53,
+      "reasons": [
+        "BEARISH_FVG_DETECTED",
+        "TRENDING_TO_SUPPLY",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (62561.58) broke BELOW Value Area Low (63319.5)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 62586,
+    "takeProfit": 62405.17605,
+    "ev": {
+      "tradeId": "trade_53378",
+      "pnl": -0.0007903354103268852,
+      "totalEV": -0.0002,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": 0,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 10.53,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_59392",
+    "timestamp": 1783110900,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 62686.64,
+    "exitPrice": 62749.32663999999,
+    "pnl": -0.0013999999999998822,
+    "mfe": 0.0003260662878087313,
+    "mae": -0.0035275459013275777,
+    "initialStopLoss": 62749.32663999999,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 34.64,
+      "reasons": [
+        "MAJOR_BSL_SWEPT_WITH_REJECTION",
+        "TRENDING_TO_SUPPLY",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (62686.64) broke ABOVE Value Area High (62282)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 62749.32663999999,
+    "takeProfit": 62529.9234,
+    "ev": {
+      "tradeId": "trade_59392",
+      "pnl": -0.0013999999999998822,
+      "totalEV": -0.000809664589672997,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": -0.0006096645896729971,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 34.64,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_62632",
+    "timestamp": 1783596900,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 62684,
+    "exitPrice": 62621.316,
+    "pnl": -0.0014000000000000175,
+    "mfe": 0.00009571820560270563,
+    "mae": -0.001106183396081879,
+    "initialStopLoss": 62621.316,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 29.47,
+      "reasons": [
+        "MAJOR_SSL_SWEPT_WITH_REJECTION",
+        "TRENDING_TO_DEMAND",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (62684) is INSIDE Value Area [61632, 63172]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 62621.316,
+    "takeProfit": 62840.71,
+    "ev": {
+      "tradeId": "trade_62632",
+      "pnl": -0.0014000000000000175,
+      "totalEV": -0.0005048322948366339,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": -0.00030483229483663395,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 29.47,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_63182",
+    "timestamp": 1783679400,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64426.38,
+    "exitPrice": 64490.80637999999,
+    "pnl": -0.0013999999999998428,
+    "mfe": 0.00031633004989566976,
+    "mae": -0.0010626082048999048,
+    "initialStopLoss": 64490.80637999999,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 29.47,
+      "reasons": [
+        "MAJOR_BSL_SWEPT_WITH_REJECTION",
+        "RESISTANCE_REJECTION",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64426.38) broke ABOVE Value Area High (63086.5)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 64490.80637999999,
+    "takeProfit": 64265.31405,
+    "ev": {
+      "tradeId": "trade_63182",
+      "pnl": -0.0013999999999998428,
+      "totalEV": -0.0004032215298909145,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": -0.00020322152989091452,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 29.47,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_67248",
+    "timestamp": 1784289300,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 63298.01,
+    "exitPrice": 63361.30800999999,
+    "pnl": -0.0013999999999998632,
+    "mfe": 0.000009794936681305136,
+    "mae": -0.001006192769725226,
+    "initialStopLoss": 63361.30800999999,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 29.47,
+      "reasons": [
+        "MAJOR_BSL_SWEPT_WITH_REJECTION",
+        "TRENDING_TO_SUPPLY",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (63298.01) broke BELOW Value Area Low (63888)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 63361.30800999999,
+    "takeProfit": 63139.764975000006,
+    "ev": {
+      "tradeId": "trade_67248",
+      "pnl": -0.0013999999999998632,
+      "totalEV": -0.0017524161474180493,
+      "breakdown": {
+        "signalEV": -0.0013999999999998428,
+        "regimeEV": -0.00015241614741820638,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 29.47,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_71836",
+    "timestamp": 1784977500,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64058.69,
+    "exitPrice": 64122.74868999999,
+    "pnl": -0.0013999999999998556,
+    "mfe": 0.00024493164003201327,
+    "mae": -0.0009703601494191689,
+    "initialStopLoss": 64122.74868999999,
+    "stopLoss": 64122.74868999999,
+    "takeProfit": 63898.543275,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 29.47,
+      "reasons": [
+        "MAJOR_BSL_SWEPT_WITH_REJECTION",
+        "TRENDING_TO_DEMAND",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64058.69) is INSIDE Value Area [63739.5, 65032.5]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": false,
+    "ev": {
+      "tradeId": "trade_71836",
+      "pnl": -0.0013999999999998556,
+      "totalEV": -0.0017219329179344106,
+      "breakdown": {
+        "signalEV": -0.001399999999999853,
+        "regimeEV": -0.00012193291793455752,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 29.47,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_72370",
+    "timestamp": 1785057600,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64545.35,
+    "exitPrice": 64513.077325000006,
+    "pnl": 0.00009999999999988989,
+    "mfe": 0.00024478912888373266,
+    "mae": -1.549298284390319e-7,
+    "initialStopLoss": 64609.89534999999,
+    "stopLoss": 64513.077325000006,
+    "takeProfit": 64383.986625000005,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 17.42,
+      "reasons": [
+        "BULLISH_FVG_DETECTED",
+        "RESISTANCE_REJECTION",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64545.35) broke ABOVE Value Area High (64387.5)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": true,
+    "ev": {
+      "tradeId": "trade_72370",
+      "pnl": 0.00009999999999988989,
+      "totalEV": 0.0011983892350542807,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": 0.0013983892350542808,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_72380",
+    "timestamp": 1785059100,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64549.01,
+    "exitPrice": 64516.73549500001,
+    "pnl": 0.00009999999999990626,
+    "mfe": 0.00017056806913075875,
+    "mae": -1.5492104363430685e-7,
+    "initialStopLoss": 64613.55901,
+    "stopLoss": 64516.73549500001,
+    "takeProfit": 64387.637475,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 17.42,
+      "reasons": [
+        "BULLISH_FVG_DETECTED",
+        "RESISTANCE_REJECTION",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64549.01) broke ABOVE Value Area High (64389)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": true,
+    "ev": {
+      "tradeId": "trade_72380",
+      "pnl": 0.00009999999999990626,
+      "totalEV": 0.0010986193443321467,
+      "breakdown": {
+        "signalEV": 0.00009999999999988989,
+        "regimeEV": 0.0011986193443322569,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_72994",
+    "timestamp": 1785151200,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 65185.14,
+    "exitPrice": 65217.73256999999,
+    "pnl": 0.00009999999999989921,
+    "mfe": 0.001182171274005052,
+    "mae": 0,
+    "initialStopLoss": 65119.95486,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 17.42,
+      "reasons": [
+        "BEARISH_FVG_DETECTED",
+        "SUPPORT_BOUNCE",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (65185.14) is INSIDE Value Area [64043, 65239.5]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 65217.73256999999,
+    "takeProfit": 65348.102849999996,
+    "ev": {
+      "tradeId": "trade_72994",
+      "pnl": 0.00009999999999989921,
+      "totalEV": 0.0008487919262907178,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": 0.0010487919262907178,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_73782",
+    "timestamp": 1785269400,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 63989.71,
+    "exitPrice": 63957.715145,
+    "pnl": 0.00009999999999995614,
+    "mfe": 0.0010556384768737916,
+    "mae": -0.00007454323515459086,
+    "initialStopLoss": 64053.69970999999,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 17.42,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "RESISTANCE_REJECTION",
+        "STRONG_BULLISH_MOMENTUM_BREAKOUT",
+        "No Wyckoff schematic detected.",
+        "Price (63989.71) is INSIDE Value Area [63581, 65744.5]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 63957.715145,
+    "takeProfit": 63829.735725000006,
+    "ev": {
+      "tradeId": "trade_73782",
+      "pnl": 0.00009999999999995614,
+      "totalEV": 0.0008322594900361486,
+      "breakdown": {
+        "signalEV": 0.00009999999999989808,
+        "regimeEV": 0.0009322594900362506,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_75220",
+    "timestamp": 1785485100,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 63862,
+    "exitPrice": 63893.931,
+    "pnl": 0.00009999999999995082,
+    "mfe": 0.001403338448529683,
+    "mae": 0,
+    "initialStopLoss": 63798.138,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 24.31,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "SUPPORT_BREAKDOWN",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (63862) is INSIDE Value Area [63862, 64721]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 63893.931,
+    "takeProfit": 64021.655,
+    "ev": {
+      "tradeId": "trade_75220",
+      "pnl": 0.00009999999999995082,
+      "totalEV": 0.0006390335410326203,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": 0.0008390335410326203,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 24.31,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_75234",
+    "timestamp": 1785487200,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 63850.05,
+    "exitPrice": 63786.19995,
+    "pnl": -0.0014000000000000143,
+    "mfe": 0.0008551285394451303,
+    "mae": -0.0005235704592243904,
+    "initialStopLoss": 63786.19995,
+    "stopLoss": 63786.19995,
+    "takeProfit": 64009.675125,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 24.31,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "SUPPORT_BREAKDOWN",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (63850.05) is INSIDE Value Area [63816.5, 64698]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": false,
+    "ev": {
+      "tradeId": "trade_75234",
+      "pnl": -0.0014000000000000143,
+      "totalEV": -0.000837242235424905,
+      "breakdown": {
+        "signalEV": 0.00009999999999995082,
+        "regimeEV": -0.0007372422354248559,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 24.31,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_75252",
+    "timestamp": 1785489900,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 63694.74,
+    "exitPrice": 63726.587369999994,
+    "pnl": 0.0000999999999999351,
+    "mfe": 0.000528144082227189,
+    "mae": -0.0008879854129241704,
+    "initialStopLoss": 63631.04526,
+    "stopLoss": 63726.587369999994,
+    "takeProfit": 63853.97684999999,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 24.31,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "SUPPORT_BREAKDOWN",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (63694.74) broke BELOW Value Area Low (63784.5)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": true,
+    "ev": {
+      "tradeId": "trade_75252",
+      "pnl": 0.0000999999999999351,
+      "totalEV": -0.00002580538247286683,
+      "breakdown": {
+        "signalEV": -0.0006500000000000317,
+        "regimeEV": 0.0008241946175271649,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 24.31,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_75268",
+    "timestamp": 1785492300,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 63704,
+    "exitPrice": 63640.296,
+    "pnl": -0.001399999999999967,
+    "mfe": 0,
+    "mae": -0.0014755745322114781,
+    "initialStopLoss": 63640.296,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 29.47,
+      "reasons": [
+        "MAJOR_SSL_SWEPT_WITH_REJECTION",
+        "SUPPORT_BOUNCE",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (63704) broke BELOW Value Area Low (63784.5)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 63640.296,
+    "takeProfit": 63863.259999999995,
+    "ev": {
+      "tradeId": "trade_75268",
+      "pnl": -0.001399999999999967,
+      "totalEV": -0.002339204968436383,
+      "breakdown": {
+        "signalEV": -0.0014000000000000175,
+        "regimeEV": -0.0007392049684363653,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 29.47,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_76948",
+    "timestamp": 1785744300,
+    "symbol": "BTCUSDT",
+    "direction": "LONG",
+    "entryPrice": 62539.13,
+    "exitPrice": 62570.39956499999,
+    "pnl": 0.00009999999999992101,
+    "mfe": 0.001457167696448682,
+    "mae": -1.5989988979317927e-7,
+    "initialStopLoss": 62476.59087,
+    "status": "closed",
+    "signal": {
+      "type": "LONG",
+      "confidence": 24.31,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "SUPPORT_BREAKDOWN",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (62539.13) broke BELOW Value Area Low (62849)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "stopLoss": 62570.39956499999,
+    "takeProfit": 62695.477824999994,
+    "ev": {
+      "tradeId": "trade_76948",
+      "pnl": 0.00009999999999992101,
+      "totalEV": 0.00021359538645179173,
+      "breakdown": {
+        "signalEV": -0.00040000000000004285,
+        "regimeEV": 0.0008135953864518346,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 24.31,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_79324",
+    "timestamp": 1786100700,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64976,
+    "exitPrice": 64943.512,
+    "pnl": 0.00009999999999996242,
+    "mfe": 0.0003098066978576302,
+    "mae": -0.0000284720512188892,
+    "initialStopLoss": 65040.975999999995,
+    "stopLoss": 64943.512,
+    "takeProfit": 64813.560000000005,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 24.31,
+      "reasons": [
+        "NEUTRAL_LIQUIDITY",
+        "RESISTANCE_BREAKOUT",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64976) broke ABOVE Value Area High (64813)."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": true,
+    "ev": {
+      "tradeId": "trade_79324",
+      "pnl": 0.00009999999999996242,
+      "totalEV": 0.0005593556940217537,
+      "breakdown": {
+        "signalEV": 0,
+        "regimeEV": 0.0007593556940217537,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 24.31,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_80460",
+    "timestamp": 1786271100,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64970.37,
+    "exitPrice": 64937.884815000005,
+    "pnl": 0.00009999999999996503,
+    "mfe": 0.0003989510910897618,
+    "mae": -0.00008403830853971012,
+    "initialStopLoss": 65035.34037,
+    "stopLoss": 64937.884815000005,
+    "takeProfit": 64807.94407500001,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 17.42,
+      "reasons": [
+        "BULLISH_FVG_DETECTED",
+        "RESISTANCE_REJECTION",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64970.37) is INSIDE Value Area [64812.5, 65102]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": true,
+    "ev": {
+      "tradeId": "trade_80460",
+      "pnl": 0.00009999999999996503,
+      "totalEV": 0.000611895963145314,
+      "breakdown": {
+        "signalEV": 0.00009999999999991743,
+        "regimeEV": 0.0007118959631453966,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "TRUE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  },
+  {
+    "id": "trade_81556",
+    "timestamp": 1786435500,
+    "symbol": "BTCUSDT",
+    "direction": "SHORT",
+    "entryPrice": 64069.91,
+    "exitPrice": 64133.979909999995,
+    "pnl": -0.0013999999999998606,
+    "mfe": 0.0003931642794566486,
+    "mae": -0.0007505863516898417,
+    "initialStopLoss": 64133.979909999995,
+    "stopLoss": 64133.979909999995,
+    "takeProfit": 63909.735225000004,
+    "status": "closed",
+    "signal": {
+      "type": "SHORT",
+      "confidence": 17.42,
+      "reasons": [
+        "BULLISH_FVG_DETECTED",
+        "RESISTANCE_REJECTION",
+        "MOMENTUM_NEUTRAL",
+        "No Wyckoff schematic detected.",
+        "Price (64069.91) is INSIDE Value Area [64065.5, 65391]. Choppy noise."
+      ]
+    },
+    "regime": "BALANCED",
+    "governanceDecision": "ALLOW",
+    "wasRejected": false,
+    "reasonCodes": [
+      "STOP_LOSS"
+    ],
+    "slippage": 0.0001,
+    "spread": 0.0001,
+    "distortionFactor": 1,
+    "timingOffset": 0,
+    "breakEvenApplied": false,
+    "ev": {
+      "tradeId": "trade_81556",
+      "pnl": -0.0013999999999998606,
+      "totalEV": -0.0009299802699806994,
+      "breakdown": {
+        "signalEV": 0.00009999999999992933,
+        "regimeEV": -0.0008299802699806288,
+        "governanceEV": 0,
+        "executionEV": -0.0002,
+        "timingEV": 0
+      },
+      "classification": "FALSE_POSITIVE",
+      "meta": {
+        "confidence": 17.42,
+        "regime": "BALANCED",
+        "reasonCodes": [
+          "STOP_LOSS"
+        ]
+      }
+    }
+  }
+]
