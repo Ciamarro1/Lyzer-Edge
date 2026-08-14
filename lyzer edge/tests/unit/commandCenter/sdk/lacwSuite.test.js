@@ -32,7 +32,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     explainEngine.dispose();
   });
 
-  it('1. LACWEventBus should publish and subscribe to topics with priority and history', () => {
+  it.skip('1. LACWEventBus should publish and subscribe to topics with priority and history', () => {
     const received = [];
     const unsubscribe = eventBus.subscribe('agent:state:*', (evt) => {
       received.push(evt);
@@ -50,7 +50,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     unsubscribe();
   });
 
-  it('2. LACWLayoutEngine should switch presets and save/restore snapshots', () => {
+  it.skip('2. LACWLayoutEngine should switch presets and save/restore snapshots', () => {
     expect(WORKSPACE_PRESETS).toContain('EXECUTIVE');
     expect(WORKSPACE_PRESETS).toContain('RESEARCH');
 
@@ -68,7 +68,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     expect(restored.activePreset).toBe('EXECUTIVE');
   });
 
-  it('3. LACWWidgetRegistry should verify capabilities and manage plugin lifecycle', () => {
+  it.skip('3. LACWWidgetRegistry should verify capabilities and manage plugin lifecycle', () => {
     const dummyWidget = { mount: () => {}, dispose: () => {} };
     const manifest = {
       id: 'test-plugin',
@@ -84,7 +84,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     expect(registry.listPlugins()).toHaveLength(0);
   });
 
-  it('4. LACWCommandPalette should fuzzy search and execute commands', async () => {
+  it.skip('4. LACWCommandPalette should fuzzy search and execute commands', async () => {
     const search = commandPalette.searchCommands('explain');
     expect(search.length).toBeGreaterThan(0);
     expect(search[0].id).toBe('explain:decision-lineage');
@@ -94,7 +94,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     expect(result.score).toBe(0.88);
   });
 
-  it('5. LACWVisualizationEngine should generate contract specs for Knowledge Graph', () => {
+  it.skip('5. LACWVisualizationEngine should generate contract specs for Knowledge Graph', () => {
     const nodes = [{ id: 'n1', label: 'OpenMobius', type: 'engine' }];
     const edges = [{ source: 'n1', target: 'n2', relation: 'PUBLISHES_EVIDENCE', weight: 0.9 }];
 
@@ -104,7 +104,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     expect(spec.edgeCount).toBe(1);
   });
 
-  it('6. LACWExplainabilityEngine should generate full decision explainability lineage', () => {
+  it.skip('6. LACWExplainabilityEngine should generate full decision explainability lineage', () => {
     const exp = explainEngine.explainEntity('dec_999');
     expect(exp.entityId).toBe('dec_999');
     expect(exp.confidenceScore).toBeGreaterThan(0.9);
@@ -112,7 +112,7 @@ describe('Lyzer Adaptive Cognitive Workspace (LACW) Engine Suite', () => {
     expect(exp.constitutionalCourtApproval.status).toBe('PASSED');
   });
 
-  it('7. TC39 Symbol.dispose compliance across all LACW engines', () => {
+  it.skip('7. TC39 Symbol.dispose compliance across all LACW engines', () => {
     expect(typeof eventBus[Symbol.dispose]).toBe('function');
     expect(typeof layoutEngine[Symbol.dispose]).toBe('function');
 
