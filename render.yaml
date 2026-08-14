@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: lyzer-edge
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_OPTIONS
+        value: --max-old-space-size=384
+      - key: ARL_MODE
+        value: TESTNET
+      - key: LIVE_TRADING_ENABLED
+        value: false
+      - key: MAX_DAILY_CAPITAL
+        value: 1000
