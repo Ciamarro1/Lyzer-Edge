@@ -645,13 +645,23 @@ export class StreamEngine extends EventEmitter {
       combinedSignal = v6Narrative.signal;
     }
 
+    // Normalize signal to standard Lyzer core grammar (LONG, SHORT, FLAT)
+    let sigStr = String(combinedSignal).toUpperCase();
+    if (sigStr.includes('LONG') || sigStr.includes('BUY') || sigStr.includes('BULL') || sigStr === 'GO') {
+      combinedSignal = 'LONG';
+    } else if (sigStr.includes('SHORT') || sigStr.includes('SELL') || sigStr.includes('BEAR')) {
+      combinedSignal = 'SHORT';
+    } else {
+      combinedSignal = 'FLAT';
+    }
+
     // [Lyzer Golden Hours] Time-Windowing filter
     const dateObj = new Date(candle.timestamp || candle.openTime || Date.now());
     const utcHours = dateObj.getUTCHours();
     const isGoldenHour = (utcHours >= 8 && utcHours < 12) || (utcHours >= 19 && utcHours < 21);
     
-    if (process.env.ABLATION_NO_GOLDEN_HOURS !== 'true' && !isGoldenHour && combinedSignal !== 'flat') {
-        combinedSignal = 'flat';
+    if (process.env.ABLATION_NO_GOLDEN_HOURS !== 'true' && !isGoldenHour && combinedSignal !== 'FLAT') {
+        combinedSignal = 'FLAT';
         v1Narrative.narrative = 'VETO: OUTSIDE_GOLDEN_HOURS';
     }
 
@@ -867,9 +877,8 @@ export class StreamEngine extends EventEmitter {
 
     // B. Check for new trade execution
     // console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
-    if (kernelResult.eef && !this.activePosition) {
-      const signalLower = String(baseSignal.signal).toLowerCase();
-      const direction = (signalLower === 'go' || signalLower === 'long') ? 'LONG' : 'SHORT';
+    if (kernelResult.eef && !this.activePosition && baseSignal.signal !== 'FLAT') {
+      const direction = baseSignal.signal;
       
       const currentCandleIdx = index;
       const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
@@ -1123,7 +1132,7 @@ export class StreamEngine extends EventEmitter {
           metrics: { lhds: kernelResult.lhds_df !== undefined ? kernelResult.lhds_df : kernelResult.lhds, dvf: kernelResult.dvf, trg: kernelResult.trg }
         },
         ag_alpha: {
-          status: baseSignal.signal !== 'flat' ? 'EXECUTING' : 'AVAILABLE',
+          status: baseSignal.signal !== 'FLAT' ? 'EXECUTING' : 'AVAILABLE',
           metrics: { signal: baseSignal.signal, confidence: baseSignal.confidence }
         },
         ag_exec: {
