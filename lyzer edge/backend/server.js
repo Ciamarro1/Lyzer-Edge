@@ -1,11 +1,10 @@
-import dotenv from 'dotenv';
-import path from 'path';
-dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
+import './env.js';
 import express from 'express';
 import http from 'http';
 import { WebSocketServer } from 'ws';
 import { StreamEngine, arl } from './streamEngine.js';
 import { loadEngineState, saveEngineState, clearEngineState } from './statePersistence.js';
+import path from 'path';
 import { fileURLToPath } from 'url';
 import { sendTelegramAlert } from './telegram.js';
 import db from './db.js';
