@@ -868,7 +868,8 @@ export class StreamEngine extends EventEmitter {
     // B. Check for new trade execution
     // console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
     if (kernelResult.eef && !this.activePosition) {
-      const direction = (baseSignal.signal === 'go' || baseSignal.signal === 'long') ? 'LONG' : 'SHORT';
+      const signalLower = String(baseSignal.signal).toLowerCase();
+      const direction = (signalLower === 'go' || signalLower === 'long') ? 'LONG' : 'SHORT';
       
       const currentCandleIdx = index;
       const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
