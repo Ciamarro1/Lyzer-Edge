@@ -1,9 +1,9 @@
 # --- STAGE 1: Build Rust Hub, Node.js packages and download NATS ---
 FROM rust:latest as builder
 
-# Install Node.js
+# Install Node.js and Protocol Buffers compiler (for Rust gRPC/prost)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
-    apt-get install -y nodejs unzip
+    apt-get install -y nodejs unzip protobuf-compiler
 
 # Create app directory
 WORKDIR /app
