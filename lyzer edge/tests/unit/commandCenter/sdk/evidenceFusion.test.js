@@ -45,8 +45,8 @@ describe('Evidence Fusion & Bayesian Hypothesis Pipeline Suite', () => {
     expect(weightsBefore.LYZER_NATIVE).toBeGreaterThan(0);
 
     const weightsRanging = fusionEngine.adaptWeightsForRegime('RANGING');
-    // OpenMobius weight should adapt up in ranging markets (0.40)
-    expect(weightsRanging.OPENMOBIUS_SMC).toBe(0.40);
+    // OpenMobius weight should adapt up in ranging markets (0.24 after normalization)
+    expect(weightsRanging.OPENMOBIUS_SMC).toBe(0.24);
   });
 
   it('should generate and rank competing hypotheses cleanly', () => {

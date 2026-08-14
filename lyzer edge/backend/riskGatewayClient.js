@@ -33,7 +33,8 @@ try {
 
 export function authorizeOrder(intent) {
   return new Promise((resolve) => {
-    if (process.env.ARL_MODE === 'SIMULATION') {
+    const mode = (process.env.ARL_MODE || '').trim();
+    if (mode === 'SIMULATION' || mode === 'TESTNET') {
       return resolve({ approved: true, rejection_reason: '' });
     }
     

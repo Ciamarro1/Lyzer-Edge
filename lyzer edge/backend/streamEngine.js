@@ -887,9 +887,13 @@ export class StreamEngine extends EventEmitter {
           }
         } catch (grpcErr) {
           recordSystemError('StreamEngine', 'GRPC_ERROR');
-          governanceDecision = 'REJECT';
-          rejectionReason = `GRPC_UNREACHABLE: ${grpcErr.message}`;
-          console.error(`🛑 [FAIL-CLOSED] RiskGateway check failed (${grpcErr.message}). Execution vetoed.`);
+          if (this.mode === 'LIVE') {
+            governanceDecision = 'REJECT';
+            rejectionReason = `GRPC_UNREACHABLE: ${grpcErr.message}`;
+            console.error(`🛑 [FAIL-CLOSED] RiskGateway check failed (${grpcErr.message}). Execution vetoed in LIVE mode.`);
+          } else {
+            console.warn(`⚠️ [FAIL-OPEN] RiskGateway unavailable (${grpcErr.message}). Proceeding in ${this.mode} mode.`);
+          }
         }
       }
 

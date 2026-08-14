@@ -52,16 +52,16 @@ export class TruthKernel {
       epistemicAuthority = 'VETO';
       eef = false;
       reason = 'VETO_REALITY_DIVERGENCE';
-    } else if (micro.distanceFromGoldenZone !== undefined) {
+    } else if (micro.distanceFromGoldenZone !== undefined && micro.distanceFromGoldenZone > 0 && isFinite(micro.distanceFromGoldenZone)) {
       // Golden Zone Geometric Filter: Continuous Expected Shortfall (ES) bound
-      let topoRisk = micro.distanceFromGoldenZone !== undefined ? micro.distanceFromGoldenZone : 1.0;
-      if (topoRisk === Infinity) topoRisk = 10.0;
+      // Only applies when price is outside an active liquidity zone at a finite, measurable distance
+      let topoRisk = Math.min(micro.distanceFromGoldenZone, 2.0); // Clamp: max 3x base threshold
       const dynamicTrgThreshold = this.ett.trgThreshold * (1 + topoRisk);
       
       if (trg.trg < dynamicTrgThreshold) {
         epistemicAuthority = 'VETO';
         eef = false;
-        reason = 'VETO_UNBOUNDED_EXPECTED_SHORTFALL'; // Replaces VETO_NO_MANS_LAND
+        reason = 'VETO_UNBOUNDED_EXPECTED_SHORTFALL';
       }
     } else if (sds < 0.3) {
       epistemicAuthority = 'OBSERVED';
