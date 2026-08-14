@@ -37,10 +37,11 @@ RUN curl -L https://github.com/nats-io/nats-server/releases/download/v2.10.11/na
 # --- STAGE 2: Lightweight runtime container based on Ubuntu 24.04 ---
 FROM ubuntu:24.04
 
-# Install process manager utilities, curl, Node.js
-RUN apt-get update && apt-get install -y curl procps && \
+# Install process manager utilities, python3, pip, curl, Node.js
+RUN apt-get update && apt-get install -y curl procps python3 python3-pip && \
     curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
     apt-get install -y nodejs && \
+    pip3 install huggingface_hub --break-system-packages && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
@@ -81,5 +82,5 @@ WORKDIR "/app/lyzer edge"
 # Expose port 7860
 EXPOSE 7860
 
-# Start NATS, Rust IPC Hub, RiskGateway, IntentRegistry, and Node.js server concurrently
-CMD ["sh", "-c", "(nats-server -js 2>&1 | grep -v 'Client parser ERROR' &) ; lyzer-core-hub & lyzer-risk-gateway & lyzer-intent-registry & node --max-old-space-size=384 backend/server.js"]
+# Start restore script, NATS, Rust IPC Hub, RiskGateway, IntentRegistry, and Node.js server concurrently
+CMD ["sh", "-c", "python3 backup_restore.py restore ; (nats-server -js 2>&1 | grep -v 'Client parser ERROR' &) ; lyzer-core-hub & lyzer-risk-gateway & lyzer-intent-registry & node --max-old-space-size=384 backend/server.js"]

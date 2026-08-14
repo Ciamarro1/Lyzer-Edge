@@ -961,11 +961,20 @@ export class StreamEngine extends EventEmitter {
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
         const takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
 
-        // Apply sizing logic using DynamicSizing
-        const accountBalance = this.maxDailyCapital || 1000;
-        const sizingRec = this.dynamicSizing.getDynamicSize(accountBalance, entryPrice, stopLoss, allocationScore, capacityScore, csi, coc);
-        let quantity = sizingRec.positionSizeUnits;
-        quantity = Math.max(0.0001, parseFloat(quantity.toFixed(5)));
+        // Dynamic Filter Guards for Binance LOT_SIZE & NOTIONAL
+        let notionalTarget = 20; // 20 USDT to safely pass minimum notional of $5-$10
+        let quantity = notionalTarget / entryPrice;
+        
+        // Apply asset-specific LOT_SIZE precision
+        if (entryPrice > 1000) {
+          quantity = Math.floor(quantity * 1000) / 1000; // 3 decimals (BTC, ETH)
+        } else if (entryPrice > 10) {
+          quantity = Math.floor(quantity * 100) / 100; // 2 decimals (BNB, SOL)
+        } else {
+          quantity = Math.floor(quantity); // Integer/0 decimals (ADA, XRP)
+        }
+        
+        if (quantity <= 0) quantity = 1;
 
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
 
