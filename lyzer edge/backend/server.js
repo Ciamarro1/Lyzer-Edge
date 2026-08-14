@@ -681,11 +681,11 @@ for (const symbol of targetAssets) {
 // Load persisted state before starting engines
 loadEngineState(engines);
 
-// Start them slightly staggered to avoid rate limits
+// Start them slightly staggered to avoid rate limits and memory spikes
 engines.forEach((engine, idx) => {
   setTimeout(() => {
     engine.start();
-  }, idx * 2000);
+  }, idx * 8000);
 });
 
 // Fallback to index.html for SPA routing (must be placed after all API routes)

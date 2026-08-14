@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "backend": "node backend/server.js",
+    "backend": "node --max-old-space-size=460 backend/server.js",
     "full": "concurrently \"node backend/server.js\" \"vite\"",
     "test": "vitest run",
     "test:watch": "vitest",
