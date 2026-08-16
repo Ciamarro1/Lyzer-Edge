@@ -45,6 +45,19 @@ export class ConstraintEngine {
       return { passed: false, reason: 'VETO_EDGE_RIDING' };
     }
 
+    // Microstructure Choppy Noise / Value Area Veto
+    if (state.isChoppyNoise) {
+      return { passed: false, reason: 'VETO_CHOPPY_VALUE_AREA_CONSOLIDATION' };
+    }
+
+    // Altcoin Unconfirmed Short Veto
+    if (state.symbol && !state.symbol.startsWith('BTC') && (state.direction === 'SHORT' || state.direction === 'SELL')) {
+      const trg = state.trg || 0;
+      if (trg < 0.45 || state.m15Aligned === false) {
+        return { passed: false, reason: 'VETO_ALTCOIN_SHORT_MOMENTUM_MISALIGNMENT' };
+      }
+    }
+
     return { passed: true, reason: null };
   }
 }

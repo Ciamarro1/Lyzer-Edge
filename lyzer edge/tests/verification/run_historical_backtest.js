@@ -67,10 +67,17 @@ async function run() {
   if (isRealData) {
     const symbol = 'BTCUSDT';
     const interval = '1m';
-    const daysToFetch = 10; // Default to 10 days to keep the test quick (approx 14,400 candles)
+    const daysArg = args.find(a => a.startsWith('--days='));
+    const daysIdx = args.indexOf('--days');
+    let daysToFetch = 10;
+    if (daysArg) {
+      daysToFetch = parseInt(daysArg.split('=')[1], 10) || 10;
+    } else if (daysIdx !== -1 && args[daysIdx + 1]) {
+      daysToFetch = parseInt(args[daysIdx + 1], 10) || 10;
+    }
     
     console.log(`\n[DATA] Mode: REAL DATA EXTRACTOR`);
-    console.log(`[DATA] Target: ${symbol} @ ${interval} | Duration: Last ${daysToFetch} days`);
+    console.log(`[DATA] Target: ${symbol} @ ${interval} | Duration: Last ${daysToFetch} days (approx ${daysToFetch * 1440} candles)`);
     
     const outputFilename = path.resolve(__dirname, `../../.data/${symbol}_${interval}_${daysToFetch}d.json`);
     

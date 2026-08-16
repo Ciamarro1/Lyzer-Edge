@@ -5,6 +5,8 @@
  */
 
 import assert from 'assert';
+import '../../backend/env.js';
+process.env.COURT_SECRET_KEY = process.env.COURT_SECRET_KEY || 'test_court_secret_key_32_bytes_ok';
 import { court } from '../../../packages/lyzer-constitution/src/eca/court.js';
 import { ledger } from '../../../packages/lyzer-constitution/src/eca/ledger.js';
 import { KillSwitch } from '../../../packages/lyzer-constitution/src/eca/killSwitch.js';
@@ -106,6 +108,26 @@ function runConstitutionalTests() {
     assert.throws(() => {
       KillSwitch.executeHardKill();
     }, /SYSTEM_HALT_SIGKILL_EMULATED/, 'Kill Switch must terminate immediately');
+  });
+
+  // 6. Microstructure Choppy Noise / Value Area Veto
+  runTest('T6: VETO_CHOPPY_VALUE_AREA_CONSOLIDATION is enforced', () => {
+    ledger.edgeRidingCounters.drawdownNearMisses = 0;
+    const rawState = { currentDrawdown: 0.01, isChoppyNoise: true };
+    const payload = { size: 0.5 };
+    const token = court.requestPermission('ALLOCATE', rawState, payload);
+    assert.strictEqual(token.granted, false, 'Court must reject trades inside choppy value area');
+    assert.strictEqual(token.reason, 'VETO_CHOPPY_VALUE_AREA_CONSOLIDATION');
+  });
+
+  // 7. Altcoin Unconfirmed Short Veto
+  runTest('T7: VETO_ALTCOIN_SHORT_MOMENTUM_MISALIGNMENT is enforced for Altcoin shorts with low TRG', () => {
+    ledger.edgeRidingCounters.drawdownNearMisses = 0;
+    const rawState = { currentDrawdown: 0.01, symbol: 'ETHUSDT', direction: 'SHORT', trg: 0.30 };
+    const payload = { size: 0.5 };
+    const token = court.requestPermission('ALLOCATE', rawState, payload);
+    assert.strictEqual(token.granted, false, 'Court must reject altcoin shorts with TRG < 0.45');
+    assert.strictEqual(token.reason, 'VETO_ALTCOIN_SHORT_MOMENTUM_MISALIGNMENT');
   });
 
   console.log('='.repeat(72));

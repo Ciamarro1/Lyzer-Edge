@@ -36,9 +36,13 @@ export class TruthKernel {
     const v2 = providers.v2;
     const v3 = providers.v3;
     const v4 = providers.v4;
+    const v5 = providers.v5;
+    const v6 = providers.v6;
+    const v7 = providers.v7;
 
-    // 1. Residualization & Consensus Destruction
-    const { dvf, trg } = this.rl.evaluate(v1, v2, v3, v4, micro);
+    // 1. Residualization & Consensus Destruction across all active engines (V1-V7)
+    const providerList = [v1, v2, v3, v4, v5, v6, v7].filter(p => p !== undefined && p !== null);
+    const { dvf, trg } = this.rl.evaluate(...providerList, micro);
 
     // 2. Execution Trigger Evaluation
     let { eef, reason } = this.ett.evaluate(trg);

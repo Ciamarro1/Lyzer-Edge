@@ -11,20 +11,31 @@ export class ResidualizationLayer {
     constructor({ consensusLimit, trgExponent } = {}) {
         this.history = []; // Temporal context for TRG
         this.consensusLimit = consensusLimit !== undefined ? consensusLimit : 0.1;
-        this.trgExponent = trgExponent !== undefined ? trgExponent : 2; // Was implicitly 4 (divergence²²). Default now 2.
+        this.trgExponent = trgExponent !== undefined ? trgExponent : 2; // Default 2.
     }
 
     /**
-     * Extracts residual divergence between V1, V2, V3, and V4.
+     * Extracts residual divergence between any number of active providers.
      * If they agree, the residual is artificially compressed (consensus destruction).
      */
-    extractDivergence(v1Output, v2Output, v3Output, v4Output) {
-        const sigToVec = (sig) => (sig === 'long' || sig === 'go') ? 1 : ((sig === 'short' || sig === 'no-go') ? -1 : 0);
+    extractDivergence(providersList, micro = {}) {
+        const sigToVec = (sig) => {
+            if (!sig) return 0;
+            const s = String(sig).toLowerCase();
+            if (s === 'long' || s === 'buy' || s === 'bull' || s === 'go' || s === 'absorption' || s === 'cvd divergence') return 1;
+            if (s === 'short' || s === 'sell' || s === 'bear' || s === 'no-go' || s === 'exhaustion') return -1;
+            return 0;
+        };
+        const weights = micro.weights || {};
         
         const vectors = [];
-        [v1Output, v2Output, v3Output, v4Output].forEach(p => {
+        providersList.flat().forEach(p => {
             if (p !== undefined && p !== null && typeof p === 'object' && p.signal !== undefined) {
-                vectors.push(sigToVec(p.signal) * ((p.confidence || 0) / 100));
+                const vec = sigToVec(p.signal);
+                if (vec !== 0) {
+                    const weightMultiplier = p.id && weights[p.id] !== undefined ? weights[p.id] : 1.0;
+                    vectors.push(vec * ((p.confidence || 50) / 100) * weightMultiplier);
+                }
             }
         });
         
@@ -76,24 +87,22 @@ export class ResidualizationLayer {
         };
     }
 
-    evaluate(v1, v2, v3, v4, micro) {
-        let actualV3 = v3;
-        let actualV4 = v4;
-        let actualMicro = micro;
+    evaluate(...args) {
+        let micro = {};
+        const providers = [];
 
-        if (micro === undefined && v4 !== undefined && !v4.signal) {
-            // Called with (v1, v2, v3, micro)
-            actualMicro = v4;
-            actualV4 = { signal: 'flat', confidence: 0 };
-        } else if (v3 !== undefined && !v3.signal && v4 === undefined) {
-            // Called with (v1, v2, micro)
-            actualMicro = v3;
-            actualV3 = { signal: 'flat', confidence: 0 };
-            actualV4 = { signal: 'flat', confidence: 0 };
+        if (args.length > 0) {
+            const last = args[args.length - 1];
+            if (last && typeof last === 'object' && last.signal === undefined) {
+                micro = last;
+                args.slice(0, -1).forEach(p => providers.push(p));
+            } else {
+                args.forEach(p => providers.push(p));
+            }
         }
         
-        const dvf = this.extractDivergence(v1, v2, actualV3, actualV4);
-        const trg = this.projectTailRisk(dvf, actualMicro);
+        const dvf = this.extractDivergence(providers, micro);
+        const trg = this.projectTailRisk(dvf, micro);
         return { dvf, trg };
     }
 }

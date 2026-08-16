@@ -14,6 +14,7 @@ import { RegimeEngine } from "./regimeEngine.js";
 
 import { RealityGapMonitor } from "./realityGapMonitor.js";
 import { TruthKernel } from "../../packages/lyzer-shared/src/engine/kernel.js";
+import { DynamicWeightMatrix } from "../../packages/lyzer-shared/src/engine/weightMatrix.js";
 import { ConstitutionalCourt, court } from "../../packages/lyzer-constitution/src/eca/court.js";
 import { LiquidityReconstructionEngine } from "../../packages/lyzer-shared/src/providers/v1_smc_ict.js";
 import { StructuralBoundaryEngine } from "../../packages/lyzer-shared/src/providers/v2_snd_snr.js";
@@ -60,6 +61,8 @@ const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
 const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || '').split(',').map(s => s.trim().toLowerCase());
 const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
+court.configure(cclistConfig, { sclThreshold: molSclThreshold });
+
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
     super();
@@ -70,8 +73,14 @@ export class StreamEngine extends EventEmitter {
 
     this.signalEngine = signalEngine;
     this.truthKernel = new TruthKernel({ trgThreshold, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
+    this.weightMatrix = new DynamicWeightMatrix();
     
     this.court = config.court || court;
+    if (this.mode === 'SIMULATION' || process.env.ARL_MODE === 'SIMULATION') {
+      if (this.court && this.court.mol) {
+        this.court.mol.stabilizationWindowMs = 0;
+      }
+    }
 
     this.ecoEngine = new EVAlphaResearchEngineV3_3();
     this.extinctionEngine = this.ecoEngine.extinctionEngine;
@@ -477,6 +486,37 @@ export class StreamEngine extends EventEmitter {
 
       this.dampener.recordTradeExit(this.symbol, this.tickCounter);
       this.releaseDailyCapital(this.activePosition);
+      
+      // CSRL: Online Reinforcement Learning Feedback Loop
+      if (this.evidenceFusion && pos.vectorMap) {
+         const isWin = rawPnl > 0;
+         const accuracyScore = isWin ? 1.0 : 0.0;
+         
+         for (const v of pos.vectorMap) {
+            if (v.sig && v.sig.signal && v.sig.signal !== 'flat' && v.sig.signal !== 'FLAT') {
+                const isSigLong = String(v.sig.signal).toUpperCase().includes('LONG') || String(v.sig.signal).toUpperCase().includes('BUY');
+                const isTradeLong = pos.direction === 'LONG';
+                
+                let weightKey = '';
+                if (v.engine === 'v1') weightKey = 'LIQUIDITY_ENGINE';
+                if (v.engine === 'v2') weightKey = 'LYZER_NATIVE';
+                if (v.engine === 'v3') weightKey = 'VOLATILITY_ENGINE';
+                if (v.engine === 'v4') weightKey = 'MACRO_REGIME';
+                if (v.engine === 'v5') weightKey = 'WYCKOFF_VOLUME_ENGINE';
+                if (v.engine === 'v6') weightKey = 'MARKET_PROFILE_ENGINE';
+                if (v.engine === 'v7') weightKey = 'TAPE_READING_ENGINE';
+                
+                if (weightKey) {
+                   if ((isSigLong && isTradeLong) || (!isSigLong && !isTradeLong)) {
+                       this.evidenceFusion.updateSourcePerformance(weightKey, accuracyScore);
+                   } else {
+                       this.evidenceFusion.updateSourcePerformance(weightKey, isWin ? 0.0 : 1.0);
+                   }
+                }
+            }
+         }
+      }
+
       this.activePosition = null;
       this.emit('state_changed');
       this.emit('arl', { type: 'arl', symbol: this.symbol, trade: tradeWithEv, mode: this.mode });
@@ -492,13 +532,21 @@ export class StreamEngine extends EventEmitter {
     // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI vs IMCE V4)
     //    Disabled providers skip reconstruction entirely — downstream is null-safe.
     const defaultNarrative = { signal: 'flat', confidence: 0, narrative: null, source: null, causalAnswers: null, explanationText: null, tradeDna: null };
-    const v1Narrative = this.disabledProviders.has('v1') ? defaultNarrative : this.v1.reconstruct(this.mtfCandles);
-    const v2Narrative = this.disabledProviders.has('v2') ? defaultNarrative : this.v2.reconstruct(this.mtfCandles);
-    const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(this.mtfCandles);
+    
+    const mappedCandles = {
+      fast: this.mtfCandles['1m'],
+      intermediate: this.mtfCandles['15m'],
+      slow: this.mtfCandles['1h'],
+      ...this.mtfCandles
+    };
+
+    const v1Narrative = this.disabledProviders.has('v1') ? defaultNarrative : this.v1.reconstruct(mappedCandles);
+    const v2Narrative = this.disabledProviders.has('v2') ? defaultNarrative : this.v2.reconstruct(mappedCandles);
+    const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(mappedCandles);
     const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
-    const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(this.mtfCandles);
-    const v6Narrative = this.v6.reconstruct(this.mtfCandles);
-    const v7Narrative = this.v7.reconstruct(this.mtfCandles);
+    const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(mappedCandles);
+    const v6Narrative = this.v6.reconstruct(mappedCandles);
+    const v7Narrative = this.v7.reconstruct(mappedCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -576,14 +624,18 @@ export class StreamEngine extends EventEmitter {
     const v4Sig = this.disabledProviders.has('v4') ? { signal: 'flat', confidence: 0 } : { signal: v4Narrative.signal, confidence: v4Narrative.confidence };
     const v5Sig = this.disabledProviders.has('v5') ? { signal: 'flat', confidence: 0 } : { signal: v5Narrative.signal, confidence: v5Narrative.confidence };
     const v6Sig = { signal: v6Narrative.signal, confidence: v6Narrative.confidence };
+    const v7Sig = { signal: v7Narrative.signal, confidence: v7Narrative.confidence || 50 };
+
+    const dynamicWeights = this.weightMatrix.evaluate(topographicalAtr, v6Sig?.regime || v6Sig?.signal);
 
     const providers = {
-        v1: v1Sig,
-        v2: v2Sig,
-        v3: v3Sig, // [Lyzer Guardian] V3 Unquarantined
-        v4: { signal: 'flat', confidence: 0 },  // [Lyzer Guardian] V4 Quarantined
-        v5: v5Sig,
-        v6: v6Sig
+        v1: { ...v1Sig, id: 'v1' },
+        v2: { ...v2Sig, id: 'v2' },
+        v3: { ...v3Sig, id: 'v3' },
+        v4: { signal: 'flat', confidence: 0, id: 'v4' },
+        v5: { ...v5Sig, id: 'v5' },
+        v6: { ...v6Sig, id: 'v6' },
+        v7: { ...v7Sig, id: 'v7' }
     };
     
     // 2.5 Dual Reality Divergence Validation
@@ -594,7 +646,7 @@ export class StreamEngine extends EventEmitter {
     }
     
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone });
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights });
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -625,34 +677,55 @@ export class StreamEngine extends EventEmitter {
     ];
     const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray);
 
-    // Baseline for telemetry filler with IMCE V4 priority
-    let combinedSignal = 'flat';
+    // Evaluate Fusion Engine (Directional Vector Consensus)
+    let netDirection = 0;
+    let totalActiveWeight = 0;
     
-    // [Lyzer Guardian] Priority shifted to V5 (Wyckoff) and V3 (Momentum) for 1m microscalping
-    if (v7Narrative.signal === 'Absorption' || v7Narrative.signal === 'Exhaustion' || v7Narrative.signal === 'CVD Divergence' || (v7Narrative.signal && v7Narrative.signal !== 'flat')) {
-      combinedSignal = v7Narrative.signal;
-    } else if (v6Narrative.signal === 'flat') {
-      combinedSignal = 'flat';
-    } else if (v5Narrative.signal !== 'flat') {
-      combinedSignal = v5Narrative.signal;
-    } else if (v3Narrative.signal !== 'flat') {
-      combinedSignal = v3Narrative.signal;
-    } else if (v1Narrative.signal !== 'flat') {
-      combinedSignal = v1Narrative.signal;
-    } else if (v2Narrative.signal !== 'flat') {
-      combinedSignal = v2Narrative.signal;
-    } else if (v6Narrative.signal !== 'flat') {
-      combinedSignal = v6Narrative.signal;
+    const weights = this.evidenceFusion._weights || {
+      LIQUIDITY_ENGINE: 0.15,
+      LYZER_NATIVE: 0.15,
+      VOLATILITY_ENGINE: 0.20,
+      MACRO_REGIME: 0.10,
+      WYCKOFF_VOLUME_ENGINE: 0.20,
+      MARKET_PROFILE_ENGINE: 0.05,
+      TAPE_READING_ENGINE: 0.15
+    };
+
+    const vectorMap = [
+      { engine: 'v1', sig: v1Sig, weight: weights.LIQUIDITY_ENGINE || 0.15 },
+      { engine: 'v2', sig: v2Sig, weight: weights.LYZER_NATIVE || 0.15 },
+      { engine: 'v3', sig: v3Sig, weight: weights.VOLATILITY_ENGINE || 0.20 },
+      { engine: 'v4', sig: v4Sig, weight: weights.MACRO_REGIME || 0.10 },
+      { engine: 'v5', sig: v5Sig, weight: weights.WYCKOFF_VOLUME_ENGINE || 0.20 },
+      { engine: 'v6', sig: v6Sig, weight: weights.MARKET_PROFILE_ENGINE || 0.05 },
+      { engine: 'v7', sig: v7Sig, weight: weights.TAPE_READING_ENGINE || 0.15 }
+    ];
+
+    for (const v of vectorMap) {
+      if (v.sig && v.sig.signal && v.sig.signal !== 'flat' && v.sig.signal !== 'FLAT') {
+        const sigStr = String(v.sig.signal).toUpperCase();
+        const isLong = sigStr.includes('LONG') || sigStr.includes('BUY') || sigStr.includes('BULL');
+        const isShort = sigStr.includes('SHORT') || sigStr.includes('SELL') || sigStr.includes('BEAR');
+        
+        if (isLong || isShort) {
+          const dir = isLong ? 1 : -1;
+          const rawConf = v.sig.confidence !== undefined ? v.sig.confidence : 50;
+          const conf = rawConf <= 1.0 ? rawConf : rawConf / 100.0;
+          netDirection += dir * v.weight * conf;
+          totalActiveWeight += v.weight * conf;
+        }
+      }
     }
 
-    // Normalize signal to standard Lyzer core grammar (LONG, SHORT, FLAT)
-    let sigStr = String(combinedSignal).toUpperCase();
-    if (sigStr.includes('LONG') || sigStr.includes('BUY') || sigStr.includes('BULL') || sigStr === 'GO') {
+    let combinedSignal = 'FLAT';
+    let finalConfidence = fusionResult.fusedConfidence;
+    // Vetor de ativação dinâmico
+    if (netDirection >= 0.03) {
       combinedSignal = 'LONG';
-    } else if (sigStr.includes('SHORT') || sigStr.includes('SELL') || sigStr.includes('BEAR')) {
+      finalConfidence = Math.max(finalConfidence, Math.min(100, (netDirection / totalActiveWeight) * 100));
+    } else if (netDirection <= -0.03) {
       combinedSignal = 'SHORT';
-    } else {
-      combinedSignal = 'FLAT';
+      finalConfidence = Math.max(finalConfidence, Math.min(100, (Math.abs(netDirection) / totalActiveWeight) * 100));
     }
 
     // [Lyzer Golden Hours] Time-Windowing filter
@@ -667,7 +740,7 @@ export class StreamEngine extends EventEmitter {
 
     const baseSignal = { 
       signal: combinedSignal, 
-      confidence: fusionResult.fusedConfidence, 
+      confidence: finalConfidence, 
       regime: fusionResult.primaryRegime || 'MTF_OBSERVATION', 
       reasons: [
         v1Narrative.narrative, 
@@ -679,7 +752,8 @@ export class StreamEngine extends EventEmitter {
       ],
       explanationText: null, // v4Narrative ? v4Narrative.explanationText : null,
       tradeDna: null, // v4Narrative ? v4Narrative.tradeDna : null,
-      Z_t: kernelResult.dvf * 10
+      Z_t: kernelResult.dvf * 10,
+      vectorMap
     };
     recordSignalGenerated(this.symbol, baseSignal.signal);
 
@@ -706,106 +780,224 @@ export class StreamEngine extends EventEmitter {
         microAtr = sumRange / recent.length;
       }
       
+      const riskDistance = Math.abs(pos.entryPrice - (pos.initialStopLoss || pos.stopLoss)) || (microAtr * 1.5) || (pos.entryPrice * 0.0025);
+
+      // Volume Baseline for Phase 4 Exhaustion Detection
+      let avgVolume = 0;
+      if (candleList.length >= 10) {
+        const recentVols = candleList.slice(-10).map(c => c.volume || 0);
+        avgVolume = recentVols.reduce((a, b) => a + b, 0) / recentVols.length;
+      }
+
       if (pos.direction === 'LONG') {
-        const minLongStop = pos.entryPrice * 1.0005; // Entry + 0.05% for slippage/fees
+        const minLongStop = pos.entryPrice * 1.0005; // Entry + 0.05% for slippage/spread protection
         
-        // 1. Track peak favorable price
+        // 1. Phase 1: Track peak favorable price & MFE
         if (!pos.peakFavorablePrice || candle.high > pos.peakFavorablePrice) {
           pos.peakFavorablePrice = candle.high;
         }
-        
-        // 2. Trigger Break-Even at +1.0 ATR
-        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && pos.peakFavorablePrice >= pos.entryPrice + microAtr) {
-            pos.stopLoss = minLongStop;
-            pos.breakEvenApplied = true;
-            console.log(`[STREAM] BREAK_EVEN_LOCKED for LONG trade at index ${currentCandleIdx}. Risk neutralized.`);
-            recordBreakEvenTrade(this.symbol, 'LONG');
+        const currentMfe = pos.peakFavorablePrice - pos.entryPrice;
+        const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
+
+        // 2. Phase 2: Confirmation - Spread-Protected Break-Even
+        const mfeBE = pos.mfeTargetBE || 1.0;
+        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && currentR >= mfeBE) {
+          pos.stopLoss = Math.max(pos.stopLoss, minLongStop);
+          pos.breakEvenApplied = true;
+          console.log(`[SNIPER] BREAK_EVEN_LOCKED for LONG at index ${currentCandleIdx} (+${mfeBE.toFixed(2)}R). Risk neutralized.`);
+          recordBreakEvenTrade(this.symbol, 'LONG');
         }
-        
-        // 3. Trail Stop Loss at 1.5 ATR from peak
+
+        // 3. Phase 3: Expansion & Scale-Out Protocol
+        if (process.env.ABLATION_NO_SCALEOUT !== 'true') {
+          // Tranche 1: 50%
+          const mfe1 = pos.mfeTargetScale1 || 1.5;
+          if (!pos.scaleOut1Done && currentR >= mfe1) {
+            const partialQty = (pos.initialQuantity || pos.quantity) * 0.5;
+            const partialPrice = pos.entryPrice + (mfe1 * riskDistance);
+            const partialPnl = (partialPrice - pos.entryPrice) / pos.entryPrice;
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.5);
+            pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
+            pos.scaleOut1Done = true;
+            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + ((mfe1 / 3) * riskDistance)); // Lock trailing profit proportional to scale out
+            pos.scaleOutHistory = pos.scaleOutHistory || [];
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_50PCT', price: partialPrice, r: mfe1, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 50% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+          }
+
+          // Tranche 2: 25%
+          const mfe2 = pos.mfeTargetScale2 || 2.0;
+          if (!pos.scaleOut2Done && currentR >= mfe2) {
+            const partialQty = (pos.initialQuantity || pos.quantity) * 0.25;
+            const partialPrice = pos.entryPrice + (mfe2 * riskDistance);
+            const partialPnl = (partialPrice - pos.entryPrice) / pos.entryPrice;
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.25);
+            pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
+            pos.scaleOut2Done = true;
+            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + (mfe1 * riskDistance)); // Lock Phase 1 profit
+            pos.scaleOutHistory = pos.scaleOutHistory || [];
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_25PCT', price: partialPrice, r: mfe2, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 25% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+          }
+        }
+
+        // 4. Phase 3.3: M1 Fractal Trailing Stop for Remaining Bag
         if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
-            const trailingStop = pos.peakFavorablePrice - (1.5 * microAtr);
-            if (trailingStop > pos.stopLoss) {
-                pos.stopLoss = trailingStop;
-            }
+          const trailMult = pos.scaleOut2Done ? 1.0 : 1.5;
+          const trailingStop = pos.peakFavorablePrice - (trailMult * microAtr);
+          if (trailingStop > pos.stopLoss) {
+            pos.stopLoss = trailingStop;
+          }
+        }
+
+        // 5. Phase 4: Exhaustion Volume Ejection
+        const candleRange = candle.high - candle.low;
+        const upperWick = candle.high - Math.max(candle.open, candle.close);
+        if (pos.breakEvenApplied && avgVolume > 0 && candle.volume > 0 && candle.volume < (avgVolume * 0.30) && candleRange > 0 && (upperWick / candleRange) > 0.45) {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'EXHAUSTION_VOLUME_EJECTION';
+          console.log(`[SNIPER] EXHAUSTION_VOLUME_EJECTION for LONG: Volume dry-up with upper rejection wick.`);
         }
 
         const isSLHit = candle.low <= pos.stopLoss;
         const isTPHit = candle.high >= pos.takeProfit;
 
-        if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
-          closed = true;
-          exitPrice = pos.stopLoss;
-          exitReason = 'STOP_LOSS';
-        } else if (isSLHit) {
-          closed = true;
-          exitPrice = pos.stopLoss;
-          exitReason = 'STOP_LOSS';
-        } else if (isTPHit) {
-          closed = true;
-          exitPrice = pos.takeProfit;
-          exitReason = 'TAKE_PROFIT';
-        } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
-          const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
-          if (dampenerClose.canClose) {
+        if (!closed) {
+          if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
             closed = true;
-            exitPrice = candle.close;
-            exitReason = dampenerClose.reason;
+            exitPrice = pos.stopLoss;
+            exitReason = 'STOP_LOSS';
+          } else if (isSLHit) {
+            closed = true;
+            exitPrice = pos.stopLoss;
+            exitReason = 'STOP_LOSS';
+          } else if (isTPHit) {
+            closed = true;
+            exitPrice = pos.takeProfit;
+            exitReason = 'TAKE_PROFIT';
+          } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
+            const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
+            if (dampenerClose.canClose) {
+              closed = true;
+              exitPrice = candle.close;
+              exitReason = dampenerClose.reason;
+            }
           }
         }
       } else if (pos.direction === 'SHORT') {
-        const minShortStop = pos.entryPrice * 0.9995; // Entry - 0.05% for slippage/fees
+        const minShortStop = pos.entryPrice * 0.9995; // Entry - 0.05% for slippage/spread protection
         
-        // 1. Track peak favorable price
+        // 1. Phase 1: Track peak favorable price & MFE
         if (!pos.peakFavorablePrice || candle.low < pos.peakFavorablePrice) {
           pos.peakFavorablePrice = candle.low;
         }
-        
-        // 2. Trigger Break-Even at +1.0 ATR
-        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && pos.peakFavorablePrice <= pos.entryPrice - microAtr) {
-            pos.stopLoss = minShortStop;
-            pos.breakEvenApplied = true;
-            console.log(`[STREAM] BREAK_EVEN_LOCKED for SHORT trade at index ${currentCandleIdx}. Risk neutralized.`);
-            recordBreakEvenTrade(this.symbol, 'SHORT');
+        const currentMfe = pos.entryPrice - pos.peakFavorablePrice;
+        const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
+
+        // 2. Phase 2: Confirmation - Spread-Protected Break-Even
+        const mfeBE = pos.mfeTargetBE || 1.0;
+        if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && currentR >= mfeBE) {
+          pos.stopLoss = Math.min(pos.stopLoss, minShortStop);
+          pos.breakEvenApplied = true;
+          console.log(`[SNIPER] BREAK_EVEN_LOCKED for SHORT at index ${currentCandleIdx} (+${mfeBE.toFixed(2)}R). Risk neutralized.`);
+          recordBreakEvenTrade(this.symbol, 'SHORT');
         }
-        
-        // 3. Trail Stop Loss at 1.5 ATR from peak
+
+        // 3. Phase 3: Expansion & Scale-Out Protocol
+        if (process.env.ABLATION_NO_SCALEOUT !== 'true') {
+          // Tranche 1: 50%
+          const mfe1 = pos.mfeTargetScale1 || 1.5;
+          if (!pos.scaleOut1Done && currentR >= mfe1) {
+            const partialQty = (pos.initialQuantity || pos.quantity) * 0.5;
+            const partialPrice = pos.entryPrice - (mfe1 * riskDistance);
+            const partialPnl = (pos.entryPrice - partialPrice) / pos.entryPrice;
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.5);
+            pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
+            pos.scaleOut1Done = true;
+            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - ((mfe1 / 3) * riskDistance)); // Lock trailing profit proportional to scale out
+            pos.scaleOutHistory = pos.scaleOutHistory || [];
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_50PCT', price: partialPrice, r: mfe1, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 50% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+          }
+
+          // Tranche 2: 25%
+          const mfe2 = pos.mfeTargetScale2 || 2.0;
+          if (!pos.scaleOut2Done && currentR >= mfe2) {
+            const partialQty = (pos.initialQuantity || pos.quantity) * 0.25;
+            const partialPrice = pos.entryPrice - (mfe2 * riskDistance);
+            const partialPnl = (pos.entryPrice - partialPrice) / pos.entryPrice;
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.25);
+            pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
+            pos.scaleOut2Done = true;
+            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - (mfe1 * riskDistance)); // Lock Phase 1 profit
+            pos.scaleOutHistory = pos.scaleOutHistory || [];
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_25PCT', price: partialPrice, r: mfe2, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 25% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+          }
+        }
+
+        // 4. Phase 3.3: M1 Fractal Trailing Stop for Remaining Bag
         if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
-            const trailingStop = pos.peakFavorablePrice + (1.5 * microAtr);
-            if (trailingStop < pos.stopLoss) {
-                pos.stopLoss = trailingStop;
-            }
+          const trailMult = pos.scaleOut2Done ? 1.0 : 1.5;
+          const trailingStop = pos.peakFavorablePrice + (trailMult * microAtr);
+          if (trailingStop < pos.stopLoss) {
+            pos.stopLoss = trailingStop;
+          }
+        }
+
+        // 5. Phase 4: Exhaustion Volume Ejection
+        const candleRange = candle.high - candle.low;
+        const lowerWick = Math.min(candle.open, candle.close) - candle.low;
+        if (pos.breakEvenApplied && avgVolume > 0 && candle.volume > 0 && candle.volume < (avgVolume * 0.30) && candleRange > 0 && (lowerWick / candleRange) > 0.45) {
+          closed = true;
+          exitPrice = candle.close;
+          exitReason = 'EXHAUSTION_VOLUME_EJECTION';
+          console.log(`[SNIPER] EXHAUSTION_VOLUME_EJECTION for SHORT: Volume dry-up with lower rejection wick.`);
         }
 
         const isSLHit = candle.high >= pos.stopLoss;
         const isTPHit = candle.low <= pos.takeProfit;
 
-        if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
-          closed = true;
-          exitPrice = pos.stopLoss;
-          exitReason = 'STOP_LOSS';
-        } else if (isSLHit) {
-          closed = true;
-          exitPrice = pos.stopLoss;
-          exitReason = 'STOP_LOSS';
-        } else if (isTPHit) {
-          closed = true;
-          exitPrice = pos.takeProfit;
-          exitReason = 'TAKE_PROFIT';
-        } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
-          const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
-          if (dampenerClose.canClose) {
+        if (!closed) {
+          if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
             closed = true;
-            exitPrice = candle.close;
-            exitReason = dampenerClose.reason;
+            exitPrice = pos.stopLoss;
+            exitReason = 'STOP_LOSS';
+          } else if (isSLHit) {
+            closed = true;
+            exitPrice = pos.stopLoss;
+            exitReason = 'STOP_LOSS';
+          } else if (isTPHit) {
+            closed = true;
+            exitPrice = pos.takeProfit;
+            exitReason = 'TAKE_PROFIT';
+          } else if ((!kernelResult.eef || kernelResult.epistemic_authority === 'VETO') && !(kernelResult.reason_codes || []).includes('VETO_NO_MANS_LAND')) {
+            const dampenerClose = this.dampener.canCloseTrade(pos, currentCandleIdx, candle.close, microAtr, kernelResult);
+            if (dampenerClose.canClose) {
+              closed = true;
+              exitPrice = candle.close;
+              exitReason = dampenerClose.reason;
+            }
           }
         }
       }
 
       if (closed) {
-        let rawPnl = pos.direction === 'LONG'
+        let rawPnl = 0;
+        const initialQty = pos.initialQuantity || pos.quantity || 1;
+        const remainingQty = pos.remainingQuantity !== undefined ? pos.remainingQuantity : initialQty;
+        const runnerWeight = initialQty > 0 ? remainingQty / initialQty : 1;
+
+        const runnerExitPnl = pos.direction === 'LONG'
           ? (exitPrice - pos.entryPrice) / pos.entryPrice
           : (pos.entryPrice - exitPrice) / pos.entryPrice;
+
+        if (pos.scaleOut1Done || pos.scaleOut2Done) {
+          rawPnl = (pos.accumulatedPnl || 0) + (runnerExitPnl * runnerWeight);
+        } else {
+          rawPnl = runnerExitPnl;
+        }
 
         // [Alpha de Liquidez] - Fee Structure Simulation
         rawPnl += 0.0001; // LIMIT entry rebate
@@ -839,7 +1031,10 @@ export class StreamEngine extends EventEmitter {
           spread: 0.0001,
           distortionFactor: 1.0,
           timingOffset: 0,
-          breakEvenApplied: pos.breakEvenApplied || false
+          breakEvenApplied: pos.breakEvenApplied || false,
+          scaleOutHistory: pos.scaleOutHistory || [],
+          scaleOut1Done: pos.scaleOut1Done || false,
+          scaleOut2Done: pos.scaleOut2Done || false
         };
 
         ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
@@ -897,7 +1092,17 @@ export class StreamEngine extends EventEmitter {
         return;
       }
 
-      const courtState = { ...kernelResult };
+      // isChoppy agora atua como um limitador quantitativo com escala normalizada (0.0 - 1.0 ou 0 - 100)
+      const v6NarrativeText = v6Narrative.narrative || '';
+      const finalConfPct = finalConfidence <= 1.0 ? finalConfidence * 100 : finalConfidence;
+      const isChoppy = (v6NarrativeText.includes('Choppy noise') || v6NarrativeText.includes('INSIDE Value Area')) && finalConfPct < 50;
+      const courtState = {
+        ...kernelResult,
+        symbol: this.symbol,
+        direction,
+        isChoppyNoise: isChoppy,
+        m15Aligned: baseSignal.m15Signal ? baseSignal.m15Signal.toLowerCase() === direction.toLowerCase() : true
+      };
       delete courtState.confidence;
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
       let governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
@@ -953,7 +1158,7 @@ export class StreamEngine extends EventEmitter {
         const csi = 1.0 - stress;
         const coc = 1.0;
 
-        // Institutional Risk/Reward (min 1.2% ATR buffer, 1:2 R:R)
+        // Institutional Dynamic Risk/Reward using MicroATR (1:2 R:R Ratio)
         let microAtr = 0;
         const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
         if (candleList.length >= 5) {
@@ -966,8 +1171,12 @@ export class StreamEngine extends EventEmitter {
         }
 
         const entryPrice = candle.close;
-        let slDistance = 0.0010; // 0.10% SL for 1m microscalping
-        let tpDistance = 0.0025; // 0.25% TP for 1m microscalping
+        const atrRatio = entryPrice > 0 ? (microAtr / entryPrice) : 0.002;
+        const atrSlMult = parseFloat(process.env.ATR_SL_MULTIPLIER || '1.5');
+        const atrTpMult = parseFloat(process.env.ATR_TP_MULTIPLIER || '3.0');
+
+        let slDistance = Math.max(0.0025, atrRatio * atrSlMult);
+        let tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
 
         if (process.env.SCALP_SL_PCT) slDistance = parseFloat(process.env.SCALP_SL_PCT);
         if (process.env.SCALP_TP_PCT) tpDistance = parseFloat(process.env.SCALP_TP_PCT);
@@ -992,6 +1201,11 @@ export class StreamEngine extends EventEmitter {
 
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
 
+        const trgExpansion = 1.0 + (kernelResult.trg || 0);
+        const mfeTargetBE = Math.max(1.0, 1.0 * trgExpansion); // 1.0R Floor for safety
+        const mfeTargetScale1 = Math.max(1.5, 1.5 * trgExpansion);
+        const mfeTargetScale2 = Math.max(2.0, 2.0 * trgExpansion);
+
         this.activePosition = {
           id: `trade_${index}`,
           timestamp: tradeTimestamp,
@@ -1002,6 +1216,15 @@ export class StreamEngine extends EventEmitter {
           initialStopLoss: stopLoss,
           takeProfit,
           quantity,
+          initialQuantity: quantity,
+          remainingQuantity: quantity,
+          mfeTargetBE,
+          mfeTargetScale1,
+          mfeTargetScale2,
+          scaleOut1Done: false,
+          scaleOut2Done: false,
+          scaleOutHistory: [],
+          accumulatedPnl: 0,
           tradeDna: baseSignal.tradeDna,
           explanationText: baseSignal.explanationText,
           signal: {
@@ -1009,6 +1232,7 @@ export class StreamEngine extends EventEmitter {
             confidence: baseSignal.confidence,
             reasons: baseSignal.reasons
           },
+          vectorMap: baseSignal.vectorMap,
           regime: baseSignal.regime,
           governanceDecision
         };

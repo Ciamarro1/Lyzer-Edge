@@ -8,6 +8,7 @@
  */
 
 import { StreamEngine } from './streamEngine.js';
+import { ConstitutionalCourt } from '../../packages/lyzer-constitution/src/eca/court.js';
 
 export class EventSourcedBacktester {
   /**
@@ -16,8 +17,18 @@ export class EventSourcedBacktester {
   constructor(db) {
     this.db = db;
     
+    const freshCourt = new ConstitutionalCourt({
+      dvfFloor: parseFloat(process.env.CCLIST_DVF_FLOOR || '0.1'),
+      stressAccumulation: parseFloat(process.env.CCLIST_STRESS_ACCUMULATION || '0.002'),
+      lethalIllusionLimit: parseFloat(process.env.CCLIST_LETHAL_ILLUSION_LIMIT || '0.9'),
+      stressRelease: parseFloat(process.env.CCLIST_STRESS_RELEASE || '0.1'),
+    }, {
+      sclThreshold: parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10),
+      stabilizationWindowMs: 0
+    });
+    
     // We instantiate a real stream engine, but force it into SIMULATION mode so it doesn't hit Binance
-    this.engine = new StreamEngine('SIMULATION');
+    this.engine = new StreamEngine({ mode: 'SIMULATION', court: freshCourt });
     // We override the default interval to prevent its internal loop from polluting our event stream
     this.engine.startSimulationLoop = () => { console.log('[BACKTESTER] Hijacked simulation loop. Operating in deterministic Event-Sourced mode.'); };
   }
