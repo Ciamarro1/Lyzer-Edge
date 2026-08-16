@@ -368,17 +368,46 @@ app.post('/api/reset-engine', async (req, res) => {
 });
 
 
-console.log(`\n======================================================`);
-console.log(`🌍 Lyzer Edge: MULTI-ASSET LIVE ENGINE STARTED`);
-console.log(`MODE: ${process.env.ARL_MODE}`);
-console.log(`CAPITAL LIMIT: $${process.env.MAX_DAILY_CAPITAL}`);
-console.log(`======================================================\n`);
+console.log(`\n========================================================================`);
+console.log(`🚀 LYZER EDGE QUANT ENGINE — PRODUCTION STARTUP AUDIT`);
+console.log(`========================================================================`);
+console.log(`• Mode (ARL_MODE):                 ${process.env.ARL_MODE || 'TESTNET'}`);
+console.log(`• Dual-Strategy Router:           ACTIVE (Trend Expansion + Range Scalping)`);
+console.log(`• Range Scalp Engine:             ${process.env.ENABLE_RANGE_SCALP_MODE === 'true' ? 'ENABLED' : 'DISABLED'} (TP: +${process.env.RANGE_SCALP_TP || '1.0'}R | BE: +${process.env.RANGE_SCALP_BE || '0.45'}R)`);
+console.log(`• Trend Expansion Targets:        Scale-Out 1: +${process.env.MFE_TARGET_SCALE1 || '1.2'}R | Scale-Out 2: +${process.env.MFE_TARGET_SCALE2 || '1.8'}R | BE: +${process.env.MFE_TARGET_BE || '0.8'}R`);
+console.log(`• 24/7 Market Regime:             ${process.env.ENABLE_24_7_REGIME === 'true' ? 'ENABLED' : 'DISABLED'} (Off-Peak TRG Floor: ${process.env.OFF_PEAK_TRG_FLOOR || '0.22'})`);
+console.log(`• Vector Confluence Threshold:    ${process.env.VECTOR_CONFLULINE_THRESHOLD || process.env.VECTOR_CONFLUENCE_THRESHOLD || '0.018'}`);
+console.log(`• Execution Fee Alpha:            Maker LIMIT Resting Rebate (+0.01%) Active`);
+console.log(`• Fleet Monitored Assets:         ${targetAssets.join(', ')}`);
+console.log(`• Daily Capital Risk Limit:       $${process.env.MAX_DAILY_CAPITAL || '1000'}`);
+console.log(`========================================================================\n`);
 
 app.get('/healthz', (req, res) => res.status(200).send('OK'));
 app.get('/readyz', (req, res) => res.status(200).send('OK'));
 
 app.get('/api/status', (req, res) => {
-  res.json({ status: 'Lyzer Core Backend OK', mode: process.env.ARL_MODE });
+  res.json({
+    status: 'Lyzer Core Backend OK',
+    mode: process.env.ARL_MODE || 'TESTNET',
+    architecture: 'Dual-Strategy (Trend Expansion + Range Scalp)',
+    config: {
+      rangeScalpEnabled: process.env.ENABLE_RANGE_SCALP_MODE === 'true',
+      rangeScalpTP: parseFloat(process.env.RANGE_SCALP_TP || '1.0'),
+      rangeScalpBE: parseFloat(process.env.RANGE_SCALP_BE || '0.45'),
+      regime24_7: process.env.ENABLE_24_7_REGIME === 'true',
+      offPeakTrgFloor: parseFloat(process.env.OFF_PEAK_TRG_FLOOR || '0.22'),
+      vectorConfluenceThreshold: parseFloat(process.env.VECTOR_CONFLUENCE_THRESHOLD || '0.018'),
+      mfeTargetBE: parseFloat(process.env.MFE_TARGET_BE || '0.8'),
+      mfeTargetScale1: parseFloat(process.env.MFE_TARGET_SCALE1 || '1.2'),
+      mfeTargetScale2: parseFloat(process.env.MFE_TARGET_SCALE2 || '1.8'),
+      makerRebateActive: true
+    },
+    engines: engines.map(e => ({
+      symbol: e.symbol,
+      state: e.connectionState,
+      tradesCount: (e.tradeHistory || []).length
+    }))
+  });
 });
 
 // POST /api/test-order — Trigger a manual test order on Binance Testnet/Live
