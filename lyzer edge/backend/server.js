@@ -45,6 +45,10 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
+// --- MULTI-ASSET FLEET DEFINITION ---
+export const targetAssets = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
+export const engines = [];
+
 // Initialize Quant Research Lab Experiment Manager
 const experimentManager = new ExperimentManager(db);
 experimentManager.initialize().then(() => {
@@ -673,9 +677,6 @@ const broadcast = (payload) => {
 };
 
 // --- INITIALIZE MULTI-ASSET FLEET ---
-const targetAssets = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
-const engines = [];
-
 for (const symbol of targetAssets) {
   console.log(`[FLEET] Booting StreamEngine for ${symbol}...`);
   const engine = new StreamEngine({
