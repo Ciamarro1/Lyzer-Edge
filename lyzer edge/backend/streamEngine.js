@@ -1060,13 +1060,17 @@ export class StreamEngine extends EventEmitter {
           rawPnl = runnerExitPnl;
         }
 
-        // [Alpha de Liquidez] - Fee Structure Simulation
-        rawPnl += 0.0001; // LIMIT entry rebate
+        // [Alpha de Liquidez] - Fee Structure Simulation (Institutional Maker Rebate Engine)
+        rawPnl += 0.0001; // LIMIT resting entry rebate
         
-        if (exitReason === 'TAKE_PROFIT' || exitReason === 'RANGE_SCALP_TAKE_PROFIT') {
-          rawPnl += 0.0001; // LIMIT exit rebate
+        const isRestingOrderExit = exitReason === 'TAKE_PROFIT' || 
+                                   exitReason === 'RANGE_SCALP_TAKE_PROFIT' || 
+                                   (exitReason === 'STOP_LOSS' && pos.breakEvenApplied);
+
+        if (isRestingOrderExit) {
+          rawPnl += 0.0001; // LIMIT resting exit rebate (+0.01% Maker Alpha)
         } else {
-          rawPnl -= 0.0004; // Low-latency execution
+          rawPnl -= 0.0002; // Low-latency execution fee
         }
 
         const resolvedTrade = {
@@ -1145,9 +1149,10 @@ export class StreamEngine extends EventEmitter {
       const direction = baseSignal.signal;
       
       const currentCandleIdx = index;
-      const isRangeRegime = dynamicWeights.activeRegime === 'RANGING' || dynamicWeights.activeRegime === 'LOW_LIQUIDITY_NIGHT';
-      const isMtfFlat = !baseSignal.m15Signal || baseSignal.m15Signal.toLowerCase() === 'flat';
-      const candidateStrategy = (process.env.ENABLE_RANGE_SCALP_MODE === 'true' && (isRangeRegime || isMtfFlat)) ? 'RANGE_SCALP' : 'TREND_EXPANSION';
+      const finalConfPct = finalConfidence <= 1.0 ? finalConfidence * 100 : finalConfidence;
+      const isStrongTrend = dynamicWeights.activeRegime === 'TRENDING' || ((kernelResult.trg || 0) >= 0.38 && finalConfPct >= 55);
+      const isRangeScalpCandidate = process.env.ENABLE_RANGE_SCALP_MODE === 'true' && !isStrongTrend;
+      const candidateStrategy = isRangeScalpCandidate ? 'RANGE_SCALP' : 'TREND_EXPANSION';
 
       const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
         entrySide: direction,
@@ -1166,7 +1171,6 @@ export class StreamEngine extends EventEmitter {
 
       // isChoppy agora atua como um limitador quantitativo com escala normalizada (0.0 - 1.0 ou 0 - 100)
       const v6NarrativeText = v6Narrative.narrative || '';
-      const finalConfPct = finalConfidence <= 1.0 ? finalConfidence * 100 : finalConfidence;
       const isChoppy = (v6NarrativeText.includes('Choppy noise') || v6NarrativeText.includes('INSIDE Value Area')) && finalConfPct < 45 && candidateStrategy !== 'RANGE_SCALP';
       const courtState = {
         ...kernelResult,
