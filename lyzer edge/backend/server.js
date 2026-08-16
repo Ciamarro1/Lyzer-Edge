@@ -580,6 +580,7 @@ app.get('/api/candles/:symbol', (req, res) => {
       trades: engine.activePosition ? [
         ...engine.tradeHistory,
         {
+          id: engine.activePosition.id,
           timestamp: engine.activePosition.timestamp,
           direction: engine.activePosition.direction,
           entryPrice: engine.activePosition.entryPrice,

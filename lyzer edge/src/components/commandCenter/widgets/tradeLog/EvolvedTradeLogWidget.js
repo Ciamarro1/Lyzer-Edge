@@ -1,5 +1,6 @@
 import { tradeLogManifest } from './manifest.js';
 import db from '../../../../db/database.js';
+import { liveTradeSync } from '../../../../services/LiveTradeSyncService.js';
 
 export class EvolvedTradeLogWidget {
   constructor() {
@@ -16,6 +17,7 @@ export class EvolvedTradeLogWidget {
   async mount(container, context) {
     this._container = container;
     this._container.style.cssText = 'padding:16px;font-family:\'Inter\',system-ui,sans-serif;background:rgba(8,12,20,0.45);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);color:#f1f5f9;font-size:11px;height:100%;box-sizing:border-box;overflow-y:auto;border:1px solid rgba(56,189,248,0.06);border-radius:8px;';
+    await liveTradeSync.cleanDuplicateTrades();
     await this._loadTrades();
     this.render();
     this._liveInterval = setInterval(() => this._loadTrades(), 5000);
@@ -25,7 +27,17 @@ export class EvolvedTradeLogWidget {
   async _loadTrades() {
     try {
       const all = await db.trades.orderBy('id').reverse().toArray();
-      this._trades = all;
+      // Deduplicate in memory as safety filter
+      const seen = new Set();
+      this._trades = all.filter(t => {
+        const sym = (t.symbol || '').toUpperCase().replace('USDT', '/USD');
+        const timeMs = new Date(t.entryDate).getTime();
+        const timeBucket = !isNaN(timeMs) ? Math.floor(timeMs / 60000) : t.id;
+        const key = t.backendId || `${sym}_${t.direction}_${timeBucket}_${t.entryPrice}`;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
       if (!this._disposed && this._container?.isConnected) this.render();
     } catch (e) {
       console.warn('[TradeLog] DB load error:', e);
@@ -83,7 +95,7 @@ export class EvolvedTradeLogWidget {
             <span>TRADE LOG & AUDIT</span>
             <span style="background:rgba(16,185,129,0.15);color:#34d399;font-size:9px;padding:2px 6px;border-radius:4px;border:1px solid rgba(16,185,129,0.3);">${stats.total} TRADES</span>
           </h3>
-          <p style="margin:0;color:#94a3b8;font-size:10px;">Execution Chain & Constitutional Court Audits</p>
+          <p style="margin:0;color:#94a3b8;font-size:10px;">Execution Chain & Constitutional Court Audits (Single Source of Truth)</p>
         </div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">
           <div style="background:#0f172a;border:1px solid #1e293b;border-radius:6px;padding:4px 10px;text-align:center;">
@@ -122,6 +134,7 @@ export class EvolvedTradeLogWidget {
           <option value="closed" ${this._filter.status === 'closed' ? 'selected' : ''}>Closed</option>
         </select>
         <button id="tl-refresh" style="background:#1e293b;color:#94a3b8;border:1px solid #475569;border-radius:4px;padding:3px 8px;font-size:10px;cursor:pointer;font-family:monospace;">⟳ Refresh</button>
+        <button id="tl-clean-btn" style="background:#1e293b;color:#38bdf8;border:1px solid rgba(56,189,248,0.3);border-radius:4px;padding:3px 8px;font-size:10px;cursor:pointer;font-family:monospace;">🧹 Clean Dups</button>
         <button id="tl-export-btn" style="background:linear-gradient(135deg, rgba(0, 243, 255, 0.2), rgba(0, 255, 157, 0.15));color:#00f3ff;border:1px solid rgba(0,243,255,0.4);border-radius:4px;padding:3px 10px;font-size:10px;cursor:pointer;font-family:monospace;font-weight:bold;">EXPORT JSON</button>
       </div>
 
@@ -142,8 +155,14 @@ export class EvolvedTradeLogWidget {
           <tbody>
             ${filtered.length === 0 ? '<tr><td colspan="8" style="padding:24px;text-align:center;color:#64748b;">No trades recorded yet. Start the backend to receive trade data.</td></tr>' :
               filtered.map(t => {
-                const entryStr = t.entryDate ? new Date(t.entryDate).toLocaleTimeString() : '--';
-                const exitStr = t.exitDate ? new Date(t.exitDate).toLocaleTimeString() : (t.status === 'open' ? 'Open' : '--');
+                const entryDateObj = t.entryDate ? new Date(t.entryDate) : null;
+                const entryStr = entryDateObj && !isNaN(entryDateObj.getTime())
+                  ? entryDateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                  : '--';
+                const exitDateObj = t.exitDate ? new Date(t.exitDate) : null;
+                const exitStr = exitDateObj && !isNaN(exitDateObj.getTime())
+                  ? exitDateObj.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })
+                  : (t.status === 'open' ? 'Open' : '--');
                 const pnlVal = t.pnl || 0;
                 return `<tr style="border-bottom:1px solid #1e293b;">
                   <td style="padding:6px;color:#94a3b8;">${entryStr}</td>
@@ -171,11 +190,23 @@ export class EvolvedTradeLogWidget {
     const sideEl = this._container.querySelector('#tl-filter-side');
     const statusEl = this._container.querySelector('#tl-filter-status');
     const refreshEl = this._container.querySelector('#tl-refresh');
+    const cleanBtn = this._container.querySelector('#tl-clean-btn');
 
     symEl?.addEventListener('change', () => { this._filter.symbol = symEl.value; this.render(); });
     sideEl?.addEventListener('change', () => { this._filter.side = sideEl.value; this.render(); });
     statusEl?.addEventListener('change', () => { this._filter.status = statusEl.value; this.render(); });
-    refreshEl?.addEventListener('click', () => this._loadTrades());
+    refreshEl?.addEventListener('click', async () => {
+      await liveTradeSync.syncWithBackend();
+      await this._loadTrades();
+    });
+
+    cleanBtn?.addEventListener('click', async () => {
+      const removed = await liveTradeSync.cleanDuplicateTrades();
+      await liveTradeSync.syncWithBackend();
+      await this._loadTrades();
+      alert(`Limpeza concluída! ${removed} trades duplicados/fantasmas foram expurgados.`);
+    });
+
     this._container.querySelector('#tl-export-btn')?.addEventListener('click', () => {
       try {
         const payload = {

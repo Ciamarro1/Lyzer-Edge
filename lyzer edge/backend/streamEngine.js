@@ -1295,7 +1295,7 @@ export class StreamEngine extends EventEmitter {
         const mfeTargetScale2 = defaultMfeScale2;
 
         this.activePosition = {
-          id: `trade_${index}`,
+          id: `trade_${this.symbol}_${tradeTimestamp}`,
           timestamp: tradeTimestamp,
           openCandleIndex: currentCandleIdx,
           direction,
@@ -1417,6 +1417,7 @@ export class StreamEngine extends EventEmitter {
         volatility: kernelResult.trg // telemetry mapping for TRG
       },
       trade: this.activePosition ? {
+        id: this.activePosition.id,
         index: this.activePosition.timestamp,
         direction: this.activePosition.direction,
         price: this.activePosition.entryPrice,
@@ -1426,13 +1427,16 @@ export class StreamEngine extends EventEmitter {
         takeProfit: this.activePosition.takeProfit,
         governance: this.activePosition.governanceDecision
       } : (closedTradePayload ? {
+        id: closedTradePayload.id,
         index: closedTradePayload.timestamp,
         direction: closedTradePayload.direction,
         price: closedTradePayload.entryPrice,
+        exitPrice: closedTradePayload.exitPrice,
         pnl: (closedTradePayload.pnl * 100).toFixed(2) + '%',
         status: 'closed',
         governance: closedTradePayload.governanceDecision
       } : (simulatedTrade && simulatedTrade.status === 'rejected' ? {
+        id: simulatedTrade.id,
         index: simulatedTrade.timestamp,
         direction: simulatedTrade.direction,
         price: simulatedTrade.entryPrice,
