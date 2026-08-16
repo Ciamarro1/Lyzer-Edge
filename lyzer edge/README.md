@@ -8,6 +8,14 @@ Lyzer Edge is an institutional-grade quantitative trading framework engineered t
 
 ## 🏛️ Key Architecture Highlights
 
+* **7-Provider Core Matrix (V1 to V7):**
+  * **V1 (SMC / ICT):** Liquidity Reconstruction (FVGs & Liquidity Sweeps)
+  * **V2 (SnD):** Structural Boundary (Supply & Demand Zones)
+  * **V3 (Momentum):** Momentum RSI (Short-term directional thrusts)
+  * **V4 (Causalidade):** Institutional Market Causality Flow
+  * **V5 (Wyckoff):** Volume Profile & Structural Phase Dynamics
+  * **V6 (Market Profile):** Fair Value Mapping (POC / VAH / VAL)
+  * **V7 (Tape Reading):** Microstructure Order Flow & Aggression
 * **Truth Kernel (Causal Memory):** An epistemic engine that vetoes hallucinations and retains memory of structural flow with zero look-ahead bias.
 * **Dynamic Dual-Strategy Router:**
   * **Trend Expansion Mode:** Activated during institutional volume/trending regimes. Secures Break-Even at `+0.80R`, executes Scale-Out 1 (33%) at `+1.20R`, Scale-Out 2 (33%) at `+1.80R`, and trails the remaining 34% Runner across M1 structural fractals.

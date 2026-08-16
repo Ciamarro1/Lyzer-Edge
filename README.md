@@ -56,7 +56,7 @@ flowchart TB
 
     subgraph "NÓ 2: INTELIGÊNCIA & ROTEAMENTO (Node.js ESM)"
         Ingestion["📡 Ingestion Fleet (6 Ativos Simultâneos)"]
-        SignalEngine["⚡ 5-Provider Matrix (SMC, SnD, RSI, Causal, Wyckoff)"]
+        SignalEngine["⚡ 7-Provider Matrix (V1 ao V7: SMC, SnD, Momentum, Causal, Wyckoff, Market Profile, Tape Reading)"]
         DualRouter["🔀 Dynamic Dual-Strategy Router"]
         TrendEngine["📈 Trend Expansion (+1.2R / +1.8R Scale-Outs)"]
         ScalpEngine["⚡ Range Scalper (+1.0R TP / +0.45R BE)"]
@@ -91,7 +91,7 @@ Nenhum trade é executado sem que a intenção passe sequencialmente e rigorosam
 
 ```mermaid
 graph TD
-    L1["1️⃣ Matriz Multi-Provider (V1 SMC/ICT, V2 SnD, V3 Momentum, V4 Causal, V5 Wyckoff)"] --> L2["2️⃣ Residualization & Dynamic Decay (Eliminação de Falso Consenso)"]
+    L1["1️⃣ Matriz Multi-Provider (V1 SMC, V2 SnD, V3 Momentum, V4 Causal, V5 Wyckoff, V6 Market Profile, V7 Tape Reading)"] --> L2["2️⃣ Residualization & Dynamic Decay (Eliminação de Falso Consenso)"]
     L2 --> L3["3️⃣ Execution Trigger Layer (TRG ≥ 0.35 & Vetor de Confluência ≥ 0.018)"]
     L3 --> L4["4️⃣ TruthKernel Epistemic Gating (Veto se LHDS > 0.996 ou Colapso Ontológico)"]
     L4 --> L5["5️⃣ C-CLIST Stress Oracle (Veto se Ilusão de Estabilidade Letal > 0.90)"]
@@ -102,7 +102,15 @@ graph TD
 ```
 
 ### Detalhamento das Camadas:
-1. **5-Provider Matrix:** V1 (Smart Money Concepts/Order Flow), V2 (Supply & Demand), V3 (Momentum RSI), V4 (Memória Causal Histórica), V5 (Wyckoff Volume/Liquidez).
+1. **7-Provider Core Matrix (V1 ao V7):**
+   - **V1 (SMC / ICT):** *Liquidity Reconstruction* — Identificação de Fair Value Gaps (FVGs), Order Blocks e Liquidez Institucional.
+   - **V2 (SnD):** *Structural Boundary* — Mapeamento dinâmico de Suportes, Resistências e Zonas de Oferta e Demanda.
+   - **V3 (Momentum):** *Momentum RSI* — Detecção de aceleração e movimentos direcionais explosivos de curto prazo.
+   - **V4 (Causalidade):** *Institutional Market Causality* — Inferência do fluxo informacional causal de mercado.
+   - **V5 (Wyckoff):** *Volume Profile* — Reconhecimento de fases estruturais de Acumulação e Distribuição institucional.
+   - **V6 (Market Profile):** *Fair Value Mapping* — Zonas de valor justo (POC, VAH, VAL) e distribuição estatística de tempo/preço.
+   - **V7 (Tape Reading):** *Microstructure Order Flow* — Leitura de agressão e pressão direcional no nível de microestrutura.
+   *(Nota: Todos os 7 provedores operam ativos em paralelo a cada candle por padrão, configuráveis via `DISABLED_PROVIDERS`).*
 2. **Residualization Layer:** Destrói correlações espúrias entre provedores para evitar redundância estatística.
 3. **Execution Trigger Layer:** Exige que a Geometria de Risco de Cauda ($\text{TRG}$) e o Vetor de Confluência superem os limiares mínimos.
 4. **TruthKernel:** Governação baseada em inferência causal; veta sinais que apresentem alta entropia informacional ($\text{LHDS}$).
