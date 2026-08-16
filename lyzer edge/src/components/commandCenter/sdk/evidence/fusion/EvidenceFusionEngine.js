@@ -28,62 +28,101 @@ export class EvidenceFusionEngine {
       MARKET_PROFILE_ENGINE: 0.20,
       TAPE_READING_ENGINE: 0.25
     };
+    this.REGIMES = ['BALANCED', 'HIGH_VOLATILITY', 'RANGING', 'LOW_LIQUIDITY_NIGHT'];
+    this._currentRegime = 'BALANCED';
+    
+    // Performance isolated by regime to eliminate cross-regime contamination (Regime Bleed)
+    this._regimePerformance = {};
+    for (const r of this.REGIMES) {
+      this._regimePerformance[r] = {
+        LYZER_NATIVE: 0.70,
+        OPENMOBIUS_SMC: 0.75,
+        LIQUIDITY_ENGINE: 0.75,
+        MACRO_REGIME: 0.60,
+        VOLATILITY_ENGINE: 0.65,
+        WYCKOFF_VOLUME_ENGINE: 0.75,
+        MARKET_PROFILE_ENGINE: 0.65,
+        TAPE_READING_ENGINE: 0.70
+      };
+    }
     this._disposed = false;
   }
 
   /**
    * Dynamically adapts weights based on market regime and online performance calibration.
    */
-  adaptWeightsForRegime(regime) {
-    if (regime === 'RANGING' || regime === 'CONSOLIDATION' || regime === 'CHOPPY') {
-      // In ranging markets, SMC structure (OpenMobius) and Liquidity pools gain higher weight
-      this._weights.OPENMOBIUS_SMC = 0.40;
-      this._weights.LIQUIDITY_ENGINE = 0.30;
-      this._weights.LYZER_NATIVE = 0.15;
-      this._weights.MACRO_REGIME = 0.10;
+  adaptWeightsForRegime(regime, hourUTC = null) {
+    const isNight = hourUTC !== null ? (hourUTC >= 21 || hourUTC < 6) : false;
+    const targetRegime = isNight ? 'LOW_LIQUIDITY_NIGHT' : regime;
+
+    if (targetRegime === 'LOW_LIQUIDITY_NIGHT') {
+      // In night lull, boundary SNR and Wyckoff dominate, momentum is silenced to prevent whipsaws
+      this._weights.OPENMOBIUS_SMC = 0.20;
+      this._weights.LIQUIDITY_ENGINE = 0.20;
+      this._weights.LYZER_NATIVE = 0.35;
+      this._weights.MACRO_REGIME = 0.05;
+      this._weights.VOLATILITY_ENGINE = 0.02;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.25;
+      this._weights.MARKET_PROFILE_ENGINE = 0.15;
+      this._weights.TAPE_READING_ENGINE = 0.00;
+    } else if (targetRegime === 'RANGING' || targetRegime === 'CONSOLIDATION' || targetRegime === 'CHOPPY') {
+      // In ranging markets, SMC structure and Wyckoff/Market Profile gain higher weight
+      this._weights.OPENMOBIUS_SMC = 0.20;
+      this._weights.LIQUIDITY_ENGINE = 0.20;
+      this._weights.LYZER_NATIVE = 0.30;
+      this._weights.MACRO_REGIME = 0.05;
       this._weights.VOLATILITY_ENGINE = 0.05;
-      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
-      this._weights.MARKET_PROFILE_ENGINE = 0.40;
-      this._weights.TAPE_READING_ENGINE = 0.10;
-    } else if (regime === 'HIGH_VOLATILITY') {
-      // In volatile markets, Volatility & Macro Regime take precedence, and Tape Reading dominates
-      this._weights.VOLATILITY_ENGINE = 0.20;
-      this._weights.MACRO_REGIME = 0.20;
-      this._weights.LYZER_NATIVE = 0.10;
-      this._weights.OPENMOBIUS_SMC = 0.05;
-      this._weights.LIQUIDITY_ENGINE = 0.05;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.25;
+      this._weights.MARKET_PROFILE_ENGINE = 0.20;
+      this._weights.TAPE_READING_ENGINE = 0.05;
+    } else if (targetRegime === 'HIGH_VOLATILITY') {
+      // In volatile markets, Volatility, Momentum & Tape Reading dominate
+      this._weights.VOLATILITY_ENGINE = 0.30;
+      this._weights.MACRO_REGIME = 0.15;
+      this._weights.LYZER_NATIVE = 0.05;
+      this._weights.OPENMOBIUS_SMC = 0.15;
+      this._weights.LIQUIDITY_ENGINE = 0.15;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.05;
-      this._weights.MARKET_PROFILE_ENGINE = 0.10;
-      this._weights.TAPE_READING_ENGINE = 0.45;
+      this._weights.MARKET_PROFILE_ENGINE = 0.05;
+      this._weights.TAPE_READING_ENGINE = 0.30;
     } else {
       // Default balanced Bayesian weights
-      this._weights.LYZER_NATIVE = 0.30;
-      this._weights.OPENMOBIUS_SMC = 0.25;
+      this._weights.LYZER_NATIVE = 0.25;
+      this._weights.OPENMOBIUS_SMC = 0.20;
       this._weights.LIQUIDITY_ENGINE = 0.20;
-      this._weights.MACRO_REGIME = 0.15;
-      this._weights.VOLATILITY_ENGINE = 0.10;
+      this._weights.MACRO_REGIME = 0.10;
+      this._weights.VOLATILITY_ENGINE = 0.15;
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
-      this._weights.MARKET_PROFILE_ENGINE = 0.20;
-      this._weights.TAPE_READING_ENGINE = 0.25;
+      this._weights.MARKET_PROFILE_ENGINE = 0.10;
+      this._weights.TAPE_READING_ENGINE = 0.15;
     }
 
+    this._currentRegime = this.REGIMES.includes(targetRegime) ? targetRegime : 'BALANCED';
     this._normalizeWeights();
     return Object.freeze({ ...this._weights });
   }
 
   /**
-   * Online EWMA performance update step.
+   * Online EWMA performance update step partitioned by regime.
    */
-  updateSourcePerformance(sourceKey, accuracyScore) {
+  updateSourcePerformance(sourceKey, accuracyScore, tradeRegime = 'BALANCED') {
+    const targetRegime = this.REGIMES.includes(tradeRegime) ? tradeRegime : this._currentRegime;
+    const perfMap = this._regimePerformance[targetRegime] || this._regimePerformance.BALANCED;
+
+    if (perfMap[sourceKey] !== undefined) {
+      const prev = perfMap[sourceKey];
+      perfMap[sourceKey] = (1 - this._alpha) * prev + this._alpha * accuracyScore;
+
+      // Soft quarantine with prior restoration floor (never zero out permanently across all regimes)
+      if (perfMap[sourceKey] < 0.30) {
+        console.warn(`[CSRL] Engine ${sourceKey} performance degraded in regime ${targetRegime} (Score: ${perfMap[sourceKey].toFixed(2)}). Weight attenuated.`);
+      }
+    }
+
+    // Also update global fallback
     if (this._historicalPerformance[sourceKey] !== undefined) {
       const prev = this._historicalPerformance[sourceKey];
       this._historicalPerformance[sourceKey] = (1 - this._alpha) * prev + this._alpha * accuracyScore;
-
-      // Dynamic Kill-Switch
-      if (this._historicalPerformance[sourceKey] < 0.45) {
-        this._weights[sourceKey] = 0;
-        console.warn(`KILL-SWITCH TRIGGERED: ${sourceKey} quarantined due to toxic win rate.`);
-      }
     }
   }
 
@@ -91,7 +130,7 @@ export class EvidenceFusionEngine {
    * Core Bayesian Evidence Fusion step.
    * Computes normalized Posterior Evidence Score.
    */
-  fuseEvidence(evidenceArray) {
+  fuseEvidence(evidenceArray, activeRegime = 'BALANCED') {
     if (this._disposed) {
       throw new Error('ERR_FUSION_ENGINE_DISPOSED: Engine has been disposed');
     }
@@ -100,11 +139,14 @@ export class EvidenceFusionEngine {
       return this._createDefaultScore();
     }
 
+    this._currentRegime = this.REGIMES.includes(activeRegime) ? activeRegime : this._currentRegime;
+    const perfMap = this._regimePerformance[this._currentRegime] || this._regimePerformance.BALANCED;
+
     let weightedConfidence = 0;
     let weightedProbability = 0;
     let totalWeight = 0;
     let minUncertainty = 1.0;
-    let primaryRegime = 'BALANCED';
+    let primaryRegime = this._currentRegime;
 
     for (const ev of evidenceArray) {
       const src = ev.sourceEngine || 'OPENMOBIUS_SMC';
@@ -116,12 +158,15 @@ export class EvidenceFusionEngine {
                         src.includes('WYCKOFF') ? 'WYCKOFF_VOLUME_ENGINE' :
                         src.includes('TAPE_READING') ? 'TAPE_READING_ENGINE' : 'LYZER_NATIVE';
 
-      const weight = (this._weights[weightKey] || 0.20) * (this._historicalPerformance[weightKey] || 0.70);
+      const baseWeight = this._weights[weightKey] !== undefined ? this._weights[weightKey] : 0.15;
+      const perf = perfMap[weightKey] !== undefined ? perfMap[weightKey] : (this._historicalPerformance[weightKey] || 0.70);
+      const effectiveWeight = Math.max(0.01, baseWeight * perf);
+
       const metrics = ev.evidenceMetrics || { confidence: 0.5, probability: 0.5, uncertainty: 0.5 };
 
-      weightedConfidence += metrics.confidence * weight;
-      weightedProbability += metrics.probability * weight;
-      totalWeight += weight;
+      weightedConfidence += metrics.confidence * effectiveWeight;
+      weightedProbability += metrics.probability * effectiveWeight;
+      totalWeight += effectiveWeight;
 
       if (metrics.uncertainty < minUncertainty) {
         minUncertainty = metrics.uncertainty;

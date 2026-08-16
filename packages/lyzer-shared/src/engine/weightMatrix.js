@@ -6,39 +6,45 @@
  * Low Volatility / Range -> Higher weight for Boundary (V2) and Wyckoff (V5)
  */
 export class DynamicWeightMatrix {
+  constructor() {
+    this.BASE_MATRICES = {
+      BALANCED: { v1: 1.0, v2: 1.0, v3: 1.0, v4: 1.0, v5: 1.0, v6: 1.0, v7: 1.0 },
+      HIGH_VOLATILITY: { v1: 1.2, v2: 0.5, v3: 1.5, v4: 1.5, v5: 0.5, v6: 0.5, v7: 2.0 },
+      RANGING: { v1: 1.0, v2: 1.5, v3: 0.5, v4: 0.8, v5: 1.3, v6: 1.2, v7: 0.5 },
+      LOW_LIQUIDITY_NIGHT: { v1: 1.1, v2: 1.6, v3: 0.1, v4: 0.3, v5: 1.4, v6: 1.2, v7: 0.0 }
+    };
+  }
+
+  detectRegime(atr, regimeSignal, hourUTC = null) {
+    const ATR_HIGH = 0.002;
+    const ATR_LOW = 0.0006;
+    const sig = (regimeSignal || '').toUpperCase();
+
+    // Asian session / Low liquidity night window (21:00 UTC to 06:00 UTC)
+    const isNightWindow = hourUTC !== null ? (hourUTC >= 21 || hourUTC < 6) : false;
+
+    if (atr > ATR_HIGH || sig.includes('TREND') || sig.includes('BREAKOUT') || sig.includes('IMBALANCE')) {
+      return 'HIGH_VOLATILITY';
+    }
+    if (isNightWindow || (atr < ATR_LOW && (sig.includes('RANGE') || sig.includes('CHOP')))) {
+      return 'LOW_LIQUIDITY_NIGHT';
+    }
+    if (sig.includes('RANGE') || sig.includes('CONSOLIDATION') || sig.includes('CHOP')) {
+      return 'RANGING';
+    }
+    return 'BALANCED';
+  }
+
   /**
    * Evaluates the dynamic weights for the current tick.
    * @param {number} atr - Topographical ATR
    * @param {string} regimeSignal - The regime signal from V6 Market Profile (e.g., 'TREND', 'RANGE')
-   * @returns {Object} - Key-value pair of provider IDs to their dynamic multiplier
+   * @param {number|null} [hourUTC] - Current UTC hour (0-23)
+   * @returns {Object} - Key-value pair of provider IDs to their dynamic multiplier with activeRegime
    */
-  evaluate(atr, regimeSignal) {
-    const weights = { v1: 1.0, v2: 1.0, v3: 1.0, v4: 1.0, v5: 1.0, v6: 1.0, v7: 1.0 };
-    
-    // Static baseline for high volatility (can be converted to a rolling average in future iterations)
-    const ATR_THRESHOLD_HIGH = 0.002; 
-    const isVolatile = atr > ATR_THRESHOLD_HIGH;
-    
-    // Normalize V6 regime signals
-    const regime = regimeSignal ? regimeSignal.toUpperCase() : 'UNKNOWN';
-    const isTrending = regime.includes('TREND') || regime.includes('IMBALANCE') || regime.includes('BREAKOUT');
-    const isRanging = regime.includes('RANGE') || regime.includes('CHOP') || regime.includes('CONSOLIDATION');
-    
-    if (isTrending) {
-      weights.v3 = 1.5; // MomentumRSI has more authority in a trend
-      weights.v1 = 1.2; // SMC structural breaks are more reliable
-      weights.v2 = 0.5; // SNR support/resistance boundaries break easily in trend
-    } else if (isRanging) {
-      weights.v2 = 1.5; // SNR has peak authority in a range
-      weights.v5 = 1.2; // Wyckoff accumulation/distribution dominates ranges
-      weights.v3 = 0.5; // MomentumRSI generates false signals in chop
-    }
-    
-    if (isVolatile) {
-      weights.v7 = 2.0; // Tape Reading is highly predictive during volatile shocks
-      weights.v4 = 1.5; // Institutional Microstructure Causality excels under high liquidity flux
-    }
-
-    return weights;
+  evaluate(atr, regimeSignal, hourUTC = null) {
+    const activeRegime = this.detectRegime(atr, regimeSignal, hourUTC);
+    const base = this.BASE_MATRICES[activeRegime] || this.BASE_MATRICES.BALANCED;
+    return { ...base, activeRegime };
   }
 }

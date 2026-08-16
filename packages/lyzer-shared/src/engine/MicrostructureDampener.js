@@ -9,67 +9,123 @@
  */
 
 export class MicrostructureDampener {
-  /**
-   * @param {Object} [options]
-   * @param {number} [options.minHoldingCandles=5] - MHT candle lock
-   * @param {number} [options.cooldownCandles=5] - Post-trade cooldown
-   * @param {number} [options.atrBarrierMultiplier=1.2] - Min ATR target
-   * @param {number} [options.minRiskReward=1.5] - Min R:R ratio
-   * @param {number} [options.molStableTicksRequired=10] - Ticks needed to exit recovery
-   */
   constructor({
     minHoldingCandles = 2,
-    cooldownCandles = 2,
-    atrBarrierMultiplier = 0.6,
-    minRiskReward = 1.0,
+    baseCooldownCandles = 3,
+    minCooldownCandles = 2,
+    maxCooldownCandles = 25,
+    trgReference = 0.45,
+    trgExponent = 2.0,
+    trgPenaltyFactor = 2.0,
+    baseAtrBarrierMultiplier = 0.6,
+    baseMinRiskReward = 1.0,
     molStableTicksRequired = 3
   } = {}) {
     this.minHoldingCandles = minHoldingCandles;
-    this.cooldownCandles = cooldownCandles;
-    this.atrBarrierMultiplier = atrBarrierMultiplier;
-    this.minRiskReward = minRiskReward;
+    this.baseCooldownCandles = baseCooldownCandles;
+    this.minCooldownCandles = minCooldownCandles;
+    this.maxCooldownCandles = maxCooldownCandles;
+    this.trgReference = trgReference;
+    this.trgExponent = trgExponent;
+    this.trgPenaltyFactor = trgPenaltyFactor;
+    this.baseAtrBarrierMultiplier = baseAtrBarrierMultiplier;
+    this.baseMinRiskReward = baseMinRiskReward;
     this.molStableTicksRequired = molStableTicksRequired;
 
     // Per-symbol execution state trackers
+    this.lastExitState = new Map(); // symbol -> { exitCandleIndex, outcome, exitReason, timestamp }
     this.lastExitCandleIndex = new Map();
     this.consecutiveStableTicks = new Map();
+  }
+
+  /**
+   * Computes adaptive dynamic cooldown based on TRG, prior trade outcome, and session hour.
+   */
+  calculateDynamicCooldown(symbol, trg = 0.45, timestamp = Date.now()) {
+    const lastExit = this.lastExitState.get(symbol);
+    const outcome = lastExit ? lastExit.outcome : 'PROFIT_TARGET';
+
+    // 1. TRG Deficit Multiplier (low volatility increases cooldown to avoid chop)
+    const effectiveTrg = Math.max(0, trg);
+    let trgMultiplier = 1.0;
+    if (effectiveTrg < this.trgReference) {
+      const deficitRatio = (this.trgReference - effectiveTrg) / this.trgReference;
+      trgMultiplier = 1.0 + this.trgPenaltyFactor * Math.pow(deficitRatio, this.trgExponent);
+    }
+
+    // 2. Prior Trade Outcome Penalty
+    let outcomeMultiplier = 1.0;
+    if (outcome === 'STOP_LOSS' || outcome === 'SCRATCH') {
+      outcomeMultiplier = 1.6;
+    } else if (outcome === 'VETO_EMERGENCY' || outcome === 'LHDS_VETO') {
+      outcomeMultiplier = 2.0;
+    }
+
+    // 3. Off-Peak Session Factor (UTC)
+    const hourUtc = new Date(timestamp).getUTCHours();
+    const isOffPeak = (hourUtc >= 21 || hourUtc < 8);
+    const sessionMultiplier = isOffPeak ? 1.3 : 1.0;
+
+    const rawCooldown = this.baseCooldownCandles * trgMultiplier * outcomeMultiplier * sessionMultiplier;
+    const finalCooldown = Math.round(Math.min(this.maxCooldownCandles, Math.max(this.minCooldownCandles, rawCooldown)));
+
+    return {
+      cooldownCandles: finalCooldown,
+      factors: { trgMultiplier, outcomeMultiplier, sessionMultiplier, rawCooldown }
+    };
   }
 
   /**
    * Evaluates if a new trade entry is permitted under anti-overtrading rules.
    * @param {string} symbol - Trading pair (e.g. 'BTCUSDT')
    * @param {number} currentCandleIndex - Current total candle count or timestamp index
-   * @param {Object} mtfContext - Higher timeframe structure ({ m15Signal, h1Signal, entrySide })
+   * @param {Object} mtfContext - Higher timeframe structure ({ m15Signal, h1Signal, entrySide, trg, timestamp })
    * @returns {{ permitted: boolean, reason?: string }}
    */
   canOpenTrade(symbol, currentCandleIndex, mtfContext = {}) {
-    // 1. Post-Trade Cooldown Buffer Check
-    const lastExit = this.lastExitCandleIndex.get(symbol);
-    if (lastExit !== undefined) {
-      const elapsedCandles = currentCandleIndex - lastExit;
-      if (elapsedCandles < this.cooldownCandles) {
-        console.log(`[DAMPENER DEBUG] currentCandleIndex=${currentCandleIndex}, lastExit=${lastExit}, elapsed=${elapsedCandles}`);
+    const { 
+      entrySide, 
+      m15Signal = 'flat', 
+      h1Signal = 'flat', 
+      trg = 0.45, 
+      timestamp = Date.now() 
+    } = mtfContext;
+
+    // 1. Post-Trade Adaptive Cooldown Buffer Check
+    const lastExit = this.lastExitState.get(symbol);
+    const lastExitIdx = lastExit ? lastExit.exitCandleIndex : this.lastExitCandleIndex.get(symbol);
+    
+    if (lastExitIdx !== undefined) {
+      const elapsedCandles = currentCandleIndex - lastExitIdx;
+      const { cooldownCandles } = this.calculateDynamicCooldown(symbol, trg, timestamp);
+      
+      if (elapsedCandles < cooldownCandles) {
         return {
           permitted: false,
-          reason: `COOLDOWN_ACTIVE (${elapsedCandles}/${this.cooldownCandles} candles elapsed since last trade exit)`
+          reason: `ADAPTIVE_COOLDOWN_ACTIVE (${elapsedCandles}/${cooldownCandles} candles elapsed since last exit)`
         };
       }
     }
 
     // 2. MTF Trend Alignment Check
-    if (mtfContext.entrySide) {
-      const { entrySide, m15Signal, h1Signal } = mtfContext;
+    if (entrySide) {
       const targetSide = entrySide.toLowerCase();
-      if (m15Signal && m15Signal !== 'flat' && m15Signal.toLowerCase() !== targetSide) {
+      const m15 = (m15Signal || 'flat').toLowerCase();
+      const h1 = (h1Signal || 'flat').toLowerCase();
+
+      // Prohibit counter-trend against active M15
+      if (m15 !== 'flat' && m15 !== targetSide) {
         return {
           permitted: false,
-          reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with M15 trend ${m15Signal})`
+          reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with M15 trend ${m15.toUpperCase()})`
         };
       }
-      if (h1Signal && h1Signal !== 'flat' && h1Signal.toLowerCase() !== targetSide) {
+
+      // Prohibit counter-trend against active H1
+      if (h1 !== 'flat' && h1 !== targetSide) {
         return {
           permitted: false,
-          reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with H1 trend ${h1Signal})`
+          reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with H1 trend ${h1.toUpperCase()})`
         };
       }
     }
@@ -78,7 +134,7 @@ export class MicrostructureDampener {
   }
 
   /**
-   * Evaluates if an active position is allowed to close (enforces MHT & ATR Profit Barrier).
+   * Evaluates if an active position is allowed to close (enforces MHT & Dynamic ATR Barrier).
    * @param {Object} position - Active position record
    * @param {number} currentCandleIndex - Current candle index
    * @param {number} currentPrice - Current price
@@ -94,7 +150,7 @@ export class MicrostructureDampener {
       return { canClose: true, reason: 'EMERGENCY_LHDS_VETO_EXIT' };
     }
 
-    // OpenMobius / Wyckoff / FVG Counter-Signal Override (Early Exit to minimize SL hits)
+    // OpenMobius / Wyckoff / FVG Counter-Signal Override
     const openMobiusVetos = [
       'VETO_FVG_AGAINST_POSITION', 
       'VETO_WYCKOFF_DISTRIBUTION',
@@ -117,18 +173,21 @@ export class MicrostructureDampener {
 
     // 2. ATR Profit & Noise Barrier Check (for non-StopLoss exits)
     if (currentAtr && currentAtr > 0) {
-      const isLong = position.side === 'BUY' || position.side === 'LONG';
+      const isLong = position.side === 'BUY' || position.side === 'LONG' || position.direction === 'LONG';
       const priceDelta = isLong ? (currentPrice - position.entryPrice) : (position.entryPrice - currentPrice);
       const atrMultiple = priceDelta / currentAtr;
 
-      const riskDist = Math.abs(position.entryPrice - position.stopLossPrice) || (currentAtr * 1.5);
-      const riskRewardRatio = priceDelta / riskDist;
+      const riskDist = Math.abs(position.entryPrice - (position.initialStopLoss || position.stopLossPrice || position.stopLoss)) || (currentAtr * 1.5);
+      const riskRewardRatio = riskDist > 0 ? priceDelta / riskDist : 0;
 
-      // If trade is in profit but hasn't reached 1.2x ATR or 1.5 R:R, hold through minor noise
-      if (priceDelta > 0 && atrMultiple < this.atrBarrierMultiplier && riskRewardRatio < this.minRiskReward) {
+      const trg = kernelResult.trg || 0.40;
+      const dynamicAtrMultiplier = this.baseAtrBarrierMultiplier + Math.max(0, (0.45 - trg) * 0.8);
+      const dynamicMinRR = Math.max(this.baseMinRiskReward, 1.4 - trg);
+
+      if (priceDelta > 0 && (atrMultiple < dynamicAtrMultiplier && riskRewardRatio < dynamicMinRR)) {
         return {
           canClose: false,
-          reason: `NOISE_BARRIER_HOLD (ATR multiple: ${atrMultiple.toFixed(2)}/${this.atrBarrierMultiplier}, R:R: ${riskRewardRatio.toFixed(2)}/${this.minRiskReward})`
+          reason: `NOISE_BARRIER_HOLD (ATR multiple: ${atrMultiple.toFixed(2)}/${dynamicAtrMultiplier.toFixed(2)}, R:R: ${riskRewardRatio.toFixed(2)}/${dynamicMinRR.toFixed(2)})`
         };
       }
     }
@@ -140,9 +199,17 @@ export class MicrostructureDampener {
    * Registers trade exit to start post-trade cooldown counter.
    * @param {string} symbol
    * @param {number} exitCandleIndex
+   * @param {string} [outcome='PROFIT_TARGET']
+   * @param {string} [exitReason='']
    */
-  recordTradeExit(symbol, exitCandleIndex) {
+  recordTradeExit(symbol, exitCandleIndex, outcome = 'PROFIT_TARGET', exitReason = '') {
     this.lastExitCandleIndex.set(symbol, exitCandleIndex);
+    this.lastExitState.set(symbol, {
+      exitCandleIndex,
+      outcome,
+      exitReason,
+      timestamp: Date.now()
+    });
   }
 
   /**

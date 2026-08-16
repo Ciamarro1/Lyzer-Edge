@@ -484,13 +484,15 @@ export class StreamEngine extends EventEmitter {
         this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice).catch(e => console.error('[STREAM] Close order failed:', e.message));
       }
 
-      this.dampener.recordTradeExit(this.symbol, this.tickCounter);
+      const outcome = exitReason === 'TAKE_PROFIT' || rawPnl > 0 ? 'PROFIT_TARGET' : (exitReason === 'STOP_LOSS' ? 'STOP_LOSS' : 'SCRATCH');
+      this.dampener.recordTradeExit(this.symbol, this.tickCounter, outcome, exitReason);
       this.releaseDailyCapital(this.activePosition);
       
-      // CSRL: Online Reinforcement Learning Feedback Loop
+      // CSRL: Online Reinforcement Learning Feedback Loop (Regime-Isolated)
       if (this.evidenceFusion && pos.vectorMap) {
          const isWin = rawPnl > 0;
          const accuracyScore = isWin ? 1.0 : 0.0;
+         const tradeRegime = pos.entryRegime || 'BALANCED';
          
          for (const v of pos.vectorMap) {
             if (v.sig && v.sig.signal && v.sig.signal !== 'flat' && v.sig.signal !== 'FLAT') {
@@ -508,9 +510,9 @@ export class StreamEngine extends EventEmitter {
                 
                 if (weightKey) {
                    if ((isSigLong && isTradeLong) || (!isSigLong && !isTradeLong)) {
-                       this.evidenceFusion.updateSourcePerformance(weightKey, accuracyScore);
+                       this.evidenceFusion.updateSourcePerformance(weightKey, accuracyScore, tradeRegime);
                    } else {
-                       this.evidenceFusion.updateSourcePerformance(weightKey, isWin ? 0.0 : 1.0);
+                       this.evidenceFusion.updateSourcePerformance(weightKey, isWin ? 0.0 : 1.0, tradeRegime);
                    }
                 }
             }
@@ -626,7 +628,10 @@ export class StreamEngine extends EventEmitter {
     const v6Sig = { signal: v6Narrative.signal, confidence: v6Narrative.confidence };
     const v7Sig = { signal: v7Narrative.signal, confidence: v7Narrative.confidence || 50 };
 
-    const dynamicWeights = this.weightMatrix.evaluate(topographicalAtr, v6Sig?.regime || v6Sig?.signal);
+    const dateObj = new Date(candle.timestamp || candle.openTime || Date.now());
+    const utcHours = dateObj.getUTCHours();
+
+    const dynamicWeights = this.weightMatrix.evaluate(topographicalAtr, v6Sig?.regime || v6Sig?.signal, utcHours);
 
     const providers = {
         v1: { ...v1Sig, id: 'v1' },
@@ -669,27 +674,19 @@ export class StreamEngine extends EventEmitter {
     // Process structural evidence
     this.openMobius.processCandle(candle);
     
-    // Evaluate Fusion Engine
+    // Evaluate Fusion Engine with active regime
     const evidenceArray = [
       { sourceEngine: 'LYZER_NATIVE', evidenceMetrics: { confidence: Math.max(v1Sig.confidence, v2Sig.confidence, v3Sig.confidence), probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'WYCKOFF_VOLUME_ENGINE', evidenceMetrics: { confidence: v5Sig.confidence, probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'OPENMOBIUS_SMC', evidenceMetrics: { confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0, probability: 0.5, uncertainty: 0.5 } }
     ];
-    const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray);
+    const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray, dynamicWeights.activeRegime);
 
     // Evaluate Fusion Engine (Directional Vector Consensus)
     let netDirection = 0;
     let totalActiveWeight = 0;
     
-    const weights = this.evidenceFusion._weights || {
-      LIQUIDITY_ENGINE: 0.15,
-      LYZER_NATIVE: 0.15,
-      VOLATILITY_ENGINE: 0.20,
-      MACRO_REGIME: 0.10,
-      WYCKOFF_VOLUME_ENGINE: 0.20,
-      MARKET_PROFILE_ENGINE: 0.05,
-      TAPE_READING_ENGINE: 0.15
-    };
+    const weights = this.evidenceFusion.adaptWeightsForRegime(dynamicWeights.activeRegime, utcHours);
 
     const vectorMap = [
       { engine: 'v1', sig: v1Sig, weight: weights.LIQUIDITY_ENGINE || 0.15 },
@@ -728,14 +725,23 @@ export class StreamEngine extends EventEmitter {
       finalConfidence = Math.max(finalConfidence, Math.min(100, (Math.abs(netDirection) / totalActiveWeight) * 100));
     }
 
-    // [Lyzer Golden Hours] Time-Windowing filter
-    const dateObj = new Date(candle.timestamp || candle.openTime || Date.now());
-    const utcHours = dateObj.getUTCHours();
+    // [Lyzer Golden Hours & 24/7 Adaptive Regime Filter]
     const isGoldenHour = (utcHours >= 8 && utcHours < 12) || (utcHours >= 19 && utcHours < 21);
     
-    if (process.env.ABLATION_NO_GOLDEN_HOURS !== 'true' && !isGoldenHour && combinedSignal !== 'FLAT') {
-        combinedSignal = 'FLAT';
-        v1Narrative.narrative = 'VETO: OUTSIDE_GOLDEN_HOURS';
+    if (process.env.ABLATION_NO_GOLDEN_HOURS !== 'true') {
+      if (!isGoldenHour && combinedSignal !== 'FLAT') {
+        const allow247 = process.env.ENABLE_24_7_REGIME === 'true';
+        if (allow247) {
+          // In 24/7 mode, off-peak entries require high directional structure (TRG >= 0.35)
+          if ((kernelResult.trg || 0) < 0.35) {
+            combinedSignal = 'FLAT';
+            v1Narrative.narrative = 'VETO: OFF_PEAK_LOW_TRG_INERTIA';
+          }
+        } else {
+          combinedSignal = 'FLAT';
+          v1Narrative.narrative = 'VETO: OUTSIDE_GOLDEN_HOURS';
+        }
+      }
     }
 
     const baseSignal = { 
@@ -799,8 +805,8 @@ export class StreamEngine extends EventEmitter {
         const currentMfe = pos.peakFavorablePrice - pos.entryPrice;
         const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
 
-        // 2. Phase 2: Confirmation - Spread-Protected Break-Even
-        const mfeBE = pos.mfeTargetBE || 1.0;
+        // 2. Phase 2: Confirmation - Spread-Protected Break-Even (+0.80R)
+        const mfeBE = pos.mfeTargetBE || 0.8;
         if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && currentR >= mfeBE) {
           pos.stopLoss = Math.max(pos.stopLoss, minLongStop);
           pos.breakEvenApplied = true;
@@ -808,42 +814,46 @@ export class StreamEngine extends EventEmitter {
           recordBreakEvenTrade(this.symbol, 'LONG');
         }
 
-        // 3. Phase 3: Expansion & Scale-Out Protocol
+        // 3. Phase 3: Expansion & Multi-Tranche Scale-Out Protocol (33% / 33% / 34%)
         if (process.env.ABLATION_NO_SCALEOUT !== 'true') {
-          // Tranche 1: 50%
-          const mfe1 = pos.mfeTargetScale1 || 1.5;
+          // Tranche 1: 33.3% at +1.20R
+          const mfe1 = pos.mfeTargetScale1 || 1.2;
           if (!pos.scaleOut1Done && currentR >= mfe1) {
-            const partialQty = (pos.initialQuantity || pos.quantity) * 0.5;
+            const trancheWeight = 0.3333;
+            const partialQty = (pos.initialQuantity || pos.quantity) * trancheWeight;
             const partialPrice = pos.entryPrice + (mfe1 * riskDistance);
             const partialPnl = (partialPrice - pos.entryPrice) / pos.entryPrice;
-            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.5);
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * trancheWeight);
             pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
             pos.scaleOut1Done = true;
-            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + ((mfe1 / 3) * riskDistance)); // Lock trailing profit proportional to scale out
+            // Ratchet SL to +0.30R (locks minimum net profit for the entire trade)
+            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + (0.30 * riskDistance));
             pos.scaleOutHistory = pos.scaleOutHistory || [];
-            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_50PCT', price: partialPrice, r: mfe1, qty: partialQty });
-            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 50% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_33PCT', price: partialPrice, r: mfe1, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 33% closed at ${partialPrice.toFixed(2)}. SL ratcheted to +0.30R.`);
           }
 
-          // Tranche 2: 25%
-          const mfe2 = pos.mfeTargetScale2 || 2.0;
+          // Tranche 2: 33.3% at +1.80R
+          const mfe2 = pos.mfeTargetScale2 || 1.8;
           if (!pos.scaleOut2Done && currentR >= mfe2) {
-            const partialQty = (pos.initialQuantity || pos.quantity) * 0.25;
+            const trancheWeight = 0.3333;
+            const partialQty = (pos.initialQuantity || pos.quantity) * trancheWeight;
             const partialPrice = pos.entryPrice + (mfe2 * riskDistance);
             const partialPnl = (partialPrice - pos.entryPrice) / pos.entryPrice;
-            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.25);
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * trancheWeight);
             pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
             pos.scaleOut2Done = true;
-            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + (mfe1 * riskDistance)); // Lock Phase 1 profit
+            // Ratchet SL to +1.00R (locks Phase 1 profit on remaining runner)
+            pos.stopLoss = Math.max(pos.stopLoss, pos.entryPrice + (1.00 * riskDistance));
             pos.scaleOutHistory = pos.scaleOutHistory || [];
-            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_25PCT', price: partialPrice, r: mfe2, qty: partialQty });
-            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 25% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_33PCT', price: partialPrice, r: mfe2, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 33% closed at ${partialPrice.toFixed(2)}. SL ratcheted to +1.00R.`);
           }
         }
 
-        // 4. Phase 3.3: M1 Fractal Trailing Stop for Remaining Bag
+        // 4. Phase 3.3: MicroATR Adaptive Trailing Stop for Remaining Runner (33.4%)
         if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
-          const trailMult = pos.scaleOut2Done ? 1.0 : 1.5;
+          const trailMult = pos.scaleOut2Done ? 0.8 : (pos.scaleOut1Done ? 1.0 : 1.2);
           const trailingStop = pos.peakFavorablePrice - (trailMult * microAtr);
           if (trailingStop > pos.stopLoss) {
             pos.stopLoss = trailingStop;
@@ -895,8 +905,8 @@ export class StreamEngine extends EventEmitter {
         const currentMfe = pos.entryPrice - pos.peakFavorablePrice;
         const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
 
-        // 2. Phase 2: Confirmation - Spread-Protected Break-Even
-        const mfeBE = pos.mfeTargetBE || 1.0;
+        // 2. Phase 2: Confirmation - Spread-Protected Break-Even (+0.80R)
+        const mfeBE = pos.mfeTargetBE || 0.8;
         if (process.env.ABLATION_NO_BE !== 'true' && !pos.breakEvenApplied && currentR >= mfeBE) {
           pos.stopLoss = Math.min(pos.stopLoss, minShortStop);
           pos.breakEvenApplied = true;
@@ -904,42 +914,46 @@ export class StreamEngine extends EventEmitter {
           recordBreakEvenTrade(this.symbol, 'SHORT');
         }
 
-        // 3. Phase 3: Expansion & Scale-Out Protocol
+        // 3. Phase 3: Expansion & Multi-Tranche Scale-Out Protocol (33% / 33% / 34%)
         if (process.env.ABLATION_NO_SCALEOUT !== 'true') {
-          // Tranche 1: 50%
-          const mfe1 = pos.mfeTargetScale1 || 1.5;
+          // Tranche 1: 33.3% at +1.20R
+          const mfe1 = pos.mfeTargetScale1 || 1.2;
           if (!pos.scaleOut1Done && currentR >= mfe1) {
-            const partialQty = (pos.initialQuantity || pos.quantity) * 0.5;
+            const trancheWeight = 0.3333;
+            const partialQty = (pos.initialQuantity || pos.quantity) * trancheWeight;
             const partialPrice = pos.entryPrice - (mfe1 * riskDistance);
             const partialPnl = (pos.entryPrice - partialPrice) / pos.entryPrice;
-            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.5);
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * trancheWeight);
             pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
             pos.scaleOut1Done = true;
-            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - ((mfe1 / 3) * riskDistance)); // Lock trailing profit proportional to scale out
+            // Ratchet SL to +0.30R
+            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - (0.30 * riskDistance));
             pos.scaleOutHistory = pos.scaleOutHistory || [];
-            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_50PCT', price: partialPrice, r: mfe1, qty: partialQty });
-            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 50% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_1_33PCT', price: partialPrice, r: mfe1, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_1 (+${mfe1.toFixed(2)}R): 33% closed at ${partialPrice.toFixed(2)}. SL ratcheted to +0.30R.`);
           }
 
-          // Tranche 2: 25%
-          const mfe2 = pos.mfeTargetScale2 || 2.0;
+          // Tranche 2: 33.3% at +1.80R
+          const mfe2 = pos.mfeTargetScale2 || 1.8;
           if (!pos.scaleOut2Done && currentR >= mfe2) {
-            const partialQty = (pos.initialQuantity || pos.quantity) * 0.25;
+            const trancheWeight = 0.3333;
+            const partialQty = (pos.initialQuantity || pos.quantity) * trancheWeight;
             const partialPrice = pos.entryPrice - (mfe2 * riskDistance);
             const partialPnl = (pos.entryPrice - partialPrice) / pos.entryPrice;
-            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * 0.25);
+            pos.accumulatedPnl = (pos.accumulatedPnl || 0) + (partialPnl * trancheWeight);
             pos.remainingQuantity = (pos.remainingQuantity || pos.quantity) - partialQty;
             pos.scaleOut2Done = true;
-            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - (mfe1 * riskDistance)); // Lock Phase 1 profit
+            // Ratchet SL to +1.00R
+            pos.stopLoss = Math.min(pos.stopLoss, pos.entryPrice - (1.00 * riskDistance));
             pos.scaleOutHistory = pos.scaleOutHistory || [];
-            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_25PCT', price: partialPrice, r: mfe2, qty: partialQty });
-            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 25% closed at ${partialPrice.toFixed(2)}. SL trailed.`);
+            pos.scaleOutHistory.push({ phase: 'SCALEOUT_2_33PCT', price: partialPrice, r: mfe2, qty: partialQty });
+            console.log(`[SNIPER] SCALE_OUT_2 (+${mfe2.toFixed(2)}R): 33% closed at ${partialPrice.toFixed(2)}. SL ratcheted to +1.00R.`);
           }
         }
 
-        // 4. Phase 3.3: M1 Fractal Trailing Stop for Remaining Bag
+        // 4. Phase 3.3: MicroATR Adaptive Trailing Stop for Remaining Runner (33.4%)
         if (process.env.ABLATION_NO_TRAILING !== 'true' && pos.breakEvenApplied) {
-          const trailMult = pos.scaleOut2Done ? 1.0 : 1.5;
+          const trailMult = pos.scaleOut2Done ? 0.8 : (pos.scaleOut1Done ? 1.0 : 1.2);
           const trailingStop = pos.peakFavorablePrice + (trailMult * microAtr);
           if (trailingStop < pos.stopLoss) {
             pos.stopLoss = trailingStop;
@@ -1083,7 +1097,10 @@ export class StreamEngine extends EventEmitter {
       const currentCandleIdx = index;
       const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
         entrySide: direction,
-        m15Signal: baseSignal.m15Signal || 'flat'
+        m15Signal: baseSignal.m15Signal || 'flat',
+        h1Signal: baseSignal.h1Signal || 'flat',
+        trg: kernelResult.trg || 0.45,
+        timestamp: candle.timestamp || candle.openTime || Date.now()
       });
 
       if (!dampenerCheck.permitted) {
@@ -1201,10 +1218,15 @@ export class StreamEngine extends EventEmitter {
 
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
 
-        const trgExpansion = 1.0 + (kernelResult.trg || 0);
-        const mfeTargetBE = Math.max(1.0, 1.0 * trgExpansion); // 1.0R Floor for safety
-        const mfeTargetScale1 = Math.max(1.5, 1.5 * trgExpansion);
-        const mfeTargetScale2 = Math.max(2.0, 2.0 * trgExpansion);
+        const defaultMfeBE = parseFloat(process.env.MFE_TARGET_BE || '0.8');
+        const defaultMfeScale1 = parseFloat(process.env.MFE_TARGET_SCALE1 || '1.2');
+        const defaultMfeScale2 = parseFloat(process.env.MFE_TARGET_SCALE2 || '1.8');
+
+        // Dampened TRG expansion so volatility spikes do not delay profit locks
+        const trgDampened = Math.min(1.2, 1.0 + (kernelResult.trg || 0) * 0.2);
+        const mfeTargetBE = Math.min(1.0, defaultMfeBE * trgDampened);
+        const mfeTargetScale1 = defaultMfeScale1;
+        const mfeTargetScale2 = defaultMfeScale2;
 
         this.activePosition = {
           id: `trade_${index}`,
@@ -1225,6 +1247,7 @@ export class StreamEngine extends EventEmitter {
           scaleOut2Done: false,
           scaleOutHistory: [],
           accumulatedPnl: 0,
+          entryRegime: dynamicWeights.activeRegime || 'BALANCED',
           tradeDna: baseSignal.tradeDna,
           explanationText: baseSignal.explanationText,
           signal: {
