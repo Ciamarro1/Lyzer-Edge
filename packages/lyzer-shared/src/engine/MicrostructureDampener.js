@@ -88,7 +88,8 @@ export class MicrostructureDampener {
       m15Signal = 'flat', 
       h1Signal = 'flat', 
       trg = 0.45, 
-      timestamp = Date.now() 
+      timestamp = Date.now(),
+      strategyType = 'TREND_EXPANSION'
     } = mtfContext;
 
     // 1. Post-Trade Adaptive Cooldown Buffer Check
@@ -97,8 +98,13 @@ export class MicrostructureDampener {
     
     if (lastExitIdx !== undefined) {
       const elapsedCandles = currentCandleIndex - lastExitIdx;
-      const { cooldownCandles } = this.calculateDynamicCooldown(symbol, trg, timestamp);
+      let { cooldownCandles } = this.calculateDynamicCooldown(symbol, trg, timestamp);
       
+      // Range scalp in profit can use shorter cooldown (ping-pong in range)
+      if (strategyType === 'RANGE_SCALP' && lastExit && lastExit.outcome === 'PROFIT_TARGET') {
+        cooldownCandles = Math.min(3, cooldownCandles);
+      }
+
       if (elapsedCandles < cooldownCandles) {
         return {
           permitted: false,
@@ -113,12 +119,14 @@ export class MicrostructureDampener {
       const m15 = (m15Signal || 'flat').toLowerCase();
       const h1 = (h1Signal || 'flat').toLowerCase();
 
-      // Prohibit counter-trend against active M15
+      // Prohibit counter-trend against active M15 (unless range scalp at structural boundary)
       if (m15 !== 'flat' && m15 !== targetSide) {
-        return {
-          permitted: false,
-          reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with M15 trend ${m15.toUpperCase()})`
-        };
+        if (strategyType !== 'RANGE_SCALP') {
+          return {
+            permitted: false,
+            reason: `MTF_MISALIGNMENT (Entry ${entrySide} conflicts with M15 trend ${m15.toUpperCase()})`
+          };
+        }
       }
 
       // Prohibit counter-trend against active H1
@@ -195,19 +203,15 @@ export class MicrostructureDampener {
     return { canClose: true };
   }
 
-  /**
-   * Registers trade exit to start post-trade cooldown counter.
-   * @param {string} symbol
-   * @param {number} exitCandleIndex
-   * @param {string} [outcome='PROFIT_TARGET']
-   * @param {string} [exitReason='']
-   */
   recordTradeExit(symbol, exitCandleIndex, outcome = 'PROFIT_TARGET', exitReason = '') {
+    const finalOutcome = typeof outcome === 'object' && outcome !== null ? (outcome.outcome || 'PROFIT_TARGET') : (outcome || 'PROFIT_TARGET');
+    const finalReason = typeof outcome === 'object' && outcome !== null ? (outcome.reason || outcome.exitReason || '') : exitReason;
+
     this.lastExitCandleIndex.set(symbol, exitCandleIndex);
     this.lastExitState.set(symbol, {
       exitCandleIndex,
-      outcome,
-      exitReason,
+      outcome: finalOutcome,
+      exitReason: finalReason,
       timestamp: Date.now()
     });
   }

@@ -1,12 +1,14 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
 import { HistoricalDataSanitizer } from '../../backend/HistoricalDataSanitizer.js';
 import { EventSourcedBacktester } from '../../backend/EventSourcedBacktester.js';
 import { BinanceDataFetcher } from '../../backend/utils/BinanceDataFetcher.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+dotenv.config({ path: path.join(__dirname, '../..', '.env') });
 
 // Deterministic Pseudo-random Generator (to ensure reproducibility of the synthetic event stream)
 function seedRandom(seed) {

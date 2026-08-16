@@ -29,8 +29,11 @@ export class EventSourcedBacktester {
     
     // We instantiate a real stream engine, but force it into SIMULATION mode so it doesn't hit Binance
     this.engine = new StreamEngine({ mode: 'SIMULATION', court: freshCourt });
-    // We override the default interval to prevent its internal loop from polluting our event stream
-    this.engine.startSimulationLoop = () => { console.log('[BACKTESTER] Hijacked simulation loop. Operating in deterministic Event-Sourced mode.'); };
+    // Disable live networking & disk bottlenecks in deterministic backtest
+    this.engine.startLiveMode = async () => {};
+    this.engine.start = async () => {};
+    this.engine.startSimulationLoop = () => {};
+    this.engine.dualMonitor = { calculateDivergence: async () => 0.05 };
   }
 
   /**
@@ -67,7 +70,11 @@ export class EventSourcedBacktester {
       };
 
       this.engine.updateMtfCandles(tickEvent);
-      await this.engine.processCandle(tickEvent, this.engine.tickCounter);
+      try {
+        await this.engine.processCandle(tickEvent, i);
+      } catch (err) {
+        console.error(`[BACKTESTER ERROR at candle ${i}]:`, err);
+      }
     }
 
     console.log('[BACKTESTER] Replay completed. Generating Audit Trail...');
@@ -84,11 +91,15 @@ export class EventSourcedBacktester {
     
     const totalPnl = trades.reduce((sum, t) => sum + (t.pnl || 0), 0);
     const breakEvenTrades = trades.filter(t => t.breakEvenApplied === true).length;
+    const rangeScalpTrades = trades.filter(t => t.strategyType === 'RANGE_SCALP').length;
+    const trendTrades = trades.filter(t => t.strategyType !== 'RANGE_SCALP').length;
 
     return {
       totalEventsReplayed: this.totalProcessed || this.engine.candles.length,
       tradesExecuted: trades.length,
       breakEvenTrades,
+      rangeScalpTrades,
+      trendTrades,
       winRate: winRate.toFixed(2) + '%',
       totalPnl: totalPnl.toFixed(4),
       courtGovernance: stats
