@@ -32,15 +32,24 @@ export class ResidualizationLayer {
         providersList.flat().forEach(p => {
             if (p !== undefined && p !== null && typeof p === 'object' && p.signal !== undefined) {
                 const vec = sigToVec(p.signal);
-                if (vec !== 0) {
-                    const weightMultiplier = p.id && weights[p.id] !== undefined ? weights[p.id] : 1.0;
-                    vectors.push(vec * ((p.confidence || 50) / 100) * weightMultiplier);
-                }
+                const conf = p.confidence !== undefined ? p.confidence : (vec === 0 ? 0 : 50);
+                const weightMultiplier = p.id && weights[p.id] !== undefined ? weights[p.id] : 1.0;
+                vectors.push(vec * (conf / 100) * weightMultiplier);
             }
         });
         
-        if (vectors.length < 2) {
+        if (vectors.length === 0) {
             return { divergence: 0, tension: 0, isConsensus: false };
+        }
+
+        if (vectors.length === 1) {
+            const divergenceScalar = Math.abs(vectors[0]);
+            const directionalTension = vectors[0];
+            return {
+                divergence: divergenceScalar,
+                tension: directionalTension,
+                isConsensus: false
+            };
         }
 
         let maxDiff = 0;

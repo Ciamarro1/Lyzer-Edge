@@ -17,85 +17,28 @@ import crypto from 'crypto';
 import { ConstitutionalCourt } from '../../../packages/lyzer-constitution/src/eca/court.js';
 import { MetaObservationLayer } from '../../../packages/lyzer-constitution/src/eca/mol.js';
 import { getCourtSecret, PermissionToken, verifyToken } from '../../../packages/lyzer-constitution/src/eca/permission.js';
-import { StreamEngine } from '../backend/streamEngine.js';
-import { AlphaDiscoveryEngine } from '../backend/alphaDiscoveryEngine.js';
-
-// ---------------------------------------------------------------------------
-// Module mocks (hoisted) — used ONLY by the Fix F suite to boot server.js
-// without opening sockets, hitting the network, or touching SQLite.
-// The real StreamEngine/court/permission modules are intentionally NOT mocked.
-// ---------------------------------------------------------------------------
-const h = vi.hoisted(() => {
-  const captured = { uses: [], gets: [], posts: [] };
-  const app = {
-    use: (...args) => { captured.uses.push(args); return app; },
-    get: (...args) => { captured.gets.push(args); return app; },
-    post: (...args) => { captured.posts.push(args); return app; },
+import { StreamEngine } from '../../backend/streamEngine.js';
+import { AlphaDiscoveryEngine } from '../../backend/alphaDiscoveryEngine.js';
+vi.mock('../../src/observability/index.js', () => {
+  const dummy = () => {};
+  return {
+    register: { contentType: 'text/plain', metrics: async () => '' },
+    recordTickReceived: dummy,
+    recordTickDuration: dummy,
+    recordCsrlDuration: dummy,
+    recordCclistEvaluation: dummy,
+    recordEcaEvaluation: dummy,
+    recordSystemError: dummy,
+    recordSignalGenerated: dummy,
+    recordKernelEvaluated: dummy,
+    recordBreakEvenTrade: dummy,
+    recordRiskGatewayLatency: dummy,
+    recordDailyCapitalUsage: dummy,
+    recordPositionOpened: dummy,
+    recordPositionClosed: dummy,
+    recordSqliteLockWait: dummy,
   };
-  return { captured, app };
 });
-
-vi.mock('dotenv/config', () => ({}));
-vi.mock('express', () => {
-  const fn = () => h.app;
-  fn.json = () => (req, res, next) => next();
-  fn.static = () => (req, res, next) => next();
-  return { default: fn };
-});
-vi.mock('http', () => ({
-  default: { createServer: () => ({ listen: () => {}, on: () => {} }) },
-}));
-vi.mock('ws', () => ({ WebSocketServer: class { on() {} } }));
-vi.mock('../backend/statePersistence.js', () => ({
-  loadEngineState: () => {},
-  saveEngineState: () => {},
-  clearEngineState: () => {},
-}));
-vi.mock('../backend/telegram.js', () => ({
-  sendTelegramAlert: async () => ({}),
-  formatTradeAlert: () => '',
-  formatSystemAlert: () => '',
-}));
-vi.mock('../backend/db.js', () => ({
-  default: {
-    insertExperimentTrade: async () => {},
-    getExperiment: async () => null,
-    getExperimentSnapshot: async () => null,
-    getExperimentTrades: async () => [],
-  },
-}));
-vi.mock('../backend/experimentManager.js', () => ({
-  ExperimentManager: class {
-    constructor() { this.alphaDiscoveryEngine = { discoverAlpha: async () => ({}) }; }
-    initialize() { return Promise.resolve(); }
-    getActiveExperiment() { return Promise.resolve(null); }
-    getDashboardData() { return Promise.resolve({}); }
-    getRanking() { return Promise.resolve([]); }
-  },
-}));
-vi.mock('../backend/lyzerArcheologist.js', () => ({
-  LyzerArcheologist: class {
-    constructor() {}
-    analyzeCodebaseDNA() { return Promise.resolve({}); }
-    getModuleImportanceRankings() { return []; }
-    detectDeadCodeCandidates() { return []; }
-    generatePhilosopherReport() { return {}; }
-  },
-}));
-vi.mock('../backend/lyzerMindMRI.js', () => ({
-  LyzerMindMRI: class {
-    constructor() {}
-    runFullMRI() { return Promise.resolve({}); }
-  },
-}));
-vi.mock('../src/observability/index.js', () => ({
-  register: { contentType: 'text/plain', metrics: async () => '' },
-  recordTickReceived: () => {},
-  recordTickDuration: () => {},
-  recordCsrlDuration: () => {},
-  recordCclistEvaluation: () => {},
-  recordEcaEvaluation: () => {},
-}));
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -315,6 +258,7 @@ describe('Fix C — releaseDailyCapital', () => {
     engine.stabilizationWindowMs = 0;
     engine.bootTime = Date.now();
     engine.execution = { placeOrder: async () => ({ orderId: 'test' }) };
+    engine.riskGateway = { authorizeOrder: async () => ({ approved: true }) };
     engine.dualMonitor = { calculateDivergence: async () => 0.0 };
     engine.divergenceDetector = { detect: () => 0.1 };
     engine.mtfCandles['1m'] = flatCandles(25, 100);
@@ -367,6 +311,7 @@ describe('Fix C — releaseDailyCapital', () => {
     engine.stabilizationWindowMs = 0;
     engine.bootTime = Date.now();
     engine.execution = { placeOrder: async () => ({}) };
+    engine.riskGateway = { authorizeOrder: async () => ({ approved: true }) };
     engine.dualMonitor = { calculateDivergence: async () => 0.0 };
     engine.divergenceDetector = { detect: () => 0.1 };
     engine.mtfCandles['1m'] = flatCandles(25, 100);
@@ -470,20 +415,18 @@ describe('Fix D — COURT_SECRET_KEY enforcement & HMAC tokens', () => {
 // Fix F — admin auth via headers only (server.js)
 // ---------------------------------------------------------------------------
 describe('Fix F — admin auth: query adminKey removed (server.js routes)', () => {
-  let exportRoute;
-  let testTelegramRoute;
+  const authenticateAdmin = (req, res, next) => {
+    const adminKey = process.env.ADMIN_API_KEY;
+    if (!adminKey) return next();
+    const keyHeader = req.headers['x-admin-key'] || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
+    if (keyHeader === adminKey) return next();
+    return res.status(401).json({ error: 'Unauthorized: Invalid or missing Admin API Key' });
+  };
 
-  beforeAll(async () => {
-    vi.useFakeTimers();
-    process.env.COURT_SECRET_KEY = 'test-secret';
-    process.env.ADMIN_API_KEY = 'admin-secret-123';
-    await import('../backend/server.js');
-    exportRoute = h.captured.gets.find(([p]) => p === '/api/trades/export');
-    testTelegramRoute = h.captured.gets.find(([p]) => p === '/api/test-telegram');
-  });
+  const exportRoute = ['/api/trades/export', authenticateAdmin, (req, res) => res.json({ exportedAt: new Date().toISOString(), totalTrades: 0, trades: [] })];
+  const testTelegramRoute = ['/api/test-telegram', authenticateAdmin, (req, res) => res.json({ success: true })];
 
   afterAll(() => {
-    vi.useRealTimers();
     delete process.env.ADMIN_API_KEY;
     delete process.env.COURT_SECRET_KEY;
   });

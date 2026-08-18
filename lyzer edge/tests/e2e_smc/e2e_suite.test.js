@@ -67,6 +67,7 @@ beforeEach(() => {
     sclThreshold: 3
   });
   court.cclist.stressLevel = 0.0;
+  court.cclist.inLethalIllusion = false;
   court.mol.state = 'EXECUTE';
   court.mol.durationOfInaction = 0;
   court.mol.structuralCoherenceLock = 0;

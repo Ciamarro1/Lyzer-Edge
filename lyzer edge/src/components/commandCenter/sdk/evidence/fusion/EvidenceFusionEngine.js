@@ -66,15 +66,15 @@ export class EvidenceFusionEngine {
       this._weights.MARKET_PROFILE_ENGINE = 0.15;
       this._weights.TAPE_READING_ENGINE = 0.00;
     } else if (targetRegime === 'RANGING' || targetRegime === 'CONSOLIDATION' || targetRegime === 'CHOPPY') {
-      // In ranging markets, SMC structure and Wyckoff/Market Profile gain higher weight
-      this._weights.OPENMOBIUS_SMC = 0.20;
-      this._weights.LIQUIDITY_ENGINE = 0.20;
-      this._weights.LYZER_NATIVE = 0.30;
+      // In ranging markets, SMC structure and Market Profile gain higher weight (OpenMobius 0.24 after normalization)
+      this._weights.OPENMOBIUS_SMC = 0.30;
+      this._weights.LIQUIDITY_ENGINE = 0.15;
+      this._weights.LYZER_NATIVE = 0.05;
       this._weights.MACRO_REGIME = 0.05;
       this._weights.VOLATILITY_ENGINE = 0.05;
-      this._weights.WYCKOFF_VOLUME_ENGINE = 0.25;
-      this._weights.MARKET_PROFILE_ENGINE = 0.20;
-      this._weights.TAPE_READING_ENGINE = 0.05;
+      this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
+      this._weights.MARKET_PROFILE_ENGINE = 0.40;
+      this._weights.TAPE_READING_ENGINE = 0.10;
     } else if (targetRegime === 'HIGH_VOLATILITY') {
       // In volatile markets, Volatility, Momentum & Tape Reading dominate
       this._weights.VOLATILITY_ENGINE = 0.30;

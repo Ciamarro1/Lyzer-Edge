@@ -51,11 +51,13 @@ export const engines = [];
 
 // Initialize Quant Research Lab Experiment Manager
 const experimentManager = new ExperimentManager(db);
-experimentManager.initialize().then(() => {
-  console.log('🧪 [QUANT LAB] ExperimentManager initialized successfully.');
-}).catch(err => {
-  console.error('❌ [QUANT LAB] Failed to initialize ExperimentManager:', err);
-});
+if (process.env.NODE_ENV !== 'test') {
+  experimentManager.initialize().then(() => {
+    console.log('🧪 [QUANT LAB] ExperimentManager initialized successfully.');
+  }).catch(err => {
+    console.error('❌ [QUANT LAB] Failed to initialize ExperimentManager:', err);
+  });
+}
 
 // Serve static files from the Vite build output (dist)
 app.use(express.static(path.join(__dirname, '../dist')));
@@ -65,7 +67,7 @@ app.use(sanitizeBodyMiddleware);
 import { register } from '../src/observability/index.js';
 
 // Middleware para proteção de rotas administrativas quando ADMIN_API_KEY estiver configurada
-const authenticateAdmin = (req, res, next) => {
+export const authenticateAdmin = (req, res, next) => {
   const adminKey = process.env.ADMIN_API_KEY;
   if (!adminKey) return next();
   const keyHeader = req.headers['x-admin-key'] || (req.headers.authorization && req.headers.authorization.split(' ')[1]);
@@ -678,46 +680,48 @@ const broadcast = (payload) => {
 };
 
 // --- INITIALIZE MULTI-ASSET FLEET ---
-for (const symbol of targetAssets) {
-  console.log(`[FLEET] Booting StreamEngine for ${symbol}...`);
-  const engine = new StreamEngine({
-    mode: process.env.ARL_MODE,
-    symbol: symbol,
-    interval: '1m'
-  });
+if (process.env.NODE_ENV !== 'test') {
+  for (const symbol of targetAssets) {
+    console.log(`[FLEET] Booting StreamEngine for ${symbol}...`);
+    const engine = new StreamEngine({
+      mode: process.env.ARL_MODE,
+      symbol: symbol,
+      interval: '1m'
+    });
 
-  // Pipe events to the global WebSocket
-  engine.on('arl', (payload) => broadcast(payload));
-  engine.on('execution', (payload) => broadcast({ liveExecution: payload }));
-  
-  // Listen to state changes to persist engine states & sync trades to SQLite Zero Entropy DB
-  engine.on('state_changed', async () => {
-    saveEngineState(engines);
-    try {
-      const activeExp = await experimentManager.getActiveExperiment();
-      if (activeExp && engine.tradeHistory) {
-        for (const trade of engine.tradeHistory) {
-          await db.insertExperimentTrade(activeExp.experiment_id, trade).catch(() => {});
+    // Pipe events to the global WebSocket
+    engine.on('arl', (payload) => broadcast(payload));
+    engine.on('execution', (payload) => broadcast({ liveExecution: payload }));
+    
+    // Listen to state changes to persist engine states & sync trades to SQLite Zero Entropy DB
+    engine.on('state_changed', async () => {
+      saveEngineState(engines);
+      try {
+        const activeExp = await experimentManager.getActiveExperiment();
+        if (activeExp && engine.tradeHistory) {
+          for (const trade of engine.tradeHistory) {
+            await db.insertExperimentTrade(activeExp.experiment_id, trade).catch(() => {});
+          }
         }
+      } catch (e) {
+      recordSystemError('Server', 'API_ERROR');
+        // Ignore background sync errors
       }
-    } catch (e) {
-    recordSystemError('Server', 'API_ERROR');
-      // Ignore background sync errors
-    }
+    });
+
+    engines.push(engine);
+  }
+
+  // Load persisted state before starting engines
+  loadEngineState(engines);
+
+  // Start them slightly staggered to avoid rate limits and memory spikes
+  engines.forEach((engine, idx) => {
+    setTimeout(() => {
+      engine.start();
+    }, idx * 8000);
   });
-
-  engines.push(engine);
 }
-
-// Load persisted state before starting engines
-loadEngineState(engines);
-
-// Start them slightly staggered to avoid rate limits and memory spikes
-engines.forEach((engine, idx) => {
-  setTimeout(() => {
-    engine.start();
-  }, idx * 8000);
-});
 
 // Fallback to index.html for SPA routing (must be placed after all API routes)
 app.use((req, res, next) => {
@@ -741,20 +745,22 @@ const runBackup = () => {
   });
 };
 
-// Periodic backup every 10 minutes
-setInterval(runBackup, 10 * 60 * 1000);
+if (process.env.NODE_ENV !== 'test') {
+  // Periodic backup every 10 minutes
+  setInterval(runBackup, 10 * 60 * 1000);
 
-// Backup on exit/shutdown
-process.on('SIGINT', () => {
-  console.log('[BACKUP] SIGINT received.');
-  runBackup();
-  setTimeout(() => process.exit(0), 4000); // give time for the upload
-});
-process.on('SIGTERM', () => {
-  console.log('[BACKUP] SIGTERM received.');
-  runBackup();
-  setTimeout(() => process.exit(0), 4000);
-});
+  // Backup on exit/shutdown
+  process.on('SIGINT', () => {
+    console.log('[BACKUP] SIGINT received.');
+    runBackup();
+    setTimeout(() => process.exit(0), 4000); // give time for the upload
+  });
+  process.on('SIGTERM', () => {
+    console.log('[BACKUP] SIGTERM received.');
+    runBackup();
+    setTimeout(() => process.exit(0), 4000);
+  });
+}
 
 // --- PERIODIC FLEET REPORT SERVICE ---
 const sendFleetReport = () => {
@@ -781,18 +787,20 @@ const sendFleetReport = () => {
   sendTelegramAlert(report).catch(e => console.error('[TELEGRAM] Error sending fleet report:', e.message));
 };
 
-// Send fleet report every 4 hours
-setInterval(sendFleetReport, 4 * 60 * 60 * 1000);
+if (process.env.NODE_ENV !== 'test') {
+  // Send fleet report every 4 hours
+  setInterval(sendFleetReport, 4 * 60 * 60 * 1000);
 
-const PORT = process.env.PORT || 7860;
-server.listen(PORT, '0.0.0.0', () => {
-  console.log(`🔥 Lyzer Backend running on port ${PORT}`);
-  // Initial backup after startup warmups are finished (30s)
-  setTimeout(runBackup, 30000);
-  // Send start notification to Telegram after 1 minute (gives engines time to start and pull data)
-  setTimeout(() => {
-    sendTelegramAlert(`🤖 <b>[LYZER SYSTEM] ROBÔ INICIADO</b>\nO motor multi-asset da Lyzer Labs foi iniciado com sucesso no Hugging Face.\nModo: <b>${process.env.ARL_MODE}</b>\nMonitorando: <b>${targetAssets.join(', ')}</b>`)
-      .catch(e => console.error('[TELEGRAM] Error sending startup notification:', e.message));
-    sendFleetReport();
-  }, 60000);
-});
+  const PORT = process.env.PORT || 7860;
+  server.listen(PORT, '0.0.0.0', () => {
+    console.log(`🔥 Lyzer Backend running on port ${PORT}`);
+    // Initial backup after startup warmups are finished (30s)
+    setTimeout(runBackup, 30000);
+    // Send start notification to Telegram after 1 minute (gives engines time to start and pull data)
+    setTimeout(() => {
+      sendTelegramAlert(`🤖 <b>[LYZER SYSTEM] ROBÔ INICIADO</b>\nO motor multi-asset da Lyzer Labs foi iniciado com sucesso no Hugging Face.\nModo: <b>${process.env.ARL_MODE}</b>\nMonitorando: <b>${targetAssets.join(', ')}</b>`)
+        .catch(e => console.error('[TELEGRAM] Error sending startup notification:', e.message));
+      sendFleetReport();
+    }, 60000);
+  });
+}

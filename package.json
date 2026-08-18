@@ -19,5 +19,8 @@
   "dependencies": {
     "@huggingface/hub": "^2.13.2",
     "isomorphic-git": "^1.38.6"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1"
   }
 }
