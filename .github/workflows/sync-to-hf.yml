@@ -1,0 +1,23 @@
+name: Sync to Hugging Face Space
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+          lfs: true
+      
+      - name: Push to Hugging Face Hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          # Replace 'jonatanciamarro/Lyzer-Edge' with your exact Space ID if different
+          git push --force https://jonatanciamarro:$HF_TOKEN@huggingface.co/spaces/jonatanciamarro/Lyzer-Edge main
