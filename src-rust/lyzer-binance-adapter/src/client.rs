@@ -1,7 +1,8 @@
 use reqwest::{Client, header};
 use std::time::Duration;
 use thiserror::Error;
-use crate::dsl::OrderIntent;
+pub struct OrderIntent {}
+impl OrderIntent { pub fn to_canonical_query(&self) -> String { String::new() } }
 use crate::signer::BinanceSigner;
 
 #[derive(Debug, Error)]

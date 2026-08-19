@@ -17,14 +17,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@lyzer/constitution": "*",
-    "@lyzer/shared": "*",
     "@grpc/grpc-js": "^1.14.4",
     "@grpc/proto-loader": "^0.8.1",
+    "@lyzer/constitution": "*",
+    "@lyzer/shared": "*",
     "apexcharts": "^3.45.0",
     "dexie": "^3.2.4",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "https-proxy-agent": "^9.1.0",
     "lightweight-charts": "^4.1.1",
     "nats": "^2.29.3",
     "prom-client": "^15.1.3",

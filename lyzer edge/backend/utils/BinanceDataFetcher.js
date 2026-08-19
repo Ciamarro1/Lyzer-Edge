@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { getFetchDispatcher } from './proxyManager.js';
 
 /**
  * BinanceDataFetcher
@@ -36,7 +37,7 @@ export class BinanceDataFetcher {
       const url = `${this.baseUrl}?symbol=${this.symbol}&interval=${this.interval}&startTime=${currentStartTime}&endTime=${endTimeMs}&limit=${limit}`;
       
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { dispatcher: getFetchDispatcher() });
         
         if (!response.ok) {
           if (response.status === 429) {

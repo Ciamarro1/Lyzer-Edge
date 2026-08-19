@@ -7,6 +7,7 @@
 import WebSocket from 'ws';
 import { safeJsonParse } from './utils/safeJson.js';
 import { safeFetch, validateSymbol, validateInterval, validateUrl } from './utils/ssrfGuard.js';
+import { getWsProxyAgent, getFetchDispatcher } from './utils/proxyManager.js';
 
 const BINANCE_BASE_URLS = [
   'https://api.binance.com',
@@ -52,7 +53,7 @@ export class LiveDataIngestor {
         controller = new AbortController();
         timeoutId = setTimeout(() => controller.abort(), 8000);
         
-        const res = await safeFetch(url, { signal: controller.signal });
+        const res = await safeFetch(url, { signal: controller.signal, dispatcher: getFetchDispatcher() });
         clearTimeout(timeoutId);
         timeoutId = null;
         
@@ -114,7 +115,7 @@ export class LiveDataIngestor {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 3000);
         
-        const res = await safeFetch(url, { signal: controller.signal });
+        const res = await safeFetch(url, { signal: controller.signal, dispatcher: getFetchDispatcher() });
         clearTimeout(timeoutId);
 
         if (res.ok) {
@@ -206,7 +207,7 @@ export class LiveDataIngestor {
     
     validateUrl(wsUrl, { allowWs: true })
       .then((validWsUrl) => {
-        this.ws = new WebSocket(validWsUrl);
+        this.ws = new WebSocket(validWsUrl, { agent: getWsProxyAgent() });
 
         this.ws.on('open', () => {
           console.log(`🟢 [INGESTOR] Binance WebSocket connected: ${validWsUrl}`);

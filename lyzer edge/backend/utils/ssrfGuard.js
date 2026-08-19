@@ -226,6 +226,7 @@ export async function safeFetch(urlInput, fetchOptions = {}) {
   delete options.allowedDomains;
   delete options.allowlist;
   delete options.skipDns;
+  // Ensure the 'dispatcher' option is NOT deleted so that the underlying native fetch receives it (used for proxying).
 
   // Enforce strict redirect blocking
   options.redirect = 'error';
