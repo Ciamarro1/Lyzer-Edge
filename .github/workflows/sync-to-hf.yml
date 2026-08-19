@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   sync-to-hub:
@@ -20,4 +21,4 @@ jobs:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           # Replace 'jonatanciamarro/Lyzer-Edge' with your exact Space ID if different
-          git push --force https://jonatanciamarro:$HF_TOKEN@huggingface.co/spaces/jonatanciamarro/Lyzer-Edge main
+          git push --force https://jonatanciamarro:$HF_TOKEN@huggingface.co/spaces/jonatanciamarro/lyzer-edge main
