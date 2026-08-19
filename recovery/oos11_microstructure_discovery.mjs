@@ -149,7 +149,15 @@ function processActiveEvents(currentTime, currentPrice) {
 
 // Start WebSocket Streams
 const wsUrl = `wss://stream.binance.com:9443/stream?streams=${SYMBOL}@kline_1m/${SYMBOL}@aggTrade/${SYMBOL}@bookTicker`;
-const ws = new WebSocket(wsUrl);
+
+let wsOptions = {};
+if (process.env.BINANCE_PROXY) {
+    console.log(`[OOS-11] Using proxy: ${process.env.BINANCE_PROXY}`);
+    const { HttpsProxyAgent } = await import('https-proxy-agent');
+    wsOptions.agent = new HttpsProxyAgent(process.env.BINANCE_PROXY);
+}
+
+const ws = new WebSocket(wsUrl, wsOptions);
 
 ws.on('open', () => {
     console.log(`[OOS-11] Connected to Binance WebSockets (kline, aggTrade, bookTicker). Listening for Opportunity Score >= 2...`);
