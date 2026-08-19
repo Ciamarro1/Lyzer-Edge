@@ -22,3 +22,7 @@ download_space.ps1
 *.pdf
 docs/estudos/
 .data/
+
+# Ignorar arquivos grandes de dados de teste
+lyzer edge/historical_data_*.json
+lyzer edge/macro_backtest_*.json
