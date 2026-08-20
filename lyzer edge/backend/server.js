@@ -679,6 +679,8 @@ const broadcast = (payload) => {
   });
 };
 
+import { attachPhase16Auditor } from './phase16Auditor.js';
+
 // --- INITIALIZE MULTI-ASSET FLEET ---
 if (process.env.NODE_ENV !== 'test') {
   for (const symbol of targetAssets) {
@@ -688,6 +690,8 @@ if (process.env.NODE_ENV !== 'test') {
       symbol: symbol,
       interval: '1m'
     });
+
+    attachPhase16Auditor(engine);
 
     // Pipe events to the global WebSocket
     engine.on('arl', (payload) => broadcast(payload));
