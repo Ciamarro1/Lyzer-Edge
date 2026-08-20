@@ -56,29 +56,32 @@ export class TruthKernel {
       epistemicAuthority = 'VETO';
       eef = false;
       reason = 'VETO_REALITY_DIVERGENCE';
-    } else if (micro.distanceFromGoldenZone !== undefined && micro.distanceFromGoldenZone > 0 && isFinite(micro.distanceFromGoldenZone)) {
-      // Golden Zone Geometric Filter: Continuous Expected Shortfall (ES) bound
-      // Only applies when price is outside an active liquidity zone at a finite, measurable distance
-      let topoRisk = Math.min(micro.distanceFromGoldenZone, 2.0); // Clamp: max 3x base threshold
-      const dynamicTrgThreshold = this.ett.trgThreshold * (1 + topoRisk);
+    } else {
+      const oppScore = micro.oppScore || 0;
+      const imbalance = micro.imbalance || 0;
+      const direction = dvf.tension > 0 ? 'LONG' : (dvf.tension < 0 ? 'SHORT' : 'FLAT');
       
-      if (trg.trg < dynamicTrgThreshold) {
+      if (direction === 'SHORT') {
         epistemicAuthority = 'VETO';
         eef = false;
-        reason = 'VETO_UNBOUNDED_EXPECTED_SHORTFALL';
-      }
-    } else if (sds < 0.3) {
-      epistemicAuthority = 'OBSERVED';
-    } else if (sds <= 0.7) {
-      epistemicAuthority = 'INFERRED';
-    } else {
-      // SDS > 0.7 - Check for total structural collapse
-      if (trg.trg >= this.ontologicalCollapseTrg) {
+        reason = 'VETO_SHORT_SELLING_DISABLED';
+      } else if (direction === 'LONG' && !(oppScore >= 2 && imbalance > 0.8)) {
         epistemicAuthority = 'VETO';
-        eef = false; // Constitutional override
-        reason = 'VETO_ONTOLOGICAL_COLLAPSE';
-      } else {
+        eef = false;
+        reason = 'VETO_INSUFFICIENT_IMBALANCE';
+      } else if (sds < 0.3) {
+        epistemicAuthority = 'OBSERVED';
+      } else if (sds <= 0.7) {
         epistemicAuthority = 'INFERRED';
+      } else {
+        // SDS > 0.7 - Check for total structural collapse
+        if (trg.trg >= this.ontologicalCollapseTrg) {
+          epistemicAuthority = 'VETO';
+          eef = false; // Constitutional override
+          reason = 'VETO_ONTOLOGICAL_COLLAPSE';
+        } else {
+          epistemicAuthority = 'INFERRED';
+        }
       }
     }
 

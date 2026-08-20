@@ -203,7 +203,9 @@ export class LiveDataIngestor {
       onStateChange(newState);
     };
 
-    const wsUrl = `wss://stream.binance.com:9443/ws/${encodeURIComponent(this.symbol.toLowerCase())}@kline_${encodeURIComponent(this.interval)}`;
+    const streamName1 = `${encodeURIComponent(this.symbol.toLowerCase())}@kline_${encodeURIComponent(this.interval)}`;
+    const streamName2 = `${encodeURIComponent(this.symbol.toLowerCase())}@bookTicker`;
+    const wsUrl = `wss://stream.binance.com:9443/stream?streams=${streamName1}/${streamName2}`;
     
     validateUrl(wsUrl, { allowWs: true })
       .then((validWsUrl) => {
@@ -218,22 +220,40 @@ export class LiveDataIngestor {
         this.ws.on('message', (data) => {
           try {
             const payload = safeJsonParse(data);
-            if (payload && payload.k) {
-              const kline = payload.k;
-              const candle = {
-                openTime: kline.t,
-                open: parseFloat(kline.o),
-                high: parseFloat(kline.h),
-                low: parseFloat(kline.l),
-                close: parseFloat(kline.c),
-                volume: parseFloat(kline.v),
-                closed: kline.x
-              };
-              if (this.onTick) this.onTick(candle);
-              if (kline.x) {
-                this.basePrice = candle.close;
-                console.log(`[INGESTOR] Closed kline received: $${candle.close} (Vol: ${candle.volume})`);
-                onCandleClose(candle);
+            if (payload && payload.data) {
+              const stream = payload.stream;
+              const d = payload.data;
+              
+              if (stream.endsWith('@bookTicker')) {
+                const bp = parseFloat(d.b);
+                const ap = parseFloat(d.a);
+                const bq = parseFloat(d.B);
+                const aq = parseFloat(d.A);
+                const imbalance = (bq - aq) / (bq + aq);
+                
+                const book = {
+                  bidPrice: bp, bidQty: bq,
+                  askPrice: ap, askQty: aq,
+                  imbalance: imbalance
+                };
+                if (this.onBookTicker) this.onBookTicker(book);
+              } else if (stream.includes('@kline_')) {
+                const kline = d.k;
+                const candle = {
+                  openTime: kline.t,
+                  open: parseFloat(kline.o),
+                  high: parseFloat(kline.h),
+                  low: parseFloat(kline.l),
+                  close: parseFloat(kline.c),
+                  volume: parseFloat(kline.v),
+                  closed: kline.x
+                };
+                if (this.onTick) this.onTick(candle);
+                if (kline.x) {
+                  this.basePrice = candle.close;
+                  console.log(`[INGESTOR] Closed kline received: $${candle.close} (Vol: ${candle.volume})`);
+                  onCandleClose(candle);
+                }
               }
             }
           } catch (e) {

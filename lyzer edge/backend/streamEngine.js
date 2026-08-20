@@ -230,7 +230,7 @@ export class StreamEngine extends EventEmitter {
     recordTickReceived(this.symbol, 'websocket');
     this.mtfCandles['1m'].push(candle);
     this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
-    if (this.mtfCandles['1m'].length > 1000) {
+    if (this.mtfCandles['1m'].length > 1500) {
       this.mtfCandles['1m'].shift();
     }
 
@@ -470,6 +470,7 @@ export class StreamEngine extends EventEmitter {
       const ev = computeTradeEV(resolvedTrade, {}, this.tradeHistory, this.globalEVMemory);
       const tradeWithEv = safeMerge({}, resolvedTrade, { ev });
       this.tradeHistory.push(tradeWithEv);
+      if (this.tradeHistory.length > 500) this.tradeHistory.shift();
 
       this.ui.logEvent(`⚡ [TICK GUARD] Position CLOSED via ${exitReason} for ${this.symbol}. Exit: ${exitPrice}, PnL: ${(rawPnl * 100).toFixed(2)}%`);
 
@@ -531,6 +532,50 @@ export class StreamEngine extends EventEmitter {
     }
 
     return null;
+  }
+
+  calculateOpportunityScore(newCandle) {
+    const historicalCandles = this.candles;
+    const i = historicalCandles.length - 1;
+    
+    // ATR 14
+    let atr14 = 0;
+    let count = 0;
+    for (let j = i - 13; j <= i; j++) {
+        if (j >= 0 && historicalCandles[j]) {
+            atr14 += (historicalCandles[j].high - historicalCandles[j].low);
+            count++;
+        }
+    }
+    const atr14_pct = count > 0 ? (atr14 / count) / newCandle.close : 0;
+
+    // Vol Z
+    const vol_arr = [];
+    for (let j = i - 59; j <= i; j++) {
+        if (j >= 0 && historicalCandles[j]) vol_arr.push(historicalCandles[j].volume);
+    }
+    const vol_mean = vol_arr.reduce((a, b) => a + b, 0) / (vol_arr.length || 1);
+    const vol_std = vol_arr.length > 0 ? Math.sqrt(vol_arr.reduce((a, b) => a + Math.pow(b - vol_mean, 2), 0) / vol_arr.length) || 1 : 1;
+    const volume_zscore = (newCandle.volume - vol_mean) / vol_std;
+
+    // VWAP 24h
+    let sumPv = 0, sumV = 0;
+    for (let j = i - 1439; j <= i; j++) {
+        if (j >= 0 && historicalCandles[j]) {
+            const c = historicalCandles[j];
+            sumPv += ((c.high + c.low + c.close) / 3) * c.volume;
+            sumV += c.volume;
+        }
+    }
+    const vwap = sumV > 0 ? sumPv / sumV : newCandle.close;
+    const distance_vwap = (newCandle.close - vwap) / vwap;
+
+    let oppScore = 0;
+    if (atr14_pct >= 0.00055) oppScore++;
+    if (volume_zscore >= 0.315) oppScore++;
+    if (Math.abs(distance_vwap) >= 0.00963) oppScore++;
+
+    return oppScore;
   }
 
   async processCandle(candle, index) {
@@ -655,8 +700,11 @@ export class StreamEngine extends EventEmitter {
         lhds = await this.dualMonitor.calculateDivergence(this.symbol, currentCandleTime, this.mtfCandles);
     }
     
+    const oppScore = this.calculateOpportunityScore(candle);
+    const imbalance = this.currentBook ? this.currentBook.imbalance : 0;
+
     // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights });
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights, oppScore, imbalance });
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -1125,8 +1173,9 @@ export class StreamEngine extends EventEmitter {
         if (this.execution) {
           const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
           const closeQty = pos.quantity || 0.001;
-          this.ui.logEvent(`Executing close order (${closeSide}) for ${this.symbol}. Target: ${this.mode}`);
-          this.execution.placeOrder(this.symbol, closeSide, 'MARKET', closeQty)
+          const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
+          this.ui.logEvent(`Executing close order (${closeSide}) for ${this.symbol} as ${exitType}. Target: ${this.mode}`);
+          this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice)
             .then(order => {
               this.emit('execution', {
                 symbol: this.symbol,
