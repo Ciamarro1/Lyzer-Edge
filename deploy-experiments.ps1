@@ -22,10 +22,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $experiments = @(
-  @{ Name = "lyzer-edge-exp-a"; EnvFile = "lyzer edge/.env.exp-a"; Desc = "A - Stock" }
-  @{ Name = "lyzer-edge-exp-b"; EnvFile = "lyzer edge/.env.exp-b"; Desc = "B - Leve" }
-  @{ Name = "lyzer-edge-exp-c"; EnvFile = "lyzer edge/.env.exp-c"; Desc = "C - Medio" }
-  @{ Name = "lyzer-edge-exp-d"; EnvFile = "lyzer edge/.env.exp-d"; Desc = "D - Agressivo" }
+  @{ Name = "lyzer-edge"; EnvFile = "lyzer edge/.env.exp-a"; Desc = "Phase 16 Forward Validation" }
 )
 
 $apiBase = "https://huggingface.co/api"
