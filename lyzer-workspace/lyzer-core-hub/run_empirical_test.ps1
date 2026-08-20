@@ -20,7 +20,7 @@ $v1_payload = @{
     confidence = 0.92
 } | ConvertTo-Json -Depth 5 -Compress
 
-Invoke-RestMethod -Uri "http://127.0.0.1:8080" -Method Post -Body $v1_payload -ContentType "application/json" | Out-Null
+Invoke-RestMethod -Uri "http://127.0.0.1:50053" -Method Post -Body $v1_payload -ContentType "application/json" | Out-Null
 
 # Send V2 empirical interpretation
 $v2_payload = @{
@@ -32,7 +32,7 @@ $v2_payload = @{
     confidence = 0.65
 } | ConvertTo-Json -Depth 5 -Compress
 
-Invoke-RestMethod -Uri "http://127.0.0.1:8080" -Method Post -Body $v2_payload -ContentType "application/json" | Out-Null
+Invoke-RestMethod -Uri "http://127.0.0.1:50053" -Method Post -Body $v2_payload -ContentType "application/json" | Out-Null
 
 # Wait for the hub to arbitrate, assess truth, and exit
 Start-Sleep -Seconds 2

@@ -190,7 +190,7 @@ describe('ssrfGuard Utility Suite', () => {
       });
 
       it('blocks unauthorized custom TELEGRAM_API_URL endpoints', async () => {
-        process.env.TELEGRAM_API_URL = 'http://127.0.0.1:8080';
+        process.env.TELEGRAM_API_URL = 'http://127.0.0.1:50053';
         await expect(sendTelegramAlert('Hello Test')).rejects.toThrow();
 
         process.env.TELEGRAM_API_URL = 'https://malicious-proxy.com';

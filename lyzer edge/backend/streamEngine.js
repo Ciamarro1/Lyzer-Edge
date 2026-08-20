@@ -873,7 +873,8 @@ export class StreamEngine extends EventEmitter {
             console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for LONG at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
           }
 
-          if (currentR >= scalpTP) {
+          const enableScalpTp = process.env.ENABLE_RANGE_SCALP_TP !== 'false';
+          if (enableScalpTp && currentR >= scalpTP) {
             closed = true;
             exitPrice = pos.entryPrice + (scalpTP * riskDistance);
             exitReason = 'RANGE_SCALP_TAKE_PROFIT';
@@ -951,6 +952,17 @@ export class StreamEngine extends EventEmitter {
         const isTPHit = candle.high >= pos.takeProfit;
 
         if (!closed) {
+          const currentCandleTimeSec = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
+          const timeInTradeSec = currentCandleTimeSec - pos.timestamp;
+          if (process.env.ENABLE_TIME_EXIT_ALPHA === 'true' && timeInTradeSec >= (parseFloat(process.env.TIME_EXIT_MINUTES || '15') * 60)) {
+            closed = true;
+            exitPrice = candle.close;
+            exitReason = 'TIME_EXIT';
+            console.log(`[SCALP] TIME_EXIT for LONG at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)}`);
+          }
+        }
+
+        if (!closed) {
           if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
             closed = true;
             exitPrice = pos.stopLoss;
@@ -994,7 +1006,8 @@ export class StreamEngine extends EventEmitter {
             console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for SHORT at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
           }
 
-          if (currentR >= scalpTP) {
+          const enableScalpTp = process.env.ENABLE_RANGE_SCALP_TP !== 'false';
+          if (enableScalpTp && currentR >= scalpTP) {
             closed = true;
             exitPrice = pos.entryPrice - (scalpTP * riskDistance);
             exitReason = 'RANGE_SCALP_TAKE_PROFIT';
@@ -1070,6 +1083,17 @@ export class StreamEngine extends EventEmitter {
 
         const isSLHit = candle.high >= pos.stopLoss;
         const isTPHit = candle.low <= pos.takeProfit;
+
+        if (!closed) {
+          const currentCandleTimeSec = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
+          const timeInTradeSec = currentCandleTimeSec - pos.timestamp;
+          if (process.env.ENABLE_TIME_EXIT_ALPHA === 'true' && timeInTradeSec >= (parseFloat(process.env.TIME_EXIT_MINUTES || '15') * 60)) {
+            closed = true;
+            exitPrice = candle.close;
+            exitReason = 'TIME_EXIT';
+            console.log(`[SCALP] TIME_EXIT for SHORT at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)}`);
+          }
+        }
 
         if (!closed) {
           if (process.env.INTRABAR_PESSIMISM === 'true' && isSLHit && isTPHit) {
@@ -1304,12 +1328,15 @@ export class StreamEngine extends EventEmitter {
         const atrSlMult = parseFloat(process.env.ATR_SL_MULTIPLIER || '1.5');
         const atrTpMult = parseFloat(process.env.ATR_TP_MULTIPLIER || '3.0');
 
-        let slDistance = Math.max(0.0025, atrRatio * atrSlMult);
+        const minStopDefault = strategyType === 'RANGE_SCALP' ? '0.0015' : '0.0025';
+        const maxStopDefault = strategyType === 'RANGE_SCALP' ? '0.0045' : '0.25';
+        const minStop = parseFloat(process.env.SCALP_MIN_STOP || process.env.MIN_STOP_DISTANCE || minStopDefault);
+        const maxStop = parseFloat(process.env.SCALP_MAX_STOP || process.env.MAX_STOP_DISTANCE || maxStopDefault);
+
+        let slDistance = Math.min(maxStop, Math.max(minStop, atrRatio * atrSlMult));
         let tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
 
         if (strategyType === 'RANGE_SCALP') {
-          // Range scalp tighter distance based on 1.0x ATR
-          slDistance = Math.max(0.0015, atrRatio * 1.0);
           tpDistance = Math.max(0.0025, atrRatio * 1.6);
         }
 
@@ -1319,11 +1346,29 @@ export class StreamEngine extends EventEmitter {
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
         const takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
 
-        // Dynamic Filter Guards for Binance LOT_SIZE & NOTIONAL
-        let notionalTarget = 20; // 20 USDT to safely pass minimum notional of $5-$10
-        let quantity = notionalTarget / entryPrice;
-        
-        // Apply asset-specific LOT_SIZE precision
+        // Dynamic Position Sizing (Risk-Normalized or Fixed Notional)
+        const enableRiskNorm = process.env.ENABLE_RISK_NORMALIZATION === 'true';
+        const stopDistanceUsd = entryPrice * slDistance;
+        let notionalTarget;
+        let quantity;
+
+        if (enableRiskNorm && stopDistanceUsd > 0) {
+          const riskPct = parseFloat(process.env.RISK_PCT_PER_TRADE || '0.005');
+          const capitalBase = parseFloat(process.env.RISK_CAPITAL_BASE || '1000');
+          const riskTargetUsd = capitalBase * riskPct;
+          quantity = riskTargetUsd / stopDistanceUsd;
+          notionalTarget = quantity * entryPrice;
+          const maxNotional = parseFloat(process.env.MAX_NOTIONAL || '50000');
+          if (notionalTarget > maxNotional) {
+            notionalTarget = maxNotional;
+            quantity = notionalTarget / entryPrice;
+          }
+        } else {
+          notionalTarget = parseFloat(process.env.FIXED_NOTIONAL || '20');
+          quantity = notionalTarget / entryPrice;
+        }
+
+        // Apply asset-specific LOT_SIZE precision (always round DOWN to avoid exceeding risk)
         if (entryPrice > 1000) {
           quantity = Math.floor(quantity * 1000) / 1000; // 3 decimals (BTC, ETH)
         } else if (entryPrice > 10) {

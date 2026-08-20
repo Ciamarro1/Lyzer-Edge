@@ -35,8 +35,10 @@ fn handle_client(mut stream: TcpStream) -> Option<InterpretationRecord> {
 
 fn main() {
     println!("--- LYZER LABS: INSTITUTIONAL COGNITION FRAMEWORK ---");
-    println!("Starting IPC Hub on 127.0.0.1:8080...");
-    let listener = TcpListener::bind("127.0.0.1:8080").unwrap();
+    let port = std::env::var("HUB_PORT").unwrap_or_else(|_| "50053".to_string());
+    let bind_addr = format!("127.0.0.1:{}", port);
+    println!("Starting IPC Hub on {}...", bind_addr);
+    let listener = TcpListener::bind(&bind_addr).expect("Failed to bind IPC Hub");
     
     let mut cer = ConstitutionalMemory::new();
     let mut buffer = Vec::new();
