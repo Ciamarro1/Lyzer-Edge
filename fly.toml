@@ -1,0 +1,26 @@
+app = "lyzer-oos-11"
+primary_region = "ams"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  # Variables configured natively. Overridden by Fly Secrets if needed.
+  PORT = "7860"
+  DATA_DIR = "/tmp/data"
+  NODE_OPTIONS = "--max-old-space-size=384"
+  # As configs da Fase 16 estao fixadas no Dockerfile, 
+  # entao o build pegara naturalmente.
+
+[mounts]
+  # Configura um disco persistente na VM
+  source = "lyzer_data"
+  destination = "/tmp/data"
+
+[http_service]
+  internal_port = 7860
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 1
+  processes = ["app"]
