@@ -101,7 +101,7 @@ foreach ($exp in $experiments) {
     $escapedValue = $value -replace '\\', '\\' -replace '"', '\"'
     $secretBody = '{"key":"' + $key + '","value":"' + $escapedValue + '"}'
 
-    $result = Invoke-HfApi -method POST -url "$apiBase/spaces/$spaceId/secrets" -body $secretBody
+    $result = Invoke-HfApi -method POST -url "$apiBase/spaces/$spaceId/variables" -body $secretBody
 
     if ($result -match "error" -and $result -notmatch "already exists" -and $result -notmatch "already") {
       Write-Host "    aviso $key -> $result" -ForegroundColor Yellow
