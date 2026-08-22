@@ -15,6 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { generateUUIDv7 } from "../../../../../lyzer edge/src/causal-memory/EventFactory.js";
 import { fileURLToPath } from 'url';
 import { DataLineageEngine } from '../operations/dataLineageEngine.js';
 
@@ -143,7 +144,7 @@ export class ShadowExecutionEngine {
     const grossPnL = isBuy ? (simulatedExit - simulatedEntry) * intent.quantity : (simulatedEntry - simulatedExit) * intent.quantity;
 
     // 8. Rastreabilidade Causal & Assinatura Lineage
-    const snapshotId = crypto.randomUUID();
+    const snapshotId = generateUUIDv7();
     const lineageHash = this.lineageEngine.recordMetricLineage(
       `ShadowExec_${intent.asset}_${intent.side}`,
       executionQualityScore.toString(),

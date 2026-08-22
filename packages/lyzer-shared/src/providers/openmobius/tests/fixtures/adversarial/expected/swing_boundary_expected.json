@@ -1,0 +1,383 @@
+{
+  "candle_count": 30,
+  "atr14": 1.0,
+  "swings": [
+    {
+      "index": 2,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 2,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 3,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 4,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 7,
+      "price": 110.0,
+      "kind": "high"
+    },
+    {
+      "index": 8,
+      "price": 110.0,
+      "kind": "high"
+    },
+    {
+      "index": 13,
+      "price": 95.0,
+      "kind": "low"
+    },
+    {
+      "index": 14,
+      "price": 95.0,
+      "kind": "low"
+    },
+    {
+      "index": 16,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 17,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 20,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 20,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 21,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 21,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 22,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 22,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 23,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 23,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 24,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 24,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 25,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 25,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 26,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 26,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 27,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 27,
+      "price": 99.65,
+      "kind": "low"
+    }
+  ],
+  "structure": {
+    "sequence": [
+      {
+        "label": "H",
+        "index": 2,
+        "price": 100.65
+      },
+      {
+        "label": "L",
+        "index": 2,
+        "price": 99.65
+      },
+      {
+        "label": "LL",
+        "index": 3,
+        "price": 99.65
+      },
+      {
+        "label": "LL",
+        "index": 4,
+        "price": 99.65
+      },
+      {
+        "label": "HH",
+        "index": 7,
+        "price": 110.0
+      },
+      {
+        "label": "LH",
+        "index": 8,
+        "price": 110.0
+      },
+      {
+        "label": "LL",
+        "index": 13,
+        "price": 95.0
+      },
+      {
+        "label": "LL",
+        "index": 14,
+        "price": 95.0
+      },
+      {
+        "label": "LH",
+        "index": 16,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 17,
+        "price": 100.0
+      },
+      {
+        "label": "HH",
+        "index": 20,
+        "price": 100.65
+      },
+      {
+        "label": "HL",
+        "index": 20,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 21,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 21,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 22,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 22,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 23,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 23,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 24,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 24,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 25,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 25,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 26,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 26,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 27,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 27,
+        "price": 99.65
+      }
+    ],
+    "events": [
+      {
+        "type": "bearish_bos",
+        "at_index": 27,
+        "at_price": 99.65
+      }
+    ]
+  },
+  "fvgs": [
+    {
+      "type": "bullish_fvg",
+      "top": 104.0,
+      "bottom": 100.65,
+      "formed_at_index": 4,
+      "age_bars": 25,
+      "size": 3.35,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 106.0,
+      "bottom": 100.65,
+      "formed_at_index": 5,
+      "age_bars": 24,
+      "size": 5.35,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 105.0,
+      "bottom": 101.0,
+      "formed_at_index": 11,
+      "age_bars": 18,
+      "size": 4.0,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 100.0,
+      "bottom": 99.0,
+      "formed_at_index": 16,
+      "age_bars": 13,
+      "size": 1.0,
+      "mitigation_pct": 35.0
+    }
+  ],
+  "order_blocks": [
+    {
+      "type": "bullish_ob",
+      "top": 100.3,
+      "bottom": 99.65,
+      "formed_at_index": 3,
+      "age_bars": 26,
+      "displacement_atr": 7.7
+    },
+    {
+      "type": "bearish_ob",
+      "top": 110.0,
+      "bottom": 108.0,
+      "formed_at_index": 7,
+      "age_bars": 22,
+      "displacement_atr": 2.0
+    }
+  ],
+  "sweeps": [
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 100.65,
+      "swept_level_index": 2,
+      "sweep_candle_index": 11,
+      "age_bars": 18,
+      "wick_size": 1.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 99.65,
+      "swept_level_index": 2,
+      "sweep_candle_index": 11,
+      "age_bars": 18,
+      "wick_size": 2.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 100.65,
+      "swept_level_index": 2,
+      "sweep_candle_index": 12,
+      "age_bars": 17,
+      "wick_size": 1.0
+    }
+  ],
+  "displacements": [
+    {
+      "direction": "bullish",
+      "magnitude_pct": 1.905,
+      "magnitude_atr": 2.0,
+      "candle_index": 5,
+      "age_bars": 24
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -5.66,
+      "magnitude_atr": 6.0,
+      "candle_index": 11,
+      "age_bars": 18
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -3.03,
+      "magnitude_atr": 3.0,
+      "candle_index": 13,
+      "age_bars": 16
+    }
+  ],
+  "volume_anomalies": []
+}

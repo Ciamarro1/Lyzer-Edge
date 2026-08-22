@@ -1,0 +1,680 @@
+{
+  "candle_count": 35,
+  "atr14": 1.0,
+  "swings": [
+    {
+      "index": 4,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 4,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 5,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 5,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 6,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 6,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 7,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 7,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 8,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 8,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 9,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 9,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 10,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 10,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 11,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 11,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 12,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 12,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 13,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 13,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 14,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 14,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 15,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 15,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 16,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 16,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 17,
+      "price": 100.0,
+      "kind": "high"
+    },
+    {
+      "index": 17,
+      "price": 100.0,
+      "kind": "low"
+    },
+    {
+      "index": 20,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 20,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 21,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 21,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 22,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 22,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 23,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 23,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 24,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 24,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 25,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 25,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 26,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 26,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 27,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 27,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 28,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 28,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 29,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 29,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 30,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 30,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 31,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 31,
+      "price": 99.65,
+      "kind": "low"
+    },
+    {
+      "index": 32,
+      "price": 100.65,
+      "kind": "high"
+    },
+    {
+      "index": 32,
+      "price": 99.65,
+      "kind": "low"
+    }
+  ],
+  "structure": {
+    "sequence": [
+      {
+        "label": "H",
+        "index": 4,
+        "price": 100.0
+      },
+      {
+        "label": "L",
+        "index": 4,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 5,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 5,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 6,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 6,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 7,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 7,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 8,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 8,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 9,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 9,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 10,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 10,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 11,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 11,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 12,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 12,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 13,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 13,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 14,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 14,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 15,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 15,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 16,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 16,
+        "price": 100.0
+      },
+      {
+        "label": "LH",
+        "index": 17,
+        "price": 100.0
+      },
+      {
+        "label": "LL",
+        "index": 17,
+        "price": 100.0
+      },
+      {
+        "label": "HH",
+        "index": 20,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 20,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 21,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 21,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 22,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 22,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 23,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 23,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 24,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 24,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 25,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 25,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 26,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 26,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 27,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 27,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 28,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 28,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 29,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 29,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 30,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 30,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 31,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 31,
+        "price": 99.65
+      },
+      {
+        "label": "LH",
+        "index": 32,
+        "price": 100.65
+      },
+      {
+        "label": "LL",
+        "index": 32,
+        "price": 99.65
+      }
+    ],
+    "events": [
+      {
+        "type": "bearish_bos",
+        "at_index": 32,
+        "at_price": 99.65
+      }
+    ]
+  },
+  "fvgs": [],
+  "order_blocks": [],
+  "sweeps": [
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 5,
+      "sweep_candle_index": 20,
+      "age_bars": 14,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 7,
+      "sweep_candle_index": 22,
+      "age_bars": 12,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 9,
+      "sweep_candle_index": 24,
+      "age_bars": 10,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 11,
+      "sweep_candle_index": 26,
+      "age_bars": 8,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 13,
+      "sweep_candle_index": 28,
+      "age_bars": 6,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 15,
+      "sweep_candle_index": 30,
+      "age_bars": 4,
+      "wick_size": 0.35
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 100.0,
+      "swept_level_index": 17,
+      "sweep_candle_index": 32,
+      "age_bars": 2,
+      "wick_size": 0.35
+    }
+  ],
+  "displacements": [],
+  "volume_anomalies": [
+    {
+      "candle_index": 20,
+      "age_bars": 14,
+      "volume_ratio": 10.0,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 21,
+      "age_bars": 13,
+      "volume_ratio": 10.0,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 22,
+      "age_bars": 12,
+      "volume_ratio": 10.0,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 23,
+      "age_bars": 11,
+      "volume_ratio": 6.67,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 24,
+      "age_bars": 10,
+      "volume_ratio": 5.0,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 25,
+      "age_bars": 9,
+      "volume_ratio": 4.0,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 26,
+      "age_bars": 8,
+      "volume_ratio": 3.33,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 27,
+      "age_bars": 7,
+      "volume_ratio": 2.86,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 28,
+      "age_bars": 6,
+      "volume_ratio": 2.5,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 29,
+      "age_bars": 5,
+      "volume_ratio": 2.22,
+      "direction": "bearish"
+    }
+  ]
+}

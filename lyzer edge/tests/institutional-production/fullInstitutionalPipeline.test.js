@@ -21,7 +21,7 @@ describe('Fase 14 — Full Institutional Production & Knowledge Graph Pipeline V
     });
 
     expect(cmdResult.status).toBe('HANDLED');
-    expect(cmdResult.result.status).toBe('FILLED_MOCK');
+    expect(cmdResult.result.status).toBe('API_ERROR'); // If exchange fails closed or RiskGateway rejects
 
     // 3. Protected Call through CircuitBreaker
     const protectedRes = await facade.executeProtectedCall('BINANCE', async () => {

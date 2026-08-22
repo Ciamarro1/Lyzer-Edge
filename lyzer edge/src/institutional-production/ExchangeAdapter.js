@@ -27,30 +27,22 @@ export class BaseExchangeAdapter {
   }
 
   async placeOrder(orderSpec = {}) {
-    return {
-      order_id: `ord_${this.exchangeName}_${Date.now()}`,
-      symbol: orderSpec.symbol || 'BTC-USD',
-      side: orderSpec.side || 'BUY',
-      quantity: orderSpec.quantity || 1.0,
-      price: orderSpec.price || 50000,
-      status: 'FILLED_MOCK',
-      exchange: this.exchangeName,
-      executed_at: Date.now()
-    };
+    throw new Error('MOCK_EXCHANGE_REMOVED: placeOrder must be implemented by a real exchange adapter. Production Integrity Restoration P1: No FILLED_MOCK allowed.');
   }
 
   async cancelOrder(orderId) {
-    return { order_id: orderId, status: 'CANCELLED', exchange: this.exchangeName };
+    throw new Error('MOCK_EXCHANGE_REMOVED: cancelOrder must be implemented.');
   }
 
   async getBalances() {
-    return { USDT: 100000.0, BTC: 2.5, ETH: 30.0, exchange: this.exchangeName };
+    throw new Error('MOCK_EXCHANGE_REMOVED: getBalances must be implemented.');
   }
 }
 
 export class MockExchangeAdapter extends BaseExchangeAdapter {
   constructor() {
     super('MOCK_EXCHANGE');
+    throw new Error('MockExchangeAdapter is strictly forbidden in Production Integrity Restoration phase.');
   }
 }
 

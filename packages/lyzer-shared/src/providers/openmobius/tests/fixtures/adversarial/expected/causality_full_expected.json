@@ -1,0 +1,3942 @@
+{
+  "candle_count": 200,
+  "atr14": 2.0,
+  "swings": [
+    {
+      "index": 2,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 2,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 3,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 3,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 4,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 4,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 5,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 5,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 6,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 6,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 7,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 7,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 8,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 8,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 9,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 9,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 10,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 10,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 11,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 11,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 12,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 12,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 13,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 13,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 14,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 14,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 15,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 15,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 16,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 16,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 17,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 17,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 18,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 18,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 19,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 19,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 20,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 20,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 21,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 21,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 22,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 22,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 23,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 23,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 24,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 24,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 25,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 25,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 26,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 26,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 27,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 27,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 28,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 28,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 29,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 29,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 30,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 30,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 31,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 31,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 32,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 32,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 33,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 33,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 34,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 34,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 35,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 35,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 36,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 36,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 37,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 37,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 38,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 38,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 39,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 39,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 40,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 40,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 41,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 41,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 42,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 42,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 43,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 43,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 44,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 44,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 45,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 45,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 46,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 46,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 47,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 47,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 48,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 48,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 49,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 49,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 50,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 50,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 51,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 51,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 52,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 52,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 53,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 53,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 54,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 54,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 55,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 55,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 56,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 56,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 57,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 57,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 58,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 58,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 59,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 59,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 60,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 60,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 61,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 61,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 62,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 62,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 63,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 63,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 64,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 64,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 65,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 65,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 66,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 66,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 67,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 67,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 68,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 68,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 69,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 69,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 70,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 70,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 71,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 71,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 72,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 72,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 73,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 73,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 74,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 74,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 75,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 75,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 76,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 76,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 77,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 77,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 78,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 78,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 79,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 79,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 80,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 80,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 81,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 81,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 82,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 82,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 83,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 83,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 84,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 84,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 85,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 85,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 86,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 86,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 87,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 87,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 88,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 88,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 89,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 89,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 90,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 90,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 91,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 91,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 92,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 92,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 93,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 93,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 94,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 94,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 95,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 95,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 96,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 96,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 97,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 97,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 98,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 98,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 99,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 99,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 100,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 100,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 101,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 101,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 102,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 102,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 103,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 103,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 104,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 104,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 105,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 105,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 106,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 106,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 107,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 107,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 108,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 108,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 109,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 109,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 110,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 110,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 111,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 111,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 112,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 112,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 113,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 113,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 114,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 114,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 115,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 115,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 116,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 116,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 117,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 117,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 118,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 118,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 119,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 119,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 120,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 120,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 121,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 121,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 122,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 122,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 123,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 123,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 124,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 124,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 125,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 125,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 126,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 126,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 127,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 127,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 128,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 128,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 129,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 129,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 130,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 130,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 131,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 131,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 132,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 132,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 133,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 133,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 134,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 134,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 135,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 135,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 136,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 136,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 137,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 137,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 138,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 138,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 139,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 139,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 140,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 140,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 141,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 141,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 142,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 142,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 143,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 143,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 144,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 144,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 145,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 145,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 146,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 146,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 147,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 147,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 148,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 148,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 149,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 149,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 150,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 150,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 151,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 151,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 152,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 152,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 153,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 153,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 154,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 154,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 155,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 155,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 156,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 156,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 157,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 157,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 158,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 158,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 159,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 159,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 160,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 160,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 161,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 161,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 162,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 162,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 163,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 163,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 164,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 164,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 165,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 165,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 166,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 166,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 167,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 167,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 168,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 168,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 169,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 169,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 170,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 170,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 171,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 171,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 172,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 172,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 173,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 173,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 174,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 174,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 175,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 175,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 176,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 176,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 177,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 177,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 178,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 178,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 179,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 179,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 180,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 180,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 181,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 181,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 182,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 182,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 183,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 183,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 184,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 184,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 185,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 185,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 186,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 186,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 187,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 187,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 188,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 188,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 189,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 189,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 190,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 190,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 191,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 191,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 192,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 192,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 193,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 193,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 194,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 194,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 195,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 195,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 196,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 196,
+      "price": 99.3,
+      "kind": "low"
+    },
+    {
+      "index": 197,
+      "price": 101.3,
+      "kind": "high"
+    },
+    {
+      "index": 197,
+      "price": 99.3,
+      "kind": "low"
+    }
+  ],
+  "structure": {
+    "sequence": [
+      {
+        "label": "H",
+        "index": 2,
+        "price": 101.3
+      },
+      {
+        "label": "L",
+        "index": 2,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 3,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 3,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 4,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 4,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 5,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 5,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 6,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 6,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 7,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 7,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 8,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 8,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 9,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 9,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 10,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 10,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 11,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 11,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 12,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 12,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 13,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 13,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 14,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 14,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 15,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 15,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 16,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 16,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 17,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 17,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 18,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 18,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 19,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 19,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 20,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 20,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 21,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 21,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 22,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 22,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 23,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 23,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 24,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 24,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 25,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 25,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 26,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 26,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 27,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 27,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 28,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 28,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 29,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 29,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 30,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 30,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 31,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 31,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 32,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 32,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 33,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 33,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 34,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 34,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 35,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 35,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 36,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 36,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 37,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 37,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 38,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 38,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 39,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 39,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 40,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 40,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 41,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 41,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 42,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 42,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 43,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 43,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 44,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 44,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 45,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 45,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 46,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 46,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 47,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 47,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 48,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 48,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 49,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 49,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 50,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 50,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 51,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 51,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 52,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 52,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 53,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 53,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 54,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 54,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 55,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 55,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 56,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 56,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 57,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 57,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 58,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 58,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 59,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 59,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 60,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 60,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 61,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 61,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 62,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 62,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 63,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 63,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 64,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 64,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 65,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 65,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 66,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 66,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 67,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 67,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 68,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 68,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 69,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 69,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 70,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 70,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 71,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 71,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 72,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 72,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 73,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 73,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 74,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 74,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 75,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 75,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 76,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 76,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 77,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 77,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 78,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 78,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 79,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 79,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 80,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 80,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 81,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 81,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 82,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 82,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 83,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 83,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 84,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 84,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 85,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 85,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 86,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 86,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 87,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 87,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 88,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 88,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 89,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 89,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 90,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 90,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 91,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 91,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 92,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 92,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 93,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 93,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 94,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 94,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 95,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 95,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 96,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 96,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 97,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 97,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 98,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 98,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 99,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 99,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 100,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 100,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 101,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 101,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 102,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 102,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 103,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 103,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 104,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 104,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 105,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 105,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 106,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 106,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 107,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 107,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 108,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 108,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 109,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 109,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 110,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 110,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 111,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 111,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 112,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 112,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 113,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 113,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 114,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 114,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 115,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 115,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 116,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 116,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 117,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 117,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 118,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 118,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 119,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 119,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 120,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 120,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 121,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 121,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 122,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 122,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 123,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 123,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 124,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 124,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 125,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 125,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 126,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 126,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 127,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 127,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 128,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 128,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 129,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 129,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 130,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 130,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 131,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 131,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 132,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 132,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 133,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 133,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 134,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 134,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 135,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 135,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 136,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 136,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 137,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 137,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 138,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 138,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 139,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 139,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 140,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 140,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 141,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 141,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 142,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 142,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 143,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 143,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 144,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 144,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 145,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 145,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 146,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 146,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 147,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 147,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 148,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 148,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 149,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 149,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 150,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 150,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 151,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 151,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 152,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 152,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 153,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 153,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 154,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 154,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 155,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 155,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 156,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 156,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 157,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 157,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 158,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 158,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 159,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 159,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 160,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 160,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 161,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 161,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 162,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 162,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 163,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 163,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 164,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 164,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 165,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 165,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 166,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 166,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 167,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 167,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 168,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 168,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 169,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 169,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 170,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 170,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 171,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 171,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 172,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 172,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 173,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 173,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 174,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 174,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 175,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 175,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 176,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 176,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 177,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 177,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 178,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 178,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 179,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 179,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 180,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 180,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 181,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 181,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 182,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 182,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 183,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 183,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 184,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 184,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 185,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 185,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 186,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 186,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 187,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 187,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 188,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 188,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 189,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 189,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 190,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 190,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 191,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 191,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 192,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 192,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 193,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 193,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 194,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 194,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 195,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 195,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 196,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 196,
+        "price": 99.3
+      },
+      {
+        "label": "LH",
+        "index": 197,
+        "price": 101.3
+      },
+      {
+        "label": "LL",
+        "index": 197,
+        "price": 99.3
+      }
+    ],
+    "events": [
+      {
+        "type": "bearish_bos",
+        "at_index": 197,
+        "at_price": 99.3
+      }
+    ]
+  },
+  "fvgs": [],
+  "order_blocks": [],
+  "sweeps": [],
+  "displacements": [],
+  "volume_anomalies": []
+}

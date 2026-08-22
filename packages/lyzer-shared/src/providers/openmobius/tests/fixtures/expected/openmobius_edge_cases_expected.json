@@ -1,0 +1,4901 @@
+{
+  "candle_count": 500,
+  "atr14": 18.024999999998858,
+  "swings": [
+    {
+      "index": 3,
+      "price": 63248.0,
+      "kind": "high"
+    },
+    {
+      "index": 8,
+      "price": 63234.0,
+      "kind": "high"
+    },
+    {
+      "index": 11,
+      "price": 63180.0,
+      "kind": "low"
+    },
+    {
+      "index": 14,
+      "price": 63184.0,
+      "kind": "low"
+    },
+    {
+      "index": 16,
+      "price": 63246.39,
+      "kind": "high"
+    },
+    {
+      "index": 17,
+      "price": 63218.0,
+      "kind": "low"
+    },
+    {
+      "index": 19,
+      "price": 63230.0,
+      "kind": "high"
+    },
+    {
+      "index": 24,
+      "price": 63166.58,
+      "kind": "low"
+    },
+    {
+      "index": 28,
+      "price": 63162.0,
+      "kind": "low"
+    },
+    {
+      "index": 31,
+      "price": 63223.79,
+      "kind": "high"
+    },
+    {
+      "index": 32,
+      "price": 63223.79,
+      "kind": "high"
+    },
+    {
+      "index": 34,
+      "price": 63165.22,
+      "kind": "low"
+    },
+    {
+      "index": 35,
+      "price": 63165.22,
+      "kind": "low"
+    },
+    {
+      "index": 37,
+      "price": 63233.29,
+      "kind": "high"
+    },
+    {
+      "index": 40,
+      "price": 63170.08,
+      "kind": "low"
+    },
+    {
+      "index": 42,
+      "price": 63220.0,
+      "kind": "high"
+    },
+    {
+      "index": 43,
+      "price": 63138.93,
+      "kind": "low"
+    },
+    {
+      "index": 47,
+      "price": 63205.31,
+      "kind": "high"
+    },
+    {
+      "index": 48,
+      "price": 63205.31,
+      "kind": "high"
+    },
+    {
+      "index": 53,
+      "price": 63286.0,
+      "kind": "high"
+    },
+    {
+      "index": 61,
+      "price": 63100.0,
+      "kind": "low"
+    },
+    {
+      "index": 63,
+      "price": 63152.0,
+      "kind": "high"
+    },
+    {
+      "index": 73,
+      "price": 63216.79,
+      "kind": "high"
+    },
+    {
+      "index": 74,
+      "price": 63216.79,
+      "kind": "high"
+    },
+    {
+      "index": 80,
+      "price": 63196.0,
+      "kind": "high"
+    },
+    {
+      "index": 80,
+      "price": 63174.0,
+      "kind": "low"
+    },
+    {
+      "index": 81,
+      "price": 63174.0,
+      "kind": "low"
+    },
+    {
+      "index": 83,
+      "price": 63194.01,
+      "kind": "high"
+    },
+    {
+      "index": 84,
+      "price": 63194.01,
+      "kind": "high"
+    },
+    {
+      "index": 93,
+      "price": 63116.17,
+      "kind": "low"
+    },
+    {
+      "index": 94,
+      "price": 63160.0,
+      "kind": "high"
+    },
+    {
+      "index": 98,
+      "price": 63168.44,
+      "kind": "high"
+    },
+    {
+      "index": 100,
+      "price": 63100.0,
+      "kind": "low"
+    },
+    {
+      "index": 103,
+      "price": 63136.0,
+      "kind": "high"
+    },
+    {
+      "index": 104,
+      "price": 63136.0,
+      "kind": "high"
+    },
+    {
+      "index": 105,
+      "price": 63136.0,
+      "kind": "high"
+    },
+    {
+      "index": 106,
+      "price": 63136.0,
+      "kind": "high"
+    },
+    {
+      "index": 108,
+      "price": 63100.0,
+      "kind": "low"
+    },
+    {
+      "index": 109,
+      "price": 63100.0,
+      "kind": "low"
+    },
+    {
+      "index": 111,
+      "price": 63138.37,
+      "kind": "high"
+    },
+    {
+      "index": 112,
+      "price": 63082.54,
+      "kind": "low"
+    },
+    {
+      "index": 115,
+      "price": 63115.07,
+      "kind": "high"
+    },
+    {
+      "index": 118,
+      "price": 63092.95,
+      "kind": "high"
+    },
+    {
+      "index": 120,
+      "price": 63062.98,
+      "kind": "low"
+    },
+    {
+      "index": 121,
+      "price": 63085.94,
+      "kind": "high"
+    },
+    {
+      "index": 124,
+      "price": 63084.0,
+      "kind": "high"
+    },
+    {
+      "index": 126,
+      "price": 63039.99,
+      "kind": "low"
+    },
+    {
+      "index": 128,
+      "price": 63089.98,
+      "kind": "high"
+    },
+    {
+      "index": 131,
+      "price": 63054.0,
+      "kind": "low"
+    },
+    {
+      "index": 132,
+      "price": 63054.0,
+      "kind": "low"
+    },
+    {
+      "index": 135,
+      "price": 63045.08,
+      "kind": "low"
+    },
+    {
+      "index": 138,
+      "price": 63065.89,
+      "kind": "high"
+    },
+    {
+      "index": 139,
+      "price": 62786.04,
+      "kind": "low"
+    },
+    {
+      "index": 144,
+      "price": 62965.0,
+      "kind": "high"
+    },
+    {
+      "index": 145,
+      "price": 62965.0,
+      "kind": "high"
+    },
+    {
+      "index": 148,
+      "price": 62946.03,
+      "kind": "high"
+    },
+    {
+      "index": 153,
+      "price": 62851.71,
+      "kind": "low"
+    },
+    {
+      "index": 154,
+      "price": 62922.84,
+      "kind": "high"
+    },
+    {
+      "index": 156,
+      "price": 62876.0,
+      "kind": "low"
+    },
+    {
+      "index": 157,
+      "price": 62938.55,
+      "kind": "high"
+    },
+    {
+      "index": 158,
+      "price": 62938.55,
+      "kind": "high"
+    },
+    {
+      "index": 163,
+      "price": 62816.34,
+      "kind": "low"
+    },
+    {
+      "index": 165,
+      "price": 62890.0,
+      "kind": "high"
+    },
+    {
+      "index": 167,
+      "price": 62844.0,
+      "kind": "low"
+    },
+    {
+      "index": 173,
+      "price": 62920.0,
+      "kind": "low"
+    },
+    {
+      "index": 176,
+      "price": 62978.11,
+      "kind": "high"
+    },
+    {
+      "index": 179,
+      "price": 62945.87,
+      "kind": "low"
+    },
+    {
+      "index": 183,
+      "price": 63001.77,
+      "kind": "high"
+    },
+    {
+      "index": 188,
+      "price": 63001.77,
+      "kind": "high"
+    },
+    {
+      "index": 191,
+      "price": 62972.72,
+      "kind": "low"
+    },
+    {
+      "index": 192,
+      "price": 63000.13,
+      "kind": "high"
+    },
+    {
+      "index": 193,
+      "price": 63000.13,
+      "kind": "high"
+    },
+    {
+      "index": 194,
+      "price": 63000.13,
+      "kind": "high"
+    },
+    {
+      "index": 199,
+      "price": 62940.0,
+      "kind": "low"
+    },
+    {
+      "index": 212,
+      "price": 62770.37,
+      "kind": "low"
+    },
+    {
+      "index": 215,
+      "price": 62847.81,
+      "kind": "high"
+    },
+    {
+      "index": 218,
+      "price": 62751.3,
+      "kind": "low"
+    },
+    {
+      "index": 227,
+      "price": 62871.13,
+      "kind": "high"
+    },
+    {
+      "index": 229,
+      "price": 62808.73,
+      "kind": "low"
+    },
+    {
+      "index": 233,
+      "price": 62875.02,
+      "kind": "high"
+    },
+    {
+      "index": 236,
+      "price": 62802.0,
+      "kind": "low"
+    },
+    {
+      "index": 240,
+      "price": 62856.0,
+      "kind": "high"
+    },
+    {
+      "index": 243,
+      "price": 62806.0,
+      "kind": "low"
+    },
+    {
+      "index": 245,
+      "price": 62833.86,
+      "kind": "high"
+    },
+    {
+      "index": 248,
+      "price": 62774.88,
+      "kind": "low"
+    },
+    {
+      "index": 254,
+      "price": 62849.98,
+      "kind": "high"
+    },
+    {
+      "index": 255,
+      "price": 62849.98,
+      "kind": "high"
+    },
+    {
+      "index": 258,
+      "price": 62808.0,
+      "kind": "low"
+    },
+    {
+      "index": 259,
+      "price": 62808.0,
+      "kind": "low"
+    },
+    {
+      "index": 262,
+      "price": 62862.92,
+      "kind": "high"
+    },
+    {
+      "index": 263,
+      "price": 62832.0,
+      "kind": "low"
+    },
+    {
+      "index": 265,
+      "price": 62856.03,
+      "kind": "high"
+    },
+    {
+      "index": 267,
+      "price": 62811.0,
+      "kind": "low"
+    },
+    {
+      "index": 269,
+      "price": 62839.99,
+      "kind": "high"
+    },
+    {
+      "index": 271,
+      "price": 62807.67,
+      "kind": "low"
+    },
+    {
+      "index": 274,
+      "price": 62849.46,
+      "kind": "high"
+    },
+    {
+      "index": 275,
+      "price": 62849.46,
+      "kind": "high"
+    },
+    {
+      "index": 276,
+      "price": 62823.2,
+      "kind": "low"
+    },
+    {
+      "index": 280,
+      "price": 62872.58,
+      "kind": "high"
+    },
+    {
+      "index": 285,
+      "price": 62827.15,
+      "kind": "low"
+    },
+    {
+      "index": 288,
+      "price": 62830.71,
+      "kind": "low"
+    },
+    {
+      "index": 294,
+      "price": 62778.0,
+      "kind": "low"
+    },
+    {
+      "index": 295,
+      "price": 62778.0,
+      "kind": "low"
+    },
+    {
+      "index": 296,
+      "price": 62812.0,
+      "kind": "high"
+    },
+    {
+      "index": 297,
+      "price": 62812.0,
+      "kind": "high"
+    },
+    {
+      "index": 299,
+      "price": 62759.82,
+      "kind": "low"
+    },
+    {
+      "index": 304,
+      "price": 62841.01,
+      "kind": "high"
+    },
+    {
+      "index": 318,
+      "price": 62618.0,
+      "kind": "low"
+    },
+    {
+      "index": 321,
+      "price": 62672.0,
+      "kind": "high"
+    },
+    {
+      "index": 323,
+      "price": 62646.0,
+      "kind": "low"
+    },
+    {
+      "index": 326,
+      "price": 62683.5,
+      "kind": "high"
+    },
+    {
+      "index": 336,
+      "price": 62592.0,
+      "kind": "low"
+    },
+    {
+      "index": 341,
+      "price": 62676.85,
+      "kind": "high"
+    },
+    {
+      "index": 342,
+      "price": 62609.81,
+      "kind": "low"
+    },
+    {
+      "index": 345,
+      "price": 62656.0,
+      "kind": "high"
+    },
+    {
+      "index": 348,
+      "price": 62552.04,
+      "kind": "low"
+    },
+    {
+      "index": 350,
+      "price": 62626.37,
+      "kind": "high"
+    },
+    {
+      "index": 360,
+      "price": 62674.64,
+      "kind": "high"
+    },
+    {
+      "index": 363,
+      "price": 62632.05,
+      "kind": "low"
+    },
+    {
+      "index": 367,
+      "price": 62700.0,
+      "kind": "high"
+    },
+    {
+      "index": 370,
+      "price": 62603.1,
+      "kind": "low"
+    },
+    {
+      "index": 372,
+      "price": 62651.35,
+      "kind": "high"
+    },
+    {
+      "index": 375,
+      "price": 62645.83,
+      "kind": "high"
+    },
+    {
+      "index": 376,
+      "price": 62638.32,
+      "kind": "low"
+    },
+    {
+      "index": 377,
+      "price": 62638.32,
+      "kind": "low"
+    },
+    {
+      "index": 382,
+      "price": 62675.31,
+      "kind": "high"
+    },
+    {
+      "index": 385,
+      "price": 62608.0,
+      "kind": "low"
+    },
+    {
+      "index": 386,
+      "price": 62608.0,
+      "kind": "low"
+    },
+    {
+      "index": 387,
+      "price": 62608.0,
+      "kind": "low"
+    },
+    {
+      "index": 388,
+      "price": 62627.14,
+      "kind": "high"
+    },
+    {
+      "index": 389,
+      "price": 62627.14,
+      "kind": "high"
+    },
+    {
+      "index": 391,
+      "price": 62580.47,
+      "kind": "low"
+    },
+    {
+      "index": 394,
+      "price": 62647.69,
+      "kind": "high"
+    },
+    {
+      "index": 396,
+      "price": 62586.0,
+      "kind": "low"
+    },
+    {
+      "index": 397,
+      "price": 62586.0,
+      "kind": "low"
+    },
+    {
+      "index": 400,
+      "price": 62630.26,
+      "kind": "high"
+    },
+    {
+      "index": 404,
+      "price": 62516.01,
+      "kind": "low"
+    },
+    {
+      "index": 406,
+      "price": 62571.85,
+      "kind": "high"
+    },
+    {
+      "index": 415,
+      "price": 62340.0,
+      "kind": "low"
+    },
+    {
+      "index": 417,
+      "price": 62437.38,
+      "kind": "high"
+    },
+    {
+      "index": 420,
+      "price": 62326.0,
+      "kind": "low"
+    },
+    {
+      "index": 424,
+      "price": 62372.0,
+      "kind": "high"
+    },
+    {
+      "index": 427,
+      "price": 62300.0,
+      "kind": "low"
+    },
+    {
+      "index": 430,
+      "price": 62428.3,
+      "kind": "high"
+    },
+    {
+      "index": 438,
+      "price": 62456.77,
+      "kind": "high"
+    },
+    {
+      "index": 441,
+      "price": 62457.36,
+      "kind": "high"
+    },
+    {
+      "index": 443,
+      "price": 62436.23,
+      "kind": "low"
+    },
+    {
+      "index": 453,
+      "price": 62567.99,
+      "kind": "high"
+    },
+    {
+      "index": 455,
+      "price": 62520.0,
+      "kind": "low"
+    },
+    {
+      "index": 456,
+      "price": 62520.0,
+      "kind": "low"
+    },
+    {
+      "index": 459,
+      "price": 62590.2,
+      "kind": "high"
+    },
+    {
+      "index": 462,
+      "price": 62540.95,
+      "kind": "low"
+    },
+    {
+      "index": 463,
+      "price": 62540.95,
+      "kind": "low"
+    },
+    {
+      "index": 466,
+      "price": 62577.13,
+      "kind": "high"
+    },
+    {
+      "index": 475,
+      "price": 62667.04,
+      "kind": "high"
+    },
+    {
+      "index": 480,
+      "price": 62620.0,
+      "kind": "low"
+    },
+    {
+      "index": 482,
+      "price": 62653.36,
+      "kind": "high"
+    },
+    {
+      "index": 483,
+      "price": 62653.36,
+      "kind": "high"
+    },
+    {
+      "index": 484,
+      "price": 62628.0,
+      "kind": "low"
+    },
+    {
+      "index": 485,
+      "price": 62628.0,
+      "kind": "low"
+    },
+    {
+      "index": 487,
+      "price": 62707.5,
+      "kind": "high"
+    },
+    {
+      "index": 491,
+      "price": 62638.0,
+      "kind": "low"
+    },
+    {
+      "index": 495,
+      "price": 62692.49,
+      "kind": "high"
+    }
+  ],
+  "structure": {
+    "sequence": [
+      {
+        "label": "H",
+        "index": 3,
+        "price": 63248.0
+      },
+      {
+        "label": "LH",
+        "index": 8,
+        "price": 63234.0
+      },
+      {
+        "label": "L",
+        "index": 11,
+        "price": 63180.0
+      },
+      {
+        "label": "HL",
+        "index": 14,
+        "price": 63184.0
+      },
+      {
+        "label": "HH",
+        "index": 16,
+        "price": 63246.39
+      },
+      {
+        "label": "HL",
+        "index": 17,
+        "price": 63218.0
+      },
+      {
+        "label": "LH",
+        "index": 19,
+        "price": 63230.0
+      },
+      {
+        "label": "LL",
+        "index": 24,
+        "price": 63166.58
+      },
+      {
+        "label": "LL",
+        "index": 28,
+        "price": 63162.0
+      },
+      {
+        "label": "LH",
+        "index": 31,
+        "price": 63223.79
+      },
+      {
+        "label": "LH",
+        "index": 32,
+        "price": 63223.79
+      },
+      {
+        "label": "HL",
+        "index": 34,
+        "price": 63165.22
+      },
+      {
+        "label": "LL",
+        "index": 35,
+        "price": 63165.22
+      },
+      {
+        "label": "HH",
+        "index": 37,
+        "price": 63233.29
+      },
+      {
+        "label": "HL",
+        "index": 40,
+        "price": 63170.08
+      },
+      {
+        "label": "LH",
+        "index": 42,
+        "price": 63220.0
+      },
+      {
+        "label": "LL",
+        "index": 43,
+        "price": 63138.93
+      },
+      {
+        "label": "LH",
+        "index": 47,
+        "price": 63205.31
+      },
+      {
+        "label": "LH",
+        "index": 48,
+        "price": 63205.31
+      },
+      {
+        "label": "HH",
+        "index": 53,
+        "price": 63286.0
+      },
+      {
+        "label": "LL",
+        "index": 61,
+        "price": 63100.0
+      },
+      {
+        "label": "LH",
+        "index": 63,
+        "price": 63152.0
+      },
+      {
+        "label": "HH",
+        "index": 73,
+        "price": 63216.79
+      },
+      {
+        "label": "LH",
+        "index": 74,
+        "price": 63216.79
+      },
+      {
+        "label": "LH",
+        "index": 80,
+        "price": 63196.0
+      },
+      {
+        "label": "HL",
+        "index": 80,
+        "price": 63174.0
+      },
+      {
+        "label": "LL",
+        "index": 81,
+        "price": 63174.0
+      },
+      {
+        "label": "LH",
+        "index": 83,
+        "price": 63194.01
+      },
+      {
+        "label": "LH",
+        "index": 84,
+        "price": 63194.01
+      },
+      {
+        "label": "LL",
+        "index": 93,
+        "price": 63116.17
+      },
+      {
+        "label": "LH",
+        "index": 94,
+        "price": 63160.0
+      },
+      {
+        "label": "HH",
+        "index": 98,
+        "price": 63168.44
+      },
+      {
+        "label": "LL",
+        "index": 100,
+        "price": 63100.0
+      },
+      {
+        "label": "LH",
+        "index": 103,
+        "price": 63136.0
+      },
+      {
+        "label": "LH",
+        "index": 104,
+        "price": 63136.0
+      },
+      {
+        "label": "LH",
+        "index": 105,
+        "price": 63136.0
+      },
+      {
+        "label": "LH",
+        "index": 106,
+        "price": 63136.0
+      },
+      {
+        "label": "LL",
+        "index": 108,
+        "price": 63100.0
+      },
+      {
+        "label": "LL",
+        "index": 109,
+        "price": 63100.0
+      },
+      {
+        "label": "HH",
+        "index": 111,
+        "price": 63138.37
+      },
+      {
+        "label": "LL",
+        "index": 112,
+        "price": 63082.54
+      },
+      {
+        "label": "LH",
+        "index": 115,
+        "price": 63115.07
+      },
+      {
+        "label": "LH",
+        "index": 118,
+        "price": 63092.95
+      },
+      {
+        "label": "LL",
+        "index": 120,
+        "price": 63062.98
+      },
+      {
+        "label": "LH",
+        "index": 121,
+        "price": 63085.94
+      },
+      {
+        "label": "LH",
+        "index": 124,
+        "price": 63084.0
+      },
+      {
+        "label": "LL",
+        "index": 126,
+        "price": 63039.99
+      },
+      {
+        "label": "HH",
+        "index": 128,
+        "price": 63089.98
+      },
+      {
+        "label": "HL",
+        "index": 131,
+        "price": 63054.0
+      },
+      {
+        "label": "LL",
+        "index": 132,
+        "price": 63054.0
+      },
+      {
+        "label": "LL",
+        "index": 135,
+        "price": 63045.08
+      },
+      {
+        "label": "LH",
+        "index": 138,
+        "price": 63065.89
+      },
+      {
+        "label": "LL",
+        "index": 139,
+        "price": 62786.04
+      },
+      {
+        "label": "LH",
+        "index": 144,
+        "price": 62965.0
+      },
+      {
+        "label": "LH",
+        "index": 145,
+        "price": 62965.0
+      },
+      {
+        "label": "LH",
+        "index": 148,
+        "price": 62946.03
+      },
+      {
+        "label": "HL",
+        "index": 153,
+        "price": 62851.71
+      },
+      {
+        "label": "LH",
+        "index": 154,
+        "price": 62922.84
+      },
+      {
+        "label": "HL",
+        "index": 156,
+        "price": 62876.0
+      },
+      {
+        "label": "HH",
+        "index": 157,
+        "price": 62938.55
+      },
+      {
+        "label": "LH",
+        "index": 158,
+        "price": 62938.55
+      },
+      {
+        "label": "LL",
+        "index": 163,
+        "price": 62816.34
+      },
+      {
+        "label": "LH",
+        "index": 165,
+        "price": 62890.0
+      },
+      {
+        "label": "HL",
+        "index": 167,
+        "price": 62844.0
+      },
+      {
+        "label": "HL",
+        "index": 173,
+        "price": 62920.0
+      },
+      {
+        "label": "HH",
+        "index": 176,
+        "price": 62978.11
+      },
+      {
+        "label": "HL",
+        "index": 179,
+        "price": 62945.87
+      },
+      {
+        "label": "HH",
+        "index": 183,
+        "price": 63001.77
+      },
+      {
+        "label": "LH",
+        "index": 188,
+        "price": 63001.77
+      },
+      {
+        "label": "HL",
+        "index": 191,
+        "price": 62972.72
+      },
+      {
+        "label": "LH",
+        "index": 192,
+        "price": 63000.13
+      },
+      {
+        "label": "LH",
+        "index": 193,
+        "price": 63000.13
+      },
+      {
+        "label": "LH",
+        "index": 194,
+        "price": 63000.13
+      },
+      {
+        "label": "LL",
+        "index": 199,
+        "price": 62940.0
+      },
+      {
+        "label": "LL",
+        "index": 212,
+        "price": 62770.37
+      },
+      {
+        "label": "LH",
+        "index": 215,
+        "price": 62847.81
+      },
+      {
+        "label": "LL",
+        "index": 218,
+        "price": 62751.3
+      },
+      {
+        "label": "HH",
+        "index": 227,
+        "price": 62871.13
+      },
+      {
+        "label": "HL",
+        "index": 229,
+        "price": 62808.73
+      },
+      {
+        "label": "HH",
+        "index": 233,
+        "price": 62875.02
+      },
+      {
+        "label": "LL",
+        "index": 236,
+        "price": 62802.0
+      },
+      {
+        "label": "LH",
+        "index": 240,
+        "price": 62856.0
+      },
+      {
+        "label": "HL",
+        "index": 243,
+        "price": 62806.0
+      },
+      {
+        "label": "LH",
+        "index": 245,
+        "price": 62833.86
+      },
+      {
+        "label": "LL",
+        "index": 248,
+        "price": 62774.88
+      },
+      {
+        "label": "HH",
+        "index": 254,
+        "price": 62849.98
+      },
+      {
+        "label": "LH",
+        "index": 255,
+        "price": 62849.98
+      },
+      {
+        "label": "HL",
+        "index": 258,
+        "price": 62808.0
+      },
+      {
+        "label": "LL",
+        "index": 259,
+        "price": 62808.0
+      },
+      {
+        "label": "HH",
+        "index": 262,
+        "price": 62862.92
+      },
+      {
+        "label": "HL",
+        "index": 263,
+        "price": 62832.0
+      },
+      {
+        "label": "LH",
+        "index": 265,
+        "price": 62856.03
+      },
+      {
+        "label": "LL",
+        "index": 267,
+        "price": 62811.0
+      },
+      {
+        "label": "LH",
+        "index": 269,
+        "price": 62839.99
+      },
+      {
+        "label": "LL",
+        "index": 271,
+        "price": 62807.67
+      },
+      {
+        "label": "HH",
+        "index": 274,
+        "price": 62849.46
+      },
+      {
+        "label": "LH",
+        "index": 275,
+        "price": 62849.46
+      },
+      {
+        "label": "HL",
+        "index": 276,
+        "price": 62823.2
+      },
+      {
+        "label": "HH",
+        "index": 280,
+        "price": 62872.58
+      },
+      {
+        "label": "HL",
+        "index": 285,
+        "price": 62827.15
+      },
+      {
+        "label": "HL",
+        "index": 288,
+        "price": 62830.71
+      },
+      {
+        "label": "LL",
+        "index": 294,
+        "price": 62778.0
+      },
+      {
+        "label": "LL",
+        "index": 295,
+        "price": 62778.0
+      },
+      {
+        "label": "LH",
+        "index": 296,
+        "price": 62812.0
+      },
+      {
+        "label": "LH",
+        "index": 297,
+        "price": 62812.0
+      },
+      {
+        "label": "LL",
+        "index": 299,
+        "price": 62759.82
+      },
+      {
+        "label": "HH",
+        "index": 304,
+        "price": 62841.01
+      },
+      {
+        "label": "LL",
+        "index": 318,
+        "price": 62618.0
+      },
+      {
+        "label": "LH",
+        "index": 321,
+        "price": 62672.0
+      },
+      {
+        "label": "HL",
+        "index": 323,
+        "price": 62646.0
+      },
+      {
+        "label": "HH",
+        "index": 326,
+        "price": 62683.5
+      },
+      {
+        "label": "LL",
+        "index": 336,
+        "price": 62592.0
+      },
+      {
+        "label": "LH",
+        "index": 341,
+        "price": 62676.85
+      },
+      {
+        "label": "HL",
+        "index": 342,
+        "price": 62609.81
+      },
+      {
+        "label": "LH",
+        "index": 345,
+        "price": 62656.0
+      },
+      {
+        "label": "LL",
+        "index": 348,
+        "price": 62552.04
+      },
+      {
+        "label": "LH",
+        "index": 350,
+        "price": 62626.37
+      },
+      {
+        "label": "HH",
+        "index": 360,
+        "price": 62674.64
+      },
+      {
+        "label": "HL",
+        "index": 363,
+        "price": 62632.05
+      },
+      {
+        "label": "HH",
+        "index": 367,
+        "price": 62700.0
+      },
+      {
+        "label": "LL",
+        "index": 370,
+        "price": 62603.1
+      },
+      {
+        "label": "LH",
+        "index": 372,
+        "price": 62651.35
+      },
+      {
+        "label": "LH",
+        "index": 375,
+        "price": 62645.83
+      },
+      {
+        "label": "HL",
+        "index": 376,
+        "price": 62638.32
+      },
+      {
+        "label": "LL",
+        "index": 377,
+        "price": 62638.32
+      },
+      {
+        "label": "HH",
+        "index": 382,
+        "price": 62675.31
+      },
+      {
+        "label": "LL",
+        "index": 385,
+        "price": 62608.0
+      },
+      {
+        "label": "LL",
+        "index": 386,
+        "price": 62608.0
+      },
+      {
+        "label": "LL",
+        "index": 387,
+        "price": 62608.0
+      },
+      {
+        "label": "LH",
+        "index": 388,
+        "price": 62627.14
+      },
+      {
+        "label": "LH",
+        "index": 389,
+        "price": 62627.14
+      },
+      {
+        "label": "LL",
+        "index": 391,
+        "price": 62580.47
+      },
+      {
+        "label": "HH",
+        "index": 394,
+        "price": 62647.69
+      },
+      {
+        "label": "HL",
+        "index": 396,
+        "price": 62586.0
+      },
+      {
+        "label": "LL",
+        "index": 397,
+        "price": 62586.0
+      },
+      {
+        "label": "LH",
+        "index": 400,
+        "price": 62630.26
+      },
+      {
+        "label": "LL",
+        "index": 404,
+        "price": 62516.01
+      },
+      {
+        "label": "LH",
+        "index": 406,
+        "price": 62571.85
+      },
+      {
+        "label": "LL",
+        "index": 415,
+        "price": 62340.0
+      },
+      {
+        "label": "LH",
+        "index": 417,
+        "price": 62437.38
+      },
+      {
+        "label": "LL",
+        "index": 420,
+        "price": 62326.0
+      },
+      {
+        "label": "LH",
+        "index": 424,
+        "price": 62372.0
+      },
+      {
+        "label": "LL",
+        "index": 427,
+        "price": 62300.0
+      },
+      {
+        "label": "HH",
+        "index": 430,
+        "price": 62428.3
+      },
+      {
+        "label": "HH",
+        "index": 438,
+        "price": 62456.77
+      },
+      {
+        "label": "HH",
+        "index": 441,
+        "price": 62457.36
+      },
+      {
+        "label": "HL",
+        "index": 443,
+        "price": 62436.23
+      },
+      {
+        "label": "HH",
+        "index": 453,
+        "price": 62567.99
+      },
+      {
+        "label": "HL",
+        "index": 455,
+        "price": 62520.0
+      },
+      {
+        "label": "LL",
+        "index": 456,
+        "price": 62520.0
+      },
+      {
+        "label": "HH",
+        "index": 459,
+        "price": 62590.2
+      },
+      {
+        "label": "HL",
+        "index": 462,
+        "price": 62540.95
+      },
+      {
+        "label": "LL",
+        "index": 463,
+        "price": 62540.95
+      },
+      {
+        "label": "LH",
+        "index": 466,
+        "price": 62577.13
+      },
+      {
+        "label": "HH",
+        "index": 475,
+        "price": 62667.04
+      },
+      {
+        "label": "HL",
+        "index": 480,
+        "price": 62620.0
+      },
+      {
+        "label": "LH",
+        "index": 482,
+        "price": 62653.36
+      },
+      {
+        "label": "LH",
+        "index": 483,
+        "price": 62653.36
+      },
+      {
+        "label": "HL",
+        "index": 484,
+        "price": 62628.0
+      },
+      {
+        "label": "LL",
+        "index": 485,
+        "price": 62628.0
+      },
+      {
+        "label": "HH",
+        "index": 487,
+        "price": 62707.5
+      },
+      {
+        "label": "HL",
+        "index": 491,
+        "price": 62638.0
+      },
+      {
+        "label": "LH",
+        "index": 495,
+        "price": 62692.49
+      }
+    ],
+    "events": []
+  },
+  "fvgs": [
+    {
+      "type": "bullish_fvg",
+      "top": 63157.53,
+      "bottom": 63149.68,
+      "formed_at_index": 1,
+      "age_bars": 498,
+      "size": 7.85,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63226.07,
+      "bottom": 63176.0,
+      "formed_at_index": 3,
+      "age_bars": 496,
+      "size": 50.07,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63225.99,
+      "bottom": 63205.84,
+      "formed_at_index": 8,
+      "age_bars": 491,
+      "size": 20.15,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63222.0,
+      "bottom": 63200.27,
+      "formed_at_index": 14,
+      "age_bars": 485,
+      "size": 21.73,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63226.0,
+      "bottom": 63222.0,
+      "formed_at_index": 15,
+      "age_bars": 484,
+      "size": 4.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63186.15,
+      "bottom": 63165.4,
+      "formed_at_index": 27,
+      "age_bars": 472,
+      "size": 20.75,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63183.19,
+      "bottom": 63165.4,
+      "formed_at_index": 29,
+      "age_bars": 470,
+      "size": 17.79,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63189.06,
+      "bottom": 63183.2,
+      "formed_at_index": 30,
+      "age_bars": 469,
+      "size": 5.86,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63212.16,
+      "bottom": 63189.07,
+      "formed_at_index": 31,
+      "age_bars": 468,
+      "size": 23.09,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63212.16,
+      "bottom": 63182.82,
+      "formed_at_index": 33,
+      "age_bars": 466,
+      "size": 29.34,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63173.74,
+      "bottom": 63168.0,
+      "formed_at_index": 34,
+      "age_bars": 465,
+      "size": 5.74,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63219.74,
+      "bottom": 63168.0,
+      "formed_at_index": 36,
+      "age_bars": 463,
+      "size": 51.74,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63219.74,
+      "bottom": 63204.06,
+      "formed_at_index": 38,
+      "age_bars": 461,
+      "size": 15.68,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63194.0,
+      "bottom": 63190.0,
+      "formed_at_index": 40,
+      "age_bars": 459,
+      "size": 4.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63185.78,
+      "bottom": 63178.01,
+      "formed_at_index": 46,
+      "age_bars": 453,
+      "size": 7.77,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63195.57,
+      "bottom": 63185.79,
+      "formed_at_index": 47,
+      "age_bars": 452,
+      "size": 9.78,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63227.36,
+      "bottom": 63202.76,
+      "formed_at_index": 51,
+      "age_bars": 448,
+      "size": 24.6,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63241.27,
+      "bottom": 63228.28,
+      "formed_at_index": 53,
+      "age_bars": 446,
+      "size": 12.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63241.27,
+      "bottom": 63224.0,
+      "formed_at_index": 56,
+      "age_bars": 443,
+      "size": 17.27,
+      "mitigation_pct": 23.9
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63218.2,
+      "bottom": 63208.01,
+      "formed_at_index": 58,
+      "age_bars": 441,
+      "size": 10.19,
+      "mitigation_pct": 86.2
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63208.0,
+      "bottom": 63198.17,
+      "formed_at_index": 59,
+      "age_bars": 440,
+      "size": 9.83,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63188.35,
+      "bottom": 63141.59,
+      "formed_at_index": 60,
+      "age_bars": 439,
+      "size": 46.76,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63141.58,
+      "bottom": 63132.18,
+      "formed_at_index": 61,
+      "age_bars": 438,
+      "size": 9.4,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63148.52,
+      "bottom": 63141.77,
+      "formed_at_index": 66,
+      "age_bars": 433,
+      "size": 6.75,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63167.99,
+      "bottom": 63157.62,
+      "formed_at_index": 67,
+      "age_bars": 432,
+      "size": 10.37,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63184.59,
+      "bottom": 63180.39,
+      "formed_at_index": 77,
+      "age_bars": 422,
+      "size": 4.2,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63193.99,
+      "bottom": 63182.49,
+      "formed_at_index": 82,
+      "age_bars": 417,
+      "size": 11.5,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63193.99,
+      "bottom": 63176.26,
+      "formed_at_index": 84,
+      "age_bars": 415,
+      "size": 17.73,
+      "mitigation_pct": 21.1
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63166.0,
+      "bottom": 63155.76,
+      "formed_at_index": 86,
+      "age_bars": 413,
+      "size": 10.24,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63155.75,
+      "bottom": 63150.01,
+      "formed_at_index": 87,
+      "age_bars": 412,
+      "size": 5.74,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63150.0,
+      "bottom": 63140.01,
+      "formed_at_index": 89,
+      "age_bars": 410,
+      "size": 9.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63151.81,
+      "bottom": 63146.81,
+      "formed_at_index": 96,
+      "age_bars": 403,
+      "size": 5.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63144.65,
+      "bottom": 63124.92,
+      "formed_at_index": 99,
+      "age_bars": 400,
+      "size": 19.73,
+      "mitigation_pct": 68.2
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63129.99,
+      "bottom": 63124.92,
+      "formed_at_index": 101,
+      "age_bars": 398,
+      "size": 5.07,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63135.99,
+      "bottom": 63131.7,
+      "formed_at_index": 103,
+      "age_bars": 396,
+      "size": 4.29,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63135.99,
+      "bottom": 63116.0,
+      "formed_at_index": 106,
+      "age_bars": 393,
+      "size": 19.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63114.22,
+      "bottom": 63101.59,
+      "formed_at_index": 110,
+      "age_bars": 389,
+      "size": 12.63,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63114.22,
+      "bottom": 63099.36,
+      "formed_at_index": 112,
+      "age_bars": 387,
+      "size": 14.86,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63096.09,
+      "bottom": 63082.01,
+      "formed_at_index": 115,
+      "age_bars": 384,
+      "size": 14.08,
+      "mitigation_pct": 77.7
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63070.71,
+      "bottom": 63060.37,
+      "formed_at_index": 127,
+      "age_bars": 372,
+      "size": 10.34,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63075.25,
+      "bottom": 63058.49,
+      "formed_at_index": 130,
+      "age_bars": 369,
+      "size": 16.76,
+      "mitigation_pct": 44.2
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63050.0,
+      "bottom": 63022.85,
+      "formed_at_index": 138,
+      "age_bars": 361,
+      "size": 27.15,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 63022.84,
+      "bottom": 62910.32,
+      "formed_at_index": 139,
+      "age_bars": 360,
+      "size": 112.52,
+      "mitigation_pct": 81.3
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62949.99,
+      "bottom": 62930.0,
+      "formed_at_index": 143,
+      "age_bars": 356,
+      "size": 19.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62949.99,
+      "bottom": 62932.4,
+      "formed_at_index": 145,
+      "age_bars": 354,
+      "size": 17.59,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62930.95,
+      "bottom": 62920.16,
+      "formed_at_index": 151,
+      "age_bars": 348,
+      "size": 10.79,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62920.16,
+      "bottom": 62908.0,
+      "formed_at_index": 152,
+      "age_bars": 347,
+      "size": 12.16,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62926.57,
+      "bottom": 62910.0,
+      "formed_at_index": 157,
+      "age_bars": 342,
+      "size": 16.57,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62924.0,
+      "bottom": 62916.91,
+      "formed_at_index": 160,
+      "age_bars": 339,
+      "size": 7.09,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62916.9,
+      "bottom": 62898.53,
+      "formed_at_index": 161,
+      "age_bars": 338,
+      "size": 18.37,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62872.0,
+      "bottom": 62854.0,
+      "formed_at_index": 163,
+      "age_bars": 336,
+      "size": 18.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62869.76,
+      "bottom": 62854.0,
+      "formed_at_index": 165,
+      "age_bars": 334,
+      "size": 15.76,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62910.0,
+      "bottom": 62869.76,
+      "formed_at_index": 168,
+      "age_bars": 331,
+      "size": 40.24,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62925.99,
+      "bottom": 62917.18,
+      "formed_at_index": 170,
+      "age_bars": 329,
+      "size": 8.81,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62954.65,
+      "bottom": 62926.0,
+      "formed_at_index": 173,
+      "age_bars": 326,
+      "size": 28.65,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62971.13,
+      "bottom": 62958.42,
+      "formed_at_index": 181,
+      "age_bars": 318,
+      "size": 12.71,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62984.22,
+      "bottom": 62978.0,
+      "formed_at_index": 183,
+      "age_bars": 316,
+      "size": 6.22,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62994.0,
+      "bottom": 62982.03,
+      "formed_at_index": 190,
+      "age_bars": 309,
+      "size": 11.97,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 63000.12,
+      "bottom": 62982.03,
+      "formed_at_index": 192,
+      "age_bars": 307,
+      "size": 18.09,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62997.99,
+      "bottom": 62985.39,
+      "formed_at_index": 195,
+      "age_bars": 304,
+      "size": 12.6,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62965.0,
+      "bottom": 62948.98,
+      "formed_at_index": 198,
+      "age_bars": 301,
+      "size": 16.02,
+      "mitigation_pct": 39.2
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62942.37,
+      "bottom": 62926.01,
+      "formed_at_index": 202,
+      "age_bars": 297,
+      "size": 16.36,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62922.0,
+      "bottom": 62906.01,
+      "formed_at_index": 204,
+      "age_bars": 295,
+      "size": 15.99,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62906.0,
+      "bottom": 62891.98,
+      "formed_at_index": 205,
+      "age_bars": 294,
+      "size": 14.02,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62891.97,
+      "bottom": 62870.57,
+      "formed_at_index": 207,
+      "age_bars": 292,
+      "size": 21.4,
+      "mitigation_pct": 20.8
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62853.0,
+      "bottom": 62844.01,
+      "formed_at_index": 208,
+      "age_bars": 291,
+      "size": 8.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62844.0,
+      "bottom": 62839.76,
+      "formed_at_index": 209,
+      "age_bars": 290,
+      "size": 4.24,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62835.72,
+      "bottom": 62819.5,
+      "formed_at_index": 210,
+      "age_bars": 289,
+      "size": 16.22,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62816.34,
+      "bottom": 62806.01,
+      "formed_at_index": 211,
+      "age_bars": 288,
+      "size": 10.33,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62838.57,
+      "bottom": 62806.01,
+      "formed_at_index": 213,
+      "age_bars": 286,
+      "size": 32.56,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62839.8,
+      "bottom": 62828.02,
+      "formed_at_index": 216,
+      "age_bars": 283,
+      "size": 11.78,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62828.01,
+      "bottom": 62804.99,
+      "formed_at_index": 217,
+      "age_bars": 282,
+      "size": 23.02,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62800.0,
+      "bottom": 62787.81,
+      "formed_at_index": 218,
+      "age_bars": 281,
+      "size": 12.19,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62808.0,
+      "bottom": 62787.81,
+      "formed_at_index": 220,
+      "age_bars": 279,
+      "size": 20.19,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62821.0,
+      "bottom": 62811.7,
+      "formed_at_index": 221,
+      "age_bars": 278,
+      "size": 9.3,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62830.0,
+      "bottom": 62821.01,
+      "formed_at_index": 222,
+      "age_bars": 277,
+      "size": 8.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62847.32,
+      "bottom": 62836.0,
+      "formed_at_index": 224,
+      "age_bars": 275,
+      "size": 11.32,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62852.0,
+      "bottom": 62847.33,
+      "formed_at_index": 226,
+      "age_bars": 273,
+      "size": 4.67,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62852.0,
+      "bottom": 62834.01,
+      "formed_at_index": 228,
+      "age_bars": 271,
+      "size": 17.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62834.0,
+      "bottom": 62820.01,
+      "formed_at_index": 229,
+      "age_bars": 270,
+      "size": 13.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62860.0,
+      "bottom": 62825.36,
+      "formed_at_index": 232,
+      "age_bars": 267,
+      "size": 34.64,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62860.0,
+      "bottom": 62810.97,
+      "formed_at_index": 234,
+      "age_bars": 265,
+      "size": 49.03,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62822.47,
+      "bottom": 62806.74,
+      "formed_at_index": 237,
+      "age_bars": 262,
+      "size": 15.73,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62833.77,
+      "bottom": 62827.71,
+      "formed_at_index": 238,
+      "age_bars": 261,
+      "size": 6.06,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62841.74,
+      "bottom": 62833.78,
+      "formed_at_index": 239,
+      "age_bars": 260,
+      "size": 7.96,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62840.0,
+      "bottom": 62826.47,
+      "formed_at_index": 242,
+      "age_bars": 257,
+      "size": 13.53,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62829.2,
+      "bottom": 62810.01,
+      "formed_at_index": 246,
+      "age_bars": 253,
+      "size": 19.19,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62808.63,
+      "bottom": 62793.44,
+      "formed_at_index": 247,
+      "age_bars": 252,
+      "size": 15.19,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62828.13,
+      "bottom": 62812.16,
+      "formed_at_index": 253,
+      "age_bars": 246,
+      "size": 15.97,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62826.0,
+      "bottom": 62810.01,
+      "formed_at_index": 256,
+      "age_bars": 243,
+      "size": 15.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62822.93,
+      "bottom": 62808.75,
+      "formed_at_index": 259,
+      "age_bars": 240,
+      "size": 14.18,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62842.0,
+      "bottom": 62822.94,
+      "formed_at_index": 260,
+      "age_bars": 239,
+      "size": 19.06,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62848.01,
+      "bottom": 62842.0,
+      "formed_at_index": 263,
+      "age_bars": 236,
+      "size": 6.01,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62836.03,
+      "bottom": 62820.01,
+      "formed_at_index": 266,
+      "age_bars": 233,
+      "size": 16.02,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62825.99,
+      "bottom": 62820.01,
+      "formed_at_index": 268,
+      "age_bars": 231,
+      "size": 5.98,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62841.99,
+      "bottom": 62827.17,
+      "formed_at_index": 273,
+      "age_bars": 226,
+      "size": 14.82,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62859.99,
+      "bottom": 62838.4,
+      "formed_at_index": 279,
+      "age_bars": 220,
+      "size": 21.59,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62844.5,
+      "bottom": 62840.01,
+      "formed_at_index": 290,
+      "age_bars": 209,
+      "size": 4.49,
+      "mitigation_pct": 22.3
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62840.0,
+      "bottom": 62833.96,
+      "formed_at_index": 291,
+      "age_bars": 208,
+      "size": 6.04,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62824.0,
+      "bottom": 62814.47,
+      "formed_at_index": 292,
+      "age_bars": 207,
+      "size": 9.53,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62814.46,
+      "bottom": 62789.18,
+      "formed_at_index": 293,
+      "age_bars": 206,
+      "size": 25.28,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62792.0,
+      "bottom": 62781.83,
+      "formed_at_index": 298,
+      "age_bars": 201,
+      "size": 10.17,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62789.04,
+      "bottom": 62781.83,
+      "formed_at_index": 300,
+      "age_bars": 199,
+      "size": 7.21,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62803.48,
+      "bottom": 62793.17,
+      "formed_at_index": 303,
+      "age_bars": 196,
+      "size": 10.31,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62816.0,
+      "bottom": 62808.0,
+      "formed_at_index": 304,
+      "age_bars": 195,
+      "size": 8.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62816.0,
+      "bottom": 62798.01,
+      "formed_at_index": 306,
+      "age_bars": 193,
+      "size": 17.99,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62798.01,
+      "bottom": 62784.26,
+      "formed_at_index": 307,
+      "age_bars": 192,
+      "size": 13.75,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62784.25,
+      "bottom": 62779.15,
+      "formed_at_index": 308,
+      "age_bars": 191,
+      "size": 5.1,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62730.76,
+      "bottom": 62702.0,
+      "formed_at_index": 312,
+      "age_bars": 187,
+      "size": 28.76,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62658.52,
+      "bottom": 62654.0,
+      "formed_at_index": 321,
+      "age_bars": 178,
+      "size": 4.52,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62670.57,
+      "bottom": 62663.49,
+      "formed_at_index": 324,
+      "age_bars": 175,
+      "size": 7.08,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62677.99,
+      "bottom": 62663.99,
+      "formed_at_index": 327,
+      "age_bars": 172,
+      "size": 14.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62648.62,
+      "bottom": 62624.65,
+      "formed_at_index": 331,
+      "age_bars": 168,
+      "size": 23.97,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62662.85,
+      "bottom": 62657.51,
+      "formed_at_index": 340,
+      "age_bars": 159,
+      "size": 5.34,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62662.85,
+      "bottom": 62650.83,
+      "formed_at_index": 342,
+      "age_bars": 157,
+      "size": 12.02,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62650.83,
+      "bottom": 62644.01,
+      "formed_at_index": 345,
+      "age_bars": 154,
+      "size": 6.82,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62634.0,
+      "bottom": 62600.0,
+      "formed_at_index": 347,
+      "age_bars": 152,
+      "size": 34.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62619.99,
+      "bottom": 62603.16,
+      "formed_at_index": 354,
+      "age_bars": 145,
+      "size": 16.83,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62625.26,
+      "bottom": 62620.0,
+      "formed_at_index": 355,
+      "age_bars": 144,
+      "size": 5.26,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62643.84,
+      "bottom": 62625.27,
+      "formed_at_index": 356,
+      "age_bars": 143,
+      "size": 18.57,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62660.0,
+      "bottom": 62648.01,
+      "formed_at_index": 361,
+      "age_bars": 138,
+      "size": 11.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62657.99,
+      "bottom": 62648.01,
+      "formed_at_index": 363,
+      "age_bars": 136,
+      "size": 9.98,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62683.49,
+      "bottom": 62665.99,
+      "formed_at_index": 366,
+      "age_bars": 133,
+      "size": 17.5,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62683.49,
+      "bottom": 62674.43,
+      "formed_at_index": 368,
+      "age_bars": 131,
+      "size": 9.06,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62668.12,
+      "bottom": 62623.45,
+      "formed_at_index": 369,
+      "age_bars": 130,
+      "size": 44.67,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62638.45,
+      "bottom": 62623.45,
+      "formed_at_index": 371,
+      "age_bars": 128,
+      "size": 15.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62648.02,
+      "bottom": 62643.93,
+      "formed_at_index": 379,
+      "age_bars": 120,
+      "size": 4.09,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62654.98,
+      "bottom": 62651.17,
+      "formed_at_index": 382,
+      "age_bars": 117,
+      "size": 3.81,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62640.0,
+      "bottom": 62608.72,
+      "formed_at_index": 385,
+      "age_bars": 114,
+      "size": 31.28,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62620.58,
+      "bottom": 62608.72,
+      "formed_at_index": 387,
+      "age_bars": 112,
+      "size": 11.86,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62620.58,
+      "bottom": 62608.01,
+      "formed_at_index": 389,
+      "age_bars": 110,
+      "size": 12.57,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62621.09,
+      "bottom": 62610.2,
+      "formed_at_index": 392,
+      "age_bars": 107,
+      "size": 10.89,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62621.09,
+      "bottom": 62615.12,
+      "formed_at_index": 394,
+      "age_bars": 105,
+      "size": 5.97,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62615.11,
+      "bottom": 62590.01,
+      "formed_at_index": 395,
+      "age_bars": 104,
+      "size": 25.1,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62607.99,
+      "bottom": 62590.01,
+      "formed_at_index": 397,
+      "age_bars": 102,
+      "size": 17.98,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62615.49,
+      "bottom": 62608.0,
+      "formed_at_index": 398,
+      "age_bars": 101,
+      "size": 7.49,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62615.49,
+      "bottom": 62592.0,
+      "formed_at_index": 400,
+      "age_bars": 99,
+      "size": 23.49,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62592.0,
+      "bottom": 62549.34,
+      "formed_at_index": 401,
+      "age_bars": 98,
+      "size": 42.66,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62560.0,
+      "bottom": 62540.01,
+      "formed_at_index": 405,
+      "age_bars": 94,
+      "size": 19.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62566.0,
+      "bottom": 62560.0,
+      "formed_at_index": 406,
+      "age_bars": 93,
+      "size": 6.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62563.03,
+      "bottom": 62535.08,
+      "formed_at_index": 409,
+      "age_bars": 90,
+      "size": 27.95,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62510.0,
+      "bottom": 62500.01,
+      "formed_at_index": 411,
+      "age_bars": 88,
+      "size": 9.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62500.0,
+      "bottom": 62491.24,
+      "formed_at_index": 412,
+      "age_bars": 87,
+      "size": 8.76,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62491.23,
+      "bottom": 62484.24,
+      "formed_at_index": 413,
+      "age_bars": 86,
+      "size": 6.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62478.42,
+      "bottom": 62384.79,
+      "formed_at_index": 414,
+      "age_bars": 85,
+      "size": 93.63,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62412.0,
+      "bottom": 62384.79,
+      "formed_at_index": 416,
+      "age_bars": 83,
+      "size": 27.21,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62412.0,
+      "bottom": 62403.59,
+      "formed_at_index": 418,
+      "age_bars": 81,
+      "size": 8.41,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62350.0,
+      "bottom": 62332.54,
+      "formed_at_index": 425,
+      "age_bars": 74,
+      "size": 17.46,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62329.99,
+      "bottom": 62318.02,
+      "formed_at_index": 428,
+      "age_bars": 71,
+      "size": 11.97,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62386.94,
+      "bottom": 62332.0,
+      "formed_at_index": 429,
+      "age_bars": 70,
+      "size": 54.94,
+      "mitigation_pct": 16.2
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62396.0,
+      "bottom": 62392.35,
+      "formed_at_index": 432,
+      "age_bars": 67,
+      "size": 3.65,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62408.5,
+      "bottom": 62400.0,
+      "formed_at_index": 433,
+      "age_bars": 66,
+      "size": 8.5,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62425.6,
+      "bottom": 62411.67,
+      "formed_at_index": 434,
+      "age_bars": 65,
+      "size": 13.93,
+      "mitigation_pct": 0.1
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62436.23,
+      "bottom": 62432.22,
+      "formed_at_index": 437,
+      "age_bars": 62,
+      "size": 4.01,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62446.01,
+      "bottom": 62439.36,
+      "formed_at_index": 438,
+      "age_bars": 61,
+      "size": 6.65,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62468.0,
+      "bottom": 62457.37,
+      "formed_at_index": 445,
+      "age_bars": 54,
+      "size": 10.63,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62480.94,
+      "bottom": 62476.82,
+      "formed_at_index": 446,
+      "age_bars": 53,
+      "size": 4.12,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62511.8,
+      "bottom": 62484.02,
+      "formed_at_index": 449,
+      "age_bars": 50,
+      "size": 27.78,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62529.68,
+      "bottom": 62511.81,
+      "formed_at_index": 450,
+      "age_bars": 49,
+      "size": 17.87,
+      "mitigation_pct": 54.2
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62540.88,
+      "bottom": 62531.99,
+      "formed_at_index": 452,
+      "age_bars": 47,
+      "size": 8.89,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62540.88,
+      "bottom": 62532.92,
+      "formed_at_index": 454,
+      "age_bars": 45,
+      "size": 7.96,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62532.91,
+      "bottom": 62528.02,
+      "formed_at_index": 455,
+      "age_bars": 44,
+      "size": 4.89,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62536.27,
+      "bottom": 62528.02,
+      "formed_at_index": 457,
+      "age_bars": 42,
+      "size": 8.25,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62570.0,
+      "bottom": 62551.51,
+      "formed_at_index": 459,
+      "age_bars": 40,
+      "size": 18.49,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62576.02,
+      "bottom": 62571.25,
+      "formed_at_index": 468,
+      "age_bars": 31,
+      "size": 4.77,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62588.0,
+      "bottom": 62576.03,
+      "formed_at_index": 469,
+      "age_bars": 30,
+      "size": 11.97,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62616.83,
+      "bottom": 62606.06,
+      "formed_at_index": 473,
+      "age_bars": 26,
+      "size": 10.77,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62650.0,
+      "bottom": 62644.63,
+      "formed_at_index": 475,
+      "age_bars": 24,
+      "size": 5.37,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62649.72,
+      "bottom": 62632.01,
+      "formed_at_index": 478,
+      "age_bars": 21,
+      "size": 17.71,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bearish_fvg",
+      "top": 62632.0,
+      "bottom": 62628.0,
+      "formed_at_index": 479,
+      "age_bars": 20,
+      "size": 4.0,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62639.99,
+      "bottom": 62628.0,
+      "formed_at_index": 481,
+      "age_bars": 18,
+      "size": 11.99,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62657.38,
+      "bottom": 62640.0,
+      "formed_at_index": 486,
+      "age_bars": 13,
+      "size": 17.38,
+      "mitigation_pct": 100.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62664.94,
+      "bottom": 62657.99,
+      "formed_at_index": 492,
+      "age_bars": 7,
+      "size": 6.95,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62690.17,
+      "bottom": 62664.97,
+      "formed_at_index": 495,
+      "age_bars": 4,
+      "size": 25.2,
+      "mitigation_pct": 0.0
+    },
+    {
+      "type": "bullish_fvg",
+      "top": 62702.41,
+      "bottom": 62692.49,
+      "formed_at_index": 498,
+      "age_bars": 1,
+      "size": 9.92,
+      "mitigation_pct": 0.0
+    }
+  ],
+  "order_blocks": [
+    {
+      "type": "bearish_ob",
+      "top": 63226.01,
+      "bottom": 63226.0,
+      "formed_at_index": 7,
+      "age_bars": 492,
+      "displacement_atr": 1.86
+    },
+    {
+      "type": "bullish_ob",
+      "top": 63192.39,
+      "bottom": 63180.0,
+      "formed_at_index": 11,
+      "age_bars": 488,
+      "displacement_atr": 1.64
+    },
+    {
+      "type": "bullish_ob",
+      "top": 63194.0,
+      "bottom": 63184.0,
+      "formed_at_index": 13,
+      "age_bars": 486,
+      "displacement_atr": 1.78
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63230.0,
+      "bottom": 63219.32,
+      "formed_at_index": 18,
+      "age_bars": 481,
+      "displacement_atr": 1.52
+    },
+    {
+      "type": "bullish_ob",
+      "top": 63165.4,
+      "bottom": 63162.0,
+      "formed_at_index": 28,
+      "age_bars": 471,
+      "displacement_atr": 3.24
+    },
+    {
+      "type": "bullish_ob",
+      "top": 63173.75,
+      "bottom": 63165.22,
+      "formed_at_index": 34,
+      "age_bars": 465,
+      "displacement_atr": 2.55
+    },
+    {
+      "type": "bullish_ob",
+      "top": 63197.86,
+      "bottom": 63192.29,
+      "formed_at_index": 49,
+      "age_bars": 450,
+      "displacement_atr": 1.69
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63262.58,
+      "bottom": 63241.28,
+      "formed_at_index": 55,
+      "age_bars": 444,
+      "displacement_atr": 1.85
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63194.01,
+      "bottom": 63193.99,
+      "formed_at_index": 83,
+      "age_bars": 416,
+      "displacement_atr": 2.12
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63136.0,
+      "bottom": 63131.7,
+      "formed_at_index": 103,
+      "age_bars": 396,
+      "displacement_atr": 1.6
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63055.99,
+      "bottom": 63054.01,
+      "formed_at_index": 135,
+      "age_bars": 364,
+      "displacement_atr": 1.73
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63060.37,
+      "bottom": 63055.99,
+      "formed_at_index": 136,
+      "age_bars": 363,
+      "displacement_atr": 13.64
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63062.93,
+      "bottom": 63060.37,
+      "formed_at_index": 137,
+      "age_bars": 362,
+      "displacement_atr": 8.33
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62910.31,
+      "bottom": 62881.95,
+      "formed_at_index": 141,
+      "age_bars": 358,
+      "displacement_atr": 3.03
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62935.3,
+      "bottom": 62930.0,
+      "formed_at_index": 149,
+      "age_bars": 350,
+      "displacement_atr": 3.3
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62908.0,
+      "bottom": 62900.0,
+      "formed_at_index": 154,
+      "age_bars": 345,
+      "displacement_atr": 1.69
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62900.01,
+      "bottom": 62876.0,
+      "formed_at_index": 155,
+      "age_bars": 344,
+      "displacement_atr": 1.66
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62869.76,
+      "bottom": 62844.0,
+      "formed_at_index": 167,
+      "age_bars": 332,
+      "displacement_atr": 3.12
+    },
+    {
+      "type": "bearish_ob",
+      "top": 63000.13,
+      "bottom": 63000.12,
+      "formed_at_index": 193,
+      "age_bars": 306,
+      "displacement_atr": 1.95
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62891.98,
+      "bottom": 62891.98,
+      "formed_at_index": 206,
+      "age_bars": 293,
+      "displacement_atr": 3.12
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62806.01,
+      "bottom": 62770.37,
+      "formed_at_index": 212,
+      "age_bars": 287,
+      "displacement_atr": 2.0
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62839.81,
+      "bottom": 62838.58,
+      "formed_at_index": 214,
+      "age_bars": 285,
+      "displacement_atr": 2.14
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62847.81,
+      "bottom": 62839.8,
+      "formed_at_index": 215,
+      "age_bars": 284,
+      "displacement_atr": 4.37
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62857.27,
+      "bottom": 62847.32,
+      "formed_at_index": 226,
+      "age_bars": 273,
+      "displacement_atr": 1.52
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62834.01,
+      "bottom": 62808.73,
+      "formed_at_index": 229,
+      "age_bars": 270,
+      "displacement_atr": 1.55
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62820.01,
+      "bottom": 62809.4,
+      "formed_at_index": 230,
+      "age_bars": 269,
+      "displacement_atr": 2.22
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62833.86,
+      "bottom": 62826.47,
+      "formed_at_index": 244,
+      "age_bars": 255,
+      "displacement_atr": 1.83
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62833.86,
+      "bottom": 62829.21,
+      "formed_at_index": 245,
+      "age_bars": 254,
+      "displacement_atr": 2.45
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62797.63,
+      "bottom": 62790.27,
+      "formed_at_index": 251,
+      "age_bars": 248,
+      "displacement_atr": 2.9
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62810.0,
+      "bottom": 62808.09,
+      "formed_at_index": 257,
+      "age_bars": 242,
+      "displacement_atr": 2.11
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62808.75,
+      "bottom": 62808.0,
+      "formed_at_index": 258,
+      "age_bars": 241,
+      "displacement_atr": 2.18
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62850.0,
+      "bottom": 62844.5,
+      "formed_at_index": 289,
+      "age_bars": 210,
+      "displacement_atr": 1.67
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62791.87,
+      "bottom": 62789.04,
+      "formed_at_index": 301,
+      "age_bars": 198,
+      "displacement_atr": 2.15
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62769.22,
+      "bottom": 62750.34,
+      "formed_at_index": 310,
+      "age_bars": 189,
+      "displacement_atr": 4.47
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62692.69,
+      "bottom": 62669.81,
+      "formed_at_index": 314,
+      "age_bars": 185,
+      "displacement_atr": 1.65
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62654.0,
+      "bottom": 62651.32,
+      "formed_at_index": 329,
+      "age_bars": 170,
+      "displacement_atr": 1.54
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62656.0,
+      "bottom": 62650.83,
+      "formed_at_index": 344,
+      "age_bars": 155,
+      "displacement_atr": 2.82
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62597.99,
+      "bottom": 62592.0,
+      "formed_at_index": 353,
+      "age_bars": 146,
+      "displacement_atr": 2.89
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62683.5,
+      "bottom": 62663.0,
+      "formed_at_index": 366,
+      "age_bars": 133,
+      "displacement_atr": 2.19
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62700.0,
+      "bottom": 62683.5,
+      "formed_at_index": 367,
+      "age_bars": 132,
+      "displacement_atr": 3.9
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62608.01,
+      "bottom": 62584.0,
+      "formed_at_index": 390,
+      "age_bars": 109,
+      "displacement_atr": 1.89
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62642.0,
+      "bottom": 62621.1,
+      "formed_at_index": 393,
+      "age_bars": 106,
+      "displacement_atr": 1.95
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62590.01,
+      "bottom": 62586.0,
+      "formed_at_index": 396,
+      "age_bars": 103,
+      "displacement_atr": 1.72
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62615.5,
+      "bottom": 62607.99,
+      "formed_at_index": 398,
+      "age_bars": 101,
+      "displacement_atr": 3.82
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62620.96,
+      "bottom": 62615.5,
+      "formed_at_index": 399,
+      "age_bars": 100,
+      "displacement_atr": 4.24
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62571.85,
+      "bottom": 62560.0,
+      "formed_at_index": 406,
+      "age_bars": 93,
+      "displacement_atr": 2.11
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62535.08,
+      "bottom": 62522.0,
+      "formed_at_index": 410,
+      "age_bars": 89,
+      "displacement_atr": 2.09
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62437.38,
+      "bottom": 62418.25,
+      "formed_at_index": 417,
+      "age_bars": 82,
+      "displacement_atr": 2.45
+    },
+    {
+      "type": "bearish_ob",
+      "top": 62368.95,
+      "bottom": 62340.0,
+      "formed_at_index": 423,
+      "age_bars": 76,
+      "displacement_atr": 1.66
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62328.82,
+      "bottom": 62310.0,
+      "formed_at_index": 426,
+      "age_bars": 73,
+      "displacement_atr": 5.12
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62391.35,
+      "bottom": 62378.02,
+      "formed_at_index": 431,
+      "age_bars": 68,
+      "displacement_atr": 1.99
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62589.62,
+      "bottom": 62588.0,
+      "formed_at_index": 470,
+      "age_bars": 29,
+      "displacement_atr": 3.05
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62603.31,
+      "bottom": 62595.94,
+      "formed_at_index": 472,
+      "age_bars": 27,
+      "displacement_atr": 3.37
+    },
+    {
+      "type": "bullish_ob",
+      "top": 62653.36,
+      "bottom": 62641.6,
+      "formed_at_index": 483,
+      "age_bars": 16,
+      "displacement_atr": 1.81
+    }
+  ],
+  "sweeps": [
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63234.0,
+      "swept_level_index": 8,
+      "sweep_candle_index": 16,
+      "age_bars": 483,
+      "wick_size": 10.39
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63180.0,
+      "swept_level_index": 11,
+      "sweep_candle_index": 25,
+      "age_bars": 474,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63166.58,
+      "swept_level_index": 24,
+      "sweep_candle_index": 29,
+      "age_bars": 470,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63218.0,
+      "swept_level_index": 17,
+      "sweep_candle_index": 31,
+      "age_bars": 468,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63166.58,
+      "swept_level_index": 24,
+      "sweep_candle_index": 35,
+      "age_bars": 464,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63223.79,
+      "swept_level_index": 31,
+      "sweep_candle_index": 37,
+      "age_bars": 462,
+      "wick_size": 13.29
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63162.0,
+      "swept_level_index": 28,
+      "sweep_candle_index": 43,
+      "age_bars": 456,
+      "wick_size": 29.07
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63170.08,
+      "swept_level_index": 40,
+      "sweep_candle_index": 44,
+      "age_bars": 455,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63165.22,
+      "swept_level_index": 34,
+      "sweep_candle_index": 45,
+      "age_bars": 454,
+      "wick_size": 1.99
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63170.08,
+      "swept_level_index": 40,
+      "sweep_candle_index": 46,
+      "age_bars": 453,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63220.0,
+      "swept_level_index": 42,
+      "sweep_candle_index": 57,
+      "age_bars": 442,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63205.31,
+      "swept_level_index": 47,
+      "sweep_candle_index": 59,
+      "age_bars": 440,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63160.0,
+      "swept_level_index": 94,
+      "sweep_candle_index": 97,
+      "age_bars": 402,
+      "wick_size": 3.99
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63160.0,
+      "swept_level_index": 94,
+      "sweep_candle_index": 99,
+      "age_bars": 400,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63116.17,
+      "swept_level_index": 93,
+      "sweep_candle_index": 101,
+      "age_bars": 398,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63136.0,
+      "swept_level_index": 103,
+      "sweep_candle_index": 111,
+      "age_bars": 388,
+      "wick_size": 11.75
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63100.0,
+      "swept_level_index": 100,
+      "sweep_candle_index": 114,
+      "age_bars": 385,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63082.54,
+      "swept_level_index": 112,
+      "sweep_candle_index": 117,
+      "age_bars": 382,
+      "wick_size": 0.77
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63082.54,
+      "swept_level_index": 112,
+      "sweep_candle_index": 120,
+      "age_bars": 379,
+      "wick_size": 8.37
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63082.54,
+      "swept_level_index": 112,
+      "sweep_candle_index": 127,
+      "age_bars": 372,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63085.94,
+      "swept_level_index": 121,
+      "sweep_candle_index": 128,
+      "age_bars": 371,
+      "wick_size": 5.98
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 63085.94,
+      "swept_level_index": 121,
+      "sweep_candle_index": 130,
+      "age_bars": 369,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63054.0,
+      "swept_level_index": 131,
+      "sweep_candle_index": 135,
+      "age_bars": 364,
+      "wick_size": 8.93
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 63054.0,
+      "swept_level_index": 131,
+      "sweep_candle_index": 137,
+      "age_bars": 362,
+      "wick_size": 10.37
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62922.84,
+      "swept_level_index": 154,
+      "sweep_candle_index": 160,
+      "age_bars": 339,
+      "wick_size": 4.78
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62876.0,
+      "swept_level_index": 156,
+      "sweep_candle_index": 161,
+      "age_bars": 338,
+      "wick_size": 6.48
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62851.71,
+      "swept_level_index": 153,
+      "sweep_candle_index": 164,
+      "age_bars": 335,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62876.0,
+      "swept_level_index": 156,
+      "sweep_candle_index": 165,
+      "age_bars": 334,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62851.71,
+      "swept_level_index": 153,
+      "sweep_candle_index": 167,
+      "age_bars": 332,
+      "wick_size": 21.93
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62876.0,
+      "swept_level_index": 156,
+      "sweep_candle_index": 168,
+      "age_bars": 331,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62972.72,
+      "swept_level_index": 191,
+      "sweep_candle_index": 197,
+      "age_bars": 302,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62770.37,
+      "swept_level_index": 212,
+      "sweep_candle_index": 219,
+      "age_bars": 280,
+      "wick_size": 8.55
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62847.81,
+      "swept_level_index": 215,
+      "sweep_candle_index": 228,
+      "age_bars": 271,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62871.13,
+      "swept_level_index": 227,
+      "sweep_candle_index": 233,
+      "age_bars": 266,
+      "wick_size": 13.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62808.73,
+      "swept_level_index": 229,
+      "sweep_candle_index": 234,
+      "age_bars": 265,
+      "wick_size": 7.06
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62808.73,
+      "swept_level_index": 229,
+      "sweep_candle_index": 237,
+      "age_bars": 262,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62808.73,
+      "swept_level_index": 229,
+      "sweep_candle_index": 243,
+      "age_bars": 256,
+      "wick_size": 10.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62806.0,
+      "swept_level_index": 243,
+      "sweep_candle_index": 252,
+      "age_bars": 247,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62833.86,
+      "swept_level_index": 245,
+      "sweep_candle_index": 255,
+      "age_bars": 244,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.98,
+      "swept_level_index": 254,
+      "sweep_candle_index": 261,
+      "age_bars": 238,
+      "wick_size": 14.89
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.98,
+      "swept_level_index": 254,
+      "sweep_candle_index": 263,
+      "age_bars": 236,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.98,
+      "swept_level_index": 254,
+      "sweep_candle_index": 265,
+      "age_bars": 234,
+      "wick_size": 14.03
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62808.0,
+      "swept_level_index": 258,
+      "sweep_candle_index": 271,
+      "age_bars": 228,
+      "wick_size": 6.34
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62832.0,
+      "swept_level_index": 263,
+      "sweep_candle_index": 273,
+      "age_bars": 226,
+      "wick_size": 0.01
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62839.99,
+      "swept_level_index": 269,
+      "sweep_candle_index": 275,
+      "age_bars": 224,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62832.0,
+      "swept_level_index": 263,
+      "sweep_candle_index": 276,
+      "age_bars": 223,
+      "wick_size": 6.81
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62839.99,
+      "swept_level_index": 269,
+      "sweep_candle_index": 277,
+      "age_bars": 222,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.46,
+      "swept_level_index": 274,
+      "sweep_candle_index": 285,
+      "age_bars": 214,
+      "wick_size": 0.01
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.46,
+      "swept_level_index": 274,
+      "sweep_candle_index": 287,
+      "age_bars": 212,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62849.46,
+      "swept_level_index": 274,
+      "sweep_candle_index": 289,
+      "age_bars": 210,
+      "wick_size": 0.8
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62778.0,
+      "swept_level_index": 294,
+      "sweep_candle_index": 300,
+      "age_bars": 199,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62812.0,
+      "swept_level_index": 296,
+      "sweep_candle_index": 306,
+      "age_bars": 193,
+      "wick_size": 0.01
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62672.0,
+      "swept_level_index": 321,
+      "sweep_candle_index": 327,
+      "age_bars": 172,
+      "wick_size": 0.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62618.0,
+      "swept_level_index": 318,
+      "sweep_candle_index": 331,
+      "age_bars": 168,
+      "wick_size": 10.64
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62618.0,
+      "swept_level_index": 318,
+      "sweep_candle_index": 332,
+      "age_bars": 167,
+      "wick_size": 10.6
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62618.0,
+      "swept_level_index": 318,
+      "sweep_candle_index": 333,
+      "age_bars": 166,
+      "wick_size": 7.59
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62592.0,
+      "swept_level_index": 336,
+      "sweep_candle_index": 349,
+      "age_bars": 150,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62609.81,
+      "swept_level_index": 342,
+      "sweep_candle_index": 354,
+      "age_bars": 145,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62656.0,
+      "swept_level_index": 345,
+      "sweep_candle_index": 358,
+      "age_bars": 141,
+      "wick_size": 7.31
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62674.64,
+      "swept_level_index": 360,
+      "sweep_candle_index": 368,
+      "age_bars": 131,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62632.05,
+      "swept_level_index": 363,
+      "sweep_candle_index": 371,
+      "age_bars": 128,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62651.35,
+      "swept_level_index": 372,
+      "sweep_candle_index": 382,
+      "age_bars": 117,
+      "wick_size": 15.87
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62645.83,
+      "swept_level_index": 375,
+      "sweep_candle_index": 383,
+      "age_bars": 116,
+      "wick_size": 11.16
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62638.32,
+      "swept_level_index": 376,
+      "sweep_candle_index": 383,
+      "age_bars": 116,
+      "wick_size": 13.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62651.35,
+      "swept_level_index": 372,
+      "sweep_candle_index": 384,
+      "age_bars": 115,
+      "wick_size": 11.76
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62608.0,
+      "swept_level_index": 385,
+      "sweep_candle_index": 391,
+      "age_bars": 108,
+      "wick_size": 3.54
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62627.14,
+      "swept_level_index": 388,
+      "sweep_candle_index": 394,
+      "age_bars": 105,
+      "wick_size": 5.7
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62608.0,
+      "swept_level_index": 385,
+      "sweep_candle_index": 398,
+      "age_bars": 101,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62627.14,
+      "swept_level_index": 388,
+      "sweep_candle_index": 400,
+      "age_bars": 99,
+      "wick_size": 9.31
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62516.01,
+      "swept_level_index": 404,
+      "sweep_candle_index": 410,
+      "age_bars": 89,
+      "wick_size": 12.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62340.0,
+      "swept_level_index": 415,
+      "sweep_candle_index": 420,
+      "age_bars": 79,
+      "wick_size": 48.01
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62340.0,
+      "swept_level_index": 415,
+      "sweep_candle_index": 421,
+      "age_bars": 78,
+      "wick_size": 9.73
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62340.0,
+      "swept_level_index": 415,
+      "sweep_candle_index": 423,
+      "age_bars": 76,
+      "wick_size": 30.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62326.0,
+      "swept_level_index": 420,
+      "sweep_candle_index": 425,
+      "age_bars": 74,
+      "wick_size": 26.82
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62326.0,
+      "swept_level_index": 420,
+      "sweep_candle_index": 428,
+      "age_bars": 71,
+      "wick_size": 0.0
+    },
+    {
+      "type": "sell_side_sweep",
+      "swept_level": 62340.0,
+      "swept_level_index": 415,
+      "sweep_candle_index": 429,
+      "age_bars": 70,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62428.3,
+      "swept_level_index": 430,
+      "sweep_candle_index": 434,
+      "age_bars": 65,
+      "wick_size": 2.75
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62428.3,
+      "swept_level_index": 430,
+      "sweep_candle_index": 435,
+      "age_bars": 64,
+      "wick_size": 1.96
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62456.77,
+      "swept_level_index": 438,
+      "sweep_candle_index": 442,
+      "age_bars": 57,
+      "wick_size": 0.0
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62567.99,
+      "swept_level_index": 453,
+      "sweep_candle_index": 462,
+      "age_bars": 37,
+      "wick_size": 7.1
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62567.99,
+      "swept_level_index": 453,
+      "sweep_candle_index": 464,
+      "age_bars": 35,
+      "wick_size": 0.01
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62590.2,
+      "swept_level_index": 459,
+      "sweep_candle_index": 469,
+      "age_bars": 30,
+      "wick_size": 2.39
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62590.2,
+      "swept_level_index": 459,
+      "sweep_candle_index": 470,
+      "age_bars": 29,
+      "wick_size": 6.33
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62667.04,
+      "swept_level_index": 475,
+      "sweep_candle_index": 487,
+      "age_bars": 12,
+      "wick_size": 21.5
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62667.04,
+      "swept_level_index": 475,
+      "sweep_candle_index": 488,
+      "age_bars": 11,
+      "wick_size": 8.15
+    },
+    {
+      "type": "buy_side_sweep",
+      "swept_level": 62653.36,
+      "swept_level_index": 482,
+      "sweep_candle_index": 490,
+      "age_bars": 9,
+      "wick_size": 3.63
+    }
+  ],
+  "displacements": [
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.103,
+      "magnitude_atr": 3.61,
+      "candle_index": 3,
+      "age_bars": 496
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.06,
+      "magnitude_atr": 2.11,
+      "candle_index": 14,
+      "age_bars": 485
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.061,
+      "magnitude_atr": 2.13,
+      "candle_index": 33,
+      "age_bars": 466
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.082,
+      "magnitude_atr": 2.89,
+      "candle_index": 36,
+      "age_bars": 463
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.075,
+      "magnitude_atr": 2.65,
+      "candle_index": 53,
+      "age_bars": 446
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.09,
+      "magnitude_atr": 3.14,
+      "candle_index": 60,
+      "age_bars": 439
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.066,
+      "magnitude_atr": 2.31,
+      "candle_index": 61,
+      "age_bars": 438
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.066,
+      "magnitude_atr": 2.33,
+      "candle_index": 99,
+      "age_bars": 400
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.064,
+      "magnitude_atr": 2.22,
+      "candle_index": 138,
+      "age_bars": 361
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.338,
+      "magnitude_atr": 11.8,
+      "candle_index": 139,
+      "age_bars": 360
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.16,
+      "magnitude_atr": 5.56,
+      "candle_index": 140,
+      "age_bars": 359
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.079,
+      "magnitude_atr": 2.76,
+      "candle_index": 152,
+      "age_bars": 347
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.06,
+      "magnitude_atr": 2.08,
+      "candle_index": 153,
+      "age_bars": 346
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.063,
+      "magnitude_atr": 2.21,
+      "candle_index": 161,
+      "age_bars": 338
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.058,
+      "magnitude_atr": 2.01,
+      "candle_index": 163,
+      "age_bars": 336
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.078,
+      "magnitude_atr": 2.73,
+      "candle_index": 168,
+      "age_bars": 331
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.077,
+      "magnitude_atr": 2.7,
+      "candle_index": 213,
+      "age_bars": 286
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.062,
+      "magnitude_atr": 2.16,
+      "candle_index": 218,
+      "age_bars": 281
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.076,
+      "magnitude_atr": 2.66,
+      "candle_index": 232,
+      "age_bars": 267
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.078,
+      "magnitude_atr": 2.72,
+      "candle_index": 234,
+      "age_bars": 265
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.093,
+      "magnitude_atr": 3.22,
+      "candle_index": 342,
+      "age_bars": 157
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.065,
+      "magnitude_atr": 2.27,
+      "candle_index": 343,
+      "age_bars": 156
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.069,
+      "magnitude_atr": 2.41,
+      "candle_index": 347,
+      "age_bars": 152
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.072,
+      "magnitude_atr": 2.5,
+      "candle_index": 349,
+      "age_bars": 150
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.079,
+      "magnitude_atr": 2.73,
+      "candle_index": 350,
+      "age_bars": 149
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.081,
+      "magnitude_atr": 2.83,
+      "candle_index": 369,
+      "age_bars": 130
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.084,
+      "magnitude_atr": 2.93,
+      "candle_index": 401,
+      "age_bars": 98
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.066,
+      "magnitude_atr": 2.28,
+      "candle_index": 405,
+      "age_bars": 94
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.066,
+      "magnitude_atr": 2.28,
+      "candle_index": 409,
+      "age_bars": 90
+    },
+    {
+      "direction": "bearish",
+      "magnitude_pct": -0.167,
+      "magnitude_atr": 5.8,
+      "candle_index": 414,
+      "age_bars": 85
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.146,
+      "magnitude_atr": 5.05,
+      "candle_index": 429,
+      "age_bars": 70
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.071,
+      "magnitude_atr": 2.47,
+      "candle_index": 473,
+      "age_bars": 26
+    },
+    {
+      "direction": "bullish",
+      "magnitude_pct": 0.073,
+      "magnitude_atr": 2.55,
+      "candle_index": 486,
+      "age_bars": 13
+    }
+  ],
+  "volume_anomalies": [
+    {
+      "candle_index": 21,
+      "age_bars": 478,
+      "volume_ratio": 2.2,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 24,
+      "age_bars": 475,
+      "volume_ratio": 2.58,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 48,
+      "age_bars": 451,
+      "volume_ratio": 2.83,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 51,
+      "age_bars": 448,
+      "volume_ratio": 2.49,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 53,
+      "age_bars": 446,
+      "volume_ratio": 3.53,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 76,
+      "age_bars": 423,
+      "volume_ratio": 4.08,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 82,
+      "age_bars": 417,
+      "volume_ratio": 4.22,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 92,
+      "age_bars": 407,
+      "volume_ratio": 3.62,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 107,
+      "age_bars": 392,
+      "volume_ratio": 5.71,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 112,
+      "age_bars": 387,
+      "volume_ratio": 3.09,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 117,
+      "age_bars": 382,
+      "volume_ratio": 6.65,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 120,
+      "age_bars": 379,
+      "volume_ratio": 2.04,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 126,
+      "age_bars": 373,
+      "volume_ratio": 2.76,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 129,
+      "age_bars": 370,
+      "volume_ratio": 2.52,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 139,
+      "age_bars": 360,
+      "volume_ratio": 24.76,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 183,
+      "age_bars": 316,
+      "volume_ratio": 2.74,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 192,
+      "age_bars": 307,
+      "volume_ratio": 4.06,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 205,
+      "age_bars": 294,
+      "volume_ratio": 3.92,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 207,
+      "age_bars": 292,
+      "volume_ratio": 2.51,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 208,
+      "age_bars": 291,
+      "volume_ratio": 2.49,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 212,
+      "age_bars": 287,
+      "volume_ratio": 3.84,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 217,
+      "age_bars": 282,
+      "volume_ratio": 4.87,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 218,
+      "age_bars": 281,
+      "volume_ratio": 2.12,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 220,
+      "age_bars": 279,
+      "volume_ratio": 2.29,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 232,
+      "age_bars": 267,
+      "volume_ratio": 8.68,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 234,
+      "age_bars": 265,
+      "volume_ratio": 2.01,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 242,
+      "age_bars": 257,
+      "volume_ratio": 7.32,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 293,
+      "age_bars": 206,
+      "volume_ratio": 2.4,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 299,
+      "age_bars": 200,
+      "volume_ratio": 4.48,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 308,
+      "age_bars": 191,
+      "volume_ratio": 2.42,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 310,
+      "age_bars": 189,
+      "volume_ratio": 2.87,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 312,
+      "age_bars": 187,
+      "volume_ratio": 3.43,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 315,
+      "age_bars": 184,
+      "volume_ratio": 2.32,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 327,
+      "age_bars": 172,
+      "volume_ratio": 3.21,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 340,
+      "age_bars": 159,
+      "volume_ratio": 3.79,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 341,
+      "age_bars": 158,
+      "volume_ratio": 4.36,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 342,
+      "age_bars": 157,
+      "volume_ratio": 30.48,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 343,
+      "age_bars": 156,
+      "volume_ratio": 2.32,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 347,
+      "age_bars": 152,
+      "volume_ratio": 4.28,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 352,
+      "age_bars": 147,
+      "volume_ratio": 2.14,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 382,
+      "age_bars": 117,
+      "volume_ratio": 10.74,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 383,
+      "age_bars": 116,
+      "volume_ratio": 2.28,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 389,
+      "age_bars": 110,
+      "volume_ratio": 2.06,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 411,
+      "age_bars": 88,
+      "volume_ratio": 4.59,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 412,
+      "age_bars": 87,
+      "volume_ratio": 2.38,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 414,
+      "age_bars": 85,
+      "volume_ratio": 6.79,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 415,
+      "age_bars": 84,
+      "volume_ratio": 5.25,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 425,
+      "age_bars": 74,
+      "volume_ratio": 2.73,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 450,
+      "age_bars": 49,
+      "volume_ratio": 2.34,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 457,
+      "age_bars": 42,
+      "volume_ratio": 12.54,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 462,
+      "age_bars": 37,
+      "volume_ratio": 3.73,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 482,
+      "age_bars": 17,
+      "volume_ratio": 4.32,
+      "direction": "bullish"
+    },
+    {
+      "candle_index": 487,
+      "age_bars": 12,
+      "volume_ratio": 3.81,
+      "direction": "bearish"
+    },
+    {
+      "candle_index": 499,
+      "age_bars": 0,
+      "volume_ratio": 2.3,
+      "direction": "bullish"
+    }
+  ]
+}

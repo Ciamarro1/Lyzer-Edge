@@ -6,6 +6,9 @@ import { db } from '../db.js';
 async function fetchBinanceData(symbol = 'BTCUSDT', interval = '1m', limit = 1000) {
   const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: Failed to fetch from ${url}`);
+  }
   const data = await response.json();
   
   return data.map(d => ({

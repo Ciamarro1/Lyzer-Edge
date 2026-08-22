@@ -63,7 +63,7 @@ Copy `lyzer edge/.env.template` → `.env`. Key vars:
 - **Rust on Windows**: requires **MinGW-w64** toolchain (`x86_64-pc-windows-gnu` target). See `.cargo/config.toml`.
 - **Certification tests** require startup order: `nats-server -js` → risk-gateway binary → `npx tsx src-ts/scripts/setup-nats.ts` → test runner.
 - **Docker CMD order**: `python3 backup_restore.py restore; nats-server -js & lyzer-core-hub & node backend/server.js`
-- **Sprint scripts** (`run-sprint-*.ps1`) delete old `intent_registry.db` to avoid UNIQUE constraint violations on re-runs.
+- **Constitutional Backtest Rule:** Nenhum backtest pode ser usado para alterar o Lyzer se ele não passar pelo mesmo Execution Path do motor de produção (via `streamEngine.js`) — ou se qualquer divergência desse path não estiver explicitamente documentada.
 - **3-process isolation** documented in `lyzer edge/docs/runtime_topology.md`: Execution Node, ECA Court Node, Dashboard Node.
 - **gRPC services**: `RiskGateway.Authorize`, `IntentRegistry.{RegisterIntent, AppendIntentEvent, AuditQuery}`, all using UUIDv7 for causal traceability.
 

@@ -5,6 +5,7 @@
  */
 
 import crypto from 'crypto';
+import { generateUUIDv7 } from "../../../../../lyzer edge/src/causal-memory/EventFactory.js";
 
 /**
  * Resolves the Court HMAC secret strictly from the environment.
@@ -24,7 +25,7 @@ export function getCourtSecret() {
 
 export class PermissionToken {
   constructor(action, granted, reason, metadata = {}, secretKey = getCourtSecret()) {
-    this.id = (typeof globalThis.crypto !== 'undefined' && globalThis.crypto.randomUUID) ? globalThis.crypto.randomUUID() : (crypto.randomUUID ? crypto.randomUUID() : `perm_${Date.now()}_${Math.random()}`);
+    this.id = generateUUIDv7();
     this.timestamp = Date.now();
     this.action = action;
     this.granted = granted;

@@ -101,6 +101,12 @@ export class ExchangeExecution {
         method: 'GET',
         headers: { 'X-MBX-APIKEY': this.apiKey }
       });
+      if (!response.ok) {
+        let errStr = '';
+        try { errStr = await response.text(); } catch(e) {}
+        console.error(`[EXECUTION] ❌ Failed to fetch account HTTP ${response.status}:`, errStr);
+        return { balances: [] };
+      }
       return await response.json();
     } catch (e) {
       console.error(`[EXECUTION] ❌ Failed to fetch account:`, e);
@@ -124,6 +130,12 @@ export class ExchangeExecution {
         method: 'GET',
         headers: { 'X-MBX-APIKEY': this.apiKey }
       });
+      if (!response.ok) {
+        let errStr = '';
+        try { errStr = await response.text(); } catch(e) {}
+        console.error(`[EXECUTION] ❌ Failed to fetch open orders HTTP ${response.status}:`, errStr);
+        return [];
+      }
       return await response.json();
     } catch (e) {
       console.error(`[EXECUTION] ❌ Failed to fetch open orders:`, e);

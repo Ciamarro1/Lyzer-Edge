@@ -20,6 +20,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import { generateUUIDv7 } from "../../../../../lyzer edge/src/causal-memory/EventFactory.js";
 import { fileURLToPath } from 'url';
 import { DataLineageEngine } from '../operations/dataLineageEngine.js';
 
@@ -176,7 +177,7 @@ export class RealityGapMonitor {
     const gapEvent = {
       timestamp: now,
       realitySource,
-      executionId: record.snapshotId || crypto.randomUUID(),
+      executionId: record.snapshotId || generateUUIDv7(),
       executionQuality: parseFloat(comp1_execQuality.toFixed(2)),
       slippageGap: parseFloat(slippageGap.toFixed(4)),
       liquidityGap: parseFloat(liquidityGap.toFixed(2)),

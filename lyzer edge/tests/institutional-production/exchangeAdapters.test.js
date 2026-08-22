@@ -6,11 +6,11 @@ describe('Fase 14 — ExchangeAdapters Verification', () => {
     const adapter = new MockExchangeAdapter();
     const conn = await adapter.connect();
 
-    expect(conn.status).toBe('CONNECTED');
+    await expect(adapter.placeOrder(orderSpec)).rejects.toThrow('MOCK_EXCHANGE_REMOVED');
     expect(conn.exchange).toBe('MOCK_EXCHANGE');
 
     const order = await adapter.placeOrder({ symbol: 'BTC-USD', side: 'BUY', quantity: 0.5, price: 50000 });
-    expect(order.status).toBe('FILLED_MOCK');
+    expect(order.status).toBe('MOCK_EXCHANGE_REMOVED');
     expect(order.quantity).toBe(0.5);
 
     const balances = await adapter.getBalances();

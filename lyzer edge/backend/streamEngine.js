@@ -4,6 +4,7 @@
  */
 
 import EventEmitter from 'events';
+import { generateUUIDv7 } from "../../src/causal-memory/EventFactory.js";
 import { EvSignalEngine } from "../../packages/lyzer-shared/src/engine/evSignalRedesign.js";
 import { computeTradeEV } from "../../packages/lyzer-shared/src/engine/evProfiler.js";
 import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
@@ -29,6 +30,7 @@ import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.j
 
 import { EvidenceFusionEngine } from '../src/components/commandCenter/sdk/evidence/fusion/EvidenceFusionEngine.js';
 import { OpenMobiusPatternEngine } from '../src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusPatternEngine.js';
+import { OpenMobiusShadowObserver } from './openMobiusShadow.js';
 
 // CSRL Subsystem Imports
 import { ScaleNormalizer } from "../../packages/lyzer-shared/src/csrl/ScaleNormalizer.js";
@@ -71,7 +73,7 @@ const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
 const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || '').split(',').map(s => s.trim().toLowerCase());
 const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
-court.configure(cclistConfig, { sclThreshold: molSclThreshold });
+court.configure(cclistConfig, { sclThreshold: molSclThreshold, stabilizationWindowMs: process.env.ARL_MODE === 'SIMULATION' ? 0 : (parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS) || 45000) });
 
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
@@ -109,6 +111,7 @@ export class StreamEngine extends EventEmitter {
     this.smcFacade = new SmcEngineFacade();
     this.evidenceFusion = new EvidenceFusionEngine();
     this.openMobius = new OpenMobiusPatternEngine();
+    this.v8Shadow = new OpenMobiusShadowObserver(this.symbol, this.interval);
     
     // CSRL Instance Initialization
     this.scaleNormalizer = new ScaleNormalizer();
@@ -260,7 +263,7 @@ export class StreamEngine extends EventEmitter {
 
   updateMtfCandles(candle) {
     this.tickCounter = (this.tickCounter || 0) + 1;
-    candle.trace_id = crypto.randomUUID();
+    candle.trace_id = generateUUIDv7();
     recordTickReceived(this.symbol, 'websocket');
     this.mtfCandles['1m'].push(candle);
     this.candles = this.mtfCandles['1m']; // Keep legacy alias in sync
@@ -827,6 +830,16 @@ export class StreamEngine extends EventEmitter {
     // Process structural evidence
     this.openMobius.processCandle(candle);
     
+    // V8 Shadow Observer — Phase 4 (PURE OBSERVATION, ZERO INFLUENCE ON PIPELINE)
+    // Feeds into audit log only. No write path to signal/score/sizing/orders/veto/TruthKernel.
+    try {
+      this.v8Shadow.observe(candle, {
+        fvgCount: this.openMobius._fvgs.length,
+        activeFvgs: this.openMobius.getActiveFVGs().length,
+        confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0,
+      });
+    } catch (_) { /* Shadow failure must NEVER crash the engine */ }
+    
     // Evaluate Fusion Engine with active regime
     const evidenceArray = [
       { sourceEngine: 'LYZER_NATIVE', evidenceMetrics: { confidence: Math.max(v1Sig.confidence, v2Sig.confidence, v3Sig.confidence), probability: 0.5, uncertainty: 0.5 } },
@@ -1328,11 +1341,15 @@ export class StreamEngine extends EventEmitter {
     // B. Check for new trade execution
     // console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
     if (kernelResult.eef && !this.activePosition && baseSignal.signal !== 'FLAT') {
-      const direction = baseSignal.signal;
+      const rawDirection = baseSignal.signal;
+      const direction = (rawDirection === 'BUY' || rawDirection === 'LONG') ? 'LONG' : (rawDirection === 'SELL' || rawDirection === 'SHORT') ? 'SHORT' : 'FLAT';
+      
+      if (direction === 'FLAT') return;
 
       // C7 fix: Enforce direction toggles from environment
       const longEnabled = process.env.LONG_ENABLED !== 'false';
       const shortEnabled = process.env.SHORT_ENABLED !== 'false';
+      
       if (direction === 'LONG' && !longEnabled) return;
       if (direction === 'SHORT' && !shortEnabled) return;
       
@@ -1371,20 +1388,16 @@ export class StreamEngine extends EventEmitter {
         currentSlippage: 0 // Updated by phase16Auditor after execution
       };
       delete courtState.confidence;
-      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
-      let governanceDecision = permissionToken.granted ? 'ALLOW' : 'REJECT';
-      let rejectionReason = permissionToken.granted ? '' : permissionToken.reason;
+      const intentId = generateUUIDv7();
+      const correlationId = generateUUIDv7();
+      const causationId = generateUUIDv7();
 
-      console.log(`[DEBUG] Court decision: ${governanceDecision}, reason: ${rejectionReason}`);
-
-      // gRPC Decoupling authorization check (Rust RiskGateway) for LIVE / TESTNET
-      if (permissionToken.granted && this.mode !== 'SIMULATION') {
-        const correlationId = crypto.randomUUID();
-        const causationId = crypto.randomUUID();
-        const intentId = crypto.randomUUID();
-
+      // 1. Rust RiskGateway must persist intent BEFORE ECA Court (P2 - Causal Rebuild)
+      let grpcResult = { approved: true };
+      let grpcRejection = null;
+      if (this.mode !== 'SIMULATION') {
         try {
-          const grpcResult = await authorizeOrder({
+          grpcResult = await authorizeOrder({
             execution_intent_id: intentId,
             correlation_id: correlationId,
             causation_id: causationId,
@@ -1393,25 +1406,38 @@ export class StreamEngine extends EventEmitter {
             quantity: 0.001,
             mode: this.mode
           });
-
           if (!grpcResult.approved) {
-            governanceDecision = 'REJECT';
-            rejectionReason = grpcResult.rejection_reason || 'RUST_RISK_GATEWAY_VETO';
-            console.warn(`[gRPC VETO] Rust RiskGateway rejected execution intent ${intentId} for ${this.symbol}. Reason: ${rejectionReason}`);
-          } else {
-            console.log(`[gRPC APPROVED] Rust RiskGateway authorized execution intent ${intentId} for ${this.symbol}`);
+            grpcRejection = grpcResult.rejection_reason || 'RUST_RISK_GATEWAY_VETO';
           }
         } catch (grpcErr) {
           recordSystemError('StreamEngine', 'GRPC_ERROR');
           if (this.mode === 'LIVE' && process.env.NODE_ENV !== 'test') {
-            governanceDecision = 'REJECT';
-            rejectionReason = `GRPC_UNREACHABLE: ${grpcErr.message}`;
+            grpcResult.approved = false;
+            grpcRejection = `GRPC_UNREACHABLE: ${grpcErr.message}`;
             console.error(`🛑 [FAIL-CLOSED] RiskGateway check failed (${grpcErr.message}). Execution vetoed in LIVE mode.`);
           } else {
             console.warn(`⚠️ [MOCK PASS] gRPC unavailable in testnet (${grpcErr.message}). Proceeding.`);
           }
         }
       }
+
+      // 2. ECA Court evaluates
+      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
+      let governanceDecision = (permissionToken.granted && grpcResult.approved) ? 'ALLOW' : 'REJECT';
+      let rejectionReason = '';
+      
+      if (!grpcResult.approved) {
+        rejectionReason = grpcRejection;
+        console.warn(`[gRPC VETO] Rust RiskGateway rejected execution intent ${intentId} for ${this.symbol}. Reason: ${rejectionReason}`);
+      } else if (!permissionToken.granted) {
+        rejectionReason = permissionToken.reason;
+      }
+
+      console.log(`[DEBUG] Court decision: ${governanceDecision}, reason: ${rejectionReason}`);
+      if (governanceDecision === 'ALLOW') {
+        console.log(`[gRPC APPROVED] Rust RiskGateway and Court authorized execution intent ${intentId} for ${this.symbol}`);
+      }
+
 
       recordEcaEvaluation(this.symbol, governanceDecision, rejectionReason);
 

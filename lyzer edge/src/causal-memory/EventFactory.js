@@ -7,8 +7,7 @@ function fnv1aHash(str) {
   }
   return h.toString(16).padStart(8, '0');
 }
-const _randomUUID = () => (typeof globalThis.crypto !== 'undefined' && globalThis.crypto.randomUUID) ? globalThis.crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => { const r = Math.random()*16|0; return (c==='x'?r:(r&0x3|0x8)).toString(16); });
-
+// Removed UUIDv4 fallback as per architecture compliance (P2). No silent fallbacks to UUIDv4.
 // Helper to generate UUIDv7 (Timestamp-sorted UUID)
 export function generateUUIDv7() {
   const timestamp = Date.now();

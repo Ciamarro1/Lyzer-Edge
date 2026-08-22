@@ -433,6 +433,11 @@ app.get('/api/status', (req, res) => {
   });
 });
 
+app.get('/api/openmobius-shadow', (req, res) => {
+  const reports = engines.map(e => e.v8Shadow ? e.v8Shadow.getShadowReport() : null).filter(r => r !== null);
+  res.json({ success: true, reports });
+});
+
 // POST /api/test-order — Trigger a manual test order on Binance Testnet/Live
 app.post('/api/test-order', async (req, res) => {
   try {
