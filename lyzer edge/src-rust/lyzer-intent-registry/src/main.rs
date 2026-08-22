@@ -326,11 +326,12 @@ impl IntentRegistry for LyzerIntentRegistry {
         
         let max_v = tokio::task::spawn_blocking(move || -> i64 {
             let db = db_arc.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
-            if let Ok(mut stmt) = db.prepare("SELECT MAX(global_version) FROM intent_events") {
+            let version = if let Ok(mut stmt) = db.prepare("SELECT MAX(global_version) FROM intent_events") {
                 stmt.query_row([], |row| row.get(0)).unwrap_or(Some(0)).unwrap_or(0)
             } else {
                 0
-            }
+            };
+            version
         }).await.unwrap_or(0);
         
         Ok(Response::new(GetMaxVersionResponse {
@@ -344,19 +345,24 @@ async fn pending_events_consumer(db: Arc<Mutex<Connection>>, nats_client: async_
     let js = async_nats::jetstream::new(nats_client.clone());
     
     // Create stream if doesn't exist
-    let _ = js.create_stream(async_nats::jetstream::stream::Config {
+    let stream = match js.get_or_create_stream(async_nats::jetstream::stream::Config {
         name: "EXECUTION_PENDING".to_string(),
         subjects: vec!["execution.pending.*".to_string()],
         ..Default::default()
-    }).await;
+    }).await {
+        Ok(s) => s,
+        Err(e) => {
+            eprintln!("Failed to create JetStream stream: {}", e);
+            return;
+        }
+    };
 
     // Use JetStream Push Consumer (or Pull, but Push is easier here)
-    let consumer = match js.create_consumer_on_stream(
-        async_nats::jetstream::consumer::Config {
-            deliver_subject: Some("deliver.execution.pending".to_string()),
+    let consumer = match stream.create_consumer(
+        async_nats::jetstream::consumer::push::Config {
+            deliver_subject: "deliver.execution.pending".to_string(),
             ..Default::default()
-        },
-        "EXECUTION_PENDING"
+        }
     ).await {
         Ok(c) => c,
         Err(e) => {
