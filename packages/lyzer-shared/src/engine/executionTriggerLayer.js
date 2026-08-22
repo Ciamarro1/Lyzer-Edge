@@ -10,7 +10,7 @@
 
 export class ExecutionTriggerLayer {
     constructor(trgThreshold = 0.8) {
-        this.trgThreshold = trgThreshold;
+        this.trgThreshold = trgThreshold != null ? trgThreshold : 0.8;
     }
 
     /**

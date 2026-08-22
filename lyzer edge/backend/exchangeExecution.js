@@ -14,24 +14,29 @@ export class ExchangeExecution {
     this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
   }
 
-  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001, currentPrice = null) {
+  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001, currentPrice = null, rules = { lotDecimals: 3, priceDecimals: 2 }) {
+    // Dynamic precision based on provided rules (fallback to old behavior if not provided)
+    const cleanQty = encodeURIComponent(String(Number(quantity).toFixed(rules.lotDecimals)));
     const cleanSymbol = validateSymbol(symbol);
 
     if (!this.apiKey || !this.apiSecret) {
       throw new Error(`[EXECUTION] ❌ Cannot execute order for ${cleanSymbol}: BINANCE_API_KEY and BINANCE_API_SECRET are required.`);
     }
 
-    const timestamp = Date.now() - 2000;
-    const recvWindow = 60000;
+    // A2 fix: Removed the dangerous - 2000 timestamp hack which sent orders from the past
+    const timestamp = Date.now();
+    // A2 fix: Reduced recvWindow from massive 60s to standard 5s to prevent network delay slippage execution
+    const recvWindow = 5000; 
 
     const cleanSide = encodeURIComponent(side.toUpperCase());
     const cleanType = encodeURIComponent(type.toUpperCase());
-    const cleanQty = encodeURIComponent(String(quantity));
+    const roundedQty = encodeURIComponent(String(Number(quantity).toFixed(rules.lotDecimals)));
 
-    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${cleanQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${roundedQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
     
     if (type === 'LIMIT' && currentPrice) {
-      queryString += `&price=${encodeURIComponent(String(currentPrice))}&timeInForce=GTC`;
+      // Dynamic price rounding
+      queryString += `&price=${encodeURIComponent(String(Number(currentPrice).toFixed(rules.priceDecimals)))}&timeInForce=GTC`;
     }
     
     const signature = crypto
@@ -54,9 +59,24 @@ export class ExchangeExecution {
         redirect: 'error'
       });
 
+      if (!response.ok) {
+        if (response.status === 429 || response.status === 418) {
+          const retryAfter = response.headers.get('Retry-After');
+          throw new Error(`[RATE_LIMIT] HTTP ${response.status}. Retry after: ${retryAfter || 'unknown'}s. Do not spam.`);
+        }
+        let errorBody = '';
+        try { errorBody = await response.text(); } catch(e) {}
+        throw new Error(`HTTP Error ${response.status}: ${errorBody}`);
+      }
+
       const data = await response.json();
       if (data.orderId) {
-        console.log(`[EXECUTION] ✅ Order success: Binance ID ${data.orderId}`);
+        if (data.status === 'PARTIALLY_FILLED') {
+           console.warn(`[EXECUTION] ⚠️ Order PARTIALLY FILLED for ${data.orderId}. Quantity executed: ${data.executedQty} / ${data.origQty}`);
+           data.isPartial = true;
+        } else {
+           console.log(`[EXECUTION] ✅ Order success: Binance ID ${data.orderId}`);
+        }
         return data;
       } else {
         console.error(`[EXECUTION] ❌ Order placement rejected by exchange:`, data);

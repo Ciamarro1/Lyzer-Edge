@@ -332,9 +332,9 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F5 (SCD) 1: Consensus destruction when signals match', () => {
     const kernel = new TruthKernel({ consensusLimit: 0.1 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'long', confidence: 80 },
-      v3: { signal: 'long', confidence: 80 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'long', confidence: 100 },
+      v3: { signal: 'long', confidence: 100 }
     };
     // If they all match exactly, divergence is 0, directionalTension = 2.4.
     // consensusLimit > 0 && divergence < 0.1 && tension > 1.0 -> consensus destroyed, DVF = 0
@@ -346,8 +346,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F5 (SCD) 2: No consensus destruction when signals diverge', () => {
     const kernel = new TruthKernel({ consensusLimit: 0.1 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'short', confidence: 80 },
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 },
       v3: { signal: 'flat', confidence: 0 }
     };
     const res = kernel.evaluate(providers);
@@ -363,7 +363,7 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
       v3: { signal: 'short', confidence: 30 } // vec = -0.3
     };
     const res = kernel.evaluate(providers);
-    expect(res.tension).toBeCloseTo(0.7); // 0.5 + 0.5 - 0.3 = 0.7
+    expect(res.tension).toBeCloseTo(0.7 / 3); // (0.5 + 0.5 - 0.3) / 3 = 0.2333...
   });
 
   test('Tier 1 - F5 (SCD) 4: High divergence is preserved as positive DVF', () => {
@@ -395,8 +395,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F6 (ETT) 1: Authorizes execution when TRG >= threshold', () => {
     const kernel = new TruthKernel({ trgThreshold: 0.4 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 }, // vec = 0.8
-      v2: { signal: 'short', confidence: 80 }, // vec = -0.8
+      v1: { signal: 'long', confidence: 100 }, // vec = 0.8
+      v2: { signal: 'short', confidence: 100 }, // vec = -0.8
       v3: { signal: 'flat', confidence: 0 }
     }; // divergence = 1.6 -> trg = 1.6^2 = 2.56
     const res = kernel.evaluate(providers);
@@ -420,9 +420,9 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F6 (ETT) 3: Vetoes execution under consensus destruction', () => {
     const kernel = new TruthKernel({ trgThreshold: 0.1, consensusLimit: 0.5 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'long', confidence: 80 },
-      v3: { signal: 'long', confidence: 80 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'long', confidence: 100 },
+      v3: { signal: 'long', confidence: 100 }
     }; // consensus destroyed -> DVF = 0, TRG = 0, isConsensus = true
     const res = kernel.evaluate(providers);
     expect(res.eef).toBe(false);
@@ -443,9 +443,9 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F6 (ETT) 5: Correct reason code for false consensus block', () => {
     const kernel = new TruthKernel({ consensusLimit: 0.2 });
     const providers = {
-      v1: { signal: 'short', confidence: 90 },
-      v2: { signal: 'short', confidence: 90 },
-      v3: { signal: 'short', confidence: 90 }
+      v1: { signal: 'short', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 },
+      v3: { signal: 'short', confidence: 100 }
     };
     const res = kernel.evaluate(providers);
     expect(res.reason_codes).toContain('BLOCKED_BY_FALSE_CONSENSUS');
@@ -455,8 +455,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F7 (LHDS) 1: Reality divergence veto when LHDS exceeds limit', () => {
     const kernel = new TruthKernel({ lhdsVetoLimit: 0.8 });
     const providers = {
-      v1: { signal: 'long', confidence: 90 },
-      v2: { signal: 'short', confidence: 90 },
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 },
       v3: { signal: 'flat', confidence: 0 }
     };
     const res = kernel.evaluate(providers, { lhds: 0.9 }); // LHDS = 0.9 > 0.8
@@ -468,8 +468,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F7 (LHDS) 2: Normal observed state when LHDS is low and SDS < 0.3', () => {
     const kernel = new TruthKernel({ trgThreshold: 0.1 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'short', confidence: 80 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 }
     };
     const res = kernel.evaluate(providers, { lhds: 0.1, scaleDivergence: 0.2 });
     expect(res.epistemic_authority).toBe('OBSERVED');
@@ -479,8 +479,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F7 (LHDS) 3: Epistemic authority INFERRED when SDS is intermediate', () => {
     const kernel = new TruthKernel();
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'short', confidence: 80 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 }
     };
     const res = kernel.evaluate(providers, { lhds: 0.1, scaleDivergence: 0.5 });
     expect(res.epistemic_authority).toBe('INFERRED');
@@ -489,8 +489,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F7 (LHDS) 4: Veto reality divergence overrides normal EEF triggers', () => {
     const kernel = new TruthKernel({ trgThreshold: 0.1, lhdsVetoLimit: 0.5 });
     const providers = {
-      v1: { signal: 'long', confidence: 90 },
-      v2: { signal: 'short', confidence: 90 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 }
     }; // Normal TRG is extremely high (3.24), but LHDS is higher than limit
     const res = kernel.evaluate(providers, { lhds: 0.6 });
     expect(res.eef).toBe(false);
@@ -499,7 +499,7 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
 
   test('Tier 1 - F7 (LHDS) 5: Veto reason code is correctly set to VETO_REALITY_DIVERGENCE', () => {
     const kernel = new TruthKernel({ lhdsVetoLimit: 0.4 });
-    const providers = { v1: { signal: 'long', confidence: 80 } };
+    const providers = { v1: { signal: 'long', confidence: 100 } };
     const res = kernel.evaluate(providers, { lhds: 0.5 });
     expect(res.reason_codes[0]).toBe('VETO_REALITY_DIVERGENCE');
   });
@@ -508,8 +508,8 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
   test('Tier 1 - F8 (Collapse) 1: Veto ontological collapse when SDS > 0.7 and TRG >= limit', () => {
     const kernel = new TruthKernel({ ontologicalCollapseTrg: 0.5 });
     const providers = {
-      v1: { signal: 'long', confidence: 90 }, // vec = 0.9
-      v2: { signal: 'short', confidence: 90 }, // vec = -0.9
+      v1: { signal: 'long', confidence: 100 }, // vec = 0.9
+      v2: { signal: 'short', confidence: 100 }, // vec = -0.9
       v3: { signal: 'flat', confidence: 0 }
     }; // trg = (1.8)^2 = 3.24 >= 0.5
     const res = kernel.evaluate(providers, { scaleDivergence: 0.8 }); // SDS = 0.8 > 0.7
@@ -552,7 +552,7 @@ describe('StreamEngine SMC Transformation - Tier 1: Feature Coverage (55 tests)'
 
   // --- Feature 9: Constitutional Axiom Check ---
   test('Tier 1 - F9 (Axiom) 1: Court vetoes if rawState contains confidence', () => {
-    const rawState = { trg: 0.5, confidence: 90 };
+    const rawState = { trg: 0.5, confidence: 100 };
     const payload = { eef: true, reason: 'OK', epistemic_authority: 'OBSERVED' };
     const token = court.requestPermission('EXECUTE_TRADE', rawState, payload);
     expect(token.granted).toBe(false);
@@ -858,9 +858,9 @@ describe('StreamEngine SMC Transformation - Tier 2: Boundary Value Analysis (55 
   test('Tier 2 - F5 (SCD) BVA 1: consensusLimit = 0 disables residualization', () => {
     const kernel = new TruthKernel({ consensusLimit: 0 });
     const providers = {
-      v1: { signal: 'long', confidence: 90 },
-      v2: { signal: 'long', confidence: 90 },
-      v3: { signal: 'long', confidence: 90 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'long', confidence: 100 },
+      v3: { signal: 'long', confidence: 100 }
     };
     const res = kernel.evaluate(providers);
     expect(res.isConsensus).toBe(false);
@@ -869,10 +869,10 @@ describe('StreamEngine SMC Transformation - Tier 2: Boundary Value Analysis (55 
   test('Tier 2 - F5 (SCD) BVA 2: Extremely large consensusLimit', () => {
     const kernel = new TruthKernel({ consensusLimit: 5.0 });
     const providers = {
-      v1: { signal: 'long', confidence: 50 },
-      v2: { signal: 'long', confidence: 50 },
-      v3: { signal: 'long', confidence: 50 }
-    }; // agrees, divergenceScalar = 0 < 5.0, tension = 1.5 > 1.0 -> consensus destroyed
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'long', confidence: 100 },
+      v3: { signal: 'long', confidence: 100 }
+    }; // agrees, divergenceScalar = 0 < 5.0, tension = 1.0 -> consensus destroyed
     const res = kernel.evaluate(providers);
     expect(res.isConsensus).toBe(true);
     expect(res.dvf).toBe(0);
@@ -929,7 +929,7 @@ describe('StreamEngine SMC Transformation - Tier 2: Boundary Value Analysis (55 
 
   test('Tier 2 - F6 (ETT) BVA 3: TRG exactly at threshold', () => {
     const kernel = new TruthKernel({ trgThreshold: 0.64 });
-    const providers = { v1: { signal: 'long', confidence: 80 }, v2: { signal: 'flat', confidence: 0 } }; // trg = 0.64
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'flat', confidence: 0 } }; // trg = 0.64
     const res = kernel.evaluate(providers);
     expect(res.eef).toBe(true);
   });
@@ -982,14 +982,14 @@ describe('StreamEngine SMC Transformation - Tier 2: Boundary Value Analysis (55 
   // --- Feature 8 BVA: Truth Kernel Ontological Collapse ---
   test('Tier 2 - F8 (Collapse) BVA 1: SDS exactly at 0.7 boundary', () => {
     const kernel = new TruthKernel({ ontologicalCollapseTrg: 0.5 });
-    const providers = { v1: { signal: 'long', confidence: 90 }, v2: { signal: 'short', confidence: 90 } };
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'short', confidence: 100 } };
     const res = kernel.evaluate(providers, { scaleDivergence: 0.7 }); // Should be INFERRED since it is <= 0.7
     expect(res.epistemic_authority).toBe('INFERRED');
   });
 
   test('Tier 2 - F8 (Collapse) BVA 2: TRG exactly at ontologicalCollapseTrg', () => {
     const kernel = new TruthKernel({ ontologicalCollapseTrg: 0.64 });
-    const providers = { v1: { signal: 'long', confidence: 80 }, v2: { signal: 'flat', confidence: 0 } }; // trg = 0.64
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'flat', confidence: 0 } }; // trg = 0.64
     const res = kernel.evaluate(providers, { scaleDivergence: 0.9 });
     expect(res.epistemic_authority).toBe('VETO');
   });
@@ -1009,7 +1009,7 @@ describe('StreamEngine SMC Transformation - Tier 2: Boundary Value Analysis (55 
 
   test('Tier 2 - F8 (Collapse) BVA 5: OntologicalCollapseTrg set to 10.0 never vetoes', () => {
     const kernel = new TruthKernel({ ontologicalCollapseTrg: 10.0 });
-    const providers = { v1: { signal: 'long', confidence: 90 }, v2: { signal: 'short', confidence: 90 } };
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'short', confidence: 100 } };
     const res = kernel.evaluate(providers, { scaleDivergence: 0.9 });
     expect(res.epistemic_authority).toBe('INFERRED');
   });
@@ -1145,9 +1145,9 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
     const kernel = new TruthKernel({ consensusLimit: 0.2 });
     // Let's create matching buy-side sweeps for V1, V2, and V3
     const providers = {
-      v1: { signal: 'short', confidence: 60 },
-      v2: { signal: 'short', confidence: 60 },
-      v3: { signal: 'short', confidence: 60 }
+      v1: { signal: 'short', confidence: 100 },
+      v2: { signal: 'short', confidence: 100 },
+      v3: { signal: 'short', confidence: 100 }
     };
     const res = kernel.evaluate(providers);
     expect(res.isConsensus).toBe(true);
@@ -1183,9 +1183,9 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
     // When court receives dvf = 0, C-CLIST evaluateStress accumulates stress because dvf < dvfFloor (0.1).
     const kernel = new TruthKernel({ consensusLimit: 0.5 });
     const providers = {
-      v1: { signal: 'long', confidence: 80 },
-      v2: { signal: 'long', confidence: 80 },
-      v3: { signal: 'long', confidence: 80 }
+      v1: { signal: 'long', confidence: 100 },
+      v2: { signal: 'long', confidence: 100 },
+      v3: { signal: 'long', confidence: 100 }
     };
     const kernelResult = kernel.evaluate(providers);
     expect(kernelResult.isConsensus).toBe(true);
@@ -1209,7 +1209,7 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
 
   test('Tier 3 - Pairwise 7: Truth Kernel Ontological Collapse triggers MOL Veto state, resetting SCL', () => {
     const kernel = new TruthKernel({ ontologicalCollapseTrg: 0.5 });
-    const providers = { v1: { signal: 'long', confidence: 90 }, v2: { signal: 'short', confidence: 90 } };
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'short', confidence: 100 } };
     const kernelResult = kernel.evaluate(providers, { scaleDivergence: 0.8 }); // Triggers ontological collapse veto
     expect(kernelResult.epistemic_authority).toBe('VETO');
 
@@ -1225,7 +1225,7 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
     // If a request contains a confidence leak, it is vetoed immediately by VETO_CONFIDENCE_ARROGANCE,
     // even if C-CLIST stress is lethal (which would trigger VETO_LETHAL_STABILITY_ILLUSION).
     court.cclist.stressLevel = 1.0; // stress is lethal
-    const rawState = { trg: 0.5, dvf: 0.1, confidence: 90 }; // confidence leak present
+    const rawState = { trg: 0.5, dvf: 0.1, confidence: 100 }; // confidence leak present
     const payload = { eef: true, reason: 'OK' };
     const token = court.requestPermission('EXECUTE_TRADE', rawState, payload);
     expect(token.granted).toBe(false);
@@ -1234,7 +1234,7 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
 
   test('Tier 3 - Pairwise 9: LHDS Reality Divergence Veto overrides Ontological Collapse check in Truth Kernel', () => {
     const kernel = new TruthKernel({ lhdsVetoLimit: 0.5, ontologicalCollapseTrg: 0.5 });
-    const providers = { v1: { signal: 'long', confidence: 90 }, v2: { signal: 'short', confidence: 90 } };
+    const providers = { v1: { signal: 'long', confidence: 100 }, v2: { signal: 'short', confidence: 100 } };
     // Trigger both LHDS veto and ontological collapse veto conditions:
     // LHDS = 0.9 > 0.5. SDS = 0.8 > 0.7, TRG = 3.24 >= 0.5.
     const res = kernel.evaluate(providers, { lhds: 0.9, scaleDivergence: 0.8 });
@@ -1247,8 +1247,8 @@ describe('StreamEngine SMC Transformation - Tier 3: Pairwise Cross-Feature Combi
     const kernel = new TruthKernel({ trgThreshold: 0.1 });
     // V3 signals long with high confidence, V1 signals short with high confidence
     const providers = {
-      v3: { signal: 'long', confidence: 80 },
-      v1: { signal: 'short', confidence: 80 }
+      v3: { signal: 'long', confidence: 100 },
+      v1: { signal: 'short', confidence: 100 }
     }; // div = 1.6 -> trg = 2.56 >= 0.1
     const res = kernel.evaluate(providers);
     expect(res.eef).toBe(true);
@@ -1340,7 +1340,7 @@ describe('StreamEngine SMC Transformation - Tier 4: Real-World Workloads (5 test
     // Try to trigger a trade with synthetic EEF = true
     const permissionToken = engine.court.requestPermission('EXECUTE_TRADE', { trg: 0.5, dvf: 0.0 }, { eef: true });
     expect(permissionToken.granted).toBe(false);
-    expect(permissionToken.reason).toBe('VETO_LETHAL_STABILITY_ILLUSION');
+    expect(permissionToken.reason).toBe('VETO_MOL_RECOVERY_PENDING');
   });
 
   test('Tier 4 - Scenario 3: Temporal Reality Divergence (HFT Desync)', async () => {

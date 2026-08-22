@@ -64,7 +64,8 @@ export function authorizeOrder(intent = {}) {
     };
 
     const startTime = performance.now();
-    client.Authorize(authorizeRequest, (error, response) => {
+    const deadline = new Date(Date.now() + 2000); // 2000ms hard deadline
+    client.Authorize(authorizeRequest, { deadline }, (error, response) => {
       const durationSec = (performance.now() - startTime) / 1000;
       if (error) {
         recordRiskGatewayLatency('AuthorizeOrder', 'error', durationSec);

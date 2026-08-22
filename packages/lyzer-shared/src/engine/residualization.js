@@ -8,10 +8,10 @@
  */
 
 export class ResidualizationLayer {
-    constructor({ consensusLimit, trgExponent } = {}) {
+    constructor(config = {}) {
         this.history = []; // Temporal context for TRG
-        this.consensusLimit = consensusLimit !== undefined ? consensusLimit : 0.1;
-        this.trgExponent = trgExponent !== undefined ? trgExponent : 2; // Default 2.
+        this.consensusLimit = config.consensusLimit != null ? config.consensusLimit : 0.1;
+        this.trgExponent = config.trgExponent != null ? config.trgExponent : 2; // Default 2.
     }
 
     /**
@@ -21,7 +21,8 @@ export class ResidualizationLayer {
     extractDivergence(providersList, micro = {}) {
         const sigToVec = (sig) => {
             if (!sig) return 0;
-            const s = String(sig).toLowerCase();
+            let s = '';
+            try { s = String(sig).toLowerCase(); } catch(e) { return 0; }
             if (s === 'long' || s === 'buy' || s === 'bull' || s === 'go' || s === 'absorption' || s === 'cvd divergence') return 1;
             if (s === 'short' || s === 'sell' || s === 'bear' || s === 'no-go' || s === 'exhaustion') return -1;
             return 0;
@@ -31,10 +32,13 @@ export class ResidualizationLayer {
         const vectors = [];
         providersList.flat().forEach(p => {
             if (p !== undefined && p !== null && typeof p === 'object' && p.signal !== undefined) {
+                // Ignore explicitly FLAT or disabled providers to prevent tensor dilution
                 const vec = sigToVec(p.signal);
-                const conf = p.confidence !== undefined ? p.confidence : (vec === 0 ? 0 : 50);
-                const weightMultiplier = p.id && weights[p.id] !== undefined ? weights[p.id] : 1.0;
-                vectors.push(vec * (conf / 100) * weightMultiplier);
+                if (vec !== 0) {
+                    const conf = p.confidence !== undefined ? p.confidence : 50;
+                    const weightMultiplier = p.id !== undefined && weights[p.id] !== undefined ? weights[p.id] : 1.0;
+                    vectors.push(vec * (conf / 100) * weightMultiplier);
+                }
             }
         });
         
@@ -63,10 +67,10 @@ export class ResidualizationLayer {
         }
 
         const divergenceScalar = maxDiff;
-        const directionalTension = sumTension;
+        const directionalTension = sumTension / vectors.length;
 
         // Streaming Consensus Destruction (SCD)
-        const isConsensus = this.consensusLimit > 0 && divergenceScalar < this.consensusLimit && Math.abs(directionalTension) > 1.0;
+        const isConsensus = this.consensusLimit > 0 && divergenceScalar < this.consensusLimit && Math.abs(directionalTension) >= 1.0;
         
         let dvf = divergenceScalar;
         if (isConsensus) {
@@ -102,7 +106,11 @@ export class ResidualizationLayer {
 
         if (args.length > 0) {
             const last = args[args.length - 1];
-            if (last && typeof last === 'object' && last.signal === undefined) {
+            // Fix: Check for known provider fields rather than absence of signal, in case micro has a signal property
+            if (last && typeof last === 'object' && last.liquidityDivergence !== undefined) {
+                micro = last;
+                args.slice(0, -1).forEach(p => providers.push(p));
+            } else if (last && typeof last === 'object' && last.signal === undefined && last.confidence === undefined) {
                 micro = last;
                 args.slice(0, -1).forEach(p => providers.push(p));
             } else {

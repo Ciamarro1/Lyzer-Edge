@@ -115,4 +115,5 @@ WORKDIR "/app/lyzer edge"
 EXPOSE 7860
 
 # Start restore script, NATS, Rust IPC Hub, RiskGateway, IntentRegistry, and Node.js server concurrently
-CMD ["sh", "-c", "python3 backup_restore.py restore ; (nats-server -js 2>&1 | grep -v 'Client parser ERROR' &) ; lyzer-core-hub & lyzer-risk-gateway & lyzer-intent-registry & node --max-old-space-size=384 backend/server.js & node ../recovery/oos11_microstructure_discovery.mjs"]
+# Use exec for the main server so it receives SIGTERM as PID 1
+CMD ["sh", "-c", "python3 backup_restore.py restore ; (nats-server -js > /dev/null 2>&1 &) ; lyzer-core-hub & lyzer-risk-gateway & lyzer-intent-registry & node ../recovery/oos11_microstructure_discovery.mjs & exec node --max-old-space-size=384 backend/server.js"]

@@ -234,6 +234,15 @@ class LiveTradeSyncService {
   async _onMessage(data) {
     if (!data) return;
 
+    // Ensure DB is open before processing events
+    if (!db.isOpen()) {
+        try {
+            await db.open();
+        } catch (err) {
+            console.warn('[LiveTradeSync] Awaiting DB failed:', err);
+        }
+    }
+
     // Process canonical trade events from StreamEngine (arl event)
     if (data.trade && data.trade.governance === 'ALLOW') {
       try {
@@ -364,6 +373,50 @@ class LiveTradeSyncService {
         }
       } catch (err) {
         console.error('Erro ao sincronizar telemetry trade:', err);
+      }
+    }
+
+    // C8 fix: Process live exchange execution events (real fills from Binance)
+    if (data.liveExecution) {
+      try {
+        const exec = data.liveExecution;
+        const symbol = this.normalizeSymbol(exec.symbol || data.symbol);
+        
+        // Find the open trade for this symbol and update with real execution data
+        const existingOpen = await db.trades
+          .where('symbol').equals(symbol)
+          .and(t => t.status === TRADE_STATUS.OPEN)
+          .first();
+
+        if (existingOpen && exec.side === 'SELL') {
+          // This is a close execution — update with real exit price
+          const realExitPrice = parseFloat(exec.price) || existingOpen.exitPrice;
+          const realQty = parseFloat(exec.quantity) || 0;
+          const pnlFromFill = existingOpen.direction === 'LONG'
+            ? (realExitPrice - existingOpen.entryPrice) * realQty
+            : (existingOpen.entryPrice - realExitPrice) * realQty;
+
+          await db.trades.update(existingOpen.id, {
+            exitPrice: realExitPrice,
+            pnl: pnlFromFill,
+            executionSource: 'LIVE_EXCHANGE'
+          });
+          console.log(`[LiveTradeSync] 🔴 LIVE EXIT synced: ${symbol} at ${realExitPrice}`);
+        } else if (!existingOpen && exec.side === 'BUY') {
+          // This is an entry execution — update entry price with real fill
+          const recentTrade = await db.trades
+            .where('symbol').equals(symbol)
+            .reverse().first();
+          if (recentTrade) {
+            await db.trades.update(recentTrade.id, {
+              entryPrice: parseFloat(exec.price) || recentTrade.entryPrice,
+              executionSource: 'LIVE_EXCHANGE'
+            });
+            console.log(`[LiveTradeSync] 🟢 LIVE ENTRY synced: ${symbol} at ${exec.price}`);
+          }
+        }
+      } catch (err) {
+        console.error('[LiveTradeSync] Error syncing live execution:', err);
       }
     }
   }

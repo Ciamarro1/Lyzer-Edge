@@ -106,6 +106,20 @@ export function safeJsonParse(jsonString, fallback = null) {
 }
 
 /**
+ * Serializes an object to JSON safely. Returns original string if already string.
+ * Helps prevent [object Object] corruption in DB string fields.
+ */
+export function safeJsonStringify(obj, fallback = null) {
+  if (obj === null || obj === undefined) return null;
+  if (typeof obj === 'string') return obj;
+  try {
+    return JSON.stringify(obj);
+  } catch (e) {
+    return fallback;
+  }
+}
+
+/**
  * Prototype-safe shallow/deep merge function.
  * Merges source objects into target while omitting dangerous prototype properties.
  *

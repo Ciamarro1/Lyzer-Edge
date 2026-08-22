@@ -42,6 +42,16 @@ import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclis
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
 import { DynamicSizing } from "../src/engine/sizing.js";
 import { authorizeOrder } from './riskGatewayClient.js';
+
+// C1 fix: Observer Dynamics Lab (Era 7.1) imports
+import { MediaObserver } from "../../packages/lyzer-shared/src/observers/MediaObserver.js";
+import { AnalystObserver } from "../../packages/lyzer-shared/src/observers/AnalystObserver.js";
+import { LatencyMatrix } from "../../packages/lyzer-shared/src/observers/LatencyMatrix.js";
+
+// H5 fix: Causal Reflection pipeline
+import { CausalReflectionFacade } from "../src/causal-reflection/index.js";
+import { db } from "./db.js";
+
 import crypto from 'crypto';
 
 const signalEngine = new EvSignalEngine();
@@ -75,15 +85,9 @@ export class StreamEngine extends EventEmitter {
     this.truthKernel = new TruthKernel({ trgThreshold, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
     this.weightMatrix = new DynamicWeightMatrix();
     
+    // Global Constitutional Court is configured once in server.js
+    // StreamEngine only references it.
     this.court = config.court || court;
-    if (config.cclistConfig || config.molConfig) {
-      this.court.configure(config.cclistConfig || cclistConfig, config.molConfig || { sclThreshold: molSclThreshold });
-    }
-    if (this.mode === 'SIMULATION' || process.env.ARL_MODE === 'SIMULATION') {
-      if (this.court && this.court.mol) {
-        this.court.mol.stabilizationWindowMs = 0;
-      }
-    }
 
     this.ecoEngine = new EVAlphaResearchEngineV3_3();
     this.extinctionEngine = this.ecoEngine.extinctionEngine;
@@ -98,8 +102,8 @@ export class StreamEngine extends EventEmitter {
     this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine();
     this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
     this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine();
-    this.v6 = new MarketProfileEngine();
-    this.v7 = new TapeReadingEngine();
+    this.v6 = this.disabledProviders.has('v6') ? null : new MarketProfileEngine();
+    this.v7 = this.disabledProviders.has('v7') ? null : new TapeReadingEngine();
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -114,6 +118,11 @@ export class StreamEngine extends EventEmitter {
     this.dualMonitor = new DualRealityMonitor();
     this.ui = new SpectrogramUI();
     this.dynamicSizing = new DynamicSizing();
+    
+    // C1 fix: Initialize Observers
+    this.mediaObserver = new MediaObserver();
+    this.analystObserver = new AnalystObserver();
+    this.latencyMatrix = new LatencyMatrix();
     
     if (shadowTradingEnabled) {
       this.realityGapMonitor = new RealityGapMonitor(this.symbol);
@@ -145,6 +154,27 @@ export class StreamEngine extends EventEmitter {
 
   async startLiveMode() {
     this.ingestor = new LiveDataIngestor(this.symbol);
+
+    // H5 fix: Initialize Reflection Facade and schedule Dream Cycle (every 12 hours)
+    if (!this.reflectionFacade) {
+      this.reflectionFacade = new CausalReflectionFacade(db);
+      
+      const scheduleDreamCycle = () => {
+        this.reflectionTimeout = setTimeout(async () => {
+          try {
+            console.log(`[REFLECTION] Starting scheduled Causal Dream Cycle for ${this.symbol}...`);
+            await this.reflectionFacade.runDreamCycle();
+            console.log(`[REFLECTION] Scheduled Dream Cycle completed.`);
+          } catch (err) {
+            console.error(`[REFLECTION] Dream Cycle failed:`, err);
+          } finally {
+            scheduleDreamCycle(); // Schedule next tick only after completion
+          }
+        }, 12 * 60 * 60 * 1000); // 12 hours
+      };
+      
+      scheduleDreamCycle();
+    }
 
     console.log(`[STREAM] Fetching MTF closed candles for warmup for ${this.symbol}...`);
     this.mtfCandles = {};
@@ -198,6 +228,10 @@ export class StreamEngine extends EventEmitter {
     };
 
     // 3. Register WebSocket callbacks
+    this.ingestor.onBookTicker = (book) => {
+      this.currentBook = book;
+    };
+
     this.ingestor.startWebSocket(
       async (candle) => {
         if (this.connectionState === 'FAILED' || this.connectionState === 'DEGRADED') {
@@ -581,6 +615,30 @@ export class StreamEngine extends EventEmitter {
   async processCandle(candle, index) {
     const processStartTime = performance.now();
 
+    // C1 fix: Feed Era 7.1 Observers
+    const syntheticSignal = candle.close > candle.open ? 1 : (candle.close < candle.open ? -1 : 0);
+    this.mediaObserver.ingestNews({
+      headline: `Market tick ${candle.close}`,
+      sentiment: syntheticSignal, // Simple synthetic sentiment based on candle direction
+      timestamp: candle.closeTime || Date.now()
+    });
+    this.analystObserver.registerAnalystOpinion({
+      analystId: 'synthetic_analyst_1',
+      targetPrice: syntheticSignal > 0 ? candle.close * 1.05 : (syntheticSignal < 0 ? candle.close * 0.95 : candle.close),
+      recommendation: syntheticSignal === 1 ? 'BUY' : (syntheticSignal === -1 ? 'SELL' : 'HOLD'),
+      timestamp: candle.closeTime || Date.now()
+    });
+    const mediaSentiment = this.mediaObserver.getCurrentSentiment();
+    const analystConsensus = this.analystObserver.getConsensus();
+    const analystSignal = analystConsensus.buyRatio > 0.5 ? 1 : (analystConsensus.sellRatio > 0.5 ? -1 : 0);
+    
+    const observerDivergence = this.latencyMatrix.evaluateDivergence({
+      MARKET: syntheticSignal,
+      MEDIA: mediaSentiment.netSentiment || syntheticSignal,
+      ANALYSTS: analystSignal || syntheticSignal,
+      AUTHORITY: syntheticSignal
+    });
+
     // 1. Reconstruct reality via heterogeneous engines (SMC vs SNR vs MOMENTUM_RSI vs IMCE V4)
     //    Disabled providers skip reconstruction entirely — downstream is null-safe.
     const defaultNarrative = { signal: 'flat', confidence: 0, narrative: null, source: null, causalAnswers: null, explanationText: null, tradeDna: null };
@@ -597,8 +655,8 @@ export class StreamEngine extends EventEmitter {
     const v3Narrative = this.disabledProviders.has('v3') ? defaultNarrative : this.v3.reconstruct(mappedCandles);
     const v4Narrative = this.disabledProviders.has('v4') ? defaultNarrative : this.v4.reconstruct(this.mtfCandles);
     const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(mappedCandles);
-    const v6Narrative = this.v6.reconstruct(mappedCandles);
-    const v7Narrative = this.v7.reconstruct(mappedCandles);
+    const v6Narrative = this.disabledProviders.has('v6') ? defaultNarrative : this.v6.reconstruct(mappedCandles);
+    const v7Narrative = this.disabledProviders.has('v7') ? defaultNarrative : this.v7.reconstruct(mappedCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -687,7 +745,7 @@ export class StreamEngine extends EventEmitter {
         v1: { ...v1Sig, id: 'v1' },
         v2: { ...v2Sig, id: 'v2' },
         v3: { ...v3Sig, id: 'v3' },
-        v4: { signal: 'flat', confidence: 0, id: 'v4' },
+        v4: { ...v4Sig, id: 'v4' },
         v5: { ...v5Sig, id: 'v5' },
         v6: { ...v6Sig, id: 'v6' },
         v7: { ...v7Sig, id: 'v7' }
@@ -703,8 +761,20 @@ export class StreamEngine extends EventEmitter {
     const oppScore = this.calculateOpportunityScore(candle);
     const imbalance = this.currentBook ? this.currentBook.imbalance : 0;
 
-    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence: 1.0, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights, oppScore, imbalance });
+    // H1 fix: Compute liquidityDivergence from SMC active zones instead of stub 1.0
+    let liquidityDivergence = 1.0;
+    if (smcLiquidityResult && smcLiquidityResult.activeZones && smcLiquidityResult.activeZones.length > 0) {
+      let bslCount = 0, sslCount = 0;
+      for (const zone of smcLiquidityResult.activeZones) {
+        if (zone.upper_bound > currentPrice) bslCount++;
+        if (zone.lower_bound < currentPrice) sslCount++;
+      }
+      const total = bslCount + sslCount;
+      liquidityDivergence = total > 0 ? Math.abs(bslCount - sslCount) / total : 1.0;
+    }
+
+    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS + ODM
+    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights, oppScore, imbalance, odm: observerDivergence.odm });
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -714,9 +784,39 @@ export class StreamEngine extends EventEmitter {
 
     recordKernelEvaluated(this.symbol, kernelResult.eef, kernelResult.epistemic_authority);
 
-    // C-CLIST stress accumulation and telemetry tracking on every tick
-    const cclistEvaluation = this.court.cclist.evaluateStress(kernelResult.trg, kernelResult.dvf);
+    // C3 fix: Continuous MOL observation on EVERY tick (including VETOs)
+    this.court.observeState(kernelResult);
+    kernelResult._observed = true;
+
+    // H3 fix: Read-only peek for telemetry (C-CLIST mutation happens in court.requestPermission only)
+    const cclistEvaluation = this.court.cclist.peekStress();
     recordCclistEvaluation(this.symbol, cclistEvaluation.stressLevel, cclistEvaluation.isLethalIllusion);
+
+    // C5 fix: Dispatch async writes to Causal Memory DB for snapshots and verdicts
+    if (db && typeof db.insertCausalEvent === 'function') {
+      const ts = currentCandleTime || Date.now();
+      const corrId = `tick_${ts}`;
+      db.insertCausalEvent({
+        event_id: `SNAP_${corrId}`,
+        timestamp: ts,
+        event_type: 'REALITY_SNAPSHOT_CREATED',
+        source: 'StreamEngine',
+        correlation_id: corrId,
+        payload: { sds, lhds, liquidityDivergence, oppScore, imbalance, currentPrice },
+        context: { symbol: this.symbol, interval: this.interval }
+      }).catch(err => console.error('[CAUSAL_MEMORY] SNAPSHOT failed:', err.message));
+
+      db.insertCausalEvent({
+        event_id: `VERDICT_${corrId}`,
+        timestamp: ts,
+        event_type: 'KERNEL_VERDICT',
+        source: 'TruthKernel',
+        correlation_id: corrId,
+        parent_event: `SNAP_${corrId}`,
+        payload: kernelResult,
+        context: { symbol: this.symbol }
+      }).catch(err => console.error('[CAUSAL_MEMORY] VERDICT failed:', err.message));
+    }
 
     // Update Spectrogram UI
     if (this.mode === 'LIVE' || this.mode === 'TESTNET') {
@@ -730,7 +830,10 @@ export class StreamEngine extends EventEmitter {
     // Evaluate Fusion Engine with active regime
     const evidenceArray = [
       { sourceEngine: 'LYZER_NATIVE', evidenceMetrics: { confidence: Math.max(v1Sig.confidence, v2Sig.confidence, v3Sig.confidence), probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'IMCE_ENGINE', evidenceMetrics: { confidence: v4Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'WYCKOFF_VOLUME_ENGINE', evidenceMetrics: { confidence: v5Sig.confidence, probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'MARKET_PROFILE_ENGINE', evidenceMetrics: { confidence: v6Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'TAPE_READING_ENGINE', evidenceMetrics: { confidence: v7Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'OPENMOBIUS_SMC', evidenceMetrics: { confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0, probability: 0.5, uncertainty: 0.5 } }
     ];
     const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray, dynamicWeights.activeRegime);
@@ -808,12 +911,13 @@ export class StreamEngine extends EventEmitter {
         v1Narrative.narrative, 
         v2Narrative.narrative,
         v3Narrative.narrative,
+        v4Narrative.narrative,
         v5Narrative.narrative,
-        v6Narrative.narrative
-        // (v4Narrative ? v4Narrative.narrative : '')
+        v6Narrative.narrative,
+        v7Narrative.narrative
       ],
-      explanationText: null, // v4Narrative ? v4Narrative.explanationText : null,
-      tradeDna: null, // v4Narrative ? v4Narrative.tradeDna : null,
+      explanationText: v4Narrative ? v4Narrative.explanationText : null,
+      tradeDna: v4Narrative ? v4Narrative.tradeDna : null,
       Z_t: kernelResult.dvf * 10,
       vectorMap
     };
@@ -1214,8 +1318,10 @@ export class StreamEngine extends EventEmitter {
 
         this.dampener.recordTradeExit(this.symbol, index);
         this.releaseDailyCapital(this.activePosition);
+        this.emit('trade_closed', { ...this.activePosition, exitPrice, exitReason, closedAt: Date.now() });
         this.activePosition = null;
         this.emit('state_changed');
+        return; // Prevent same-tick re-entry (H4 fix)
       }
     }
 
@@ -1223,6 +1329,12 @@ export class StreamEngine extends EventEmitter {
     // console.log(`[DEBUG] candle ${index} | eef: ${kernelResult.eef} | activePosition: ${!!this.activePosition} | signal: ${baseSignal.signal} | trg: ${kernelResult.trg.toFixed(3)} | dvf: ${kernelResult.dvf.toFixed(3)}`);
     if (kernelResult.eef && !this.activePosition && baseSignal.signal !== 'FLAT') {
       const direction = baseSignal.signal;
+
+      // C7 fix: Enforce direction toggles from environment
+      const longEnabled = process.env.LONG_ENABLED !== 'false';
+      const shortEnabled = process.env.SHORT_ENABLED !== 'false';
+      if (direction === 'LONG' && !longEnabled) return;
+      if (direction === 'SHORT' && !shortEnabled) return;
       
       const currentCandleIdx = index;
       const finalConfPct = finalConfidence <= 1.0 ? finalConfidence * 100 : finalConfidence;
@@ -1253,7 +1365,10 @@ export class StreamEngine extends EventEmitter {
         symbol: this.symbol,
         direction,
         isChoppyNoise: isChoppy,
-        m15Aligned: baseSignal.m15Signal ? baseSignal.m15Signal.toLowerCase() === direction.toLowerCase() : true
+        m15Aligned: baseSignal.m15Signal ? baseSignal.m15Signal.toLowerCase() === direction.toLowerCase() : true,
+        // H2 fix: Inject drawdown and slippage for edge-riding detection
+        currentDrawdown: this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0,
+        currentSlippage: 0 // Updated by phase16Auditor after execution
       };
       delete courtState.confidence;
       const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
@@ -1369,15 +1484,19 @@ export class StreamEngine extends EventEmitter {
         }
 
         // Apply asset-specific LOT_SIZE precision (always round DOWN to avoid exceeding risk)
-        if (entryPrice > 1000) {
-          quantity = Math.floor(quantity * 1000) / 1000; // 3 decimals (BTC, ETH)
+        if (entryPrice > 10000) {
+          quantity = Math.floor(quantity * 10000) / 10000; // 4 decimals (e.g. BTC)
+          if (quantity <= 0) quantity = 0.0001;
+        } else if (entryPrice > 1000) {
+          quantity = Math.floor(quantity * 1000) / 1000; // 3 decimals (e.g. ETH)
+          if (quantity <= 0) quantity = 0.001;
         } else if (entryPrice > 10) {
           quantity = Math.floor(quantity * 100) / 100; // 2 decimals (BNB, SOL)
+          if (quantity <= 0) quantity = 0.01;
         } else {
           quantity = Math.floor(quantity); // Integer/0 decimals (ADA, XRP)
+          if (quantity <= 0) quantity = 1;
         }
-        
-        if (quantity <= 0) quantity = 1;
 
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
 

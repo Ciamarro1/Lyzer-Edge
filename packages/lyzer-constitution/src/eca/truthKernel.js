@@ -14,14 +14,14 @@ import { ExecutionTriggerLayer } from '../../../lyzer-shared/src/engine/executio
 export class TruthKernel {
   constructor(options = {}) {
     // Consolidated legacy masterSwitchThreshold fallback mapping to trgThreshold
-    const trgThreshold = options.trgThreshold !== undefined ? options.trgThreshold : (options.masterSwitchThreshold !== undefined ? options.masterSwitchThreshold / 100 : 0.4);
-    const masterSwitchThreshold = options.masterSwitchThreshold !== undefined ? options.masterSwitchThreshold : 50;
+    const trgThreshold = options.trgThreshold != null ? options.trgThreshold : (options.masterSwitchThreshold != null ? options.masterSwitchThreshold / 100 : 0.4);
+    const masterSwitchThreshold = options.masterSwitchThreshold != null ? options.masterSwitchThreshold : 50;
 
     this.masterSwitchThreshold = masterSwitchThreshold;
     this.rl = new ResidualizationLayer({ consensusLimit: options.consensusLimit, trgExponent: options.trgExponent });
     this.ett = new ExecutionTriggerLayer(trgThreshold);
-    this.lhdsVetoLimit = options.lhdsVetoLimit !== undefined ? options.lhdsVetoLimit : 0.8;
-    this.ontologicalCollapseTrg = options.ontologicalCollapseTrg !== undefined ? options.ontologicalCollapseTrg : 0.7;
+    this.lhdsVetoLimit = options.lhdsVetoLimit != null ? options.lhdsVetoLimit : 0.8;
+    this.ontologicalCollapseTrg = options.ontologicalCollapseTrg != null ? options.ontologicalCollapseTrg : 0.7;
   }
 
   /**
@@ -47,6 +47,11 @@ export class TruthKernel {
     // 2. Execution Trigger Evaluation
     let { eef, reason } = this.ett.evaluate(trg);
 
+    if (dvf.isConsensus) {
+      eef = false;
+      reason = 'BLOCKED_BY_FALSE_CONSENSUS';
+    }
+
     // 3. Ontological Confidence Limits (OCL)
     const sds = micro.scaleDivergence || 0.0;
     const lhds = micro.lhds || 0.0;
@@ -57,32 +62,55 @@ export class TruthKernel {
       eef = false;
       reason = 'VETO_REALITY_DIVERGENCE';
     } else {
-      const oppScore = micro.oppScore || 0;
-      const imbalance = micro.imbalance || 0;
-      const direction = dvf.tension > 0 ? 'LONG' : (dvf.tension < 0 ? 'SHORT' : 'FLAT');
-      
-      if (direction === 'SHORT') {
-        epistemicAuthority = 'VETO';
-        eef = false;
-        reason = 'VETO_SHORT_SELLING_DISABLED';
-      } else if (direction === 'LONG' && !(oppScore >= 2 && imbalance > 0.8)) {
-        epistemicAuthority = 'VETO';
-        eef = false;
-        reason = 'VETO_INSUFFICIENT_IMBALANCE';
-      } else if (sds < 0.3) {
-        epistemicAuthority = 'OBSERVED';
-      } else if (sds <= 0.7) {
-        epistemicAuthority = 'INFERRED';
-      } else {
-        // SDS > 0.7 - Check for total structural collapse
-        if (trg.trg >= this.ontologicalCollapseTrg) {
+      // Microstructure OOS-11 Filter (applied in production or when explicitly enforced)
+      const enforceOos = String(process.env.ENFORCE_OOS11_RULES) === 'true' || String(micro.enforceOos11) === 'true' || micro.enforceOos11 === 1;
+      let oosBlocked = false;
+      if (enforceOos) {
+        const oppScore = micro.oppScore || 0;
+        const imbalance = micro.imbalance || 0;
+        const direction = (Math.abs(dvf.tension) < 1e-8) ? 'FLAT' : (dvf.tension > 0 ? 'LONG' : 'SHORT');
+        
+        if (direction === 'FLAT') {
           epistemicAuthority = 'VETO';
-          eef = false; // Constitutional override
-          reason = 'VETO_ONTOLOGICAL_COLLAPSE';
-        } else {
-          epistemicAuthority = 'INFERRED';
+          eef = false;
+          reason = 'VETO_FLAT_DIVERGENCE';
+          oosBlocked = true;
+        } else if (direction === 'SHORT') {
+          epistemicAuthority = 'VETO';
+          eef = false;
+          reason = 'VETO_SHORT_SELLING_DISABLED';
+          oosBlocked = true;
+        } else if (direction === 'LONG' && !(oppScore >= 2 && imbalance > 0.8)) {
+          epistemicAuthority = 'VETO';
+          eef = false;
+          reason = 'VETO_INSUFFICIENT_IMBALANCE';
+          oosBlocked = true;
         }
       }
+      
+      if (!oosBlocked) {
+        if (sds < 0.3) {
+          epistemicAuthority = 'OBSERVED';
+        } else if (sds <= 0.7) {
+          epistemicAuthority = 'INFERRED';
+        } else {
+          // SDS > 0.7 - Check for total structural collapse
+          if (trg.trg >= this.ontologicalCollapseTrg) {
+            epistemicAuthority = 'VETO';
+            eef = false; // Constitutional override
+            reason = 'VETO_ONTOLOGICAL_COLLAPSE';
+          } else {
+            epistemicAuthority = 'INFERRED';
+          }
+        }
+      }
+    }
+
+    // C2 Fix: TruthKernel Observer Divergence Metric (ODM) Veto
+    if (eef && micro.odm !== undefined && micro.odm >= 0.60) {
+      epistemicAuthority = 'VETO';
+      eef = false;
+      reason = 'VETO_OBSERVER_DIVERGENCE_ODM';
     }
 
     // 3. Output pure tensor data, no "signal" prediction

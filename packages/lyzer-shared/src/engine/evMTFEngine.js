@@ -194,7 +194,8 @@ export function runMTFEngine(dataByTF, featureExtractor, regimeExtractor, option
   const synced = syncTimeframes(dataByTF);
   const aligned = alignFeatures(synced, featureExtractor);
   const entropyScores = crossEntropyConsistency(aligned);
-  const regimeStacks = regimeStacking(aligned, regimeExtractor);
+  // Pass synced (raw candles) rather than aligned (feature arrays) to regimeExtractor
+  const regimeStacks = regimeStacking(synced, regimeExtractor);
   const fused = fuseMTFSignals(aligned, entropyScores, regimeStacks, options);
 
   return {

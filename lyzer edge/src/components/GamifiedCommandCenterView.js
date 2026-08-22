@@ -163,13 +163,14 @@ export class GamifiedCommandCenterView {
     this._container.style.fontFamily = "'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif";
     this._container.style.overflow = 'hidden';
 
-    window.addEventListener('lyzer:toggle-left-sidebar', (e) => {
+    this._toggleSidebarListener = (e) => {
       this._isLeftCollapsed = !!e.detail?.collapsed;
       this._updateGridColumns();
-    });
+    };
+    window.addEventListener('lyzer:toggle-left-sidebar', this._toggleSidebarListener);
 
     // Chart widget notifies us when the user switches asset
-    window.addEventListener('lyzer:active-symbol', (e) => {
+    this._hudActiveSymbolListener = (e) => {
       this._activeHudSymbol = e.detail?.symbol || 'BTCUSDT';
       // Immediately refresh HUD with the new symbol's data
       const d = this._latestData[this._activeHudSymbol];
@@ -179,7 +180,8 @@ export class GamifiedCommandCenterView {
         const badge = this._container.querySelector('#g-active-symbol');
         if (badge) badge.innerText = this._activeHudSymbol.replace('USDT', '/USD');
       }
-    });
+    };
+    window.addEventListener('lyzer:active-symbol', this._hudActiveSymbolListener);
 
     this._renderShell();
     await this._mountStaticWidgets();
@@ -608,10 +610,11 @@ export class GamifiedCommandCenterView {
   }
 
   _listenDockSwitch() {
-    window.addEventListener('lyzer:switch-dock-tab', (evt) => {
+    this._switchDockTabListener = (evt) => {
       const tabId = evt.detail?.tabId;
       if (tabId && this._widgetRegistry[tabId]) this._activateTab(tabId);
-    });
+    };
+    window.addEventListener('lyzer:switch-dock-tab', this._switchDockTabListener);
   }
 
   async _mountStaticWidgets() {
@@ -716,6 +719,18 @@ export class GamifiedCommandCenterView {
     if (this._activeSymbolListener) {
       window.removeEventListener('lyzer:active-symbol', this._activeSymbolListener);
       this._activeSymbolListener = null;
+    }
+    if (this._hudActiveSymbolListener) {
+      window.removeEventListener('lyzer:active-symbol', this._hudActiveSymbolListener);
+      this._hudActiveSymbolListener = null;
+    }
+    if (this._toggleSidebarListener) {
+      window.removeEventListener('lyzer:toggle-left-sidebar', this._toggleSidebarListener);
+      this._toggleSidebarListener = null;
+    }
+    if (this._switchDockTabListener) {
+      window.removeEventListener('lyzer:switch-dock-tab', this._switchDockTabListener);
+      this._switchDockTabListener = null;
     }
     if (this._wsUnsub) { wsClient.offData(this._wsUnsub); this._wsUnsub = null; }
     if (this._agentHub) { try { this._agentHub.dispose(); } catch (e) {} this._agentHub = null; }

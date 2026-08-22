@@ -324,7 +324,7 @@ export class EvSignalEngine {
     const mean = recentCloses.reduce((a, b) => a + b, 0) / 20;
     const variance = recentCloses.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / 20;
     const stdDev = Math.sqrt(variance);
-    return stdDev / mean;
+    return mean === 0 ? 0 : stdDev / mean;
   }
 
   calculateTrendDerivative(candles, index, ema20Fn, ema50Fn) {

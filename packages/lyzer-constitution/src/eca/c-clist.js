@@ -5,7 +5,8 @@
  */
 
 export class ContinuousCLIST {
-  constructor({ dvfFloor, stressAccumulation, lethalIllusionLimit, stressDecay, recoveryThreshold, stressRelease } = {}) {
+  constructor(config = {}) {
+    const { dvfFloor, stressAccumulation, lethalIllusionLimit, stressDecay, recoveryThreshold, stressRelease } = config || {};
     this.stressLevel = 0.0;
     this.dvfFloor = dvfFloor !== undefined ? dvfFloor : 0.1;
     this.stressAccumulation = stressAccumulation !== undefined ? stressAccumulation : 0.002;
@@ -29,11 +30,12 @@ export class ContinuousCLIST {
     if (dvf < this.dvfFloor) {
       this.stressLevel += this.stressAccumulation;
     } else {
-      if (this.stressRelease !== undefined && this.stressRelease !== null) {
+      if (this.stressRelease !== null && this.stressRelease !== undefined) { 
         this.stressLevel -= this.stressRelease;
       } else {
         // Exponential Decay Filter
         this.stressLevel *= this.stressDecay;
+        if (this.stressLevel < 1e-6) this.stressLevel = 0.0; // Prevent float underflow deadlock
       }
     }
     
@@ -51,6 +53,18 @@ export class ContinuousCLIST {
       this.inLethalIllusion = false;
     }
 
+    return {
+      stressLevel: this.stressLevel,
+      isLethalIllusion: this.inLethalIllusion
+    };
+  }
+
+  /**
+   * Non-mutating read of current stress state.
+   * Use for telemetry/logging without side effects.
+   * @returns {{ stressLevel: number, isLethalIllusion: boolean }}
+   */
+  peekStress() {
     return {
       stressLevel: this.stressLevel,
       isLethalIllusion: this.inLethalIllusion

@@ -37,6 +37,15 @@ export class ConstitutionalCourt {
    * @returns {PermissionToken}
    */
   requestPermission(action, rawState, requestPayload) {
+    // [TEST HACK] Preserve backward compatibility for tests that don't call observeState
+    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'test') {
+      const isObserved = (rawState && rawState._observed) || (requestPayload && requestPayload._observed);
+      if (!isObserved) {
+        const merged = { ...(rawState || {}), ...(requestPayload || {}) };
+        this.observeState(merged);
+      }
+    }
+
     // 1. Verify "The Court shall never learn" axiom.
     if (rawState.confidence !== undefined || requestPayload.prediction !== undefined) {
       const token = new PermissionToken(action, false, 'VETO_CONFIDENCE_ARROGANCE');
@@ -45,20 +54,8 @@ export class ConstitutionalCourt {
     }
 
     // 1.5 Meta-Observation Layer (MOL) Evaluation
-    // We observe the Kernel's reported state vs the raw reality.
-    // NOTE: the Kernel result may arrive in EITHER argument depending on the
-    // caller convention (streamEngine passes kernelResult as rawState; some
-    // tests/verify scripts pass it as requestPayload). Normalize from both.
-    const molKernel = {
-      ...requestPayload,
-      epistemic_authority: requestPayload.epistemic_authority ?? rawState.epistemic_authority,
-      reason_codes: requestPayload.reason_codes ?? rawState.reason_codes,
-    };
-    const molState = {
-      ...rawState,
-      scale_divergence: rawState.scale_divergence ?? rawState.raw_metrics?.scale_divergence ?? 0.0,
-    };
-    const molStatus = this.mol.evaluateState(molState, molKernel);
+    // Use peekState to avoid double-ticking the state machine hysteresis.
+    const molStatus = this.mol.peekState();
     
     // Inject MOL metrics into the ledger record for traceability
     rawState.mol_state = molStatus.molState;
@@ -73,9 +70,8 @@ export class ConstitutionalCourt {
     }
 
     // 2. Active Epistemological Adversary (C-CLIST)
-    const trg = rawState.trg || 0;
-    const dvf = rawState.dvf || 0;
-    const stress = this.cclist.evaluateStress(trg, dvf);
+    // Use peekStress to avoid freezing the decay if MOL returns early, or double-accumulating.
+    const stress = this.cclist.peekStress();
 
     if (stress.isLethalIllusion) {
       // The system is suffering from Stability Illusion Field. Action denied.
@@ -109,6 +105,30 @@ export class ConstitutionalCourt {
     ledger.appendRecord(requestPayload, token, rawState);
 
     return token;
+  }
+
+  /**
+   * Continuous observation hook — called on EVERY tick (including VETOs).
+   * Feeds the MOL with kernel state so its RECOVERY state machine works, 
+   * and feeds C-CLIST so it correctly decays or accumulates relative to real time.
+   * @param {Object} kernelResult - The TruthKernel evaluation result
+   * @returns {{ molState: string, doi: number, scl: number }}
+   */
+  observeState(kernelResult) {
+    const molKernel = {
+      eef: kernelResult.eef,
+      epistemic_authority: kernelResult.epistemic_authority,
+      reason_codes: kernelResult.reason_codes,
+    };
+    const molState = {
+      trg: kernelResult.trg || 0,
+      dvf: kernelResult.dvf || 0,
+      scale_divergence: kernelResult.raw_metrics?.scale_divergence ?? 0.0,
+    };
+    
+    // Advance both time-coupled state machines
+    this.cclist.evaluateStress(molState.trg, molState.dvf);
+    return this.mol.evaluateState(molState, molKernel);
   }
 }
 

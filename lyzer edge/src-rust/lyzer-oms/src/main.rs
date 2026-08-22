@@ -157,7 +157,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
             let req = tonic::Request::new(GetMaxVersionRequest {});
             if let Ok(res) = lag_monitor_client.get_max_version(req).await {
                 let registry_version = res.into_inner().max_global_version;
-                let projection_version = lag_monitor_state.lock().unwrap().last_global_version;
+                let projection_version = lag_monitor_state.lock().unwrap_or_else(|poisoned| poisoned.into_inner()).last_global_version;
                 
                 let lag = registry_version - projection_version;
                 if lag > 10 { // 10 versions lag threshold
@@ -191,17 +191,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
             
             match serde_json::from_str::<lyzer::IntentEventRecord>(&payload) {
                 Ok(record) => {
-                    let mut state = shared_state.lock().unwrap();
+                    let mut state = shared_state.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
                     
                     if record.global_version > state.last_global_version {
-                        apply_event_to_state(&mut state, &record.execution_intent_id, &record.event_type, record.global_version);
-                        events_since_snapshot += 1;
-
-                        if events_since_snapshot >= 10 {
-                            save_snapshot(&state, snapshot_file);
-                            events_since_snapshot = 0;
-                        }
-
+                        // Publish side effects BEFORE updating the state and saving snapshot
                         if record.event_type == "CREATED" {
                             let ack_payload = serde_json::json!({
                                 "event_type": "ORDER_ACK"
@@ -218,9 +211,15 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
                             };
 
                             let pending_json = serde_json::to_string(&pending_req).unwrap();
-                            nats_client.publish("execution.pending.order_ack", bytes::Bytes::from(pending_json)).await?;
-                            println!("Emitted execution.pending.order_ack for Intent {}", record.execution_intent_id);
+                            if let Err(e) = nats_client.publish("execution.pending.order_ack", bytes::Bytes::from(pending_json)).await {
+                                println!("Failed to emit execution.pending.order_ack for Intent {}: {}", record.execution_intent_id, e);
+                            } else {
+                                println!("Emitted execution.pending.order_ack for Intent {}", record.execution_intent_id);
+                            }
                         }
+
+                        apply_event_to_state(&mut state, &record.execution_intent_id, &record.event_type, record.global_version);
+                        events_since_snapshot += 1;
                     } else {
                         println!("Skipped old event for Intent {}, g_version {}", record.execution_intent_id, record.global_version);
                     }
@@ -230,7 +229,14 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
                 }
             }
             
-            msg.ack().await?;
+            // Ack first, then save snapshot. If we crash here, we just re-process.
+            let _ = msg.ack().await;
+            
+            if events_since_snapshot >= 10 {
+                let state = shared_state.lock().unwrap_or_else(|poisoned| poisoned.into_inner());
+                save_snapshot(&state, snapshot_file);
+                events_since_snapshot = 0;
+            }
         }
     }
 

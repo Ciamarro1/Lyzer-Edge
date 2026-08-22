@@ -129,6 +129,7 @@ export class LiveDataIngestor {
             if (this.onTick) {
               this.onTick({
                 openTime: liveRaw[0],
+                timestamp: liveRaw[0], // L3 fix for tick
                 open: parseFloat(liveRaw[1]),
                 high: parseFloat(liveRaw[2]),
                 low: parseFloat(liveRaw[3]),
@@ -136,6 +137,29 @@ export class LiveDataIngestor {
                 volume: parseFloat(liveRaw[5]),
                 closed: false
               });
+            }
+
+            // M2 fix: Also poll bookTicker
+            try {
+              const btUrl = `${this.baseUrl}/api/v3/ticker/bookTicker?symbol=${encodeURIComponent(this.symbol)}`;
+              const btRes = await safeFetch(btUrl, { dispatcher: getFetchDispatcher() });
+              if (btRes.ok) {
+                const btData = await btRes.json();
+                const bp = parseFloat(btData.bidPrice || 0);
+                const ap = parseFloat(btData.askPrice || 0);
+                const bq = parseFloat(btData.bidQty || 0);
+                const aq = parseFloat(btData.askQty || 0);
+                const imbalance = (bq + aq) > 0 ? (bq - aq) / (bq + aq) : 0;
+                if (this.onBookTicker) {
+                  this.onBookTicker({
+                    bidPrice: bp, bidQty: bq,
+                    askPrice: ap, askQty: aq,
+                    imbalance: imbalance
+                  });
+                }
+              }
+            } catch (err) {
+              console.warn(`[INGESTOR] [POLL] bookTicker fetch failed: ${err.message}`);
             }
 
             if (closedOpenTime !== this._lastClosedOpenTime) {
@@ -209,12 +233,25 @@ export class LiveDataIngestor {
     
     validateUrl(wsUrl, { allowWs: true })
       .then((validWsUrl) => {
+        if (this.ws) {
+          try {
+            this.ws.terminate();
+          } catch(e) {}
+          this.ws = null;
+        }
+        
         this.ws = new WebSocket(validWsUrl, { agent: getWsProxyAgent() });
 
         this.ws.on('open', () => {
           console.log(`🟢 [INGESTOR] Binance WebSocket connected: ${validWsUrl}`);
           this.reconnectAttempts = 0;
           triggerStateChange('CONNECTED');
+        });
+
+        this.ws.on('ping', (data) => {
+          try {
+            this.ws.pong(data);
+          } catch (e) {}
         });
 
         this.ws.on('message', (data) => {
@@ -241,6 +278,7 @@ export class LiveDataIngestor {
                 const kline = d.k;
                 const candle = {
                   openTime: kline.t,
+                  timestamp: kline.t,
                   open: parseFloat(kline.o),
                   high: parseFloat(kline.h),
                   low: parseFloat(kline.l),

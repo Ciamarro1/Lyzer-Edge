@@ -1,36 +1,48 @@
 import { describe, it, expect } from 'vitest';
-import { ResearchDataset } from '../../../packages/lyzer-shared/src/research/researchDataset.js';
-import { MarketRegimeDiscovery } from '../../../packages/lyzer-shared/src/research/regimeDiscovery.js';
-import { FeatureDiscovery } from '../../../packages/lyzer-shared/src/research/featureDiscovery.js';
-import { AutoExperiments } from '../../../packages/lyzer-shared/src/research/autoExperiments.js';
+import { StatisticalValidator } from '../../../packages/lyzer-shared/src/research/statisticalValidator.js';
+import { classifyRegime } from '../../../packages/lyzer-shared/src/research/regimeClassifier.js';
+import { AlphaEvolutionEngine } from '../../../packages/lyzer-shared/src/research/alphaEvolutionEngine.js';
 
 describe('Autonomous Research Lab - Suite de Testes do Motor Científico', () => {
-  it('deve registrar decisões no dataset de pesquisa com 24 atributos', () => {
-    const dataset = new ResearchDataset();
-    const record = dataset.logDecision({
-      asset: 'BTCUSDT',
-      result: 'win',
-      atr: 1.2,
-      trg: 0.55
-    });
+  it('deve calcular estatísticas completas de trades via StatisticalValidator', () => {
+    const validator = new StatisticalValidator();
+    const trades = [
+      { pnl: 0.05, holdingBars: 5, exitReason: 'TP' },
+      { pnl: -0.02, holdingBars: 3, exitReason: 'SL' },
+      { pnl: 0.04, holdingBars: 8, exitReason: 'TP' },
+      { pnl: -0.01, holdingBars: 2, exitReason: 'SL' },
+      { pnl: 0.03, holdingBars: 4, exitReason: 'TP' }
+    ];
 
-    expect(record).toHaveProperty('timestamp');
-    expect(record).toHaveProperty('asset', 'BTCUSDT');
-    expect(record).toHaveProperty('mfe');
-    expect(record).toHaveProperty('mae');
-    expect(dataset.getDataset().length).toBe(1);
+    const stats = validator.computeAll(trades);
+    expect(stats).toHaveProperty('totalReturn');
+    expect(stats.winRate).toBe(0.6);
+    expect(stats.profitFactor).toBeGreaterThan(1.0);
+    expect(stats.sharpe).toBeDefined();
+    expect(stats.maxDrawdown).toBeLessThanOrEqual(0);
   });
 
-  it('deve identificar regimes de mercado via clustering', () => {
-    const regimeEngine = new MarketRegimeDiscovery();
-    const result = regimeEngine.discoverRegimes([{ atr: 1.2, bos: true, result: 'win' }]);
-    expect(result).toHaveProperty('discoveredRegimesCount', 4);
+  it('deve classificar regimes de mercado via classifyRegime', () => {
+    const candles = Array.from({ length: 35 }, (_, i) => ({
+      open: 100 + i * 0.5,
+      high: 102 + i * 0.5,
+      low: 99 + i * 0.5,
+      close: 101 + i * 0.5,
+      volume: 1000 + i * 10
+    }));
+
+    const result = classifyRegime(candles);
+    expect(result).toHaveProperty('regime');
+    expect(result).toHaveProperty('confidence');
+    expect(result.metrics).toHaveProperty('atrRatio');
+    expect(result.transition).toHaveProperty('predictedNext');
   });
 
-  it('deve avaliar feature drift entre janelas temporais', () => {
-    const featureEngine = new FeatureDiscovery();
-    const drift = featureEngine.computeImportanceDrift();
-    expect(drift).toHaveProperty('conceptDriftDetected', false);
-    expect(drift.driftScores).toHaveProperty('structure_m15');
+  it('deve instanciar e gerenciar hipóteses via AlphaEvolutionEngine', () => {
+    const engine = new AlphaEvolutionEngine();
+    expect(engine).toBeDefined();
+    const id = engine.propose('Test Hypothesis', 'Test description', {}, {});
+    expect(id).toBeDefined();
+    expect(typeof engine.monitor).toBe('function');
   });
 });

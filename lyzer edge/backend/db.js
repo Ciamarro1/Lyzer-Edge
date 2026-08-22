@@ -2,7 +2,7 @@ import sqlite3 from 'sqlite3';
 import path from 'path';
 import fs from 'fs';
 import { recordSqliteWrite, recordSqliteLockWait, recordSystemError } from '../src/observability/index.js';
-import { safeJsonParse } from './utils/safeJson.js';
+import { safeJsonParse, safeJsonStringify } from './utils/safeJson.js';
 import { runMigrations, runTTLCleanup } from './migrations.js';
 
 // Use /tmp/data which is always writable in containerized environments
@@ -67,16 +67,13 @@ export class CausalMemoryDB {
         this.migrationsPromise = runMigrations(this).catch(err => {
             recordSystemError('CausalMemoryDB', 'MIGRATION_ERROR');
             console.error('[DB] Schema migration failed:', err);
+            throw err;
         });
     }
 
     async ensureReady() {
         if (this.migrationsPromise) {
-            try {
-                await this.migrationsPromise;
-            } catch (e) {
-                // Migration error already recorded in init()
-            }
+            await this.migrationsPromise;
         }
     }
 
@@ -414,6 +411,8 @@ export class CausalMemoryDB {
             this.db.serialize(() => {
                 this.db.run(sql, params, (err) => {
                     if (err) {
+                        recordSystemError('CausalMemoryDB', 'INSERT_CAUSAL_EVENT_ERROR');
+                        console.error('[DB] Failed to insert causal event (possible SQLITE_BUSY):', err);
                         reject(err);
                     } else {
                         recordSqliteWrite('insert_causal_event', (performance.now() - startTime) / 1000);
@@ -476,15 +475,21 @@ export class CausalMemoryDB {
                 this.db.run("BEGIN TRANSACTION");
                 const stmt = this.db.prepare(`INSERT INTO candles (symbol, timeframe, timestamp, open, high, low, close, volume, close_time) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`);
                 
+                let stmtError = null;
                 for (let i = 0; i < candles.length; i++) {
                     const c = candles[i];
-                    stmt.run(symbol, timeframe, c.t, c.o, c.h, c.l, c.c, c.v, c.T);
+                    stmt.run(symbol, timeframe, c.t, c.o, c.h, c.l, c.c, c.v, c.T, (err) => {
+                        if (err && !stmtError) {
+                            stmtError = err;
+                            console.error(`[DB] insertBatch Statement Error (SQLITE_BUSY?):`, err);
+                        }
+                    });
                 }
                 
                 stmt.finalize();
                 this.db.run("COMMIT", (err) => {
-                    if (err) {
-                        reject(err);
+                    if (err || stmtError) {
+                        reject(err || stmtError);
                     } else {
                         recordSqliteWrite('insert_batch', (performance.now() - startTime) / 1000);
                         resolve();
@@ -543,8 +548,8 @@ export class CausalMemoryDB {
                 display_name || null,
                 status || 'ACTIVE',
                 strategy_hash,
-                config_snapshot_json,
-                model_snapshot_json || null,
+                safeJsonStringify(config_snapshot_json),
+                safeJsonStringify(model_snapshot_json),
                 champion_flag || 0,
                 created_at || Date.now(),
                 parent_experiment_id || null
@@ -599,6 +604,7 @@ export class CausalMemoryDB {
         });
     }
 
+
     async insertExperimentTrade(experimentId, trade) {
         await this.ensureReady();
         return new Promise((resolve, reject) => {
@@ -622,11 +628,11 @@ export class CausalMemoryDB {
                 trade.pnl || null,
                 trade.pnl != null ? trade.pnl * 100 : null,
                 trade.status || 'open',
-                trade.signal ? JSON.stringify(trade.signal) : null,
+                trade.signal ? safeJsonStringify(trade.signal) : null,
                 trade.regime || null,
                 trade.governanceDecision || trade.governance_decision || null,
-                trade.reasonCodes ? JSON.stringify(trade.reasonCodes) : (trade.reason_codes_json || null),
-                trade.ev ? JSON.stringify(trade.ev) : (trade.ev_json || null),
+                trade.reasonCodes ? safeJsonStringify(trade.reasonCodes) : safeJsonStringify(trade.reason_codes_json),
+                trade.ev ? safeJsonStringify(trade.ev) : safeJsonStringify(trade.ev_json),
                 trade.timestamp || trade.entry_timestamp || Date.now(),
                 trade.exit_timestamp || null,
                 Date.now()

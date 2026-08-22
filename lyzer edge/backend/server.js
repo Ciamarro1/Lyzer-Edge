@@ -1,4 +1,5 @@
 import './env.js';
+import fs from 'fs';
 import express from 'express';
 import http from 'http';
 import { WebSocketServer } from 'ws';
@@ -13,6 +14,7 @@ import { getCourtSecret } from '../../packages/lyzer-constitution/src/eca/permis
 import { sanitizeBodyMiddleware, safeMerge } from './utils/safeJson.js';
 import { ExchangeExecution } from './exchangeExecution.js';
 import { recordSystemError } from '../src/observability/index.js';
+import { attachPhase16Auditor, getLedgerFile } from './phase16Auditor.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -52,10 +54,25 @@ export const engines = [];
 // Initialize Quant Research Lab Experiment Manager
 const experimentManager = new ExperimentManager(db);
 if (process.env.NODE_ENV !== 'test') {
-  experimentManager.initialize().then(() => {
+  let courtSecret;
+  try {
+    courtSecret = getCourtSecret();
+  } catch(e) {
+    console.warn(`[WARNING] getCourtSecret failed: ${e.message}. System will boot in degraded mode.`);
+    courtSecret = null;
+  }
+
+  // Instantiate Global Court exactly once to avoid reconfiguration races
+  const { court } = await import("../../packages/lyzer-constitution/src/eca/court.js");
+  const { cclistConfig, molSclThreshold } = await import('./config.js').catch(() => ({ cclistConfig: {}, molSclThreshold: 3 }));
+  court.configure(cclistConfig, { sclThreshold: molSclThreshold });
+  if (court.mol) court.mol.stabilizationWindowMs = 0;
+
+  // H1 fix: Proper asynchronous initialization of ExperimentManager
+  await experimentManager.initialize().then(() => {
     console.log('🧪 [QUANT LAB] ExperimentManager initialized successfully.');
   }).catch(err => {
-    console.error('❌ [QUANT LAB] Failed to initialize ExperimentManager:', err);
+    console.error(`[FATAL] Failed to initialize ExperimentManager:`, err);
   });
 }
 
@@ -562,6 +579,31 @@ app.get('/api/trades/export', authenticateAdmin, (req, res) => {
   }
 });
 
+app.get('/api/ledger/export', authenticateAdmin, (req, res) => {
+  try {
+    const file = getLedgerFile();
+    if (!fs.existsSync(file)) {
+      return res.status(404).json({ error: 'Ledger file not found or no trades logged yet.' });
+    }
+    const content = fs.readFileSync(file, 'utf8');
+    const lines = content.trim().split('\n').filter(l => l.trim().length > 0);
+    const entries = lines.map(l => {
+      try { return JSON.parse(l); } catch(e) { return null; }
+    }).filter(Boolean);
+
+    res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Content-Disposition', `attachment; filename=forward_validation_ledger_v2_${new Date().toISOString().slice(0,10)}.json`);
+    res.json({
+      exportedAt: new Date().toISOString(),
+      totalEntries: entries.length,
+      ledger: entries
+    });
+  } catch (err) {
+    recordSystemError('Server', 'API_ERROR');
+    res.status(500).json({ error: err.message });
+  }
+});
+
 app.get('/api/test-telegram', authenticateAdmin, async (req, res) => {
   try {
     await sendTelegramAlert('🧪 <b>[LYZER TEST] TESTE DE INTEGRAÇÃO</b>\nSua integração com o Telegram está funcionando perfeitamente!');
@@ -678,8 +720,6 @@ const broadcast = (payload) => {
     }
   });
 };
-
-import { attachPhase16Auditor } from './phase16Auditor.js';
 
 // --- INITIALIZE MULTI-ASSET FLEET ---
 if (process.env.NODE_ENV !== 'test') {

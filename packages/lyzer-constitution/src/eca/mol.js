@@ -108,4 +108,42 @@ export class MetaObservationLayer {
     // Default healthy state (EXECUTE)
     return { canExecute: true, molState: this.state, doi: 0, scl: 0 };
   }
+
+  /**
+   * Non-mutating read of current MOL state.
+   */
+  peekState() {
+    const isStabilized = (Date.now() - this.bootTime) >= this.stabilizationWindowMs;
+    if (!isStabilized) {
+      return { 
+        canExecute: false, 
+        molState: 'RECOVERY', 
+        reason: 'VETO_MOL_STABILIZATION_WARMUP',
+        doi: this.durationOfInaction, 
+        scl: this.structuralCoherenceLock 
+      };
+    }
+    
+    if (this.state === 'RECOVERY') {
+       return { 
+          canExecute: false, 
+          molState: 'RECOVERY', 
+          reason: 'VETO_MOL_RECOVERY_PENDING',
+          doi: this.durationOfInaction, 
+          scl: this.structuralCoherenceLock 
+        };
+    }
+    
+    if (this.state === 'VETO') {
+       return { 
+          canExecute: false, 
+          molState: 'VETO', 
+          reason: 'VETO',
+          doi: this.durationOfInaction, 
+          scl: this.structuralCoherenceLock 
+        };
+    }
+
+    return { canExecute: true, molState: this.state, doi: 0, scl: 0 };
+  }
 }
