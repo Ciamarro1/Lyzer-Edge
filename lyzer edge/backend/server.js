@@ -47,8 +47,8 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
-// --- MULTI-ASSET FLEET DEFINITION ---
-export const targetAssets = (process.env.ACTIVE_SYMBOLS ? process.env.ACTIVE_SYMBOLS.split(',').map(s => s.trim().toUpperCase()).filter(Boolean) : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT']);
+// --- MULTI-ASSET FLEET DEFINITION (6 PRIMARY PAIRS) ---
+export const targetAssets = (process.env.ACTIVE_SYMBOLS ? process.env.ACTIVE_SYMBOLS.split(',').map(s => s.trim().toUpperCase()).filter(Boolean) : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT']);
 export const engines = [];
 
 // Initialize Quant Research Lab Experiment Manager

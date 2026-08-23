@@ -527,7 +527,8 @@ export class StreamEngine extends EventEmitter {
         const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
         const closeQty = pos.quantity || 0.001;
         const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
-        this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice).catch(e => console.error('[STREAM] Close order failed:', e.message));
+        const rules = this.getSymbolRules(exitPrice);
+        this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules).catch(e => console.error('[STREAM] Close order failed:', e.message));
       }
 
       const outcome = exitReason === 'TAKE_PROFIT' || rawPnl > 0 ? 'PROFIT_TARGET' : (exitReason === 'STOP_LOSS' ? 'STOP_LOSS' : 'SCRATCH');
@@ -1318,8 +1319,9 @@ export class StreamEngine extends EventEmitter {
           const closeSide = pos.direction === 'LONG' ? 'SELL' : 'BUY';
           const closeQty = pos.quantity || 0.001;
           const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
+          const rules = this.getSymbolRules(exitPrice);
           this.ui.logEvent(`Executing close order (${closeSide}) for ${this.symbol} as ${exitType}. Target: ${this.mode}`);
-          this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice)
+          this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules)
             .then(order => {
               this.emit('execution', {
                 symbol: this.symbol,
@@ -1746,10 +1748,18 @@ export class StreamEngine extends EventEmitter {
     }
   }
 
+  getSymbolRules(price) {
+    const p = Number(price) || 0;
+    const lotDecimals = p > 10000 ? 4 : p > 1000 ? 3 : p > 10 ? 2 : 0;
+    const priceDecimals = p > 1000 ? 2 : p > 10 ? 2 : 4;
+    return { lotDecimals, priceDecimals };
+  }
+
   async handleExecution(direction, candle, quantity) {
     try {
       const side = direction === 'LONG' ? 'BUY' : 'SELL';
-      const order = await this.execution.placeOrder(this.symbol, side, 'LIMIT', quantity, candle.close);
+      const rules = this.getSymbolRules(candle.close);
+      const order = await this.execution.placeOrder(this.symbol, side, 'LIMIT', quantity, candle.close, rules);
 
       this.emit('execution', {
         symbol: this.symbol,
