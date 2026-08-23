@@ -401,11 +401,11 @@ export class CausalMemoryDB {
                 event.intent_id || null,
                 event.parent_event || null,
                 event.version || '1.0.0',
-                event.hash_prev,
+                event.hash_prev || '0'.repeat(64),
                 event.epistemic_regime || 'REGIME_A_CONSENSUS',
                 JSON.stringify(event.payload || {}),
                 JSON.stringify(event.context || {}),
-                event.hash
+                event.hash || '0'.repeat(64)
             ];
 
             this.db.serialize(() => {

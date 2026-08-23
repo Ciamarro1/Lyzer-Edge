@@ -1,4 +1,9 @@
-import { getScoreColor } from '../engine/edgescore.js';
+export function getScoreColor(score) {
+  if (score <= 25) return '#ef4444';
+  if (score <= 50) return '#f59e0b';
+  if (score <= 75) return '#3b82f6';
+  return '#06d6a0';
+}
 
 export class EdgeScoreRing {
   constructor(options = {}) {

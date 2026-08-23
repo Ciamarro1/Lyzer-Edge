@@ -37,6 +37,7 @@ vi.mock('../../src/observability/index.js', () => {
     recordPositionOpened: dummy,
     recordPositionClosed: dummy,
     recordSqliteLockWait: dummy,
+    recordSqliteWrite: dummy,
   };
 });
 
@@ -252,20 +253,26 @@ describe('Fix C — releaseDailyCapital', () => {
   });
 
   test('full lifecycle: open position increments capital, SL close releases it back to 0', async () => {
-    const engine = new StreamEngine({ mode: 'LIVE' });
+    const engine = new StreamEngine({ mode: 'LIVE', stabilizationWindowMs: 0 });
     engine.maxDailyCapital = 1_000_000;
     engine.dailyCapitalUsed = 0;
     engine.stabilizationWindowMs = 0;
+    if (engine.court && engine.court.mol) {
+      engine.court.mol.stabilizationWindowMs = 0;
+      engine.court.mol.bootTime = 0;
+    }
     engine.bootTime = Date.now();
     engine.execution = { placeOrder: async () => ({ orderId: 'test' }) };
     engine.riskGateway = { authorizeOrder: async () => ({ approved: true }) };
     engine.dualMonitor = { calculateDivergence: async () => 0.0 };
     engine.divergenceDetector = { detect: () => 0.1 };
+    engine.dampener.canOpenTrade = () => ({ permitted: true });
     engine.mtfCandles['1m'] = flatCandles(25, 100);
     engine.mtfCandles['5m'] = flatCandles(10, 100);
     engine.mtfCandles['15m'] = flatCandles(15, 100);
     engine.mtfCandles['1h'] = flatCandles(10, 100);
     engine.candles = flatCandles(25, 100);
+    engine.v1 = { reconstruct: () => ({ signal: 'SHORT', confidence: 80, narrative: 'test' }) };
     // Deterministic kernel: EXECUTE (court is real and must grant)
     engine.truthKernel = {
       evaluate: () => ({

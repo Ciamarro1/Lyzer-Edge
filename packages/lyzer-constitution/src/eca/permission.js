@@ -5,7 +5,7 @@
  */
 
 import crypto from 'crypto';
-import { generateUUIDv7 } from "../../../../../lyzer edge/src/causal-memory/EventFactory.js";
+import { generateUUIDv7 } from "../../../../lyzer edge/src/causal-memory/EventFactory.js";
 
 /**
  * Resolves the Court HMAC secret strictly from the environment.

@@ -26,3 +26,4 @@ docs/estudos/
 # Ignorar arquivos grandes de dados de teste
 lyzer edge/historical_data_*.json
 lyzer edge/macro_backtest_*.json
+lyzer edge/temp_test_ledger/

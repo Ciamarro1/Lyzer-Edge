@@ -4,7 +4,7 @@
  */
 
 import EventEmitter from 'events';
-import { generateUUIDv7 } from "../../src/causal-memory/EventFactory.js";
+import { generateUUIDv7 } from "../src/causal-memory/EventFactory.js";
 import { EvSignalEngine } from "../../packages/lyzer-shared/src/engine/evSignalRedesign.js";
 import { computeTradeEV } from "../../packages/lyzer-shared/src/engine/evProfiler.js";
 import { EVAlphaResearchEngineV3_3 } from "./EVAlphaResearchEngineV3_3.js";
@@ -90,6 +90,9 @@ export class StreamEngine extends EventEmitter {
     // Global Constitutional Court is configured once in server.js
     // StreamEngine only references it.
     this.court = config.court || court;
+    if (config.stabilizationWindowMs !== undefined && this.court && this.court.mol) {
+      this.court.mol.stabilizationWindowMs = config.stabilizationWindowMs;
+    }
 
     this.ecoEngine = new EVAlphaResearchEngineV3_3();
     this.extinctionEngine = this.ecoEngine.extinctionEngine;
@@ -1397,15 +1400,27 @@ export class StreamEngine extends EventEmitter {
       let grpcRejection = null;
       if (this.mode !== 'SIMULATION') {
         try {
-          grpcResult = await authorizeOrder({
-            execution_intent_id: intentId,
-            correlation_id: correlationId,
-            causation_id: causationId,
-            symbol: this.symbol,
-            side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
-            quantity: 0.001,
-            mode: this.mode
-          });
+          if (this.riskGateway && typeof this.riskGateway.authorizeOrder === 'function') {
+            grpcResult = await this.riskGateway.authorizeOrder({
+              execution_intent_id: intentId,
+              correlation_id: correlationId,
+              causation_id: causationId,
+              symbol: this.symbol,
+              side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
+              quantity: 0.001,
+              mode: this.mode
+            });
+          } else {
+            grpcResult = await authorizeOrder({
+              execution_intent_id: intentId,
+              correlation_id: correlationId,
+              causation_id: causationId,
+              symbol: this.symbol,
+              side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
+              quantity: 0.001,
+              mode: this.mode
+            });
+          }
           if (!grpcResult.approved) {
             grpcRejection = grpcResult.rejection_reason || 'RUST_RISK_GATEWAY_VETO';
           }

@@ -2,19 +2,8 @@ import { describe, test, expect } from 'vitest';
 import { MockExchangeAdapter, BinanceAdapter, BybitAdapter, KrakenAdapter } from '../../src/institutional-production/ExchangeAdapter.js';
 
 describe('Fase 14 — ExchangeAdapters Verification', () => {
-  test('connects and places order using MockExchangeAdapter', async () => {
-    const adapter = new MockExchangeAdapter();
-    const conn = await adapter.connect();
-
-    await expect(adapter.placeOrder(orderSpec)).rejects.toThrow('MOCK_EXCHANGE_REMOVED');
-    expect(conn.exchange).toBe('MOCK_EXCHANGE');
-
-    const order = await adapter.placeOrder({ symbol: 'BTC-USD', side: 'BUY', quantity: 0.5, price: 50000 });
-    expect(order.status).toBe('MOCK_EXCHANGE_REMOVED');
-    expect(order.quantity).toBe(0.5);
-
-    const balances = await adapter.getBalances();
-    expect(balances.USDT).toBe(100000.0);
+  test('blocks instantiation of MockExchangeAdapter in production', () => {
+    expect(() => new MockExchangeAdapter()).toThrow('MockExchangeAdapter is strictly forbidden');
   });
 
   test('instantiates Binance, Bybit, and Kraken adapters with standard interface', async () => {

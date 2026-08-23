@@ -1,4 +1,4 @@
-import { ReplayEngine } from './replayEngine.js';
+import { ReplayEngine } from '../smc/replayEngine.js';
 import { StatisticalValidator } from './statisticalValidator.js';
 
 export const HypothesisState = {

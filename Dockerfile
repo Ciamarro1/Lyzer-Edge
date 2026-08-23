@@ -1,5 +1,5 @@
 # --- STAGE 1: Build Rust Hub, Node.js packages and download NATS ---
-FROM rust:latest as builder
+FROM rust:latest AS builder
 
 # Install Node.js and Protocol Buffers compiler (for Rust gRPC/prost)
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
@@ -64,8 +64,9 @@ COPY --from=builder /app /app
 WORKDIR /app
 RUN rm -rf node_modules "lyzer edge/node_modules" && npm install --omit=dev
 
-# Set permissions for Hugging Face unprivileged user (UID 1000 - which is default "ubuntu" user)
-RUN chmod -R 777 /app && \
+# Set permissions for container unprivileged user (UID 1000 - default "ubuntu" user)
+RUN chmod +x /app/docker-entrypoint.sh && \
+    chmod -R 777 /app && \
     chown -R ubuntu:ubuntu /app
 
 USER ubuntu
@@ -114,6 +115,5 @@ WORKDIR "/app/lyzer edge"
 # Expose port 7860
 EXPOSE 7860
 
-# Start restore script, NATS, Rust IPC Hub, RiskGateway, IntentRegistry, and Node.js server concurrently
-# Use exec for the main server so it receives SIGTERM as PID 1
-CMD ["sh", "-c", "python3 backup_restore.py restore ; (nats-server -js > /dev/null 2>&1 &) ; lyzer-core-hub & lyzer-risk-gateway & lyzer-intent-registry & node ../recovery/oos11_microstructure_discovery.mjs & exec node --max-old-space-size=384 backend/server.js"]
+# Start NATS, Rust IPC Hub, Edge Services, non-blocking restore and Node.js server via resilient entrypoint
+CMD ["/bin/sh", "/app/docker-entrypoint.sh"]

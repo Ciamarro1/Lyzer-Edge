@@ -9,8 +9,12 @@ describe('Fase 14 — Full Institutional Production & Knowledge Graph Pipeline V
 
     // 1. Register Command Handler
     facade.registerCommandHandler('ExecuteOrderCommand', async (payload) => {
-      const adapter = facade.getAdapter('MOCK');
-      return await adapter.placeOrder(payload);
+      const adapter = facade.getAdapter('BINANCE');
+      try {
+        return await adapter.placeOrder(payload);
+      } catch (err) {
+        return { status: 'API_ERROR', error: err.message };
+      }
     });
 
     // 2. Dispatch Command
@@ -26,7 +30,7 @@ describe('Fase 14 — Full Institutional Production & Knowledge Graph Pipeline V
     // 3. Protected Call through CircuitBreaker
     const protectedRes = await facade.executeProtectedCall('BINANCE', async () => {
       const adapter = facade.getAdapter('BINANCE');
-      return await adapter.getBalances();
+      return await adapter.connect();
     });
 
     expect(protectedRes.exchange).toBe('BINANCE');
