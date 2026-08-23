@@ -390,6 +390,64 @@ app.post('/api/reset-engine', async (req, res) => {
   }
 });
 
+// Cancel all open orders on exchange
+app.post('/api/cancel-all-orders', async (req, res) => {
+  try {
+    const hasKeys = process.env.BINANCE_API_KEY && process.env.BINANCE_API_KEY !== 'YOUR_API_KEY_HERE';
+    if (!hasKeys) {
+      return res.json({ success: true, message: 'No exchange keys configured (paper mode).' });
+    }
+    const isTestnet = process.env.ARL_MODE === 'TESTNET';
+    const exchange = new ExchangeExecution(process.env.BINANCE_API_KEY, process.env.BINANCE_API_SECRET, isTestnet);
+    const cancelResults = [];
+    const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'ADAUSDT', 'BNBUSDT'];
+    for (const sym of symbols) {
+      try {
+        const result = await exchange.cancelOpenOrders(sym);
+        cancelResults.push({ symbol: sym, result });
+      } catch (e) {
+        cancelResults.push({ symbol: sym, error: e.message });
+      }
+    }
+    res.json({ success: true, message: 'Cancel all open orders triggered.', results: cancelResults });
+  } catch (err) {
+    recordSystemError('Server', 'API_ERROR');
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// Aggregated trades across all active engines
+app.get('/api/engine/trades', (req, res) => {
+  try {
+    const allTrades = [];
+    for (const engine of engines) {
+      if (engine.tradeHistory && Array.isArray(engine.tradeHistory)) {
+        engine.tradeHistory.forEach(t => allTrades.push({ ...t, symbol: engine.symbol }));
+      }
+      if (engine.activePosition) {
+        allTrades.push({
+          id: engine.activePosition.id,
+          symbol: engine.symbol,
+          timestamp: engine.activePosition.timestamp,
+          direction: engine.activePosition.direction,
+          entryPrice: engine.activePosition.entryPrice,
+          exitPrice: null,
+          pnl: '0.00%',
+          status: 'open',
+          stopLoss: engine.activePosition.stopLoss,
+          takeProfit: engine.activePosition.takeProfit,
+          governanceDecision: engine.activePosition.governanceDecision
+        });
+      }
+    }
+    allTrades.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+    res.json({ success: true, trades: allTrades });
+  } catch (err) {
+    recordSystemError('Server', 'API_ERROR');
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 
 console.log(`\n========================================================================`);
 console.log(`🚀 LYZER EDGE QUANT ENGINE — PRODUCTION STARTUP AUDIT`);

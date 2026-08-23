@@ -33,6 +33,7 @@ export class TestnetDashboardWidget {
           </div>
           <div style="display: flex; align-items: center; gap: 8px;">
             <span style="font-size: 10px; color: var(--text-secondary); text-transform: uppercase;">Live Sync</span>
+            <button id="cancel-orders-btn" style="font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(234,179,8,0.4); background: rgba(234,179,8,0.1); color: #eab308; cursor: pointer; font-family: inherit;">⨉ Cancelar Ordens</button>
             <button id="reset-trades-btn" style="font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(239,68,68,0.4); background: rgba(239,68,68,0.1); color: #ef4444; cursor: pointer; font-family: inherit;">⟳ Zerar Trades</button>
           </div>
         </div>
@@ -65,6 +66,29 @@ export class TestnetDashboardWidget {
     const resetBtn = this._container.querySelector('#reset-trades-btn');
     if (resetBtn) {
       resetBtn.addEventListener('click', () => this._resetTrades());
+    }
+
+    const cancelBtn = this._container.querySelector('#cancel-orders-btn');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => this._cancelOrders());
+    }
+  }
+
+  async _cancelOrders() {
+    const btn = this._container.querySelector('#cancel-orders-btn');
+    if (btn) { btn.disabled = true; btn.textContent = 'Cancelando...'; }
+    try {
+      const res = await fetch('/api/cancel-all-orders', { method: 'POST' });
+      const data = await res.json();
+      if (data.success) {
+        const c = this._container.querySelector('#testnet-orders-container');
+        if (c) c.innerHTML = '<div style="color: var(--success-color); text-align: center; padding: 12px 0;">✓ Todas as ordens abertas foram canceladas!</div>';
+        setTimeout(() => this._fetchData(), 800);
+      }
+    } catch (e) {
+      console.error('[TestnetDashboard] Cancel orders error:', e);
+    } finally {
+      if (btn) { btn.disabled = false; btn.textContent = '⨉ Cancelar Ordens'; }
     }
   }
 
@@ -117,30 +141,22 @@ export class TestnetDashboardWidget {
       if (balancesContainer) balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error: ${err.message}</div>`;
     }
 
-    // Fetch engine trade history from candles API
+    // Fetch engine trade history from aggregated /api/engine/trades endpoint
     try {
-      const symbols = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT'];
-      const allTrades = [];
-      let hadError = false;
-      await Promise.all(symbols.map(async sym => {
-        try {
-          const r = await fetch(`/api/candles/${sym}`);
-          if (!r.ok) {
-            hadError = true;
-            return;
-          }
-          const d = await r.json();
-          if (d.trades && Array.isArray(d.trades)) {
-            d.trades.forEach(t => allTrades.push({ ...t, symbol: sym }));
-          }
-        } catch (_) {
-          hadError = true;
+      const r = await fetch('/api/engine/trades');
+      if (r.ok) {
+        const d = await r.json();
+        if (d.success && Array.isArray(d.trades)) {
+          this._updateEngineTradesUI(d.trades, false);
+        } else {
+          this._updateEngineTradesUI([], false);
         }
-      }));
-      allTrades.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
-      this._updateEngineTradesUI(allTrades, hadError);
+      } else {
+        this._updateEngineTradesUI([], true);
+      }
     } catch (err) {
       console.error('[TestnetDashboard] Engine trades error:', err);
+      this._updateEngineTradesUI([], true);
     }
   }
 
@@ -152,11 +168,22 @@ export class TestnetDashboardWidget {
       if (account.code) {
         balancesContainer.innerHTML = `<div style="color: var(--danger-color); font-size:10px;">API Error (${account.code}): ${account.msg}</div>`;
       } else if (account.balances) {
+        const priorityAssets = ['USDT', 'USDC', 'FDUSD', 'BTC', 'ETH', 'SOL', 'BNB', 'XRP', 'ADA'];
         const activeBalances = account.balances.filter(b => parseFloat(b.free) > 0 || parseFloat(b.locked) > 0);
+        // Sort priority assets to the front
+        activeBalances.sort((a, b) => {
+          const idxA = priorityAssets.indexOf(a.asset);
+          const idxB = priorityAssets.indexOf(b.asset);
+          if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+          if (idxA !== -1) return -1;
+          if (idxB !== -1) return 1;
+          return a.asset.localeCompare(b.asset);
+        });
+
         if (activeBalances.length === 0) {
           balancesContainer.innerHTML = '<div style="color: var(--text-secondary);">No balances</div>';
         } else {
-          balancesContainer.innerHTML = activeBalances.map(b => `
+          balancesContainer.innerHTML = activeBalances.slice(0, 12).map(b => `
             <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 10px; display: flex; flex-direction: column;">
               <span style="font-weight: 600; font-size: 11px; color: var(--text-bright);">${b.asset}</span>
               <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-primary);">${parseFloat(b.free).toFixed(4)}</span>

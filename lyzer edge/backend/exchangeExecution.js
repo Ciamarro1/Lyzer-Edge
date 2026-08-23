@@ -142,4 +142,31 @@ export class ExchangeExecution {
       return [];
     }
   }
+
+  async cancelOpenOrders(symbol) {
+    if (!this.apiKey || !this.apiSecret) return { success: false, message: 'Missing API keys' };
+    const cleanSymbol = validateSymbol(symbol);
+    const timestamp = Date.now();
+    const recvWindow = 5000;
+    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    const signature = crypto.createHmac('sha256', this.apiSecret).update(queryString).digest('hex');
+    queryString += `&signature=${encodeURIComponent(signature)}`;
+    const url = `${this.baseUrl}/api/v3/openOrders?${queryString}`;
+    try {
+      const response = await safeFetch(url, {
+        method: 'DELETE',
+        headers: { 'X-MBX-APIKEY': this.apiKey }
+      });
+      if (!response.ok) {
+        let errStr = '';
+        try { errStr = await response.text(); } catch(e) {}
+        console.error(`[EXECUTION] ❌ Failed to cancel open orders for ${cleanSymbol} HTTP ${response.status}:`, errStr);
+        return { success: false, error: errStr };
+      }
+      return await response.json();
+    } catch (e) {
+      console.error(`[EXECUTION] ❌ Failed to cancel open orders for ${cleanSymbol}:`, e);
+      return { success: false, error: e.message };
+    }
+  }
 }
