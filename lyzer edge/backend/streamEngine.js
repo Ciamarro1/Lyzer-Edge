@@ -802,9 +802,12 @@ export class StreamEngine extends EventEmitter {
     // C5 fix: Dispatch async writes to Causal Memory DB for snapshots and verdicts
     if (db && typeof db.insertCausalEvent === 'function') {
       const ts = currentCandleTime || Date.now();
-      const corrId = `tick_${ts}`;
+      const corrId = `tick_${this.symbol}_${ts}`;
+      const snapEventId = `SNAP_${this.symbol}_${ts}_${generateUUIDv7()}`;
+      const verdictEventId = `VERDICT_${this.symbol}_${ts}_${generateUUIDv7()}`;
+
       db.insertCausalEvent({
-        event_id: `SNAP_${corrId}`,
+        event_id: snapEventId,
         timestamp: ts,
         event_type: 'REALITY_SNAPSHOT_CREATED',
         source: 'StreamEngine',
@@ -814,12 +817,12 @@ export class StreamEngine extends EventEmitter {
       }).catch(err => console.error('[CAUSAL_MEMORY] SNAPSHOT failed:', err.message));
 
       db.insertCausalEvent({
-        event_id: `VERDICT_${corrId}`,
+        event_id: verdictEventId,
         timestamp: ts,
         event_type: 'KERNEL_VERDICT',
         source: 'TruthKernel',
         correlation_id: corrId,
-        parent_event: `SNAP_${corrId}`,
+        parent_event: snapEventId,
         payload: kernelResult,
         context: { symbol: this.symbol }
       }).catch(err => console.error('[CAUSAL_MEMORY] VERDICT failed:', err.message));
