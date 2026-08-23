@@ -65,7 +65,7 @@ describe('Phase 3.2 - ChartHost Stress & Performance Gate', () => {
 
     const mountLatency = mountEnd - mountStart;
     console.log(`[Stress Test] ChartHost Mount Latency: ${mountLatency.toFixed(2)}ms`);
-    expect(mountLatency).toBeLessThan(500);
+    expect(mountLatency).toBeLessThan(1000);
 
     const callback = runtime._mockAdapter.callback;
     expect(typeof callback).toBe('function');

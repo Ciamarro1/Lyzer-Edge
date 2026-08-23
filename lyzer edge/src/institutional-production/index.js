@@ -1,4 +1,4 @@
-import { MockExchangeAdapter, BinanceAdapter, BybitAdapter, KrakenAdapter } from './ExchangeAdapter.js';
+import { BinanceAdapter, BybitAdapter, KrakenAdapter } from './ExchangeAdapter.js';
 import { CognitiveCommandBus } from './CognitiveCommandBus.js';
 import { CircuitBreakerEngine } from './CircuitBreakerEngine.js';
 import { SystemHealthSupervisor } from './SystemHealthSupervisor.js';
@@ -13,7 +13,6 @@ export class InstitutionalProductionFacade {
     this.scheduler = new CognitiveScheduler();
     this.knowledgeGraph = new CausalKnowledgeGraph();
     this.exchangeAdapters = new Map([
-      ['MOCK', null],
       ['BINANCE', new BinanceAdapter()],
       ['BYBIT', new BybitAdapter()],
       ['KRAKEN', new KrakenAdapter()]
@@ -21,10 +20,7 @@ export class InstitutionalProductionFacade {
   }
 
   getAdapter(name = 'BINANCE') {
-    if (name === 'MOCK' || !this.exchangeAdapters.get(name)) {
-      return this.exchangeAdapters.get('BINANCE');
-    }
-    return this.exchangeAdapters.get(name);
+    return this.exchangeAdapters.get(name) || this.exchangeAdapters.get('BINANCE');
   }
 
   async dispatchCommand(commandName, payload) {
@@ -75,7 +71,6 @@ export class InstitutionalProductionFacade {
 }
 
 export {
-  MockExchangeAdapter,
   BinanceAdapter,
   BybitAdapter,
   KrakenAdapter,

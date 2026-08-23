@@ -4,8 +4,7 @@ import { RealityTags, ProviderHealthStatus } from '../types.js';
 export class MockProvider extends IDataProvider {
   constructor(id = 'mock-1', realityTag = RealityTags.SYNTHETIC_REALITY) {
     super(id, realityTag);
-    this._connected = false;
-    this._subscriptions = new Map();
+    throw new Error('SYNTHETIC_MOCK_FORBIDDEN: Lyzer Edge operates strictly under Law I (Reality > Models). MockProvider is decommissioned. Use LiveProvider or ReplayProvider.');
   }
 
   async connect() {

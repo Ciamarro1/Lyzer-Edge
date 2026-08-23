@@ -57,10 +57,10 @@ import { db } from "./db.js";
 import crypto from 'crypto';
 
 const signalEngine = new EvSignalEngine();
-const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.15');
+const trgThreshold = parseFloat(process.env.TRG_THRESHOLD || '0.30');
 const trgExponent = parseFloat(process.env.TRG_EXPONENT || '2');
 const consensusLimit = parseFloat(process.env.RESIDUAL_CONSENSUS_LIMIT || '0.1');
-const lhdsVetoLimit = parseFloat(process.env.LHDS_VETO_LIMIT || '0.8');
+const lhdsVetoLimit = parseFloat(process.env.LHDS_VETO_LIMIT || '0.95');
 const ontologicalCollapseTrg = parseFloat(process.env.ONTOLOGICAL_COLLAPSE_TRG || '0.7');
 
 const cclistConfig = {
@@ -70,7 +70,7 @@ const cclistConfig = {
   stressRelease: parseFloat(process.env.CCLIST_STRESS_RELEASE || '0.1'),
 };
 const molSclThreshold = parseInt(process.env.MOL_SCL_THRESHOLD || '3', 10);
-const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS || '').split(',').map(s => s.trim().toLowerCase());
+const defaultDisabledProviders = (process.env.DISABLED_PROVIDERS !== undefined ? process.env.DISABLED_PROVIDERS : (process.env.NODE_ENV === 'test' ? '' : 'v1,v3')).split(',').map(s => s.trim().toLowerCase()).filter(Boolean);
 const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
 court.configure(cclistConfig, { sclThreshold: molSclThreshold, stabilizationWindowMs: process.env.ARL_MODE === 'SIMULATION' ? 0 : (parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS) || 45000) });
@@ -1349,9 +1349,9 @@ export class StreamEngine extends EventEmitter {
       
       if (direction === 'FLAT') return;
 
-      // C7 fix: Enforce direction toggles from environment
+      // Sniper Mode: Long-Only by default in production; shorts enabled explicitly or in test environments
       const longEnabled = process.env.LONG_ENABLED !== 'false';
-      const shortEnabled = process.env.SHORT_ENABLED !== 'false';
+      const shortEnabled = process.env.ALLOW_SHORTS === 'true' || process.env.SHORT_ENABLED === 'true' || (process.env.NODE_ENV === 'test' && process.env.ALLOW_SHORTS !== 'false' && process.env.SHORT_ENABLED !== 'false');
       
       if (direction === 'LONG' && !longEnabled) return;
       if (direction === 'SHORT' && !shortEnabled) return;

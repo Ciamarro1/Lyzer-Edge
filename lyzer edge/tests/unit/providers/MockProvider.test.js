@@ -1,13 +1,8 @@
-import { runDataProviderComplianceSuite } from '../contracts/dataProvider.contract.js';
+import { describe, it, expect } from 'vitest';
 import { MockProvider } from '../../../src/components/commandCenter/sdk/providers/MockProvider.js';
-import { RealityTags } from '../../../src/components/commandCenter/sdk/types.js';
 
-runDataProviderComplianceSuite(
-  'MockProvider',
-  async () => {
-    const provider = new MockProvider('mock-1');
-    await provider.connect();
-    return provider;
-  },
-  RealityTags.SYNTHETIC_REALITY
-);
+describe('MockProvider (Anti-Mock Purge Enforcement)', () => {
+  it('strictly forbids instantiation and throws SYNTHETIC_MOCK_FORBIDDEN', () => {
+    expect(() => new MockProvider('mock-1')).toThrow('SYNTHETIC_MOCK_FORBIDDEN');
+  });
+});

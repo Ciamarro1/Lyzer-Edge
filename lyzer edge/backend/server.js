@@ -48,7 +48,7 @@ const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
 // --- MULTI-ASSET FLEET DEFINITION ---
-export const targetAssets = ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'XRPUSDT', 'BNBUSDT', 'ADAUSDT'];
+export const targetAssets = (process.env.ACTIVE_SYMBOLS ? process.env.ACTIVE_SYMBOLS.split(',').map(s => s.trim().toUpperCase()).filter(Boolean) : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT']);
 export const engines = [];
 
 // Initialize Quant Research Lab Experiment Manager

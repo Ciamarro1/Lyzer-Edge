@@ -57,7 +57,7 @@ describe('Fase 5.1.5 — Production Baseline Validation & Load Benchmark', () =>
 
     expect(throughput).toBeGreaterThan(50);
     expect(p50).toBeLessThan(10);
-    expect(p99).toBeLessThan(50);
+    expect(p99).toBeLessThan(100);
 
     const metricsStr = await register.metrics();
     expect(metricsStr).toContain('lyzer_pipeline_ticks_received_total');

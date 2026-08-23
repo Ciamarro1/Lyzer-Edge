@@ -43,7 +43,8 @@ describe('Fase 14 — Full Institutional Production & Knowledge Graph Pipeline V
     // 5. System Supervision & Status
     const status = facade.getProductionStatus();
     expect(status.status).toBe('PRODUCTION_READY');
-    expect(status.adapters_available.length).toBe(4);
+    expect(status.adapters_available.length).toBe(3);
+    expect(status.adapters_available).toEqual(['BINANCE', 'BYBIT', 'KRAKEN']);
     expect(status.knowledge_graph_summary.total_nodes).toBe(2);
   });
 });
