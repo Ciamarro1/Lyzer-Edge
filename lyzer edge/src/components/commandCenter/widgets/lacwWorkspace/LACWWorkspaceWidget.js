@@ -193,12 +193,18 @@ export class LACWWorkspaceWidget {
         this.layoutEngine.switchPreset(preset);
         this._showToast(`Preset Switched to: ${preset}`);
         
-        // Map preset to corresponding main dock tab
+        // Map all 10 presets to corresponding main dock tabs
         const presetTabMap = {
-          'TRADING': 'chart-host-widget',
+          'EXECUTIVE': 'edge-dashboard-widget',
           'RESEARCH': 'pattern-recognition-widget',
-          'EXECUTION': 'edge-dashboard-widget',
-          'EVIDENCE_AUDIT': 'cognitive-audit-widget'
+          'REVENUE': 'testnet-dashboard-widget',
+          'EXPERIMENT': 'chart-host-widget',
+          'KNOWLEDGE': 'cognitive-audit-widget',
+          'MEMORY': 'causal-graph-widget',
+          'OBSERVABILITY': 'observability-dashboard-widget',
+          'DEVELOPMENT': 'runtime-inspector-widget',
+          'INCIDENT_RESPONSE': 'reality-status-widget',
+          'GOVERNANCE': 'cognitive-audit-widget'
         };
         const targetTab = presetTabMap[preset];
         if (targetTab) {
@@ -239,7 +245,10 @@ export class LACWWorkspaceWidget {
           'cmd_switch_trading': 'chart-host-widget',
           'cmd_switch_research': 'pattern-recognition-widget',
           'cmd_switch_execution': 'edge-dashboard-widget',
-          'cmd_explain_decision': 'cognitive-audit-widget'
+          'cmd_explain_decision': 'cognitive-audit-widget',
+          'cmd_open_observability': 'observability-dashboard-widget',
+          'cmd_open_memory': 'causal-graph-widget',
+          'cmd_open_dev': 'runtime-inspector-widget'
         };
         const targetTab = cmdTabMap[cmdId];
         if (targetTab) {

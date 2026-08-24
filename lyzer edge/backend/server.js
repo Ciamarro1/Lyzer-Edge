@@ -496,6 +496,23 @@ app.get('/api/openmobius-shadow', (req, res) => {
   res.json({ success: true, reports });
 });
 
+// GET /api/causal-events — Query recent causal events from SQLite causal_events_log
+app.get('/api/causal-events', async (req, res) => {
+  try {
+    const limit = Math.min(parseInt(req.query.limit || '50', 10), 200);
+    const symbol = req.query.symbol ? String(req.query.symbol).toUpperCase() : null;
+    const events = await db.getRecentCausalEvents(limit, symbol);
+    res.json({
+      success: true,
+      count: events.length,
+      symbol: symbol || 'ALL',
+      events
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
 // POST /api/test-order — Trigger a manual test order on Binance Testnet/Live
 app.post('/api/test-order', async (req, res) => {
   try {

@@ -466,6 +466,26 @@ export class CausalMemoryDB {
         });
     }
 
+    async getRecentCausalEvents(limit = 50, symbol = null) {
+        await this.ensureReady();
+        return new Promise((resolve, reject) => {
+            let sql = `SELECT * FROM causal_events_log ORDER BY id DESC LIMIT ?`;
+            let params = [limit];
+            if (symbol) {
+                sql = `SELECT * FROM causal_events_log WHERE event_id LIKE ? ORDER BY id DESC LIMIT ?`;
+                params = [`%_${symbol}%`, limit];
+            }
+            this.db.all(sql, params, (err, rows) => {
+                if (err) reject(err);
+                else resolve((rows || []).reverse().map(r => ({
+                    ...r,
+                    payload: safeJsonParse(r.payload),
+                    context: safeJsonParse(r.context)
+                })));
+            });
+        });
+    }
+
     // Insert multiple candles inside a transaction for massive performance gain
     async insertBatch(symbol, timeframe, candles) {
         await this.ensureReady();
