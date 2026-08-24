@@ -17,7 +17,11 @@ describe('Phase 16 Forward Validation Ledger & Execution Auditor Suite', () => {
 
   afterEach(() => {
     if (fs.existsSync(testDataDir)) {
-      fs.rmSync(testDataDir, { recursive: true, force: true });
+      try {
+        fs.rmSync(testDataDir, { recursive: true, force: true });
+      } catch {
+        // Ignore file lock on Windows temp directory teardown
+      }
     }
   });
 

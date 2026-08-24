@@ -20,22 +20,16 @@ export class OpenMobiusEngine {
             return this._getEmptyState();
         }
 
-        // Add is_bullish helper property if it's missing
-        const processedCandles = candles.map(c => ({
-            ...c,
-            is_bullish: c.close >= c.open
-        }));
-
-        const pivots = findSwings(processedCandles);
+        const pivots = findSwings(candles);
         const marketStructure = analyzeStructure(pivots);
         
-        const fvgs = find_fvgs(processedCandles);
-        const displacements = find_displacements(processedCandles);
-        const volumeAnomalies = find_volume_anomalies(processedCandles);
+        const fvgs = find_fvgs(candles);
+        const displacements = find_displacements(candles);
+        const volumeAnomalies = find_volume_anomalies(candles);
         
-        const sweeps = find_sweeps(processedCandles, pivots);
-        const orderBlocks = find_order_blocks(processedCandles);
-        const location = analyze_dealing_range(processedCandles);
+        const sweeps = find_sweeps(candles, pivots);
+        const orderBlocks = find_order_blocks(candles);
+        const location = analyze_dealing_range(candles);
 
         // Compute a high-level bias based on market structure sequence
         let bias = "FLAT";

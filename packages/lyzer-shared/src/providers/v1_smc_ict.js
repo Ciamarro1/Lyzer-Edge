@@ -5,24 +5,31 @@
  * This is NOT a trading strategy. 
  * This is a Hypothesis Generator that reconstructs reality through the lens of Liquidity.
  * Focuses on: Fair Value Gaps (FVG), Order Blocks (OB), and Liquidity Sweeps.
+ * 
+ * Augmented with Temporal Spatial Memory Index (Milestone 3 / Requirement R3).
  */
 
+import { SpatialMemoryIndex } from '../smc/spatialMemoryIndex.js';
+
 export class LiquidityReconstructionEngine {
-    constructor() {
-        // Note: FVG/OB memory tracking is a future enhancement (see alpha_audit_report.md G8)
+    constructor(options = {}) {
+        this.spatialIndex = new SpatialMemoryIndex(options);
     }
 
     /**
      * Reconstructs reality based on the last N candles.
-     * @param {Array} mtfCandles - An object with { fast: [], intermediate: [], slow: [] }
-     * @returns {Object} Narrative reconstruction { signal, confidence, narrative }
+     * @param {Array|Object} mtfCandles - An object with { fast: [], intermediate: [], slow: [] }
+     * @returns {Object} Narrative reconstruction { signal, confidence, narrative, source, spatialMemory }
      */
     reconstruct(mtfCandles) {
         // Fallback to intermediate (M5/M15) or fast for structural liquidity mapping
         const candles = (mtfCandles.intermediate && mtfCandles.intermediate.length >= 5)
             ? mtfCandles.intermediate
             : (mtfCandles.fast && mtfCandles.fast.length >= 5 ? mtfCandles.fast : (mtfCandles.fast || mtfCandles.intermediate || []));
-        if (candles.length < 5) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
+        if (candles.length < 5) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA', source: 'LIQUIDITY_RECONSTRUCTION' };
+
+        // Synchronize spatial memory index with candles
+        this.spatialIndex.update(candles);
 
         const current = candles[candles.length - 1];
         const prev1 = candles[candles.length - 2];
@@ -98,6 +105,26 @@ export class LiquidityReconstructionEngine {
             }
         }
 
+        // 3. Persistent Spatial Memory Interaction (Reaction to unmitigated zones)
+        if (narrative === 'NEUTRAL_LIQUIDITY' && signal === 'flat') {
+            const interaction = this.spatialIndex.checkInteraction(current);
+            if (interaction) {
+                if (interaction.direction === 'BULLISH' && interaction.type === 'TEST') {
+                    narrative = interaction.level.type === 'OB'
+                        ? 'BULLISH_OB_MITIGATION_REACTION'
+                        : 'BULLISH_FVG_MITIGATION_REACTION';
+                    signal = 'long';
+                    confidence += 35;
+                } else if (interaction.direction === 'BEARISH' && interaction.type === 'TEST') {
+                    narrative = interaction.level.type === 'OB'
+                        ? 'BEARISH_OB_MITIGATION_REACTION'
+                        : 'BEARISH_FVG_MITIGATION_REACTION';
+                    signal = 'short';
+                    confidence += 35;
+                }
+            }
+        }
+
         // Normalize confidence
         confidence = Math.min(100, Math.max(0, confidence));
         
@@ -110,7 +137,8 @@ export class LiquidityReconstructionEngine {
             source: 'LIQUIDITY_RECONSTRUCTION',
             signal,
             confidence,
-            narrative
+            narrative,
+            spatialMemory: this.spatialIndex.getSummary()
         };
     }
 }

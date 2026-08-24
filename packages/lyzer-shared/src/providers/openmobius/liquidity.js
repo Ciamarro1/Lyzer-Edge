@@ -1,20 +1,17 @@
 export function find_sweeps(candles, swings, lookback_bars = 15) {
   const out = [];
-  const n = candles.length;
-  
-  const swing_highs = swings
-    .filter(s => s.kind === 'high')
-    .map(s => [s.index, s.price]);
-    
-  const swing_lows = swings
-    .filter(s => s.kind === 'low')
-    .map(s => [s.index, s.price]);
+  const n = candles ? candles.length : 0;
+  if (!swings || swings.length === 0 || n < 2) return out;
 
   for (let i = 1; i < n; i++) {
     const c = candles[i];
     
     // buy-side sweep
-    for (const [sh_idx, sh_price] of swing_highs) {
+    for (let k = 0; k < swings.length; k++) {
+      const s = swings[k];
+      if (s.kind !== 'high') continue;
+      const sh_idx = s.index;
+      const sh_price = s.price;
       if (sh_idx >= i) continue;
       if (i - sh_idx > lookback_bars) continue;
       if (c.high > sh_price && c.close < sh_price) {
@@ -31,7 +28,11 @@ export function find_sweeps(candles, swings, lookback_bars = 15) {
     }
     
     // sell-side sweep
-    for (const [sl_idx, sl_price] of swing_lows) {
+    for (let k = 0; k < swings.length; k++) {
+      const s = swings[k];
+      if (s.kind !== 'low') continue;
+      const sl_idx = s.index;
+      const sl_price = s.price;
       if (sl_idx >= i) continue;
       if (i - sl_idx > lookback_bars) continue;
       if (c.low < sl_price && c.close > sl_price) {

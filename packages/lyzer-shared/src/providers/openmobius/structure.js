@@ -40,26 +40,31 @@ export function analyzeStructure(swings) {
   }
   
   const events = [];
-  if (sequence.length >= 4) {
-    const last4 = sequence.slice(-4).map(x => x.label);
-    const lastLabel = last4[3];
-    const prevLabels = last4.slice(0, 3);
-    const secondToLast = last4[2];
+  const seqLen = sequence.length;
+  if (seqLen >= 4) {
+    const lastItem = sequence[seqLen - 1];
+    const lastLabel = lastItem.label;
+    const secondToLast = sequence[seqLen - 2].label;
+    const l0 = sequence[seqLen - 4].label;
+    const l1 = sequence[seqLen - 3].label;
+    const l2 = secondToLast;
+    const prevHasHL = (l0 === "HL" || l1 === "HL" || l2 === "HL");
+    const prevHasLH = (l0 === "LH" || l1 === "LH" || l2 === "LH");
     
     // bullish BOS: ...HL → HH (trend continuation)
-    if (lastLabel === "HH" && prevLabels.includes("HL")) {
+    if (lastLabel === "HH" && prevHasHL) {
       events.push({
         type: "bullish_bos",
-        at_index: sequence[sequence.length - 1].index,
-        at_price: sequence[sequence.length - 1].price
+        at_index: lastItem.index,
+        at_price: lastItem.price
       });
     }
     // bearish BOS
-    else if (lastLabel === "LL" && prevLabels.includes("LH")) {
+    else if (lastLabel === "LL" && prevHasLH) {
       events.push({
         type: "bearish_bos",
-        at_index: sequence[sequence.length - 1].index,
-        at_price: sequence[sequence.length - 1].price
+        at_index: lastItem.index,
+        at_price: lastItem.price
       });
     }
     
@@ -67,16 +72,16 @@ export function analyzeStructure(swings) {
     if (lastLabel === "HH" && (secondToLast === "LH" || secondToLast === "LL")) {
       events.push({
         type: "bullish_choch",
-        at_index: sequence[sequence.length - 1].index,
-        at_price: sequence[sequence.length - 1].price
+        at_index: lastItem.index,
+        at_price: lastItem.price
       });
     }
     // bearish CHoCH
     else if (lastLabel === "LL" && (secondToLast === "HL" || secondToLast === "HH")) {
       events.push({
         type: "bearish_choch",
-        at_index: sequence[sequence.length - 1].index,
-        at_price: sequence[sequence.length - 1].price
+        at_index: lastItem.index,
+        at_price: lastItem.price
       });
     }
   }

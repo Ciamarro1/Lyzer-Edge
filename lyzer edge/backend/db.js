@@ -13,7 +13,7 @@ const DEFAULT_DB_PATH = process.env.DB_PATH || path.join(DATA_DIR, 'historical_c
 let sharedInstance = null;
 
 export class CausalMemoryDB {
-    constructor(customDbPath = null) {
+    constructor(customDbPath = null, options = {}) {
         if (!customDbPath && sharedInstance) {
             return sharedInstance;
         }
@@ -25,6 +25,14 @@ export class CausalMemoryDB {
                 console.log(`[DB] Connected to SQLite Causal Memory Database (${targetPath}).`);
             }
         });
+
+        // In-memory buffer for async causal batching (R2)
+        this._causalBuffer = [];
+        this._causalBatchSize = options.batchSize || parseInt(process.env.CAUSAL_BATCH_SIZE, 10) || 50;
+        this._causalFlushIntervalMs = options.flushIntervalMs || parseInt(process.env.CAUSAL_FLUSH_INTERVAL_MS, 10) || 100;
+        this._causalFlushTimer = null;
+        this._isFlushing = false;
+        this._flushPromise = null;
 
         // Instrument queries for Lock Wait Latency Tracking
         const wrapMethod = (methodName) => {
@@ -47,6 +55,7 @@ export class CausalMemoryDB {
         wrapMethod('all');
 
         this.init();
+        this.startCausalFlushTimer();
         if (!customDbPath) {
             sharedInstance = this;
         }
@@ -77,7 +86,8 @@ export class CausalMemoryDB {
         }
     }
 
-    runTTLCleanup(options = {}) {
+    async runTTLCleanup(options = {}) {
+        await this.flushCausalEvents();
         return runTTLCleanup(this, options);
     }
 
@@ -154,6 +164,16 @@ export class CausalMemoryDB {
     }
 
     async close() {
+        if (this._causalFlushTimer) {
+            clearInterval(this._causalFlushTimer);
+            this._causalFlushTimer = null;
+        }
+        try {
+            await this.flushCausalEvents();
+        } catch (e) {
+            recordSystemError('CausalMemoryDB', 'FLUSH_ON_CLOSE_ERROR');
+            console.error('[DB] Failed to flush causal events during close:', e);
+        }
         if (this._ttlTimer) {
             clearInterval(this._ttlTimer);
             this._ttlTimer = null;
@@ -372,6 +392,7 @@ export class CausalMemoryDB {
 
     async walCheckpoint(mode = 'PASSIVE') {
         await this.ensureReady();
+        await this.flushCausalEvents();
         return new Promise((resolve, reject) => {
             const validModes = ['PASSIVE', 'FULL', 'RESTART', 'TRUNCATE'];
             const safeMode = validModes.includes(mode?.toUpperCase()) ? mode.toUpperCase() : 'PASSIVE';
@@ -382,49 +403,147 @@ export class CausalMemoryDB {
         });
     }
 
-    async insertCausalEvent(event) {
-        await this.ensureReady();
-        return new Promise((resolve, reject) => {
-            const startTime = performance.now();
-            const sql = `
-                INSERT INTO causal_events_log 
-                (event_id, timestamp, event_type, source, causation_id, correlation_id, intent_id, parent_event, version, hash_prev, epistemic_regime, payload, context, hash)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-            `;
-            const params = [
-                event.event_id,
-                event.timestamp,
-                event.event_type,
-                event.source,
-                event.causation_id || null,
-                event.correlation_id,
-                event.intent_id || null,
-                event.parent_event || null,
-                event.version || '1.0.0',
-                event.hash_prev || '0'.repeat(64),
-                event.epistemic_regime || 'REGIME_A_CONSENSUS',
-                JSON.stringify(event.payload || {}),
-                JSON.stringify(event.context || {}),
-                event.hash || '0'.repeat(64)
-            ];
+    startCausalFlushTimer(intervalMs = this._causalFlushIntervalMs) {
+        if (this._causalFlushTimer) {
+            clearInterval(this._causalFlushTimer);
+        }
+        this._causalFlushTimer = setInterval(() => {
+            if (this._causalBuffer && this._causalBuffer.length > 0) {
+                this.flushCausalEvents().catch(err => {
+                    recordSystemError('CausalMemoryDB', 'PERIODIC_CAUSAL_FLUSH_ERROR');
+                    console.error('[DB] Periodic causal flush error:', err);
+                });
+            }
+        }, intervalMs);
+        if (typeof this._causalFlushTimer.unref === 'function') {
+            this._causalFlushTimer.unref();
+        }
+        return this._causalFlushTimer;
+    }
 
-            this.db.serialize(() => {
-                this.db.run(sql, params, (err) => {
-                    if (err) {
-                        recordSystemError('CausalMemoryDB', 'INSERT_CAUSAL_EVENT_ERROR');
-                        console.error('[DB] Failed to insert causal event (possible SQLITE_BUSY):', err);
-                        reject(err);
-                    } else {
-                        recordSqliteWrite('insert_causal_event', (performance.now() - startTime) / 1000);
-                        resolve();
-                    }
+    async flushCausalEvents() {
+        while (this._isFlushing) {
+            await this._flushPromise;
+        }
+
+        if (!this._causalBuffer || this._causalBuffer.length === 0) {
+            return;
+        }
+
+        this._isFlushing = true;
+        let resolveFlush, rejectFlush;
+        this._flushPromise = new Promise((resolve, reject) => {
+            resolveFlush = resolve;
+            rejectFlush = reject;
+        });
+        this._flushPromise.catch(() => {});
+
+        try {
+            await this.ensureReady();
+
+            const batch = this._causalBuffer;
+            this._causalBuffer = [];
+
+            if (batch.length === 0) {
+                resolveFlush();
+                return;
+            }
+
+            await new Promise((resolve, reject) => {
+                const startTime = performance.now();
+                this.db.serialize(() => {
+                    this.db.run("BEGIN TRANSACTION", (beginErr) => {
+                        if (beginErr) {
+                            recordSystemError('CausalMemoryDB', 'FLUSH_CAUSAL_BEGIN_ERROR');
+                            console.error('[DB] Failed to BEGIN TRANSACTION for causal batch:', beginErr);
+                            this._causalBuffer = [...batch, ...this._causalBuffer];
+                            return reject(beginErr);
+                        }
+
+                        const sql = `
+                            INSERT INTO causal_events_log 
+                            (event_id, timestamp, event_type, source, causation_id, correlation_id, intent_id, parent_event, version, hash_prev, epistemic_regime, payload, context, hash)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        `;
+                        const stmt = this.db.prepare(sql);
+                        let stmtError = null;
+
+                        for (let i = 0; i < batch.length; i++) {
+                            const event = batch[i];
+                            const params = [
+                                event.event_id,
+                                event.timestamp,
+                                event.event_type,
+                                event.source,
+                                event.causation_id || null,
+                                event.correlation_id,
+                                event.intent_id || null,
+                                event.parent_event || null,
+                                event.version || '1.0.0',
+                                event.hash_prev || '0'.repeat(64),
+                                event.epistemic_regime || 'REGIME_A_CONSENSUS',
+                                typeof event.payload === 'string' ? event.payload : JSON.stringify(event.payload || {}),
+                                typeof event.context === 'string' ? event.context : JSON.stringify(event.context || {}),
+                                event.hash || '0'.repeat(64)
+                            ];
+
+                            stmt.run(params, (err) => {
+                                if (err && !stmtError) {
+                                    stmtError = err;
+                                    recordSystemError('CausalMemoryDB', 'INSERT_CAUSAL_EVENT_ERROR');
+                                    console.error('[DB] Failed to insert buffered causal event:', err);
+                                }
+                            });
+                        }
+
+                        stmt.finalize((finalizeErr) => {
+                            if (stmtError || finalizeErr) {
+                                const err = stmtError || finalizeErr;
+                                this.db.run("ROLLBACK", () => {
+                                    this._causalBuffer = [...batch, ...this._causalBuffer];
+                                    reject(err);
+                                });
+                            } else {
+                                this.db.run("COMMIT", (commitErr) => {
+                                    if (commitErr) {
+                                        recordSystemError('CausalMemoryDB', 'FLUSH_CAUSAL_COMMIT_ERROR');
+                                        console.error('[DB] Failed to COMMIT causal batch:', commitErr);
+                                        this._causalBuffer = [...batch, ...this._causalBuffer];
+                                        reject(commitErr);
+                                    } else {
+                                        recordSqliteWrite('insert_causal_batch', (performance.now() - startTime) / 1000);
+                                        resolve();
+                                    }
+                                });
+                            }
+                        });
+                    });
                 });
             });
-        });
+
+            resolveFlush();
+        } catch (err) {
+            rejectFlush(err);
+            throw err;
+        } finally {
+            this._isFlushing = false;
+            this._flushPromise = null;
+        }
+    }
+
+    async insertCausalEvent(event) {
+        if (!event) return;
+        this._causalBuffer.push(event);
+
+        if (this._causalBuffer.length >= this._causalBatchSize) {
+            return this.flushCausalEvents();
+        }
+        return Promise.resolve();
     }
 
     async getLastCausalEventHash() {
         await this.ensureReady();
+        await this.flushCausalEvents();
         return new Promise((resolve, reject) => {
             const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
             this.db.serialize(() => {
@@ -438,6 +557,7 @@ export class CausalMemoryDB {
 
     async getCausalEventsUntil(timestampMs) {
         await this.ensureReady();
+        await this.flushCausalEvents();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM causal_events_log WHERE timestamp <= ? ORDER BY id ASC`;
             this.db.all(sql, [timestampMs], (err, rows) => {
@@ -453,6 +573,7 @@ export class CausalMemoryDB {
 
     async getCausalEventsByCorrelation(correlationId) {
         await this.ensureReady();
+        await this.flushCausalEvents();
         return new Promise((resolve, reject) => {
             const sql = `SELECT * FROM causal_events_log WHERE correlation_id = ? ORDER BY id ASC`;
             this.db.all(sql, [correlationId], (err, rows) => {
@@ -468,6 +589,7 @@ export class CausalMemoryDB {
 
     async getRecentCausalEvents(limit = 50, symbol = null) {
         await this.ensureReady();
+        await this.flushCausalEvents();
         return new Promise((resolve, reject) => {
             let sql = `SELECT * FROM causal_events_log ORDER BY id DESC LIMIT ?`;
             let params = [limit];

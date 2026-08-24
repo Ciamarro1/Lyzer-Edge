@@ -1,6 +1,6 @@
 # OPENMOBIUS ADVERSARIAL PARITY REPORT (Phase 3.5)
 
-Generated: 2026-08-22T06:45:39.098Z
+Generated: 2026-08-24T05:06:46.338Z
 
 > Testing boundary conditions, edge cases, and causal integrity.
 

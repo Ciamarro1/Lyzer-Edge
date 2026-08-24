@@ -680,6 +680,19 @@ export class StreamEngine extends EventEmitter {
       topographicalAtr = sumRange / recent.length;
     }
 
+    // Calculate short vs long ATR ratio for dynamic volatility adaptation
+    let atrRatio = 1.0;
+    if (topCandleList.length >= 30) {
+      const shortList = topCandleList.slice(-10);
+      const longList = topCandleList.slice(-30);
+      let sSum = 0, lSum = 0;
+      for (let i = 0; i < shortList.length; i++) sSum += (shortList[i].high - shortList[i].low);
+      for (let i = 0; i < longList.length; i++) lSum += (longList[i].high - longList[i].low);
+      const shortAtr = sSum / shortList.length;
+      const longAtr = lSum / longList.length;
+      atrRatio = longAtr > 0 ? (shortAtr / longAtr) : 1.0;
+    }
+
     // [Lyzer Guardian] SnR Topographical Proximity Check / Golden Zone Continuous Filter
     let distanceFromGoldenZone = Infinity;
     const currentPrice = candle.close;
@@ -780,8 +793,22 @@ export class StreamEngine extends EventEmitter {
       liquidityDivergence = total > 0 ? Math.abs(bslCount - sslCount) / total : 1.0;
     }
 
-    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS + ODM
-    const kernelResult = this.truthKernel.evaluate(providers, { liquidityDivergence, scaleDivergence: sds, lhds, invariants, distanceFromGoldenZone, weights: dynamicWeights, oppScore, imbalance, odm: observerDivergence.odm });
+    const atr14_pct = (topographicalAtr && currentPrice > 0) ? (topographicalAtr / currentPrice) : 0.00055;
+
+    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS + ODM + Dynamic Volatility Limits
+    const kernelResult = this.truthKernel.evaluate(providers, {
+      liquidityDivergence,
+      scaleDivergence: sds,
+      lhds,
+      invariants,
+      distanceFromGoldenZone,
+      weights: dynamicWeights,
+      oppScore,
+      atrRatio,
+      atr14_pct,
+      imbalance,
+      odm: observerDivergence.odm
+    });
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -812,7 +839,7 @@ export class StreamEngine extends EventEmitter {
         event_type: 'REALITY_SNAPSHOT_CREATED',
         source: 'StreamEngine',
         correlation_id: corrId,
-        payload: { sds, lhds, liquidityDivergence, oppScore, imbalance, currentPrice },
+        payload: { sds, lhds, liquidityDivergence, oppScore, imbalance, currentPrice, dynamic_limits: kernelResult.dynamic_limits },
         context: { symbol: this.symbol, interval: this.interval }
       }).catch(err => console.error('[CAUSAL_MEMORY] SNAPSHOT failed:', err.message));
 

@@ -22,6 +22,100 @@ export class TruthKernel {
     this.ett = new ExecutionTriggerLayer(trgThreshold);
     this.lhdsVetoLimit = options.lhdsVetoLimit != null ? options.lhdsVetoLimit : 0.8;
     this.ontologicalCollapseTrg = options.ontologicalCollapseTrg != null ? options.ontologicalCollapseTrg : 0.7;
+    this.dynamicLimitsEnabled = options.dynamicLimits !== false;
+    this.minLhdsVetoLimit = options.minLhdsVetoLimit != null ? options.minLhdsVetoLimit : 0.50;
+    this.maxLhdsVetoLimit = options.maxLhdsVetoLimit != null ? options.maxLhdsVetoLimit : 0.95;
+    this.minOntologicalCollapseTrg = options.minOntologicalCollapseTrg != null ? options.minOntologicalCollapseTrg : 0.40;
+    this.maxOntologicalCollapseTrg = options.maxOntologicalCollapseTrg != null ? options.maxOntologicalCollapseTrg : 0.90;
+  }
+
+  /**
+   * Computes runtime dynamic limits based on market volatility and regime.
+   * If micro is missing or contains no volatility indicators, returns base limits (100% backward compatible).
+   *
+   * @param {Object} [micro={}] - Microstructure metrics { atrRatio, volatilityRatio, atr14_pct, oppScore, ... }
+   * @returns {Object} Dynamic limits and metadata.
+   */
+  computeDynamicLimits(micro = {}) {
+    if (!micro || typeof micro !== 'object' || !this.dynamicLimitsEnabled) {
+      return {
+        lhdsVetoLimit: this.lhdsVetoLimit,
+        ontologicalCollapseTrg: this.ontologicalCollapseTrg,
+        effectiveLhdsVetoLimit: this.lhdsVetoLimit,
+        effectiveOntologicalCollapseTrg: this.ontologicalCollapseTrg,
+        volatilityFactor: 1.0,
+        volatilityMultiplier: 1.0,
+        isDynamic: false
+      };
+    }
+
+    let volFactor = 1.0;
+    let hasVolatilityMetric = false;
+
+    if (typeof micro.volatilityRatio === 'number' && Number.isFinite(micro.volatilityRatio) && micro.volatilityRatio > 0) {
+      volFactor = 1.0 + 0.12 * (micro.volatilityRatio - 1.0);
+      hasVolatilityMetric = true;
+    } else if (typeof micro.atrRatio === 'number' && Number.isFinite(micro.atrRatio) && micro.atrRatio > 0) {
+      volFactor = 1.0 + 0.12 * (micro.atrRatio - 1.0);
+      hasVolatilityMetric = true;
+    } else if (typeof micro.expansionFactor === 'number' && Number.isFinite(micro.expansionFactor) && micro.expansionFactor > 0) {
+      volFactor = 1.0 + 0.12 * (micro.expansionFactor - 1.0);
+      hasVolatilityMetric = true;
+    } else if (typeof micro.atr14_pct === 'number' && Number.isFinite(micro.atr14_pct) && micro.atr14_pct > 0) {
+      const baseline = 0.00055;
+      volFactor = 1.0 + 0.12 * (micro.atr14_pct / baseline - 1.0);
+      hasVolatilityMetric = true;
+    } else if (typeof micro.oppScore === 'number' && Number.isFinite(micro.oppScore)) {
+      volFactor = 1.0 + (micro.oppScore - 1) * 0.06;
+      hasVolatilityMetric = true;
+    } else {
+      const regimeStr = (typeof micro.regime === 'string' ? micro.regime : (typeof micro.weights?.activeRegime === 'string' ? micro.weights.activeRegime : '')).toUpperCase();
+      if (regimeStr) {
+        if (regimeStr.includes('NEWS') || regimeStr.includes('SHOCK')) {
+          volFactor = 1.17;
+          hasVolatilityMetric = true;
+        } else if (regimeStr.includes('EXPANSION') || regimeStr.includes('HIGH_VOLATILITY') || regimeStr.includes('TREND') || regimeStr.includes('BREAKOUT')) {
+          volFactor = 1.10;
+          hasVolatilityMetric = true;
+        } else if (regimeStr.includes('COMPRESSION') || regimeStr.includes('LOW_LIQUIDITY') || regimeStr.includes('RANGE') || regimeStr.includes('RANGING') || regimeStr.includes('CHOP')) {
+          volFactor = 0.90;
+          hasVolatilityMetric = true;
+        }
+      }
+    }
+
+    if (!hasVolatilityMetric) {
+      return {
+        lhdsVetoLimit: this.lhdsVetoLimit,
+        ontologicalCollapseTrg: this.ontologicalCollapseTrg,
+        effectiveLhdsVetoLimit: this.lhdsVetoLimit,
+        effectiveOntologicalCollapseTrg: this.ontologicalCollapseTrg,
+        volatilityFactor: 1.0,
+        volatilityMultiplier: 1.0,
+        isDynamic: false
+      };
+    }
+
+    // Volatility factor bounding
+    volFactor = Math.min(2.0, Math.max(0.5, volFactor));
+
+    // Dynamic scaled limits
+    const rawLhds = this.lhdsVetoLimit * volFactor;
+    const rawCollapse = this.ontologicalCollapseTrg * volFactor;
+
+    // Enforce safety clamping: lhdsVetoLimit in [0.50, 0.95], ontologicalCollapseTrg in [0.40, 0.90]
+    const dynamicLhds = Math.min(this.maxLhdsVetoLimit, Math.max(this.minLhdsVetoLimit, rawLhds));
+    const dynamicCollapse = Math.min(this.maxOntologicalCollapseTrg, Math.max(this.minOntologicalCollapseTrg, rawCollapse));
+
+    return {
+      lhdsVetoLimit: dynamicLhds,
+      ontologicalCollapseTrg: dynamicCollapse,
+      effectiveLhdsVetoLimit: dynamicLhds,
+      effectiveOntologicalCollapseTrg: dynamicCollapse,
+      volatilityFactor: volFactor,
+      volatilityMultiplier: volFactor,
+      isDynamic: true
+    };
   }
 
   /**
@@ -40,11 +134,16 @@ export class TruthKernel {
     const v6 = providers.v6;
     const v7 = providers.v7;
 
-    // 1. Residualization & Consensus Destruction across all active engines (V1-V7)
+    // 1. Compute dynamic limits for this tick
+    const dynamicLimits = this.computeDynamicLimits(micro);
+    const effectiveLhdsLimit = dynamicLimits.lhdsVetoLimit;
+    const effectiveCollapseLimit = dynamicLimits.ontologicalCollapseTrg;
+
+    // 2. Residualization & Consensus Destruction across all active engines (V1-V7)
     const providerList = [v1, v2, v3, v4, v5, v6, v7].filter(p => p !== undefined && p !== null);
     const { dvf, trg } = this.rl.evaluate(...providerList, micro);
 
-    // 2. Execution Trigger Evaluation
+    // 3. Execution Trigger Evaluation
     let { eef, reason } = this.ett.evaluate(trg);
 
     if (dvf.isConsensus) {
@@ -52,22 +151,22 @@ export class TruthKernel {
       reason = 'BLOCKED_BY_FALSE_CONSENSUS';
     }
 
-    // 3. Ontological Confidence Limits (OCL)
-    const sds = micro.scaleDivergence || 0.0;
-    const lhds = micro.lhds || 0.0;
+    // 4. Ontological Confidence Limits (OCL) with dynamic limits
+    const sds = (micro && micro.scaleDivergence) || 0.0;
+    const lhds = (micro && micro.lhds) || 0.0;
     let epistemicAuthority = 'UNKNOWN';
     
-    if (lhds > this.lhdsVetoLimit) {
+    if (lhds > effectiveLhdsLimit) {
       epistemicAuthority = 'VETO';
       eef = false;
       reason = 'VETO_REALITY_DIVERGENCE';
     } else {
       // Microstructure OOS-11 Filter (applied in production or when explicitly enforced)
-      const enforceOos = String(process.env.ENFORCE_OOS11_RULES) === 'true' || String(micro.enforceOos11) === 'true' || micro.enforceOos11 === 1;
+      const enforceOos = String(process.env.ENFORCE_OOS11_RULES) === 'true' || String(micro?.enforceOos11) === 'true' || micro?.enforceOos11 === 1;
       let oosBlocked = false;
       if (enforceOos) {
-        const oppScore = micro.oppScore || 0;
-        const imbalance = micro.imbalance || 0;
+        const oppScore = micro?.oppScore || 0;
+        const imbalance = micro?.imbalance || 0;
         const direction = (Math.abs(dvf.tension) < 1e-8) ? 'FLAT' : (dvf.tension > 0 ? 'LONG' : 'SHORT');
         
         if (direction === 'FLAT') {
@@ -94,8 +193,8 @@ export class TruthKernel {
         } else if (sds <= 0.7) {
           epistemicAuthority = 'INFERRED';
         } else {
-          // SDS > 0.7 - Check for total structural collapse
-          if (trg.trg >= this.ontologicalCollapseTrg) {
+          // SDS > 0.7 - Dynamic Ontological Collapse Check
+          if (trg.trg >= effectiveCollapseLimit) {
             epistemicAuthority = 'VETO';
             eef = false; // Constitutional override
             reason = 'VETO_ONTOLOGICAL_COLLAPSE';
@@ -107,13 +206,13 @@ export class TruthKernel {
     }
 
     // C2 Fix: TruthKernel Observer Divergence Metric (ODM) Veto
-    if (eef && micro.odm !== undefined && micro.odm >= 0.60) {
+    if (eef && micro?.odm !== undefined && micro.odm >= 0.60) {
       epistemicAuthority = 'VETO';
       eef = false;
       reason = 'VETO_OBSERVER_DIVERGENCE_ODM';
     }
 
-    // 3. Output pure tensor data, no "signal" prediction
+    // 5. Output pure tensor data, no "signal" prediction
     return {
       dvf: dvf.divergence,
       tension: dvf.tension,
@@ -122,11 +221,15 @@ export class TruthKernel {
       eef,
       reason_codes: [reason],
       epistemic_authority: epistemicAuthority,
+      dynamic_limits: dynamicLimits,
       raw_metrics: {
         v1_confidence: v1?.confidence || 0,
         v2_confidence: v2?.confidence || 0,
         liquidity_vacuum: micro?.liquidityDivergence || 1.0,
-        scale_divergence: sds
+        scale_divergence: sds,
+        dynamic_limits: dynamicLimits,
+        lhds_veto_limit: effectiveLhdsLimit,
+        ontological_collapse_trg: effectiveCollapseLimit
       }
     };
   }

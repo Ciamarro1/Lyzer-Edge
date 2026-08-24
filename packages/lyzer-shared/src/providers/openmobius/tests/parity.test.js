@@ -1,3 +1,4 @@
+import { describe, it, expect } from 'vitest';
 import { OpenMobiusEngine } from '../v8_openmobius.js';
 
 describe('OpenMobiusEngine Parity Test', () => {

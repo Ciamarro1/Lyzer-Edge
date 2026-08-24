@@ -1,6 +1,6 @@
 # OPENMOBIUS PARITY REPORT
 
-Generated: 2026-08-22T06:23:10.874Z
+Generated: 2026-08-24T05:06:36.943Z
 
 ## Fixture: openmobius_trending (500 candles)
 

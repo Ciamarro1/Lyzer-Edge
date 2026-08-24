@@ -1,24 +1,24 @@
 export function calcAtr(candles, period = 14) {
-  if (candles.length < period + 1) return null;
-  const trs = [];
-  for (let i = 1; i < candles.length; i++) {
+  const len = candles ? candles.length : 0;
+  if (len < period + 1) return null;
+  let sum = 0;
+  const start = len - period;
+  for (let i = start; i < len; i++) {
     const prev_close = candles[i - 1].close;
+    const current = candles[i];
     const tr = Math.max(
-      candles[i].high - candles[i].low,
-      Math.abs(candles[i].high - prev_close),
-      Math.abs(candles[i].low - prev_close)
+      current.high - current.low,
+      Math.abs(current.high - prev_close),
+      Math.abs(current.low - prev_close)
     );
-    trs.push(tr);
+    sum += tr;
   }
-  if (trs.length < period) return null;
-  const last_period_trs = trs.slice(-period);
-  const sum = last_period_trs.reduce((a, b) => a + b, 0);
   return sum / period;
 }
 
 export function find_order_blocks(candles, displacement_atr_mult = 1.5) {
   const out = [];
-  const n = candles.length;
+  const n = candles ? candles.length : 0;
   if (n < 4) return out;
   
   const atr = calcAtr(candles);
@@ -28,15 +28,16 @@ export function find_order_blocks(candles, displacement_atr_mult = 1.5) {
   
   for (let i = 0; i < n - 3; i++) {
     const c = candles[i];
-    const is_bullish = c.close >= c.open;
+    const is_bullish = c.is_bullish !== undefined ? c.is_bullish : (c.close >= c.open);
     
-    const next3 = candles.slice(i + 1, i + 4);
-    if (next3.length < 3) continue;
+    const c1 = candles[i + 1];
+    const c2 = candles[i + 2];
+    const c3 = candles[i + 3];
     
     // bullish OB
     if (!is_bullish) {
-      const move = next3[next3.length - 1].close - c.open;
-      const cum_up = next3.reduce((sum, x) => sum + Math.max(0, x.close - x.open), 0);
+      const move = c3.close - c.open;
+      const cum_up = Math.max(0, c1.close - c1.open) + Math.max(0, c2.close - c2.open) + Math.max(0, c3.close - c3.open);
       if (move > threshold && cum_up > threshold) {
         out.push({
           type: "bullish_ob",
@@ -50,8 +51,8 @@ export function find_order_blocks(candles, displacement_atr_mult = 1.5) {
     } 
     // bearish OB
     else if (is_bullish) {
-      const move = c.open - next3[next3.length - 1].close;
-      const cum_dn = next3.reduce((sum, x) => sum + Math.max(0, x.open - x.close), 0);
+      const move = c.open - c3.close;
+      const cum_dn = Math.max(0, c1.open - c1.close) + Math.max(0, c2.open - c2.close) + Math.max(0, c3.open - c3.close);
       if (move > threshold && cum_dn > threshold) {
         out.push({
           type: "bearish_ob",

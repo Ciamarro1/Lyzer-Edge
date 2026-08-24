@@ -3,11 +3,13 @@ export function round(value, decimals) {
 }
 
 export function calc_atr(candles, period = 14) {
-    if (candles.length < period + 1) {
+    const len = candles ? candles.length : 0;
+    if (len < period + 1) {
         return null;
     }
-    const trs = [];
-    for (let i = 1; i < candles.length; i++) {
+    let sum = 0;
+    const start = len - period;
+    for (let i = start; i < len; i++) {
         const prev_close = candles[i - 1].close;
         const current = candles[i];
         const tr = Math.max(
@@ -15,27 +17,26 @@ export function calc_atr(candles, period = 14) {
             Math.abs(current.high - prev_close),
             Math.abs(current.low - prev_close)
         );
-        trs.push(tr);
+        sum += tr;
     }
-    if (trs.length < period) {
-        return null;
-    }
-    const lastTrs = trs.slice(-period);
-    const sum = lastTrs.reduce((a, b) => a + b, 0);
     return sum / period;
 }
 
 export function _fvg_mitigation_pct(top, bot, fvg_type, candles, formed_at) {
-    if (formed_at + 1 >= candles.length) {
+    const n = candles ? candles.length : 0;
+    if (formed_at + 1 >= n) {
         return 0.0;
     }
-    const subsequent = candles.slice(formed_at + 1);
     const size = top - bot;
     if (size <= 0) {
         return 0.0;
     }
     if (fvg_type === "bullish_fvg") {
-        const min_low = Math.min(...subsequent.map(c => c.low));
+        let min_low = Infinity;
+        for (let i = formed_at + 1; i < n; i++) {
+            const l = candles[i].low;
+            if (l < min_low) min_low = l;
+        }
         if (min_low >= top) {
             return 0.0;
         }
@@ -45,7 +46,11 @@ export function _fvg_mitigation_pct(top, bot, fvg_type, candles, formed_at) {
         return ((top - min_low) / size) * 100.0;
     }
     // bearish
-    const max_high = Math.max(...subsequent.map(c => c.high));
+    let max_high = -Infinity;
+    for (let i = formed_at + 1; i < n; i++) {
+        const h = candles[i].high;
+        if (h > max_high) max_high = h;
+    }
     if (max_high <= bot) {
         return 0.0;
     }
@@ -57,7 +62,7 @@ export function _fvg_mitigation_pct(top, bot, fvg_type, candles, formed_at) {
 
 export function find_fvgs(candles, min_size_atr = 0.2) {
     const out = [];
-    const n = candles.length;
+    const n = candles ? candles.length : 0;
     if (n < 3) {
         return out;
     }
@@ -112,14 +117,15 @@ export function find_displacements(candles, atr_mult = 2.0) {
         return [];
     }
     const threshold = atr_mult * atr;
-    const n = candles.length;
+    const n = candles ? candles.length : 0;
     const out = [];
     for (let i = 0; i < n; i++) {
         const c = candles[i];
         const body = Math.abs(c.close - c.open);
         if (body >= threshold) {
+            const isBullish = c.is_bullish !== undefined ? c.is_bullish : (c.close >= c.open);
             out.push({
-                direction: c.is_bullish ? "bullish" : "bearish",
+                direction: isBullish ? "bullish" : "bearish",
                 magnitude_pct: round(((c.close - c.open) / c.open) * 100, 3),
                 magnitude_atr: round(body / atr, 2),
                 candle_index: i,
@@ -131,25 +137,30 @@ export function find_displacements(candles, atr_mult = 2.0) {
 }
 
 export function find_volume_anomalies(candles, lookback = 20, mult = 2.0) {
-    const n = candles.length;
+    const n = candles ? candles.length : 0;
     if (n < lookback + 1) {
         return [];
     }
     const out = [];
     for (let i = lookback; i < n; i++) {
-        const recent = candles.slice(i - lookback, i).map(c => c.volume);
-        const sum = recent.reduce((a, b) => a + b, 0);
-        const avg = recent.length > 0 ? sum / recent.length : 0;
+        let sum = 0;
+        for (let k = i - lookback; k < i; k++) {
+            sum += (candles[k].volume || 0);
+        }
+        const avg = lookback > 0 ? sum / lookback : 0;
         if (avg === 0) {
             continue;
         }
-        const ratio = candles[i].volume / avg;
+        const ratio = (candles[i].volume || 0) / avg;
         if (ratio > mult) {
+            const isBullish = candles[i].is_bullish !== undefined 
+                ? candles[i].is_bullish 
+                : (candles[i].close >= candles[i].open);
             out.push({
                 candle_index: i,
                 age_bars: n - 1 - i,
                 volume_ratio: round(ratio, 2),
-                direction: candles[i].is_bullish ? "bullish" : "bearish"
+                direction: isBullish ? "bullish" : "bearish"
             });
         }
     }
