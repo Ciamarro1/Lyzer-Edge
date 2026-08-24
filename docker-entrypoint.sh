@@ -23,10 +23,17 @@ if command -v lyzer-intent-registry >/dev/null 2>&1; then
     (lyzer-intent-registry > /dev/null 2>&1 &)
 fi
 
-# 3. Non-blocking cloud restore (backgrounded with error trapping so /healthz is never blocked)
+# 3. Seed initial Causal Memory from repository if it exists
+if [ -f "historical_causal_memory.db" ]; then
+    echo "🌱 [SEED] Copying bundled Causal Memory to /tmp/data..."
+    mkdir -p /tmp/data
+    cp "historical_causal_memory.db" "/tmp/data/historical_causal_memory.db"
+fi
+
+# 4. Non-blocking cloud restore (backgrounded with error trapping so /healthz is never blocked)
 (
     if [ -f "backup_restore.py" ]; then
-        echo "💾 [BACKUP] Attempting non-blocking background restore..."
+        echo "☁️ [BACKUP] Attempting non-blocking background restore..."
         python3 backup_restore.py restore || echo "⚠️ [BACKUP] Restore skipped or failed, operating in local mode."
     fi
 ) &
