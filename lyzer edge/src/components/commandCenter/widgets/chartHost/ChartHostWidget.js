@@ -217,8 +217,8 @@ export class ChartHostWidget {
     }
 
     this._adapter.setCandles(this._displayCandles);
-    this._adapter.clearPriceLines();
     this._updateDecisionPanel();
+    this.reloadTradePlot();
   }
 
 
@@ -428,38 +428,6 @@ export class ChartHostWidget {
         });
       }
 
-      // Plot SMC Microstructure lines only if provided by real server stream
-      if (this._microstructureVisible && symbolTrade.microstructure) {
-        const ms = symbolTrade.microstructure;
-        if (ms.obLevel) {
-          this._adapter.createPriceLine({
-            price: Number(ms.obLevel),
-            color: '#c084fc',
-            title: `OB ZONE [Order Block]`,
-            lineStyle: 3
-          });
-        }
-        if (ms.fvgLevel) {
-          this._adapter.createPriceLine({
-            price: Number(ms.fvgLevel),
-            color: '#fbbf24',
-            title: `FVG GAP [Fair Value Gap]`,
-            lineStyle: 3
-          });
-        }
-        if (ms.bosLevel) {
-          this._adapter.createPriceLine({
-            price: Number(ms.bosLevel),
-            color: '#22d3ee',
-            title: `BOS BREAKOUT [Structure Break]`,
-            lineStyle: 1
-          });
-        }
-        this._renderMicroStructureCard(symbolTrade);
-      } else {
-        this._renderMicroStructureCard(null);
-      }
-
       const latestTime = this._displayCandles.length > 0 ? this._displayCandles[this._displayCandles.length - 1].time : Math.floor(Date.now() / 1000);
       this._adapter.setMarkers([{
         time: latestTime,
@@ -468,11 +436,165 @@ export class ChartHostWidget {
         shape: isBuy ? 'arrowUp' : 'arrowDown',
         text: `ENTRY ${symbolTrade.side || 'LONG'} @ ${symbolTrade.entry || 'MARKET'} (${symbolTrade.structure || 'BOS M15'})`
       }]);
+    }
+
+    // Always scan and plot live Microstructure levels when toggled ON
+    if (this._microstructureVisible) {
+      this._plotMicrostructureLevels(symbolTrade);
     } else {
       this._renderMicroStructureCard(null);
     }
 
     this._flashReplay();
+  }
+
+  _plotMicrostructureLevels(symbolTrade) {
+    if (!this._microstructureVisible || !this._adapter || !this._displayCandles || this._displayCandles.length < 5) {
+      this._renderMicroStructureCard(null);
+      return;
+    }
+
+    const candles = this._displayCandles;
+    const n = candles.length;
+    const isSmall = this._activeSymbol.includes('XRP') || this._activeSymbol.includes('ADA');
+    const decimals = isSmall ? 4 : 2;
+
+    // 1. Detect Recent Fair Value Gaps (FVG)
+    let bullishFVG = null;
+    let bearishFVG = null;
+
+    for (let i = n - 1; i >= Math.max(2, n - 60); i--) {
+      const cCurrent = candles[i];
+      const cPrev2 = candles[i - 2];
+
+      if (!bullishFVG && cCurrent.low > cPrev2.high) {
+        bullishFVG = {
+          top: cCurrent.low,
+          bottom: cPrev2.high,
+          mid: (cCurrent.low + cPrev2.high) / 2
+        };
+      }
+
+      if (!bearishFVG && cCurrent.high < cPrev2.low) {
+        bearishFVG = {
+          top: cPrev2.low,
+          bottom: cCurrent.high,
+          mid: (cPrev2.low + cCurrent.high) / 2
+        };
+      }
+
+      if (bullishFVG && bearishFVG) break;
+    }
+
+    // 2. Detect Recent Order Blocks (OB)
+    let bullishOB = null;
+    let bearishOB = null;
+
+    for (let i = n - 3; i >= Math.max(1, n - 80); i--) {
+      const c = candles[i];
+      const next1 = candles[i + 1];
+      const next2 = candles[i + 2];
+
+      if (!bullishOB && c.close < c.open && next1 && next2 && next1.close > c.high && next2.close > next1.high) {
+        bullishOB = {
+          top: c.high,
+          bottom: c.low,
+          mid: (c.high + c.low) / 2
+        };
+      }
+
+      if (!bearishOB && c.close > c.open && next1 && next2 && next1.close < c.low && next2.close < next1.low) {
+        bearishOB = {
+          top: c.high,
+          bottom: c.low,
+          mid: (c.high + c.low) / 2
+        };
+      }
+
+      if (bullishOB && bearishOB) break;
+    }
+
+    // 3. Detect Swing High / Low (BOS Levels)
+    let swingHigh = -Infinity;
+    let swingLow = Infinity;
+    for (let i = n - 1; i >= Math.max(0, n - 40); i--) {
+      if (candles[i].high > swingHigh) swingHigh = candles[i].high;
+      if (candles[i].low < swingLow) swingLow = candles[i].low;
+    }
+
+    const currentPrice = candles[n - 1]?.close || 0;
+
+    // Plot Price Lines on the Chart
+    if (bullishFVG) {
+      this._adapter.createPriceLine({
+        price: Number(bullishFVG.mid.toFixed(decimals)),
+        color: '#10b981',
+        title: `🟩 Bullish FVG [${bullishFVG.bottom.toFixed(decimals)} - ${bullishFVG.top.toFixed(decimals)}]`,
+        lineStyle: 3
+      });
+    }
+
+    if (bearishFVG) {
+      this._adapter.createPriceLine({
+        price: Number(bearishFVG.mid.toFixed(decimals)),
+        color: '#ef4444',
+        title: `🟥 Bearish FVG [${bearishFVG.bottom.toFixed(decimals)} - ${bearishFVG.top.toFixed(decimals)}]`,
+        lineStyle: 3
+      });
+    }
+
+    if (bullishOB) {
+      this._adapter.createPriceLine({
+        price: Number(bullishOB.mid.toFixed(decimals)),
+        color: '#34d399',
+        title: `📦 Bullish OB Demand [${bullishOB.bottom.toFixed(decimals)} - ${bullishOB.top.toFixed(decimals)}]`,
+        lineStyle: 2
+      });
+    }
+
+    if (bearishOB) {
+      this._adapter.createPriceLine({
+        price: Number(bearishOB.mid.toFixed(decimals)),
+        color: '#f87171',
+        title: `📦 Bearish OB Supply [${bearishOB.bottom.toFixed(decimals)} - ${bearishOB.top.toFixed(decimals)}]`,
+        lineStyle: 2
+      });
+    }
+
+    if (swingHigh > -Infinity && swingHigh > currentPrice) {
+      this._adapter.createPriceLine({
+        price: Number(swingHigh.toFixed(decimals)),
+        color: '#38bdf8',
+        title: `⚡ BOS Resistance [${swingHigh.toFixed(decimals)}]`,
+        lineStyle: 1
+      });
+    }
+
+    if (swingLow < Infinity && swingLow < currentPrice) {
+      this._adapter.createPriceLine({
+        price: Number(swingLow.toFixed(decimals)),
+        color: '#fbbf24',
+        title: `⚡ BOS Support [${swingLow.toFixed(decimals)}]`,
+        lineStyle: 1
+      });
+    }
+
+    // If there is an active trade, render trade card, else render live microstructure HUD
+    if (symbolTrade) {
+      this._renderMicroStructureCard(symbolTrade);
+    } else {
+      this._renderMicroStructureCard({
+        isLiveScan: true,
+        symbol: this._activeSymbol,
+        bullishFVG,
+        bearishFVG,
+        bullishOB,
+        bearishOB,
+        swingHigh: swingHigh > -Infinity ? swingHigh : null,
+        swingLow: swingLow < Infinity ? swingLow : null,
+        currentPrice
+      });
+    }
   }
 
   _renderMicroStructureCard(tradeData) {
@@ -499,7 +621,6 @@ export class ChartHostWidget {
       this._container.style.position = 'relative';
       this._container.appendChild(overlay);
 
-      // Event delegation for close button
       overlay.addEventListener('click', (e) => {
         if (e.target.closest('.close-overlay-btn')) {
           overlay.style.display = 'none';
@@ -509,6 +630,50 @@ export class ChartHostWidget {
 
     if (!tradeData) {
       overlay.style.display = 'none';
+      return;
+    }
+
+    const iconTarget = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`;
+    const iconZap = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
+    const iconClose = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
+
+    // If Live Scan HUD
+    if (tradeData.isLiveScan) {
+      const isSmall = this._activeSymbol.includes('XRP') || this._activeSymbol.includes('ADA');
+      const d = isSmall ? 4 : 2;
+      const fvgText = tradeData.bullishFVG ? `<span style="color:#34d399;">Bullish [${tradeData.bullishFVG.mid.toFixed(d)}]</span>` : (tradeData.bearishFVG ? `<span style="color:#ef4444;">Bearish [${tradeData.bearishFVG.mid.toFixed(d)}]</span>` : '<span style="color:#94a3b8;">None Active</span>');
+      const obText = tradeData.bullishOB ? `<span style="color:#34d399;">Demand [${tradeData.bullishOB.mid.toFixed(d)}]</span>` : (tradeData.bearishOB ? `<span style="color:#ef4444;">Supply [${tradeData.bearishOB.mid.toFixed(d)}]</span>` : '<span style="color:#94a3b8;">None Active</span>');
+      const resText = tradeData.swingHigh ? `<span style="color:#38bdf8;">${tradeData.swingHigh.toFixed(d)}</span>` : '--';
+      const supText = tradeData.swingLow ? `<span style="color:#fbbf24;">${tradeData.swingLow.toFixed(d)}</span>` : '--';
+
+      overlay.style.display = 'block';
+      overlay.innerHTML = `
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; border-bottom:1px solid rgba(51,65,85,0.6); padding-bottom:6px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-weight:800; font-size:10px; color:#38bdf8; background:rgba(56,189,248,0.15); border:1px solid rgba(56,189,248,0.3); padding:2px 8px; border-radius:6px;">
+              ⚡ SMC MICROSTRUCTURE
+            </span>
+            <span style="font-size:11px; font-weight:700; color:#94a3b8;">${this._activeSymbol}</span>
+          </div>
+          <button class="close-overlay-btn" style="background:transparent; border:none; color:#94a3b8; cursor:pointer; padding:0; display:flex; align-items:center; justify-content:center; transition:color 0.2s;" onmouseover="this.style.color='#ef4444'" onmouseout="this.style.color='#94a3b8'">
+            ${iconClose}
+          </button>
+        </div>
+
+        <div style="font-size:10px; color:#64748b; margin-bottom:6px; font-weight:600;">Zonas de Liquidez & Desequilíbrio (Live V2)</div>
+        
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; background:rgba(30,41,59,0.6); padding:8px; border-radius:6px; font-size:10px; margin-bottom:6px;">
+          <div><span style="color:#64748b;">Fair Value Gap:</span> <strong>${fvgText}</strong></div>
+          <div><span style="color:#64748b;">Order Block:</span> <strong>${obText}</strong></div>
+          <div><span style="color:#64748b;">BOS Resist:</span> <strong>${resText}</strong></div>
+          <div><span style="color:#64748b;">BOS Suporte:</span> <strong>${supText}</strong></div>
+        </div>
+
+        <div style="font-size:9px; color:#64748b; display:flex; justify-content:space-between; border-top:1px solid rgba(51,65,85,0.4); padding-top:4px;">
+          <span>Preço Atual: <strong style="color:#f8fafc;">${tradeData.currentPrice ? tradeData.currentPrice.toFixed(d) : '--'}</strong></span>
+          <span style="color:#38bdf8;">Plotagem Ativa 🟢</span>
+        </div>
+      `;
       return;
     }
 
@@ -529,10 +694,6 @@ export class ChartHostWidget {
     const trg = tradeData.trg ? Number(tradeData.trg).toFixed(2) : '--';
     const regime = tradeData.regime || '--';
     const ev = tradeData.ev || '--';
-
-    const iconTarget = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>`;
-    const iconZap = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>`;
-    const iconClose = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`;
 
     overlay.style.display = 'block';
     overlay.innerHTML = `
