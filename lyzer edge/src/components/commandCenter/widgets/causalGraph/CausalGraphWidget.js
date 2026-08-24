@@ -141,6 +141,19 @@ export class CausalGraphWidget {
           </div>
         </div>
 
+        <!-- Causal Time-Scrubber -->
+        <div style="margin-top: 14px; background: rgba(10, 16, 32, 0.45); border-radius: 12px; border: 1px solid rgba(0, 243, 255, 0.15); padding: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="color: #64748b; font-size: 10px; font-weight: 700;">CAUSAL TIME-SCRUBBER (REPLAY)</span>
+            <span id="cg-scrubber-date" style="color: #00f3ff; font-size: 10px; font-weight: 800;">LIVE</span>
+          </div>
+          <input type="range" id="cg-time-scrubber" min="0" max="0" value="0" style="width: 100%; accent-color: #00f3ff; cursor: pointer; height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; outline: none;">
+          <div style="display: flex; justify-content: space-between; margin-top: 6px; color: #475569; font-size: 9px;">
+            <span id="cg-scrubber-oldest">Past</span>
+            <span id="cg-scrubber-newest">Now</span>
+          </div>
+        </div>
+
       </div>
     `;
 
@@ -153,7 +166,58 @@ export class CausalGraphWidget {
     // Refresh Button
     const refBtn = this._container.querySelector('#cg-refresh-btn');
     if (refBtn) {
-      refBtn.addEventListener('click', () => this._loadEvents(false));
+      refBtn.addEventListener('click', () => {
+        this._selectedEvent = null;
+        this._loadEvents(false);
+        // Restart auto-refresh if it was paused
+        if (!this._pollInterval) {
+          this._pollInterval = setInterval(() => {
+            if (!this._container || !this._container.isConnected) {
+              clearInterval(this._pollInterval);
+              return;
+            }
+            this._loadEvents(true);
+          }, 4000);
+          refBtn.innerHTML = '🔄 Refresh Events';
+          refBtn.style.color = '#00f3ff';
+          refBtn.style.borderColor = 'rgba(0, 243, 255, 0.3)';
+          const dateSpan = this._container.querySelector('#cg-scrubber-date');
+          if (dateSpan) dateSpan.innerText = 'LIVE';
+        }
+      });
+    }
+
+    // Time Scrubber
+    const scrubber = this._container.querySelector('#cg-time-scrubber');
+    if (scrubber) {
+      scrubber.addEventListener('input', (e) => {
+        if (!this._events || this._events.length === 0) return;
+
+        // Pause auto-refresh when scrubbing
+        if (this._pollInterval) {
+          clearInterval(this._pollInterval);
+          this._pollInterval = null;
+          const rb = this._container.querySelector('#cg-refresh-btn');
+          if (rb) {
+            rb.innerHTML = '⏸ Auto-Refresh Paused (Replay Mode)';
+            rb.style.color = '#fbbf24';
+            rb.style.borderColor = 'rgba(251, 191, 36, 0.3)';
+          }
+        }
+
+        const max = this._events.length - 1;
+        const val = parseInt(e.target.value, 10);
+        const targetIdx = max - val;
+
+        this._selectedEvent = this._events[targetIdx];
+        this._updateContent();
+        this._renderInspector();
+
+        const dateSpan = this._container.querySelector('#cg-scrubber-date');
+        if (dateSpan && this._selectedEvent) {
+          dateSpan.innerText = new Date(this._selectedEvent.timestamp).toLocaleTimeString();
+        }
+      });
     }
 
     // Asset buttons
@@ -183,6 +247,23 @@ export class CausalGraphWidget {
         </div>
       `;
       return;
+    }
+
+    // Update Scrubber Bounds
+    const scrubber = this._container.querySelector('#cg-time-scrubber');
+    if (scrubber && this._events.length > 0) {
+      const max = this._events.length - 1;
+      scrubber.max = max;
+
+      // Keep slider pinned to "Now" when in live mode
+      if (this._pollInterval && !this._selectedEvent) {
+        scrubber.value = max;
+      }
+
+      const oldestSpan = this._container.querySelector('#cg-scrubber-oldest');
+      const newestSpan = this._container.querySelector('#cg-scrubber-newest');
+      if (oldestSpan) oldestSpan.innerText = new Date(this._events[max].timestamp).toLocaleTimeString();
+      if (newestSpan) newestSpan.innerText = new Date(this._events[0].timestamp).toLocaleTimeString();
     }
 
     eventsList.innerHTML = `
