@@ -22,7 +22,8 @@ async function main() {
   const config = {
     datasetPath,
     symbol: 'BTCUSDT',
-    segment: 'is', // Use IS segment only (faster)
+    segment: 'is', // Use IS segment only
+    split: { is: 0.05, val: 0.1, oos: 0.85 }, // FAST RUN: only 5% of data (~6,500 candles) for determinism check
     experimentId: 'DETERMINISM_CHECK',
     hypothesis: 'Two identical runs produce identical results',
     takerFeePct: 0.001,

@@ -54,7 +54,7 @@ export class ShadowLogger {
       fs.appendFileSync(SHADOW_LOG_PATH, JSON.stringify(record) + '\n', 'utf8');
       
       if (isVetoed && reason.includes('ENTRY_VETO')) {
-        console.log(`[SHADOW TRACKER] ${symbol} ${direction} VETOED by TruthKernel. Reason: ${reason} (SMA: ${(record.features.sma20DistancePct*100).toFixed(2)}%, ATR: ${(record.features.atr14_pct*100).toFixed(2)}%)`);
+        console.log(`[SHADOW TRACKER] ${symbol} ${direction} VETOED by TruthKernel. Reason: ${reason} (SMA: ${(record.sma20_distance_pct*100).toFixed(2)}%, ATR: ${(record.atr_pct*100).toFixed(2)}%)`);
       }
       
     } catch (e) {

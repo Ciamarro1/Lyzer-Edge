@@ -32,6 +32,29 @@ import { ReplayDataIngestor } from './replayDataIngestor.js';
 import { ExecutionSimulator } from './executionSimulator.js';
 import { MetricsCalculator } from './metricsCalculator.js';
 
+// --- SILENCE NOISY LOGS DURING REPLAY ---
+const originalLog = console.log;
+const originalWarn = console.warn;
+const originalError = console.error;
+console.log = (...args) => {
+  if (typeof args[0] === 'string' && (
+    args[0].startsWith('[REPLAY]') || 
+    args[0].startsWith('=') || 
+    args[0].startsWith('🔬') || 
+    args[0].startsWith('📊') || 
+    args[0].startsWith('✅') || 
+    args[0].startsWith('❌') || 
+    args[0].startsWith('  ') || 
+    args[0].startsWith('\n')
+  )) {
+    originalLog(...args);
+  }
+};
+console.warn = (...args) => {
+  if (typeof args[0] === 'string' && args[0].startsWith('[REPLAY]')) originalWarn(...args);
+};
+// ----------------------------------------
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export class ReplayRunner {
@@ -95,9 +118,13 @@ export class ReplayRunner {
    * but skip startLiveMode() entirely.
    */
   async initEngine() {
+    // Inject required env vars for replay mode
+    if (!process.env.COURT_SECRET_KEY) process.env.COURT_SECRET_KEY = 'REPLAY_SECRET_MOCK';
+
     // Dynamic import to handle the ESM module from lyzer edge
     const streamEnginePath = resolve(__dirname, '../../lyzer edge/backend/streamEngine.js');
-    const { StreamEngine } = await import(streamEnginePath);
+    const { pathToFileURL } = await import('url');
+    const { StreamEngine } = await import(pathToFileURL(streamEnginePath).href);
 
     const engineConfig = {
       mode: 'SIMULATION',
