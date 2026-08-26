@@ -27,3 +27,18 @@ docs/estudos/
 lyzer edge/historical_data_*.json
 lyzer edge/macro_backtest_*.json
 lyzer edge/temp_test_ledger/
+
+# Ephemeral Agent Workspaces
+.agents/m*
+.agents/worker*
+.agents/auditor*
+.agents/challenger*
+.agents/explorer*
+.agents/reviewer*
+.agents/orchestrator*
+.agents/victory*
+
+# Large Text Logs and DBs
+*.txt
+*.log
+*.db
