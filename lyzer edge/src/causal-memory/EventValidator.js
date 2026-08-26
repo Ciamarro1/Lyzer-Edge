@@ -1,7 +1,7 @@
-import { computeEventHash } from './EventFactory.js';
+import { computeCausalHash, verifyCausalHash, verifyCausalChain, GENESIS_PREV_HASH } from './causalCrypto.js';
 
 export class EventValidator {
-  static validate(event, expectedPrevHash = null) {
+  static validate(event, expectedPrevHash = null, options = {}) {
     if (!event || typeof event !== 'object') {
       throw new Error('[EventValidator] Event must be a valid object');
     }
@@ -18,8 +18,8 @@ export class EventValidator {
       throw new Error(`[EventValidator] Hash chain broken for event ${event.event_id}. Expected prev ${expectedPrevHash}, got ${event.hash_prev}`);
     }
 
-    // Verify cryptographic SHA-256 hash integrity
-    const recomputed = computeEventHash(event, event.hash_prev);
+    // Verify cryptographic SHA-256 / HMAC-SHA256 hash integrity
+    const recomputed = computeCausalHash(event, event.hash_prev || GENESIS_PREV_HASH, options);
     if (event.hash !== recomputed) {
       throw new Error(`[EventValidator] Tamper detection: hash mismatch for event ${event.event_id}. Recorded: ${event.hash}, Recomputed: ${recomputed}`);
     }
@@ -27,11 +27,10 @@ export class EventValidator {
     return true;
   }
 
-  static validateChain(eventsLog) {
-    for (let i = 0; i < eventsLog.length; i++) {
-      const current = eventsLog[i];
-      const prevHash = i === 0 ? '0'.repeat(64) : eventsLog[i - 1].hash;
-      this.validate(current, prevHash);
+  static validateChain(eventsLog, initialPrevHash = GENESIS_PREV_HASH, options = {}) {
+    const result = verifyCausalChain(eventsLog, initialPrevHash, options);
+    if (!result.valid) {
+      throw new Error(`[EventValidator] Chain validation failed: ${result.reason}`);
     }
     return true;
   }

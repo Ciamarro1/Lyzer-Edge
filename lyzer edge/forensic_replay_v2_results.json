@@ -1,0 +1,300 @@
+{
+  "timestamp": "2026-08-25T23:31:59.426Z",
+  "dataset": {
+    "symbol": "BTCUSDT",
+    "durationHours": 45.12,
+    "warmupCandles": 500,
+    "activeCandles": 2707
+  },
+  "causalWorlds": {
+    "MundoA": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoB": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoC": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoD": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoE_Time10m": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.020048661071095094,
+        "netPnlUsd": -2.0048661071095095,
+        "profitFactor": 0.8670135540945023,
+        "expectancyPct": -0.006682887023698365,
+        "expectancyUsd": -0.6682887023698365,
+        "maxDrawdownPct": 0.15056038106296393,
+        "sharpeRatio": -1.346468306234264,
+        "avgHoldingMinutes": 11.666666666666666,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.11390267811709613
+      },
+      "tradeCount": 3
+    },
+    "MundoE_Time15m": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoE_Time20m": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": 0.03471957598030799,
+        "netPnlUsd": 3.471957598030798,
+        "profitFactor": 1.3617039239262712,
+        "expectancyPct": 0.011573191993435997,
+        "expectancyUsd": 1.1573191993435994,
+        "maxDrawdownPct": 0.09586363731318653,
+        "sharpeRatio": 2.629004432602095,
+        "avgHoldingMinutes": 18.333333333333332,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoE_Time30m": {
+      "metrics": {
+        "totalTrades": 2,
+        "wins": 2,
+        "losses": 0,
+        "winRatePct": 100,
+        "netPnlPct": 0.1723404367857285,
+        "netPnlUsd": 17.23404367857285,
+        "profitFactor": 99.99,
+        "expectancyPct": 0.08617021839286425,
+        "expectancyUsd": 8.617021839286425,
+        "maxDrawdownPct": 0,
+        "sharpeRatio": 26.958212715269557,
+        "avgHoldingMinutes": 22.5,
+        "tradesPerDay": 1.0638297872340425,
+        "avgMfePct": 0.031379883060247415,
+        "avgMaePct": -0.05880834355248236
+      },
+      "tradeCount": 2
+    },
+    "MundoE_Dynamic": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    },
+    "MundoE_Hybrid": {
+      "metrics": {
+        "totalTrades": 3,
+        "wins": 1,
+        "losses": 2,
+        "winRatePct": 33.33333333333333,
+        "netPnlPct": -0.016842334618780663,
+        "netPnlUsd": -1.6842334618780663,
+        "profitFactor": 0.8858540317728645,
+        "expectancyPct": -0.005614111539593554,
+        "expectancyUsd": -0.5614111539593555,
+        "maxDrawdownPct": 0.14735824008158682,
+        "sharpeRatio": -1.127190857591652,
+        "avgHoldingMinutes": 15,
+        "tradesPerDay": 1.5957446808510638,
+        "avgMfePct": 0.009513294990187932,
+        "avgMaePct": -0.12241220631404735
+      },
+      "tradeCount": 3
+    }
+  },
+  "causalDecomposition": {
+    "delta_VETO_B_minus_A": {
+      "step": "Mundo B - Mundo A (Efeito do VETO Soberano / Infraestrutura)",
+      "deltaTrades": 0,
+      "deltaWinRatePct": 0,
+      "deltaNetPnlPct": 0,
+      "deltaProfitFactor": 0,
+      "deltaMaxDrawdownPct": 0,
+      "deltaExpectancyUsd": 0,
+      "deltaSharpe": 0
+    },
+    "delta_REGIME_C_minus_B": {
+      "step": "Mundo C - Mundo B (Efeito do Filtro de Regime & Off-Peak Floor)",
+      "deltaTrades": 0,
+      "deltaWinRatePct": 0,
+      "deltaNetPnlPct": 0,
+      "deltaProfitFactor": 0,
+      "deltaMaxDrawdownPct": 0,
+      "deltaExpectancyUsd": 0,
+      "deltaSharpe": 0
+    },
+    "delta_DEALING_RANGE_D_minus_C": {
+      "step": "Mundo D - Mundo C (Efeito do Dealing Range / Premium-Discount)",
+      "deltaTrades": 0,
+      "deltaWinRatePct": 0,
+      "deltaNetPnlPct": 0,
+      "deltaProfitFactor": 0,
+      "deltaMaxDrawdownPct": 0,
+      "deltaExpectancyUsd": 0,
+      "deltaSharpe": 0
+    },
+    "delta_EXIT_POLICY_E_minus_D": {
+      "step": "Mundo E (Híbrido) - Mundo D (Efeito da Política de Saída Híbrida)",
+      "deltaTrades": 0,
+      "deltaWinRatePct": 0,
+      "deltaNetPnlPct": 0,
+      "deltaProfitFactor": 0,
+      "deltaMaxDrawdownPct": 0,
+      "deltaExpectancyUsd": 0,
+      "deltaSharpe": 0
+    }
+  },
+  "mfeCaptureMatrix": {
+    "5m": {
+      "windowMinutes": 5,
+      "sampleSize": 8,
+      "avgPeakMfeR": 0.05704783925370384,
+      "avgRealizedPnlR": -0.41825759648427235,
+      "mfeCaptureRatioPct": 0,
+      "peakReachedBeforeWindowPct": 50,
+      "reversalRateFrom1RPct": 0
+    },
+    "10m": {
+      "windowMinutes": 10,
+      "sampleSize": 8,
+      "avgPeakMfeR": 0.05704783925370384,
+      "avgRealizedPnlR": -0.2615143526031587,
+      "mfeCaptureRatioPct": 0,
+      "peakReachedBeforeWindowPct": 50,
+      "reversalRateFrom1RPct": 0
+    },
+    "15m": {
+      "windowMinutes": 15,
+      "sampleSize": 8,
+      "avgPeakMfeR": 0.05704783925370384,
+      "avgRealizedPnlR": -0.25510169969853136,
+      "mfeCaptureRatioPct": 0,
+      "peakReachedBeforeWindowPct": 50,
+      "reversalRateFrom1RPct": 0
+    },
+    "20m": {
+      "windowMinutes": 20,
+      "sampleSize": 0,
+      "avgPeakMfeR": 0,
+      "avgRealizedPnlR": 0,
+      "mfeCaptureRatioPct": 0,
+      "peakReachedBeforeWindowPct": 0,
+      "reversalRateFrom1RPct": 0
+    },
+    "30m": {
+      "windowMinutes": 30,
+      "sampleSize": 0,
+      "avgPeakMfeR": 0,
+      "avgRealizedPnlR": 0,
+      "mfeCaptureRatioPct": 0,
+      "peakReachedBeforeWindowPct": 0,
+      "reversalRateFrom1RPct": 0
+    }
+  }
+}

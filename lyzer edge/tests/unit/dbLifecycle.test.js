@@ -35,23 +35,23 @@ describe('Database Schema Migrations & DB Lifecycle (Milestone 3)', () => {
     });
     expect(initialVersion).toBe(0);
 
-    // Run migrations v1-v4
+    // Run migrations v1-v5
     const result = await runMigrations(rawDb);
-    expect(result.currentVersion).toBe(4);
-    expect(result.appliedCount).toBe(4);
+    expect(result.currentVersion).toBe(5);
+    expect(result.appliedCount).toBe(5);
 
-    // Check PRAGMA user_version is 4
+    // Check PRAGMA user_version is 5
     const finalVersion = await new Promise((resolve) => {
       rawDb.get('PRAGMA user_version;', (err, row) => resolve(row.user_version));
     });
-    expect(finalVersion).toBe(4);
+    expect(finalVersion).toBe(5);
 
     // Check _migrations table entries
     const migrationRows = await new Promise((resolve) => {
       rawDb.all('SELECT * FROM _migrations ORDER BY version ASC', [], (err, rows) => resolve(rows));
     });
-    expect(migrationRows).toHaveLength(4);
-    expect(migrationRows.map(m => m.version)).toEqual([1, 2, 3, 4]);
+    expect(migrationRows).toHaveLength(5);
+    expect(migrationRows.map(m => m.version)).toEqual([1, 2, 3, 4, 5]);
 
     // Check tables exist
     const tables = await new Promise((resolve) => {
@@ -66,7 +66,7 @@ describe('Database Schema Migrations & DB Lifecycle (Milestone 3)', () => {
 
     // Idempotency: re-running migrations does nothing and returns 0 applied
     const reRun = await runMigrations(rawDb);
-    expect(reRun.currentVersion).toBe(4);
+    expect(reRun.currentVersion).toBe(5);
     expect(reRun.appliedCount).toBe(0);
 
     await new Promise((resolve) => rawDb.close(resolve));

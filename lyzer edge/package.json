@@ -10,6 +10,7 @@
     "backend": "node --max-old-space-size=384 backend/server.js",
     "full": "concurrently \"node --max-old-space-size=384 backend/server.js\" \"vite\"",
     "test": "vitest run",
+    "test:p0": "vitest run tests/unit/test_exit_policy_math.test.js tests/unit/test_sovereign_veto_gate.test.js tests/unit/test_sqlite_upsert_idempotency.test.js tests/unit/test_causal_hmac_chain.test.js",
     "test:watch": "vitest",
     "test:verify": "vitest run tests/verification",
     "coverage": "vitest run --coverage",

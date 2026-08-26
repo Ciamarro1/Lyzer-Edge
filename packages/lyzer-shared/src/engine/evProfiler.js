@@ -57,7 +57,7 @@ export function computeTradeEV(trade, context, history, globalMemory) {
     },
     classification,
     meta: {
-      confidence: signal.confidence,
+      confidence: (signal && typeof signal.confidence === 'number') ? signal.confidence : (typeof trade.confidence === 'number' ? trade.confidence : 50),
       regime,
       reasonCodes
     }
@@ -70,11 +70,13 @@ export function computeTradeEV(trade, context, history, globalMemory) {
  * Estimate Signal EV based on average PnL of historical signals with similar confidence.
  */
 function estimateSignalEV(trade, history) {
-  const similar = history.filter(h =>
-    h.id !== trade.id &&
-    h.direction === trade.direction &&
-    Math.abs(h.signal.confidence - trade.signal.confidence) <= 5
-  );
+  const tradeConf = (trade.signal && typeof trade.signal.confidence === 'number') ? trade.signal.confidence : (typeof trade.confidence === 'number' ? trade.confidence : 50);
+  const similar = history.filter(h => {
+    const hConf = (h.signal && typeof h.signal.confidence === 'number') ? h.signal.confidence : (typeof h.confidence === 'number' ? h.confidence : 50);
+    return h.id !== trade.id &&
+      h.direction === trade.direction &&
+      Math.abs(hConf - tradeConf) <= 5;
+  });
 
   if (!similar.length) return 0;
   return similar.reduce((sum, h) => sum + h.pnl, 0) / similar.length;
@@ -173,7 +175,8 @@ function updateGlobalMemory(trade, breakdown, classification, globalMemory) {
   if (!globalMemory.governanceStats) globalMemory.governanceStats = { allowed: 0, rejected: 0, capacityConstrained: 0, cancelledLimit: 0 };
   
   // Categorize confidence into 10% buckets
-  const bucketKey = Math.floor(trade.signal.confidence / 10) * 10;
+  const conf = (trade.signal && typeof trade.signal.confidence === 'number') ? trade.signal.confidence : (typeof trade.confidence === 'number' ? trade.confidence : 50);
+  const bucketKey = Math.floor(conf / 10) * 10;
   if (!globalMemory.signalBuckets[bucketKey]) {
     globalMemory.signalBuckets[bucketKey] = { count: 0, avgPnL: 0, avgEV: 0 };
   }

@@ -2,17 +2,22 @@ module.exports = {
   env: {
     browser: true,
     node: true,
-    es2021: true
+    es2022: true
   },
   extends: [
     "eslint:recommended",
     "plugin:prettier/recommended"
   ],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: "latest",
     sourceType: "module"
   },
   rules: {
-    // Add project‑specific rule overrides here
+    "prettier/prettier": "warn",
+    "no-unused-vars": "warn",
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "no-constant-condition": "warn",
+    "no-useless-escape": "warn",
+    "no-inner-declarations": "warn"
   }
 };

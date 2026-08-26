@@ -4,6 +4,8 @@ import fs from 'fs';
 import { recordSqliteWrite, recordSqliteLockWait, recordSystemError } from '../src/observability/index.js';
 import { safeJsonParse, safeJsonStringify } from './utils/safeJson.js';
 import { runMigrations, runTTLCleanup } from './migrations.js';
+import { generateUUIDv7 } from '../src/causal-memory/EventFactory.js';
+import { computeCausalHash, GENESIS_PREV_HASH } from '../src/causal-memory/causalCrypto.js';
 
 // Use /tmp/data which is always writable in containerized environments
 const DATA_DIR = process.env.DATA_DIR || '/tmp/data';
@@ -33,6 +35,10 @@ export class CausalMemoryDB {
         this._causalFlushTimer = null;
         this._isFlushing = false;
         this._flushPromise = null;
+
+        // Atomic in-memory causal hash pointer for zero WAL contention
+        this._lastInMemoryHash = null;
+        this._lastHashInitPromise = null;
 
         // Instrument queries for Lock Wait Latency Tracking
         const wrapMethod = (methodName) => {
@@ -73,11 +79,40 @@ export class CausalMemoryDB {
             this.db.run(`PRAGMA wal_autocheckpoint = 1000;`);
         });
 
-        this.migrationsPromise = runMigrations(this).catch(err => {
+        this.migrationsPromise = runMigrations(this).then(async () => {
+            await this._initLastInMemoryHash();
+        }).catch(err => {
             recordSystemError('CausalMemoryDB', 'MIGRATION_ERROR');
             console.error('[DB] Schema migration failed:', err);
             throw err;
         });
+    }
+
+    async _initLastInMemoryHash() {
+        if (this._lastHashInitPromise) return this._lastHashInitPromise;
+        this._lastHashInitPromise = new Promise((resolve) => {
+            const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
+            this.db.get(sql, [], (err, row) => {
+                if (err || !row || !row.hash) {
+                    this._lastInMemoryHash = this._lastInMemoryHash || GENESIS_PREV_HASH;
+                } else {
+                    this._lastInMemoryHash = row.hash;
+                }
+                resolve(this._lastInMemoryHash);
+            });
+        });
+        return this._lastHashInitPromise;
+    }
+
+    async _ensureLastHashLoaded() {
+        if (this._lastInMemoryHash !== null) {
+            return this._lastInMemoryHash;
+        }
+        await this.ensureReady();
+        if (this._lastInMemoryHash !== null) {
+            return this._lastInMemoryHash;
+        }
+        return await this._initLastInMemoryHash();
     }
 
     async ensureReady() {
@@ -533,6 +568,21 @@ export class CausalMemoryDB {
 
     async insertCausalEvent(event) {
         if (!event) return;
+
+        if (this._lastInMemoryHash === null) {
+            await this._ensureLastHashLoaded();
+        }
+
+        // Automatically assign hash_prev and real SHA-256 hash if not present
+        if (!event.hash_prev) {
+            event.hash_prev = this._lastInMemoryHash || GENESIS_PREV_HASH;
+        }
+        if (!event.hash) {
+            event.hash = computeCausalHash(event, event.hash_prev);
+        }
+
+        // Atomic in-memory pointer update for zero-contention
+        this._lastInMemoryHash = event.hash;
         this._causalBuffer.push(event);
 
         if (this._causalBuffer.length >= this._causalBatchSize) {
@@ -544,15 +594,10 @@ export class CausalMemoryDB {
     async getLastCausalEventHash() {
         await this.ensureReady();
         await this.flushCausalEvents();
-        return new Promise((resolve, reject) => {
-            const sql = `SELECT hash FROM causal_events_log ORDER BY id DESC LIMIT 1`;
-            this.db.serialize(() => {
-                this.db.get(sql, [], (err, row) => {
-                    if (err) reject(err);
-                    else resolve(row ? row.hash : '0'.repeat(64));
-                });
-            });
-        });
+        if (this._lastInMemoryHash !== null) {
+            return this._lastInMemoryHash;
+        }
+        return await this._ensureLastHashLoaded();
     }
 
     async getCausalEventsUntil(timestampMs) {
@@ -750,34 +795,59 @@ export class CausalMemoryDB {
     async insertExperimentTrade(experimentId, trade) {
         await this.ensureReady();
         return new Promise((resolve, reject) => {
+            const tradeId = trade.trade_id || trade.id || generateUUIDv7();
+            const expId = experimentId || trade.experiment_id || trade.experimentId || 'EXP-001';
+            const symbol = trade.symbol || null;
+            const direction = trade.direction || null;
+            const entryPrice = trade.entryPrice ?? trade.entry_price ?? null;
+            const exitPrice = trade.exitPrice ?? trade.exit_price ?? null;
+            const stopLoss = trade.stopLoss ?? trade.stop_loss ?? null;
+            const takeProfit = trade.takeProfit ?? trade.take_profit ?? null;
+            const quantity = trade.quantity ?? null;
+            const pnl = trade.pnl ?? null;
+            const pnlPct = trade.pnl_pct ?? trade.pnlPct ?? (trade.pnl != null ? trade.pnl * 100 : null);
+            const status = trade.status || 'open';
+            const signalJson = trade.signal ? safeJsonStringify(trade.signal) : (trade.signal_json ? (typeof trade.signal_json === 'string' ? trade.signal_json : safeJsonStringify(trade.signal_json)) : null);
+            const regime = trade.regime || null;
+            const govDecision = trade.governanceDecision ?? trade.governance_decision ?? null;
+            const reasonCodesJson = trade.reasonCodes ? safeJsonStringify(trade.reasonCodes) : (trade.reason_codes_json ? (typeof trade.reason_codes_json === 'string' ? trade.reason_codes_json : safeJsonStringify(trade.reason_codes_json)) : null);
+            const evJson = trade.ev ? safeJsonStringify(trade.ev) : (trade.ev_json ? (typeof trade.ev_json === 'string' ? trade.ev_json : safeJsonStringify(trade.ev_json)) : null);
+            const entryTimestamp = trade.timestamp || trade.entry_timestamp || trade.entryTimestamp || Date.now();
+            const exitTimestamp = trade.exit_timestamp || trade.exitTimestamp || null;
+            const createdAt = trade.created_at || trade.createdAt || Date.now();
+
             const sql = `
                 INSERT INTO experiment_trades
                 (trade_id, experiment_id, symbol, direction, entry_price, exit_price, stop_loss, take_profit,
                  quantity, pnl, pnl_pct, status, signal_json, regime, governance_decision,
                  reason_codes_json, ev_json, entry_timestamp, exit_timestamp, created_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(trade_id) DO UPDATE SET
+                    experiment_id = COALESCE(excluded.experiment_id, experiment_trades.experiment_id),
+                    symbol = COALESCE(excluded.symbol, experiment_trades.symbol),
+                    direction = COALESCE(excluded.direction, experiment_trades.direction),
+                    entry_price = COALESCE(excluded.entry_price, experiment_trades.entry_price),
+                    exit_price = COALESCE(excluded.exit_price, experiment_trades.exit_price),
+                    stop_loss = COALESCE(excluded.stop_loss, experiment_trades.stop_loss),
+                    take_profit = COALESCE(excluded.take_profit, experiment_trades.take_profit),
+                    quantity = COALESCE(excluded.quantity, experiment_trades.quantity),
+                    pnl = COALESCE(excluded.pnl, experiment_trades.pnl),
+                    pnl_pct = COALESCE(excluded.pnl_pct, experiment_trades.pnl_pct),
+                    status = COALESCE(excluded.status, experiment_trades.status),
+                    signal_json = COALESCE(excluded.signal_json, experiment_trades.signal_json),
+                    regime = COALESCE(excluded.regime, experiment_trades.regime),
+                    governance_decision = COALESCE(excluded.governance_decision, experiment_trades.governance_decision),
+                    reason_codes_json = COALESCE(excluded.reason_codes_json, experiment_trades.reason_codes_json),
+                    ev_json = COALESCE(excluded.ev_json, experiment_trades.ev_json),
+                    entry_timestamp = COALESCE(excluded.entry_timestamp, experiment_trades.entry_timestamp),
+                    exit_timestamp = COALESCE(excluded.exit_timestamp, experiment_trades.exit_timestamp),
+                    created_at = COALESCE(experiment_trades.created_at, excluded.created_at)
             `;
+
             this.db.run(sql, [
-                trade.trade_id || trade.id,
-                experimentId,
-                trade.symbol,
-                trade.direction,
-                trade.entryPrice || trade.entry_price,
-                trade.exitPrice || trade.exit_price || null,
-                trade.stopLoss || trade.stop_loss || null,
-                trade.takeProfit || trade.take_profit || null,
-                trade.quantity || null,
-                trade.pnl || null,
-                trade.pnl != null ? trade.pnl * 100 : null,
-                trade.status || 'open',
-                trade.signal ? safeJsonStringify(trade.signal) : null,
-                trade.regime || null,
-                trade.governanceDecision || trade.governance_decision || null,
-                trade.reasonCodes ? safeJsonStringify(trade.reasonCodes) : safeJsonStringify(trade.reason_codes_json),
-                trade.ev ? safeJsonStringify(trade.ev) : safeJsonStringify(trade.ev_json),
-                trade.timestamp || trade.entry_timestamp || Date.now(),
-                trade.exit_timestamp || null,
-                Date.now()
+                tradeId, expId, symbol, direction, entryPrice, exitPrice, stopLoss, takeProfit,
+                quantity, pnl, pnlPct, status, signalJson, regime, govDecision,
+                reasonCodesJson, evJson, entryTimestamp, exitTimestamp, createdAt
             ], (err) => {
                 if (err) reject(err);
                 else resolve();
@@ -785,22 +855,92 @@ export class CausalMemoryDB {
         });
     }
 
-    async updateExperimentTrade(tradeId, experimentId, updateData) {
+    async updateExperimentTrade(tradeId, experimentId, updateData = {}) {
         await this.ensureReady();
         return new Promise((resolve, reject) => {
+            const id = tradeId || updateData.trade_id || updateData.id;
+            if (!id) {
+                return reject(new Error('[DB] updateExperimentTrade requires a valid tradeId'));
+            }
+
             const sets = [];
             const params = [];
-            if (updateData.exit_price !== undefined) { sets.push('exit_price = ?'); params.push(updateData.exit_price); }
-            if (updateData.pnl !== undefined) { sets.push('pnl = ?'); params.push(updateData.pnl); sets.push('pnl_pct = ?'); params.push(updateData.pnl * 100); }
-            if (updateData.status !== undefined) { sets.push('status = ?'); params.push(updateData.status); }
-            if (updateData.exit_timestamp !== undefined) { sets.push('exit_timestamp = ?'); params.push(updateData.exit_timestamp); }
-            if (updateData.reason_codes_json !== undefined) { sets.push('reason_codes_json = ?'); params.push(updateData.reason_codes_json); }
-            if (updateData.ev_json !== undefined) { sets.push('ev_json = ?'); params.push(updateData.ev_json); }
 
-            if (sets.length === 0) return resolve();
+            if (experimentId || updateData.experiment_id || updateData.experimentId) {
+                sets.push('experiment_id = ?');
+                params.push(experimentId || updateData.experiment_id || updateData.experimentId);
+            }
+            if (updateData.symbol !== undefined) {
+                sets.push('symbol = ?');
+                params.push(updateData.symbol);
+            }
+            if (updateData.direction !== undefined) {
+                sets.push('direction = ?');
+                params.push(updateData.direction);
+            }
+            if (updateData.entry_price !== undefined || updateData.entryPrice !== undefined) {
+                sets.push('entry_price = ?');
+                params.push(updateData.entry_price ?? updateData.entryPrice);
+            }
+            if (updateData.exit_price !== undefined || updateData.exitPrice !== undefined) {
+                sets.push('exit_price = ?');
+                params.push(updateData.exit_price ?? updateData.exitPrice);
+            }
+            if (updateData.stop_loss !== undefined || updateData.stopLoss !== undefined) {
+                sets.push('stop_loss = ?');
+                params.push(updateData.stop_loss ?? updateData.stopLoss);
+            }
+            if (updateData.take_profit !== undefined || updateData.takeProfit !== undefined) {
+                sets.push('take_profit = ?');
+                params.push(updateData.take_profit ?? updateData.takeProfit);
+            }
+            if (updateData.quantity !== undefined) {
+                sets.push('quantity = ?');
+                params.push(updateData.quantity);
+            }
+            if (updateData.pnl !== undefined) {
+                sets.push('pnl = ?');
+                params.push(updateData.pnl);
+            }
+            if (updateData.pnl_pct !== undefined || updateData.pnlPct !== undefined) {
+                sets.push('pnl_pct = ?');
+                params.push(updateData.pnl_pct ?? updateData.pnlPct);
+            }
+            if (updateData.status !== undefined) {
+                sets.push('status = ?');
+                params.push(updateData.status);
+            }
+            if (updateData.signal !== undefined || updateData.signal_json !== undefined) {
+                sets.push('signal_json = ?');
+                params.push(updateData.signal ? safeJsonStringify(updateData.signal) : (typeof updateData.signal_json === 'string' ? updateData.signal_json : safeJsonStringify(updateData.signal_json)));
+            }
+            if (updateData.regime !== undefined) {
+                sets.push('regime = ?');
+                params.push(updateData.regime);
+            }
+            if (updateData.governance_decision !== undefined || updateData.governanceDecision !== undefined) {
+                sets.push('governance_decision = ?');
+                params.push(updateData.governance_decision ?? updateData.governanceDecision);
+            }
+            if (updateData.reasonCodes !== undefined || updateData.reason_codes_json !== undefined) {
+                sets.push('reason_codes_json = ?');
+                params.push(updateData.reasonCodes ? safeJsonStringify(updateData.reasonCodes) : (typeof updateData.reason_codes_json === 'string' ? updateData.reason_codes_json : safeJsonStringify(updateData.reason_codes_json)));
+            }
+            if (updateData.ev !== undefined || updateData.ev_json !== undefined) {
+                sets.push('ev_json = ?');
+                params.push(updateData.ev ? safeJsonStringify(updateData.ev) : (typeof updateData.ev_json === 'string' ? updateData.ev_json : safeJsonStringify(updateData.ev_json)));
+            }
+            if (updateData.exit_timestamp !== undefined || updateData.exitTimestamp !== undefined) {
+                sets.push('exit_timestamp = ?');
+                params.push(updateData.exit_timestamp ?? updateData.exitTimestamp);
+            }
 
-            params.push(tradeId, experimentId);
-            const sql = `UPDATE experiment_trades SET ${sets.join(', ')} WHERE trade_id = ? AND experiment_id = ?`;
+            if (sets.length === 0) {
+                return resolve();
+            }
+
+            params.push(id);
+            const sql = `UPDATE experiment_trades SET ${sets.join(', ')} WHERE trade_id = ?`;
             this.db.run(sql, params, (err) => {
                 if (err) reject(err);
                 else resolve();

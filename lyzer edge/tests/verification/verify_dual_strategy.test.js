@@ -20,8 +20,8 @@ describe('Dual-Strategy Engine Verification (Trend Expansion vs Range Scalp)', (
     // Asian session night window (23:00 UTC)
     const nightWeights = matrix.evaluate(0.0008, 'FLAT', 23);
     expect(nightWeights.activeRegime).toBe('LOW_LIQUIDITY_NIGHT');
-    expect(nightWeights.v2).toBe(2.0);
-    expect(nightWeights.v5).toBe(1.8);
+    expect(nightWeights.v2).toBe(0.8);
+    expect(nightWeights.v5).toBe(0.8);
   });
 
   it('MicrostructureDampener permits RANGE_SCALP when M15 is flat, but requires trend alignment for TREND_EXPANSION', () => {

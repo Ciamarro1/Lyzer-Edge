@@ -10,6 +10,7 @@ import {
 import { LiveDataIngestor } from '../../backend/liveDataIngestor.js';
 import { sendTelegramAlert } from '../../backend/telegram.js';
 import { ExchangeExecution } from '../../backend/exchangeExecution.js';
+import { PermissionToken } from '../../../packages/lyzer-constitution/src/eca/permission.js';
 
 describe('ssrfGuard Utility Suite', () => {
   describe('isPrivateIp', () => {
@@ -219,14 +220,16 @@ describe('ssrfGuard Utility Suite', () => {
       });
 
       it('executes safeFetch with encoded query string parameters', async () => {
+        process.env.COURT_SECRET_KEY = 'test_court_secret_for_ssrf_guard';
         const globalFetchMock = vi.fn().mockResolvedValue({
           ok: true,
           json: async () => ({ orderId: 98765 })
         });
         vi.stubGlobal('fetch', globalFetchMock);
 
+        const token = new PermissionToken('EXECUTE_TRADE', true, 'SSRF_TEST_AUTH');
         const exec = new ExchangeExecution('testkey', 'testsecret', true);
-        const res = await exec.placeOrder('BTCUSDT', 'BUY', 'MARKET', 0.01);
+        const res = await exec.placeOrder('BTCUSDT', 'BUY', 'MARKET', 0.01, null, {}, token);
 
         expect(res.orderId).toBe(98765);
         expect(globalFetchMock).toHaveBeenCalled();

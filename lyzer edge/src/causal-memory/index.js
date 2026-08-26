@@ -4,6 +4,16 @@ import { EventStore } from './EventStore.js';
 import { ProjectionEngine } from './ProjectionEngine.js';
 import { RewindEngine } from './RewindEngine.js';
 import { LearningEngine } from './LearningEngine.js';
+import { canonicalJson } from './canonicalJson.js';
+import {
+  sha256,
+  hmacSha256,
+  serializeCausalEvent,
+  computeCausalHash,
+  verifyCausalHash,
+  verifyCausalChain,
+  GENESIS_PREV_HASH
+} from './causalCrypto.js';
 
 export class CausalMemoryAdapter {
   constructor(causalMemoryDB) {
@@ -196,4 +206,19 @@ export class CausalMemoryAdapter {
   }
 }
 
-export { EventFactory, EventValidator, EventStore, ProjectionEngine, RewindEngine, LearningEngine };
+export {
+  EventFactory,
+  EventValidator,
+  EventStore,
+  ProjectionEngine,
+  RewindEngine,
+  LearningEngine,
+  canonicalJson,
+  sha256,
+  hmacSha256,
+  serializeCausalEvent,
+  computeCausalHash,
+  verifyCausalHash,
+  verifyCausalChain,
+  GENESIS_PREV_HASH
+};

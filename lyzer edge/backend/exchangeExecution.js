@@ -5,6 +5,7 @@
 
 import crypto from 'crypto';
 import { safeFetch, validateSymbol } from './utils/ssrfGuard.js';
+import { verifyToken, PermissionToken } from '../../packages/lyzer-constitution/src/eca/permission.js';
 
 export class ExchangeExecution {
   constructor(apiKey, apiSecret, isTestnet = true) {
@@ -14,9 +15,39 @@ export class ExchangeExecution {
     this.baseUrl = isTestnet ? 'https://testnet.binance.vision' : 'https://api.binance.com';
   }
 
-  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001, currentPrice = null, rules = { lotDecimals: 3, priceDecimals: 2 }) {
-    // Dynamic precision based on provided rules (fallback to old behavior if not provided)
-    const cleanQty = encodeURIComponent(String(Number(quantity).toFixed(rules.lotDecimals)));
+  async placeOrder(symbol, side, type = 'MARKET', quantity = 0.001, currentPrice = null, rules = { lotDecimals: 3, priceDecimals: 2 }, permissionToken = null) {
+    let token = permissionToken;
+    let effectiveRules = rules;
+
+    // Polymorphic handling if rules was omitted or passed directly as token
+    if (rules && (rules instanceof PermissionToken || rules.signature || rules.granted !== undefined || typeof rules._signToken === 'function')) {
+      token = rules;
+      effectiveRules = { lotDecimals: 3, priceDecimals: 2 };
+    }
+
+    // =========================================================================
+    // PORTÃO 3: PHYSICAL ADAPTER FAIL-CLOSED CONSTITUTIONAL GATE
+    // =========================================================================
+    if (!token) {
+      throw new Error('[PHYSICAL_GATE_VIOLATION] Missing permissionToken. Execution blocked at physical boundary.');
+    }
+
+    if (!verifyToken(token)) {
+      throw new Error('[PHYSICAL_GATE_VIOLATION] Invalid token signature. Cryptographic HMAC verification failed.');
+    }
+
+    if (token.granted !== true) {
+      throw new Error(`[PHYSICAL_GATE_VIOLATION] Token not granted (${token.reason || 'DENIED'}). Execution blocked at physical boundary.`);
+    }
+
+    const tokenAgeMs = Date.now() - (token.timestamp || 0);
+    if (tokenAgeMs > 10000 || tokenAgeMs < -1000) {
+      throw new Error(`[PHYSICAL_GATE_VIOLATION] Stale/expired permissionToken (age: ${tokenAgeMs}ms > 10000ms max freshness window). Execution aborted.`);
+    }
+
+    // Dynamic precision based on provided rules (fallback to default 3 decimals if not provided)
+    const lotDec = (effectiveRules && typeof effectiveRules.lotDecimals === 'number') ? effectiveRules.lotDecimals : 3;
+    const cleanQty = encodeURIComponent(String(Number(quantity).toFixed(lotDec)));
     const cleanSymbol = validateSymbol(symbol);
 
     if (!this.apiKey || !this.apiSecret) {
@@ -30,13 +61,12 @@ export class ExchangeExecution {
 
     const cleanSide = encodeURIComponent(side.toUpperCase());
     const cleanType = encodeURIComponent(type.toUpperCase());
-    const roundedQty = encodeURIComponent(String(Number(quantity).toFixed(rules.lotDecimals)));
 
-    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${roundedQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
+    let queryString = `symbol=${encodeURIComponent(cleanSymbol)}&side=${cleanSide}&type=${cleanType}&quantity=${cleanQty}&timestamp=${timestamp}&recvWindow=${recvWindow}`;
     
     if (type === 'LIMIT' && currentPrice) {
-      // Dynamic price rounding
-      queryString += `&price=${encodeURIComponent(String(Number(currentPrice).toFixed(rules.priceDecimals)))}&timeInForce=GTC`;
+      const priceDec = (effectiveRules && typeof effectiveRules.priceDecimals === 'number') ? effectiveRules.priceDecimals : 2;
+      queryString += `&price=${encodeURIComponent(String(Number(currentPrice).toFixed(priceDec)))}&timeInForce=GTC`;
     }
     
     const signature = crypto

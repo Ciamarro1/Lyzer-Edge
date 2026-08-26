@@ -453,10 +453,11 @@ console.log(`\n=================================================================
 console.log(`🚀 LYZER EDGE QUANT ENGINE — PRODUCTION STARTUP AUDIT`);
 console.log(`========================================================================`);
 console.log(`• Mode (ARL_MODE):                 ${process.env.ARL_MODE || 'TESTNET'}`);
+console.log(`• Exit Policy (EXIT_POLICY):       ${process.env.EXIT_POLICY || 'TIME'} (Time Horizon: ${process.env.TIME_EXIT_MINUTES || '15'}m)`);
 console.log(`• Dual-Strategy Router:           ACTIVE (Trend Expansion + Range Scalping)`);
 console.log(`• Range Scalp Engine:             ${process.env.ENABLE_RANGE_SCALP_MODE === 'true' ? 'ENABLED' : 'DISABLED'} (TP: +${process.env.RANGE_SCALP_TP || '1.0'}R | BE: +${process.env.RANGE_SCALP_BE || '0.45'}R)`);
 console.log(`• Trend Expansion Targets:        Scale-Out 1: +${process.env.MFE_TARGET_SCALE1 || '1.2'}R | Scale-Out 2: +${process.env.MFE_TARGET_SCALE2 || '1.8'}R | BE: +${process.env.MFE_TARGET_BE || '0.8'}R`);
-console.log(`• 24/7 Market Regime:             ${process.env.ENABLE_24_7_REGIME === 'true' ? 'ENABLED' : 'DISABLED'} (Off-Peak TRG Floor: ${process.env.OFF_PEAK_TRG_FLOOR || '0.22'})`);
+console.log(`• 24/7 Market Regime:             ${process.env.ENABLE_24_7_REGIME === 'true' ? 'ENABLED' : 'DISABLED'} (Off-Peak TRG Floor: ${process.env.OFF_PEAK_TRG_FLOOR || '0.48'})`);
 console.log(`• Vector Confluence Threshold:    ${process.env.VECTOR_CONFLULINE_THRESHOLD || process.env.VECTOR_CONFLUENCE_THRESHOLD || '0.018'}`);
 console.log(`• Execution Fee Alpha:            Maker LIMIT Resting Rebate (+0.01%) Active`);
 console.log(`• Fleet Monitored Assets:         ${targetAssets.join(', ')}`);
@@ -472,11 +473,13 @@ app.get('/api/status', (req, res) => {
     mode: process.env.ARL_MODE || 'TESTNET',
     architecture: 'Dual-Strategy (Trend Expansion + Range Scalp)',
     config: {
+      exitPolicy: process.env.EXIT_POLICY || 'TIME',
+      timeExitMinutes: parseFloat(process.env.TIME_EXIT_MINUTES || '15'),
       rangeScalpEnabled: process.env.ENABLE_RANGE_SCALP_MODE === 'true',
       rangeScalpTP: parseFloat(process.env.RANGE_SCALP_TP || '1.0'),
       rangeScalpBE: parseFloat(process.env.RANGE_SCALP_BE || '0.45'),
       regime24_7: process.env.ENABLE_24_7_REGIME === 'true',
-      offPeakTrgFloor: parseFloat(process.env.OFF_PEAK_TRG_FLOOR || '0.22'),
+      offPeakTrgFloor: parseFloat(process.env.OFF_PEAK_TRG_FLOOR || '0.48'),
       vectorConfluenceThreshold: parseFloat(process.env.VECTOR_CONFLUENCE_THRESHOLD || '0.018'),
       mfeTargetBE: parseFloat(process.env.MFE_TARGET_BE || '0.8'),
       mfeTargetScale1: parseFloat(process.env.MFE_TARGET_SCALE1 || '1.2'),
@@ -803,6 +806,42 @@ const broadcast = (payload) => {
 
 // --- INITIALIZE MULTI-ASSET FLEET ---
 if (process.env.NODE_ENV !== 'test') {
+  let saveStateTimeout = null;
+  let isSyncingTrades = false;
+  let pendingTradeSync = false;
+
+  const debouncedSyncStateAndTrades = () => {
+    if (saveStateTimeout) clearTimeout(saveStateTimeout);
+    saveStateTimeout = setTimeout(async () => {
+      saveEngineState(engines);
+      if (isSyncingTrades) {
+        pendingTradeSync = true;
+        return;
+      }
+      isSyncingTrades = true;
+      try {
+        const activeExp = await experimentManager.getActiveExperiment();
+        if (activeExp) {
+          for (const eng of engines) {
+            if (eng.tradeHistory && eng.tradeHistory.length > 0) {
+              for (const trade of eng.tradeHistory) {
+                await db.insertExperimentTrade(activeExp.experiment_id, trade).catch(() => {});
+              }
+            }
+          }
+        }
+      } catch (e) {
+        recordSystemError('Server', 'API_ERROR');
+      } finally {
+        isSyncingTrades = false;
+        if (pendingTradeSync) {
+          pendingTradeSync = false;
+          debouncedSyncStateAndTrades();
+        }
+      }
+    }, 200);
+  };
+
   for (const symbol of targetAssets) {
     console.log(`[FLEET] Booting StreamEngine for ${symbol}...`);
     const engine = new StreamEngine({
@@ -817,21 +856,8 @@ if (process.env.NODE_ENV !== 'test') {
     engine.on('arl', (payload) => broadcast(payload));
     engine.on('execution', (payload) => broadcast({ liveExecution: payload }));
     
-    // Listen to state changes to persist engine states & sync trades to SQLite Zero Entropy DB
-    engine.on('state_changed', async () => {
-      saveEngineState(engines);
-      try {
-        const activeExp = await experimentManager.getActiveExperiment();
-        if (activeExp && engine.tradeHistory) {
-          for (const trade of engine.tradeHistory) {
-            await db.insertExperimentTrade(activeExp.experiment_id, trade).catch(() => {});
-          }
-        }
-      } catch (e) {
-      recordSystemError('Server', 'API_ERROR');
-        // Ignore background sync errors
-      }
-    });
+    // Listen to state changes to persist engine states & sync trades to SQLite Zero Entropy DB (debounced & idempotent)
+    engine.on('state_changed', debouncedSyncStateAndTrades);
 
     engines.push(engine);
   }

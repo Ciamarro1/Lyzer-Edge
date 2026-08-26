@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { LLES_TAGS, isValidEpistemicTag, formatEpistemicLog } from '../../governance/epistemicStandard.js';
 
 export class DecisionLedger {
   constructor() {
@@ -12,10 +13,12 @@ export class DecisionLedger {
     this.SIMULATION_MODE = process.env.SIMULATION_MODE === 'true';
   }
 
-  logDecision(who, metric, rule, evidence, actionTaken) {
+  logDecision(who, metric, rule, evidence, actionTaken, epistemicTag = LLES_TAGS.FACT_RUNTIME) {
     const timestamp = new Date().toISOString();
+    const tag = isValidEpistemicTag(epistemicTag) ? epistemicTag : LLES_TAGS.FACT_RUNTIME;
     const decisionRecord = {
       timestamp,
+      epistemic_tag: tag,
       decision_maker: who,
       trigger_metric: metric,
       governance_rule: rule,
@@ -23,7 +26,7 @@ export class DecisionLedger {
       evidence_snapshot: evidence
     };
 
-    console.log(`[DECISION LEDGER] ${who} executed ${actionTaken} due to ${rule}`);
+    console.log(`[DECISION LEDGER] ${tag} ${who} executed ${actionTaken} due to ${rule}`);
 
     try {
       if (this.SIMULATION_MODE) {

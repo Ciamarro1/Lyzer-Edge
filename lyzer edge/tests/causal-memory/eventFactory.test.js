@@ -23,7 +23,8 @@ describe('EventFactory & UUIDv7 Verification', () => {
     expect(event.correlation_id).toBe('corr_123');
     expect(event.version).toBe('1.0.0');
     expect(event.hash_prev).toBe('0'.repeat(64));
-    expect(event.hash).toHaveLength(16);
+    expect(event.hash).toHaveLength(64);
+    expect(event.hash).toMatch(/^[0-9a-f]{64}$/);
   });
 
   test('computes deterministic SHA-256 hash', () => {

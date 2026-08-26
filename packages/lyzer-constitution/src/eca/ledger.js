@@ -5,6 +5,7 @@
  */
 
 import { safeClone, safeJsonParse } from '../utils/safeJson.js';
+import { LLES_TAGS, PhantomPnLGuard } from '../../../lyzer-shared/src/governance/epistemicStandard.js';
 
 export class ConstitutionalLedger {
   constructor(dbInstance = null) {
@@ -62,8 +63,14 @@ export class ConstitutionalLedger {
    * @param {string|null} nearMissType - Optional near miss indicator ('drawdown', 'slippage', or null)
    */
   appendRecord(requestPayload, token, stateSnapshot, nearMissType = null) {
+    if (token.granted) {
+      // Realized authorization path must be 100% free of phantom PnL / counterfactual additions
+      PhantomPnLGuard.assertZeroPhantomPnL(requestPayload);
+    }
+
     const record = Object.freeze({
       timestamp: Date.now(),
+      epistemic_tag: LLES_TAGS.FACT_RUNTIME,
       request: requestPayload,
       verdict: token.granted ? 'GRANT' : 'VETO',
       reason: token.reason,

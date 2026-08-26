@@ -46,6 +46,19 @@ export class ConstitutionalCourt {
       }
     }
 
+    // 1.5 Meta-Observation Layer (MOL) Evaluation (covers VETO, RECOVERY, WARMUP)
+    const molStatus = this.mol.peekState();
+    if (rawState) {
+      rawState.mol_state = molStatus.molState;
+      rawState.doi = molStatus.doi;
+      rawState.scl = molStatus.scl;
+    }
+    if (requestPayload) {
+      requestPayload.mol_state = molStatus.molState;
+      requestPayload.doi = molStatus.doi;
+      requestPayload.scl = molStatus.scl;
+    }
+
     // 1. Verify "The Court shall never learn" axiom.
     if (rawState.confidence !== undefined || requestPayload.prediction !== undefined) {
       const token = new PermissionToken(action, false, 'VETO_CONFIDENCE_ARROGANCE');
@@ -53,18 +66,19 @@ export class ConstitutionalCourt {
       return token;
     }
 
-    // 1.5 Meta-Observation Layer (MOL) Evaluation
-    // Use peekState to avoid double-ticking the state machine hysteresis.
-    const molStatus = this.mol.peekState();
-    
-    // Inject MOL metrics into the ledger record for traceability
-    rawState.mol_state = molStatus.molState;
-    rawState.doi = molStatus.doi;
-    rawState.scl = molStatus.scl;
+    // 1.2 Explicit Epistemic Authority VETO Check
+    const epistemicAuthority = requestPayload?.epistemic_authority || rawState?.epistemic_authority;
+    if (epistemicAuthority === 'VETO') {
+      const reason = requestPayload?.reason || rawState?.reason || 'VETO_EPISTEMIC_AUTHORITY';
+      const token = new PermissionToken(action, false, reason);
+      ledger.appendRecord(requestPayload, token, rawState);
+      return token;
+    }
 
-    if (!molStatus.canExecute && molStatus.molState === 'RECOVERY') {
-      // The kernel asked to execute (eef = true) but the MOL blocked it (False Awakening)
-      const token = new PermissionToken(action, false, molStatus.reason);
+    if (!molStatus.canExecute) {
+      // The kernel asked to execute (eef = true) but the MOL blocked it (VETO, RECOVERY, or WARMUP)
+      const reason = molStatus.reason || `VETO_MOL_${molStatus.molState || 'BLOCKED'}`;
+      const token = new PermissionToken(action, false, reason);
       ledger.appendRecord(requestPayload, token, rawState);
       return token;
     }

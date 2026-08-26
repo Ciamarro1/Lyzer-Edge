@@ -27,6 +27,7 @@ import { TapeReadingEngine } from "../../packages/lyzer-shared/src/providers/v7_
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
+import { analyze_dealing_range } from "../../packages/lyzer-shared/src/providers/openmobius/location.js";
 
 import { EvidenceFusionEngine } from '../src/components/commandCenter/sdk/evidence/fusion/EvidenceFusionEngine.js';
 import { OpenMobiusPatternEngine } from '../src/components/commandCenter/sdk/evidence/openmobius/OpenMobiusPatternEngine.js';
@@ -75,6 +76,115 @@ const shadowTradingEnabled = process.env.SHADOW_TRADING_ENABLED === 'true';
 
 court.configure(cclistConfig, { sclThreshold: molSclThreshold, stabilizationWindowMs: process.env.ARL_MODE === 'SIMULATION' ? 0 : (parseFloat(process.env.MOL_STABILIZATION_WINDOW_MS) || 45000) });
 
+/**
+ * Fail-Closed Distance Validator
+ * Validates that a decimal distance/fraction is strictly within the valid range (0.001, 0.15).
+ * e.g., 0.008 = 0.8%, 0.015 = 1.5%.
+ * Rejects values >= 0.15 (like 1.5 or 99.0) or <= 0.001 with a fatal configuration error.
+ * No silent conversions (e.g. 99.0 -> 0.99 is forbidden).
+ */
+export function validateDistanceFraction(value, paramName = 'distance') {
+  if (value === null || value === undefined || value === '') {
+    throw new Error(
+      `[FAIL-CLOSED] Fatal configuration error: ${paramName} is required and cannot be null/undefined.`
+    );
+  }
+  const num = typeof value === 'number' ? value : parseFloat(value);
+  if (isNaN(num) || !isFinite(num) || num < 0.001 || num > 0.15) {
+    throw new Error(
+      `[FAIL-CLOSED] Fatal configuration error: ${paramName} (${value}) is outside allowable decimal range (0.001, 0.15). Values must be decimal fractions (e.g. 0.008 for 0.8%, 0.015 for 1.5%). Raw percentages like 1.5 or 99.0 are strictly rejected.`
+    );
+  }
+  return num;
+}
+
+/**
+ * Fail-Closed Price Invariant Validator
+ * Validates price structure invariants:
+ * LONG:  StopLoss < EntryPrice < TakeProfit (if TP is set)
+ * SHORT: TakeProfit < EntryPrice < StopLoss and TakeProfit > 0 (if TP is set)
+ */
+export function validatePriceInvariants(direction, entryPrice, stopLoss, takeProfit = null) {
+  if (typeof entryPrice !== 'number' || isNaN(entryPrice) || !isFinite(entryPrice) || entryPrice <= 0) {
+    throw new Error(`[FAIL-CLOSED] Invalid entryPrice: ${entryPrice}. Must be positive finite number.`);
+  }
+  if (typeof stopLoss !== 'number' || isNaN(stopLoss) || !isFinite(stopLoss) || stopLoss <= 0) {
+    throw new Error(`[FAIL-CLOSED] Invalid stopLoss: ${stopLoss}. Must be positive finite number.`);
+  }
+
+  const isLong = direction === 'LONG' || direction === 'BUY';
+  const isShort = direction === 'SHORT' || direction === 'SELL';
+
+  if (!isLong && !isShort) {
+    throw new Error(`[FAIL-CLOSED] Invalid trade direction for price invariant validation: "${direction}"`);
+  }
+
+  if (isLong) {
+    if (stopLoss >= entryPrice) {
+      throw new Error(
+        `[FAIL-CLOSED] Price invariant violated for LONG: StopLoss (${stopLoss}) must be strictly less than EntryPrice (${entryPrice}).`
+      );
+    }
+    if (takeProfit !== null && takeProfit !== undefined) {
+      if (typeof takeProfit !== 'number' || isNaN(takeProfit) || !isFinite(takeProfit) || takeProfit <= entryPrice) {
+        throw new Error(
+          `[FAIL-CLOSED] Price invariant violated for LONG: TakeProfit (${takeProfit}) must be strictly greater than EntryPrice (${entryPrice}). Invariant: SL (${stopLoss}) < Entry (${entryPrice}) < TP (${takeProfit}).`
+        );
+      }
+    }
+  } else if (isShort) {
+    if (stopLoss <= entryPrice) {
+      throw new Error(
+        `[FAIL-CLOSED] Price invariant violated for SHORT: StopLoss (${stopLoss}) must be strictly greater than EntryPrice (${entryPrice}).`
+      );
+    }
+    if (takeProfit !== null && takeProfit !== undefined) {
+      if (typeof takeProfit !== 'number' || isNaN(takeProfit) || !isFinite(takeProfit) || takeProfit <= 0 || takeProfit >= entryPrice) {
+        throw new Error(
+          `[FAIL-CLOSED] Price invariant violated for SHORT: TakeProfit (${takeProfit}) must be strictly positive and less than EntryPrice (${entryPrice}). Invariant: TP (${takeProfit}) < Entry (${entryPrice}) < SL (${stopLoss}) and TP > 0.`
+        );
+      }
+    }
+  }
+}
+
+/**
+ * Exit Policy Resolver & Validator
+ */
+export function getExitPolicyConfig(override = {}) {
+  const envPolicy = process.env.EXIT_POLICY;
+  const rawPolicy = (override.exitPolicy || envPolicy || (process.env.ENABLE_TIME_EXIT_ALPHA === 'true' ? 'TIME' : 'TIME')).toUpperCase();
+  const validPolicies = ['TIME', 'DYNAMIC_TP', 'HYBRID_SCALE_OUT'];
+  if (!validPolicies.includes(rawPolicy)) {
+    throw new Error(
+      `[FAIL-CLOSED] Fatal configuration error: Invalid EXIT_POLICY "${override.exitPolicy || envPolicy}". Must be one of: TIME, DYNAMIC_TP, HYBRID_SCALE_OUT.`
+    );
+  }
+
+  const envMinutes = process.env.TIME_EXIT_MINUTES;
+  const rawMinutes = override.timeExitMinutes !== undefined 
+    ? override.timeExitMinutes 
+    : (envMinutes !== undefined ? parseFloat(envMinutes) : 15);
+  
+  if (typeof rawMinutes !== 'number' || isNaN(rawMinutes) || !isFinite(rawMinutes) || rawMinutes <= 0) {
+    throw new Error(
+      `[FAIL-CLOSED] Fatal configuration error: Invalid TIME_EXIT_MINUTES "${override.timeExitMinutes !== undefined ? override.timeExitMinutes : envMinutes}". Must be a positive finite number.`
+    );
+  }
+
+  if (process.env.SCALP_TP_PCT) {
+    validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
+  }
+  if (process.env.SCALP_SL_PCT) {
+    validateDistanceFraction(process.env.SCALP_SL_PCT, 'SCALP_SL_PCT');
+  }
+
+  return {
+    policy: rawPolicy,
+    timeExitMinutes: rawMinutes
+  };
+}
+
 export class StreamEngine extends EventEmitter {
   constructor(config = {}) {
     super();
@@ -82,6 +192,10 @@ export class StreamEngine extends EventEmitter {
     this.symbol = config.symbol || 'BTCUSDT';
     this.interval = config.interval || '1m';
     this.disabledProviders = new Set((config.disabledProviders || defaultDisabledProviders).map(p => p.toLowerCase()));
+
+    const exitPolicyConfig = getExitPolicyConfig(config);
+    this.exitPolicy = config.exitPolicy || exitPolicyConfig.policy;
+    this.timeExitMinutes = config.timeExitMinutes !== undefined ? config.timeExitMinutes : exitPolicyConfig.timeExitMinutes;
 
     this.signalEngine = signalEngine;
     this.truthKernel = new TruthKernel({ trgThreshold, trgExponent, consensusLimit, lhdsVetoLimit, ontologicalCollapseTrg });
@@ -204,23 +318,19 @@ export class StreamEngine extends EventEmitter {
 
     console.log(`[STREAM] Performing Deep Warmup (Cold Start Cure) for ${this.symbol}...`);
     try {
-      const fs = await import('fs/promises');
-      const path = await import('path');
-      const filename = path.join(process.cwd(), `historical_data_${this.symbol}.json`);
-      const rawData = await fs.readFile(filename, 'utf8');
-      let allCandles = JSON.parse(rawData);
-      const warmupCandles = allCandles.slice(-3000); // 10 days of 5m candles is optimal for LHDS stabilization
-      allCandles = null; // Dereference immediately to reclaim heap
-      
+      // 1. Fetch exactly 3000 candles from Binance dynamically (approx 10 days of 5m)
+      const deepIngestor = new LiveDataIngestor(this.symbol, '5m');
+      const allCandles = await deepIngestor.deepWarmupCandles(3000);
+      const warmupCandles = allCandles;
       console.log(`[STREAM] Loaded ${warmupCandles.length} historical candles. Warming up TruthKernel...`);
       for (const c of warmupCandles) {
-        const tickEvent = { ...c, timestamp: c.openTime, closed: true };
-        this.updateMtfCandles(tickEvent);
-        await this.processCandle(tickEvent, this.tickCounter, true);
+        if (!c.closed) continue;
+        const ohlcv = [c.openTime, c.open, c.high, c.low, c.close, c.volume];
+        this.processCandle(ohlcv, c.openTime, c.openTime, c.openTime, true);
       }
       console.log(`[STREAM] Deep Warmup Complete. LHDS should now be stabilized.`);
     } catch (err) {
-      console.warn(`[STREAM] Deep Warmup skipped (no local JSON found). Error: ${err.message}`);
+      console.warn(`[STREAM] Deep Warmup failed via network. Error: ${err.message}`);
     }
 
     // 2. Setup execution layer
@@ -374,7 +484,7 @@ export class StreamEngine extends EventEmitter {
           this.execution = null;
           return;
         }
-        if (shadowTradingEnabled) {
+        if (shadowTradingEnabled || process.env.SHADOW_TRADING_ENABLED === 'true') {
           console.log('[SHADOW MODE] RealityGapMonitor active. Live exchange execution is blocked safely by shadow trading layer.');
           this.execution = null;
           return;
@@ -528,7 +638,30 @@ export class StreamEngine extends EventEmitter {
         const closeQty = pos.quantity || 0.001;
         const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
         const rules = this.getSymbolRules(exitPrice);
-        this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules).catch(e => console.error('[STREAM] Close order failed:', e.message));
+
+        // Governance Gate for Exits: Request signed permission token from Court
+        const exitCourtState = {
+          symbol: this.symbol,
+          direction: closeSide,
+          isExit: true,
+          positionId: pos.id,
+          pnl: rawPnl,
+          trg: 1.0,
+          currentDrawdown: this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0,
+          currentSlippage: 0
+        };
+        const exitToken = this.court.requestPermission('EXIT_TRADE', exitCourtState, {
+          eef: true,
+          epistemic_authority: 'ALLOW',
+          reason: exitReason
+        });
+
+        if (exitToken && exitToken.granted) {
+          this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules, exitToken)
+            .catch(e => console.error('[STREAM] Close order failed:', e.message));
+        } else {
+          console.warn(`[GOVERNANCE VETO] Court denied exit execution token for ${this.symbol}: ${exitToken?.reason}`);
+        }
       }
 
       const outcome = exitReason === 'TAKE_PROFIT' || rawPnl > 0 ? 'PROFIT_TARGET' : (exitReason === 'STOP_LOSS' ? 'STOP_LOSS' : 'SCRATCH');
@@ -730,6 +863,47 @@ export class StreamEngine extends EventEmitter {
       ];
     }
 
+    // 1c. Dealing Range Segmentation (P_loc = (Price - Low) / (High - Low) * 100%)
+    const dealingLookback = parseInt(process.env.DEALING_RANGE_LOOKBACK || '100', 10);
+    const dealingCandleList = (this.candles && this.candles.length > 0)
+      ? this.candles.slice(-Math.min(this.candles.length, dealingLookback))
+      : (this.mtfCandles['1m'] || []);
+    const dealingRange = analyze_dealing_range(dealingCandleList);
+
+    let pLoc = 50.0;
+    let dealingZone = 'EQUILIBRIUM';
+    if (dealingRange && dealingRange.high > dealingRange.low) {
+      pLoc = ((currentPrice - dealingRange.low) / (dealingRange.high - dealingRange.low)) * 100.0;
+      dealingZone = pLoc < 50.0 ? 'DISCOUNT' : 'PREMIUM';
+    } else if (dealingRange) {
+      pLoc = 50.0;
+      dealingZone = 'EQUILIBRIUM';
+    }
+
+    // Volume SMA20, Price SMA20 & Exhaustion Feature Extraction
+    let sumVol20 = 0;
+    let sumClose20 = 0;
+    const volHistory = (this.candles && this.candles.length >= 2)
+      ? this.candles.slice(-21, -1)
+      : (this.candles || []);
+    if (volHistory.length > 0) {
+      for (let i = 0; i < volHistory.length; i++) {
+        sumVol20 += (volHistory[i].volume || 0);
+        sumClose20 += (volHistory[i].close || 0);
+      }
+    }
+    // To match Exp 3 exactly, SMA20 includes the current candle
+    const periodCount = volHistory.length > 0 ? volHistory.length + 1 : 1;
+    const sma20Vol = (sumVol20 + (candle.volume || 0)) / periodCount;
+    const sma20Close = (sumClose20 + (candle.close || 0)) / periodCount;
+    const sma20DistancePct = sma20Close > 0 ? Math.abs(currentPrice - sma20Close) / sma20Close : 0;
+
+    const candleRange = candle.high - candle.low;
+    let isCandleExhaustion = false;
+    if (v7Narrative && typeof v7Narrative.narrative === 'string' && v7Narrative.narrative.includes('Exhaustion')) {
+      isCandleExhaustion = true;
+    }
+
     // 2. CSRL Phase: Compute Structural Coherence Across Scales
     const csrlStart = performance.now();
     const alignedTensors = this.scaleNormalizer.alignScales(this.mtfCandles);
@@ -795,8 +969,7 @@ export class StreamEngine extends EventEmitter {
 
     const atr14_pct = (topographicalAtr && currentPrice > 0) ? (topographicalAtr / currentPrice) : 0.00055;
 
-    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS + ODM + Dynamic Volatility Limits
-    const kernelResult = this.truthKernel.evaluate(providers, {
+    const micro = {
       liquidityDivergence,
       scaleDivergence: sds,
       lhds,
@@ -807,8 +980,24 @@ export class StreamEngine extends EventEmitter {
       atrRatio,
       atr14_pct,
       imbalance,
+      sma20DistancePct: typeof sma20DistancePct !== 'undefined' ? sma20DistancePct : 0,
       odm: observerDivergence.odm
-    });
+    };
+
+    // 3. ACK evaluates Divergence Vector Field and Tail Risk Geometry + SDS + LHDS + ODM + Dynamic Volatility Limits
+    const kernelResult = this.truthKernel.evaluate(providers, micro);
+
+    // Experiment 3.5 Shadow Tracking (Pass vs Veto Counterfactuals)
+    import('./shadowLogger.js').then(mod => {
+      mod.ShadowLogger.logSignalOutcome(
+        this.symbol, 
+        candle.openTime || candle.timestamp || Date.now(), 
+        providers.v1?.direction || 'UNKNOWN',
+        currentPrice,
+        micro,
+        kernelResult
+      );
+    }).catch(err => console.error('[SHADOW] Error loading logger', err));
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -832,6 +1021,7 @@ export class StreamEngine extends EventEmitter {
       const corrId = `tick_${this.symbol}_${ts}`;
       const snapEventId = `SNAP_${this.symbol}_${ts}_${generateUUIDv7()}`;
       const verdictEventId = `VERDICT_${this.symbol}_${ts}_${generateUUIDv7()}`;
+      const activeRegime = kernelResult.epistemic_regime || (dynamicWeights && dynamicWeights.activeRegime) || 'REGIME_A_CONSENSUS';
 
       db.insertCausalEvent({
         event_id: snapEventId,
@@ -839,6 +1029,7 @@ export class StreamEngine extends EventEmitter {
         event_type: 'REALITY_SNAPSHOT_CREATED',
         source: 'StreamEngine',
         correlation_id: corrId,
+        epistemic_regime: activeRegime,
         payload: { sds, lhds, liquidityDivergence, oppScore, imbalance, currentPrice, dynamic_limits: kernelResult.dynamic_limits },
         context: { symbol: this.symbol, interval: this.interval }
       }).catch(err => console.error('[CAUSAL_MEMORY] SNAPSHOT failed:', err.message));
@@ -850,6 +1041,7 @@ export class StreamEngine extends EventEmitter {
         source: 'TruthKernel',
         correlation_id: corrId,
         parent_event: snapEventId,
+        epistemic_regime: activeRegime,
         payload: kernelResult,
         context: { symbol: this.symbol }
       }).catch(err => console.error('[CAUSAL_MEMORY] VERDICT failed:', err.message));
@@ -918,7 +1110,7 @@ export class StreamEngine extends EventEmitter {
     }
 
     const vectorThreshold = parseFloat(process.env.VECTOR_CONFLUENCE_THRESHOLD || '0.018');
-    const offPeakTrgFloor = parseFloat(process.env.OFF_PEAK_TRG_FLOOR || '0.22');
+    const offPeakTrgFloor = parseFloat(process.env.OFF_PEAK_TRG_FLOOR || '0.48');
 
     let combinedSignal = 'FLAT';
     let finalConfidence = fusionResult.fusedConfidence;
@@ -929,6 +1121,19 @@ export class StreamEngine extends EventEmitter {
     } else if (netDirection <= -vectorThreshold) {
       combinedSignal = 'SHORT';
       finalConfidence = Math.max(finalConfidence, Math.min(100, (Math.abs(netDirection) / totalActiveWeight) * 100));
+    }
+
+    // [Gate de Fricção de Spread: Spread_instant / TopographicalATR <= 0.08]
+    const maxSpreadAtrRatio = parseFloat(process.env.MAX_SPREAD_ATR_RATIO || '0.08');
+    const instantSpread = (this.currentBook && typeof this.currentBook.askPrice === 'number' && typeof this.currentBook.bidPrice === 'number')
+      ? Math.max(0, this.currentBook.askPrice - this.currentBook.bidPrice)
+      : (candle.spread || 0);
+    const spreadAtrRatio = (topographicalAtr && topographicalAtr > 0) ? (instantSpread / topographicalAtr) : 0;
+    const isSpreadFrictionExcessive = instantSpread > 0 && topographicalAtr > 0 && spreadAtrRatio > maxSpreadAtrRatio;
+
+    if (isSpreadFrictionExcessive && combinedSignal !== 'FLAT') {
+      combinedSignal = 'FLAT';
+      v1Narrative.narrative = 'VETO: SPREAD_FRICTION_EXCESSIVE';
     }
 
     // [Lyzer Golden Hours & 24/7 Adaptive Regime Filter]
@@ -966,6 +1171,9 @@ export class StreamEngine extends EventEmitter {
       explanationText: v4Narrative ? v4Narrative.explanationText : null,
       tradeDna: v4Narrative ? v4Narrative.tradeDna : null,
       Z_t: kernelResult.dvf * 10,
+      pLoc,
+      dealingZone,
+      dealingRange,
       vectorMap
     };
     recordSignalGenerated(this.symbol, baseSignal.signal);
@@ -1012,26 +1220,8 @@ export class StreamEngine extends EventEmitter {
         const currentMfe = pos.peakFavorablePrice - pos.entryPrice;
         const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
 
-        // 2. Dual-Strategy Management: RANGE_SCALP vs TREND_EXPANSION
-        if (pos.strategyType === 'RANGE_SCALP') {
-          // RANGE SCALP MODE FOR LONG (Fast TP at +0.80R & Fast BE at +0.40R)
-          const scalpBE = parseFloat(process.env.RANGE_SCALP_BE || '0.4');
-          const scalpTP = parseFloat(process.env.RANGE_SCALP_TP || '0.8');
-
-          if (!pos.breakEvenApplied && currentR >= scalpBE) {
-            pos.stopLoss = Math.max(pos.stopLoss, minLongStop);
-            pos.breakEvenApplied = true;
-            console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for LONG at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
-          }
-
-          const enableScalpTp = process.env.ENABLE_RANGE_SCALP_TP !== 'false';
-          if (enableScalpTp && currentR >= scalpTP) {
-            closed = true;
-            exitPrice = pos.entryPrice + (scalpTP * riskDistance);
-            exitReason = 'RANGE_SCALP_TAKE_PROFIT';
-            console.log(`[SCALP] RANGE_SCALP TAKE_PROFIT for LONG at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (+${scalpTP.toFixed(2)}R)`);
-          }
-        } else {
+        // 2. Dual-Strategy & Exit Policy Management
+        if (pos.exitPolicy === 'HYBRID_SCALE_OUT' || (!pos.exitPolicy && pos.strategyType !== 'RANGE_SCALP')) {
           // TREND EXPANSION PROTOCOL (Multi-Tranche Scale-Out 33/33/34%)
           // Phase 2: Spread-Protected Break-Even (+0.80R)
           const mfeBE = pos.mfeTargetBE || 0.8;
@@ -1087,6 +1277,24 @@ export class StreamEngine extends EventEmitter {
               pos.stopLoss = trailingStop;
             }
           }
+        } else if (pos.exitPolicy === 'DYNAMIC_TP' || pos.strategyType === 'RANGE_SCALP') {
+          // RANGE SCALP / DYNAMIC TP MODE FOR LONG (Fast TP at +0.80R & Fast BE at +0.40R)
+          const scalpBE = parseFloat(process.env.RANGE_SCALP_BE || '0.4');
+          const scalpTP = parseFloat(process.env.RANGE_SCALP_TP || '0.8');
+
+          if (!pos.breakEvenApplied && currentR >= scalpBE) {
+            pos.stopLoss = Math.max(pos.stopLoss, minLongStop);
+            pos.breakEvenApplied = true;
+            console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for LONG at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
+          }
+
+          const enableScalpTp = pos.exitPolicy !== 'TIME' && process.env.ENABLE_RANGE_SCALP_TP !== 'false';
+          if (enableScalpTp && pos.strategyType === 'RANGE_SCALP' && currentR >= scalpTP) {
+            closed = true;
+            exitPrice = pos.entryPrice + (scalpTP * riskDistance);
+            exitReason = 'RANGE_SCALP_TAKE_PROFIT';
+            console.log(`[SCALP] RANGE_SCALP TAKE_PROFIT for LONG at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (+${scalpTP.toFixed(2)}R)`);
+          }
         }
 
         // 5. Phase 4: Exhaustion Volume Ejection
@@ -1100,16 +1308,17 @@ export class StreamEngine extends EventEmitter {
         }
 
         const isSLHit = candle.low <= pos.stopLoss;
-        const isTPHit = candle.high >= pos.takeProfit;
+        const isTPHit = (pos.takeProfit !== null && pos.takeProfit !== undefined) && candle.high >= pos.takeProfit;
 
         if (!closed) {
           const currentCandleTimeSec = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
           const timeInTradeSec = currentCandleTimeSec - pos.timestamp;
-          if (process.env.ENABLE_TIME_EXIT_ALPHA === 'true' && timeInTradeSec >= (parseFloat(process.env.TIME_EXIT_MINUTES || '15') * 60)) {
+          const timeLimitSec = (pos.timeExitMinutes || this.timeExitMinutes || parseFloat(process.env.TIME_EXIT_MINUTES || '15')) * 60;
+          if ((pos.exitPolicy === 'TIME' || process.env.ENABLE_TIME_EXIT_ALPHA === 'true') && timeInTradeSec >= timeLimitSec) {
             closed = true;
             exitPrice = candle.close;
             exitReason = 'TIME_EXIT';
-            console.log(`[SCALP] TIME_EXIT for LONG at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)}`);
+            console.log(`[EXIT] TIME_EXIT for LONG at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (${timeInTradeSec}s elapsed)`);
           }
         }
 
@@ -1145,26 +1354,8 @@ export class StreamEngine extends EventEmitter {
         const currentMfe = pos.entryPrice - pos.peakFavorablePrice;
         const currentR = riskDistance > 0 ? currentMfe / riskDistance : 0;
 
-        // 2. Dual-Strategy Management: RANGE_SCALP vs TREND_EXPANSION
-        if (pos.strategyType === 'RANGE_SCALP') {
-          // RANGE SCALP MODE FOR SHORT (Fast TP at +0.80R & Fast BE at +0.40R)
-          const scalpBE = parseFloat(process.env.RANGE_SCALP_BE || '0.4');
-          const scalpTP = parseFloat(process.env.RANGE_SCALP_TP || '0.8');
-
-          if (!pos.breakEvenApplied && currentR >= scalpBE) {
-            pos.stopLoss = Math.min(pos.stopLoss, minShortStop);
-            pos.breakEvenApplied = true;
-            console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for SHORT at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
-          }
-
-          const enableScalpTp = process.env.ENABLE_RANGE_SCALP_TP !== 'false';
-          if (enableScalpTp && currentR >= scalpTP) {
-            closed = true;
-            exitPrice = pos.entryPrice - (scalpTP * riskDistance);
-            exitReason = 'RANGE_SCALP_TAKE_PROFIT';
-            console.log(`[SCALP] RANGE_SCALP TAKE_PROFIT for SHORT at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (+${scalpTP.toFixed(2)}R)`);
-          }
-        } else {
+        // 2. Dual-Strategy & Exit Policy Management
+        if (pos.exitPolicy === 'HYBRID_SCALE_OUT' || (!pos.exitPolicy && pos.strategyType !== 'RANGE_SCALP')) {
           // TREND EXPANSION PROTOCOL (Multi-Tranche Scale-Out 33/33/34%)
           // Phase 2: Spread-Protected Break-Even (+0.80R)
           const mfeBE = pos.mfeTargetBE || 0.8;
@@ -1220,6 +1411,24 @@ export class StreamEngine extends EventEmitter {
               pos.stopLoss = trailingStop;
             }
           }
+        } else if (pos.exitPolicy === 'DYNAMIC_TP' || pos.strategyType === 'RANGE_SCALP') {
+          // RANGE SCALP / DYNAMIC TP MODE FOR SHORT (Fast TP at +0.80R & Fast BE at +0.40R)
+          const scalpBE = parseFloat(process.env.RANGE_SCALP_BE || '0.4');
+          const scalpTP = parseFloat(process.env.RANGE_SCALP_TP || '0.8');
+
+          if (!pos.breakEvenApplied && currentR >= scalpBE) {
+            pos.stopLoss = Math.min(pos.stopLoss, minShortStop);
+            pos.breakEvenApplied = true;
+            console.log(`[SCALP] RANGE_SCALP BREAK_EVEN for SHORT at index ${currentCandleIdx} (+${scalpBE.toFixed(2)}R)`);
+          }
+
+          const enableScalpTp = pos.exitPolicy !== 'TIME' && process.env.ENABLE_RANGE_SCALP_TP !== 'false';
+          if (enableScalpTp && pos.strategyType === 'RANGE_SCALP' && currentR >= scalpTP) {
+            closed = true;
+            exitPrice = pos.entryPrice - (scalpTP * riskDistance);
+            exitReason = 'RANGE_SCALP_TAKE_PROFIT';
+            console.log(`[SCALP] RANGE_SCALP TAKE_PROFIT for SHORT at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (+${scalpTP.toFixed(2)}R)`);
+          }
         }
 
         // 5. Phase 4: Exhaustion Volume Ejection
@@ -1233,16 +1442,17 @@ export class StreamEngine extends EventEmitter {
         }
 
         const isSLHit = candle.high >= pos.stopLoss;
-        const isTPHit = candle.low <= pos.takeProfit;
+        const isTPHit = (pos.takeProfit !== null && pos.takeProfit !== undefined) && candle.low <= pos.takeProfit;
 
         if (!closed) {
           const currentCandleTimeSec = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);
           const timeInTradeSec = currentCandleTimeSec - pos.timestamp;
-          if (process.env.ENABLE_TIME_EXIT_ALPHA === 'true' && timeInTradeSec >= (parseFloat(process.env.TIME_EXIT_MINUTES || '15') * 60)) {
+          const timeLimitSec = (pos.timeExitMinutes || this.timeExitMinutes || parseFloat(process.env.TIME_EXIT_MINUTES || '15')) * 60;
+          if ((pos.exitPolicy === 'TIME' || process.env.ENABLE_TIME_EXIT_ALPHA === 'true') && timeInTradeSec >= timeLimitSec) {
             closed = true;
             exitPrice = candle.close;
             exitReason = 'TIME_EXIT';
-            console.log(`[SCALP] TIME_EXIT for SHORT at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)}`);
+            console.log(`[EXIT] TIME_EXIT for SHORT at index ${currentCandleIdx}: closed at ${exitPrice.toFixed(2)} (${timeInTradeSec}s elapsed)`);
           }
         }
 
@@ -1351,17 +1561,39 @@ export class StreamEngine extends EventEmitter {
           const exitType = exitReason === 'TAKE_PROFIT' ? 'LIMIT' : 'MARKET';
           const rules = this.getSymbolRules(exitPrice);
           this.ui.logEvent(`Executing close order (${closeSide}) for ${this.symbol} as ${exitType}. Target: ${this.mode}`);
-          this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules)
-            .then(order => {
-              this.emit('execution', {
-                symbol: this.symbol,
-                side: closeSide,
-                order,
-                price: exitPrice,
-                quantity: closeQty
-              });
-            })
-            .catch(e => console.error('[STREAM] Close order placement failed:', e.message));
+
+          // Governance Gate for Exits: Request signed permission token from Court
+          const exitCourtState = {
+            symbol: this.symbol,
+            direction: closeSide,
+            isExit: true,
+            positionId: pos.id,
+            pnl: rawPnl,
+            trg: 1.0,
+            currentDrawdown: this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0,
+            currentSlippage: 0
+          };
+          const exitToken = this.court.requestPermission('EXIT_TRADE', exitCourtState, {
+            eef: true,
+            epistemic_authority: 'ALLOW',
+            reason: exitReason
+          });
+
+          if (exitToken && exitToken.granted) {
+            this.execution.placeOrder(this.symbol, closeSide, exitType, closeQty, exitPrice, rules, exitToken)
+              .then(order => {
+                this.emit('execution', {
+                  symbol: this.symbol,
+                  side: closeSide,
+                  order,
+                  price: exitPrice,
+                  quantity: closeQty
+                });
+              })
+              .catch(e => console.error('[STREAM] Close order placement failed:', e.message));
+          } else {
+            console.warn(`[GOVERNANCE VETO] Court denied close execution token for ${this.symbol}: ${exitToken?.reason}`);
+          }
         }
 
         this.dampener.recordTradeExit(this.symbol, index);
@@ -1387,6 +1619,12 @@ export class StreamEngine extends EventEmitter {
       
       if (direction === 'LONG' && !longEnabled) return;
       if (direction === 'SHORT' && !shortEnabled) return;
+
+      // Spread Friction Gate Defense
+      if (isSpreadFrictionExcessive) {
+        console.log(`[DEBUG] Blocked by Spread Friction Gate: spread/ATR ratio ${spreadAtrRatio.toFixed(4)} > ${maxSpreadAtrRatio}`);
+        return;
+      }
       
       const currentCandleIdx = index;
       const finalConfPct = finalConfidence <= 1.0 ? finalConfidence * 100 : finalConfidence;
@@ -1394,59 +1632,77 @@ export class StreamEngine extends EventEmitter {
       const isRangeScalpCandidate = process.env.ENABLE_RANGE_SCALP_MODE === 'true' && !isStrongTrend;
       const candidateStrategy = isRangeScalpCandidate ? 'RANGE_SCALP' : 'TREND_EXPANSION';
 
-      const dampenerCheck = this.dampener.canOpenTrade(this.symbol, currentCandleIdx, {
-        entrySide: direction,
-        m15Signal: baseSignal.m15Signal || 'flat',
-        h1Signal: baseSignal.h1Signal || 'flat',
-        trg: kernelResult.trg || 0.45,
-        timestamp: candle.timestamp || candle.openTime || Date.now(),
-        strategyType: candidateStrategy
-      });
+      // [Dealing Range Invariant Gating]
+      const enableDealingRange = (process.env.ENABLE_DEALING_RANGE_FILTER === 'true' || (process.env.ENABLE_DEALING_RANGE_FILTER !== 'false' && process.env.NODE_ENV !== 'test')) && process.env.ABLATION_NO_DEALING_RANGE !== 'true';
+      if (enableDealingRange) {
+        if (candidateStrategy === 'RANGE_SCALP') {
+          // Rule 1: RANGE_SCALP long entries permitted only in DISCOUNT (P_loc < 50%)
+          if (direction === 'LONG' && pLoc >= 50.0) {
+            console.log(`[DEALING_RANGE] RANGE_SCALP LONG rejected: P_loc = ${pLoc.toFixed(2)}% >= 50% (PREMIUM zone). Discount required.`);
+            return;
+          }
+        } else if (candidateStrategy === 'TREND_EXPANSION') {
+          // Rule 2: TREND_EXPANSION in PREMIUM (P_loc >= 50%) requires 4 strict invariants:
+          // Invariant 1: TRG >= 0.40
+          // Invariant 2: DVF >= 0.15
+          // Invariant 3: Volume > 1.5 * SMA20
+          // Invariant 4: No exhaustion
+          if (pLoc >= 50.0) {
+            const trgMin = parseFloat(process.env.DEALING_EXPANSION_TRG_FLOOR || '0.40');
+            const dvfMin = parseFloat(process.env.DEALING_EXPANSION_DVF_FLOOR || '0.15');
+            const trgPass = (kernelResult.trg || 0) >= trgMin;
+            const dvfPass = (kernelResult.dvf || 0) >= dvfMin;
+            const volMult = parseFloat(process.env.DEALING_EXPANSION_VOL_MULT || '1.5');
+            const volPass = sma20Vol > 0 ? (candle.volume > volMult * sma20Vol) : true;
 
-      if (!dampenerCheck.permitted) {
-        // Blocked by anti-overtrading dampener (cooldown or MTF misalignment)
-        console.log(`[DEBUG] Blocked by dampener: ${dampenerCheck.reason}`);
-        return;
+            let isExhaustion = isCandleExhaustion;
+            if (direction === 'LONG') {
+              const upperWick = candle.high - Math.max(candle.open, candle.close);
+              if (candleRange > 0 && (upperWick / candleRange) > 0.45 && sma20Vol > 0 && candle.volume < (sma20Vol * 0.50)) {
+                isExhaustion = true;
+              }
+            } else if (direction === 'SHORT') {
+              const lowerWick = Math.min(candle.open, candle.close) - candle.low;
+              if (candleRange > 0 && (lowerWick / candleRange) > 0.45 && sma20Vol > 0 && candle.volume < (sma20Vol * 0.50)) {
+                isExhaustion = true;
+              }
+            }
+            const noExhaustionPass = !isExhaustion;
+
+            if (!trgPass || !dvfPass || !volPass || !noExhaustionPass) {
+              const failedInvariants = [];
+              if (!trgPass) failedInvariants.push(`TRG(${(kernelResult.trg || 0).toFixed(3)} < ${trgMin})`);
+              if (!dvfPass) failedInvariants.push(`DVF(${(kernelResult.dvf || 0).toFixed(3)} < ${dvfMin})`);
+              if (!volPass) failedInvariants.push(`Volume(${(candle.volume || 0).toFixed(1)} <= ${volMult}x SMA20[${sma20Vol.toFixed(1)}])`);
+              if (!noExhaustionPass) failedInvariants.push('Exhaustion detected');
+              console.log(`[DEALING_RANGE] TREND_EXPANSION in PREMIUM rejected: ${failedInvariants.join(', ')}`);
+              return;
+            }
+          }
+        }
       }
-
-      // isChoppy agora atua como um limitador quantitativo com escala normalizada (0.0 - 1.0 ou 0 - 100)
-      const v6NarrativeText = v6Narrative.narrative || '';
-      const isChoppy = (v6NarrativeText.includes('Choppy noise') || v6NarrativeText.includes('INSIDE Value Area')) && finalConfPct < 45 && candidateStrategy !== 'RANGE_SCALP';
-      const courtState = {
-        ...kernelResult,
-        symbol: this.symbol,
-        direction,
-        isChoppyNoise: isChoppy,
-        m15Aligned: baseSignal.m15Signal ? baseSignal.m15Signal.toLowerCase() === direction.toLowerCase() : true,
-        // H2 fix: Inject drawdown and slippage for edge-riding detection
-        currentDrawdown: this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0,
-        currentSlippage: 0 // Updated by phase16Auditor after execution
-      };
-      delete courtState.confidence;
+      // 1. Rust RiskGateway gRPC Intent Registration and Pre-Check
       const intentId = generateUUIDv7();
-      const correlationId = generateUUIDv7();
-      const causationId = generateUUIDv7();
+      const currentDrawdown = this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0;
+      const courtState = {
+        symbol: this.symbol,
+        trg: kernelResult.trg,
+        dvf: kernelResult.dvf,
+        scale_divergence: sds,
+        lhds,
+        epistemic_authority: kernelResult.epistemic_authority,
+        currentDrawdown,
+        currentSlippage: 0
+      };
 
-      // 1. Rust RiskGateway must persist intent BEFORE ECA Court (P2 - Causal Rebuild)
       let grpcResult = { approved: true };
-      let grpcRejection = null;
-      if (this.mode !== 'SIMULATION') {
+      let grpcRejection = '';
+
+      if (this.riskGatewayClient && typeof this.riskGatewayClient.authorizeOrder === 'function') {
         try {
-          if (this.riskGateway && typeof this.riskGateway.authorizeOrder === 'function') {
-            grpcResult = await this.riskGateway.authorizeOrder({
-              execution_intent_id: intentId,
-              correlation_id: correlationId,
-              causation_id: causationId,
-              symbol: this.symbol,
-              side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
-              quantity: 0.001,
-              mode: this.mode
-            });
-          } else {
-            grpcResult = await authorizeOrder({
-              execution_intent_id: intentId,
-              correlation_id: correlationId,
-              causation_id: causationId,
+          if (typeof this.riskGatewayClient.authorize === 'function') {
+            grpcResult = await this.riskGatewayClient.authorize({
+              intent_id: intentId,
               symbol: this.symbol,
               side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
               quantity: 0.001,
@@ -1468,29 +1724,26 @@ export class StreamEngine extends EventEmitter {
         }
       }
 
-      // 2. ECA Court evaluates
-      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, { eef: kernelResult.eef, reason: kernelResult.reason_codes[0] });
+      // Portão 2: ECA Court evaluates with full epistemic authority
+      const permissionToken = this.court.requestPermission('EXECUTE_TRADE', courtState, {
+        eef: kernelResult.eef,
+        epistemic_authority: kernelResult.epistemic_authority,
+        reason: kernelResult.reason_codes[0]
+      });
+
       let governanceDecision = (permissionToken.granted && grpcResult.approved) ? 'ALLOW' : 'REJECT';
       let rejectionReason = '';
-      
+
       if (!grpcResult.approved) {
         rejectionReason = grpcRejection;
-        console.warn(`[gRPC VETO] Rust RiskGateway rejected execution intent ${intentId} for ${this.symbol}. Reason: ${rejectionReason}`);
       } else if (!permissionToken.granted) {
         rejectionReason = permissionToken.reason;
       }
-
-      console.log(`[DEBUG] Court decision: ${governanceDecision}, reason: ${rejectionReason}`);
-      if (governanceDecision === 'ALLOW') {
-        console.log(`[gRPC APPROVED] Rust RiskGateway and Court authorized execution intent ${intentId} for ${this.symbol}`);
-      }
-
 
       recordEcaEvaluation(this.symbol, governanceDecision, rejectionReason);
 
       if (governanceDecision === 'ALLOW') {
         const strategyType = candidateStrategy;
-        // Calculate dynamic quantity
         const confidence = baseSignal.confidence || 0.5;
         const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
         const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
@@ -1516,23 +1769,50 @@ export class StreamEngine extends EventEmitter {
         const atrSlMult = parseFloat(process.env.ATR_SL_MULTIPLIER || '1.5');
         const atrTpMult = parseFloat(process.env.ATR_TP_MULTIPLIER || '3.0');
 
-        const minStopDefault = strategyType === 'RANGE_SCALP' ? '0.0015' : '0.0025';
-        const maxStopDefault = strategyType === 'RANGE_SCALP' ? '0.0045' : '0.25';
-        const minStop = parseFloat(process.env.SCALP_MIN_STOP || process.env.MIN_STOP_DISTANCE || minStopDefault);
-        const maxStop = parseFloat(process.env.SCALP_MAX_STOP || process.env.MAX_STOP_DISTANCE || maxStopDefault);
+        const minStopDefault = strategyType === 'RANGE_SCALP' ? 0.0015 : 0.0025;
+        const maxStopDefault = strategyType === 'RANGE_SCALP' ? 0.0045 : 0.025;
+        let minStop = minStopDefault;
+        let maxStop = maxStopDefault;
+        if (process.env.SCALP_MIN_STOP) minStop = validateDistanceFraction(process.env.SCALP_MIN_STOP, 'SCALP_MIN_STOP');
+        else if (process.env.MIN_STOP_DISTANCE) minStop = validateDistanceFraction(process.env.MIN_STOP_DISTANCE, 'MIN_STOP_DISTANCE');
+
+        if (process.env.SCALP_MAX_STOP) maxStop = validateDistanceFraction(process.env.SCALP_MAX_STOP, 'SCALP_MAX_STOP');
+        else if (process.env.MAX_STOP_DISTANCE) maxStop = validateDistanceFraction(process.env.MAX_STOP_DISTANCE, 'MAX_STOP_DISTANCE');
 
         let slDistance = Math.min(maxStop, Math.max(minStop, atrRatio * atrSlMult));
-        let tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
-
-        if (strategyType === 'RANGE_SCALP') {
-          tpDistance = Math.max(0.0025, atrRatio * 1.6);
+        if (process.env.SCALP_SL_PCT) {
+          slDistance = validateDistanceFraction(process.env.SCALP_SL_PCT, 'SCALP_SL_PCT');
+        } else {
+          slDistance = validateDistanceFraction(slDistance, 'calculated slDistance');
         }
 
-        if (process.env.SCALP_SL_PCT) slDistance = parseFloat(process.env.SCALP_SL_PCT);
-        if (process.env.SCALP_TP_PCT) tpDistance = parseFloat(process.env.SCALP_TP_PCT);
+        const effectiveExitPolicy = this.exitPolicy || getExitPolicyConfig().policy;
+        const effectiveTimeExitMinutes = this.timeExitMinutes || getExitPolicyConfig().timeExitMinutes;
+
+        let takeProfit = null;
+        let tpDistance = null;
+
+        if (effectiveExitPolicy !== 'TIME') {
+          tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
+          if (strategyType === 'RANGE_SCALP') {
+            tpDistance = Math.max(0.0025, atrRatio * 1.6);
+          }
+          if (process.env.SCALP_TP_PCT) {
+            tpDistance = validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
+          } else {
+            tpDistance = validateDistanceFraction(tpDistance, 'calculated tpDistance');
+          }
+          takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
+        } else {
+          if (process.env.SCALP_TP_PCT) {
+            validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
+          }
+        }
 
         const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
-        const takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
+
+        // Fail-Closed Mathematical Validation of Price Invariants
+        validatePriceInvariants(direction, entryPrice, stopLoss, takeProfit);
 
         // Dynamic Position Sizing (Risk-Normalized or Fixed Notional)
         const enableRiskNorm = process.env.ENABLE_RISK_NORMALIZATION === 'true';
@@ -1593,6 +1873,8 @@ export class StreamEngine extends EventEmitter {
           stopLoss,
           initialStopLoss: stopLoss,
           takeProfit,
+          exitPolicy: effectiveExitPolicy,
+          timeExitMinutes: effectiveTimeExitMinutes,
           quantity,
           initialQuantity: quantity,
           remainingQuantity: quantity,
@@ -1624,6 +1906,7 @@ export class StreamEngine extends EventEmitter {
           entryPrice,
           stopLoss,
           takeProfit,
+          exitPolicy: effectiveExitPolicy,
           quantity,
           status: 'open',
           tradeDna: baseSignal.tradeDna,
@@ -1631,7 +1914,8 @@ export class StreamEngine extends EventEmitter {
           governanceDecision
         };
 
-        this.ui.logEvent(`Position OPENED for ${this.symbol} at ${entryPrice}. SL: ${stopLoss.toFixed(2)}, TP: ${takeProfit.toFixed(2)}`);
+        const tpDisplay = takeProfit !== null ? `TP: ${takeProfit.toFixed(2)}` : `Exit Policy: ${effectiveExitPolicy} (${effectiveTimeExitMinutes}m)`;
+        this.ui.logEvent(`Position OPENED for ${this.symbol} at ${entryPrice}. SL: ${stopLoss.toFixed(2)}, ${tpDisplay}`);
         this.emit('state_changed');
       } else {
         const tradeTimestamp = Math.floor((candle.openTime || candle.timestamp || Date.now()) / 1000);

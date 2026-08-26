@@ -1,6 +1,9 @@
+import { LLES_TAGS, PhantomPnLGuard } from '../../packages/lyzer-shared/src/governance/epistemicStandard.js';
+
 /**
  * MetricsCalculator module for experiment-level trading performance metrics.
  * Computes PnL, drawdowns, Sharpe ratios, and equity curves from trade histories.
+ * Enforces LLES-v1.0 Epistemic Standards and the Absolute Prohibition of Phantom PnL.
  */
 
 export class ExperimentMetrics {
@@ -13,6 +16,8 @@ export class ExperimentMetrics {
   static computeFromTrades(trades) {
     if (!trades || !Array.isArray(trades) || trades.length === 0) {
       return {
+        epistemic_tag: LLES_TAGS.INFERENCE_EMPIRICAL,
+        phantom_pnl_contamination: false,
         totalTrades: 0,
         winningTrades: 0,
         losingTrades: 0,
@@ -33,8 +38,11 @@ export class ExperimentMetrics {
       };
     }
 
+    // LLES-v1.0 Guard: Sanitize trades to guarantee zero phantom PnL / avoided loss contamination
+    const sanitizedTrades = PhantomPnLGuard.sanitizeRealizedTrades(trades);
+
     // Ensure trades are sorted by timestamp (entry time)
-    const sortedTrades = [...trades].sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
+    const sortedTrades = [...sanitizedTrades].sort((a, b) => (a.timestamp || 0) - (b.timestamp || 0));
 
     let winningTrades = 0;
     let losingTrades = 0;
@@ -141,6 +149,8 @@ export class ExperimentMetrics {
     if (worstTradePnl === Infinity) worstTradePnl = 0;
 
     const fullMetrics = {
+      epistemic_tag: LLES_TAGS.INFERENCE_EMPIRICAL,
+      phantom_pnl_contamination: false,
       totalTrades,
       winningTrades,
       losingTrades,

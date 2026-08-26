@@ -89,6 +89,77 @@ export class LiveDataIngestor {
     return [];
   }
 
+  async deepWarmupCandles(limit = 3000) {
+    console.log(`[INGESTOR] Starting Deep Warmup for ${this.symbol} (${limit} candles)...`);
+    let allCandles = [];
+    let endTime = null;
+    
+    // Binance limit is 1000 per request
+    while (allCandles.length < limit) {
+      const fetchLimit = Math.min(1000, limit - allCandles.length);
+      let url = `${this.baseUrl}/api/v3/klines?symbol=${encodeURIComponent(this.symbol)}&interval=${encodeURIComponent(this.interval)}&limit=${fetchLimit}`;
+      if (endTime) {
+        url += `&endTime=${endTime}`;
+      }
+
+      let success = false;
+      for (let attempts = 0; attempts < BINANCE_BASE_URLS.length; attempts++) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 8000);
+          const res = await safeFetch(url, { signal: controller.signal, dispatcher: getFetchDispatcher() });
+          clearTimeout(timeoutId);
+          
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          
+          if (Array.isArray(data) && data.length > 0) {
+            const parsed = data.map(k => ({
+              openTime: k[0],
+              open: parseFloat(k[1]),
+              high: parseFloat(k[2]),
+              low: parseFloat(k[3]),
+              close: parseFloat(k[4]),
+              volume: parseFloat(k[5]),
+              closed: true
+            }));
+            
+            // Exclude the very last candle only on the first fetch if endTime is null (as it might be open)
+            if (!endTime) {
+              parsed.pop();
+            }
+            
+            allCandles = [...parsed, ...allCandles];
+            endTime = parsed[0].openTime - 1; // Set endTime just before the oldest candle
+            success = true;
+            break;
+          } else {
+            success = true; // No more data
+            break; 
+          }
+        } catch (e) {
+          console.warn(`[INGESTOR] Deep Warmup chunk failed via ${this.baseUrl}: ${e.message}. Rotating...`);
+          this.rotateUrl();
+          await new Promise(r => setTimeout(r, 250));
+        }
+      }
+      
+      if (!success) {
+        console.error(`[INGESTOR] FATAL: All endpoints failed during Deep Warmup chunk on ${this.symbol}.`);
+        break;
+      }
+      
+      // Prevent rate limits
+      await new Promise(r => setTimeout(r, 100));
+    }
+    
+    console.log(`[INGESTOR] Deep Warmup completed for ${this.symbol}. Loaded ${allCandles.length} candles.`);
+    if (allCandles.length > 0) {
+      this.basePrice = allCandles[allCandles.length - 1].close;
+    }
+    return allCandles;
+  }
+
   _startPolling(onCandleClose, onStateChange) {
     if (this._usingPolling) return;
     this._usingPolling = true;

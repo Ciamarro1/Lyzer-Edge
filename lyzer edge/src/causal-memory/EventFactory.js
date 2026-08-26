@@ -1,14 +1,6 @@
-/** Browser-safe FNV-1a 32-bit hash — no Node.js crypto dependency. */
-function fnv1aHash(str) {
-  let h = 0x811c9dc5;
-  for (let i = 0; i < str.length; i++) {
-    h ^= str.charCodeAt(i);
-    h = (h * 0x01000193) >>> 0;
-  }
-  return h.toString(16).padStart(8, '0');
-}
-// Removed UUIDv4 fallback as per architecture compliance (P2). No silent fallbacks to UUIDv4.
-// Helper to generate UUIDv7 (Timestamp-sorted UUID)
+import { computeCausalHash, GENESIS_PREV_HASH } from './causalCrypto.js';
+
+// Helper to generate UUIDv7 (Timestamp-sorted UUID per ADR-007)
 export function generateUUIDv7() {
   const timestamp = Date.now();
   const hexTimestamp = timestamp.toString(16).padStart(12, '0');
@@ -17,23 +9,19 @@ export function generateUUIDv7() {
   return `${hexTimestamp.slice(0, 8)}-${hexTimestamp.slice(8, 12)}-7${randomBytes.slice(0, 3)}-8${randomBytes.slice(3, 6)}-${randomBytes.slice(6, 18)}`;
 }
 
-export function computeEventHash(event, prevHash = '0'.repeat(64)) {
-  const content = [
-    prevHash || '0'.repeat(64),
-    event.event_id,
-    event.timestamp,
-    event.event_type,
-    event.source,
-    event.correlation_id,
-    JSON.stringify(event.payload || {}),
-    JSON.stringify(event.context || {})
-  ].join('|');
-
-  return fnv1aHash(content) + fnv1aHash(content.split('').reverse().join(''));
+/**
+ * Computes cryptographic hash for an event using SHA-256 / HMAC-SHA256.
+ * @param {Object} event
+ * @param {string} [prevHash]
+ * @param {Object} [options]
+ * @returns {string} 64-character hex hash
+ */
+export function computeEventHash(event, prevHash = GENESIS_PREV_HASH, options = {}) {
+  return computeCausalHash(event, prevHash, options);
 }
 
 export class EventFactory {
-  static createEvent({ type, source, causationId, correlationId, intentId, parentEvent, payload, context, prevHash, regime }) {
+  static createEvent({ type, source, causationId, correlationId, intentId, parentEvent, payload, context, prevHash, regime, options }) {
     if (!type || !source || !correlationId) {
       throw new Error('[EventFactory] Missing mandatory fields: type, source, or correlationId');
     }
@@ -41,7 +29,7 @@ export class EventFactory {
     const eventId = generateUUIDv7();
     const timestamp = Date.now();
     const version = '1.0.0';
-    const cleanPrevHash = prevHash || '0'.repeat(64);
+    const cleanPrevHash = prevHash || GENESIS_PREV_HASH;
 
     const event = {
       event_id: eventId,
@@ -60,7 +48,7 @@ export class EventFactory {
       hash: ''
     };
 
-    event.hash = computeEventHash(event, cleanPrevHash);
+    event.hash = computeCausalHash(event, cleanPrevHash, options);
     return event;
   }
 }

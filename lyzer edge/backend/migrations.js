@@ -335,6 +335,90 @@ const MIGRATIONS = [
                 });
             });
         }
+    },
+    {
+        version: 5,
+        name: 'v5_experiment_trades_primary_key_uuid',
+        up: async (sqliteDb) => {
+            return new Promise((resolve, reject) => {
+                sqliteDb.serialize(() => {
+                    // 1. Create target table with trade_id as PRIMARY KEY NOT NULL
+                    sqliteDb.run(`
+                        CREATE TABLE IF NOT EXISTS experiment_trades_v5 (
+                            trade_id TEXT PRIMARY KEY NOT NULL,
+                            experiment_id TEXT NOT NULL DEFAULT 'EXP-001',
+                            symbol TEXT,
+                            direction TEXT,
+                            entry_price REAL,
+                            exit_price REAL,
+                            stop_loss REAL,
+                            take_profit REAL,
+                            quantity REAL,
+                            pnl REAL,
+                            pnl_pct REAL,
+                            status TEXT NOT NULL DEFAULT 'open',
+                            signal_json TEXT,
+                            regime TEXT,
+                            governance_decision TEXT,
+                            reason_codes_json TEXT,
+                            ev_json TEXT,
+                            entry_timestamp INTEGER,
+                            exit_timestamp INTEGER,
+                            created_at INTEGER
+                        )
+                    `);
+
+                    // 2. Migrate existing records with deduplication (latest record wins via ORDER BY id ASC + INSERT OR REPLACE)
+                    sqliteDb.run(`
+                        INSERT OR REPLACE INTO experiment_trades_v5 (
+                            trade_id, experiment_id, symbol, direction, entry_price, exit_price,
+                            stop_loss, take_profit, quantity, pnl, pnl_pct, status, signal_json,
+                            regime, governance_decision, reason_codes_json, ev_json, entry_timestamp,
+                            exit_timestamp, created_at
+                        )
+                        SELECT
+                            COALESCE(NULLIF(trade_id, ''), 'LEGACY_' || id),
+                            COALESCE(experiment_id, 'EXP-001'),
+                            COALESCE(symbol, 'UNKNOWN'),
+                            COALESCE(direction, 'LONG'),
+                            COALESCE(entry_price, 0.0),
+                            exit_price,
+                            stop_loss,
+                            take_profit,
+                            quantity,
+                            pnl,
+                            pnl_pct,
+                            COALESCE(status, 'open'),
+                            signal_json,
+                            regime,
+                            governance_decision,
+                            reason_codes_json,
+                            ev_json,
+                            COALESCE(entry_timestamp, created_at, 0),
+                            exit_timestamp,
+                            COALESCE(created_at, entry_timestamp, 0)
+                        FROM experiment_trades
+                        ORDER BY id ASC
+                    `, (err) => {
+                        if (err && !err.message.includes('no such table')) {
+                            console.error('[Migrations] v5 copy error:', err);
+                        }
+                    });
+
+                    // 3. Drop legacy table and rename experiment_trades_v5 to experiment_trades
+                    sqliteDb.run(`DROP TABLE IF EXISTS experiment_trades`);
+                    sqliteDb.run(`ALTER TABLE experiment_trades_v5 RENAME TO experiment_trades`);
+
+                    // 4. Recreate indices
+                    sqliteDb.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_exp ON experiment_trades (experiment_id)`);
+                    sqliteDb.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_symbol ON experiment_trades (experiment_id, symbol)`);
+                    sqliteDb.run(`CREATE INDEX IF NOT EXISTS idx_exp_trades_status ON experiment_trades (experiment_id, status)`, (err) => {
+                        if (err) reject(err);
+                        else resolve();
+                    });
+                });
+            });
+        }
     }
 ];
 
@@ -458,8 +542,8 @@ export async function runTTLCleanup(db, options = {}) {
     const cutoff60d = now - (60 * 24 * 60 * 60 * 1000);
     while (true) {
         const res = await runAsync(sqliteDb, `
-            DELETE FROM experiment_trades WHERE id IN (
-                SELECT id FROM experiment_trades
+            DELETE FROM experiment_trades WHERE trade_id IN (
+                SELECT trade_id FROM experiment_trades
                 WHERE (created_at < ? OR entry_timestamp < ?)
                   AND status NOT IN ('CHAMPION', 'ARCHIVED')
                   AND experiment_id NOT IN (

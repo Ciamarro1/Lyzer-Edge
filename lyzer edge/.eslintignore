@@ -1,0 +1,11 @@
+dist/
+coverage/
+temp_test_ledger/
+.agents/
+.data/
+src-proto/
+src-rust/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite

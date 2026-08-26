@@ -212,6 +212,30 @@ export class TruthKernel {
       reason = 'VETO_OBSERVER_DIVERGENCE_ODM';
     }
 
+    // ENTRY PURIFICATION VETO (Experiment 3.5 Frozen Hypothesis)
+    // Frozen threshold: SMA20 extension < 0.10%, ATR < 0.12%
+    const atrLimit = 0.0012; // 0.12%
+    const smaLimit = 0.0010; // 0.10%
+    
+    if (eef && micro && micro.atr14_pct !== undefined && micro.sma20DistancePct !== undefined) {
+      const isHighAtr = micro.atr14_pct > atrLimit;
+      const isOverExtended = micro.sma20DistancePct > smaLimit;
+      
+      if (isHighAtr && isOverExtended) {
+        epistemicAuthority = 'VETO';
+        eef = false;
+        reason = 'ENTRY_VETO_SMA_AND_ATR';
+      } else if (isHighAtr) {
+        epistemicAuthority = 'VETO';
+        eef = false;
+        reason = 'ENTRY_VETO_HIGH_ATR';
+      } else if (isOverExtended) {
+        epistemicAuthority = 'VETO';
+        eef = false;
+        reason = 'ENTRY_VETO_OVEREXTENSION_SMA';
+      }
+    }
+
     // 5. Output pure tensor data, no "signal" prediction
     return {
       dvf: dvf.divergence,
