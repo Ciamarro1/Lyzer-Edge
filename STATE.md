@@ -1,23 +1,24 @@
 # LYZER EDGE — SESSION STATE & HANDOFF
 
 > **Branch:** `main` | **Target Space:** Railway (Exp 3.5)
-> **Last Updated:** 2026-08-26 05:17 | **Last Verified Commit:** `26138a0`
-> **System Status:** 🔴 CRITICAL ALARM (Live strategy proven to be negatively skewed)
+> **Last Updated:** 2026-08-26 05:54 | **Last Verified Commit:** `PENDING_PUSH`
+> **System Status:** 🔴 CRITICAL ALARM (Live strategy proven to have NO EDGE - H1 Signal Failure)
 
 ---
 
 ## 1. Immediate Objective (Próxima Missão)
-- **Current Mission:** Investigar o colapso de performance no In-Sample. O robô tem Edge negativo.
-- **Goal:** Isolar os provedores de sinal para descobrir qual está sangrando dinheiro e/ou reavaliar a gestão de risco (Stop/Take).
+- **Current Mission:** Executar o script `EXP-PROVIDER-ISOLATION-001` para isolar qual dos provedores (V2, V4, V5, V6, V7) é o responsável por emitir as entradas perdedoras sem MFE. 
+- **Goal:** Encontrar o Alfa bruto escondido nos provedores individuais ou constatar que todos carecem de direcionalidade de curto prazo.
 
 ---
 
 ## 2. Last Session Handoff (Onde Paramos)
 - **Completed:**
-  - ✅ **FASE 3 (Experimento FRACTAL-001):** Concluída.
-  - ❌ **Resultados:** A hipótese de que M5 ou M15 geraria melhor Alfa que M1 foi **REJEITADA**. Os 3 braços falharam catastroficamente no In-Sample (Win Rate de 6-7%, Expectância matemática negativa de $-0.22 por trade). O modelo sangra spread/taxas pesadamente.
-  - ⛔ **FASE 4 e OOS:** Canceladas sob as leis da pesquisa quantitativa. Não avançamos modelos falhos.
-  - ✅ **Relatório Executivo:** `VICTORY_AUDIT_REPORT_FRACTAL.md` foi gerado e entregue ao usuário.
+  - ✅ **Bug Fix:** O `ExecutionSimulator` foi reescrito para respeitar o `pos.accumulatedPnl` (Scale Outs). O laboratório agora contabiliza corretamente as tranches parciais em vez de julgar tudo pelo preço do último lote estopado.
+  - ✅ **EXP-AUTOPSY-001 (Veredito Final):** Com a telemetria consertada, provou-se que o Edge negativo vem da raiz: **H1 - SIGNAL FAILURE**. 88% dos trades "nunca funcionam", não respirando nem 0.20R a favor.
+  - ✅ **Script de Isolamento:** O script `research/experiments/runProviderIsolation.js` foi criado para rodar o laboratório isolando um provedor de cada vez.
+- **Interrupted:**
+  - ⏸️ A execução do `runProviderIsolation.js` foi abortada antes da conclusão a pedido do usuário (sandbox sendo fechada). O laboratório não terminou de dissecar os provedores.
 
 ---
 
@@ -25,10 +26,9 @@
 | Config / Env Var | Current Value | Context / Rationale |
 |---|---|---|
 | `ARL_MODE` | `SIMULATION` | Validação sem envio de ordens reais |
-| `DISABLED_PROVIDERS` | `v1,v3` | Padrão de produção |
-| `TRG_THRESHOLD` | `0.30` | Tail Risk Geometry trigger |
+| `DISABLED_PROVIDERS` | `dinâmico` | O script de isolamento injeta essa flag a cada iteração |
 
 ---
 
 ## 4. Architectural Notes (CTO)
-O sistema tem isolamento em 3 camadas e determinismo garantido (FASE 2 provou 100% de integridade mecânica). Isso significa que **os resultados ruins não são bugs de software, são bugs de lógica de mercado**. A matemática comprova que as regras atuais da estratégia SMC implementadas no motor têm zero Alfa no BTCUSDT.
+A falha não está na gestão de risco, no ECA ou no Replay. O gatilho original das entradas (gerado pelos provedores) tem uma correlação microscópica ou nula com direcionalidade de curto prazo no BTCUSDT M1. A prioridade de engenharia é encontrar o falso-positivo na geração de sinais, removendo a sujeira até que sobre apenas o gatilho com real assimetria condicional (MFE > 1R frequente).
