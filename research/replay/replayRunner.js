@@ -325,7 +325,8 @@ export class ReplayRunner {
    * @param {string} outputDir - Directory to save results
    */
   saveResults(outputDir) {
-    const filename = `${this.config.experimentId}_${this.config.segment}_${Date.now()}.json`;
+    const safeId = this.config.experimentId.replace(/[^a-zA-Z0-9_\-]/g, '_');
+    const filename = `${safeId}_${this.config.segment}_${Date.now()}.json`;
     const outputPath = resolve(outputDir, filename);
     
     const results = {
