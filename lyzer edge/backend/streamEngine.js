@@ -783,10 +783,14 @@ export class StreamEngine extends EventEmitter {
     //    Disabled providers skip reconstruction entirely — downstream is null-safe.
     const defaultNarrative = { signal: 'flat', confidence: 0, narrative: null, source: null, causalAnswers: null, explanationText: null, tradeDna: null };
     
+    const fastTf = process.env.FAST_TF || '1m';
+    const intermediateTf = process.env.INTERMEDIATE_TF || '15m';
+    const slowTf = process.env.SLOW_TF || '1h';
+
     const mappedCandles = {
-      fast: this.mtfCandles['1m'],
-      intermediate: this.mtfCandles['15m'],
-      slow: this.mtfCandles['1h'],
+      fast: this.mtfCandles[fastTf] || this.mtfCandles['1m'],
+      intermediate: this.mtfCandles[intermediateTf] || this.mtfCandles['15m'],
+      slow: this.mtfCandles[slowTf] || this.mtfCandles['1h'],
       ...this.mtfCandles
     };
 
@@ -849,7 +853,7 @@ export class StreamEngine extends EventEmitter {
     }
     
     // Extract static S/R levels from V2 engine for legacy compatibility
-    const v2Candles = this.mtfCandles['15m'] || this.mtfCandles['1m'] || [];
+    const v2Candles = this.mtfCandles[intermediateTf] || this.mtfCandles['1m'] || [];
     let srLevels = [];
     if (v2Candles.length >= 10) {
       let localMax = -Infinity, localMin = Infinity;
