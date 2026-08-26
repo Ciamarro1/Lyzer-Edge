@@ -59,42 +59,69 @@ export class ExecutionSimulator {
    * @returns {Object} PnL breakdown
    */
   calculatePnL(trade) {
-    const { direction, entryPrice, exitPrice, notional } = trade;
-    const quantity = notional / entryPrice;
+    const { direction, entryPrice, exitPrice, notional, scaleOutHistory } = trade;
+    const initialQuantity = notional / entryPrice;
     
     // Entry cost (always taker for market orders)
     const entrySlippage = direction === 'LONG' ? 1 + this.slippagePct : 1 - this.slippagePct;
     const effectiveEntry = entryPrice * entrySlippage;
-    const entryFee = (effectiveEntry * quantity) * this.takerFeePct;
+    const entryFee = (effectiveEntry * initialQuantity) * this.takerFeePct;
     
-    // Exit cost
-    const exitSlippage = direction === 'LONG' ? 1 - this.slippagePct : 1 + this.slippagePct;
-    const effectiveExit = exitPrice * exitSlippage;
-    const exitFee = (effectiveExit * quantity) * this.takerFeePct;
+    let totalExitFee = 0;
+    let totalGrossPnL = 0;
+    let remainingQuantity = initialQuantity;
+
+    // Process Scale-Outs
+    if (scaleOutHistory && scaleOutHistory.length > 0) {
+      for (const scaleOut of scaleOutHistory) {
+        // Fallback to proportional quantity if scaleOut.qty is missing
+        const trancheQty = scaleOut.qty || (initialQuantity / (scaleOutHistory.length + 1));
+        remainingQuantity -= trancheQty;
+        
+        // Tranche exit cost
+        const trancheExitSlippage = direction === 'LONG' ? 1 - this.slippagePct : 1 + this.slippagePct;
+        const trancheEffectiveExit = scaleOut.price * trancheExitSlippage;
+        const trancheExitFee = (trancheEffectiveExit * trancheQty) * this.takerFeePct;
+        totalExitFee += trancheExitFee;
+
+        // Tranche Gross PnL
+        const trancheGross = direction === 'LONG'
+          ? (trancheEffectiveExit - effectiveEntry) * trancheQty
+          : (effectiveEntry - trancheEffectiveExit) * trancheQty;
+        totalGrossPnL += trancheGross;
+      }
+    }
+
+    // Process Final Tranche
+    if (remainingQuantity > 0.00000001) {
+      const exitSlippage = direction === 'LONG' ? 1 - this.slippagePct : 1 + this.slippagePct;
+      const effectiveExit = exitPrice * exitSlippage;
+      const finalExitFee = (effectiveExit * remainingQuantity) * this.takerFeePct;
+      totalExitFee += finalExitFee;
+      
+      const finalGross = direction === 'LONG'
+        ? (effectiveExit - effectiveEntry) * remainingQuantity
+        : (effectiveEntry - effectiveExit) * remainingQuantity;
+      totalGrossPnL += finalGross;
+    }
+
+    const totalFees = entryFee + totalExitFee;
+    const netPnL = totalGrossPnL - totalFees;
     
-    // Gross PnL
-    const grossPnL = direction === 'LONG'
-      ? (effectiveExit - effectiveEntry) * quantity
-      : (effectiveEntry - effectiveExit) * quantity;
-    
-    // Net PnL
-    const totalFees = entryFee + exitFee;
-    const netPnL = grossPnL - totalFees;
-    
-    // Return percentage
+    // Return percentage based on initial notional
     const returnPct = netPnL / notional;
     
     return {
-      grossPnL,
+      grossPnL: totalGrossPnL,
       netPnL,
       totalFees,
       entryFee,
-      exitFee,
+      exitFee: totalExitFee,
       effectiveEntry,
-      effectiveExit,
+      effectiveExit: exitPrice, // Keep final exit price as reference
       returnPct,
       notional,
-      quantity,
+      quantity: initialQuantity,
     };
   }
 

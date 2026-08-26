@@ -268,6 +268,7 @@ export class ReplayRunner {
         entryPrice: t.entryPrice,
         exitPrice: t.exitPrice || t.entryPrice,
         notional,
+        scaleOutHistory: t.scaleOutHistory
       });
 
       return {
@@ -333,15 +334,7 @@ export class ReplayRunner {
       metadata: this.runMetadata,
       metrics: MetricsCalculator.compute(this.tradeLedger, { initialCapital: 10000 }),
       tradeCount: this.tradeLedger.length,
-      trades: this.tradeLedger.map(t => ({
-        direction: t.direction,
-        entryPrice: t.entryPrice,
-        exitPrice: t.exitPrice,
-        netPnL: t.netPnL,
-        totalFees: t.totalFees,
-        entryTime: t.entryTime,
-        exitTime: t.exitTime,
-      })),
+      trades: this.tradeLedger
     };
     
     writeFileSync(outputPath, JSON.stringify(results, null, 2));
