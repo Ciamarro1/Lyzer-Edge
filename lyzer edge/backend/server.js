@@ -899,17 +899,28 @@ if (process.env.NODE_ENV !== 'test') {
   // Periodic backup every 10 minutes
   setInterval(runBackup, 10 * 60 * 1000);
 
-  // Backup on exit/shutdown
-  process.on('SIGINT', () => {
-    console.log('[BACKUP] SIGINT received.');
+  // Graceful shutdown handling with Causal Memory flush and SQLite WAL checkpoint
+  const gracefulShutdown = async (signal) => {
+    console.log(`🛑 [SHUTDOWN] ${signal} received. Flushing Causal Memory & closing SQLite gracefully...`);
+    try {
+      if (db && typeof db.flushCausalEvents === 'function') {
+        await db.flushCausalEvents().catch(() => {});
+      }
+      if (db && typeof db.walCheckpoint === 'function') {
+        await db.walCheckpoint('TRUNCATE').catch(() => {});
+      }
+      if (db && typeof db.close === 'function') {
+        await db.close().catch(() => {});
+      }
+    } catch (e) {
+      console.warn('⚠️ [SHUTDOWN] Error during SQLite close:', e.message);
+    }
     runBackup();
-    setTimeout(() => process.exit(0), 4000); // give time for the upload
-  });
-  process.on('SIGTERM', () => {
-    console.log('[BACKUP] SIGTERM received.');
-    runBackup();
-    setTimeout(() => process.exit(0), 4000);
-  });
+    setTimeout(() => process.exit(0), 1000);
+  };
+
+  process.on('SIGINT', () => gracefulShutdown('SIGINT'));
+  process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 }
 
 // --- PERIODIC FLEET REPORT SERVICE ---

@@ -11,26 +11,39 @@
 import { readFileSync } from 'fs';
 import { createHash } from 'crypto';
 
+const datasetCache = new Map();
+
+function loadDataset(datasetPath) {
+  if (datasetCache.has(datasetPath)) {
+    return datasetCache.get(datasetPath);
+  }
+  const raw = readFileSync(datasetPath, 'utf-8');
+  const allCandles = JSON.parse(raw);
+  allCandles.sort((a, b) => a.openTime - b.openTime);
+  const hash = createHash('sha256')
+    .update(JSON.stringify(allCandles.map(c => c.openTime)))
+    .digest('hex')
+    .slice(0, 16);
+  const entry = { allCandles, hash };
+  datasetCache.set(datasetPath, entry);
+  return entry;
+}
+
 export class ReplayDataIngestor {
   /**
    * @param {string} datasetPath - Absolute path to the JSON dataset file
    * @param {Object} config - { startTime, endTime } to slice the dataset
    */
   constructor(datasetPath, config = {}) {
-    const raw = readFileSync(datasetPath, 'utf-8');
-    const allCandles = JSON.parse(raw);
+    const { allCandles, hash } = loadDataset(datasetPath);
     
     // Slice by time range if specified
     let candles = allCandles;
-    if (config.startTime) {
-      candles = candles.filter(c => c.openTime >= config.startTime);
+    if (config.startTime || config.endTime) {
+      const start = config.startTime || -Infinity;
+      const end = config.endTime || Infinity;
+      candles = allCandles.filter(c => c.openTime >= start && c.openTime <= end);
     }
-    if (config.endTime) {
-      candles = candles.filter(c => c.openTime <= config.endTime);
-    }
-    
-    // Sort by openTime (should already be sorted, but enforce)
-    candles.sort((a, b) => a.openTime - b.openTime);
     
     this.candles = candles;
     this.index = 0;
@@ -42,10 +55,7 @@ export class ReplayDataIngestor {
       totalCandles: candles.length,
       firstTime: candles.length > 0 ? candles[0].openTime : null,
       lastTime: candles.length > 0 ? candles[candles.length - 1].openTime : null,
-      hash: createHash('sha256')
-        .update(JSON.stringify(candles.map(c => c.openTime)))
-        .digest('hex')
-        .slice(0, 16),
+      hash,
     };
   }
 
@@ -56,11 +66,16 @@ export class ReplayDataIngestor {
   next() {
     if (this.index >= this.candles.length) return null;
     
-    const candle = this.candles[this.index];
-    this.index++;
+    const candle = this.candles[this.index++];
     
     return {
-      ...candle,
+      openTime: candle.openTime,
+      open: candle.open,
+      high: candle.high,
+      low: candle.low,
+      close: candle.close,
+      volume: candle.volume,
+      closeTime: candle.closeTime,
       symbol: this.symbol,
       closed: true,  // Simulate kline.x === true
       timestamp: candle.openTime,

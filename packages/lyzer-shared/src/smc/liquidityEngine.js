@@ -8,6 +8,7 @@ export class LiquidityEngine {
     constructor() {
         this.activeZones = [];
         this.historicalZones = [];
+        this._zoneIds = new Set();
         this.lastProcessedTime = 0;
         this.volatility = 0.0005; // Initial baseline variance
     }
@@ -133,7 +134,8 @@ export class LiquidityEngine {
                     const lower = Math.min(m1.price, m2.price);
                     const upper = Math.max(m1.price, m2.price);
                     const id = `EQH_${m1.timestamp || 0}_${m2.timestamp || 0}`;
-                    if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                    if (!this._zoneIds.has(id)) {
+                        this._zoneIds.add(id);
                         this.activeZones.push({
                             id,
                             type: 'EQH',
@@ -162,7 +164,8 @@ export class LiquidityEngine {
                     const lower = Math.min(m1.price, m2.price);
                     const upper = Math.max(m1.price, m2.price);
                     const id = `EQL_${m1.timestamp || 0}_${m2.timestamp || 0}`;
-                    if (!this.activeZones.some(z => z.id === id) && !this.historicalZones.some(z => z.id === id)) {
+                    if (!this._zoneIds.has(id)) {
+                        this._zoneIds.add(id);
                         this.activeZones.push({
                             id,
                             type: 'EQL',

@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "experimentId": "EXP-PROVIDER-ISOLATION-001-V6",
+    "hypothesis": "Isolate provider v6 to measure its raw expectancy and MFE/MAE profile.",
+    "segment": "is",
+    "datasetHash": "bf794a7ac579022c",
+    "configHash": "ea8937114a2af36d",
+    "engineVersion": "streamEngine-live-v1",
+    "runtimeMs": 339071,
+    "candlesProcessed": 77760,
+    "errors": 0,
+    "timestamp": "2026-08-27T22:39:47.546Z",
+    "split": {
+      "is": {
+        "startTime": 1779950220000,
+        "endTime": 1784615760000,
+        "candles": 77760
+      },
+      "val": {
+        "startTime": 1784615820000,
+        "endTime": 1786170960000,
+        "candles": 25920
+      },
+      "oos": {
+        "startTime": 1786171020000,
+        "endTime": 1787726160000,
+        "candles": 25920
+      }
+    },
+    "fees": {
+      "taker": 0.001,
+      "slippage": 0.0002
+    }
+  },
+  "metrics": {
+    "trades": 0,
+    "wins": 0,
+    "losses": 0,
+    "winRate": 0,
+    "grossProfit": 0,
+    "grossLoss": 0,
+    "netPnL": 0,
+    "totalFees": 0,
+    "profitFactor": 0,
+    "expectancy": 0,
+    "avgWin": 0,
+    "avgLoss": 0,
+    "maxDrawdown": 0,
+    "maxDrawdownPct": 0,
+    "returnOverDD": 0,
+    "avgHoldTimeMin": 0,
+    "medianHoldTimeMin": 0,
+    "longTrades": 0,
+    "shortTrades": 0,
+    "longPnL": 0,
+    "shortPnL": 0,
+    "avgMAE": null,
+    "avgMFE": null,
+    "exposurePct": null,
+    "equityCurve": []
+  },
+  "tradeCount": 0,
+  "trades": []
+}

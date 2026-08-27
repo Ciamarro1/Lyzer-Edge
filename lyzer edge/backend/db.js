@@ -19,14 +19,8 @@ export class CausalMemoryDB {
         if (!customDbPath && sharedInstance) {
             return sharedInstance;
         }
-        const targetPath = customDbPath || DEFAULT_DB_PATH;
-        this.db = new sqlite3.Database(targetPath, (err) => {
-            if (err) {
-                console.error('[DB] Error opening database:', err);
-            } else {
-                console.log(`[DB] Connected to SQLite Causal Memory Database (${targetPath}).`);
-            }
-        });
+        this.targetPath = customDbPath || DEFAULT_DB_PATH;
+        this.options = options;
 
         // In-memory buffer for async causal batching (R2)
         this._causalBuffer = [];
@@ -40,7 +34,29 @@ export class CausalMemoryDB {
         this._lastInMemoryHash = null;
         this._lastHashInitPromise = null;
 
-        // Instrument queries for Lock Wait Latency Tracking
+        this.init();
+        this.startCausalFlushTimer();
+        if (!customDbPath) {
+            sharedInstance = this;
+        }
+    }
+
+    _initConnection() {
+        this.db = new sqlite3.Database(this.targetPath, (err) => {
+            if (err) {
+                console.error(`[DB] Error opening database at ${this.targetPath}:`, err.message);
+            } else {
+                console.log(`[DB] Connected to SQLite Causal Memory Database (${this.targetPath}).`);
+            }
+        });
+
+        // Prevent unhandled error events from crashing Node.js process
+        this.db.on('error', (err) => {
+            recordSystemError('CausalMemoryDB', 'SQLITE_EMITTED_ERROR');
+            console.error('[DB] SQLite event error captured:', err.message);
+        });
+
+        // Instrument queries for Lock Wait Latency Tracking & Safe Error Handling
         const wrapMethod = (methodName) => {
             const orig = this.db[methodName];
             this.db[methodName] = (...args) => {
@@ -50,6 +66,11 @@ export class CausalMemoryDB {
                     args[args.length - 1] = function(...cbArgs) {
                         const durationSec = (performance.now() - startTime) / 1000;
                         recordSqliteLockWait('causal_memory', durationSec);
+                        const cbErr = cbArgs[0];
+                        if (cbErr && (cbErr.message?.includes('SQLITE_CORRUPT') || cbErr.code === 'SQLITE_CORRUPT')) {
+                            recordSystemError('CausalMemoryDB', 'SQLITE_CORRUPT_DETECTED');
+                            console.error('[DB] CRITICAL: SQLite disk image malformed during query:', cbErr.message);
+                        }
                         return lastArg.apply(this, cbArgs);
                     };
                 }
@@ -59,32 +80,128 @@ export class CausalMemoryDB {
         wrapMethod('run');
         wrapMethod('get');
         wrapMethod('all');
+    }
 
-        this.init();
-        this.startCausalFlushTimer();
-        if (!customDbPath) {
-            sharedInstance = this;
+    async _quarantineAndRecreate(reason = 'CORRUPTION_DETECTED') {
+        console.warn(`🛡️ [DB RESILIENCE] Initiating quarantine & self-healing for ${this.targetPath} (Reason: ${reason})...`);
+        await new Promise((resolve) => {
+            if (this.db) {
+                this.db.close(() => resolve());
+            } else {
+                resolve();
+            }
+        });
+
+        const timestamp = Date.now();
+        const quarantinePrefix = `${this.targetPath}.corrupted.${timestamp}`;
+
+        for (const ext of ['', '-wal', '-shm']) {
+            const src = `${this.targetPath}${ext}`;
+            if (fs.existsSync(src)) {
+                try {
+                    fs.renameSync(src, `${quarantinePrefix}${ext}`);
+                    console.log(`🛡️ [DB RESILIENCE] Quarantined ${src} -> ${quarantinePrefix}${ext}`);
+                } catch (e) {
+                    console.warn(`⚠️ [DB RESILIENCE] Could not rename ${src}, unlinking:`, e.message);
+                    try { fs.unlinkSync(src); } catch (_) {}
+                }
+            }
         }
+
+        // Look for bundled clean seed if available
+        const seedCandidates = [
+            path.join(process.cwd(), 'historical_causal_memory.db'),
+            path.join(process.cwd(), 'lyzer edge', 'historical_causal_memory.db'),
+            path.join(DATA_DIR, 'historical_causal_memory.db.seed')
+        ];
+
+        let restoredFromSeed = false;
+        for (const seedPath of seedCandidates) {
+            if (fs.existsSync(seedPath) && seedPath !== this.targetPath) {
+                try {
+                    const stats = fs.statSync(seedPath);
+                    if (stats.size > 0) {
+                        fs.copyFileSync(seedPath, this.targetPath);
+                        console.log(`🌱 [DB RESILIENCE] Restored clean Causal Memory seed from ${seedPath}`);
+                        restoredFromSeed = true;
+                        break;
+                    }
+                } catch (err) {
+                    console.warn(`⚠️ [DB RESILIENCE] Failed to copy seed from ${seedPath}:`, err.message);
+                }
+            }
+        }
+
+        if (!restoredFromSeed) {
+            console.log(`✨ [DB RESILIENCE] Creating fresh Causal Memory database at ${this.targetPath}`);
+        }
+
+        this._initConnection();
+    }
+
+    async _checkIntegrity() {
+        return new Promise((resolve) => {
+            this.db.get("PRAGMA quick_check(1);", [], async (err, row) => {
+                const isCorrupt = err || !row || (row.quick_check && row.quick_check !== 'ok');
+                if (isCorrupt) {
+                    const errMsg = err ? err.message : (row ? row.quick_check : 'Corrupted header/file');
+                    await this._quarantineAndRecreate(errMsg);
+                }
+                resolve();
+            });
+        });
     }
 
     init() {
-        this.db.serialize(() => {
-            // Institutional WAL Mode Pragmas Tuning
-            this.db.run(`PRAGMA journal_mode = WAL;`);
-            this.db.run(`PRAGMA synchronous = NORMAL;`);
-            this.db.run(`PRAGMA busy_timeout = 5000;`);
-            this.db.run(`PRAGMA temp_store = MEMORY;`);
-            this.db.run(`PRAGMA cache_size = -64000;`); // 64MB Page Cache
-            this.db.run(`PRAGMA mmap_size = 30000000000;`); // Memory Mapped I/O
-            this.db.run(`PRAGMA wal_autocheckpoint = 1000;`);
-        });
+        this._initConnection();
 
-        this.migrationsPromise = runMigrations(this).then(async () => {
+        this.migrationsPromise = this._checkIntegrity().then(() => {
+            return new Promise((resolve, reject) => {
+                this.db.serialize(() => {
+                    // Institutional WAL Mode Pragmas Tuning with safe callbacks
+                    this.db.run(`PRAGMA journal_mode = WAL;`, (err) => {
+                        if (err) console.warn('[DB] Journal mode pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA synchronous = NORMAL;`, (err) => {
+                        if (err) console.warn('[DB] Synchronous pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA busy_timeout = 5000;`, (err) => {
+                        if (err) console.warn('[DB] Busy timeout pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA temp_store = MEMORY;`, (err) => {
+                        if (err) console.warn('[DB] Temp store pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA cache_size = -64000;`, (err) => {
+                        if (err) console.warn('[DB] Cache size pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA mmap_size = 30000000000;`, (err) => {
+                        if (err) console.warn('[DB] MMAP pragma notice:', err.message);
+                    });
+                    this.db.run(`PRAGMA wal_autocheckpoint = 1000;`, (err) => {
+                        if (err) {
+                            console.error('[DB] Autocheckpoint pragma error:', err.message);
+                            return reject(err);
+                        }
+                        resolve();
+                    });
+                });
+            });
+        }).then(() => {
+            return runMigrations(this);
+        }).then(async () => {
             await this._initLastInMemoryHash();
-        }).catch(err => {
+        }).catch(async (err) => {
             recordSystemError('CausalMemoryDB', 'MIGRATION_ERROR');
             console.error('[DB] Schema migration failed:', err);
-            throw err;
+            // If error is corruption-related, attempt emergency quarantine and second recovery pass
+            if (err && (err.message?.includes('SQLITE_CORRUPT') || err.code === 'SQLITE_CORRUPT')) {
+                console.warn('⚠️ [DB RESILIENCE] Migration caught SQLITE_CORRUPT. Executing emergency self-healing...');
+                await this._quarantineAndRecreate('MIGRATION_SQLITE_CORRUPT');
+                await runMigrations(this);
+                await this._initLastInMemoryHash();
+            } else {
+                throw err;
+            }
         });
     }
 

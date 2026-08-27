@@ -54,6 +54,7 @@ import { LatencyMatrix } from "../../packages/lyzer-shared/src/observers/Latency
 // H5 fix: Causal Reflection pipeline
 import { CausalReflectionFacade } from "../src/causal-reflection/index.js";
 import { db } from "./db.js";
+import { ShadowLogger } from "./shadowLogger.js";
 
 import crypto from 'crypto';
 
@@ -992,8 +993,8 @@ export class StreamEngine extends EventEmitter {
     const kernelResult = this.truthKernel.evaluate(providers, micro);
 
     // Experiment 3.5 Shadow Tracking (Pass vs Veto Counterfactuals)
-    import('./shadowLogger.js').then(mod => {
-      mod.ShadowLogger.logSignalOutcome(
+    if (this.mode !== 'SIMULATION' || process.env.ENABLE_SHADOW_LOGGING === 'true') {
+      ShadowLogger.logSignalOutcome(
         this.symbol, 
         candle.openTime || candle.timestamp || Date.now(), 
         providers.v1?.direction || 'UNKNOWN',
@@ -1001,7 +1002,7 @@ export class StreamEngine extends EventEmitter {
         micro,
         kernelResult
       );
-    }).catch(err => console.error('[SHADOW] Error loading logger', err));
+    }
     
     if (process.env.ABLATION_NO_LHDS === 'true') {
         kernelResult.eef = true;
@@ -1020,7 +1021,7 @@ export class StreamEngine extends EventEmitter {
     recordCclistEvaluation(this.symbol, cclistEvaluation.stressLevel, cclistEvaluation.isLethalIllusion);
 
     // C5 fix: Dispatch async writes to Causal Memory DB for snapshots and verdicts
-    if (db && typeof db.insertCausalEvent === 'function') {
+    if (this.mode !== 'SIMULATION' && db && typeof db.insertCausalEvent === 'function') {
       const ts = currentCandleTime || Date.now();
       const corrId = `tick_${this.symbol}_${ts}`;
       const snapEventId = `SNAP_${this.symbol}_${ts}_${generateUUIDv7()}`;
@@ -1062,13 +1063,15 @@ export class StreamEngine extends EventEmitter {
     
     // V8 Shadow Observer — Phase 4 (PURE OBSERVATION, ZERO INFLUENCE ON PIPELINE)
     // Feeds into audit log only. No write path to signal/score/sizing/orders/veto/TruthKernel.
-    try {
-      this.v8Shadow.observe(candle, {
-        fvgCount: this.openMobius._fvgs.length,
-        activeFvgs: this.openMobius.getActiveFVGs().length,
-        confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0,
-      });
-    } catch (_) { /* Shadow failure must NEVER crash the engine */ }
+    if ((this.mode !== 'SIMULATION' || process.env.ENABLE_V8_SHADOW === 'true') && this.v8Shadow) {
+      try {
+        this.v8Shadow.observe(candle, {
+          fvgCount: this.openMobius._fvgs.length,
+          activeFvgs: this.openMobius.getActiveFVGs().length,
+          confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0,
+        });
+      } catch (_) { /* Shadow failure must NEVER crash the engine */ }
+    }
     
     // Evaluate Fusion Engine with active regime
     const evidenceArray = [
@@ -1938,7 +1941,9 @@ export class StreamEngine extends EventEmitter {
     }
 
     // 2. Step evolutionary research engine
-    const arlReport = this.ecoEngine.step(this.candles, baseSignal);
+    const arlReport = (this.mode !== 'SIMULATION' || process.env.ENABLE_ARL_RESEARCH === 'true')
+      ? this.ecoEngine.step(this.candles, baseSignal)
+      : null;
 
     // 3. Construct payload package (Telemetry mapped to CRSA)
     const payload = {

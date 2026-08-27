@@ -23,10 +23,22 @@ if command -v lyzer-intent-registry >/dev/null 2>&1; then
     (lyzer-intent-registry > /dev/null 2>&1 &)
 fi
 
-# 3. Seed initial Causal Memory from repository if it exists
-if [ -f "historical_causal_memory.db" ]; then
-    echo "🌱 [SEED] Copying bundled Causal Memory to /tmp/data..."
-    mkdir -p /tmp/data
+# 3. Seed initial Causal Memory from repository if missing, empty or corrupted
+mkdir -p /tmp/data
+if [ -f "/tmp/data/historical_causal_memory.db" ] && [ -s "/tmp/data/historical_causal_memory.db" ]; then
+    # Verify existing DB integrity if python3 is available
+    if command -v python3 >/dev/null 2>&1; then
+        python3 -c "import sqlite3; con = sqlite3.connect('/tmp/data/historical_causal_memory.db'); cur = con.cursor(); cur.execute('PRAGMA quick_check;'); res = cur.fetchone(); exit(0 if res and res[0] == 'ok' else 1)" 2>/dev/null || {
+            echo "⚠️ [SEED] Existing database in /tmp/data is corrupted! Resetting from bundled seed..."
+            rm -f /tmp/data/historical_causal_memory.db* 2>/dev/null || true
+            if [ -f "historical_causal_memory.db" ]; then
+                cp "historical_causal_memory.db" "/tmp/data/historical_causal_memory.db"
+            fi
+        }
+    fi
+elif [ -f "historical_causal_memory.db" ]; then
+    echo "🌱 [SEED] Seeding bundled Causal Memory to /tmp/data..."
+    rm -f /tmp/data/historical_causal_memory.db* 2>/dev/null || true
     cp "historical_causal_memory.db" "/tmp/data/historical_causal_memory.db"
 fi
 

@@ -26,16 +26,18 @@ export class SmcEngineFacade {
     // 1. Sync 1m candles into TimeframeManager if needed
     const fastCandles = mtfCandles['1m'] || [];
     if (fastCandles.length > 0) {
-      const currentLength = this.tfManager.getCandles('1m').length;
+      const tfCandles = this.tfManager.getCandles('1m');
+      const currentLength = tfCandles.length;
       if (currentLength === 0) {
-        for (const candle of fastCandles) {
-          this.tfManager.update(candle);
+        for (let i = 0; i < fastCandles.length; i++) {
+          this.tfManager.update(fastCandles[i]);
         }
       } else {
-        const lastSynced = this.tfManager.getCandles('1m').slice(-1)[0];
+        const lastSynced = tfCandles[currentLength - 1];
         const lastSyncedTime = lastSynced ? (lastSynced.openTime !== undefined ? lastSynced.openTime : lastSynced.timestamp) : -1;
-        
-        for (const candle of fastCandles) {
+        const startIdx = Math.max(0, fastCandles.length - 10);
+        for (let i = startIdx; i < fastCandles.length; i++) {
+          const candle = fastCandles[i];
           const candleTime = candle.openTime !== undefined ? candle.openTime : candle.timestamp;
           if (candleTime > lastSyncedTime) {
             this.tfManager.update(candle);

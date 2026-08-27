@@ -42,3 +42,4 @@ lyzer edge/temp_test_ledger/
 *.txt
 *.log
 *.db
+*.cpuprofile
