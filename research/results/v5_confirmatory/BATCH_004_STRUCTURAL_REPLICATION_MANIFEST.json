@@ -1,0 +1,354 @@
+{
+  "executionTimestamp": "2026-08-28T08:15:54.562Z",
+  "datasetSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+  "gates": {
+    "gate1Decomposition": {
+      "random": {
+        "name": "Random Baseline (Unconditioned)",
+        "n": 31918,
+        "meanReturnPct": 0.0793,
+        "medianReturnPct": 0.0422,
+        "stdDevPct": 1.7638,
+        "winRatePct": 51.7,
+        "profitFactor": 1.14,
+        "pValue": 1,
+        "zScore": 0
+      },
+      "A": {
+        "name": "A (Displacement only)",
+        "n": 563,
+        "meanReturnPct": 0.2575,
+        "medianReturnPct": 0.0209,
+        "stdDevPct": 2.1253,
+        "winRatePct": 50.3,
+        "profitFactor": 1.42,
+        "pValue": 0.161893,
+        "zScore": 0.987
+      },
+      "B": {
+        "name": "B (BOS/CHoCH only)",
+        "n": 15633,
+        "meanReturnPct": 0.0159,
+        "medianReturnPct": -0.0317,
+        "stdDevPct": 1.7134,
+        "winRatePct": 48.7,
+        "profitFactor": 1.03,
+        "pValue": 1,
+        "zScore": -5.152
+      },
+      "C": {
+        "name": "C (FVG only)",
+        "n": 8953,
+        "meanReturnPct": 0.0419,
+        "medianReturnPct": -0.0346,
+        "stdDevPct": 1.7493,
+        "winRatePct": 48.6,
+        "profitFactor": 1.07,
+        "pValue": 0.998991,
+        "zScore": -3.088
+      },
+      "AB": {
+        "name": "A + B (Displacement + BOS)",
+        "n": 104,
+        "meanReturnPct": 0.2778,
+        "medianReturnPct": 0.1353,
+        "stdDevPct": 1.8229,
+        "winRatePct": 52.9,
+        "profitFactor": 1.54,
+        "pValue": 0.174691,
+        "zScore": 0.936
+      },
+      "AC": {
+        "name": "A + C (Displacement + FVG)",
+        "n": 175,
+        "meanReturnPct": 0.4643,
+        "medianReturnPct": 0.143,
+        "stdDevPct": 2.2399,
+        "winRatePct": 54.3,
+        "profitFactor": 1.83,
+        "pValue": 0.037268,
+        "zScore": 1.783
+      },
+      "BC": {
+        "name": "B + C (BOS + FVG)",
+        "n": 2073,
+        "meanReturnPct": 0.0599,
+        "medianReturnPct": -0.0764,
+        "stdDevPct": 1.698,
+        "winRatePct": 47.2,
+        "profitFactor": 1.11,
+        "pValue": 0.988786,
+        "zScore": -2.283
+      },
+      "ABC": {
+        "name": "A + B + C (Full P3 Compound)",
+        "n": 30,
+        "meanReturnPct": 0.107,
+        "medianReturnPct": 0.0336,
+        "stdDevPct": 1.2448,
+        "winRatePct": 50,
+        "profitFactor": 1.27,
+        "pValue": 0.532147,
+        "zScore": -0.081
+      }
+    },
+    "gate2Incremental": {
+      "rABC": 0.107,
+      "maxSingleton": 0.2575,
+      "maxPair": 0.4643,
+      "deltaOverSingletons": -0.1505,
+      "deltaOverPairs": -0.3573,
+      "classification": "SINGLETON_SUBSUMED (Single component drives 100% of effect)",
+      "verdict": "🔴 FAIL (No Combo Edge)"
+    },
+    "gate3Bootstrap": {
+      "nEvents": 30,
+      "meanCI95": [
+        -0.3241,
+        0.5456
+      ],
+      "meanCI99": [
+        -0.4438,
+        0.6983
+      ],
+      "medianCI95": [
+        -0.4238,
+        0.3791
+      ],
+      "pPositiveMean": 67.5,
+      "pBeatFriction": 58.9,
+      "includesZeroIn95": true,
+      "passed": false
+    },
+    "gate4Independence": {
+      "nRaw": 30,
+      "nEffective": 30,
+      "clusteringRatioPct": 100,
+      "medianInterSignalBars": 704,
+      "declusteredMeanPct": 0.107,
+      "declusteredMedianPct": 0.0336,
+      "declusteredWinRatePct": 50,
+      "returnRetentionPct": 100,
+      "passed": false
+    },
+    "gate5Symmetry": {
+      "bull": {
+        "n": 22,
+        "meanPct": 0.145,
+        "medianPct": 0.0336,
+        "winRatePct": 50
+      },
+      "bear": {
+        "n": 8,
+        "meanPct": 0.0024,
+        "medianPct": -0.1611,
+        "winRatePct": 50
+      },
+      "bothPositive": true,
+      "symmetryRatioPct": 1.7,
+      "passed": false
+    },
+    "gate6Regimes": {
+      "trend": {
+        "BULL_TREND": {
+          "n": 13,
+          "meanPct": 0.3672,
+          "winRatePct": 53.8
+        },
+        "BEAR_TREND": {
+          "n": 9,
+          "meanPct": -0.3726,
+          "winRatePct": 33.3
+        },
+        "CHOPPY_RANGE": {
+          "n": 8,
+          "meanPct": 0.2236,
+          "winRatePct": 62.5
+        }
+      },
+      "volatility": {
+        "LOW_VOL": {
+          "n": 0,
+          "meanPct": 0,
+          "winRatePct": 0
+        },
+        "NORMAL_VOL": {
+          "n": 0,
+          "meanPct": 0,
+          "winRatePct": 0
+        },
+        "HIGH_VOL": {
+          "n": 30,
+          "meanPct": 0.107,
+          "winRatePct": 50
+        }
+      },
+      "session": {
+        "ASIA": {
+          "n": 7,
+          "meanPct": 0.1711,
+          "winRatePct": 71.4
+        },
+        "LONDON": {
+          "n": 7,
+          "meanPct": -0.8149,
+          "winRatePct": 0
+        },
+        "NEW_YORK": {
+          "n": 12,
+          "meanPct": 0.6772,
+          "winRatePct": 66.7
+        },
+        "OFF_HOURS": {
+          "n": 4,
+          "meanPct": -0.1025,
+          "winRatePct": 50
+        }
+      }
+    },
+    "gate7Placebos": {
+      "table": {
+        "real": {
+          "name": "Real P3 Signal",
+          "n": 30,
+          "meanPct": 0.107,
+          "isDestroyed": false
+        },
+        "desyncedBOS": {
+          "name": "Placebo 1: Directionally Inverted BOS (Contradictory)",
+          "n": 56,
+          "meanPct": 0.3947,
+          "isDestroyed": true
+        },
+        "nonDispWide": {
+          "name": "Placebo 2: High-Range Wide-Wick Non-Displacement",
+          "n": 23,
+          "meanPct": -0.5687,
+          "isDestroyed": true
+        },
+        "temporalLag5": {
+          "name": "Placebo 3: Temporal Lag (+5 Bars Delay)",
+          "n": 30,
+          "meanPct": -0.0171,
+          "isDestroyed": true
+        },
+        "temporalLag10": {
+          "name": "Placebo 4: Temporal Lag (+10 Bars Delay)",
+          "n": 30,
+          "meanPct": 0.0833,
+          "isDestroyed": true
+        }
+      },
+      "destroyedCount": 4,
+      "passed": true
+    },
+    "gate8Horizons": [
+      {
+        "horizon": "t+1",
+        "bars": 1,
+        "meanPct": -0.1216,
+        "medianPct": -0.0503,
+        "winRatePct": 50
+      },
+      {
+        "horizon": "t+2",
+        "bars": 2,
+        "meanPct": -0.1239,
+        "medianPct": -0.0589,
+        "winRatePct": 46.7
+      },
+      {
+        "horizon": "t+3",
+        "bars": 3,
+        "meanPct": -0.117,
+        "medianPct": -0.0079,
+        "winRatePct": 50
+      },
+      {
+        "horizon": "t+6",
+        "bars": 6,
+        "meanPct": -0.1159,
+        "medianPct": -0.0724,
+        "winRatePct": 36.7
+      },
+      {
+        "horizon": "t+9",
+        "bars": 9,
+        "meanPct": -0.0245,
+        "medianPct": -0.0872,
+        "winRatePct": 50
+      },
+      {
+        "horizon": "t+12",
+        "bars": 12,
+        "meanPct": 0.107,
+        "medianPct": 0.0336,
+        "winRatePct": 50
+      },
+      {
+        "horizon": "t+18",
+        "bars": 18,
+        "meanPct": -0.0393,
+        "medianPct": -0.3698,
+        "winRatePct": 43.3
+      },
+      {
+        "horizon": "t+24",
+        "bars": 24,
+        "meanPct": -0.0072,
+        "medianPct": -0.3869,
+        "winRatePct": 43.3
+      },
+      {
+        "horizon": "t+36",
+        "bars": 36,
+        "meanPct": 0.0784,
+        "medianPct": -0.1874,
+        "winRatePct": 43.3
+      },
+      {
+        "horizon": "t+48",
+        "bars": 48,
+        "meanPct": 0.3483,
+        "medianPct": 0.1749,
+        "winRatePct": 53.3
+      }
+    ],
+    "gate9OOS": {
+      "is": {
+        "n": 19,
+        "meanPct": 0.1869,
+        "medianPct": 0.2347,
+        "winRatePct": 63.2
+      },
+      "oos": {
+        "n": 11,
+        "meanPct": -0.0311,
+        "medianPct": -0.3357,
+        "winRatePct": 27.3
+      },
+      "degradationPct": 116.6,
+      "passed": false
+    },
+    "gate10TrackA": {
+      "isConfigIntact": true,
+      "isLockboxIntact": true,
+      "isReplayIntact": true,
+      "v5BaselineTotals": {
+        "n": 25,
+        "grossPnL": 138.56,
+        "fees": 50.11,
+        "slippage": 10.03,
+        "totalFriction": 60.14,
+        "netPnL": 78.42,
+        "grossExpectancy": 5.542,
+        "netExpectancy": 3.137,
+        "netProfitFactor": 1.9,
+        "netWinRate": 56,
+        "winsCount": 14,
+        "lossesCount": 11
+      }
+    }
+  },
+  "elapsedSec": "2.3"
+}

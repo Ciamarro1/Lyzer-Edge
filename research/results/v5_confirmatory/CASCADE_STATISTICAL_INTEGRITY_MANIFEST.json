@@ -1,0 +1,36 @@
+{
+  "timestamp": "2026-08-28T05:24:29.376Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "nullCalibration": {
+    "numFamilies": 10000,
+    "hypothesesPerFamily": 1000,
+    "totalHypothesesSimulated": 10000000,
+    "elapsedSec": 0.12,
+    "avgStage1Survivors": 6.03,
+    "avgStage2Survivors": 1.2,
+    "empiricalFWER_NaivePct": 0.24,
+    "empiricalFWER_SelectionAwarePct": 0,
+    "isCalibrated": true
+  },
+  "adversarialTests": [
+    {
+      "test": "1. Rigged Survivor Rejected by Selection-Aware Bonferroni (M=1000)",
+      "pass": true,
+      "details": "p_raw=0.001000 vs α_bonf=0.000050 -> isSignificantBonferroni: false"
+    },
+    {
+      "test": "2. Cryptographic Separation of Discovery (IS) and Validation (OOS)",
+      "pass": true,
+      "details": "IS Hash: 5da8350f05466414... | OOS Hash: OOS_PARTITION_20..."
+    }
+  ],
+  "v5Isolation": {
+    "isConfigUntouched": true,
+    "isLockboxUntouched": true,
+    "isTotalsIdentical": true
+  }
+}

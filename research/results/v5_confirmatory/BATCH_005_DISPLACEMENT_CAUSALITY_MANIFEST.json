@@ -1,0 +1,277 @@
+{
+  "executionTimestamp": "2026-08-28T08:21:13.408Z",
+  "datasetSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+  "experiments": {
+    "exp005A": {
+      "matchedPairs": {
+        "n": 938,
+        "meanExcessPct": -0.4595,
+        "medianExcessPct": -0.5734,
+        "tStat": -9.106,
+        "pValue": 1
+      },
+      "geometry": {
+        "dispMeanPct": 0.163,
+        "wideMeanPct": -0.0597,
+        "deltaPct": 0.2227
+      },
+      "ols": {
+        "coefficients": [
+          {
+            "name": "Intercept",
+            "betaPct": 0.0351,
+            "sePct": 0.0215,
+            "tStat": 1.63,
+            "pValue": 0.10306
+          },
+          {
+            "name": "Volatility (ATR)",
+            "betaPct": -0.0423,
+            "sePct": 0.0148,
+            "tStat": -2.859,
+            "pValue": 0.00426
+          },
+          {
+            "name": "Trend Alignment",
+            "betaPct": 0.0685,
+            "sePct": 0.0116,
+            "tStat": 5.898,
+            "pValue": 0
+          },
+          {
+            "name": "NY Session Dummy",
+            "betaPct": -0.0026,
+            "sePct": 0.0235,
+            "tStat": -0.111,
+            "pValue": 0.91134
+          },
+          {
+            "name": "London Session Dummy",
+            "betaPct": -0.0152,
+            "sePct": 0.0247,
+            "tStat": -0.614,
+            "pValue": 0.53943
+          },
+          {
+            "name": "Displacement Indicator (I_disp)",
+            "betaPct": 0.1568,
+            "sePct": 0.0582,
+            "tStat": 2.692,
+            "pValue": 0.00709
+          }
+        ],
+        "betaDisplacementPct": 0.1568,
+        "tDisplacement": 2.692,
+        "pDisplacement": 0.00709,
+        "passed": true
+      }
+    },
+    "exp005B": {
+      "buckets": [
+        {
+          "label": "Bucket 1: Body/ATR < 1.0 (Normal Noise)",
+          "n": 28327,
+          "meanPct": -0.0142,
+          "medianPct": -0.0206,
+          "winRatePct": 49,
+          "ci95": [
+            -0.0338,
+            0.0059
+          ]
+        },
+        {
+          "label": "Bucket 2: Body/ATR 1.0 – 1.5 (Mild Expansion)",
+          "n": 2211,
+          "meanPct": -0.0034,
+          "medianPct": -0.076,
+          "winRatePct": 47.4,
+          "ci95": [
+            -0.0843,
+            0.0728
+          ]
+        },
+        {
+          "label": "Bucket 3: Body/ATR 1.5 – 2.0 (Moderate Expansion)",
+          "n": 788,
+          "meanPct": 0.0664,
+          "medianPct": 0.0014,
+          "winRatePct": 50,
+          "ci95": [
+            -0.064,
+            0.1903
+          ]
+        },
+        {
+          "label": "Bucket 4: Body/ATR 2.0 – 2.5 (Strong Displacement)",
+          "n": 309,
+          "meanPct": 0.2065,
+          "medianPct": -0.0576,
+          "winRatePct": 48.5,
+          "ci95": [
+            -0.0214,
+            0.4521
+          ]
+        },
+        {
+          "label": "Bucket 5: Body/ATR 2.5 – 3.0 (Very Strong Displacement)",
+          "n": 131,
+          "meanPct": 0.3793,
+          "medianPct": 0.0524,
+          "winRatePct": 51.9,
+          "ci95": [
+            0.0409,
+            0.7415
+          ]
+        },
+        {
+          "label": "Bucket 6: Body/ATR >= 3.0 (Extreme Blow-Off)",
+          "n": 123,
+          "meanPct": 0.2559,
+          "medianPct": 0.1264,
+          "winRatePct": 52.8,
+          "ci95": [
+            -0.1376,
+            0.6623
+          ]
+        }
+      ],
+      "spearmanRho": 0.943,
+      "isMonotonic": true
+    },
+    "exp005C": {
+      "horizons": [
+        {
+          "horizon": "t+1",
+          "bars": 1,
+          "meanTotalPct": 0.0425,
+          "medianTotalPct": -0.0372,
+          "winRatePct": 47.3,
+          "meanBullPct": 0.0564,
+          "meanBearPct": 0.0278
+        },
+        {
+          "horizon": "t+2",
+          "bars": 2,
+          "meanTotalPct": 0.0604,
+          "medianTotalPct": -0.036,
+          "winRatePct": 47.8,
+          "meanBullPct": 0.087,
+          "meanBearPct": 0.0321
+        },
+        {
+          "horizon": "t+3",
+          "bars": 3,
+          "meanTotalPct": 0.0704,
+          "medianTotalPct": -0.029,
+          "winRatePct": 49.1,
+          "meanBullPct": 0.0823,
+          "meanBearPct": 0.0579
+        },
+        {
+          "horizon": "t+4",
+          "bars": 4,
+          "meanTotalPct": 0.09,
+          "medianTotalPct": -0.0098,
+          "winRatePct": 49.7,
+          "meanBullPct": 0.1277,
+          "meanBearPct": 0.0501
+        },
+        {
+          "horizon": "t+6",
+          "bars": 6,
+          "meanTotalPct": 0.0639,
+          "medianTotalPct": -0.055,
+          "winRatePct": 47.7,
+          "meanBullPct": 0.1256,
+          "meanBearPct": -0.0015
+        },
+        {
+          "horizon": "t+8",
+          "bars": 8,
+          "meanTotalPct": 0.1121,
+          "medianTotalPct": -0.0309,
+          "winRatePct": 48.2,
+          "meanBullPct": 0.2371,
+          "meanBearPct": -0.0204
+        },
+        {
+          "horizon": "t+12",
+          "bars": 12,
+          "meanTotalPct": 0.163,
+          "medianTotalPct": 0.0046,
+          "winRatePct": 50,
+          "meanBullPct": 0.3216,
+          "meanBearPct": -0.0051
+        },
+        {
+          "horizon": "t+16",
+          "bars": 16,
+          "meanTotalPct": 0.1534,
+          "medianTotalPct": -0.0353,
+          "winRatePct": 49.2,
+          "meanBullPct": 0.3532,
+          "meanBearPct": -0.0585
+        },
+        {
+          "horizon": "t+24",
+          "bars": 24,
+          "meanTotalPct": 0.1318,
+          "medianTotalPct": -0.0882,
+          "winRatePct": 48.4,
+          "meanBullPct": 0.4042,
+          "meanBearPct": -0.1571
+        },
+        {
+          "horizon": "t+36",
+          "bars": 36,
+          "meanTotalPct": 0.169,
+          "medianTotalPct": -0.0202,
+          "winRatePct": 49.6,
+          "meanBullPct": 0.4499,
+          "meanBearPct": -0.1288
+        },
+        {
+          "horizon": "t+48",
+          "bars": 48,
+          "meanTotalPct": 0.2396,
+          "medianTotalPct": -0.1804,
+          "winRatePct": 47.4,
+          "meanBullPct": 0.6687,
+          "meanBearPct": -0.2155
+        },
+        {
+          "horizon": "t+72",
+          "bars": 72,
+          "meanTotalPct": 0.2031,
+          "medianTotalPct": -0.1814,
+          "winRatePct": 47.8,
+          "meanBullPct": 0.8853,
+          "meanBearPct": -0.5204
+        }
+      ],
+      "mfePct": 1.3334,
+      "maePct": 1.0801,
+      "mfeMaeRatio": 1.235
+    }
+  },
+  "trackAForensic": {
+    "isConfigIntact": true,
+    "isLockboxIntact": true,
+    "isReplayIntact": true,
+    "v5BaselineTotals": {
+      "n": 25,
+      "grossPnL": 138.56,
+      "fees": 50.11,
+      "slippage": 10.03,
+      "totalFriction": 60.14,
+      "netPnL": 78.42,
+      "grossExpectancy": 5.542,
+      "netExpectancy": 3.137,
+      "netProfitFactor": 1.9,
+      "netWinRate": 56,
+      "winsCount": 14,
+      "lossesCount": 11
+    }
+  },
+  "elapsedSec": "2.0"
+}

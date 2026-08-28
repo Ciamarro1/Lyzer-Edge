@@ -1,9 +1,13 @@
 export class WyckoffVolumeProfileEngine {
     constructor(config = {}) {
-        this.lookback = config.lookback || 60; // Reduced from 120 for 1m microscalping
-        this.volumeZScore = config.volumeZScore || 2.5; // Replaces static volumeThreshold
-        this.pocProximity = config.pocProximity || 0.0005; // Tightened from 0.001 to 0.05%
-        this.minPierceATR = config.minPierceATR || 1.0; // New: Minimum pierce distance in ATR
+        this.lookback = config.lookback || 60;
+        this.volumeZScore = config.volumeZScore !== undefined ? config.volumeZScore : 2.5;
+        this.pocProximity = config.pocProximity !== undefined ? config.pocProximity : 0.0005;
+        this.minPierceATR = config.minPierceATR !== undefined ? config.minPierceATR : 1.0;
+        this.requireVolume = config.requireVolume !== false;
+        this.requirePierce = config.requirePierce !== false;
+        this.requirePOC = config.requirePOC !== false;
+        this.requireReversal = config.requireReversal !== false;
     }
 
     reconstruct(mtfCandles) {
@@ -32,24 +36,24 @@ export class WyckoffVolumeProfileEngine {
         const volVariance = volumes.reduce((sum, v) => sum + Math.pow(v - avgVolume, 2), 0) / volumes.length;
         const volStdDev = Math.sqrt(volVariance);
         
-        const highVolume = current.volume > (avgVolume + this.volumeZScore * volStdDev);
+        const highVolume = !this.requireVolume || (current.volume > (avgVolume + this.volumeZScore * volStdDev));
         
         // Local Volatility (Simplified ATR / StdDev of High-Low)
         const ranges = previousCandles.map(c => c.high - c.low);
         const avgRange = ranges.reduce((sum, r) => sum + r, 0) / ranges.length;
         const minPierceDistance = avgRange * this.minPierceATR;
 
-        const nearPoc = poc !== null && (Math.abs(current.close - poc) / poc <= this.pocProximity);
+        const nearPoc = !this.requirePOC || (poc !== null && (Math.abs(current.close - poc) / poc <= this.pocProximity));
         
-        // Wyckoff Spring: Meaningful pierce below recent swing low
-        const isSpring = current.low < (recentLow - minPierceDistance) && 
-                         current.close > recentLow && 
-                         highVolume && nearPoc;
+        // Wyckoff Spring
+        const springPiercePass = !this.requirePierce || (current.low < (recentLow - minPierceDistance));
+        const springReversalPass = !this.requireReversal || (current.close > recentLow);
+        const isSpring = springPiercePass && springReversalPass && highVolume && nearPoc;
                          
-        // Wyckoff Upthrust: Meaningful pierce above recent swing high
-        const isUpthrust = current.high > (recentHigh + minPierceDistance) && 
-                           current.close < recentHigh && 
-                           highVolume && nearPoc;
+        // Wyckoff Upthrust
+        const upthrustPiercePass = !this.requirePierce || (current.high > (recentHigh + minPierceDistance));
+        const upthrustReversalPass = !this.requireReversal || (current.close < recentHigh);
+        const isUpthrust = upthrustPiercePass && upthrustReversalPass && highVolume && nearPoc;
         
         if (isSpring) {
             return {

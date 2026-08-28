@@ -1,0 +1,98 @@
+{
+  "timestamp": "2026-08-28T05:28:25.901Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "totalRegimesTested": 4,
+  "totalFamiliesTested": 40000,
+  "totalHypothesesSimulated": 40000000,
+  "regimes": [
+    {
+      "regimeName": "H0-A (IID Gaussian Noise)",
+      "numFamilies": 10000,
+      "hypothesesPerFamily": 1000,
+      "totalHypothesesTested": 10000000,
+      "elapsedSec": 0.17,
+      "avgStage1Survivors": 5.98,
+      "avgStage2Survivors": 5.98,
+      "naive": {
+        "totalPromotions": 2831,
+        "fwerPct": 24.35,
+        "status": "🔴 SEVERE INFLATION"
+      },
+      "selectionAware": {
+        "totalPromotions": 33,
+        "fwerPct": 0.33,
+        "upperBound95Pct": 0.4424,
+        "status": "🟢 RIGOROUSLY CONTROLLED"
+      }
+    },
+    {
+      "regimeName": "H0-B (Fat Tails / Student-t df=4)",
+      "numFamilies": 10000,
+      "hypothesesPerFamily": 1000,
+      "totalHypothesesTested": 10000000,
+      "elapsedSec": 2.02,
+      "avgStage1Survivors": 46.54,
+      "avgStage2Survivors": 46.54,
+      "naive": {
+        "totalPromotions": 3046,
+        "fwerPct": 26.34,
+        "status": "🔴 SEVERE INFLATION"
+      },
+      "selectionAware": {
+        "totalPromotions": 342,
+        "fwerPct": 3.35,
+        "upperBound95Pct": 3.7027,
+        "status": "🟢 RIGOROUSLY CONTROLLED"
+      }
+    },
+    {
+      "regimeName": "H0-C (Volatility Clustering / GARCH)",
+      "numFamilies": 10000,
+      "hypothesesPerFamily": 1000,
+      "totalHypothesesTested": 10000000,
+      "elapsedSec": 0.75,
+      "avgStage1Survivors": 34.03,
+      "avgStage2Survivors": 34.03,
+      "naive": {
+        "totalPromotions": 1804,
+        "fwerPct": 16.54,
+        "status": "🔴 SEVERE INFLATION"
+      },
+      "selectionAware": {
+        "totalPromotions": 88,
+        "fwerPct": 0.88,
+        "upperBound95Pct": 1.0631,
+        "status": "🟢 RIGOROUSLY CONTROLLED"
+      }
+    },
+    {
+      "regimeName": "H0-D (Stationary Block Bootstrap / Autocorr)",
+      "numFamilies": 10000,
+      "hypothesesPerFamily": 1000,
+      "totalHypothesesTested": 10000000,
+      "elapsedSec": 0.22,
+      "avgStage1Survivors": 11.01,
+      "avgStage2Survivors": 11.01,
+      "naive": {
+        "totalPromotions": 2504,
+        "fwerPct": 22.63,
+        "status": "🔴 SEVERE INFLATION"
+      },
+      "selectionAware": {
+        "totalPromotions": 25,
+        "fwerPct": 0.25,
+        "upperBound95Pct": 0.3479,
+        "status": "🟢 RIGOROUSLY CONTROLLED"
+      }
+    }
+  ],
+  "v5Isolation": {
+    "isConfigUntouched": true,
+    "isLockboxUntouched": true,
+    "isTotalsIdentical": true
+  }
+}

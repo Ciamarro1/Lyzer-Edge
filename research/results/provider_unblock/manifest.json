@@ -1,0 +1,3987 @@
+{
+  "experimentId": "EXP-PROVIDER-UNBLOCK-002",
+  "date": "2026-08-28T01:37:01.066Z",
+  "dataset": "BTCUSDT_1m_90d.json",
+  "datasetHash": "bf794a7ac579022c",
+  "hardware": {
+    "cpu": "Intel Core i5-12400F (6 P-cores, 12 Threads)",
+    "workers": 5
+  },
+  "totalJobs": 43,
+  "validationJobs": 4,
+  "oosJobs": 4,
+  "runtimeSec": "3249.37",
+  "providersEvaluated": [
+    "V5",
+    "V2",
+    "V7",
+    "V6"
+  ],
+  "summary": {
+    "is": {
+      "V5": [
+        {
+          "jobId": "V5_BASELINE",
+          "provider": "V5",
+          "params": {},
+          "segment": "is",
+          "runtimeMs": 262708.99079999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 9,
+          "rawDirectionality": {
+            "10m": {
+              "count": 9,
+              "mfeMeanPct": 0.167,
+              "maeMeanPct": 0.049,
+              "netReturnMeanPct": 0.089,
+              "positiveReturnRate": 100
+            },
+            "30m": {
+              "count": 9,
+              "mfeMeanPct": 0.233,
+              "maeMeanPct": 0.049,
+              "netReturnMeanPct": 0.193,
+              "positiveReturnRate": 100
+            },
+            "60m": {
+              "count": 9,
+              "mfeMeanPct": 0.43,
+              "maeMeanPct": 0.049,
+              "netReturnMeanPct": 0.387,
+              "positiveReturnRate": 100
+            },
+            "120m": {
+              "count": 9,
+              "mfeMeanPct": 0.669,
+              "maeMeanPct": 0.049,
+              "netReturnMeanPct": 0.491,
+              "positiveReturnRate": 100
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_A_VOL_ONLY",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "A_VOL_ONLY",
+            "requireVolume": true,
+            "requirePierce": false,
+            "requirePOC": false,
+            "requireReversal": false
+          },
+          "segment": "is",
+          "runtimeMs": 254023.5288,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 2186,
+          "rawDirectionality": {
+            "10m": {
+              "count": 2186,
+              "mfeMeanPct": 0.222,
+              "maeMeanPct": 0.203,
+              "netReturnMeanPct": 0.013,
+              "positiveReturnRate": 50.69
+            },
+            "30m": {
+              "count": 2186,
+              "mfeMeanPct": 0.372,
+              "maeMeanPct": 0.36,
+              "netReturnMeanPct": 0.011,
+              "positiveReturnRate": 49.22
+            },
+            "60m": {
+              "count": 2186,
+              "mfeMeanPct": 0.523,
+              "maeMeanPct": 0.515,
+              "netReturnMeanPct": 0.023,
+              "positiveReturnRate": 50.37
+            },
+            "120m": {
+              "count": 2186,
+              "mfeMeanPct": 0.7,
+              "maeMeanPct": 0.762,
+              "netReturnMeanPct": 0.043,
+              "positiveReturnRate": 53.43
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_AC_VOL_POC",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "AC_VOL_POC",
+            "requireVolume": true,
+            "requirePierce": false,
+            "requirePOC": true,
+            "requireReversal": false
+          },
+          "segment": "is",
+          "runtimeMs": 260179.1253,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 204,
+          "rawDirectionality": {
+            "10m": {
+              "count": 204,
+              "mfeMeanPct": 0.147,
+              "maeMeanPct": 0.157,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 39.71
+            },
+            "30m": {
+              "count": 204,
+              "mfeMeanPct": 0.266,
+              "maeMeanPct": 0.296,
+              "netReturnMeanPct": -0.034,
+              "positiveReturnRate": 50.98
+            },
+            "60m": {
+              "count": 204,
+              "mfeMeanPct": 0.327,
+              "maeMeanPct": 0.473,
+              "netReturnMeanPct": -0.194,
+              "positiveReturnRate": 46.08
+            },
+            "120m": {
+              "count": 204,
+              "mfeMeanPct": 0.475,
+              "maeMeanPct": 0.73,
+              "netReturnMeanPct": -0.145,
+              "positiveReturnRate": 57.84
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_AB_VOL_PIERCE",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "AB_VOL_PIERCE",
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": false,
+            "requireReversal": false
+          },
+          "segment": "is",
+          "runtimeMs": 262878.7871,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 1305,
+          "rawDirectionality": {
+            "10m": {
+              "count": 1305,
+              "mfeMeanPct": 0.235,
+              "maeMeanPct": 0.209,
+              "netReturnMeanPct": 0.031,
+              "positiveReturnRate": 53.56
+            },
+            "30m": {
+              "count": 1305,
+              "mfeMeanPct": 0.382,
+              "maeMeanPct": 0.374,
+              "netReturnMeanPct": 0.036,
+              "positiveReturnRate": 53.03
+            },
+            "60m": {
+              "count": 1305,
+              "mfeMeanPct": 0.534,
+              "maeMeanPct": 0.533,
+              "netReturnMeanPct": 0.041,
+              "positiveReturnRate": 48.66
+            },
+            "120m": {
+              "count": 1305,
+              "mfeMeanPct": 0.772,
+              "maeMeanPct": 0.758,
+              "netReturnMeanPct": 0.137,
+              "positiveReturnRate": 50.8
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_B_PIERCE_ONLY",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "B_PIERCE_ONLY",
+            "requireVolume": false,
+            "requirePierce": true,
+            "requirePOC": false,
+            "requireReversal": false
+          },
+          "segment": "is",
+          "runtimeMs": 265945.93690000003,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 3124,
+          "rawDirectionality": {
+            "10m": {
+              "count": 3124,
+              "mfeMeanPct": 0.206,
+              "maeMeanPct": 0.19,
+              "netReturnMeanPct": 0.024,
+              "positiveReturnRate": 54.29
+            },
+            "30m": {
+              "count": 3124,
+              "mfeMeanPct": 0.346,
+              "maeMeanPct": 0.331,
+              "netReturnMeanPct": 0.038,
+              "positiveReturnRate": 54.51
+            },
+            "60m": {
+              "count": 3124,
+              "mfeMeanPct": 0.477,
+              "maeMeanPct": 0.476,
+              "netReturnMeanPct": 0.03,
+              "positiveReturnRate": 52.27
+            },
+            "120m": {
+              "count": 3124,
+              "mfeMeanPct": 0.66,
+              "maeMeanPct": 0.686,
+              "netReturnMeanPct": 0.034,
+              "positiveReturnRate": 50.99
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_AD_VOL_REVERSAL",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "AD_VOL_REVERSAL",
+            "requireVolume": true,
+            "requirePierce": false,
+            "requirePOC": false,
+            "requireReversal": true
+          },
+          "segment": "is",
+          "runtimeMs": 263931.99559999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 2186,
+          "rawDirectionality": {
+            "10m": {
+              "count": 2186,
+              "mfeMeanPct": 0.218,
+              "maeMeanPct": 0.207,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 48.49
+            },
+            "30m": {
+              "count": 2186,
+              "mfeMeanPct": 0.386,
+              "maeMeanPct": 0.346,
+              "netReturnMeanPct": 0.017,
+              "positiveReturnRate": 49.5
+            },
+            "60m": {
+              "count": 2186,
+              "mfeMeanPct": 0.563,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": 0.079,
+              "positiveReturnRate": 55.12
+            },
+            "120m": {
+              "count": 2186,
+              "mfeMeanPct": 0.787,
+              "maeMeanPct": 0.675,
+              "netReturnMeanPct": 0.039,
+              "positiveReturnRate": 57.04
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_ABCD_ALL_DEFAULT",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "ABCD_ALL_DEFAULT",
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true
+          },
+          "segment": "is",
+          "runtimeMs": 230074.6051,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 67,
+          "rawDirectionality": {
+            "10m": {
+              "count": 67,
+              "mfeMeanPct": 0.315,
+              "maeMeanPct": 0.16,
+              "netReturnMeanPct": 0.058,
+              "positiveReturnRate": 53.73
+            },
+            "30m": {
+              "count": 67,
+              "mfeMeanPct": 0.347,
+              "maeMeanPct": 0.439,
+              "netReturnMeanPct": -0.112,
+              "positiveReturnRate": 32.84
+            },
+            "60m": {
+              "count": 67,
+              "mfeMeanPct": 0.622,
+              "maeMeanPct": 0.446,
+              "netReturnMeanPct": 0.337,
+              "positiveReturnRate": 67.16
+            },
+            "120m": {
+              "count": 67,
+              "mfeMeanPct": 0.86,
+              "maeMeanPct": 0.48,
+              "netReturnMeanPct": 0.305,
+              "positiveReturnRate": 61.19
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V5_MODE_ABD_VOL_PIERCE_REV",
+          "provider": "V5",
+          "params": {
+            "lookback": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.003,
+            "name": "ABD_VOL_PIERCE_REV",
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": false,
+            "requireReversal": true
+          },
+          "segment": "is",
+          "runtimeMs": 231738.0117,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 360,
+          "rawDirectionality": {
+            "10m": {
+              "count": 360,
+              "mfeMeanPct": 0.271,
+              "maeMeanPct": 0.174,
+              "netReturnMeanPct": 0.073,
+              "positiveReturnRate": 55
+            },
+            "30m": {
+              "count": 360,
+              "mfeMeanPct": 0.448,
+              "maeMeanPct": 0.298,
+              "netReturnMeanPct": 0.133,
+              "positiveReturnRate": 54.44
+            },
+            "60m": {
+              "count": 360,
+              "mfeMeanPct": 0.688,
+              "maeMeanPct": 0.334,
+              "netReturnMeanPct": 0.375,
+              "positiveReturnRate": 63.33
+            },
+            "120m": {
+              "count": 360,
+              "mfeMeanPct": 1.012,
+              "maeMeanPct": 0.45,
+              "netReturnMeanPct": 0.455,
+              "positiveReturnRate": 67.22
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        }
+      ],
+      "V2": [
+        {
+          "jobId": "V2_GRID_1",
+          "provider": "V2",
+          "params": {
+            "lookback": 10,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 263306.63539999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.09
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.226,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 49.09
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 48.81
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.464,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.015,
+              "positiveReturnRate": 48.49
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_BASELINE",
+          "provider": "V2",
+          "params": {},
+          "segment": "is",
+          "runtimeMs": 264465.5785,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.09
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.226,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 49.09
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 48.81
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.464,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.015,
+              "positiveReturnRate": 48.49
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_2",
+          "provider": "V2",
+          "params": {
+            "lookback": 10,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 264524.0181,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.09
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.226,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 49.09
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 48.81
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.464,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.015,
+              "positiveReturnRate": 48.49
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_3",
+          "provider": "V2",
+          "params": {
+            "lookback": 10,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 267617.4968,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 50.14
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.221,
+              "maeMeanPct": 0.228,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 50.26
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 50.34
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.467,
+              "maeMeanPct": 0.474,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.81
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_4",
+          "provider": "V2",
+          "params": {
+            "lookback": 10,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 269454.4645,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 50.14
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.221,
+              "maeMeanPct": 0.228,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 50.26
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 50.34
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.467,
+              "maeMeanPct": 0.474,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.81
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_5",
+          "provider": "V2",
+          "params": {
+            "lookback": 30,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 272890.1509,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.124,
+              "maeMeanPct": 0.122,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.81
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.225,
+              "maeMeanPct": 0.225,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 48.76
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.325,
+              "maeMeanPct": 0.327,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.67
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.466,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.016,
+              "positiveReturnRate": 48.27
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_8",
+          "provider": "V2",
+          "params": {
+            "lookback": 30,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 270444.0967,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.001,
+              "positiveReturnRate": 49.29
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.227,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 49.45
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.324,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 49.8
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.466,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 49.62
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_6",
+          "provider": "V2",
+          "params": {
+            "lookback": 30,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 272769.83969999995,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.124,
+              "maeMeanPct": 0.122,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.81
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.225,
+              "maeMeanPct": 0.225,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 48.76
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.325,
+              "maeMeanPct": 0.327,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.67
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.466,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.016,
+              "positiveReturnRate": 48.27
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_7",
+          "provider": "V2",
+          "params": {
+            "lookback": 30,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 274287.4532,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.001,
+              "positiveReturnRate": 49.29
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.227,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 49.45
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.324,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 49.8
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.466,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 49.62
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_9",
+          "provider": "V2",
+          "params": {
+            "lookback": 60,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 269140.8394,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.124,
+              "maeMeanPct": 0.122,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.46
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.225,
+              "maeMeanPct": 0.225,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 48.52
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.325,
+              "maeMeanPct": 0.327,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.37
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.465,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.015,
+              "positiveReturnRate": 48.17
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_10",
+          "provider": "V2",
+          "params": {
+            "lookback": 60,
+            "distanceThreshold": 0.002,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 253958.88160000002,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.124,
+              "maeMeanPct": 0.122,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.46
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.225,
+              "maeMeanPct": 0.225,
+              "netReturnMeanPct": -0.005,
+              "positiveReturnRate": 48.52
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.325,
+              "maeMeanPct": 0.327,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.37
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.465,
+              "maeMeanPct": 0.475,
+              "netReturnMeanPct": -0.015,
+              "positiveReturnRate": 48.17
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_12",
+          "provider": "V2",
+          "params": {
+            "lookback": 60,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 85,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 254817.62649999998,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.69
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.226,
+              "netReturnMeanPct": -0.006,
+              "positiveReturnRate": 48.8
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.76
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.464,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.012,
+              "positiveReturnRate": 48.71
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V2_GRID_11",
+          "provider": "V2",
+          "params": {
+            "lookback": 60,
+            "distanceThreshold": 0.005,
+            "breakoutConfidence": 70,
+            "bounceConfidence": 50
+          },
+          "segment": "is",
+          "runtimeMs": 257402.51530000003,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.123,
+              "maeMeanPct": 0.123,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.69
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.223,
+              "maeMeanPct": 0.226,
+              "netReturnMeanPct": -0.006,
+              "positiveReturnRate": 48.8
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.323,
+              "maeMeanPct": 0.329,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.76
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.464,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.012,
+              "positiveReturnRate": 48.71
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        }
+      ],
+      "V7": [
+        {
+          "jobId": "V7_BASELINE",
+          "provider": "V7",
+          "params": {},
+          "segment": "is",
+          "runtimeMs": 291272.65869999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_25",
+          "provider": "V7",
+          "params": {
+            "period": 10,
+            "cvdLookback": 5,
+            "absorptionVolMultiplier": 1.5,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 323719.6602,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_26",
+          "provider": "V7",
+          "params": {
+            "period": 10,
+            "cvdLookback": 5,
+            "absorptionVolMultiplier": 2,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 320830.1306,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_27",
+          "provider": "V7",
+          "params": {
+            "period": 10,
+            "cvdLookback": 10,
+            "absorptionVolMultiplier": 1.5,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 328164.5907,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_28",
+          "provider": "V7",
+          "params": {
+            "period": 10,
+            "cvdLookback": 10,
+            "absorptionVolMultiplier": 2,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 321034.1389,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_29",
+          "provider": "V7",
+          "params": {
+            "period": 20,
+            "cvdLookback": 5,
+            "absorptionVolMultiplier": 1.5,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 298470.83200000005,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_30",
+          "provider": "V7",
+          "params": {
+            "period": 20,
+            "cvdLookback": 5,
+            "absorptionVolMultiplier": 2,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 238388.8151,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_31",
+          "provider": "V7",
+          "params": {
+            "period": 20,
+            "cvdLookback": 10,
+            "absorptionVolMultiplier": 1.5,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 221613.9904,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V7_GRID_32",
+          "provider": "V7",
+          "params": {
+            "period": 20,
+            "cvdLookback": 10,
+            "absorptionVolMultiplier": 2,
+            "exhaustionVolFraction": 0.5
+          },
+          "segment": "is",
+          "runtimeMs": 206366.5103,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 77760,
+          "rawDirectionality": {
+            "10m": {
+              "count": 77759,
+              "mfeMeanPct": 0.122,
+              "maeMeanPct": 0.124,
+              "netReturnMeanPct": 0.001,
+              "positiveReturnRate": 50.84
+            },
+            "30m": {
+              "count": 77759,
+              "mfeMeanPct": 0.226,
+              "maeMeanPct": 0.224,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.64
+            },
+            "60m": {
+              "count": 77759,
+              "mfeMeanPct": 0.332,
+              "maeMeanPct": 0.32,
+              "netReturnMeanPct": 0.007,
+              "positiveReturnRate": 50.64
+            },
+            "120m": {
+              "count": 77759,
+              "mfeMeanPct": 0.486,
+              "maeMeanPct": 0.455,
+              "netReturnMeanPct": 0.014,
+              "positiveReturnRate": 50.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        }
+      ],
+      "V6": [
+        {
+          "jobId": "V6_BASELINE",
+          "provider": "V6",
+          "params": {},
+          "segment": "is",
+          "runtimeMs": 1522696.1570000001,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 36548,
+          "rawDirectionality": {
+            "10m": {
+              "count": 36547,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.133,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 49.75
+            },
+            "30m": {
+              "count": 36547,
+              "mfeMeanPct": 0.252,
+              "maeMeanPct": 0.238,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.57
+            },
+            "60m": {
+              "count": 36547,
+              "mfeMeanPct": 0.365,
+              "maeMeanPct": 0.338,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 49.66
+            },
+            "120m": {
+              "count": 36547,
+              "mfeMeanPct": 0.53,
+              "maeMeanPct": 0.476,
+              "netReturnMeanPct": 0.004,
+              "positiveReturnRate": 49.8
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_13",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 10,
+            "valueAreaPct": 0.6
+          },
+          "segment": "is",
+          "runtimeMs": 303090.9183,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 39847,
+          "rawDirectionality": {
+            "10m": {
+              "count": 39846,
+              "mfeMeanPct": 0.134,
+              "maeMeanPct": 0.128,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 48.99
+            },
+            "30m": {
+              "count": 39846,
+              "mfeMeanPct": 0.243,
+              "maeMeanPct": 0.228,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.28
+            },
+            "60m": {
+              "count": 39846,
+              "mfeMeanPct": 0.347,
+              "maeMeanPct": 0.326,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 48.89
+            },
+            "120m": {
+              "count": 39846,
+              "mfeMeanPct": 0.497,
+              "maeMeanPct": 0.464,
+              "netReturnMeanPct": -0.009,
+              "positiveReturnRate": 48.13
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_14",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 10,
+            "valueAreaPct": 0.7
+          },
+          "segment": "is",
+          "runtimeMs": 304183.6486,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 33427,
+          "rawDirectionality": {
+            "10m": {
+              "count": 33426,
+              "mfeMeanPct": 0.133,
+              "maeMeanPct": 0.129,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.58
+            },
+            "30m": {
+              "count": 33426,
+              "mfeMeanPct": 0.242,
+              "maeMeanPct": 0.229,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 48.85
+            },
+            "60m": {
+              "count": 33426,
+              "mfeMeanPct": 0.346,
+              "maeMeanPct": 0.326,
+              "netReturnMeanPct": -0.007,
+              "positiveReturnRate": 48.41
+            },
+            "120m": {
+              "count": 33426,
+              "mfeMeanPct": 0.497,
+              "maeMeanPct": 0.465,
+              "netReturnMeanPct": -0.014,
+              "positiveReturnRate": 47.84
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_15",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 10,
+            "valueAreaPct": 0.8
+          },
+          "segment": "is",
+          "runtimeMs": 305797.732,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 24040,
+          "rawDirectionality": {
+            "10m": {
+              "count": 24039,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.133,
+              "netReturnMeanPct": -0.003,
+              "positiveReturnRate": 47.71
+            },
+            "30m": {
+              "count": 24039,
+              "mfeMeanPct": 0.25,
+              "maeMeanPct": 0.238,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 47.81
+            },
+            "60m": {
+              "count": 24039,
+              "mfeMeanPct": 0.357,
+              "maeMeanPct": 0.338,
+              "netReturnMeanPct": -0.013,
+              "positiveReturnRate": 46.76
+            },
+            "120m": {
+              "count": 24039,
+              "mfeMeanPct": 0.514,
+              "maeMeanPct": 0.48,
+              "netReturnMeanPct": -0.02,
+              "positiveReturnRate": 46.57
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_17",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 25,
+            "valueAreaPct": 0.7
+          },
+          "segment": "is",
+          "runtimeMs": 269251.72339999996,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 33131,
+          "rawDirectionality": {
+            "10m": {
+              "count": 33130,
+              "mfeMeanPct": 0.133,
+              "maeMeanPct": 0.128,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.57
+            },
+            "30m": {
+              "count": 33130,
+              "mfeMeanPct": 0.241,
+              "maeMeanPct": 0.228,
+              "netReturnMeanPct": -0.003,
+              "positiveReturnRate": 48.87
+            },
+            "60m": {
+              "count": 33130,
+              "mfeMeanPct": 0.346,
+              "maeMeanPct": 0.323,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 48.6
+            },
+            "120m": {
+              "count": 33130,
+              "mfeMeanPct": 0.497,
+              "maeMeanPct": 0.46,
+              "netReturnMeanPct": -0.008,
+              "positiveReturnRate": 48.14
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_16",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 25,
+            "valueAreaPct": 0.6
+          },
+          "segment": "is",
+          "runtimeMs": 272532.31799999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 39901,
+          "rawDirectionality": {
+            "10m": {
+              "count": 39900,
+              "mfeMeanPct": 0.134,
+              "maeMeanPct": 0.128,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 48.89
+            },
+            "30m": {
+              "count": 39900,
+              "mfeMeanPct": 0.242,
+              "maeMeanPct": 0.228,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.12
+            },
+            "60m": {
+              "count": 39900,
+              "mfeMeanPct": 0.346,
+              "maeMeanPct": 0.324,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 48.92
+            },
+            "120m": {
+              "count": 39900,
+              "mfeMeanPct": 0.496,
+              "maeMeanPct": 0.46,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 48.37
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_18",
+          "provider": "V6",
+          "params": {
+            "lookback": 30,
+            "binSize": 25,
+            "valueAreaPct": 0.8
+          },
+          "segment": "is",
+          "runtimeMs": 272116.80819999997,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 23831,
+          "rawDirectionality": {
+            "10m": {
+              "count": 23830,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.133,
+              "netReturnMeanPct": -0.003,
+              "positiveReturnRate": 47.68
+            },
+            "30m": {
+              "count": 23830,
+              "mfeMeanPct": 0.25,
+              "maeMeanPct": 0.236,
+              "netReturnMeanPct": -0.007,
+              "positiveReturnRate": 47.89
+            },
+            "60m": {
+              "count": 23830,
+              "mfeMeanPct": 0.357,
+              "maeMeanPct": 0.335,
+              "netReturnMeanPct": -0.01,
+              "positiveReturnRate": 46.8
+            },
+            "120m": {
+              "count": 23830,
+              "mfeMeanPct": 0.514,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.018,
+              "positiveReturnRate": 46.5
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_19",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 10,
+            "valueAreaPct": 0.6
+          },
+          "segment": "is",
+          "runtimeMs": 344264.26900000003,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 42444,
+          "rawDirectionality": {
+            "10m": {
+              "count": 42443,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.131,
+              "netReturnMeanPct": 0.002,
+              "positiveReturnRate": 49.97
+            },
+            "30m": {
+              "count": 42443,
+              "mfeMeanPct": 0.252,
+              "maeMeanPct": 0.235,
+              "netReturnMeanPct": 0.002,
+              "positiveReturnRate": 50.18
+            },
+            "60m": {
+              "count": 42443,
+              "mfeMeanPct": 0.367,
+              "maeMeanPct": 0.334,
+              "netReturnMeanPct": 0.009,
+              "positiveReturnRate": 50.28
+            },
+            "120m": {
+              "count": 42443,
+              "mfeMeanPct": 0.533,
+              "maeMeanPct": 0.467,
+              "netReturnMeanPct": 0.017,
+              "positiveReturnRate": 50.49
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_22",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 25,
+            "valueAreaPct": 0.6
+          },
+          "segment": "is",
+          "runtimeMs": 314732.478,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 42473,
+          "rawDirectionality": {
+            "10m": {
+              "count": 42472,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.131,
+              "netReturnMeanPct": 0.002,
+              "positiveReturnRate": 49.78
+            },
+            "30m": {
+              "count": 42472,
+              "mfeMeanPct": 0.252,
+              "maeMeanPct": 0.235,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 50.08
+            },
+            "60m": {
+              "count": 42472,
+              "mfeMeanPct": 0.367,
+              "maeMeanPct": 0.333,
+              "netReturnMeanPct": 0.01,
+              "positiveReturnRate": 50.34
+            },
+            "120m": {
+              "count": 42472,
+              "mfeMeanPct": 0.535,
+              "maeMeanPct": 0.465,
+              "netReturnMeanPct": 0.021,
+              "positiveReturnRate": 50.65
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_20",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 10,
+            "valueAreaPct": 0.7
+          },
+          "segment": "is",
+          "runtimeMs": 366624.2198,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 36412,
+          "rawDirectionality": {
+            "10m": {
+              "count": 36411,
+              "mfeMeanPct": 0.137,
+              "maeMeanPct": 0.132,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 49.73
+            },
+            "30m": {
+              "count": 36411,
+              "mfeMeanPct": 0.25,
+              "maeMeanPct": 0.238,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 49.5
+            },
+            "60m": {
+              "count": 36411,
+              "mfeMeanPct": 0.362,
+              "maeMeanPct": 0.339,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 49.48
+            },
+            "120m": {
+              "count": 36411,
+              "mfeMeanPct": 0.525,
+              "maeMeanPct": 0.477,
+              "netReturnMeanPct": -0.003,
+              "positiveReturnRate": 49.34
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_21",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 10,
+            "valueAreaPct": 0.8
+          },
+          "segment": "is",
+          "runtimeMs": 366591.2101,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 28156,
+          "rawDirectionality": {
+            "10m": {
+              "count": 28155,
+              "mfeMeanPct": 0.137,
+              "maeMeanPct": 0.134,
+              "netReturnMeanPct": -0.004,
+              "positiveReturnRate": 48.89
+            },
+            "30m": {
+              "count": 28155,
+              "mfeMeanPct": 0.246,
+              "maeMeanPct": 0.241,
+              "netReturnMeanPct": -0.01,
+              "positiveReturnRate": 48.25
+            },
+            "60m": {
+              "count": 28155,
+              "mfeMeanPct": 0.352,
+              "maeMeanPct": 0.345,
+              "netReturnMeanPct": -0.021,
+              "positiveReturnRate": 47.12
+            },
+            "120m": {
+              "count": 28155,
+              "mfeMeanPct": 0.5,
+              "maeMeanPct": 0.492,
+              "netReturnMeanPct": -0.045,
+              "positiveReturnRate": 46.61
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_23",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 25,
+            "valueAreaPct": 0.7
+          },
+          "segment": "is",
+          "runtimeMs": 317505.6604,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 36316,
+          "rawDirectionality": {
+            "10m": {
+              "count": 36315,
+              "mfeMeanPct": 0.137,
+              "maeMeanPct": 0.132,
+              "netReturnMeanPct": 0,
+              "positiveReturnRate": 49.59
+            },
+            "30m": {
+              "count": 36315,
+              "mfeMeanPct": 0.25,
+              "maeMeanPct": 0.237,
+              "netReturnMeanPct": -0.002,
+              "positiveReturnRate": 49.65
+            },
+            "60m": {
+              "count": 36315,
+              "mfeMeanPct": 0.364,
+              "maeMeanPct": 0.337,
+              "netReturnMeanPct": 0.003,
+              "positiveReturnRate": 49.8
+            },
+            "120m": {
+              "count": 36315,
+              "mfeMeanPct": 0.528,
+              "maeMeanPct": 0.474,
+              "netReturnMeanPct": 0.004,
+              "positiveReturnRate": 49.82
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        },
+        {
+          "jobId": "V6_GRID_24",
+          "provider": "V6",
+          "params": {
+            "lookback": 50,
+            "binSize": 25,
+            "valueAreaPct": 0.8
+          },
+          "segment": "is",
+          "runtimeMs": 326423.36779999995,
+          "candlesProcessed": 77760,
+          "rawSignalsTotal": 27846,
+          "rawDirectionality": {
+            "10m": {
+              "count": 27845,
+              "mfeMeanPct": 0.138,
+              "maeMeanPct": 0.134,
+              "netReturnMeanPct": -0.003,
+              "positiveReturnRate": 49.19
+            },
+            "30m": {
+              "count": 27845,
+              "mfeMeanPct": 0.248,
+              "maeMeanPct": 0.239,
+              "netReturnMeanPct": -0.007,
+              "positiveReturnRate": 48.7
+            },
+            "60m": {
+              "count": 27845,
+              "mfeMeanPct": 0.355,
+              "maeMeanPct": 0.343,
+              "netReturnMeanPct": -0.016,
+              "positiveReturnRate": 47.7
+            },
+            "120m": {
+              "count": 27845,
+              "mfeMeanPct": 0.509,
+              "maeMeanPct": 0.487,
+              "netReturnMeanPct": -0.032,
+              "positiveReturnRate": 47.52
+            }
+          },
+          "metrics": {
+            "trades": 0,
+            "wins": 0,
+            "losses": 0,
+            "winRate": 0,
+            "grossProfit": 0,
+            "grossLoss": 0,
+            "netPnL": 0,
+            "profitFactor": 0,
+            "expectancy": 0,
+            "maxDrawdown": 0,
+            "mfeMean": 0,
+            "mfeMedian": 0,
+            "mfeP25": 0,
+            "mfeP75": 0,
+            "mfeP90": 0,
+            "maeMean": 0,
+            "maeMedian": 0,
+            "dhr020": 0,
+            "dhr050": 0,
+            "dhr100": 0,
+            "pctMfeLt020": 100,
+            "pctMfeGe020": 0,
+            "pctMfeGe050": 0,
+            "pctMfeGe100": 0,
+            "compositeScore": 0,
+            "signalDensity": {
+              "signalsPerCandle": 0,
+              "signalsPerHour": 0,
+              "signalsPerDay": 0,
+              "densityClass": "SPARSE"
+            }
+          },
+          "tradeCount": 0
+        }
+      ]
+    },
+    "val": [
+      {
+        "jobId": "V2_VAL_BEST",
+        "provider": "V2",
+        "params": {
+          "lookback": 10,
+          "distanceThreshold": 0.002,
+          "breakoutConfidence": 70,
+          "bounceConfidence": 50
+        },
+        "segment": "val",
+        "runtimeMs": 54780.8865,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 25920,
+        "rawDirectionality": {
+          "10m": {
+            "count": 25919,
+            "mfeMeanPct": 0.077,
+            "maeMeanPct": 0.076,
+            "netReturnMeanPct": 0,
+            "positiveReturnRate": 49.75
+          },
+          "30m": {
+            "count": 25919,
+            "mfeMeanPct": 0.143,
+            "maeMeanPct": 0.14,
+            "netReturnMeanPct": -0.001,
+            "positiveReturnRate": 49.88
+          },
+          "60m": {
+            "count": 25919,
+            "mfeMeanPct": 0.207,
+            "maeMeanPct": 0.203,
+            "netReturnMeanPct": 0,
+            "positiveReturnRate": 49.63
+          },
+          "120m": {
+            "count": 25919,
+            "mfeMeanPct": 0.295,
+            "maeMeanPct": 0.296,
+            "netReturnMeanPct": -0.009,
+            "positiveReturnRate": 48.01
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V5_VAL_BEST",
+        "provider": "V5",
+        "params": {},
+        "segment": "val",
+        "runtimeMs": 56545.4031,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 0,
+        "rawDirectionality": {
+          "10m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "30m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "60m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "120m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V7_VAL_BEST",
+        "provider": "V7",
+        "params": {},
+        "segment": "val",
+        "runtimeMs": 61339.5034,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 25920,
+        "rawDirectionality": {
+          "10m": {
+            "count": 25919,
+            "mfeMeanPct": 0.076,
+            "maeMeanPct": 0.077,
+            "netReturnMeanPct": 0.001,
+            "positiveReturnRate": 51.05
+          },
+          "30m": {
+            "count": 25919,
+            "mfeMeanPct": 0.141,
+            "maeMeanPct": 0.142,
+            "netReturnMeanPct": 0.001,
+            "positiveReturnRate": 51.12
+          },
+          "60m": {
+            "count": 25919,
+            "mfeMeanPct": 0.205,
+            "maeMeanPct": 0.206,
+            "netReturnMeanPct": 0.003,
+            "positiveReturnRate": 50.28
+          },
+          "120m": {
+            "count": 25919,
+            "mfeMeanPct": 0.295,
+            "maeMeanPct": 0.295,
+            "netReturnMeanPct": 0.007,
+            "positiveReturnRate": 49.61
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V6_VAL_BEST",
+        "provider": "V6",
+        "params": {},
+        "segment": "val",
+        "runtimeMs": 201280.6998,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 11489,
+        "rawDirectionality": {
+          "10m": {
+            "count": 11489,
+            "mfeMeanPct": 0.085,
+            "maeMeanPct": 0.083,
+            "netReturnMeanPct": -0.003,
+            "positiveReturnRate": 47.26
+          },
+          "30m": {
+            "count": 11489,
+            "mfeMeanPct": 0.151,
+            "maeMeanPct": 0.151,
+            "netReturnMeanPct": -0.011,
+            "positiveReturnRate": 46.55
+          },
+          "60m": {
+            "count": 11489,
+            "mfeMeanPct": 0.214,
+            "maeMeanPct": 0.217,
+            "netReturnMeanPct": -0.021,
+            "positiveReturnRate": 47.25
+          },
+          "120m": {
+            "count": 11489,
+            "mfeMeanPct": 0.296,
+            "maeMeanPct": 0.307,
+            "netReturnMeanPct": -0.045,
+            "positiveReturnRate": 44.14
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      }
+    ],
+    "oos": [
+      {
+        "jobId": "V2_OOS_FINAL",
+        "provider": "V2",
+        "params": {
+          "lookback": 10,
+          "distanceThreshold": 0.002,
+          "breakoutConfidence": 70,
+          "bounceConfidence": 50
+        },
+        "segment": "oos",
+        "runtimeMs": 63192.2447,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 25920,
+        "rawDirectionality": {
+          "10m": {
+            "count": 25919,
+            "mfeMeanPct": 0.096,
+            "maeMeanPct": 0.091,
+            "netReturnMeanPct": 0.001,
+            "positiveReturnRate": 50.37
+          },
+          "30m": {
+            "count": 25919,
+            "mfeMeanPct": 0.177,
+            "maeMeanPct": 0.168,
+            "netReturnMeanPct": 0.002,
+            "positiveReturnRate": 51.34
+          },
+          "60m": {
+            "count": 25919,
+            "mfeMeanPct": 0.262,
+            "maeMeanPct": 0.244,
+            "netReturnMeanPct": 0.01,
+            "positiveReturnRate": 52.12
+          },
+          "120m": {
+            "count": 25919,
+            "mfeMeanPct": 0.39,
+            "maeMeanPct": 0.352,
+            "netReturnMeanPct": 0.013,
+            "positiveReturnRate": 51.52
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V5_OOS_FINAL",
+        "provider": "V5",
+        "params": {},
+        "segment": "oos",
+        "runtimeMs": 64970.9916,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 0,
+        "rawDirectionality": {
+          "10m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "30m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "60m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          },
+          "120m": {
+            "count": 0,
+            "mfeMean": 0,
+            "maeMean": 0,
+            "netReturnMean": 0,
+            "posReturnPct": 0
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V7_OOS_FINAL",
+        "provider": "V7",
+        "params": {},
+        "segment": "oos",
+        "runtimeMs": 69079.3418,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 25920,
+        "rawDirectionality": {
+          "10m": {
+            "count": 25919,
+            "mfeMeanPct": 0.09,
+            "maeMeanPct": 0.097,
+            "netReturnMeanPct": -0.008,
+            "positiveReturnRate": 49.23
+          },
+          "30m": {
+            "count": 25919,
+            "mfeMeanPct": 0.162,
+            "maeMeanPct": 0.184,
+            "netReturnMeanPct": -0.023,
+            "positiveReturnRate": 49.08
+          },
+          "60m": {
+            "count": 25919,
+            "mfeMeanPct": 0.231,
+            "maeMeanPct": 0.275,
+            "netReturnMeanPct": -0.046,
+            "positiveReturnRate": 49.21
+          },
+          "120m": {
+            "count": 25919,
+            "mfeMeanPct": 0.325,
+            "maeMeanPct": 0.418,
+            "netReturnMeanPct": -0.092,
+            "positiveReturnRate": 47
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      },
+      {
+        "jobId": "V6_OOS_FINAL",
+        "provider": "V6",
+        "params": {},
+        "segment": "oos",
+        "runtimeMs": 267527.84709999996,
+        "candlesProcessed": 25920,
+        "rawSignalsTotal": 12212,
+        "rawDirectionality": {
+          "10m": {
+            "count": 12212,
+            "mfeMeanPct": 0.128,
+            "maeMeanPct": 0.112,
+            "netReturnMeanPct": 0.013,
+            "positiveReturnRate": 49.61
+          },
+          "30m": {
+            "count": 12212,
+            "mfeMeanPct": 0.245,
+            "maeMeanPct": 0.197,
+            "netReturnMeanPct": 0.039,
+            "positiveReturnRate": 51.24
+          },
+          "60m": {
+            "count": 12212,
+            "mfeMeanPct": 0.372,
+            "maeMeanPct": 0.276,
+            "netReturnMeanPct": 0.082,
+            "positiveReturnRate": 51.76
+          },
+          "120m": {
+            "count": 12212,
+            "mfeMeanPct": 0.572,
+            "maeMeanPct": 0.379,
+            "netReturnMeanPct": 0.162,
+            "positiveReturnRate": 52.78
+          }
+        },
+        "metrics": {
+          "trades": 0,
+          "wins": 0,
+          "losses": 0,
+          "winRate": 0,
+          "grossProfit": 0,
+          "grossLoss": 0,
+          "netPnL": 0,
+          "profitFactor": 0,
+          "expectancy": 0,
+          "maxDrawdown": 0,
+          "mfeMean": 0,
+          "mfeMedian": 0,
+          "mfeP25": 0,
+          "mfeP75": 0,
+          "mfeP90": 0,
+          "maeMean": 0,
+          "maeMedian": 0,
+          "dhr020": 0,
+          "dhr050": 0,
+          "dhr100": 0,
+          "pctMfeLt020": 100,
+          "pctMfeGe020": 0,
+          "pctMfeGe050": 0,
+          "pctMfeGe100": 0,
+          "compositeScore": 0,
+          "signalDensity": {
+            "signalsPerCandle": 0,
+            "signalsPerHour": 0,
+            "signalsPerDay": 0,
+            "densityClass": "SPARSE"
+          }
+        },
+        "tradeCount": 0
+      }
+    ]
+  }
+}

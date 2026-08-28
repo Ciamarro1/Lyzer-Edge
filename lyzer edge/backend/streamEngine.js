@@ -217,13 +217,13 @@ export class StreamEngine extends EventEmitter {
     this.candles = [];
     this.mtfCandles = { '1m': [], '5m': [], '15m': [], '1h': [], '4h': [], '1d': [] };
     this.setupMtfAliases();
-    this.v1 = this.disabledProviders.has('v1') ? null : new LiquidityReconstructionEngine();
-    this.v2 = this.disabledProviders.has('v2') ? null : new StructuralBoundaryEngine();
-    this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine();
-    this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine();
-    this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine();
-    this.v6 = this.disabledProviders.has('v6') ? null : new MarketProfileEngine();
-    this.v7 = this.disabledProviders.has('v7') ? null : new TapeReadingEngine();
+    this.v1 = this.disabledProviders.has('v1') ? null : new LiquidityReconstructionEngine(config.providerConfigs?.v1);
+    this.v2 = this.disabledProviders.has('v2') ? null : new StructuralBoundaryEngine(config.providerConfigs?.v2);
+    this.v3 = this.disabledProviders.has('v3') ? null : new MomentumRsiEngine(config.providerConfigs?.v3);
+    this.v4 = this.disabledProviders.has('v4') ? null : new InstitutionalMarketCausalityEngine(config.providerConfigs?.v4);
+    this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine(config.providerConfigs?.v5);
+    this.v6 = this.disabledProviders.has('v6') ? null : new MarketProfileEngine(config.providerConfigs?.v6);
+    this.v7 = this.disabledProviders.has('v7') ? null : new TapeReadingEngine(config.providerConfigs?.v7);
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -1657,8 +1657,10 @@ export class StreamEngine extends EventEmitter {
           if (pLoc >= 50.0) {
             const trgMin = parseFloat(process.env.DEALING_EXPANSION_TRG_FLOOR || '0.40');
             const dvfMin = parseFloat(process.env.DEALING_EXPANSION_DVF_FLOOR || '0.15');
-            const trgPass = (kernelResult.trg || 0) >= trgMin;
-            const dvfPass = (kernelResult.dvf || 0) >= dvfMin;
+            const trgVal = typeof kernelResult.trg === 'number' ? kernelResult.trg : (kernelResult.trg?.trg || 0);
+            const dvfVal = typeof kernelResult.dvf === 'number' ? kernelResult.dvf : (kernelResult.dvf?.divergence || 0);
+            const trgPass = trgVal >= trgMin;
+            const dvfPass = dvfVal >= dvfMin;
             const volMult = parseFloat(process.env.DEALING_EXPANSION_VOL_MULT || '1.5');
             const volPass = sma20Vol > 0 ? (candle.volume > volMult * sma20Vol) : true;
 
@@ -1678,8 +1680,8 @@ export class StreamEngine extends EventEmitter {
 
             if (!trgPass || !dvfPass || !volPass || !noExhaustionPass) {
               const failedInvariants = [];
-              if (!trgPass) failedInvariants.push(`TRG(${(kernelResult.trg || 0).toFixed(3)} < ${trgMin})`);
-              if (!dvfPass) failedInvariants.push(`DVF(${(kernelResult.dvf || 0).toFixed(3)} < ${dvfMin})`);
+              if (!trgPass) failedInvariants.push(`TRG(${trgVal.toFixed(3)} < ${trgMin})`);
+              if (!dvfPass) failedInvariants.push(`DVF(${dvfVal.toFixed(3)} < ${dvfMin})`);
               if (!volPass) failedInvariants.push(`Volume(${(candle.volume || 0).toFixed(1)} <= ${volMult}x SMA20[${sma20Vol.toFixed(1)}])`);
               if (!noExhaustionPass) failedInvariants.push('Exhaustion detected');
               console.log(`[DEALING_RANGE] TREND_EXPANSION in PREMIUM rejected: ${failedInvariants.join(', ')}`);

@@ -1,0 +1,111 @@
+{
+  "timestamp": "2026-08-28T04:42:54.861Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "configHash": "ba943e5f0a98701e04b863d8d86b745154a0fd2e344b66dd44cd52edb6a371fc",
+  "benchmark": {
+    "sequentialTimeMs": 2202.1537000000003,
+    "managedSchedulerTimeMs": 1700.7848,
+    "speedup": 1.29,
+    "throughputItersPerSec": 352778,
+    "totalIterationsInBatch": 600000
+  },
+  "isolationForensics": {
+    "status": "PASS",
+    "isConfigUntouched": true,
+    "isLockboxUntouched": true,
+    "isTotalsIdentical": true,
+    "batchResult": {
+      "batchTotalTimeMs": 1409.3328999999994,
+      "totalExperimentsExecuted": 3,
+      "results": [
+        {
+          "experimentId": "EXP-V6-VOL-EXPANSION-001",
+          "hypothesisId": "VOLATILITY_EXPANSION_EDGE",
+          "hypothesisFamily": "VOL_EXPANSION",
+          "allocatedWorkers": 4,
+          "elapsedTimeMs": 1379.2,
+          "sampleSizeN": 11,
+          "totalGrossPnL": 68.13,
+          "totalNetPnL": 15.17,
+          "netProfitFactor": 1.2,
+          "netWinRatePct": 45.45,
+          "bootstrap95CI": [
+            -9.323,
+            13.844
+          ],
+          "rawPValue": 0.0757,
+          "executionTimestamp": "2026-08-28T04:42:53.635Z"
+        },
+        {
+          "experimentId": "EXP-V7-LIQUIDATION-SPIKE-001",
+          "hypothesisId": "LIQUIDATION_CASCADE_EDGE",
+          "hypothesisFamily": "LIQUIDATION_SPIKE",
+          "allocatedWorkers": 4,
+          "elapsedTimeMs": 1392.8,
+          "sampleSizeN": 16,
+          "totalGrossPnL": 50.76,
+          "totalNetPnL": -26.17,
+          "netProfitFactor": 0.72,
+          "netWinRatePct": 43.75,
+          "bootstrap95CI": [
+            -7.457,
+            4.025
+          ],
+          "rawPValue": 0.233,
+          "executionTimestamp": "2026-08-28T04:42:53.650Z"
+        },
+        {
+          "experimentId": "EXP-V8-ORDER-FLOW-DELTA-001",
+          "hypothesisId": "ORDER_FLOW_IMBALANCE_EDGE",
+          "hypothesisFamily": "ORDER_FLOW_DELTA",
+          "allocatedWorkers": 4,
+          "elapsedTimeMs": 1404.8,
+          "sampleSizeN": 33,
+          "totalGrossPnL": 131.62,
+          "totalNetPnL": -27.1,
+          "netProfitFactor": 0.87,
+          "netWinRatePct": 36.36,
+          "bootstrap95CI": [
+            -5.804,
+            4.55
+          ],
+          "rawPValue": 0.0415,
+          "executionTimestamp": "2026-08-28T04:42:53.663Z"
+        }
+      ]
+    }
+  },
+  "provenanceSummary": {
+    "totalExperiments": 8,
+    "families": [
+      {
+        "family": "V5_WYCKOFF_FAMILY",
+        "variantsCount": 6
+      },
+      {
+        "family": "INFRASTRUCTURE_SCALING",
+        "variantsCount": 1
+      },
+      {
+        "family": "VOL_EXPANSION",
+        "variantsCount": 2
+      },
+      {
+        "family": "LIQUIDATION_SPIKE",
+        "variantsCount": 2
+      },
+      {
+        "family": "ORDER_FLOW_DELTA",
+        "variantsCount": 2
+      },
+      {
+        "family": "VOL_COMPRESSION",
+        "variantsCount": 1
+      }
+    ]
+  }
+}

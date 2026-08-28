@@ -1,0 +1,7 @@
+{
+  "controllerVersion": "1.0.0-PROVENANCE-FIREWALL",
+  "nominalAlpha": 0.05,
+  "targetFDR_Q": 0.05,
+  "families": {},
+  "hypotheses": {}
+}

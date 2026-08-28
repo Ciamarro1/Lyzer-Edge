@@ -1,0 +1,81 @@
+{
+  "gateId": "V5-LEDGER-INTEGRITY-GATE-001",
+  "timestamp": "2026-08-28T03:52:20.902Z",
+  "environment": {
+    "nodeVersion": "v24.15.0",
+    "os": "win32"
+  },
+  "hashes": {
+    "candles1hSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+    "fundingSha256": "bc92ab0118d4f98466313b8fc6f0705b9f71337991e72553621cf75fde000666",
+    "rebuiltLedgerCsvSha256": "03202a6e9f8d1e33c74530fb8cac228c26cf918c6e3c56a266b337c474a321b8"
+  },
+  "cardinality": {
+    "totalCandles": 32016,
+    "warmupCandles": 48,
+    "terminalBufferCandles": 24,
+    "evaluatedPopulation": 31944,
+    "cellA_trades": 25,
+    "cellB_trades": 204,
+    "cellC_trades": 4375,
+    "cellD_trades": 27340,
+    "cardinalityVerified": true
+  },
+  "accountingVerification": {
+    "perTradeAccountingPass": true,
+    "aggregateGrossPnL": 138.56,
+    "aggregateFees": 50.11,
+    "aggregateSlippage": 10.03,
+    "aggregateTotalFriction": 60.14,
+    "aggregateNetPnL": 78.42,
+    "aggregateIdentityPass": true,
+    "frictionIdentityPass": true
+  },
+  "derivedMetrics": {
+    "n": 25,
+    "grossExpectancy": 5.542,
+    "netExpectancy": 3.137,
+    "netProfitFactor": 1.9,
+    "netWinRate": 56,
+    "medianNetPnL": 1.02,
+    "stdDev": 12.3,
+    "maxDrawdown": 35.61,
+    "bestTrade": 28.17,
+    "worstTrade": -10.51
+  },
+  "confirmatoryPartitions": {
+    "dev2023_2025": {
+      "label": "Development (2023-2025)",
+      "n": 18,
+      "grossPnL": 80.49,
+      "friction": 43.29,
+      "netPnL": 37.2,
+      "grossExp": 4.472,
+      "netExp": 2.067,
+      "netPF": 1.54,
+      "netWR": 50,
+      "fwdPriceRetMean": 0.544
+    },
+    "blindOOS2026": {
+      "label": "Blind OOS (2026)",
+      "n": 7,
+      "grossPnL": 58.07,
+      "friction": 16.85,
+      "netPnL": 41.22,
+      "grossExp": 8.296,
+      "netExp": 5.889,
+      "netPF": 3.25,
+      "netWR": 71.43,
+      "fwdPriceRetMean": 1.004
+    }
+  },
+  "statistics": {
+    "bootstrap10k_CI95": [
+      -1.591,
+      8.135
+    ],
+    "distinctEpisodes24h": 23,
+    "episodeWinRate": 56.52
+  },
+  "finalGateVerdict": "GREEN — FORENSICALLY RECONCILED"
+}

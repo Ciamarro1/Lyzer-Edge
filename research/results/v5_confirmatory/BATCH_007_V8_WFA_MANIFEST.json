@@ -1,0 +1,340 @@
+{
+  "executionTimestamp": "2026-08-28T08:53:45.120Z",
+  "datasetSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+  "gates": {
+    "gate1WFA": {
+      "windows": [
+        {
+          "window": "WFA Window 1",
+          "period": "2023-01-03 to 2023-05-15",
+          "n": 10,
+          "grossMeanPct": 3.5442,
+          "netMeanPct": 3.4642,
+          "medianNetPct": 3.2584,
+          "winRatePct": 90,
+          "profitFactor": 10.45,
+          "isPositive": true
+        },
+        {
+          "window": "WFA Window 2",
+          "period": "2023-05-15 to 2023-09-25",
+          "n": 5,
+          "grossMeanPct": 0.5376,
+          "netMeanPct": 0.4576,
+          "medianNetPct": 1.0864,
+          "winRatePct": 60,
+          "profitFactor": 1.61,
+          "isPositive": true
+        },
+        {
+          "window": "WFA Window 3",
+          "period": "2023-09-25 to 2024-02-05",
+          "n": 6,
+          "grossMeanPct": 0.5993,
+          "netMeanPct": 0.5193,
+          "medianNetPct": -0.2592,
+          "winRatePct": 33.3,
+          "profitFactor": 1.98,
+          "isPositive": true
+        },
+        {
+          "window": "WFA Window 4",
+          "period": "2024-02-05 to 2024-06-17",
+          "n": 12,
+          "grossMeanPct": 1.5252,
+          "netMeanPct": 1.4452,
+          "medianNetPct": 1.3905,
+          "winRatePct": 83.3,
+          "profitFactor": 31.2,
+          "isPositive": true
+        },
+        {
+          "window": "WFA Window 5",
+          "period": "2024-06-17 to 2024-10-28",
+          "n": 4,
+          "grossMeanPct": -0.9929,
+          "netMeanPct": -1.0729,
+          "medianNetPct": -1.0754,
+          "winRatePct": 25,
+          "profitFactor": 0.16,
+          "isPositive": false
+        },
+        {
+          "window": "WFA Window 6",
+          "period": "2024-10-28 to 2025-03-10",
+          "n": 4,
+          "grossMeanPct": -0.6121,
+          "netMeanPct": -0.6921,
+          "medianNetPct": -1.179,
+          "winRatePct": 25,
+          "profitFactor": 0.45,
+          "isPositive": false
+        },
+        {
+          "window": "WFA Window 7",
+          "period": "2025-03-10 to 2025-07-21",
+          "n": 2,
+          "grossMeanPct": 3.1846,
+          "netMeanPct": 3.1046,
+          "medianNetPct": 3.1046,
+          "winRatePct": 100,
+          "profitFactor": 10,
+          "isPositive": true
+        },
+        {
+          "window": "WFA Window 8",
+          "period": "2025-07-21 to 2025-12-01",
+          "n": 5,
+          "grossMeanPct": 0.0072,
+          "netMeanPct": -0.0728,
+          "medianNetPct": 0.0643,
+          "winRatePct": 60,
+          "profitFactor": 0.88,
+          "isPositive": false
+        },
+        {
+          "window": "WFA Window 9",
+          "period": "2025-12-01 to 2026-04-12",
+          "n": 7,
+          "grossMeanPct": -0.8231,
+          "netMeanPct": -0.9031,
+          "medianNetPct": -1.0869,
+          "winRatePct": 28.6,
+          "profitFactor": 0.06,
+          "isPositive": false
+        },
+        {
+          "window": "WFA Window 10",
+          "period": "2026-04-12 to 2026-08-23",
+          "n": 8,
+          "grossMeanPct": 0.9482,
+          "netMeanPct": 0.8682,
+          "medianNetPct": 0.353,
+          "winRatePct": 50,
+          "profitFactor": 4.24,
+          "isPositive": true
+        }
+      ],
+      "positiveWindows": 6,
+      "aggregateOOSPF": 2.7,
+      "aggregateOOSMeanPct": 0.9015,
+      "medianOOSPF": 1.79,
+      "catastrophicWindows": 0,
+      "passed": false
+    },
+    "gate3Stability": {
+      "thresholds": [
+        {
+          "threshold": ">= 1.75 ATR",
+          "n": 96,
+          "netMeanPct": 0.8663,
+          "medianNetPct": 0.405,
+          "winRatePct": 62.5,
+          "profitFactor": 2.82,
+          "isViable": true
+        },
+        {
+          "threshold": ">= 2.00 ATR",
+          "n": 63,
+          "netMeanPct": 0.9015,
+          "medianNetPct": 0.8368,
+          "winRatePct": 58.7,
+          "profitFactor": 2.7,
+          "isViable": true
+        },
+        {
+          "threshold": ">= 2.25 ATR",
+          "n": 46,
+          "netMeanPct": 0.3197,
+          "medianNetPct": -0.0384,
+          "winRatePct": 50,
+          "profitFactor": 1.48,
+          "isViable": true
+        },
+        {
+          "threshold": ">= 2.50 ATR",
+          "n": 30,
+          "netMeanPct": 0.7802,
+          "medianNetPct": 0.2199,
+          "winRatePct": 60,
+          "profitFactor": 2.65,
+          "isViable": true
+        },
+        {
+          "threshold": ">= 2.75 ATR",
+          "n": 20,
+          "netMeanPct": 0.3191,
+          "medianNetPct": -0.0232,
+          "winRatePct": 50,
+          "profitFactor": 1.49,
+          "isViable": false
+        }
+      ],
+      "viableCount": 4,
+      "passed": true
+    },
+    "gate4IncrementalFVG": {
+      "coefficients": [
+        {
+          "name": "Intercept",
+          "betaPct": 0.0119,
+          "sePct": 0.0259,
+          "tStat": 0.459,
+          "pValue": 0.64599
+        },
+        {
+          "name": "Volatility (ATR)",
+          "betaPct": 0.014,
+          "sePct": 0.0147,
+          "tStat": 0.948,
+          "pValue": 0.3431
+        },
+        {
+          "name": "Bull Trend Alignment",
+          "betaPct": 0.1054,
+          "sePct": 0.0203,
+          "tStat": 5.2,
+          "pValue": 0
+        },
+        {
+          "name": "Candle Magnitude (Body/ATR)",
+          "betaPct": 0.0158,
+          "sePct": 0.0306,
+          "tStat": 0.517,
+          "pValue": 0.60514
+        },
+        {
+          "name": "Body/Range Ratio",
+          "betaPct": -0.0199,
+          "sePct": 0.0537,
+          "tStat": -0.371,
+          "pValue": 0.7107
+        },
+        {
+          "name": "Displacement Indicator (I_disp)",
+          "betaPct": 0.1565,
+          "sePct": 0.1435,
+          "tStat": 1.09,
+          "pValue": 0.27568
+        },
+        {
+          "name": "FVG Indicator (I_fvg)",
+          "betaPct": 0.0661,
+          "sePct": 0.0282,
+          "tStat": 2.343,
+          "pValue": 0.01911
+        },
+        {
+          "name": "Interaction Term (I_disp × I_fvg)",
+          "betaPct": 0.2494,
+          "sePct": 0.2207,
+          "tStat": 1.13,
+          "pValue": 0.25845
+        }
+      ],
+      "betaInteractionPct": 0.2494,
+      "tInteraction": 1.13,
+      "pInteraction": 0.25845,
+      "passed": false
+    },
+    "gate5Permutation": {
+      "sampleN": 63,
+      "observedPF": 2.7,
+      "nullMeanPF": 1.19,
+      "null95thPF": 2.03,
+      "null99thPF": 2.67,
+      "empiricalPValue": 0.0096,
+      "passed": true
+    },
+    "gate6Friction": {
+      "ladder": [
+        {
+          "tier": "Tier 0: Gross (0.00%)",
+          "feePct": 0,
+          "meanNetPct": 0.9815,
+          "medianNetPct": 0.9168,
+          "winRatePct": 58.7,
+          "profitFactor": 2.98,
+          "isViable": true
+        },
+        {
+          "tier": "Tier 1: Low Friction (0.05%)",
+          "feePct": 0.05,
+          "meanNetPct": 0.9315,
+          "medianNetPct": 0.8668,
+          "winRatePct": 58.7,
+          "profitFactor": 2.8,
+          "isViable": true
+        },
+        {
+          "tier": "Tier 2: Normal Exchange (0.08%)",
+          "feePct": 0.08,
+          "meanNetPct": 0.9015,
+          "medianNetPct": 0.8368,
+          "winRatePct": 58.7,
+          "profitFactor": 2.7,
+          "isViable": true
+        },
+        {
+          "tier": "Tier 3: High Slippage (0.10%)",
+          "feePct": 0.1,
+          "meanNetPct": 0.8815,
+          "medianNetPct": 0.8168,
+          "winRatePct": 58.7,
+          "profitFactor": 2.64,
+          "isViable": true
+        },
+        {
+          "tier": "Tier 4: Adversarial Stress (0.15%)",
+          "feePct": 0.15,
+          "meanNetPct": 0.8315,
+          "medianNetPct": 0.7668,
+          "winRatePct": 55.6,
+          "profitFactor": 2.49,
+          "isViable": true
+        },
+        {
+          "tier": "Tier 5: Extreme Stress (0.25%)",
+          "feePct": 0.25,
+          "meanNetPct": 0.7315,
+          "medianNetPct": 0.6668,
+          "winRatePct": 52.4,
+          "profitFactor": 2.21,
+          "isViable": true
+        }
+      ],
+      "breakevenFeePct": 0.9815
+    },
+    "gate7Profile": {
+      "totalTrades": 63,
+      "monthlyFrequency": 1.4,
+      "netExpectancyPct": 0.9015,
+      "profitFactor": 2.7,
+      "compoundedReturnPct": 72.47,
+      "maxDrawdownPct": 8.1,
+      "mfePct": 2.4473,
+      "maePct": 1.254,
+      "mfeMaeRatio": 1.95
+    },
+    "gate8TrackA": {
+      "isConfigIntact": true,
+      "isLockboxIntact": true,
+      "isReplayIntact": true,
+      "v5BaselineTotals": {
+        "n": 25,
+        "grossPnL": 138.56,
+        "fees": 50.11,
+        "slippage": 10.03,
+        "totalFriction": 60.14,
+        "netPnL": 78.42,
+        "grossExpectancy": 5.542,
+        "netExpectancy": 3.137,
+        "netProfitFactor": 1.9,
+        "netWinRate": 56,
+        "winsCount": 14,
+        "lossesCount": 11
+      }
+    }
+  },
+  "elapsedSec": "15.8"
+}

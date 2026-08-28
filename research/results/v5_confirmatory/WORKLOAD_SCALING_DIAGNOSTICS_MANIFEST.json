@@ -1,0 +1,204 @@
+{
+  "timestamp": "2026-08-28T04:36:48.203Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "persistentJobTimeMs": 319.2795000000001,
+  "scaleMatrix": [
+    {
+      "workloadLabel": "70k (Light)",
+      "totalIters": 70000,
+      "workers": 1,
+      "timeMs": 62.3,
+      "speedup": 1,
+      "efficiencyPct": 100,
+      "throughputItersPerSec": 1123242
+    },
+    {
+      "workloadLabel": "70k (Light)",
+      "totalIters": 70000,
+      "workers": 2,
+      "timeMs": 49,
+      "speedup": 1.27,
+      "efficiencyPct": 63.5,
+      "throughputItersPerSec": 1429309
+    },
+    {
+      "workloadLabel": "70k (Light)",
+      "totalIters": 70000,
+      "workers": 4,
+      "timeMs": 41.8,
+      "speedup": 1.49,
+      "efficiencyPct": 37.3,
+      "throughputItersPerSec": 1672704
+    },
+    {
+      "workloadLabel": "70k (Light)",
+      "totalIters": 70000,
+      "workers": 8,
+      "timeMs": 43.8,
+      "speedup": 1.42,
+      "efficiencyPct": 17.8,
+      "throughputItersPerSec": 1597521
+    },
+    {
+      "workloadLabel": "70k (Light)",
+      "totalIters": 70000,
+      "workers": 12,
+      "timeMs": 60.4,
+      "speedup": 1.03,
+      "efficiencyPct": 8.6,
+      "throughputItersPerSec": 1159559
+    },
+    {
+      "workloadLabel": "500k (Medium)",
+      "totalIters": 500000,
+      "workers": 1,
+      "timeMs": 536.1,
+      "speedup": 1,
+      "efficiencyPct": 100,
+      "throughputItersPerSec": 932645
+    },
+    {
+      "workloadLabel": "500k (Medium)",
+      "totalIters": 500000,
+      "workers": 2,
+      "timeMs": 345,
+      "speedup": 1.55,
+      "efficiencyPct": 77.5,
+      "throughputItersPerSec": 1449306
+    },
+    {
+      "workloadLabel": "500k (Medium)",
+      "totalIters": 500000,
+      "workers": 4,
+      "timeMs": 304.1,
+      "speedup": 1.76,
+      "efficiencyPct": 44,
+      "throughputItersPerSec": 1644311
+    },
+    {
+      "workloadLabel": "500k (Medium)",
+      "totalIters": 500000,
+      "workers": 8,
+      "timeMs": 282.8,
+      "speedup": 1.9,
+      "efficiencyPct": 23.8,
+      "throughputItersPerSec": 1768216
+    },
+    {
+      "workloadLabel": "500k (Medium)",
+      "totalIters": 500000,
+      "workers": 12,
+      "timeMs": 291.2,
+      "speedup": 1.84,
+      "efficiencyPct": 15.3,
+      "throughputItersPerSec": 1716887
+    },
+    {
+      "workloadLabel": "2M (Heavy)",
+      "totalIters": 2000000,
+      "workers": 1,
+      "timeMs": 2074.1,
+      "speedup": 1,
+      "efficiencyPct": 100,
+      "throughputItersPerSec": 964274
+    },
+    {
+      "workloadLabel": "2M (Heavy)",
+      "totalIters": 2000000,
+      "workers": 2,
+      "timeMs": 1419.6,
+      "speedup": 1.46,
+      "efficiencyPct": 73,
+      "throughputItersPerSec": 1408857
+    },
+    {
+      "workloadLabel": "2M (Heavy)",
+      "totalIters": 2000000,
+      "workers": 4,
+      "timeMs": 1586.4,
+      "speedup": 1.31,
+      "efficiencyPct": 32.8,
+      "throughputItersPerSec": 1260685
+    },
+    {
+      "workloadLabel": "2M (Heavy)",
+      "totalIters": 2000000,
+      "workers": 8,
+      "timeMs": 1299.1,
+      "speedup": 1.6,
+      "efficiencyPct": 20,
+      "throughputItersPerSec": 1539577
+    },
+    {
+      "workloadLabel": "2M (Heavy)",
+      "totalIters": 2000000,
+      "workers": 12,
+      "timeMs": 1139,
+      "speedup": 1.82,
+      "efficiencyPct": 15.2,
+      "throughputItersPerSec": 1755910
+    },
+    {
+      "workloadLabel": "10M (Massive)",
+      "totalIters": 10000000,
+      "workers": 1,
+      "timeMs": 18686,
+      "speedup": 1,
+      "efficiencyPct": 100,
+      "throughputItersPerSec": 535159
+    },
+    {
+      "workloadLabel": "10M (Massive)",
+      "totalIters": 10000000,
+      "workers": 2,
+      "timeMs": 18768.8,
+      "speedup": 1,
+      "efficiencyPct": 50,
+      "throughputItersPerSec": 532800
+    },
+    {
+      "workloadLabel": "10M (Massive)",
+      "totalIters": 10000000,
+      "workers": 4,
+      "timeMs": 19307.8,
+      "speedup": 0.97,
+      "efficiencyPct": 24.3,
+      "throughputItersPerSec": 517925
+    },
+    {
+      "workloadLabel": "10M (Massive)",
+      "totalIters": 10000000,
+      "workers": 8,
+      "timeMs": 12504.6,
+      "speedup": 1.49,
+      "efficiencyPct": 18.6,
+      "throughputItersPerSec": 799706
+    },
+    {
+      "workloadLabel": "10M (Massive)",
+      "totalIters": 10000000,
+      "workers": 12,
+      "timeMs": 10368.9,
+      "speedup": 1.8,
+      "efficiencyPct": 15,
+      "throughputItersPerSec": 964418
+    }
+  ],
+  "provenance": {
+    "totalExperiments": 1,
+    "families": [
+      {
+        "family": "V5_WYCKOFF_FAMILY",
+        "variantsCount": 6
+      },
+      {
+        "family": "INFRASTRUCTURE_SCALING",
+        "variantsCount": 1
+      }
+    ]
+  }
+}

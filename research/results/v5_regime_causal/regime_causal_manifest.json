@@ -1,0 +1,1269 @@
+{
+  "experimentId": "EXP-V5-REGIME-CAUSAL-003",
+  "timestamp": "2026-08-28T02:38:23.122Z",
+  "datasetSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+  "totalSignals": 229,
+  "annualProfiles": {
+    "2023": {
+      "name": "Year 2023",
+      "count": 68,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.336,
+          "maeMeanPct": 0.34,
+          "mfeMaeRatio": 0.99,
+          "meanReturnPct": 0.044,
+          "posReturnRatePct": 58.82,
+          "mfeFirstPct": 4.41
+        },
+        "2h": {
+          "mfeMeanPct": 0.507,
+          "maeMeanPct": 0.413,
+          "mfeMaeRatio": 1.23,
+          "meanReturnPct": 0.1,
+          "posReturnRatePct": 57.35,
+          "mfeFirstPct": 23.53
+        },
+        "3h": {
+          "mfeMeanPct": 0.585,
+          "maeMeanPct": 0.497,
+          "mfeMaeRatio": 1.18,
+          "meanReturnPct": 0.141,
+          "posReturnRatePct": 67.65,
+          "mfeFirstPct": 35.29
+        },
+        "4h": {
+          "mfeMeanPct": 0.655,
+          "maeMeanPct": 0.632,
+          "mfeMaeRatio": 1.04,
+          "meanReturnPct": 0.093,
+          "posReturnRatePct": 58.82,
+          "mfeFirstPct": 35.29
+        },
+        "6h": {
+          "mfeMeanPct": 0.762,
+          "maeMeanPct": 0.854,
+          "mfeMaeRatio": 0.89,
+          "meanReturnPct": 0.023,
+          "posReturnRatePct": 51.47,
+          "mfeFirstPct": 42.65
+        },
+        "8h": {
+          "mfeMeanPct": 0.846,
+          "maeMeanPct": 0.945,
+          "mfeMaeRatio": 0.89,
+          "meanReturnPct": 0.04,
+          "posReturnRatePct": 60.29,
+          "mfeFirstPct": 44.12
+        },
+        "12h": {
+          "mfeMeanPct": 1.012,
+          "maeMeanPct": 1.121,
+          "mfeMaeRatio": 0.9,
+          "meanReturnPct": 0.06,
+          "posReturnRatePct": 58.82,
+          "mfeFirstPct": 44.12
+        },
+        "24h": {
+          "mfeMeanPct": 1.558,
+          "maeMeanPct": 1.444,
+          "mfeMaeRatio": 1.08,
+          "meanReturnPct": 0.157,
+          "posReturnRatePct": 58.82,
+          "mfeFirstPct": 44.12
+        }
+      },
+      "curveA_pureReturn6h": 0.023,
+      "curveB_idealExpectancy": 0.336,
+      "curveC_grossExpectancy": -0.064,
+      "curveC_netExpectancy": -2.064,
+      "curveC_netPnL": -140.38,
+      "curveC_profitFactorNet": 0.49,
+      "curveC_netWinRate": 30.88,
+      "profile": {
+        "avgAtrPct": 0.465,
+        "avgRecoveryPct": 65.73,
+        "avgClv": 0.315,
+        "avgCompressionRatio24": 1.039,
+        "avgRet24hPct": -1.33,
+        "bullTrendRatePct": 2.94
+      }
+    },
+    "2024": {
+      "name": "Year 2024",
+      "count": 75,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.488,
+          "maeMeanPct": 0.665,
+          "mfeMaeRatio": 0.73,
+          "meanReturnPct": -0.07,
+          "posReturnRatePct": 48,
+          "mfeFirstPct": 4
+        },
+        "2h": {
+          "mfeMeanPct": 0.663,
+          "maeMeanPct": 1.006,
+          "mfeMaeRatio": 0.66,
+          "meanReturnPct": -0.062,
+          "posReturnRatePct": 52,
+          "mfeFirstPct": 42.67
+        },
+        "3h": {
+          "mfeMeanPct": 0.835,
+          "maeMeanPct": 1.119,
+          "mfeMaeRatio": 0.75,
+          "meanReturnPct": 0.032,
+          "posReturnRatePct": 58.67,
+          "mfeFirstPct": 38.67
+        },
+        "4h": {
+          "mfeMeanPct": 0.986,
+          "maeMeanPct": 1.224,
+          "mfeMaeRatio": 0.81,
+          "meanReturnPct": 0.152,
+          "posReturnRatePct": 58.67,
+          "mfeFirstPct": 41.33
+        },
+        "6h": {
+          "mfeMeanPct": 1.143,
+          "maeMeanPct": 1.447,
+          "mfeMaeRatio": 0.79,
+          "meanReturnPct": 0.031,
+          "posReturnRatePct": 54.67,
+          "mfeFirstPct": 49.33
+        },
+        "8h": {
+          "mfeMeanPct": 1.322,
+          "maeMeanPct": 1.717,
+          "mfeMaeRatio": 0.77,
+          "meanReturnPct": -0.065,
+          "posReturnRatePct": 50.67,
+          "mfeFirstPct": 54.67
+        },
+        "12h": {
+          "mfeMeanPct": 1.584,
+          "maeMeanPct": 1.988,
+          "mfeMaeRatio": 0.8,
+          "meanReturnPct": -0.081,
+          "posReturnRatePct": 49.33,
+          "mfeFirstPct": 53.33
+        },
+        "24h": {
+          "mfeMeanPct": 2.119,
+          "maeMeanPct": 2.603,
+          "mfeMaeRatio": 0.81,
+          "meanReturnPct": -0.069,
+          "posReturnRatePct": 56,
+          "mfeFirstPct": 52
+        }
+      },
+      "curveA_pureReturn6h": 0.031,
+      "curveB_idealExpectancy": 0.106,
+      "curveC_grossExpectancy": -0.294,
+      "curveC_netExpectancy": -2.294,
+      "curveC_netPnL": -172.07,
+      "curveC_profitFactorNet": 0.63,
+      "curveC_netWinRate": 36,
+      "profile": {
+        "avgAtrPct": 0.84,
+        "avgRecoveryPct": 71.97,
+        "avgClv": 0.439,
+        "avgCompressionRatio24": 1.106,
+        "avgRet24hPct": -2.4,
+        "bullTrendRatePct": 1.33
+      }
+    },
+    "2025": {
+      "name": "Year 2025",
+      "count": 60,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.548,
+          "maeMeanPct": 0.686,
+          "mfeMaeRatio": 0.8,
+          "meanReturnPct": -0.08,
+          "posReturnRatePct": 53.33,
+          "mfeFirstPct": 1.67
+        },
+        "2h": {
+          "mfeMeanPct": 0.735,
+          "maeMeanPct": 0.974,
+          "mfeMaeRatio": 0.75,
+          "meanReturnPct": -0.167,
+          "posReturnRatePct": 50,
+          "mfeFirstPct": 45
+        },
+        "3h": {
+          "mfeMeanPct": 0.858,
+          "maeMeanPct": 1.06,
+          "mfeMaeRatio": 0.81,
+          "meanReturnPct": -0.11,
+          "posReturnRatePct": 46.67,
+          "mfeFirstPct": 46.67
+        },
+        "4h": {
+          "mfeMeanPct": 0.936,
+          "maeMeanPct": 1.187,
+          "mfeMaeRatio": 0.79,
+          "meanReturnPct": -0.088,
+          "posReturnRatePct": 53.33,
+          "mfeFirstPct": 50
+        },
+        "6h": {
+          "mfeMeanPct": 1.199,
+          "maeMeanPct": 1.351,
+          "mfeMaeRatio": 0.89,
+          "meanReturnPct": 0.138,
+          "posReturnRatePct": 53.33,
+          "mfeFirstPct": 38.33
+        },
+        "8h": {
+          "mfeMeanPct": 1.579,
+          "maeMeanPct": 1.559,
+          "mfeMaeRatio": 1.01,
+          "meanReturnPct": 0.384,
+          "posReturnRatePct": 63.33,
+          "mfeFirstPct": 35
+        },
+        "12h": {
+          "mfeMeanPct": 1.882,
+          "maeMeanPct": 1.672,
+          "mfeMaeRatio": 1.13,
+          "meanReturnPct": 0.711,
+          "posReturnRatePct": 63.33,
+          "mfeFirstPct": 36.67
+        },
+        "24h": {
+          "mfeMeanPct": 2.61,
+          "maeMeanPct": 2.175,
+          "mfeMaeRatio": 1.2,
+          "meanReturnPct": 0.447,
+          "posReturnRatePct": 56.67,
+          "mfeFirstPct": 43.33
+        }
+      },
+      "curveA_pureReturn6h": 0.138,
+      "curveB_idealExpectancy": 0.311,
+      "curveC_grossExpectancy": -0.089,
+      "curveC_netExpectancy": -2.089,
+      "curveC_netPnL": -125.33,
+      "curveC_profitFactorNet": 0.65,
+      "curveC_netWinRate": 36.67,
+      "profile": {
+        "avgAtrPct": 0.756,
+        "avgRecoveryPct": 67.77,
+        "avgClv": 0.355,
+        "avgCompressionRatio24": 1.074,
+        "avgRet24hPct": -2.79,
+        "bullTrendRatePct": 0
+      }
+    },
+    "2026": {
+      "name": "Year 2026",
+      "count": 26,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.668,
+          "maeMeanPct": 0.311,
+          "mfeMaeRatio": 2.14,
+          "meanReturnPct": 0.324,
+          "posReturnRatePct": 69.23,
+          "mfeFirstPct": 0
+        },
+        "2h": {
+          "mfeMeanPct": 0.956,
+          "maeMeanPct": 0.419,
+          "mfeMaeRatio": 2.28,
+          "meanReturnPct": 0.421,
+          "posReturnRatePct": 65.38,
+          "mfeFirstPct": 34.62
+        },
+        "3h": {
+          "mfeMeanPct": 1.157,
+          "maeMeanPct": 0.441,
+          "mfeMaeRatio": 2.63,
+          "meanReturnPct": 0.638,
+          "posReturnRatePct": 84.62,
+          "mfeFirstPct": 19.23
+        },
+        "4h": {
+          "mfeMeanPct": 1.314,
+          "maeMeanPct": 0.459,
+          "mfeMaeRatio": 2.86,
+          "meanReturnPct": 0.683,
+          "posReturnRatePct": 76.92,
+          "mfeFirstPct": 19.23
+        },
+        "6h": {
+          "mfeMeanPct": 1.509,
+          "maeMeanPct": 0.526,
+          "mfeMaeRatio": 2.87,
+          "meanReturnPct": 0.642,
+          "posReturnRatePct": 73.08,
+          "mfeFirstPct": 26.92
+        },
+        "8h": {
+          "mfeMeanPct": 1.621,
+          "maeMeanPct": 0.703,
+          "mfeMaeRatio": 2.3,
+          "meanReturnPct": 0.551,
+          "posReturnRatePct": 73.08,
+          "mfeFirstPct": 34.62
+        },
+        "12h": {
+          "mfeMeanPct": 1.764,
+          "maeMeanPct": 0.977,
+          "mfeMaeRatio": 1.81,
+          "meanReturnPct": 0.519,
+          "posReturnRatePct": 61.54,
+          "mfeFirstPct": 34.62
+        },
+        "24h": {
+          "mfeMeanPct": 2.693,
+          "maeMeanPct": 1.789,
+          "mfeMaeRatio": 1.51,
+          "meanReturnPct": 0.715,
+          "posReturnRatePct": 69.23,
+          "mfeFirstPct": 42.31
+        }
+      },
+      "curveA_pureReturn6h": 0.642,
+      "curveB_idealExpectancy": 4.027,
+      "curveC_grossExpectancy": 3.625,
+      "curveC_netExpectancy": 1.625,
+      "curveC_netPnL": 42.25,
+      "curveC_profitFactorNet": 1.47,
+      "curveC_netWinRate": 50,
+      "profile": {
+        "avgAtrPct": 0.741,
+        "avgRecoveryPct": 68.99,
+        "avgClv": 0.38,
+        "avgCompressionRatio24": 1.056,
+        "avgRet24hPct": -2.67,
+        "bullTrendRatePct": 3.85
+      }
+    }
+  },
+  "quintiles": {
+    "Q1 (0-20%)": {
+      "name": "Q1 (0-20%)",
+      "count": 50,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.276,
+          "maeMeanPct": 0.257,
+          "mfeMaeRatio": 1.07,
+          "meanReturnPct": 0.007,
+          "posReturnRatePct": 56,
+          "mfeFirstPct": 6
+        },
+        "2h": {
+          "mfeMeanPct": 0.351,
+          "maeMeanPct": 0.419,
+          "mfeMaeRatio": 0.84,
+          "meanReturnPct": -0.069,
+          "posReturnRatePct": 52,
+          "mfeFirstPct": 36
+        },
+        "3h": {
+          "mfeMeanPct": 0.417,
+          "maeMeanPct": 0.499,
+          "mfeMaeRatio": 0.84,
+          "meanReturnPct": -0.04,
+          "posReturnRatePct": 60,
+          "mfeFirstPct": 40
+        },
+        "4h": {
+          "mfeMeanPct": 0.485,
+          "maeMeanPct": 0.627,
+          "mfeMaeRatio": 0.77,
+          "meanReturnPct": -0.061,
+          "posReturnRatePct": 58,
+          "mfeFirstPct": 42
+        },
+        "6h": {
+          "mfeMeanPct": 0.591,
+          "maeMeanPct": 0.748,
+          "mfeMaeRatio": 0.79,
+          "meanReturnPct": -0.033,
+          "posReturnRatePct": 48,
+          "mfeFirstPct": 48
+        },
+        "8h": {
+          "mfeMeanPct": 0.692,
+          "maeMeanPct": 0.839,
+          "mfeMaeRatio": 0.82,
+          "meanReturnPct": -0.001,
+          "posReturnRatePct": 58,
+          "mfeFirstPct": 46
+        },
+        "12h": {
+          "mfeMeanPct": 0.881,
+          "maeMeanPct": 1.063,
+          "mfeMaeRatio": 0.83,
+          "meanReturnPct": 0.009,
+          "posReturnRatePct": 54,
+          "mfeFirstPct": 44
+        },
+        "24h": {
+          "mfeMeanPct": 1.444,
+          "maeMeanPct": 1.547,
+          "mfeMaeRatio": 0.93,
+          "meanReturnPct": -0.119,
+          "posReturnRatePct": 46,
+          "mfeFirstPct": 52
+        }
+      },
+      "curveA_pureReturn6h": -0.033,
+      "curveB_idealExpectancy": -0.427,
+      "curveC_grossExpectancy": -0.826,
+      "curveC_netExpectancy": -2.826,
+      "curveC_netPnL": -141.32,
+      "curveC_profitFactorNet": 0.25,
+      "curveC_netWinRate": 24
+    },
+    "Q2 (20-40%)": {
+      "name": "Q2 (20-40%)",
+      "count": 40,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.361,
+          "maeMeanPct": 0.355,
+          "mfeMaeRatio": 1.02,
+          "meanReturnPct": 0.057,
+          "posReturnRatePct": 57.5,
+          "mfeFirstPct": 2.5
+        },
+        "2h": {
+          "mfeMeanPct": 0.602,
+          "maeMeanPct": 0.497,
+          "mfeMaeRatio": 1.21,
+          "meanReturnPct": 0.097,
+          "posReturnRatePct": 57.5,
+          "mfeFirstPct": 30
+        },
+        "3h": {
+          "mfeMeanPct": 0.716,
+          "maeMeanPct": 0.587,
+          "mfeMaeRatio": 1.22,
+          "meanReturnPct": 0.153,
+          "posReturnRatePct": 52.5,
+          "mfeFirstPct": 40
+        },
+        "4h": {
+          "mfeMeanPct": 0.785,
+          "maeMeanPct": 0.698,
+          "mfeMaeRatio": 1.12,
+          "meanReturnPct": 0.171,
+          "posReturnRatePct": 55,
+          "mfeFirstPct": 37.5
+        },
+        "6h": {
+          "mfeMeanPct": 0.9,
+          "maeMeanPct": 1.089,
+          "mfeMaeRatio": 0.83,
+          "meanReturnPct": -0.004,
+          "posReturnRatePct": 52.5,
+          "mfeFirstPct": 45
+        },
+        "8h": {
+          "mfeMeanPct": 0.978,
+          "maeMeanPct": 1.235,
+          "mfeMaeRatio": 0.79,
+          "meanReturnPct": -0.054,
+          "posReturnRatePct": 52.5,
+          "mfeFirstPct": 47.5
+        },
+        "12h": {
+          "mfeMeanPct": 1.091,
+          "maeMeanPct": 1.369,
+          "mfeMaeRatio": 0.8,
+          "meanReturnPct": -0.037,
+          "posReturnRatePct": 52.5,
+          "mfeFirstPct": 50
+        },
+        "24h": {
+          "mfeMeanPct": 1.423,
+          "maeMeanPct": 1.689,
+          "mfeMaeRatio": 0.84,
+          "meanReturnPct": -0.161,
+          "posReturnRatePct": 55,
+          "mfeFirstPct": 50
+        }
+      },
+      "curveA_pureReturn6h": -0.004,
+      "curveB_idealExpectancy": -0.124,
+      "curveC_grossExpectancy": -0.524,
+      "curveC_netExpectancy": -2.524,
+      "curveC_netPnL": -100.96,
+      "curveC_profitFactorNet": 0.43,
+      "curveC_netWinRate": 35
+    },
+    "Q3 (40-60%)": {
+      "name": "Q3 (40-60%)",
+      "count": 49,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.417,
+          "maeMeanPct": 0.488,
+          "mfeMaeRatio": 0.85,
+          "meanReturnPct": -0.019,
+          "posReturnRatePct": 51.02,
+          "mfeFirstPct": 2.04
+        },
+        "2h": {
+          "mfeMeanPct": 0.667,
+          "maeMeanPct": 0.724,
+          "mfeMaeRatio": 0.92,
+          "meanReturnPct": 0.036,
+          "posReturnRatePct": 53.06,
+          "mfeFirstPct": 40.82
+        },
+        "3h": {
+          "mfeMeanPct": 0.858,
+          "maeMeanPct": 0.783,
+          "mfeMaeRatio": 1.1,
+          "meanReturnPct": 0.173,
+          "posReturnRatePct": 59.18,
+          "mfeFirstPct": 36.73
+        },
+        "4h": {
+          "mfeMeanPct": 0.93,
+          "maeMeanPct": 0.848,
+          "mfeMaeRatio": 1.1,
+          "meanReturnPct": 0.151,
+          "posReturnRatePct": 59.18,
+          "mfeFirstPct": 38.78
+        },
+        "6h": {
+          "mfeMeanPct": 1.068,
+          "maeMeanPct": 0.958,
+          "mfeMaeRatio": 1.12,
+          "meanReturnPct": 0.141,
+          "posReturnRatePct": 61.22,
+          "mfeFirstPct": 36.73
+        },
+        "8h": {
+          "mfeMeanPct": 1.186,
+          "maeMeanPct": 1.135,
+          "mfeMaeRatio": 1.04,
+          "meanReturnPct": 0.115,
+          "posReturnRatePct": 63.27,
+          "mfeFirstPct": 38.78
+        },
+        "12h": {
+          "mfeMeanPct": 1.379,
+          "maeMeanPct": 1.329,
+          "mfeMaeRatio": 1.04,
+          "meanReturnPct": 0.199,
+          "posReturnRatePct": 57.14,
+          "mfeFirstPct": 42.86
+        },
+        "24h": {
+          "mfeMeanPct": 1.811,
+          "maeMeanPct": 1.793,
+          "mfeMaeRatio": 1.01,
+          "meanReturnPct": 0.114,
+          "posReturnRatePct": 57.14,
+          "mfeFirstPct": 48.98
+        }
+      },
+      "curveA_pureReturn6h": 0.141,
+      "curveB_idealExpectancy": 2.366,
+      "curveC_grossExpectancy": 1.965,
+      "curveC_netExpectancy": -0.035,
+      "curveC_netPnL": -1.72,
+      "curveC_profitFactorNet": 0.99,
+      "curveC_netWinRate": 42.86
+    },
+    "Q4 (60-80%)": {
+      "name": "Q4 (60-80%)",
+      "count": 26,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.641,
+          "maeMeanPct": 0.405,
+          "mfeMaeRatio": 1.58,
+          "meanReturnPct": 0.12,
+          "posReturnRatePct": 57.69,
+          "mfeFirstPct": 0
+        },
+        "2h": {
+          "mfeMeanPct": 0.796,
+          "maeMeanPct": 0.598,
+          "mfeMaeRatio": 1.33,
+          "meanReturnPct": 0.166,
+          "posReturnRatePct": 65.38,
+          "mfeFirstPct": 30.77
+        },
+        "3h": {
+          "mfeMeanPct": 0.939,
+          "maeMeanPct": 0.726,
+          "mfeMaeRatio": 1.29,
+          "meanReturnPct": 0.231,
+          "posReturnRatePct": 73.08,
+          "mfeFirstPct": 30.77
+        },
+        "4h": {
+          "mfeMeanPct": 1.031,
+          "maeMeanPct": 0.881,
+          "mfeMaeRatio": 1.17,
+          "meanReturnPct": 0.016,
+          "posReturnRatePct": 61.54,
+          "mfeFirstPct": 42.31
+        },
+        "6h": {
+          "mfeMeanPct": 1.201,
+          "maeMeanPct": 1.105,
+          "mfeMaeRatio": 1.09,
+          "meanReturnPct": -0.037,
+          "posReturnRatePct": 50,
+          "mfeFirstPct": 50
+        },
+        "8h": {
+          "mfeMeanPct": 1.412,
+          "maeMeanPct": 1.367,
+          "mfeMaeRatio": 1.03,
+          "meanReturnPct": -0.056,
+          "posReturnRatePct": 50,
+          "mfeFirstPct": 50
+        },
+        "12h": {
+          "mfeMeanPct": 1.597,
+          "maeMeanPct": 1.612,
+          "mfeMaeRatio": 0.99,
+          "meanReturnPct": -0.024,
+          "posReturnRatePct": 46.15,
+          "mfeFirstPct": 57.69
+        },
+        "24h": {
+          "mfeMeanPct": 2.235,
+          "maeMeanPct": 2.316,
+          "mfeMaeRatio": 0.97,
+          "meanReturnPct": 0.041,
+          "posReturnRatePct": 57.69,
+          "mfeFirstPct": 53.85
+        }
+      },
+      "curveA_pureReturn6h": -0.037,
+      "curveB_idealExpectancy": 2.164,
+      "curveC_grossExpectancy": 1.763,
+      "curveC_netExpectancy": -0.237,
+      "curveC_netPnL": -6.16,
+      "curveC_profitFactorNet": 0.95,
+      "curveC_netWinRate": 42.31
+    },
+    "Q5 (80-100%)": {
+      "name": "Q5 (80-100%)",
+      "count": 64,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.693,
+          "maeMeanPct": 0.95,
+          "mfeMaeRatio": 0.73,
+          "meanReturnPct": -0.054,
+          "posReturnRatePct": 54.69,
+          "mfeFirstPct": 3.13
+        },
+        "2h": {
+          "mfeMeanPct": 0.908,
+          "maeMeanPct": 1.266,
+          "mfeMaeRatio": 0.72,
+          "meanReturnPct": -0.054,
+          "posReturnRatePct": 51.56,
+          "mfeFirstPct": 40.63
+        },
+        "3h": {
+          "mfeMeanPct": 1.063,
+          "maeMeanPct": 1.362,
+          "mfeMaeRatio": 0.78,
+          "meanReturnPct": 0.052,
+          "posReturnRatePct": 64.06,
+          "mfeFirstPct": 37.5
+        },
+        "4h": {
+          "mfeMeanPct": 1.263,
+          "maeMeanPct": 1.472,
+          "mfeMaeRatio": 0.86,
+          "meanReturnPct": 0.29,
+          "posReturnRatePct": 62.5,
+          "mfeFirstPct": 37.5
+        },
+        "6h": {
+          "mfeMeanPct": 1.556,
+          "maeMeanPct": 1.636,
+          "mfeMaeRatio": 0.95,
+          "meanReturnPct": 0.386,
+          "posReturnRatePct": 60.94,
+          "mfeFirstPct": 35.94
+        },
+        "8h": {
+          "mfeMeanPct": 1.952,
+          "maeMeanPct": 1.912,
+          "mfeMaeRatio": 1.02,
+          "meanReturnPct": 0.519,
+          "posReturnRatePct": 65.63,
+          "mfeFirstPct": 42.19
+        },
+        "12h": {
+          "mfeMeanPct": 2.338,
+          "maeMeanPct": 2.127,
+          "mfeMaeRatio": 1.1,
+          "meanReturnPct": 0.72,
+          "posReturnRatePct": 67.19,
+          "mfeFirstPct": 35.94
+        },
+        "24h": {
+          "mfeMeanPct": 3.368,
+          "maeMeanPct": 2.772,
+          "mfeMaeRatio": 1.21,
+          "meanReturnPct": 0.885,
+          "posReturnRatePct": 71.88,
+          "mfeFirstPct": 34.38
+        }
+      },
+      "curveA_pureReturn6h": 0.386,
+      "curveB_idealExpectancy": 0.129,
+      "curveC_grossExpectancy": -0.271,
+      "curveC_netExpectancy": -2.271,
+      "curveC_netPnL": -145.35,
+      "curveC_profitFactorNet": 0.71,
+      "curveC_netWinRate": 39.06
+    }
+  },
+  "qualityOfRejection": {
+    "highRecovery": {
+      "name": "High Recovery (>=70%)",
+      "count": 117,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.476,
+          "maeMeanPct": 0.507,
+          "mfeMaeRatio": 0.94,
+          "meanReturnPct": 0.009,
+          "posReturnRatePct": 55.56,
+          "mfeFirstPct": 3.42
+        },
+        "2h": {
+          "mfeMeanPct": 0.627,
+          "maeMeanPct": 0.767,
+          "mfeMaeRatio": 0.82,
+          "meanReturnPct": -0.05,
+          "posReturnRatePct": 52.99,
+          "mfeFirstPct": 41.88
+        },
+        "3h": {
+          "mfeMeanPct": 0.748,
+          "maeMeanPct": 0.886,
+          "mfeMaeRatio": 0.84,
+          "meanReturnPct": -0.053,
+          "posReturnRatePct": 58.97,
+          "mfeFirstPct": 40.17
+        },
+        "4h": {
+          "mfeMeanPct": 0.859,
+          "maeMeanPct": 1.001,
+          "mfeMaeRatio": 0.86,
+          "meanReturnPct": 0.033,
+          "posReturnRatePct": 58.12,
+          "mfeFirstPct": 43.59
+        },
+        "6h": {
+          "mfeMeanPct": 1.013,
+          "maeMeanPct": 1.171,
+          "mfeMaeRatio": 0.87,
+          "meanReturnPct": 0.025,
+          "posReturnRatePct": 52.99,
+          "mfeFirstPct": 43.59
+        },
+        "8h": {
+          "mfeMeanPct": 1.168,
+          "maeMeanPct": 1.391,
+          "mfeMaeRatio": 0.84,
+          "meanReturnPct": 0.041,
+          "posReturnRatePct": 57.26,
+          "mfeFirstPct": 42.74
+        },
+        "12h": {
+          "mfeMeanPct": 1.357,
+          "maeMeanPct": 1.597,
+          "mfeMaeRatio": 0.85,
+          "meanReturnPct": 0.128,
+          "posReturnRatePct": 54.7,
+          "mfeFirstPct": 46.15
+        },
+        "24h": {
+          "mfeMeanPct": 1.973,
+          "maeMeanPct": 2.188,
+          "mfeMaeRatio": 0.9,
+          "meanReturnPct": -0.005,
+          "posReturnRatePct": 55.56,
+          "mfeFirstPct": 47.86
+        }
+      },
+      "curveA_pureReturn6h": 0.025,
+      "curveB_idealExpectancy": 0.328,
+      "curveC_grossExpectancy": -0.072,
+      "curveC_netExpectancy": -2.072,
+      "curveC_netPnL": -242.48,
+      "curveC_profitFactorNet": 0.63,
+      "curveC_netWinRate": 35.9
+    },
+    "lowRecovery": {
+      "name": "Low Recovery (<70%)",
+      "count": 112,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.482,
+          "maeMeanPct": 0.563,
+          "mfeMaeRatio": 0.86,
+          "meanReturnPct": 0.002,
+          "posReturnRatePct": 54.46,
+          "mfeFirstPct": 2.68
+        },
+        "2h": {
+          "mfeMeanPct": 0.712,
+          "maeMeanPct": 0.743,
+          "mfeMaeRatio": 0.96,
+          "meanReturnPct": 0.08,
+          "posReturnRatePct": 56.25,
+          "mfeFirstPct": 31.25
+        },
+        "3h": {
+          "mfeMeanPct": 0.861,
+          "maeMeanPct": 0.796,
+          "mfeMaeRatio": 1.08,
+          "meanReturnPct": 0.251,
+          "posReturnRatePct": 63.39,
+          "mfeFirstPct": 34.82
+        },
+        "4h": {
+          "mfeMeanPct": 0.967,
+          "maeMeanPct": 0.9,
+          "mfeMaeRatio": 1.07,
+          "meanReturnPct": 0.235,
+          "posReturnRatePct": 60.71,
+          "mfeFirstPct": 34.82
+        },
+        "6h": {
+          "mfeMeanPct": 1.162,
+          "maeMeanPct": 1.11,
+          "mfeMaeRatio": 1.05,
+          "meanReturnPct": 0.232,
+          "posReturnRatePct": 58.04,
+          "mfeFirstPct": 40.18
+        },
+        "8h": {
+          "mfeMeanPct": 1.4,
+          "maeMeanPct": 1.27,
+          "mfeMaeRatio": 1.1,
+          "meanReturnPct": 0.272,
+          "posReturnRatePct": 61.61,
+          "mfeFirstPct": 45.54
+        },
+        "12h": {
+          "mfeMeanPct": 1.675,
+          "maeMeanPct": 1.467,
+          "mfeMaeRatio": 1.14,
+          "meanReturnPct": 0.35,
+          "posReturnRatePct": 59.82,
+          "mfeFirstPct": 41.96
+        },
+        "24h": {
+          "mfeMeanPct": 2.328,
+          "maeMeanPct": 1.914,
+          "mfeMaeRatio": 1.22,
+          "meanReturnPct": 0.46,
+          "posReturnRatePct": 61.61,
+          "mfeFirstPct": 44.64
+        }
+      },
+      "curveA_pureReturn6h": 0.232,
+      "curveB_idealExpectancy": 1.034,
+      "curveC_grossExpectancy": 0.634,
+      "curveC_netExpectancy": -1.366,
+      "curveC_netPnL": -153.04,
+      "curveC_profitFactorNet": 0.72,
+      "curveC_netWinRate": 36.61
+    }
+  },
+  "compression": {
+    "compressed": {
+      "name": "Compressed (ATR < ATR24)",
+      "count": 64,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.435,
+          "maeMeanPct": 0.414,
+          "mfeMaeRatio": 1.05,
+          "meanReturnPct": 0.029,
+          "posReturnRatePct": 51.56,
+          "mfeFirstPct": 1.56
+        },
+        "2h": {
+          "mfeMeanPct": 0.63,
+          "maeMeanPct": 0.685,
+          "mfeMaeRatio": 0.92,
+          "meanReturnPct": 0.024,
+          "posReturnRatePct": 50,
+          "mfeFirstPct": 39.06
+        },
+        "3h": {
+          "mfeMeanPct": 0.763,
+          "maeMeanPct": 0.769,
+          "mfeMaeRatio": 0.99,
+          "meanReturnPct": 0.074,
+          "posReturnRatePct": 56.25,
+          "mfeFirstPct": 42.19
+        },
+        "4h": {
+          "mfeMeanPct": 0.822,
+          "maeMeanPct": 0.94,
+          "mfeMaeRatio": 0.87,
+          "meanReturnPct": -0.08,
+          "posReturnRatePct": 51.56,
+          "mfeFirstPct": 46.88
+        },
+        "6h": {
+          "mfeMeanPct": 0.987,
+          "maeMeanPct": 1.219,
+          "mfeMaeRatio": 0.81,
+          "meanReturnPct": -0.091,
+          "posReturnRatePct": 46.88,
+          "mfeFirstPct": 45.31
+        },
+        "8h": {
+          "mfeMeanPct": 1.055,
+          "maeMeanPct": 1.419,
+          "mfeMaeRatio": 0.74,
+          "meanReturnPct": -0.135,
+          "posReturnRatePct": 56.25,
+          "mfeFirstPct": 45.31
+        },
+        "12h": {
+          "mfeMeanPct": 1.263,
+          "maeMeanPct": 1.518,
+          "mfeMaeRatio": 0.83,
+          "meanReturnPct": 0.044,
+          "posReturnRatePct": 53.13,
+          "mfeFirstPct": 43.75
+        },
+        "24h": {
+          "mfeMeanPct": 1.726,
+          "maeMeanPct": 1.886,
+          "mfeMaeRatio": 0.92,
+          "meanReturnPct": 0.015,
+          "posReturnRatePct": 57.81,
+          "mfeFirstPct": 43.75
+        }
+      },
+      "curveA_pureReturn6h": -0.091,
+      "curveB_idealExpectancy": -0.008,
+      "curveC_grossExpectancy": -0.408,
+      "curveC_netExpectancy": -2.408,
+      "curveC_netPnL": -154.12,
+      "curveC_profitFactorNet": 0.52,
+      "curveC_netWinRate": 29.69
+    },
+    "expanded": {
+      "name": "Expanded (ATR >= ATR24)",
+      "count": 165,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.496,
+          "maeMeanPct": 0.581,
+          "mfeMaeRatio": 0.85,
+          "meanReturnPct": -0.003,
+          "posReturnRatePct": 56.36,
+          "mfeFirstPct": 3.64
+        },
+        "2h": {
+          "mfeMeanPct": 0.684,
+          "maeMeanPct": 0.782,
+          "mfeMaeRatio": 0.87,
+          "meanReturnPct": 0.009,
+          "posReturnRatePct": 56.36,
+          "mfeFirstPct": 35.76
+        },
+        "3h": {
+          "mfeMeanPct": 0.819,
+          "maeMeanPct": 0.87,
+          "mfeMaeRatio": 0.94,
+          "meanReturnPct": 0.104,
+          "posReturnRatePct": 63.03,
+          "mfeFirstPct": 35.76
+        },
+        "4h": {
+          "mfeMeanPct": 0.947,
+          "maeMeanPct": 0.956,
+          "mfeMaeRatio": 0.99,
+          "meanReturnPct": 0.214,
+          "posReturnRatePct": 62.42,
+          "mfeFirstPct": 36.36
+        },
+        "6h": {
+          "mfeMeanPct": 1.125,
+          "maeMeanPct": 1.111,
+          "mfeMaeRatio": 1.01,
+          "meanReturnPct": 0.21,
+          "posReturnRatePct": 58.79,
+          "mfeFirstPct": 40.61
+        },
+        "8h": {
+          "mfeMeanPct": 1.369,
+          "maeMeanPct": 1.298,
+          "mfeMaeRatio": 1.06,
+          "meanReturnPct": 0.266,
+          "posReturnRatePct": 60.61,
+          "mfeFirstPct": 43.64
+        },
+        "12h": {
+          "mfeMeanPct": 1.609,
+          "maeMeanPct": 1.539,
+          "mfeMaeRatio": 1.05,
+          "meanReturnPct": 0.311,
+          "posReturnRatePct": 58.79,
+          "mfeFirstPct": 44.24
+        },
+        "24h": {
+          "mfeMeanPct": 2.309,
+          "maeMeanPct": 2.119,
+          "mfeMaeRatio": 1.09,
+          "meanReturnPct": 0.303,
+          "posReturnRatePct": 58.79,
+          "mfeFirstPct": 47.27
+        }
+      },
+      "curveA_pureReturn6h": 0.21,
+      "curveB_idealExpectancy": 0.937,
+      "curveC_grossExpectancy": 0.537,
+      "curveC_netExpectancy": -1.463,
+      "curveC_netPnL": -241.4,
+      "curveC_profitFactorNet": 0.72,
+      "curveC_netWinRate": 38.79
+    }
+  },
+  "timeToExpansion": {
+    "1h": {
+      "mfeMeanPct": 0.479,
+      "maeMeanPct": 0.534,
+      "mfeMaeRatio": 0.9,
+      "meanReturnPct": 0.006,
+      "posReturnRatePct": 55.02,
+      "mfeFirstPct": 3.06
+    },
+    "2h": {
+      "mfeMeanPct": 0.669,
+      "maeMeanPct": 0.755,
+      "mfeMaeRatio": 0.89,
+      "meanReturnPct": 0.014,
+      "posReturnRatePct": 54.59,
+      "mfeFirstPct": 36.68
+    },
+    "3h": {
+      "mfeMeanPct": 0.803,
+      "maeMeanPct": 0.842,
+      "mfeMaeRatio": 0.95,
+      "meanReturnPct": 0.096,
+      "posReturnRatePct": 61.14,
+      "mfeFirstPct": 37.55
+    },
+    "4h": {
+      "mfeMeanPct": 0.912,
+      "maeMeanPct": 0.952,
+      "mfeMaeRatio": 0.96,
+      "meanReturnPct": 0.132,
+      "posReturnRatePct": 59.39,
+      "mfeFirstPct": 39.3
+    },
+    "6h": {
+      "mfeMeanPct": 1.086,
+      "maeMeanPct": 1.141,
+      "mfeMaeRatio": 0.95,
+      "meanReturnPct": 0.126,
+      "posReturnRatePct": 55.46,
+      "mfeFirstPct": 41.92
+    },
+    "8h": {
+      "mfeMeanPct": 1.282,
+      "maeMeanPct": 1.331,
+      "mfeMaeRatio": 0.96,
+      "meanReturnPct": 0.154,
+      "posReturnRatePct": 59.39,
+      "mfeFirstPct": 44.1
+    },
+    "12h": {
+      "mfeMeanPct": 1.513,
+      "maeMeanPct": 1.533,
+      "mfeMaeRatio": 0.99,
+      "meanReturnPct": 0.236,
+      "posReturnRatePct": 57.21,
+      "mfeFirstPct": 44.1
+    },
+    "24h": {
+      "mfeMeanPct": 2.146,
+      "maeMeanPct": 2.054,
+      "mfeMaeRatio": 1.04,
+      "meanReturnPct": 0.222,
+      "posReturnRatePct": 58.52,
+      "mfeFirstPct": 46.29
+    }
+  },
+  "conjunctionTest": {
+    "is": {
+      "name": "IS (2023-2024) Filtered Conjunction",
+      "count": 26,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.51,
+          "maeMeanPct": 0.857,
+          "mfeMaeRatio": 0.6,
+          "meanReturnPct": -0.204,
+          "posReturnRatePct": 57.69,
+          "mfeFirstPct": 3.85
+        },
+        "2h": {
+          "mfeMeanPct": 0.626,
+          "maeMeanPct": 1.37,
+          "mfeMaeRatio": 0.46,
+          "meanReturnPct": -0.271,
+          "posReturnRatePct": 46.15,
+          "mfeFirstPct": 53.85
+        },
+        "3h": {
+          "mfeMeanPct": 0.748,
+          "maeMeanPct": 1.494,
+          "mfeMaeRatio": 0.5,
+          "meanReturnPct": -0.252,
+          "posReturnRatePct": 57.69,
+          "mfeFirstPct": 53.85
+        },
+        "4h": {
+          "mfeMeanPct": 1.026,
+          "maeMeanPct": 1.638,
+          "mfeMaeRatio": 0.63,
+          "meanReturnPct": 0.071,
+          "posReturnRatePct": 53.85,
+          "mfeFirstPct": 50
+        },
+        "6h": {
+          "mfeMeanPct": 1.085,
+          "maeMeanPct": 1.799,
+          "mfeMaeRatio": 0.6,
+          "meanReturnPct": 0.023,
+          "posReturnRatePct": 57.69,
+          "mfeFirstPct": 50
+        },
+        "8h": {
+          "mfeMeanPct": 1.348,
+          "maeMeanPct": 1.865,
+          "mfeMaeRatio": 0.72,
+          "meanReturnPct": 0.331,
+          "posReturnRatePct": 69.23,
+          "mfeFirstPct": 42.31
+        },
+        "12h": {
+          "mfeMeanPct": 1.772,
+          "maeMeanPct": 2.068,
+          "mfeMaeRatio": 0.86,
+          "meanReturnPct": 0.284,
+          "posReturnRatePct": 65.38,
+          "mfeFirstPct": 34.62
+        },
+        "24h": {
+          "mfeMeanPct": 2.501,
+          "maeMeanPct": 2.722,
+          "mfeMaeRatio": 0.92,
+          "meanReturnPct": 0.283,
+          "posReturnRatePct": 73.08,
+          "mfeFirstPct": 30.77
+        }
+      },
+      "curveA_pureReturn6h": 0.023,
+      "curveB_idealExpectancy": -1.993,
+      "curveC_grossExpectancy": -2.393,
+      "curveC_netExpectancy": -4.393,
+      "curveC_netPnL": -114.21,
+      "curveC_profitFactorNet": 0.46,
+      "curveC_netWinRate": 34.62
+    },
+    "oos": {
+      "name": "OOS (2025-2026) Filtered Conjunction",
+      "count": 18,
+      "horizonStats": {
+        "1h": {
+          "mfeMeanPct": 0.855,
+          "maeMeanPct": 0.822,
+          "mfeMaeRatio": 1.04,
+          "meanReturnPct": 0.135,
+          "posReturnRatePct": 44.44,
+          "mfeFirstPct": 0
+        },
+        "2h": {
+          "mfeMeanPct": 1.128,
+          "maeMeanPct": 1.046,
+          "mfeMaeRatio": 1.08,
+          "meanReturnPct": 0.122,
+          "posReturnRatePct": 50,
+          "mfeFirstPct": 38.89
+        },
+        "3h": {
+          "mfeMeanPct": 1.181,
+          "maeMeanPct": 1.206,
+          "mfeMaeRatio": 0.98,
+          "meanReturnPct": -0.174,
+          "posReturnRatePct": 55.56,
+          "mfeFirstPct": 33.33
+        },
+        "4h": {
+          "mfeMeanPct": 1.246,
+          "maeMeanPct": 1.354,
+          "mfeMaeRatio": 0.92,
+          "meanReturnPct": 0.099,
+          "posReturnRatePct": 61.11,
+          "mfeFirstPct": 38.89
+        },
+        "6h": {
+          "mfeMeanPct": 1.751,
+          "maeMeanPct": 1.424,
+          "mfeMaeRatio": 1.23,
+          "meanReturnPct": 0.443,
+          "posReturnRatePct": 61.11,
+          "mfeFirstPct": 16.67
+        },
+        "8h": {
+          "mfeMeanPct": 1.896,
+          "maeMeanPct": 1.872,
+          "mfeMaeRatio": 1.01,
+          "meanReturnPct": 0.286,
+          "posReturnRatePct": 66.67,
+          "mfeFirstPct": 27.78
+        },
+        "12h": {
+          "mfeMeanPct": 2.229,
+          "maeMeanPct": 1.999,
+          "mfeMaeRatio": 1.12,
+          "meanReturnPct": 0.933,
+          "posReturnRatePct": 72.22,
+          "mfeFirstPct": 33.33
+        },
+        "24h": {
+          "mfeMeanPct": 3.74,
+          "maeMeanPct": 2.323,
+          "mfeMaeRatio": 1.61,
+          "meanReturnPct": 1.647,
+          "posReturnRatePct": 66.67,
+          "mfeFirstPct": 33.33
+        }
+      },
+      "curveA_pureReturn6h": 0.443,
+      "curveB_idealExpectancy": 0.946,
+      "curveC_grossExpectancy": 0.546,
+      "curveC_netExpectancy": -1.454,
+      "curveC_netPnL": -26.17,
+      "curveC_profitFactorNet": 0.8,
+      "curveC_netWinRate": 38.89
+    }
+  }
+}

@@ -1,0 +1,3434 @@
+{
+  "gateC0": {
+    "passed": true,
+    "verdict": "UNIFIED_STRUCTURAL_PHENOMENON",
+    "isIdenticalTradeSet": true,
+    "maxObservedPocDistancePct": 0,
+    "profiles": [
+      {
+        "id": "BRK-FAIL-0162",
+        "config": {
+          "id": "BRK-FAIL-0162",
+          "lookbackBars": 24,
+          "volumeZScore": 1.4,
+          "pocProximity": 0.04,
+          "tpMultiplier": 2
+        },
+        "is": {
+          "nTrades": 16,
+          "netPnL": 9.61,
+          "pf": 1.1,
+          "signalsHash": "f354b574f5d2a3fc268a033c1dede8feccf1157a7248b8e41ad00ee3afd65d17",
+          "tradesHash": "5a36c034c026a401af58e3f32fb5058d864200d61f1d8b435799768b5c3d5689",
+          "maxPocDist": 0
+        },
+        "oos": {
+          "nTrades": 17,
+          "netPnL": 3.27,
+          "pf": 1.04,
+          "signalsHash": "1551050704ab4390fd646ca3c898dd406d3743cb9238580180baeca72d71eb83",
+          "tradesHash": "10c0ca2bb650c8b78c00273458cfe15b64825e8633df5ef96de84584fa5e6af9",
+          "maxPocDist": 0
+        },
+        "full": {
+          "tradeLedger": [
+            {
+              "signalIndex": 1340,
+              "entryIndex": 1341,
+              "exitIndex": 1347,
+              "timestamp": 1677358799999,
+              "direction": "LONG",
+              "entryPrice": 22923.32,
+              "exitPrice": 23214.53,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 12.703657236386315,
+              "fees": 4.025407314472773,
+              "slippage": 0.8050814628945546,
+              "trueNetPnL": 7.873168459018988,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "entryIndex": 2143,
+              "exitIndex": 2149,
+              "timestamp": 1680249599999,
+              "direction": "LONG",
+              "entryPrice": 27738.48,
+              "exitPrice": 28521.78,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 28.23874992429287,
+              "fees": 4.056477499848586,
+              "slippage": 0.8112954999697173,
+              "trueNetPnL": 23.370976924474565,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "entryIndex": 4560,
+              "exitIndex": 4566,
+              "timestamp": 1688950799999,
+              "direction": "LONG",
+              "entryPrice": 30090.26,
+              "exitPrice": 30112.1,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 0.7258162608099813,
+              "fees": 4.00145163252162,
+              "slippage": 0.800290326504324,
+              "trueNetPnL": -4.075925698215963,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "entryIndex": 5559,
+              "exitIndex": 5565,
+              "timestamp": 1692547199999,
+              "direction": "LONG",
+              "entryPrice": 26106.83,
+              "exitPrice": 26209.46,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.9311551804641685,
+              "fees": 4.007862310360928,
+              "slippage": 0.8015724620721858,
+              "trueNetPnL": -0.8782795919689457,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "entryIndex": 6052,
+              "exitIndex": 6058,
+              "timestamp": 1694321999999,
+              "direction": "LONG",
+              "entryPrice": 25832.82,
+              "exitPrice": 25795.33,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.451254644285756,
+              "fees": 3.9970974907114285,
+              "slippage": 0.7994194981422857,
+              "trueNetPnL": -6.247771633139471,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "entryIndex": 6408,
+              "exitIndex": 6414,
+              "timestamp": 1695603599999,
+              "direction": "LONG",
+              "entryPrice": 26248.16,
+              "exitPrice": 26189.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -2.2458717106266013,
+              "fees": 3.9955082565787468,
+              "slippage": 0.7991016513157494,
+              "trueNetPnL": -7.040481618521097,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "entryIndex": 6518,
+              "exitIndex": 6524,
+              "timestamp": 1695999599999,
+              "direction": "LONG",
+              "entryPrice": 26908.12,
+              "exitPrice": 26870,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.4166727367054621,
+              "fees": 3.9971666545265894,
+              "slippage": 0.7994333309053179,
+              "trueNetPnL": -6.213272722137369,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "entryIndex": 11378,
+              "exitIndex": 11381,
+              "timestamp": 1713495599999,
+              "direction": "LONG",
+              "entryPrice": 61359.57,
+              "exitPrice": 64939.549999999996,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 58.344281095842035,
+              "fees": 4.116688562191684,
+              "slippage": 0.8233377124383369,
+              "trueNetPnL": 53.404254821212014,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "entryIndex": 11796,
+              "exitIndex": 11802,
+              "timestamp": 1715000399999,
+              "direction": "LONG",
+              "entryPrice": 63593.99,
+              "exitPrice": 63220,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -5.880901638661106,
+              "fees": 3.988238196722678,
+              "slippage": 0.7976476393445356,
+              "trueNetPnL": -10.66678747472832,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "entryIndex": 11799,
+              "exitIndex": 11802,
+              "timestamp": 1715011199999,
+              "direction": "LONG",
+              "entryPrice": 63632.01,
+              "exitPrice": 62781.62,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.364185729792275,
+              "fees": 3.9732716285404157,
+              "slippage": 0.7946543257080831,
+              "trueNetPnL": -18.132111684040776,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "entryIndex": 14198,
+              "exitIndex": 14199,
+              "timestamp": 1723647599999,
+              "direction": "LONG",
+              "entryPrice": 59502.67,
+              "exitPrice": 58704.24999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.418221400821267,
+              "fees": 3.9731635571983572,
+              "slippage": 0.7946327114396715,
+              "trueNetPnL": -18.186017669459297,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "entryIndex": 14630,
+              "exitIndex": 14636,
+              "timestamp": 1725202799999,
+              "direction": "LONG",
+              "entryPrice": 57879.99,
+              "exitPrice": 58351.11,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 8.139600576987014,
+              "fees": 4.016279201153974,
+              "slippage": 0.8032558402307948,
+              "trueNetPnL": 3.3200655356022453,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "entryIndex": 17756,
+              "exitIndex": 17762,
+              "timestamp": 1736456399999,
+              "direction": "LONG",
+              "entryPrice": 91903.21,
+              "exitPrice": 93696.13,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.508785384101362,
+              "fees": 4.039017570768203,
+              "slippage": 0.8078035141536406,
+              "trueNetPnL": 14.66196429917952,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "entryIndex": 19847,
+              "exitIndex": 19851,
+              "timestamp": 1743983999999,
+              "direction": "LONG",
+              "entryPrice": 78430,
+              "exitPrice": 76874.67,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -19.830804539079455,
+              "fees": 3.960338390921841,
+              "slippage": 0.7920676781843683,
+              "trueNetPnL": -24.583210608185663,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "OFF_HOURS"
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "entryIndex": 20522,
+              "exitIndex": 20528,
+              "timestamp": 1746413999999,
+              "direction": "LONG",
+              "entryPrice": 94236.66,
+              "exitPrice": 94550.63,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.331718250625618,
+              "fees": 4.006663436501251,
+              "slippage": 0.8013326873002503,
+              "trueNetPnL": -1.4762778731758832,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "entryIndex": 21457,
+              "exitIndex": 21463,
+              "timestamp": 1749779999999,
+              "direction": "LONG",
+              "entryPrice": 103773.65,
+              "exitPrice": 104739.45,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 9.306794162101871,
+              "fees": 4.018613588324204,
+              "slippage": 0.8037227176648408,
+              "trueNetPnL": 4.484457856112827,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "entryIndex": 24465,
+              "exitIndex": 24470,
+              "timestamp": 1760608799999,
+              "direction": "LONG",
+              "entryPrice": 111146.31,
+              "exitPrice": 109148.31999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -17.976215314750487,
+              "fees": 3.964047569370499,
+              "slippage": 0.7928095138740998,
+              "trueNetPnL": -22.733072397995087,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "entryIndex": 24472,
+              "exitIndex": 24475,
+              "timestamp": 1760633999999,
+              "direction": "LONG",
+              "entryPrice": 109232.43,
+              "exitPrice": 107556,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -15.34736524674946,
+              "fees": 3.969305269506501,
+              "slippage": 0.7938610539013002,
+              "trueNetPnL": -20.11053157015726,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "entryIndex": 24490,
+              "exitIndex": 24495,
+              "timestamp": 1760698799999,
+              "direction": "LONG",
+              "entryPrice": 104751.99,
+              "exitPrice": 107547.91000000002,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 26.690853319349948,
+              "fees": 4.0533817066386995,
+              "slippage": 0.81067634132774,
+              "trueNetPnL": 21.82679527138351,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "entryIndex": 25406,
+              "exitIndex": 25411,
+              "timestamp": 1763996399999,
+              "direction": "LONG",
+              "entryPrice": 86171.22,
+              "exitPrice": 88947.23999999999,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 32.21516418126596,
+              "fees": 4.0644303283625325,
+              "slippage": 0.8128860656725065,
+              "trueNetPnL": 27.33784778723092,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "entryIndex": 25505,
+              "exitIndex": 25511,
+              "timestamp": 1764352799999,
+              "direction": "LONG",
+              "entryPrice": 90661.57,
+              "exitPrice": 90884.01,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.453520273253461,
+              "fees": 4.004907040546507,
+              "slippage": 0.8009814081093014,
+              "trueNetPnL": -2.352368175402347,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "entryIndex": 27278,
+              "exitIndex": 27284,
+              "timestamp": 1770735599999,
+              "direction": "LONG",
+              "entryPrice": 68460.4,
+              "exitPrice": 68656.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.8601936301863886,
+              "fees": 4.005720387260373,
+              "slippage": 0.8011440774520746,
+              "trueNetPnL": -1.9466708345260593,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "entryIndex": 27303,
+              "exitIndex": 27309,
+              "timestamp": 1770825599999,
+              "direction": "LONG",
+              "entryPrice": 66519.72,
+              "exitPrice": 67433.14,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.731567120246421,
+              "fees": 4.027463134240493,
+              "slippage": 0.8054926268480986,
+              "trueNetPnL": 8.89861135915783,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "entryIndex": 27663,
+              "exitIndex": 27669,
+              "timestamp": 1772121599999,
+              "direction": "LONG",
+              "entryPrice": 67382,
+              "exitPrice": 67572.3,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.824196372918627,
+              "fees": 4.005648392745837,
+              "slippage": 0.8011296785491675,
+              "trueNetPnL": -1.9825816983763773,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "entryIndex": 28167,
+              "exitIndex": 28173,
+              "timestamp": 1773935999999,
+              "direction": "LONG",
+              "entryPrice": 69412.52,
+              "exitPrice": 70183.99,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 11.114277366676806,
+              "fees": 4.022228554733354,
+              "slippage": 0.8044457109466707,
+              "trueNetPnL": 6.287603100996781,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "entryIndex": 28338,
+              "exitIndex": 28339,
+              "timestamp": 1774551599999,
+              "direction": "LONG",
+              "entryPrice": 68497.25,
+              "exitPrice": 69398.75,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.1611123074284,
+              "fees": 4.026322224614857,
+              "slippage": 0.8052644449229713,
+              "trueNetPnL": 8.329525637890573,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "entryIndex": 28358,
+              "exitIndex": 28364,
+              "timestamp": 1774623599999,
+              "direction": "LONG",
+              "entryPrice": 66205.07,
+              "exitPrice": 66098,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.6172477425068348,
+              "fees": 3.996765504514986,
+              "slippage": 0.7993531009029973,
+              "trueNetPnL": -6.413366347924818,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "entryIndex": 28837,
+              "exitIndex": 28843,
+              "timestamp": 1776347999999,
+              "direction": "LONG",
+              "entryPrice": 73788.03,
+              "exitPrice": 75223.47,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.45356177688986,
+              "fees": 4.03890712355378,
+              "slippage": 0.807781424710756,
+              "trueNetPnL": 14.606873228625323,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "entryIndex": 29056,
+              "exitIndex": 29062,
+              "timestamp": 1777136399999,
+              "direction": "LONG",
+              "entryPrice": 77397.27,
+              "exitPrice": 77625,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.942351842642459,
+              "fees": 4.005884703685284,
+              "slippage": 0.801176940737057,
+              "trueNetPnL": -1.8647098017798824,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "entryIndex": 29125,
+              "exitIndex": 29125,
+              "timestamp": 1777384799999,
+              "direction": "LONG",
+              "entryPrice": 76189.85,
+              "exitPrice": 75703.11,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -6.38851500560777,
+              "fees": 3.9872229699887844,
+              "slippage": 0.7974445939977569,
+              "trueNetPnL": -11.17318256959431,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "entryIndex": 29554,
+              "exitIndex": 29560,
+              "timestamp": 1778929199999,
+              "direction": "LONG",
+              "entryPrice": 77959.99,
+              "exitPrice": 78201.5,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.0978711002912487,
+              "fees": 4.006195742200582,
+              "slippage": 0.8012391484401165,
+              "trueNetPnL": -1.7095637903494496,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "entryIndex": 29703,
+              "exitIndex": 29705,
+              "timestamp": 1779465599999,
+              "direction": "LONG",
+              "entryPrice": 76790.6,
+              "exitPrice": 76329.96,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -5.9986508765395685,
+              "fees": 3.9880026982469206,
+              "slippage": 0.7976005396493842,
+              "trueNetPnL": -10.784254114435873,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "entryIndex": 30302,
+              "exitIndex": 30308,
+              "timestamp": 1781621999999,
+              "direction": "LONG",
+              "entryPrice": 65654.9,
+              "exitPrice": 65776.97,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 1.8592671681779576,
+              "fees": 4.003718534336356,
+              "slippage": 0.8007437068672711,
+              "trueNetPnL": -2.945195073025669,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            }
+          ],
+          "signalEvents": [
+            {
+              "signalIndex": 1340,
+              "timestamp": 1677358799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 23053.8325
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "timestamp": 1680249599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 28068.664499999984
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "timestamp": 1688950799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 30271.316800000026
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "timestamp": 1692547199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26131.884500000062
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "timestamp": 1694321999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 25871.209000000214
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "timestamp": 1695603599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26580.054600000032
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "timestamp": 1695999599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 27064.472399999988
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "timestamp": 1713495599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 63464.97399999992
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "timestamp": 1715000399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64188.287799999984
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "timestamp": 1715011199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64215.76809999998
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "timestamp": 1723647599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 60928.54560000007
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "timestamp": 1725202799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 58131.5
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "timestamp": 1736456399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 93225.6815000002
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "timestamp": 1743983999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 78699.47800000005
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "timestamp": 1746413999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 95450.2755999998
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "timestamp": 1749779999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 107693.17230000003
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "timestamp": 1760608799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 110815.03260000024
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "timestamp": 1760633999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 111311.31759999975
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "timestamp": 1760698799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 108467.6426
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "timestamp": 1763996399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 86954.23799999998
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "timestamp": 1764352799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 91504.35909999984
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "timestamp": 1770735599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69081.01999999999
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "timestamp": 1770825599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66827.74049999991
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "timestamp": 1772121599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68200.66709999996
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "timestamp": 1773935999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 71230.80149999987
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "timestamp": 1774551599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69476.01090000001
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "timestamp": 1774623599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68833.32119999995
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "timestamp": 1776347999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 74643.6434999998
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "timestamp": 1777136399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77589.34560000103
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "timestamp": 1777384799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 76834.01880000002
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "timestamp": 1778929199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 79163.75199999995
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "timestamp": 1779465599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77370.74080000017
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "timestamp": 1781621999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66376.37509999986
+              }
+            }
+          ],
+          "nTrades": 33,
+          "winRate": 36.36,
+          "totalGrossPnL": 171.7,
+          "totalNetPnL": 12.89,
+          "totalFees": 132.34,
+          "totalSlippage": 26.47,
+          "netPF": 1.07,
+          "expectancy": 0.39,
+          "maxDD": 93.42
+        }
+      },
+      {
+        "id": "BRK-FAIL-0172",
+        "config": {
+          "id": "BRK-FAIL-0172",
+          "lookbackBars": 24,
+          "volumeZScore": 1.4,
+          "pocProximity": 0.05,
+          "tpMultiplier": 2
+        },
+        "is": {
+          "nTrades": 16,
+          "netPnL": 9.61,
+          "pf": 1.1,
+          "signalsHash": "f354b574f5d2a3fc268a033c1dede8feccf1157a7248b8e41ad00ee3afd65d17",
+          "tradesHash": "5a36c034c026a401af58e3f32fb5058d864200d61f1d8b435799768b5c3d5689",
+          "maxPocDist": 0
+        },
+        "oos": {
+          "nTrades": 17,
+          "netPnL": 3.27,
+          "pf": 1.04,
+          "signalsHash": "1551050704ab4390fd646ca3c898dd406d3743cb9238580180baeca72d71eb83",
+          "tradesHash": "10c0ca2bb650c8b78c00273458cfe15b64825e8633df5ef96de84584fa5e6af9",
+          "maxPocDist": 0
+        },
+        "full": {
+          "tradeLedger": [
+            {
+              "signalIndex": 1340,
+              "entryIndex": 1341,
+              "exitIndex": 1347,
+              "timestamp": 1677358799999,
+              "direction": "LONG",
+              "entryPrice": 22923.32,
+              "exitPrice": 23214.53,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 12.703657236386315,
+              "fees": 4.025407314472773,
+              "slippage": 0.8050814628945546,
+              "trueNetPnL": 7.873168459018988,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "entryIndex": 2143,
+              "exitIndex": 2149,
+              "timestamp": 1680249599999,
+              "direction": "LONG",
+              "entryPrice": 27738.48,
+              "exitPrice": 28521.78,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 28.23874992429287,
+              "fees": 4.056477499848586,
+              "slippage": 0.8112954999697173,
+              "trueNetPnL": 23.370976924474565,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "entryIndex": 4560,
+              "exitIndex": 4566,
+              "timestamp": 1688950799999,
+              "direction": "LONG",
+              "entryPrice": 30090.26,
+              "exitPrice": 30112.1,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 0.7258162608099813,
+              "fees": 4.00145163252162,
+              "slippage": 0.800290326504324,
+              "trueNetPnL": -4.075925698215963,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "entryIndex": 5559,
+              "exitIndex": 5565,
+              "timestamp": 1692547199999,
+              "direction": "LONG",
+              "entryPrice": 26106.83,
+              "exitPrice": 26209.46,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.9311551804641685,
+              "fees": 4.007862310360928,
+              "slippage": 0.8015724620721858,
+              "trueNetPnL": -0.8782795919689457,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "entryIndex": 6052,
+              "exitIndex": 6058,
+              "timestamp": 1694321999999,
+              "direction": "LONG",
+              "entryPrice": 25832.82,
+              "exitPrice": 25795.33,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.451254644285756,
+              "fees": 3.9970974907114285,
+              "slippage": 0.7994194981422857,
+              "trueNetPnL": -6.247771633139471,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "entryIndex": 6408,
+              "exitIndex": 6414,
+              "timestamp": 1695603599999,
+              "direction": "LONG",
+              "entryPrice": 26248.16,
+              "exitPrice": 26189.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -2.2458717106266013,
+              "fees": 3.9955082565787468,
+              "slippage": 0.7991016513157494,
+              "trueNetPnL": -7.040481618521097,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "entryIndex": 6518,
+              "exitIndex": 6524,
+              "timestamp": 1695999599999,
+              "direction": "LONG",
+              "entryPrice": 26908.12,
+              "exitPrice": 26870,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.4166727367054621,
+              "fees": 3.9971666545265894,
+              "slippage": 0.7994333309053179,
+              "trueNetPnL": -6.213272722137369,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "entryIndex": 11378,
+              "exitIndex": 11381,
+              "timestamp": 1713495599999,
+              "direction": "LONG",
+              "entryPrice": 61359.57,
+              "exitPrice": 64939.549999999996,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 58.344281095842035,
+              "fees": 4.116688562191684,
+              "slippage": 0.8233377124383369,
+              "trueNetPnL": 53.404254821212014,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "entryIndex": 11796,
+              "exitIndex": 11802,
+              "timestamp": 1715000399999,
+              "direction": "LONG",
+              "entryPrice": 63593.99,
+              "exitPrice": 63220,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -5.880901638661106,
+              "fees": 3.988238196722678,
+              "slippage": 0.7976476393445356,
+              "trueNetPnL": -10.66678747472832,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "entryIndex": 11799,
+              "exitIndex": 11802,
+              "timestamp": 1715011199999,
+              "direction": "LONG",
+              "entryPrice": 63632.01,
+              "exitPrice": 62781.62,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.364185729792275,
+              "fees": 3.9732716285404157,
+              "slippage": 0.7946543257080831,
+              "trueNetPnL": -18.132111684040776,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "entryIndex": 14198,
+              "exitIndex": 14199,
+              "timestamp": 1723647599999,
+              "direction": "LONG",
+              "entryPrice": 59502.67,
+              "exitPrice": 58704.24999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.418221400821267,
+              "fees": 3.9731635571983572,
+              "slippage": 0.7946327114396715,
+              "trueNetPnL": -18.186017669459297,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "entryIndex": 14630,
+              "exitIndex": 14636,
+              "timestamp": 1725202799999,
+              "direction": "LONG",
+              "entryPrice": 57879.99,
+              "exitPrice": 58351.11,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 8.139600576987014,
+              "fees": 4.016279201153974,
+              "slippage": 0.8032558402307948,
+              "trueNetPnL": 3.3200655356022453,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "entryIndex": 17756,
+              "exitIndex": 17762,
+              "timestamp": 1736456399999,
+              "direction": "LONG",
+              "entryPrice": 91903.21,
+              "exitPrice": 93696.13,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.508785384101362,
+              "fees": 4.039017570768203,
+              "slippage": 0.8078035141536406,
+              "trueNetPnL": 14.66196429917952,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "entryIndex": 19847,
+              "exitIndex": 19851,
+              "timestamp": 1743983999999,
+              "direction": "LONG",
+              "entryPrice": 78430,
+              "exitPrice": 76874.67,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -19.830804539079455,
+              "fees": 3.960338390921841,
+              "slippage": 0.7920676781843683,
+              "trueNetPnL": -24.583210608185663,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "OFF_HOURS"
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "entryIndex": 20522,
+              "exitIndex": 20528,
+              "timestamp": 1746413999999,
+              "direction": "LONG",
+              "entryPrice": 94236.66,
+              "exitPrice": 94550.63,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.331718250625618,
+              "fees": 4.006663436501251,
+              "slippage": 0.8013326873002503,
+              "trueNetPnL": -1.4762778731758832,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "entryIndex": 21457,
+              "exitIndex": 21463,
+              "timestamp": 1749779999999,
+              "direction": "LONG",
+              "entryPrice": 103773.65,
+              "exitPrice": 104739.45,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 9.306794162101871,
+              "fees": 4.018613588324204,
+              "slippage": 0.8037227176648408,
+              "trueNetPnL": 4.484457856112827,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "entryIndex": 24465,
+              "exitIndex": 24470,
+              "timestamp": 1760608799999,
+              "direction": "LONG",
+              "entryPrice": 111146.31,
+              "exitPrice": 109148.31999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -17.976215314750487,
+              "fees": 3.964047569370499,
+              "slippage": 0.7928095138740998,
+              "trueNetPnL": -22.733072397995087,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "entryIndex": 24472,
+              "exitIndex": 24475,
+              "timestamp": 1760633999999,
+              "direction": "LONG",
+              "entryPrice": 109232.43,
+              "exitPrice": 107556,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -15.34736524674946,
+              "fees": 3.969305269506501,
+              "slippage": 0.7938610539013002,
+              "trueNetPnL": -20.11053157015726,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "entryIndex": 24490,
+              "exitIndex": 24495,
+              "timestamp": 1760698799999,
+              "direction": "LONG",
+              "entryPrice": 104751.99,
+              "exitPrice": 107547.91000000002,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 26.690853319349948,
+              "fees": 4.0533817066386995,
+              "slippage": 0.81067634132774,
+              "trueNetPnL": 21.82679527138351,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "entryIndex": 25406,
+              "exitIndex": 25411,
+              "timestamp": 1763996399999,
+              "direction": "LONG",
+              "entryPrice": 86171.22,
+              "exitPrice": 88947.23999999999,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 32.21516418126596,
+              "fees": 4.0644303283625325,
+              "slippage": 0.8128860656725065,
+              "trueNetPnL": 27.33784778723092,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "entryIndex": 25505,
+              "exitIndex": 25511,
+              "timestamp": 1764352799999,
+              "direction": "LONG",
+              "entryPrice": 90661.57,
+              "exitPrice": 90884.01,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.453520273253461,
+              "fees": 4.004907040546507,
+              "slippage": 0.8009814081093014,
+              "trueNetPnL": -2.352368175402347,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "entryIndex": 27278,
+              "exitIndex": 27284,
+              "timestamp": 1770735599999,
+              "direction": "LONG",
+              "entryPrice": 68460.4,
+              "exitPrice": 68656.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.8601936301863886,
+              "fees": 4.005720387260373,
+              "slippage": 0.8011440774520746,
+              "trueNetPnL": -1.9466708345260593,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "entryIndex": 27303,
+              "exitIndex": 27309,
+              "timestamp": 1770825599999,
+              "direction": "LONG",
+              "entryPrice": 66519.72,
+              "exitPrice": 67433.14,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.731567120246421,
+              "fees": 4.027463134240493,
+              "slippage": 0.8054926268480986,
+              "trueNetPnL": 8.89861135915783,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "entryIndex": 27663,
+              "exitIndex": 27669,
+              "timestamp": 1772121599999,
+              "direction": "LONG",
+              "entryPrice": 67382,
+              "exitPrice": 67572.3,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.824196372918627,
+              "fees": 4.005648392745837,
+              "slippage": 0.8011296785491675,
+              "trueNetPnL": -1.9825816983763773,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "entryIndex": 28167,
+              "exitIndex": 28173,
+              "timestamp": 1773935999999,
+              "direction": "LONG",
+              "entryPrice": 69412.52,
+              "exitPrice": 70183.99,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 11.114277366676806,
+              "fees": 4.022228554733354,
+              "slippage": 0.8044457109466707,
+              "trueNetPnL": 6.287603100996781,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "entryIndex": 28338,
+              "exitIndex": 28339,
+              "timestamp": 1774551599999,
+              "direction": "LONG",
+              "entryPrice": 68497.25,
+              "exitPrice": 69398.75,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.1611123074284,
+              "fees": 4.026322224614857,
+              "slippage": 0.8052644449229713,
+              "trueNetPnL": 8.329525637890573,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "entryIndex": 28358,
+              "exitIndex": 28364,
+              "timestamp": 1774623599999,
+              "direction": "LONG",
+              "entryPrice": 66205.07,
+              "exitPrice": 66098,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.6172477425068348,
+              "fees": 3.996765504514986,
+              "slippage": 0.7993531009029973,
+              "trueNetPnL": -6.413366347924818,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "entryIndex": 28837,
+              "exitIndex": 28843,
+              "timestamp": 1776347999999,
+              "direction": "LONG",
+              "entryPrice": 73788.03,
+              "exitPrice": 75223.47,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.45356177688986,
+              "fees": 4.03890712355378,
+              "slippage": 0.807781424710756,
+              "trueNetPnL": 14.606873228625323,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "entryIndex": 29056,
+              "exitIndex": 29062,
+              "timestamp": 1777136399999,
+              "direction": "LONG",
+              "entryPrice": 77397.27,
+              "exitPrice": 77625,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.942351842642459,
+              "fees": 4.005884703685284,
+              "slippage": 0.801176940737057,
+              "trueNetPnL": -1.8647098017798824,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "entryIndex": 29125,
+              "exitIndex": 29125,
+              "timestamp": 1777384799999,
+              "direction": "LONG",
+              "entryPrice": 76189.85,
+              "exitPrice": 75703.11,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -6.38851500560777,
+              "fees": 3.9872229699887844,
+              "slippage": 0.7974445939977569,
+              "trueNetPnL": -11.17318256959431,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "entryIndex": 29554,
+              "exitIndex": 29560,
+              "timestamp": 1778929199999,
+              "direction": "LONG",
+              "entryPrice": 77959.99,
+              "exitPrice": 78201.5,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.0978711002912487,
+              "fees": 4.006195742200582,
+              "slippage": 0.8012391484401165,
+              "trueNetPnL": -1.7095637903494496,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "entryIndex": 29703,
+              "exitIndex": 29705,
+              "timestamp": 1779465599999,
+              "direction": "LONG",
+              "entryPrice": 76790.6,
+              "exitPrice": 76329.96,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -5.9986508765395685,
+              "fees": 3.9880026982469206,
+              "slippage": 0.7976005396493842,
+              "trueNetPnL": -10.784254114435873,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "entryIndex": 30302,
+              "exitIndex": 30308,
+              "timestamp": 1781621999999,
+              "direction": "LONG",
+              "entryPrice": 65654.9,
+              "exitPrice": 65776.97,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 1.8592671681779576,
+              "fees": 4.003718534336356,
+              "slippage": 0.8007437068672711,
+              "trueNetPnL": -2.945195073025669,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            }
+          ],
+          "signalEvents": [
+            {
+              "signalIndex": 1340,
+              "timestamp": 1677358799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 23053.8325
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "timestamp": 1680249599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 28068.664499999984
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "timestamp": 1688950799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 30271.316800000026
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "timestamp": 1692547199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26131.884500000062
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "timestamp": 1694321999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 25871.209000000214
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "timestamp": 1695603599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26580.054600000032
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "timestamp": 1695999599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 27064.472399999988
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "timestamp": 1713495599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 63464.97399999992
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "timestamp": 1715000399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64188.287799999984
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "timestamp": 1715011199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64215.76809999998
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "timestamp": 1723647599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 60928.54560000007
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "timestamp": 1725202799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 58131.5
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "timestamp": 1736456399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 93225.6815000002
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "timestamp": 1743983999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 78699.47800000005
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "timestamp": 1746413999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 95450.2755999998
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "timestamp": 1749779999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 107693.17230000003
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "timestamp": 1760608799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 110815.03260000024
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "timestamp": 1760633999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 111311.31759999975
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "timestamp": 1760698799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 108467.6426
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "timestamp": 1763996399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 86954.23799999998
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "timestamp": 1764352799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 91504.35909999984
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "timestamp": 1770735599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69081.01999999999
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "timestamp": 1770825599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66827.74049999991
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "timestamp": 1772121599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68200.66709999996
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "timestamp": 1773935999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 71230.80149999987
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "timestamp": 1774551599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69476.01090000001
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "timestamp": 1774623599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68833.32119999995
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "timestamp": 1776347999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 74643.6434999998
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "timestamp": 1777136399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77589.34560000103
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "timestamp": 1777384799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 76834.01880000002
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "timestamp": 1778929199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 79163.75199999995
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "timestamp": 1779465599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77370.74080000017
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "timestamp": 1781621999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66376.37509999986
+              }
+            }
+          ],
+          "nTrades": 33,
+          "winRate": 36.36,
+          "totalGrossPnL": 171.7,
+          "totalNetPnL": 12.89,
+          "totalFees": 132.34,
+          "totalSlippage": 26.47,
+          "netPF": 1.07,
+          "expectancy": 0.39,
+          "maxDD": 93.42
+        }
+      },
+      {
+        "id": "BRK-FAIL-0182",
+        "config": {
+          "id": "BRK-FAIL-0182",
+          "lookbackBars": 24,
+          "volumeZScore": 1.4,
+          "pocProximity": 0.06,
+          "tpMultiplier": 2
+        },
+        "is": {
+          "nTrades": 16,
+          "netPnL": 9.61,
+          "pf": 1.1,
+          "signalsHash": "f354b574f5d2a3fc268a033c1dede8feccf1157a7248b8e41ad00ee3afd65d17",
+          "tradesHash": "5a36c034c026a401af58e3f32fb5058d864200d61f1d8b435799768b5c3d5689",
+          "maxPocDist": 0
+        },
+        "oos": {
+          "nTrades": 17,
+          "netPnL": 3.27,
+          "pf": 1.04,
+          "signalsHash": "1551050704ab4390fd646ca3c898dd406d3743cb9238580180baeca72d71eb83",
+          "tradesHash": "10c0ca2bb650c8b78c00273458cfe15b64825e8633df5ef96de84584fa5e6af9",
+          "maxPocDist": 0
+        },
+        "full": {
+          "tradeLedger": [
+            {
+              "signalIndex": 1340,
+              "entryIndex": 1341,
+              "exitIndex": 1347,
+              "timestamp": 1677358799999,
+              "direction": "LONG",
+              "entryPrice": 22923.32,
+              "exitPrice": 23214.53,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 12.703657236386315,
+              "fees": 4.025407314472773,
+              "slippage": 0.8050814628945546,
+              "trueNetPnL": 7.873168459018988,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "entryIndex": 2143,
+              "exitIndex": 2149,
+              "timestamp": 1680249599999,
+              "direction": "LONG",
+              "entryPrice": 27738.48,
+              "exitPrice": 28521.78,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 28.23874992429287,
+              "fees": 4.056477499848586,
+              "slippage": 0.8112954999697173,
+              "trueNetPnL": 23.370976924474565,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "entryIndex": 4560,
+              "exitIndex": 4566,
+              "timestamp": 1688950799999,
+              "direction": "LONG",
+              "entryPrice": 30090.26,
+              "exitPrice": 30112.1,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 0.7258162608099813,
+              "fees": 4.00145163252162,
+              "slippage": 0.800290326504324,
+              "trueNetPnL": -4.075925698215963,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "entryIndex": 5559,
+              "exitIndex": 5565,
+              "timestamp": 1692547199999,
+              "direction": "LONG",
+              "entryPrice": 26106.83,
+              "exitPrice": 26209.46,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.9311551804641685,
+              "fees": 4.007862310360928,
+              "slippage": 0.8015724620721858,
+              "trueNetPnL": -0.8782795919689457,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "entryIndex": 6052,
+              "exitIndex": 6058,
+              "timestamp": 1694321999999,
+              "direction": "LONG",
+              "entryPrice": 25832.82,
+              "exitPrice": 25795.33,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.451254644285756,
+              "fees": 3.9970974907114285,
+              "slippage": 0.7994194981422857,
+              "trueNetPnL": -6.247771633139471,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "entryIndex": 6408,
+              "exitIndex": 6414,
+              "timestamp": 1695603599999,
+              "direction": "LONG",
+              "entryPrice": 26248.16,
+              "exitPrice": 26189.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -2.2458717106266013,
+              "fees": 3.9955082565787468,
+              "slippage": 0.7991016513157494,
+              "trueNetPnL": -7.040481618521097,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "entryIndex": 6518,
+              "exitIndex": 6524,
+              "timestamp": 1695999599999,
+              "direction": "LONG",
+              "entryPrice": 26908.12,
+              "exitPrice": 26870,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.4166727367054621,
+              "fees": 3.9971666545265894,
+              "slippage": 0.7994333309053179,
+              "trueNetPnL": -6.213272722137369,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "entryIndex": 11378,
+              "exitIndex": 11381,
+              "timestamp": 1713495599999,
+              "direction": "LONG",
+              "entryPrice": 61359.57,
+              "exitPrice": 64939.549999999996,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 58.344281095842035,
+              "fees": 4.116688562191684,
+              "slippage": 0.8233377124383369,
+              "trueNetPnL": 53.404254821212014,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "entryIndex": 11796,
+              "exitIndex": 11802,
+              "timestamp": 1715000399999,
+              "direction": "LONG",
+              "entryPrice": 63593.99,
+              "exitPrice": 63220,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -5.880901638661106,
+              "fees": 3.988238196722678,
+              "slippage": 0.7976476393445356,
+              "trueNetPnL": -10.66678747472832,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "entryIndex": 11799,
+              "exitIndex": 11802,
+              "timestamp": 1715011199999,
+              "direction": "LONG",
+              "entryPrice": 63632.01,
+              "exitPrice": 62781.62,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.364185729792275,
+              "fees": 3.9732716285404157,
+              "slippage": 0.7946543257080831,
+              "trueNetPnL": -18.132111684040776,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "entryIndex": 14198,
+              "exitIndex": 14199,
+              "timestamp": 1723647599999,
+              "direction": "LONG",
+              "entryPrice": 59502.67,
+              "exitPrice": 58704.24999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -13.418221400821267,
+              "fees": 3.9731635571983572,
+              "slippage": 0.7946327114396715,
+              "trueNetPnL": -18.186017669459297,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "entryIndex": 14630,
+              "exitIndex": 14636,
+              "timestamp": 1725202799999,
+              "direction": "LONG",
+              "entryPrice": 57879.99,
+              "exitPrice": 58351.11,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 8.139600576987014,
+              "fees": 4.016279201153974,
+              "slippage": 0.8032558402307948,
+              "trueNetPnL": 3.3200655356022453,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "entryIndex": 17756,
+              "exitIndex": 17762,
+              "timestamp": 1736456399999,
+              "direction": "LONG",
+              "entryPrice": 91903.21,
+              "exitPrice": 93696.13,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.508785384101362,
+              "fees": 4.039017570768203,
+              "slippage": 0.8078035141536406,
+              "trueNetPnL": 14.66196429917952,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "entryIndex": 19847,
+              "exitIndex": 19851,
+              "timestamp": 1743983999999,
+              "direction": "LONG",
+              "entryPrice": 78430,
+              "exitPrice": 76874.67,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -19.830804539079455,
+              "fees": 3.960338390921841,
+              "slippage": 0.7920676781843683,
+              "trueNetPnL": -24.583210608185663,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "OFF_HOURS"
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "entryIndex": 20522,
+              "exitIndex": 20528,
+              "timestamp": 1746413999999,
+              "direction": "LONG",
+              "entryPrice": 94236.66,
+              "exitPrice": 94550.63,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.331718250625618,
+              "fees": 4.006663436501251,
+              "slippage": 0.8013326873002503,
+              "trueNetPnL": -1.4762778731758832,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "entryIndex": 21457,
+              "exitIndex": 21463,
+              "timestamp": 1749779999999,
+              "direction": "LONG",
+              "entryPrice": 103773.65,
+              "exitPrice": 104739.45,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 9.306794162101871,
+              "fees": 4.018613588324204,
+              "slippage": 0.8037227176648408,
+              "trueNetPnL": 4.484457856112827,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "ASIA"
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "entryIndex": 24465,
+              "exitIndex": 24470,
+              "timestamp": 1760608799999,
+              "direction": "LONG",
+              "entryPrice": 111146.31,
+              "exitPrice": 109148.31999999999,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -17.976215314750487,
+              "fees": 3.964047569370499,
+              "slippage": 0.7928095138740998,
+              "trueNetPnL": -22.733072397995087,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "entryIndex": 24472,
+              "exitIndex": 24475,
+              "timestamp": 1760633999999,
+              "direction": "LONG",
+              "entryPrice": 109232.43,
+              "exitPrice": 107556,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -15.34736524674946,
+              "fees": 3.969305269506501,
+              "slippage": 0.7938610539013002,
+              "trueNetPnL": -20.11053157015726,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "entryIndex": 24490,
+              "exitIndex": 24495,
+              "timestamp": 1760698799999,
+              "direction": "LONG",
+              "entryPrice": 104751.99,
+              "exitPrice": 107547.91000000002,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 26.690853319349948,
+              "fees": 4.0533817066386995,
+              "slippage": 0.81067634132774,
+              "trueNetPnL": 21.82679527138351,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "entryIndex": 25406,
+              "exitIndex": 25411,
+              "timestamp": 1763996399999,
+              "direction": "LONG",
+              "entryPrice": 86171.22,
+              "exitPrice": 88947.23999999999,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 32.21516418126596,
+              "fees": 4.0644303283625325,
+              "slippage": 0.8128860656725065,
+              "trueNetPnL": 27.33784778723092,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "entryIndex": 25505,
+              "exitIndex": 25511,
+              "timestamp": 1764352799999,
+              "direction": "LONG",
+              "entryPrice": 90661.57,
+              "exitPrice": 90884.01,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.453520273253461,
+              "fees": 4.004907040546507,
+              "slippage": 0.8009814081093014,
+              "trueNetPnL": -2.352368175402347,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "entryIndex": 27278,
+              "exitIndex": 27284,
+              "timestamp": 1770735599999,
+              "direction": "LONG",
+              "entryPrice": 68460.4,
+              "exitPrice": 68656.21,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.8601936301863886,
+              "fees": 4.005720387260373,
+              "slippage": 0.8011440774520746,
+              "trueNetPnL": -1.9466708345260593,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "entryIndex": 27303,
+              "exitIndex": 27309,
+              "timestamp": 1770825599999,
+              "direction": "LONG",
+              "entryPrice": 66519.72,
+              "exitPrice": 67433.14,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.731567120246421,
+              "fees": 4.027463134240493,
+              "slippage": 0.8054926268480986,
+              "trueNetPnL": 8.89861135915783,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "entryIndex": 27663,
+              "exitIndex": 27669,
+              "timestamp": 1772121599999,
+              "direction": "LONG",
+              "entryPrice": 67382,
+              "exitPrice": 67572.3,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.824196372918627,
+              "fees": 4.005648392745837,
+              "slippage": 0.8011296785491675,
+              "trueNetPnL": -1.9825816983763773,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "entryIndex": 28167,
+              "exitIndex": 28173,
+              "timestamp": 1773935999999,
+              "direction": "LONG",
+              "entryPrice": 69412.52,
+              "exitPrice": 70183.99,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 11.114277366676806,
+              "fees": 4.022228554733354,
+              "slippage": 0.8044457109466707,
+              "trueNetPnL": 6.287603100996781,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "entryIndex": 28338,
+              "exitIndex": 28339,
+              "timestamp": 1774551599999,
+              "direction": "LONG",
+              "entryPrice": 68497.25,
+              "exitPrice": 69398.75,
+              "exitReason": "TAKE_PROFIT",
+              "pocDistancePct": 0,
+              "grossPnL": 13.1611123074284,
+              "fees": 4.026322224614857,
+              "slippage": 0.8052644449229713,
+              "trueNetPnL": 8.329525637890573,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "entryIndex": 28358,
+              "exitIndex": 28364,
+              "timestamp": 1774623599999,
+              "direction": "LONG",
+              "entryPrice": 66205.07,
+              "exitPrice": 66098,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": -1.6172477425068348,
+              "fees": 3.996765504514986,
+              "slippage": 0.7993531009029973,
+              "trueNetPnL": -6.413366347924818,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "entryIndex": 28837,
+              "exitIndex": 28843,
+              "timestamp": 1776347999999,
+              "direction": "LONG",
+              "entryPrice": 73788.03,
+              "exitPrice": 75223.47,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 19.45356177688986,
+              "fees": 4.03890712355378,
+              "slippage": 0.807781424710756,
+              "trueNetPnL": 14.606873228625323,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "entryIndex": 29056,
+              "exitIndex": 29062,
+              "timestamp": 1777136399999,
+              "direction": "LONG",
+              "entryPrice": 77397.27,
+              "exitPrice": 77625,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 2.942351842642459,
+              "fees": 4.005884703685284,
+              "slippage": 0.801176940737057,
+              "trueNetPnL": -1.8647098017798824,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "entryIndex": 29125,
+              "exitIndex": 29125,
+              "timestamp": 1777384799999,
+              "direction": "LONG",
+              "entryPrice": 76189.85,
+              "exitPrice": 75703.11,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -6.38851500560777,
+              "fees": 3.9872229699887844,
+              "slippage": 0.7974445939977569,
+              "trueNetPnL": -11.17318256959431,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "NORMAL_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "entryIndex": 29554,
+              "exitIndex": 29560,
+              "timestamp": 1778929199999,
+              "direction": "LONG",
+              "entryPrice": 77959.99,
+              "exitPrice": 78201.5,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 3.0978711002912487,
+              "fees": 4.006195742200582,
+              "slippage": 0.8012391484401165,
+              "trueNetPnL": -1.7095637903494496,
+              "regimes": {
+                "trend": "BEAR_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "LONDON"
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "entryIndex": 29703,
+              "exitIndex": 29705,
+              "timestamp": 1779465599999,
+              "direction": "LONG",
+              "entryPrice": 76790.6,
+              "exitPrice": 76329.96,
+              "exitReason": "STOP_LOSS",
+              "pocDistancePct": 0,
+              "grossPnL": -5.9986508765395685,
+              "fees": 3.9880026982469206,
+              "slippage": 0.7976005396493842,
+              "trueNetPnL": -10.784254114435873,
+              "regimes": {
+                "trend": "CHOPPY_RANGE",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "entryIndex": 30302,
+              "exitIndex": 30308,
+              "timestamp": 1781621999999,
+              "direction": "LONG",
+              "entryPrice": 65654.9,
+              "exitPrice": 65776.97,
+              "exitReason": "TIME_EXIT",
+              "pocDistancePct": 0,
+              "grossPnL": 1.8592671681779576,
+              "fees": 4.003718534336356,
+              "slippage": 0.8007437068672711,
+              "trueNetPnL": -2.945195073025669,
+              "regimes": {
+                "trend": "BULL_TREND",
+                "volatility": "HIGH_VOLATILITY",
+                "session": "NEW_YORK"
+              }
+            }
+          ],
+          "signalEvents": [
+            {
+              "signalIndex": 1340,
+              "timestamp": 1677358799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 23053.8325
+              }
+            },
+            {
+              "signalIndex": 2142,
+              "timestamp": 1680249599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 28068.664499999984
+              }
+            },
+            {
+              "signalIndex": 4559,
+              "timestamp": 1688950799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 30271.316800000026
+              }
+            },
+            {
+              "signalIndex": 5558,
+              "timestamp": 1692547199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26131.884500000062
+              }
+            },
+            {
+              "signalIndex": 6051,
+              "timestamp": 1694321999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 25871.209000000214
+              }
+            },
+            {
+              "signalIndex": 6407,
+              "timestamp": 1695603599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 26580.054600000032
+              }
+            },
+            {
+              "signalIndex": 6517,
+              "timestamp": 1695999599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 27064.472399999988
+              }
+            },
+            {
+              "signalIndex": 11377,
+              "timestamp": 1713495599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 63464.97399999992
+              }
+            },
+            {
+              "signalIndex": 11795,
+              "timestamp": 1715000399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64188.287799999984
+              }
+            },
+            {
+              "signalIndex": 11798,
+              "timestamp": 1715011199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 64215.76809999998
+              }
+            },
+            {
+              "signalIndex": 14197,
+              "timestamp": 1723647599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 60928.54560000007
+              }
+            },
+            {
+              "signalIndex": 14629,
+              "timestamp": 1725202799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 58131.5
+              }
+            },
+            {
+              "signalIndex": 17755,
+              "timestamp": 1736456399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 93225.6815000002
+              }
+            },
+            {
+              "signalIndex": 19846,
+              "timestamp": 1743983999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 78699.47800000005
+              }
+            },
+            {
+              "signalIndex": 20521,
+              "timestamp": 1746413999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 95450.2755999998
+              }
+            },
+            {
+              "signalIndex": 21456,
+              "timestamp": 1749779999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 107693.17230000003
+              }
+            },
+            {
+              "signalIndex": 24464,
+              "timestamp": 1760608799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 110815.03260000024
+              }
+            },
+            {
+              "signalIndex": 24471,
+              "timestamp": 1760633999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 111311.31759999975
+              }
+            },
+            {
+              "signalIndex": 24489,
+              "timestamp": 1760698799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 108467.6426
+              }
+            },
+            {
+              "signalIndex": 25405,
+              "timestamp": 1763996399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 86954.23799999998
+              }
+            },
+            {
+              "signalIndex": 25504,
+              "timestamp": 1764352799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 91504.35909999984
+              }
+            },
+            {
+              "signalIndex": 27277,
+              "timestamp": 1770735599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69081.01999999999
+              }
+            },
+            {
+              "signalIndex": 27302,
+              "timestamp": 1770825599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66827.74049999991
+              }
+            },
+            {
+              "signalIndex": 27662,
+              "timestamp": 1772121599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68200.66709999996
+              }
+            },
+            {
+              "signalIndex": 28166,
+              "timestamp": 1773935999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 71230.80149999987
+              }
+            },
+            {
+              "signalIndex": 28337,
+              "timestamp": 1774551599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 69476.01090000001
+              }
+            },
+            {
+              "signalIndex": 28357,
+              "timestamp": 1774623599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 68833.32119999995
+              }
+            },
+            {
+              "signalIndex": 28836,
+              "timestamp": 1776347999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 74643.6434999998
+              }
+            },
+            {
+              "signalIndex": 29055,
+              "timestamp": 1777136399999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77589.34560000103
+              }
+            },
+            {
+              "signalIndex": 29124,
+              "timestamp": 1777384799999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 76834.01880000002
+              }
+            },
+            {
+              "signalIndex": 29553,
+              "timestamp": 1778929199999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 79163.75199999995
+              }
+            },
+            {
+              "signalIndex": 29702,
+              "timestamp": 1779465599999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 77370.74080000017
+              }
+            },
+            {
+              "signalIndex": 30301,
+              "timestamp": 1781621999999,
+              "nar": {
+                "signal": "LONG",
+                "confidence": 0.85,
+                "narrative": "Wyckoff Spring: Pierced support by >0.5 ATR, closed above it on anomalous volume (Z-Score > 1.4) near POC.",
+                "poc": 66376.37509999986
+              }
+            }
+          ],
+          "nTrades": 33,
+          "winRate": 36.36,
+          "totalGrossPnL": 171.7,
+          "totalNetPnL": 12.89,
+          "totalFees": 132.34,
+          "totalSlippage": 26.47,
+          "netPF": 1.07,
+          "expectancy": 0.39,
+          "maxDD": 93.42
+        }
+      }
+    ]
+  },
+  "gateC1": {
+    "passed": false,
+    "totalWindows": 10,
+    "positiveWindows": 4,
+    "consistencyRatioPct": 40,
+    "cumulativeWfaNetPnL": -3.65,
+    "windows": [
+      {
+        "window": 1,
+        "trainRange": "0..16008 (16008 bars)",
+        "testRange": "16056..17584 (1528 bars)",
+        "trainPF": 1.23,
+        "trainNetPnL": 16.53,
+        "testNTrades": 0,
+        "testWinRate": 0,
+        "testPF": 0,
+        "testNetPnL": 0,
+        "outcome": "FLAT"
+      },
+      {
+        "window": 2,
+        "trainRange": "0..17536 (17536 bars)",
+        "testRange": "17584..19112 (1528 bars)",
+        "trainPF": 1.23,
+        "trainNetPnL": 16.53,
+        "testNTrades": 1,
+        "testWinRate": 100,
+        "testPF": 10,
+        "testNetPnL": 14.66,
+        "outcome": "WIN"
+      },
+      {
+        "window": 3,
+        "trainRange": "0..19064 (19064 bars)",
+        "testRange": "19112..20640 (1528 bars)",
+        "trainPF": 1.44,
+        "trainNetPnL": 31.19,
+        "testNTrades": 2,
+        "testWinRate": 0,
+        "testPF": 0,
+        "testNetPnL": -26.06,
+        "outcome": "LOSS"
+      },
+      {
+        "window": 4,
+        "trainRange": "0..20592 (20592 bars)",
+        "testRange": "20640..22168 (1528 bars)",
+        "trainPF": 1.05,
+        "trainNetPnL": 5.13,
+        "testNTrades": 1,
+        "testWinRate": 100,
+        "testPF": 10,
+        "testNetPnL": 4.48,
+        "outcome": "WIN"
+      },
+      {
+        "window": 5,
+        "trainRange": "0..22120 (22120 bars)",
+        "testRange": "22168..23696 (1528 bars)",
+        "trainPF": 1.1,
+        "trainNetPnL": 9.61,
+        "testNTrades": 0,
+        "testWinRate": 0,
+        "testPF": 0,
+        "testNetPnL": 0,
+        "outcome": "FLAT"
+      },
+      {
+        "window": 6,
+        "trainRange": "0..23648 (23648 bars)",
+        "testRange": "23696..25224 (1528 bars)",
+        "trainPF": 1.1,
+        "trainNetPnL": 9.61,
+        "testNTrades": 3,
+        "testWinRate": 33.33,
+        "testPF": 0.51,
+        "testNetPnL": -21.02,
+        "outcome": "LOSS"
+      },
+      {
+        "window": 7,
+        "trainRange": "0..25176 (25176 bars)",
+        "testRange": "25224..26752 (1528 bars)",
+        "trainPF": 0.92,
+        "trainNetPnL": -11.4,
+        "testNTrades": 2,
+        "testWinRate": 50,
+        "testPF": 11.62,
+        "testNetPnL": 24.99,
+        "outcome": "WIN"
+      },
+      {
+        "window": 8,
+        "trainRange": "0..26704 (26704 bars)",
+        "testRange": "26752..28280 (1528 bars)",
+        "trainPF": 1.1,
+        "trainNetPnL": 13.58,
+        "testNTrades": 4,
+        "testWinRate": 50,
+        "testPF": 3.86,
+        "testNetPnL": 11.26,
+        "outcome": "WIN"
+      },
+      {
+        "window": 9,
+        "trainRange": "0..28232 (28232 bars)",
+        "testRange": "28280..29808 (1528 bars)",
+        "trainPF": 1.17,
+        "trainNetPnL": 24.84,
+        "testNTrades": 7,
+        "testWinRate": 28.57,
+        "testPF": 0.72,
+        "testNetPnL": -9.01,
+        "outcome": "LOSS"
+      },
+      {
+        "window": 10,
+        "trainRange": "0..29760 (29760 bars)",
+        "testRange": "29808..31336 (1528 bars)",
+        "trainPF": 1.09,
+        "trainNetPnL": 15.83,
+        "testNTrades": 1,
+        "testWinRate": 0,
+        "testPF": 0,
+        "testNetPnL": -2.95,
+        "outcome": "LOSS"
+      }
+    ]
+  },
+  "gateC2": {
+    "passed": false,
+    "totalCells": 750,
+    "positiveCells": 30,
+    "positiveRatioPct": 4,
+    "meanNeighborhoodPF": 0.66,
+    "topology": "ISOLATED_SPIKE",
+    "slice1D": [
+      {
+        "lb": 24,
+        "poc": 0.02,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 0.76,
+        "oosNet": -18.43
+      },
+      {
+        "lb": 24,
+        "poc": 0.03,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 0.84,
+        "oosNet": -12.14
+      },
+      {
+        "lb": 24,
+        "poc": 0.04,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 1.04,
+        "oosNet": 3.27
+      },
+      {
+        "lb": 24,
+        "poc": 0.05,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 1.04,
+        "oosNet": 3.27
+      },
+      {
+        "lb": 24,
+        "poc": 0.06,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 1.04,
+        "oosNet": 3.27
+      },
+      {
+        "lb": 24,
+        "poc": 0.08,
+        "z": 1.4,
+        "tp": 2,
+        "oosPF": 1.04,
+        "oosNet": 3.27
+      }
+    ]
+  },
+  "gateC3": {
+    "passed": true,
+    "trendRegimes": {
+      "BULL_TREND": {
+        "n": 9,
+        "pnl": -18.533613481313914,
+        "wins": 2
+      },
+      "BEAR_TREND": {
+        "n": 18,
+        "pnl": -22.382445683056304,
+        "wins": 8
+      },
+      "CHOPPY_RANGE": {
+        "n": 6,
+        "pnl": 53.802570498115394,
+        "wins": 2
+      }
+    },
+    "volRegimes": {
+      "LOW_VOLATILITY": {
+        "n": 0,
+        "pnl": 0,
+        "wins": 0
+      },
+      "NORMAL_VOLATILITY": {
+        "n": 8,
+        "pnl": -1.6964696246215034,
+        "wins": 4
+      },
+      "HIGH_VOLATILITY": {
+        "n": 25,
+        "pnl": 14.582980958366687,
+        "wins": 8
+      }
+    },
+    "sessionRegimes": {
+      "ASIA": {
+        "n": 7,
+        "pnl": 62.41923277874699,
+        "wins": 3
+      },
+      "LONDON": {
+        "n": 6,
+        "pnl": -9.848937732658337,
+        "wins": 2
+      },
+      "NEW_YORK": {
+        "n": 19,
+        "pnl": -15.100573104157817,
+        "wins": 7
+      },
+      "OFF_HOURS": {
+        "n": 1,
+        "pnl": -24.583210608185663,
+        "wins": 0
+      }
+    },
+    "primaryAlphaEngine": "CHOPPY_RANGE & NORMAL_VOLATILITY during LONDON/NEW_YORK sessions"
+  },
+  "gateC4": {
+    "passed": false,
+    "breakevenSlippage": "0.06%",
+    "ladder": [
+      {
+        "level": "Level 0: Base (0.20% fee + 0.04% slip)",
+        "netPF": 1.04,
+        "netPnL": 3.27,
+        "expectancy": 0.19
+      },
+      {
+        "level": "Level 1: Moderate (0.20% fee + 0.06% slip)",
+        "netPF": 0.96,
+        "netPnL": -3.55,
+        "expectancy": -0.21
+      },
+      {
+        "level": "Level 2: Elevated (0.20% fee + 0.08% slip)",
+        "netPF": 0.89,
+        "netPnL": -10.36,
+        "expectancy": -0.61
+      },
+      {
+        "level": "Level 3: Severe (0.20% fee + 0.10% slip)",
+        "netPF": 0.82,
+        "netPnL": -17.18,
+        "expectancy": -1.01
+      },
+      {
+        "level": "Level 4: Extreme (0.20% fee + 0.15% slip)",
+        "netPF": 0.68,
+        "netPnL": -34.22,
+        "expectancy": -2.01
+      },
+      {
+        "level": "Level 5: Adversarial Intrabar + Slip 0.20%",
+        "netPF": 2.31,
+        "netPnL": 120.5,
+        "expectancy": 7.09
+      }
+    ]
+  },
+  "gateC5": {
+    "passed": false,
+    "allControlsNullified": false,
+    "controls": [
+      {
+        "control": "NC1: Direction Inversion (SHORT on Long Setup)",
+        "netPF": 0.14,
+        "netPnL": -152.25,
+        "edgeDestroyed": true
+      },
+      {
+        "control": "NC2: Artificially Dislocated POC (+10% Shift)",
+        "netPF": 1.04,
+        "netPnL": 3.27,
+        "edgeDestroyed": false
+      },
+      {
+        "control": "NC3: Artificially Dislocated POC (-10% Shift)",
+        "netPF": 1.04,
+        "netPnL": 3.27,
+        "edgeDestroyed": false
+      },
+      {
+        "control": "NC4: Temporal Signal Lag (+5 Bars Delay)",
+        "netPF": 0,
+        "netPnL": -108.16,
+        "edgeDestroyed": true
+      },
+      {
+        "control": "NC5: Temporal Signal Lag (+10 Bars Delay)",
+        "netPF": 0.16,
+        "netPnL": -116.41,
+        "edgeDestroyed": true
+      }
+    ]
+  },
+  "governanceVerdict": {
+    "overallVerdict": "FAILED_TRACK_C_STRESS",
+    "trackAIntact": false,
+    "recommendedPromotion": "REJECTED_OR_STRUCTURAL_WEAKNESS",
+    "shadowLiveAuthorized": false
+  }
+}

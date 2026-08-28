@@ -1,0 +1,308 @@
+{
+  "experimentId": "EXP-V5-CONFIRMATORY-006",
+  "timestamp": "2026-08-28T03:11:12.213Z",
+  "cardinalityAudit": {
+    "totalBars": 32016,
+    "warmupBars": 48,
+    "endBufferBars": 24,
+    "evaluatedBars": 31944,
+    "cellA": 25,
+    "cellB": 204,
+    "cellC": 4375,
+    "cellD": 27340,
+    "isCardinalityExact": true
+  },
+  "episodeAudit": {
+    "individualTrades": 25,
+    "independentEpisodes": 23,
+    "positiveEpisodes": 14,
+    "episodeWinRate": 60.86956521739131,
+    "episodeNetPnL": 108.99,
+    "episodes": [
+      {
+        "episodeId": 1,
+        "startDate": "2023-03-10T01:00",
+        "endDate": "2023-03-10T01:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": -15.36,
+        "meanNetPerTrade": -15.36,
+        "meanFwdRet6h": -0.787,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 2,
+        "startDate": "2023-03-31T07:00",
+        "endDate": "2023-03-31T07:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": 19.81,
+        "meanNetPerTrade": 19.81,
+        "meanFwdRet6h": 2.28,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 3,
+        "startDate": "2023-07-10T00:00",
+        "endDate": "2023-07-10T00:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": -2.42,
+        "meanNetPerTrade": -2.42,
+        "meanFwdRet6h": -0.002,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 4,
+        "startDate": "2023-09-10T04:00",
+        "endDate": "2023-09-10T04:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": -3.48,
+        "meanNetPerTrade": -3.48,
+        "meanFwdRet6h": -0.108,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 5,
+        "startDate": "2023-09-20T19:00",
+        "endDate": "2023-09-20T19:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": 1.27,
+        "meanNetPerTrade": 1.27,
+        "meanFwdRet6h": 0.367,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 6,
+        "startDate": "2023-09-25T00:00",
+        "endDate": "2023-09-25T00:00",
+        "year": 2023,
+        "nTrades": 1,
+        "totNetPnL": -6.47,
+        "meanNetPerTrade": -6.47,
+        "meanFwdRet6h": -0.42,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 7,
+        "startDate": "2024-04-19T02:00",
+        "endDate": "2024-04-19T02:00",
+        "year": 2024,
+        "nTrades": 1,
+        "totNetPnL": 31.87,
+        "meanNetPerTrade": 31.87,
+        "meanFwdRet6h": 5.345,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 8,
+        "startDate": "2024-05-06T15:00",
+        "endDate": "2024-05-06T15:00",
+        "year": 2024,
+        "nTrades": 1,
+        "totNetPnL": -11.6,
+        "meanNetPerTrade": -11.6,
+        "meanFwdRet6h": -0.128,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 9,
+        "startDate": "2024-08-19T10:00",
+        "endDate": "2024-08-19T10:00",
+        "year": 2024,
+        "nTrades": 1,
+        "totNetPnL": 8.97,
+        "meanNetPerTrade": 8.97,
+        "meanFwdRet6h": 1.137,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 10,
+        "startDate": "2024-09-01T14:00",
+        "endDate": "2024-09-01T14:00",
+        "year": 2024,
+        "nTrades": 1,
+        "totNetPnL": 13.14,
+        "meanNetPerTrade": 13.14,
+        "meanFwdRet6h": 0.952,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 11,
+        "startDate": "2025-02-24T04:00",
+        "endDate": "2025-02-24T04:00",
+        "year": 2025,
+        "nTrades": 1,
+        "totNetPnL": 1.1,
+        "meanNetPerTrade": 1.1,
+        "meanFwdRet6h": 0.35,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 12,
+        "startDate": "2025-04-06T23:00",
+        "endDate": "2025-04-06T23:00",
+        "year": 2025,
+        "nTrades": 1,
+        "totNetPnL": -12.98,
+        "meanNetPerTrade": -12.98,
+        "meanFwdRet6h": -1.896,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 13,
+        "startDate": "2025-05-05T02:00",
+        "endDate": "2025-05-05T02:00",
+        "year": 2025,
+        "nTrades": 1,
+        "totNetPnL": 1.02,
+        "meanNetPerTrade": 1.02,
+        "meanFwdRet6h": 0.342,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 14,
+        "startDate": "2025-06-13T01:00",
+        "endDate": "2025-06-13T01:00",
+        "year": 2025,
+        "nTrades": 1,
+        "totNetPnL": 8.4,
+        "meanNetPerTrade": 8.4,
+        "meanFwdRet6h": 1.081,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 15,
+        "startDate": "2025-10-16T09:00",
+        "endDate": "2025-10-17T10:00",
+        "year": 2025,
+        "nTrades": 3,
+        "totNetPnL": -1.78,
+        "meanNetPerTrade": -0.59,
+        "meanFwdRet6h": -0.701,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 16,
+        "startDate": "2025-11-24T14:00",
+        "endDate": "2025-11-24T14:00",
+        "year": 2025,
+        "nTrades": 1,
+        "totNetPnL": 20.06,
+        "meanNetPerTrade": 20.06,
+        "meanFwdRet6h": 3.386,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 17,
+        "startDate": "2026-02-06T00:00",
+        "endDate": "2026-02-06T00:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": 20.88,
+        "meanNetPerTrade": 20.88,
+        "meanFwdRet6h": 2.329,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 18,
+        "startDate": "2026-02-10T14:00",
+        "endDate": "2026-02-10T14:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": 18.65,
+        "meanNetPerTrade": 18.65,
+        "meanFwdRet6h": 0.428,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 19,
+        "startDate": "2026-02-11T15:00",
+        "endDate": "2026-02-11T15:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": 24.95,
+        "meanNetPerTrade": 24.95,
+        "meanFwdRet6h": 1.941,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 20,
+        "startDate": "2026-03-27T14:00",
+        "endDate": "2026-03-27T14:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": -10.63,
+        "meanNetPerTrade": -10.63,
+        "meanFwdRet6h": -0.278,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 21,
+        "startDate": "2026-04-16T13:00",
+        "endDate": "2026-04-16T13:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": 9.9,
+        "meanNetPerTrade": 9.9,
+        "meanFwdRet6h": 2.107,
+        "isPositiveEpisode": true
+      },
+      {
+        "episodeId": 22,
+        "startDate": "2026-04-28T13:00",
+        "endDate": "2026-04-28T13:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": -7.06,
+        "meanNetPerTrade": -7.06,
+        "meanFwdRet6h": 0.185,
+        "isPositiveEpisode": false
+      },
+      {
+        "episodeId": 23,
+        "startDate": "2026-05-16T10:00",
+        "endDate": "2026-05-16T10:00",
+        "year": 2026,
+        "nTrades": 1,
+        "totNetPnL": 0.75,
+        "meanNetPerTrade": 0.75,
+        "meanFwdRet6h": 0.316,
+        "isPositiveEpisode": true
+      }
+    ]
+  },
+  "confirmatorySplit": {
+    "development2023_2025": {
+      "label": "Development (2023-2025)",
+      "n": 18,
+      "netPnL": 51.55,
+      "netExp": 2.864,
+      "netPF": 1.71,
+      "netWR": 55.56,
+      "fwdRet": 0.544
+    },
+    "blindOOS2026": {
+      "label": "Blind OOS (2026)",
+      "n": 7,
+      "netPnL": 57.44,
+      "netExp": 8.206,
+      "netPF": 4.25,
+      "netWR": 71.43,
+      "fwdRet": 1.004
+    }
+  },
+  "excessReturn": {
+    "meanExcessRet6h": 0,
+    "meanVolAdjustedExcess": 0,
+    "positiveExcessRate": 100
+  },
+  "multipleTestingCorrection": {
+    "unadjustedP": 0.0191,
+    "bonferroniP": 0.1528,
+    "fdrAdjustedP": 0.1528,
+    "totalHypothesesExplored": 8
+  }
+}

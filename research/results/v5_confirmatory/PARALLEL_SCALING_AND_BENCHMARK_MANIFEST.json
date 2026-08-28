@@ -1,0 +1,120 @@
+{
+  "timestamp": "2026-08-28T04:31:07.102Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "configHash": "ba943e5f0a98701e04b863d8d86b745154a0fd2e344b66dd44cd52edb6a371fc",
+  "scalingMatrix": [
+    {
+      "workers": 1,
+      "timeMs": 1630,
+      "speedup": 1,
+      "efficiencyPct": 100,
+      "throughputItersPerSec": 42946,
+      "memDeltaMB": 6.87
+    },
+    {
+      "workers": 2,
+      "timeMs": 1374.3,
+      "speedup": 1.19,
+      "efficiencyPct": 59.5,
+      "throughputItersPerSec": 50935,
+      "memDeltaMB": 6.22
+    },
+    {
+      "workers": 4,
+      "timeMs": 1541.6,
+      "speedup": 1.06,
+      "efficiencyPct": 26.5,
+      "throughputItersPerSec": 45407,
+      "memDeltaMB": -23.54
+    },
+    {
+      "workers": 6,
+      "timeMs": 1615.7,
+      "speedup": 1.01,
+      "efficiencyPct": 16.8,
+      "throughputItersPerSec": 43326,
+      "memDeltaMB": 17.39
+    },
+    {
+      "workers": 8,
+      "timeMs": 1596.4,
+      "speedup": 1.02,
+      "efficiencyPct": 12.8,
+      "throughputItersPerSec": 43849,
+      "memDeltaMB": 40.54
+    },
+    {
+      "workers": 10,
+      "timeMs": 1859.1,
+      "speedup": 0.88,
+      "efficiencyPct": 8.8,
+      "throughputItersPerSec": 37653,
+      "memDeltaMB": 32.28
+    },
+    {
+      "workers": 12,
+      "timeMs": 1839.6,
+      "speedup": 0.89,
+      "efficiencyPct": 7.4,
+      "throughputItersPerSec": 38051,
+      "memDeltaMB": -31.54
+    }
+  ],
+  "sweetSpot": {
+    "optimalWorkers": 2,
+    "maxSpeedup": 1.19,
+    "baseline1WorkerTimeMs": 1629.95085,
+    "optimalTimeMs": 1374.3
+  },
+  "gateBAudit": {
+    "auditName": "GATE_B_STRICT_BENCHMARK_EXCESS_RETURN_AUDIT",
+    "timestamp": "2026-08-28T04:31:07.096Z",
+    "metrics": {
+      "strategyGrossReturnPct": 0.554,
+      "strategyNetReturnPct": 0.314,
+      "frictionCostPct": 0.241,
+      "matchedBtcForward6hMeanPct": 0.673,
+      "allNegativeFundingBarsMean6hPct": 0.106,
+      "allMarketCandlesMean6hPct": 0.036,
+      "sampleCounts": {
+        "cellA_Trades": 25,
+        "allNegativeFundingBars": 4400,
+        "allMarketBars": 31944
+      }
+    },
+    "excessReturnsBasisPoints": {
+      "netMarginOverFrictionBps": 31.4,
+      "netVsNegativeFundingRegimeBps": 20.7,
+      "netVsUnconditionalMarketBps": 27.7,
+      "grossVsNegativeFundingRegimeBps": 44.8,
+      "grossVsMatchedBtcBps": -11.9,
+      "netVsMatchedBtcBps": -35.9
+    },
+    "gateB_DualClassification": {
+      "frictionHurdleSurvival": {
+        "status": "PASS",
+        "marginBps": 31.4,
+        "verdict": "🟢 PASS: Net return (+31.4 bps) survives exchange taker fees and slippage (24.1 bps)."
+      },
+      "exogenousFundingRegimeAlpha": {
+        "status": "PASS",
+        "excessBps": 20.7,
+        "verdict": "🟢 PASS: Net return (+31.4 bps) outperforms the unconditional Negative Funding regime average (+10.7 bps) by +20.7 bps."
+      },
+      "unconditionalMarketAlpha": {
+        "status": "PASS",
+        "excessBps": 27.7,
+        "verdict": "🟢 PASS: Net return (+31.4 bps) outperforms unconditional market drift (+2.2 bps) by +27.7 bps."
+      },
+      "matchedWindowForwardBtcBenchmark": {
+        "status": "PARTIAL_EXPLAINED",
+        "excessBps": -35.9,
+        "verdict": "🟡 CONDITIONAL: Matched 6h BTC buy-and-hold was +67.3 bps, while Strategy Net realized +31.4 bps (Gross +55.4 bps) due to SL truncation on 11 loss trades. The strategy provides downside protection rather than unhedged beta."
+      }
+    }
+  }
+}

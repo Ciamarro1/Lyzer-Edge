@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-08-28T04:48:26.579Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "cumulativeIterations": 170400000,
+  "totalJobsExecuted": 70,
+  "totalSuiteTimeSec": 192.26,
+  "timingClarification": {
+    "measuredWallTimeScenarioH_100M_Sec": 140.90,
+    "measuredThroughputScenarioH_100M_ItersSec": 709736,
+    "compositeSuiteAverageThroughputItersSec": 886296,
+    "peakThroughputScenarioE_ItersSec": 1779935,
+    "theoreticalDerivedTimeTo100M_Sec": 112.82,
+    "theoreticalDerivedTimeTo1B_Min": 18.81
+  },
+  "hypothesesPerHour": 1310,
+  "isolationAudit": {
+    "isConfigUntouched": true,
+    "isLockboxUntouched": true,
+    "isTotalsIdentical": true
+  }
+}

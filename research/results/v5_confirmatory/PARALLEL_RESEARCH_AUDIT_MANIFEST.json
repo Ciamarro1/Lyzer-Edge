@@ -1,0 +1,70 @@
+{
+  "manifestType": "INSTITUTIONAL_PARALLEL_RESEARCH_MANIFEST",
+  "timestamp": "2026-08-28T04:27:33.273Z",
+  "frozenConfigHash": "ba943e5f0a98701e04b863d8d86b745154a0fd2e344b66dd44cd52edb6a371fc",
+  "datasetHashes": {
+    "candles1hSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+    "fundingSha256": "bc92ab0118d4f98466313b8fc6f0705b9f71337991e72553621cf75fde000666",
+    "candleCount": 32016,
+    "fundingRecordCount": 4003
+  },
+  "executiveSummary": {
+    "totalEvaluatedCandles": 31944,
+    "cellA_TradesN": 25,
+    "grossPnL": 138.56,
+    "totalFriction": 60.14,
+    "netPnL": 78.42,
+    "netProfitFactor": 1.9,
+    "netWinRatePct": 56,
+    "distinctEpisodesK": 23,
+    "episodeWinRatePct": 56.52,
+    "bootstrapExpectancyCI95": [
+      -1.537,
+      8.138
+    ],
+    "bootstrapProfitFactorCI95": [
+      0.69,
+      5.06
+    ],
+    "permutationPValueRaw": 0.0172,
+    "permutationPValueBonferroni": 0.1376
+  },
+  "gatesEvaluation": {
+    "gateA": {
+      "gateName": "Gate A — Accounting & Replay Integrity",
+      "status": "PASS",
+      "details": "Gross PnL ($138.56) - Fees ($50.11) - Slippage ($10.03) = Net PnL ($78.42) verified to 0.000001 USD"
+    },
+    "gateB": {
+      "gateName": "Gate B — Benchmark Excess Return",
+      "status": "PASS",
+      "details": "Net Strategy Return (+0.314%) exceeds average transaction fee hurdle (+0.241%) by +7.3 bps"
+    },
+    "gateC": {
+      "gateName": "Gate C — Prospective Sample Cardinality",
+      "status": "LOCKED_RETAINS_SHADOW",
+      "details": "Current N = 25 (Historical Baseline). Micro-allocation requires N >= 50, Standard requires N >= 100."
+    },
+    "gateD": {
+      "gateName": "Gate D — Bootstrap Expectancy & PF Uncertainty",
+      "status": "INCONCLUSIVE_RETAINS_SHADOW",
+      "details": "Expectancy 95% CI: [$-1.537, $8.138]. Profit Factor 95% CI: [0.69, 5.06]. Crosses zero -> Retains shadow tracking until N >= 50."
+    },
+    "gateE": {
+      "gateName": "Gate E — Temporal Episode Independence & Concentration",
+      "status": "PASS",
+      "details": "Total Episodes: 23 (22 single + 1 triple). Top 1 Episode share: 35.92% (Limit: <= 40%). Episode Win Rate: 56.52%."
+    },
+    "gateF": {
+      "gateName": "Gate F — Macro Directional Regime Stability",
+      "status": "PASS_PRELIMINARY",
+      "details": "1D Bull PF: 1.92 | 1D Bear PF: 1.89. Asymmetry ratio: 1.016. Volatility metadata: High Vol PF 4.54 vs Low Vol PF 0.55."
+    }
+  },
+  "operationalVerdict": {
+    "historicalIntegrity": "GREEN — FORENSICALLY RECONCILED",
+    "alphaStatus": "YELLOW — CONDITIONAL PROMISSORY HYPOTHESIS",
+    "productionCapital": "RED — STRICTLY BLOCKED",
+    "prospectiveShadowMode": "GREEN — ACTIVE (LOCKBOX LOCKED UNTIL N=50)"
+  }
+}

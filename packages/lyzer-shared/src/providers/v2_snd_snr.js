@@ -8,8 +8,12 @@
  */
 
 export class StructuralBoundaryEngine {
-    constructor() {
+    constructor(config = {}) {
         this.zones = [];
+        this.lookback = config.lookback || 10;
+        this.distanceThreshold = config.distanceThreshold || 0.002;
+        this.breakoutConfidence = config.breakoutConfidence || 70;
+        this.bounceConfidence = config.bounceConfidence || 50;
     }
 
     /**
@@ -18,20 +22,20 @@ export class StructuralBoundaryEngine {
      * @returns {Object} Narrative reconstruction { signal, confidence, narrative }
      */
     reconstruct(mtfCandles) {
-        const candles = (mtfCandles.slow && mtfCandles.slow.length >= 10)
+        const candles = (mtfCandles.slow && mtfCandles.slow.length >= this.lookback)
             ? mtfCandles.slow
-            : ((mtfCandles.intermediate && mtfCandles.intermediate.length >= 10)
+            : ((mtfCandles.intermediate && mtfCandles.intermediate.length >= this.lookback)
                 ? mtfCandles.intermediate
                 : (mtfCandles.fast || []));
-        if (candles.length < 10) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
+        if (candles.length < this.lookback) return { signal: 'flat', confidence: 0, narrative: 'INSUFFICIENT_DATA' };
 
         const current = candles[candles.length - 1];
         const prev1 = candles[candles.length - 2];
 
-        // Extremely simplified Supply/Demand detection (local min/max over 10 periods)
+        // Simplified Supply/Demand detection (local min/max over lookback periods)
         let localMax = -Infinity;
         let localMin = Infinity;
-        for (let i = candles.length - 10; i < candles.length - 1; i++) {
+        for (let i = candles.length - this.lookback; i < candles.length - 1; i++) {
             if (candles[i].high > localMax) localMax = candles[i].high;
             if (candles[i].low < localMin) localMin = candles[i].low;
         }
@@ -47,27 +51,27 @@ export class StructuralBoundaryEngine {
         const distanceToRes = Math.abs(current.close - resistanceZone) / resistanceZone;
         const distanceToSup = Math.abs(current.close - supportZone) / supportZone;
 
-        if (distanceToRes < 0.002) {
+        if (distanceToRes < this.distanceThreshold) {
             // Near Resistance
             if (current.close > resistanceZone) {
                 narrative = 'RESISTANCE_BREAKOUT';
                 signal = 'long';
-                confidence = 70;
+                confidence = this.breakoutConfidence;
             } else {
                 narrative = 'RESISTANCE_REJECTION';
                 signal = 'short';
-                confidence = 50;
+                confidence = this.bounceConfidence;
             }
-        } else if (distanceToSup < 0.002) {
+        } else if (distanceToSup < this.distanceThreshold) {
             // Near Support
             if (current.close < supportZone) {
                 narrative = 'SUPPORT_BREAKDOWN';
                 signal = 'short';
-                confidence = 70;
+                confidence = this.breakoutConfidence;
             } else {
                 narrative = 'SUPPORT_BOUNCE';
                 signal = 'long';
-                confidence = 50;
+                confidence = this.bounceConfidence;
             }
         } else {
             // Moving towards boundaries

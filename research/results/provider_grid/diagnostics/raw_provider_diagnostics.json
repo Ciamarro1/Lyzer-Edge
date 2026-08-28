@@ -1,0 +1,54 @@
+{
+  "v2": {
+    "total": 77760,
+    "long": 17684,
+    "short": 60067,
+    "flat": 9,
+    "breakoutLong": 8265,
+    "breakoutShort": 4300,
+    "bounceLong": 8146,
+    "bounceShort": 54460,
+    "trending": 2580
+  },
+  "v4": {
+    "total": 77760,
+    "long": 10033,
+    "short": 9121,
+    "flat": 58606,
+    "sweeps": 0,
+    "mss": 0,
+    "scoreGt60": 19154
+  },
+  "v5": {
+    "total": 77760,
+    "long": 3,
+    "short": 9,
+    "flat": 77748,
+    "springs": 3,
+    "upthrusts": 9,
+    "highVolumeCandles": 0,
+    "nearPocCount": 0,
+    "piercedCount": 0
+  },
+  "v6": {
+    "total": 77760,
+    "long": 17279,
+    "short": 17826,
+    "flat": 42655,
+    "aboveVah": 17279,
+    "belowVal": 17826,
+    "inVa": 42655
+  },
+  "v7": {
+    "total": 77760,
+    "long": 1974,
+    "short": 1707,
+    "flat": 74079,
+    "cvdDivLong": 150,
+    "cvdDivShort": 120,
+    "absLong": 175,
+    "absShort": 150,
+    "exhLong": 1649,
+    "exhShort": 1437
+  }
+}

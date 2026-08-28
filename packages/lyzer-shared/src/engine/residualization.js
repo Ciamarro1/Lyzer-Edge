@@ -32,12 +32,12 @@ export class ResidualizationLayer {
         const vectors = [];
         providersList.flat().forEach(p => {
             if (p !== undefined && p !== null && typeof p === 'object' && p.signal !== undefined) {
-                // Ignore explicitly FLAT or disabled providers to prevent tensor dilution
                 const vec = sigToVec(p.signal);
                 if (vec !== 0) {
-                    const conf = p.confidence !== undefined ? p.confidence : 50;
+                    const rawConf = p.confidence !== undefined ? p.confidence : 50;
+                    const conf = rawConf <= 1.0 ? rawConf : rawConf / 100.0;
                     const weightMultiplier = p.id !== undefined && weights[p.id] !== undefined ? weights[p.id] : 1.0;
-                    vectors.push(vec * (conf / 100) * weightMultiplier);
+                    vectors.push(vec * conf * weightMultiplier);
                 }
             }
         });

@@ -1,0 +1,200 @@
+{
+  "experimentId": "EXP-V5-EXOGENOUS-STATE-004",
+  "timestamp": "2026-08-28T02:52:57.027Z",
+  "baselineAll": {
+    "trades": 229,
+    "grossPnL": 14.22,
+    "netPnL": -443.78,
+    "grossExp": 0.062,
+    "netExp": -1.938,
+    "netPF": 0.63,
+    "netWR": 35.81,
+    "meanForwardRet6hPct": 0.126
+  },
+  "htf4StateMatrix": {
+    "4H_BULL_1D_BULL": {
+      "trades": 43,
+      "grossPnL": -4.42,
+      "netPnL": -90.42,
+      "grossExp": -0.103,
+      "netExp": -2.103,
+      "netPF": 0.61,
+      "netWR": 37.21,
+      "meanForwardRet6hPct": 0.145
+    },
+    "4H_BULL_1D_BEAR": {
+      "trades": 11,
+      "grossPnL": -1.83,
+      "netPnL": -23.83,
+      "grossExp": -0.166,
+      "netExp": -2.166,
+      "netPF": 0.55,
+      "netWR": 45.45,
+      "meanForwardRet6hPct": 0.231
+    },
+    "4H_BEAR_1D_BULL": {
+      "trades": 68,
+      "grossPnL": -67.64,
+      "netPnL": -203.64,
+      "grossExp": -0.995,
+      "netExp": -2.995,
+      "netPF": 0.45,
+      "netWR": 32.35,
+      "meanForwardRet6hPct": -0.031
+    },
+    "4H_BEAR_1D_BEAR": {
+      "trades": 107,
+      "grossPnL": 88.11,
+      "netPnL": -125.89,
+      "grossExp": 0.823,
+      "netExp": -1.177,
+      "netPF": 0.77,
+      "netWR": 36.45,
+      "meanForwardRet6hPct": 0.207
+    }
+  },
+  "macro1dSMA200": {
+    "bull": {
+      "trades": 128,
+      "grossPnL": -152.13,
+      "netPnL": -408.13,
+      "grossExp": -1.189,
+      "netExp": -3.189,
+      "netPF": 0.47,
+      "netWR": 32.03,
+      "meanForwardRet6hPct": 0.018
+    },
+    "bear": {
+      "trades": 101,
+      "grossPnL": 166.35,
+      "netPnL": -35.65,
+      "grossExp": 1.647,
+      "netExp": -0.353,
+      "netPF": 0.92,
+      "netWR": 40.59,
+      "meanForwardRet6hPct": 0.264
+    }
+  },
+  "derivativesFunding": {
+    "NEGATIVE_DISCOUNT": {
+      "trades": 25,
+      "grossPnL": 128.52,
+      "netPnL": 78.52,
+      "grossExp": 5.141,
+      "netExp": 3.141,
+      "netPF": 1.9,
+      "netWR": 56,
+      "meanForwardRet6hPct": 0.673
+    },
+    "NEUTRAL": {
+      "trades": 184,
+      "grossPnL": -68.7,
+      "netPnL": -436.7,
+      "grossExp": -0.373,
+      "netExp": -2.373,
+      "netPF": 0.55,
+      "netWR": 33.7,
+      "meanForwardRet6hPct": 0.056
+    },
+    "ELEVATED_PREMIUM": {
+      "trades": 20,
+      "grossPnL": -45.6,
+      "netPnL": -85.6,
+      "grossExp": -2.28,
+      "netExp": -4.28,
+      "netPF": 0.44,
+      "netWR": 30,
+      "meanForwardRet6hPct": 0.084
+    }
+  },
+  "structuralWeekly": {
+    "weeklySweep": {
+      "trades": 16,
+      "grossPnL": 36.95,
+      "netPnL": 4.95,
+      "grossExp": 2.309,
+      "netExp": 0.309,
+      "netPF": 1.07,
+      "netWR": 43.75,
+      "meanForwardRet6hPct": 0.274
+    },
+    "nonWeeklySweep": {
+      "trades": 213,
+      "grossPnL": -22.73,
+      "netPnL": -448.73,
+      "grossExp": -0.107,
+      "netExp": -2.107,
+      "netPF": 0.6,
+      "netWR": 35.21,
+      "meanForwardRet6hPct": 0.115
+    }
+  },
+  "drawdownRegime": {
+    "deep": {
+      "trades": 40,
+      "grossPnL": 69.04,
+      "netPnL": -10.96,
+      "grossExp": 1.726,
+      "netExp": -0.274,
+      "netPF": 0.95,
+      "netWR": 37.5,
+      "meanForwardRet6hPct": 0.453
+    },
+    "shallow": {
+      "trades": 189,
+      "grossPnL": -54.82,
+      "netPnL": -432.82,
+      "grossExp": -0.29,
+      "netExp": -2.29,
+      "netPF": 0.55,
+      "netWR": 35.45,
+      "meanForwardRet6hPct": 0.057
+    }
+  },
+  "temporalStabilityMacroBull": {
+    "2023": {
+      "trades": 22,
+      "grossPnL": -23.05,
+      "netPnL": -67.05,
+      "grossExp": -1.048,
+      "netExp": -3.048,
+      "netPF": 0.31,
+      "netWR": 31.82,
+      "meanForwardRet6hPct": -0.06
+    },
+    "2024": {
+      "trades": 63,
+      "grossPnL": -76.04,
+      "netPnL": -202.04,
+      "grossExp": -1.207,
+      "netExp": -3.207,
+      "netPF": 0.52,
+      "netWR": 31.75,
+      "meanForwardRet6hPct": 0.118
+    },
+    "2025": {
+      "trades": 43,
+      "grossPnL": -53.04,
+      "netPnL": -139.04,
+      "grossExp": -1.233,
+      "netExp": -3.233,
+      "netPF": 0.43,
+      "netWR": 32.56,
+      "meanForwardRet6hPct": -0.09
+    },
+    "2026": {
+      "trades": 0,
+      "netPnL": 0,
+      "netExp": 0,
+      "grossExp": 0,
+      "netPF": 0,
+      "netWR": 0,
+      "meanForwardRet6hPct": 0
+    }
+  },
+  "incrementalityTest": {
+    "marketBaseline6hRet": 0.038,
+    "spring6hRet": 0.018,
+    "incrementalAlpha": -0.02
+  }
+}

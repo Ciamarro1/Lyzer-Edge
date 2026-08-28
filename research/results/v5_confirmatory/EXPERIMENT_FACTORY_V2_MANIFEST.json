@@ -1,0 +1,3288 @@
+{
+  "timestamp": "2026-08-28T05:20:20.769Z",
+  "hardware": {
+    "cpuCount": 12,
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "memTotalGB": "6.00"
+  },
+  "cascadeMetrics": {
+    "initialInputCount": 1000,
+    "stage0_SanityPassed": 1000,
+    "stage1_DiscoveryScreenPassed": 6,
+    "stage2_LightPermutationPassed": 6,
+    "stage3_DeepMathPassed": 3,
+    "stage4_OOSPassed": 3,
+    "stage5_CertifiedPassed": 3,
+    "totalCpuIterationsExecuted": 423000,
+    "totalCpuIterationsSaved": 69577000,
+    "survivingCandidates": [
+      {
+        "item": {
+          "hypothesisId": "V7-LIQ-0060",
+          "familyId": "LIQUIDATION_SPIKE",
+          "config": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "seed": 20060
+        },
+        "hypRecord": {
+          "hypothesisId": "V7-LIQ-0060",
+          "familyId": "LIQUIDATION_SPIKE",
+          "stage": "DISCOVERY",
+          "lifecycleState": "FAILED",
+          "isPreRegistered": true,
+          "registrationTimestamp": "2026-08-28T05:13:36.258Z",
+          "configHash": "3d4609e10fdf16cb921ef675dd9254dedaab9c36e3ee85ea6ea64ccea3dfa07e",
+          "datasetHash": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+          "seed": 20060,
+          "targetSampleWindow": "2023-2026",
+          "parameters": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "signature": "62326bc5cb887d7a37dab7ced2f70ef3f99a34045f05f721916481b18fb2e134",
+          "rawPValue": 0.02365,
+          "bonferroniPValue": 1,
+          "holmPValue": 1,
+          "fdrQValue": 1,
+          "isSignificantNominal": true,
+          "isSignificantBonferroni": false,
+          "isSignificantFDR": false,
+          "executionTimestamp": "2026-08-28T05:20:19.349Z",
+          "resultsSummary": {
+            "stage": "STAGE_3_DISCOVERY_COMPLETED",
+            "nTrades": 20,
+            "netPnL": 15.050218341526513,
+            "netPF": 1.1229391257124044,
+            "deepRawP": 0.02365
+          },
+          "isSignificantHolm": false,
+          "oosDatasetHash": "OOS_PARTITION_2026_DISJOINT_HASH_99182a",
+          "confirmatoryRegistrationTimestamp": "2026-08-28T05:20:19.440Z",
+          "oosRawPValue": 0.026,
+          "oosSummary": {
+            "oosNetPnL": 12.792685590297536,
+            "oosPF": 1.010645213141164
+          },
+          "oosCompletedTimestamp": "2026-08-28T05:20:19.440Z"
+        },
+        "tradeLedger": [
+          {
+            "timestamp": 1680249599999,
+            "entryPrice": 27738.48,
+            "exitPrice": 28370.78,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 22.795048611171172,
+            "fees": 4.045590097222343,
+            "slippage": 0.8091180194444685,
+            "trueNetPnL": 17.940340494504362
+          },
+          {
+            "timestamp": 1688950799999,
+            "entryPrice": 30090.26,
+            "exitPrice": 30089.64,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -0.020604674070579032,
+            "fees": 3.999958790651859,
+            "slippage": 0.7999917581303718,
+            "trueNetPnL": -4.820555222852811
+          },
+          {
+            "timestamp": 1694321999999,
+            "entryPrice": 25832.82,
+            "exitPrice": 25805.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -1.076537520874659,
+            "fees": 3.9978469249582504,
+            "slippage": 0.7995693849916501,
+            "trueNetPnL": -5.87395383082456
+          },
+          {
+            "timestamp": 1695239999999,
+            "entryPrice": 26930.62,
+            "exitPrice": 27029.54,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.673142319040627,
+            "fees": 4.007346284638081,
+            "slippage": 0.8014692569276163,
+            "trueNetPnL": -1.1356732225250703
+          },
+          {
+            "timestamp": 1695603599999,
+            "entryPrice": 26248.16,
+            "exitPrice": 26138.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -4.196484629779819,
+            "fees": 3.9916070307404405,
+            "slippage": 0.7983214061480881,
+            "trueNetPnL": -8.986413066668348
+          },
+          {
+            "timestamp": 1713495599999,
+            "entryPrice": 61359.57,
+            "exitPrice": 64639.02,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 53.44643060569032,
+            "fees": 4.106892861211381,
+            "slippage": 0.8213785722422762,
+            "trueNetPnL": 48.518159172236665
+          },
+          {
+            "timestamp": 1715011199999,
+            "entryPrice": 63632.01,
+            "exitPrice": 62781.62,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -13.364185729792275,
+            "fees": 3.9732716285404157,
+            "slippage": 0.7946543257080831,
+            "trueNetPnL": -18.132111684040776
+          },
+          {
+            "timestamp": 1724065199999,
+            "entryPrice": 58046.01,
+            "exitPrice": 58705.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 11.369946013515758,
+            "fees": 4.022739892027031,
+            "slippage": 0.8045479784054064,
+            "trueNetPnL": 6.542658143083321
+          },
+          {
+            "timestamp": 1725202799999,
+            "entryPrice": 57879.99,
+            "exitPrice": 58431.1,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 9.521598051416397,
+            "fees": 4.0190431961028334,
+            "slippage": 0.8038086392205667,
+            "trueNetPnL": 4.698746216092998
+          },
+          {
+            "timestamp": 1740373199999,
+            "entryPrice": 95298,
+            "exitPrice": 95631.66,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.501227727759276,
+            "fees": 4.007002455455519,
+            "slippage": 0.8014004910911038,
+            "trueNetPnL": -1.3071752187873464
+          },
+          {
+            "timestamp": 1743983999999,
+            "entryPrice": 78430,
+            "exitPrice": 76874.67,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -19.830804539079455,
+            "fees": 3.960338390921841,
+            "slippage": 0.7920676781843683,
+            "trueNetPnL": -24.583210608185663
+          },
+          {
+            "timestamp": 1746413999999,
+            "entryPrice": 94236.66,
+            "exitPrice": 94559.19,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.4225533884583643,
+            "fees": 4.006845106776916,
+            "slippage": 0.8013690213553835,
+            "trueNetPnL": -1.3856607396739355
+          },
+          {
+            "timestamp": 1760608799999,
+            "entryPrice": 111146.31,
+            "exitPrice": 109148.31999999999,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -17.976215314750487,
+            "fees": 3.964047569370499,
+            "slippage": 0.7928095138740998,
+            "trueNetPnL": -22.733072397995087
+          },
+          {
+            "timestamp": 1760633999999,
+            "entryPrice": 109232.43,
+            "exitPrice": 107556,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -15.34736524674946,
+            "fees": 3.969305269506501,
+            "slippage": 0.7938610539013002,
+            "trueNetPnL": -20.11053157015726
+          },
+          {
+            "timestamp": 1763996399999,
+            "entryPrice": 86171.22,
+            "exitPrice": 89089.06,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 33.86095728945229,
+            "fees": 4.067721914578906,
+            "slippage": 0.813544382915781,
+            "trueNetPnL": 28.979690991957604
+          },
+          {
+            "timestamp": 1770735599999,
+            "entryPrice": 68460.4,
+            "exitPrice": 68753.7,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 4.284228546721943,
+            "fees": 4.008568457093444,
+            "slippage": 0.8017136914186889,
+            "trueNetPnL": -0.5260536017901902
+          },
+          {
+            "timestamp": 1770825599999,
+            "entryPrice": 66519.72,
+            "exitPrice": 67811.17,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 19.41454353686391,
+            "fees": 4.038829087073728,
+            "slippage": 0.8077658174147456,
+            "trueNetPnL": 14.567948632375437
+          },
+          {
+            "timestamp": 1776347999999,
+            "entryPrice": 73788.03,
+            "exitPrice": 75342.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 21.073336691601693,
+            "fees": 4.042146673383203,
+            "slippage": 0.8084293346766407,
+            "trueNetPnL": 16.222760683541846
+          },
+          {
+            "timestamp": 1777384799999,
+            "entryPrice": 76189.85,
+            "exitPrice": 75703.11,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -6.38851500560777,
+            "fees": 3.9872229699887844,
+            "slippage": 0.7974445939977569,
+            "trueNetPnL": -11.17318256959431
+          },
+          {
+            "timestamp": 1778929199999,
+            "entryPrice": 77959.99,
+            "exitPrice": 78205.96,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.1550799326680408,
+            "fees": 4.006310159865336,
+            "slippage": 0.8012620319730672,
+            "trueNetPnL": -1.6524922591703626
+          }
+        ],
+        "springsData": [
+          {
+            "fwdRet": 0.9879463628348146,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.2468439218675476,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21146394537333363,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9820119351330542,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.16550568540298713,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4580680260877456,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.15789237627154704,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5377607925090286,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1003025543209415,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8540792471360761,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.190396192452467,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.279504861117117,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.1869720561027977,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05746396856265708,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8370359979158251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5069174805887359,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06644633582331835,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2212079368210572,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3637258884319401,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.3891728644731605,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.20509456885109104,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.027522500313881638,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2971457656635981,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0640617276760598,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.22850505930400253,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.19489802610006784,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.24587158743643428,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.33368261560570145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.0020604674070579033,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.1536757900304165,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06603914012531488,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.398906441490578,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14263553397666917,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42961684554502433,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2518407714638677,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6613038998379271,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0045938400890482,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4092517476482239,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8403831779608697,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5262060953942818,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3632332878581173,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.606913234407813,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.344860445620057,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -4.066490176595067,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885275750310557,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8655406135161223,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5288941297516505,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3868909512760993,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1076537520874659,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.2372130605990591,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43670559562233124,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3673142319040627,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.2923889433751177,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0781808736603626,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.41964846297798186,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.05646569870031582,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6703638247303336,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.005572585921807405,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.38163593105942195,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0272271537500197,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.07486744581272907,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.19756427604871446,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7126006347709486,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6473109850943646,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.1789860828423679,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3693277704856547,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.13857129358405815,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.02608395885877873,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.1698911750828775,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.7838891431791294,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.45523893287867473,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.09058920241913099,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.41699151147912145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8194252313687282,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5192047179131988,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2920060242205853,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.823018027696753,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4298296180581841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.7971689669244668,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5056226003990458,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2825436894183739,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.632475767733957,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.634129775074469,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1958162756923891,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.11559204314497927,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 5.344643060569031,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 2.0781355900939262,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.12842592902534616,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.42940000896752073,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.25880902716683013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.47925879597337767,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.46058028860413763,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.561271803508251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8267879796708245,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5391574582498402,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9524985717646302,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.176740097398548,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.537264117605481,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9794979183999653,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5284460920523334,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8812498487420961,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.136994601351576,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.5081197049657847,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9521598051416398,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.16437807279298863,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8616837939618306,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.6923230619153844,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5687254390454552,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8876472946240794,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.2498193915782269,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.7669262631468514,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3740496592225413,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.1660123568026792,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0698975981097028,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6863424403135002,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.0803454188136445,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43358892332627746,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6502112796843953,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0675928491084896,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885434811737939,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.346621483601612,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.041272757296789454,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0100688194812013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.008197999179135218,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8086030896282941,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05884063435870427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42987046352023983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8974654326444418,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.142649931343922,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4282193210796404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.6942847021173657,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.3476507646140283,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.18649731974394024,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6285179158236365,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3501227727759276,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.822011121424643,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.692393656741338,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.6213085768405803,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.122978721212865,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4971774801002948,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.8961876832844486,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3422553388458365,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.4384046642855404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.3403606103666201,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4031388140713541,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.9710735583726238,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7186347985439048,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.9658028312113427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7249664453295528,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7771938278534742,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9738469421784299,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.25684290533350074,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.743231744851658,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.24327300791716333,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.97339362568597,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14564456498226325,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5613877128205826,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3612577160114292,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6954587269086052,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2687284632010885,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1697399192400003,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3366497727184927,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.3124124401516906,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -3.5833298006382983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9770865780934868,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6134668798996701,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.2960446927374374,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.3860957289452287,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.4159806591825728,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0919763462718644,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6366617308683395,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0037545543410595,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2066320594073427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.333120876176259,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4284228546721943,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.941454353686391,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3036196227378273,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.02793319505454232,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.1073336691601696,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.18522152228938019,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.31550799326680407,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.8208515370873112,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21800064026595878,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2601711384152489,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.003283956020172493,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.189861449742747,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.649727742789841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5714441842310726,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.17972024402112902,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2677484787018256,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9834741876570687,
+            "isNegFunding": false
+          }
+        ],
+        "totalNetPnL": 15.050218341526513,
+        "netPF": 1.1229391257124044,
+        "netExpectancy": 0.7525109170763257,
+        "lightP": 0.016,
+        "deepRawP": 0.02365,
+        "oosSimulatedP": 0.026
+      },
+      {
+        "item": {
+          "hypothesisId": "V7-LIQ-0180",
+          "familyId": "LIQUIDATION_SPIKE",
+          "config": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "seed": 20180
+        },
+        "hypRecord": {
+          "hypothesisId": "V7-LIQ-0180",
+          "familyId": "LIQUIDATION_SPIKE",
+          "stage": "DISCOVERY",
+          "lifecycleState": "FAILED",
+          "isPreRegistered": true,
+          "registrationTimestamp": "2026-08-28T05:13:36.259Z",
+          "configHash": "3d4609e10fdf16cb921ef675dd9254dedaab9c36e3ee85ea6ea64ccea3dfa07e",
+          "datasetHash": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+          "seed": 20180,
+          "targetSampleWindow": "2023-2026",
+          "parameters": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "signature": "a2e7ecd02e1352f1e2722293e2587061eda0a9f058c32309d2664ffdf598b32b",
+          "rawPValue": 0.02185,
+          "bonferroniPValue": 1,
+          "holmPValue": 1,
+          "fdrQValue": 1,
+          "isSignificantNominal": true,
+          "isSignificantBonferroni": false,
+          "isSignificantFDR": false,
+          "executionTimestamp": "2026-08-28T05:20:19.394Z",
+          "resultsSummary": {
+            "stage": "STAGE_3_DISCOVERY_COMPLETED",
+            "nTrades": 20,
+            "netPnL": 15.050218341526513,
+            "netPF": 1.1229391257124044,
+            "deepRawP": 0.02185
+          },
+          "isSignificantHolm": false,
+          "oosDatasetHash": "OOS_PARTITION_2026_DISJOINT_HASH_99182a",
+          "confirmatoryRegistrationTimestamp": "2026-08-28T05:20:19.440Z",
+          "oosRawPValue": 0.024,
+          "oosSummary": {
+            "oosNetPnL": 12.792685590297536,
+            "oosPF": 1.010645213141164
+          },
+          "oosCompletedTimestamp": "2026-08-28T05:20:19.440Z"
+        },
+        "tradeLedger": [
+          {
+            "timestamp": 1680249599999,
+            "entryPrice": 27738.48,
+            "exitPrice": 28370.78,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 22.795048611171172,
+            "fees": 4.045590097222343,
+            "slippage": 0.8091180194444685,
+            "trueNetPnL": 17.940340494504362
+          },
+          {
+            "timestamp": 1688950799999,
+            "entryPrice": 30090.26,
+            "exitPrice": 30089.64,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -0.020604674070579032,
+            "fees": 3.999958790651859,
+            "slippage": 0.7999917581303718,
+            "trueNetPnL": -4.820555222852811
+          },
+          {
+            "timestamp": 1694321999999,
+            "entryPrice": 25832.82,
+            "exitPrice": 25805.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -1.076537520874659,
+            "fees": 3.9978469249582504,
+            "slippage": 0.7995693849916501,
+            "trueNetPnL": -5.87395383082456
+          },
+          {
+            "timestamp": 1695239999999,
+            "entryPrice": 26930.62,
+            "exitPrice": 27029.54,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.673142319040627,
+            "fees": 4.007346284638081,
+            "slippage": 0.8014692569276163,
+            "trueNetPnL": -1.1356732225250703
+          },
+          {
+            "timestamp": 1695603599999,
+            "entryPrice": 26248.16,
+            "exitPrice": 26138.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -4.196484629779819,
+            "fees": 3.9916070307404405,
+            "slippage": 0.7983214061480881,
+            "trueNetPnL": -8.986413066668348
+          },
+          {
+            "timestamp": 1713495599999,
+            "entryPrice": 61359.57,
+            "exitPrice": 64639.02,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 53.44643060569032,
+            "fees": 4.106892861211381,
+            "slippage": 0.8213785722422762,
+            "trueNetPnL": 48.518159172236665
+          },
+          {
+            "timestamp": 1715011199999,
+            "entryPrice": 63632.01,
+            "exitPrice": 62781.62,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -13.364185729792275,
+            "fees": 3.9732716285404157,
+            "slippage": 0.7946543257080831,
+            "trueNetPnL": -18.132111684040776
+          },
+          {
+            "timestamp": 1724065199999,
+            "entryPrice": 58046.01,
+            "exitPrice": 58705.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 11.369946013515758,
+            "fees": 4.022739892027031,
+            "slippage": 0.8045479784054064,
+            "trueNetPnL": 6.542658143083321
+          },
+          {
+            "timestamp": 1725202799999,
+            "entryPrice": 57879.99,
+            "exitPrice": 58431.1,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 9.521598051416397,
+            "fees": 4.0190431961028334,
+            "slippage": 0.8038086392205667,
+            "trueNetPnL": 4.698746216092998
+          },
+          {
+            "timestamp": 1740373199999,
+            "entryPrice": 95298,
+            "exitPrice": 95631.66,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.501227727759276,
+            "fees": 4.007002455455519,
+            "slippage": 0.8014004910911038,
+            "trueNetPnL": -1.3071752187873464
+          },
+          {
+            "timestamp": 1743983999999,
+            "entryPrice": 78430,
+            "exitPrice": 76874.67,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -19.830804539079455,
+            "fees": 3.960338390921841,
+            "slippage": 0.7920676781843683,
+            "trueNetPnL": -24.583210608185663
+          },
+          {
+            "timestamp": 1746413999999,
+            "entryPrice": 94236.66,
+            "exitPrice": 94559.19,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.4225533884583643,
+            "fees": 4.006845106776916,
+            "slippage": 0.8013690213553835,
+            "trueNetPnL": -1.3856607396739355
+          },
+          {
+            "timestamp": 1760608799999,
+            "entryPrice": 111146.31,
+            "exitPrice": 109148.31999999999,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -17.976215314750487,
+            "fees": 3.964047569370499,
+            "slippage": 0.7928095138740998,
+            "trueNetPnL": -22.733072397995087
+          },
+          {
+            "timestamp": 1760633999999,
+            "entryPrice": 109232.43,
+            "exitPrice": 107556,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -15.34736524674946,
+            "fees": 3.969305269506501,
+            "slippage": 0.7938610539013002,
+            "trueNetPnL": -20.11053157015726
+          },
+          {
+            "timestamp": 1763996399999,
+            "entryPrice": 86171.22,
+            "exitPrice": 89089.06,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 33.86095728945229,
+            "fees": 4.067721914578906,
+            "slippage": 0.813544382915781,
+            "trueNetPnL": 28.979690991957604
+          },
+          {
+            "timestamp": 1770735599999,
+            "entryPrice": 68460.4,
+            "exitPrice": 68753.7,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 4.284228546721943,
+            "fees": 4.008568457093444,
+            "slippage": 0.8017136914186889,
+            "trueNetPnL": -0.5260536017901902
+          },
+          {
+            "timestamp": 1770825599999,
+            "entryPrice": 66519.72,
+            "exitPrice": 67811.17,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 19.41454353686391,
+            "fees": 4.038829087073728,
+            "slippage": 0.8077658174147456,
+            "trueNetPnL": 14.567948632375437
+          },
+          {
+            "timestamp": 1776347999999,
+            "entryPrice": 73788.03,
+            "exitPrice": 75342.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 21.073336691601693,
+            "fees": 4.042146673383203,
+            "slippage": 0.8084293346766407,
+            "trueNetPnL": 16.222760683541846
+          },
+          {
+            "timestamp": 1777384799999,
+            "entryPrice": 76189.85,
+            "exitPrice": 75703.11,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -6.38851500560777,
+            "fees": 3.9872229699887844,
+            "slippage": 0.7974445939977569,
+            "trueNetPnL": -11.17318256959431
+          },
+          {
+            "timestamp": 1778929199999,
+            "entryPrice": 77959.99,
+            "exitPrice": 78205.96,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.1550799326680408,
+            "fees": 4.006310159865336,
+            "slippage": 0.8012620319730672,
+            "trueNetPnL": -1.6524922591703626
+          }
+        ],
+        "springsData": [
+          {
+            "fwdRet": 0.9879463628348146,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.2468439218675476,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21146394537333363,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9820119351330542,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.16550568540298713,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4580680260877456,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.15789237627154704,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5377607925090286,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1003025543209415,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8540792471360761,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.190396192452467,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.279504861117117,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.1869720561027977,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05746396856265708,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8370359979158251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5069174805887359,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06644633582331835,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2212079368210572,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3637258884319401,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.3891728644731605,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.20509456885109104,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.027522500313881638,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2971457656635981,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0640617276760598,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.22850505930400253,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.19489802610006784,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.24587158743643428,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.33368261560570145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.0020604674070579033,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.1536757900304165,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06603914012531488,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.398906441490578,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14263553397666917,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42961684554502433,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2518407714638677,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6613038998379271,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0045938400890482,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4092517476482239,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8403831779608697,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5262060953942818,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3632332878581173,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.606913234407813,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.344860445620057,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -4.066490176595067,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885275750310557,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8655406135161223,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5288941297516505,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3868909512760993,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1076537520874659,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.2372130605990591,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43670559562233124,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3673142319040627,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.2923889433751177,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0781808736603626,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.41964846297798186,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.05646569870031582,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6703638247303336,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.005572585921807405,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.38163593105942195,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0272271537500197,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.07486744581272907,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.19756427604871446,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7126006347709486,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6473109850943646,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.1789860828423679,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3693277704856547,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.13857129358405815,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.02608395885877873,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.1698911750828775,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.7838891431791294,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.45523893287867473,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.09058920241913099,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.41699151147912145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8194252313687282,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5192047179131988,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2920060242205853,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.823018027696753,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4298296180581841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.7971689669244668,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5056226003990458,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2825436894183739,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.632475767733957,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.634129775074469,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1958162756923891,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.11559204314497927,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 5.344643060569031,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 2.0781355900939262,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.12842592902534616,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.42940000896752073,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.25880902716683013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.47925879597337767,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.46058028860413763,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.561271803508251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8267879796708245,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5391574582498402,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9524985717646302,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.176740097398548,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.537264117605481,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9794979183999653,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5284460920523334,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8812498487420961,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.136994601351576,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.5081197049657847,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9521598051416398,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.16437807279298863,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8616837939618306,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.6923230619153844,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5687254390454552,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8876472946240794,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.2498193915782269,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.7669262631468514,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3740496592225413,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.1660123568026792,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0698975981097028,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6863424403135002,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.0803454188136445,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43358892332627746,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6502112796843953,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0675928491084896,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885434811737939,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.346621483601612,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.041272757296789454,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0100688194812013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.008197999179135218,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8086030896282941,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05884063435870427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42987046352023983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8974654326444418,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.142649931343922,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4282193210796404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.6942847021173657,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.3476507646140283,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.18649731974394024,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6285179158236365,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3501227727759276,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.822011121424643,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.692393656741338,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.6213085768405803,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.122978721212865,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4971774801002948,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.8961876832844486,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3422553388458365,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.4384046642855404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.3403606103666201,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4031388140713541,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.9710735583726238,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7186347985439048,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.9658028312113427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7249664453295528,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7771938278534742,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9738469421784299,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.25684290533350074,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.743231744851658,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.24327300791716333,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.97339362568597,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14564456498226325,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5613877128205826,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3612577160114292,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6954587269086052,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2687284632010885,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1697399192400003,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3366497727184927,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.3124124401516906,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -3.5833298006382983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9770865780934868,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6134668798996701,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.2960446927374374,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.3860957289452287,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.4159806591825728,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0919763462718644,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6366617308683395,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0037545543410595,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2066320594073427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.333120876176259,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4284228546721943,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.941454353686391,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3036196227378273,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.02793319505454232,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.1073336691601696,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.18522152228938019,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.31550799326680407,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.8208515370873112,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21800064026595878,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2601711384152489,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.003283956020172493,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.189861449742747,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.649727742789841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5714441842310726,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.17972024402112902,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2677484787018256,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9834741876570687,
+            "isNegFunding": false
+          }
+        ],
+        "totalNetPnL": 15.050218341526513,
+        "netPF": 1.1229391257124044,
+        "netExpectancy": 0.7525109170763257,
+        "lightP": 0.012,
+        "deepRawP": 0.02185,
+        "oosSimulatedP": 0.024
+      },
+      {
+        "item": {
+          "hypothesisId": "V7-LIQ-0300",
+          "familyId": "LIQUIDATION_SPIKE",
+          "config": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "seed": 20300
+        },
+        "hypRecord": {
+          "hypothesisId": "V7-LIQ-0300",
+          "familyId": "LIQUIDATION_SPIKE",
+          "stage": "DISCOVERY",
+          "lifecycleState": "FAILED",
+          "isPreRegistered": true,
+          "registrationTimestamp": "2026-08-28T05:13:36.260Z",
+          "configHash": "3d4609e10fdf16cb921ef675dd9254dedaab9c36e3ee85ea6ea64ccea3dfa07e",
+          "datasetHash": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+          "seed": 20300,
+          "targetSampleWindow": "2023-2026",
+          "parameters": {
+            "version": "V5_WYCKOFF_SPRING_FUNDING_NEGATIVE_v1.0.0",
+            "provider": "v5_wyckoff_volume_profile",
+            "timeframe": "1h",
+            "lookbackBars": 30,
+            "volumeZScore": 1.5,
+            "minPierceATR": 0.5,
+            "pocProximity": 0.03,
+            "requireVolume": true,
+            "requirePierce": true,
+            "requirePOC": true,
+            "requireReversal": true,
+            "signalDirection": "LONG",
+            "fundingRateCondition": "NEGATIVE",
+            "fundingThreshold": 0,
+            "initialNotionalUSD": 1000,
+            "stopLossAtrMultiplier": 1,
+            "takeProfitRMultiplier": 2.5,
+            "maxHoldingBars": 6,
+            "minStopDistancePct": 0.002,
+            "takerFeePctPerLeg": 0.001,
+            "slippagePctPerLeg": 0.0002,
+            "totalRoundtripFrictionPct": 0.0024,
+            "gates": {
+              "gateA_AccountingToleranceUSD": 0.000001,
+              "gateB_ExcessReturnRequired": true,
+              "gateC_MicroAllocationMinTrades": 50,
+              "gateC_StandardAllocationMinTrades": 100,
+              "gateD_BootstrapConfidenceInterval": 0.95,
+              "gateE_Top1EpisodeMaxSharePct": 40,
+              "gateE_Top3EpisodeMaxSharePct": 70,
+              "gateF_DirectionalRegimeMinPF": 1.2
+            }
+          },
+          "signature": "abd54a5d646fdd9f179ebba91672e0e537371fc0864e774a2df2dd6ce0626349",
+          "rawPValue": 0.0239,
+          "bonferroniPValue": 1,
+          "holmPValue": 1,
+          "fdrQValue": 1,
+          "isSignificantNominal": true,
+          "isSignificantBonferroni": false,
+          "isSignificantFDR": false,
+          "executionTimestamp": "2026-08-28T05:20:19.439Z",
+          "resultsSummary": {
+            "stage": "STAGE_3_DISCOVERY_COMPLETED",
+            "nTrades": 20,
+            "netPnL": 15.050218341526513,
+            "netPF": 1.1229391257124044,
+            "deepRawP": 0.0239
+          },
+          "isSignificantHolm": false,
+          "oosDatasetHash": "OOS_PARTITION_2026_DISJOINT_HASH_99182a",
+          "confirmatoryRegistrationTimestamp": "2026-08-28T05:20:19.440Z",
+          "oosRawPValue": 0.0263,
+          "oosSummary": {
+            "oosNetPnL": 12.792685590297536,
+            "oosPF": 1.010645213141164
+          },
+          "oosCompletedTimestamp": "2026-08-28T05:20:19.440Z"
+        },
+        "tradeLedger": [
+          {
+            "timestamp": 1680249599999,
+            "entryPrice": 27738.48,
+            "exitPrice": 28370.78,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 22.795048611171172,
+            "fees": 4.045590097222343,
+            "slippage": 0.8091180194444685,
+            "trueNetPnL": 17.940340494504362
+          },
+          {
+            "timestamp": 1688950799999,
+            "entryPrice": 30090.26,
+            "exitPrice": 30089.64,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -0.020604674070579032,
+            "fees": 3.999958790651859,
+            "slippage": 0.7999917581303718,
+            "trueNetPnL": -4.820555222852811
+          },
+          {
+            "timestamp": 1694321999999,
+            "entryPrice": 25832.82,
+            "exitPrice": 25805.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -1.076537520874659,
+            "fees": 3.9978469249582504,
+            "slippage": 0.7995693849916501,
+            "trueNetPnL": -5.87395383082456
+          },
+          {
+            "timestamp": 1695239999999,
+            "entryPrice": 26930.62,
+            "exitPrice": 27029.54,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.673142319040627,
+            "fees": 4.007346284638081,
+            "slippage": 0.8014692569276163,
+            "trueNetPnL": -1.1356732225250703
+          },
+          {
+            "timestamp": 1695603599999,
+            "entryPrice": 26248.16,
+            "exitPrice": 26138.01,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": -4.196484629779819,
+            "fees": 3.9916070307404405,
+            "slippage": 0.7983214061480881,
+            "trueNetPnL": -8.986413066668348
+          },
+          {
+            "timestamp": 1713495599999,
+            "entryPrice": 61359.57,
+            "exitPrice": 64639.02,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 53.44643060569032,
+            "fees": 4.106892861211381,
+            "slippage": 0.8213785722422762,
+            "trueNetPnL": 48.518159172236665
+          },
+          {
+            "timestamp": 1715011199999,
+            "entryPrice": 63632.01,
+            "exitPrice": 62781.62,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -13.364185729792275,
+            "fees": 3.9732716285404157,
+            "slippage": 0.7946543257080831,
+            "trueNetPnL": -18.132111684040776
+          },
+          {
+            "timestamp": 1724065199999,
+            "entryPrice": 58046.01,
+            "exitPrice": 58705.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 11.369946013515758,
+            "fees": 4.022739892027031,
+            "slippage": 0.8045479784054064,
+            "trueNetPnL": 6.542658143083321
+          },
+          {
+            "timestamp": 1725202799999,
+            "entryPrice": 57879.99,
+            "exitPrice": 58431.1,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 9.521598051416397,
+            "fees": 4.0190431961028334,
+            "slippage": 0.8038086392205667,
+            "trueNetPnL": 4.698746216092998
+          },
+          {
+            "timestamp": 1740373199999,
+            "entryPrice": 95298,
+            "exitPrice": 95631.66,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.501227727759276,
+            "fees": 4.007002455455519,
+            "slippage": 0.8014004910911038,
+            "trueNetPnL": -1.3071752187873464
+          },
+          {
+            "timestamp": 1743983999999,
+            "entryPrice": 78430,
+            "exitPrice": 76874.67,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -19.830804539079455,
+            "fees": 3.960338390921841,
+            "slippage": 0.7920676781843683,
+            "trueNetPnL": -24.583210608185663
+          },
+          {
+            "timestamp": 1746413999999,
+            "entryPrice": 94236.66,
+            "exitPrice": 94559.19,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.4225533884583643,
+            "fees": 4.006845106776916,
+            "slippage": 0.8013690213553835,
+            "trueNetPnL": -1.3856607396739355
+          },
+          {
+            "timestamp": 1760608799999,
+            "entryPrice": 111146.31,
+            "exitPrice": 109148.31999999999,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -17.976215314750487,
+            "fees": 3.964047569370499,
+            "slippage": 0.7928095138740998,
+            "trueNetPnL": -22.733072397995087
+          },
+          {
+            "timestamp": 1760633999999,
+            "entryPrice": 109232.43,
+            "exitPrice": 107556,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -15.34736524674946,
+            "fees": 3.969305269506501,
+            "slippage": 0.7938610539013002,
+            "trueNetPnL": -20.11053157015726
+          },
+          {
+            "timestamp": 1763996399999,
+            "entryPrice": 86171.22,
+            "exitPrice": 89089.06,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 33.86095728945229,
+            "fees": 4.067721914578906,
+            "slippage": 0.813544382915781,
+            "trueNetPnL": 28.979690991957604
+          },
+          {
+            "timestamp": 1770735599999,
+            "entryPrice": 68460.4,
+            "exitPrice": 68753.7,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 4.284228546721943,
+            "fees": 4.008568457093444,
+            "slippage": 0.8017136914186889,
+            "trueNetPnL": -0.5260536017901902
+          },
+          {
+            "timestamp": 1770825599999,
+            "entryPrice": 66519.72,
+            "exitPrice": 67811.17,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 19.41454353686391,
+            "fees": 4.038829087073728,
+            "slippage": 0.8077658174147456,
+            "trueNetPnL": 14.567948632375437
+          },
+          {
+            "timestamp": 1776347999999,
+            "entryPrice": 73788.03,
+            "exitPrice": 75342.99,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 21.073336691601693,
+            "fees": 4.042146673383203,
+            "slippage": 0.8084293346766407,
+            "trueNetPnL": 16.222760683541846
+          },
+          {
+            "timestamp": 1777384799999,
+            "entryPrice": 76189.85,
+            "exitPrice": 75703.11,
+            "exitReason": "STOP_LOSS",
+            "grossPnL": -6.38851500560777,
+            "fees": 3.9872229699887844,
+            "slippage": 0.7974445939977569,
+            "trueNetPnL": -11.17318256959431
+          },
+          {
+            "timestamp": 1778929199999,
+            "entryPrice": 77959.99,
+            "exitPrice": 78205.96,
+            "exitReason": "TIME_EXIT",
+            "grossPnL": 3.1550799326680408,
+            "fees": 4.006310159865336,
+            "slippage": 0.8012620319730672,
+            "trueNetPnL": -1.6524922591703626
+          }
+        ],
+        "springsData": [
+          {
+            "fwdRet": 0.9879463628348146,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.2468439218675476,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21146394537333363,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9820119351330542,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.16550568540298713,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4580680260877456,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.15789237627154704,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5377607925090286,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1003025543209415,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8540792471360761,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.190396192452467,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.279504861117117,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.1869720561027977,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05746396856265708,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8370359979158251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5069174805887359,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06644633582331835,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2212079368210572,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3637258884319401,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.3891728644731605,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.20509456885109104,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.027522500313881638,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2971457656635981,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0640617276760598,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.22850505930400253,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.19489802610006784,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.24587158743643428,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.33368261560570145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.0020604674070579033,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.1536757900304165,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.06603914012531488,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.398906441490578,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14263553397666917,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42961684554502433,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2518407714638677,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6613038998379271,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0045938400890482,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4092517476482239,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8403831779608697,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5262060953942818,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3632332878581173,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.606913234407813,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.344860445620057,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -4.066490176595067,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885275750310557,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8655406135161223,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5288941297516505,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3868909512760993,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1076537520874659,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.2372130605990591,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43670559562233124,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3673142319040627,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.2923889433751177,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0781808736603626,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.41964846297798186,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.05646569870031582,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6703638247303336,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.005572585921807405,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.38163593105942195,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0272271537500197,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.07486744581272907,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.19756427604871446,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7126006347709486,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6473109850943646,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.1789860828423679,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3693277704856547,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.13857129358405815,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.02608395885877873,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.1698911750828775,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.7838891431791294,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.45523893287867473,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.09058920241913099,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.41699151147912145,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8194252313687282,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.5192047179131988,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2920060242205853,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.823018027696753,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4298296180581841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.7971689669244668,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5056226003990458,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2825436894183739,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.632475767733957,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.634129775074469,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.1958162756923891,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.11559204314497927,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 5.344643060569031,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 2.0781355900939262,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.12842592902534616,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.42940000896752073,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.25880902716683013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.47925879597337767,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.46058028860413763,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.561271803508251,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8267879796708245,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5391574582498402,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9524985717646302,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.176740097398548,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.537264117605481,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9794979183999653,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5284460920523334,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8812498487420961,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.136994601351576,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.5081197049657847,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9521598051416398,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.16437807279298863,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.8616837939618306,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.6923230619153844,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.5687254390454552,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8876472946240794,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.2498193915782269,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.7669262631468514,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3740496592225413,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.1660123568026792,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0698975981097028,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6863424403135002,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.0803454188136445,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.43358892332627746,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6502112796843953,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0675928491084896,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9885434811737939,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.346621483601612,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.041272757296789454,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0100688194812013,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.008197999179135218,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.8086030896282941,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.05884063435870427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.42987046352023983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.8974654326444418,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.142649931343922,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4282193210796404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.6942847021173657,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.3476507646140283,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.18649731974394024,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6285179158236365,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.3501227727759276,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.822011121424643,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.692393656741338,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.6213085768405803,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.122978721212865,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4971774801002948,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.8961876832844486,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3422553388458365,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.4384046642855404,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.3403606103666201,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.4031388140713541,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -3.9710735583726238,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7186347985439048,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.9658028312113427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7249664453295528,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.7771938278534742,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9738469421784299,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.25684290533350074,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.743231744851658,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.24327300791716333,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.97339362568597,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.14564456498226325,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5613877128205826,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.3612577160114292,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6954587269086052,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2687284632010885,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.1697399192400003,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -2.3366497727184927,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -1.3124124401516906,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -3.5833298006382983,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.9770865780934868,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.6134668798996701,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.2960446927374374,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.3860957289452287,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.4159806591825728,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.0919763462718644,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.6366617308683395,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.0037545543410595,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2066320594073427,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -1.333120876176259,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.4284228546721943,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 1.941454353686391,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.3036196227378273,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.02793319505454232,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 2.1073336691601696,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.18522152228938019,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": 0.31550799326680407,
+            "isNegFunding": true
+          },
+          {
+            "fwdRet": -0.8208515370873112,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.21800064026595878,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.2601711384152489,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": -0.003283956020172493,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 3.189861449742747,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.649727742789841,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.5714441842310726,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.17972024402112902,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 1.2677484787018256,
+            "isNegFunding": false
+          },
+          {
+            "fwdRet": 0.9834741876570687,
+            "isNegFunding": false
+          }
+        ],
+        "totalNetPnL": 15.050218341526513,
+        "netPF": 1.1229391257124044,
+        "netExpectancy": 0.7525109170763257,
+        "lightP": 0.026,
+        "deepRawP": 0.0239,
+        "oosSimulatedP": 0.0263
+      }
+    ],
+    "efficiencySavingsPct": 99.4,
+    "elapsedTimeMs": 403186.9
+  },
+  "savingsPct": 99.4,
+  "wallTimeSec": 403.21,
+  "isolationAudit": {
+    "isConfigUntouched": true,
+    "isLockboxUntouched": true,
+    "isTotalsIdentical": true
+  }
+}

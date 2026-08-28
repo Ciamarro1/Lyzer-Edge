@@ -1,0 +1,82 @@
+{
+  "executionTimestamp": "2026-08-28T08:06:39.394Z",
+  "datasetSha256": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf",
+  "stage0Results": {
+    "FAM_LIQ_SWEEP_REJECTION": {
+      "passed": false,
+      "nEvents": 6516,
+      "meanEventReturn": -0.0165,
+      "medianEventReturn": 0.0438,
+      "effectSize": -0.053,
+      "pValue": 0.652732,
+      "zScore": -0.393,
+      "trajectoryRatio": 0
+    },
+    "FAM_FAILED_AUCTION_VA": {
+      "passed": false,
+      "nEvents": 2537,
+      "meanEventReturn": -0.0511,
+      "medianEventReturn": 0.0203,
+      "effectSize": -0.0909,
+      "pValue": 0.987849,
+      "zScore": -2.252,
+      "trajectoryRatio": 37.5
+    },
+    "FAM_VOL_EXPANSION_CONFIRMED": {
+      "passed": false,
+      "nEvents": 102,
+      "meanEventReturn": 0.106,
+      "medianEventReturn": 0.1417,
+      "effectSize": 0.0343,
+      "pValue": 0.310527,
+      "zScore": 0.494,
+      "trajectoryRatio": 0
+    },
+    "FAM_ORDER_FLOW_EXHAUSTION": {
+      "passed": false,
+      "nEvents": 123,
+      "meanEventReturn": 0.0341,
+      "medianEventReturn": 0.1125,
+      "effectSize": -0.0027,
+      "pValue": 0.205222,
+      "zScore": 0.823,
+      "trajectoryRatio": 0
+    },
+    "FAM_FUNDING_PRICE_DISLOCATION": {
+      "passed": false,
+      "nEvents": 3208,
+      "meanEventReturn": 0.0293,
+      "medianEventReturn": -0.042,
+      "effectSize": -0.0057,
+      "pValue": 0.992552,
+      "zScore": -2.435,
+      "trajectoryRatio": 0
+    }
+  },
+  "stage05Results": {},
+  "stage1Discovery": {},
+  "stage2Ablation": {},
+  "stage3OOS": {},
+  "stage4WFA": {},
+  "finalSurvivors": [],
+  "trackAForensic": {
+    "isConfigIntact": true,
+    "isLockboxIntact": true,
+    "isReplayIntact": true,
+    "v5BaselineTotals": {
+      "n": 25,
+      "grossPnL": 138.56,
+      "fees": 50.11,
+      "slippage": 10.03,
+      "totalFriction": 60.14,
+      "netPnL": 78.42,
+      "grossExpectancy": 5.542,
+      "netExpectancy": 3.137,
+      "netProfitFactor": 1.9,
+      "netWinRate": 56,
+      "winsCount": 14,
+      "lossesCount": 11
+    }
+  },
+  "elapsedSec": "16.0"
+}

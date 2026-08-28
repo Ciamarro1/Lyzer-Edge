@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-08-27T23:17:22.278Z",
+  "overallStatus": "PASS",
+  "totalTests": 8,
+  "passed": 8,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "identical_dataset_feed",
+      "status": "PASS",
+      "details": "Hash match: bf794a7ac579022c === bf794a7ac579022c, Candles: 129600"
+    },
+    {
+      "name": "temporal_split_determinism",
+      "status": "PASS",
+      "details": "IS: 77760 candles, VAL: 25920, OOS: 25920"
+    },
+    {
+      "name": "identical_warmup",
+      "status": "PASS",
+      "details": "Warmup: 500 candles (t0: 1779950220000, tN: 1779980160000)"
+    },
+    {
+      "name": "identical_timestamps_timezones",
+      "status": "PASS",
+      "details": "Timestamps strictly monotonic and UTC aligned across all 129600 candles"
+    },
+    {
+      "name": "no_shared_mutable_state",
+      "status": "PASS",
+      "details": "Each worker executes inside an isolated Node.js V8 instance (child_process.fork) with independent memory heap"
+    },
+    {
+      "name": "identical_fees_slippage_sizing",
+      "status": "PASS",
+      "details": "Taker Fee: 0.1%, Slippage: 0.02%, Capital Base: $1000"
+    },
+    {
+      "name": "no_inter_provider_dependency",
+      "status": "PASS",
+      "details": "All providers reconstruct narratives independently without requiring other engine instances"
+    },
+    {
+      "name": "no_global_consensus_block_on_single_provider",
+      "status": "PASS",
+      "details": "Single provider divergence: 0.7, isConsensus: false"
+    }
+  ]
+}

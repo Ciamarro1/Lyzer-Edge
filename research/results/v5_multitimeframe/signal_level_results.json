@@ -1,0 +1,578 @@
+{
+  "tf5m": {
+    "3bars": {
+      "horizonBars": 3,
+      "signalsEvaluated": 122,
+      "positiveReturnPct": 49.18,
+      "negativeReturnPct": 50.82,
+      "meanReturnPct": -0.033,
+      "medianReturnPct": -0.012,
+      "mfeMeanPct": 0.206,
+      "mfeMedianPct": 0.139,
+      "maeMeanPct": 0.244,
+      "maeMedianPct": 0.174,
+      "mfeMaeRatio": 0.85,
+      "mfeFirstPct": 44.26,
+      "maeFirstPct": 44.26,
+      "sameBarPct": 11.48,
+      "timeToMfeMedianBars": 2,
+      "timeToMaeMedianBars": 2,
+      "quantilesReturn": {
+        "p25": -0.183,
+        "p50": -0.012,
+        "p75": 0.105,
+        "p90": 0.232
+      },
+      "longDecomposition": {
+        "count": 75,
+        "meanReturnPct": -0.001,
+        "posReturnPct": 52,
+        "mfeMeanPct": 0.243,
+        "maeMeanPct": 0.242
+      },
+      "shortDecomposition": {
+        "count": 47,
+        "meanReturnPct": -0.084,
+        "posReturnPct": 44.68,
+        "mfeMeanPct": 0.148,
+        "maeMeanPct": 0.247
+      }
+    },
+    "6bars": {
+      "horizonBars": 6,
+      "signalsEvaluated": 122,
+      "positiveReturnPct": 43.44,
+      "negativeReturnPct": 56.56,
+      "meanReturnPct": -0.046,
+      "medianReturnPct": -0.051,
+      "mfeMeanPct": 0.265,
+      "mfeMedianPct": 0.167,
+      "maeMeanPct": 0.334,
+      "maeMedianPct": 0.256,
+      "mfeMaeRatio": 0.8,
+      "mfeFirstPct": 58.2,
+      "maeFirstPct": 37.7,
+      "sameBarPct": 4.1,
+      "timeToMfeMedianBars": 2,
+      "timeToMaeMedianBars": 4,
+      "quantilesReturn": {
+        "p25": -0.251,
+        "p50": -0.051,
+        "p75": 0.133,
+        "p90": 0.318
+      },
+      "longDecomposition": {
+        "count": 75,
+        "meanReturnPct": -0.009,
+        "posReturnPct": 48,
+        "mfeMeanPct": 0.31,
+        "maeMeanPct": 0.329
+      },
+      "shortDecomposition": {
+        "count": 47,
+        "meanReturnPct": -0.106,
+        "posReturnPct": 36.17,
+        "mfeMeanPct": 0.194,
+        "maeMeanPct": 0.34
+      }
+    },
+    "12bars": {
+      "horizonBars": 12,
+      "signalsEvaluated": 122,
+      "positiveReturnPct": 45.9,
+      "negativeReturnPct": 54.1,
+      "meanReturnPct": -0.03,
+      "medianReturnPct": -0.045,
+      "mfeMeanPct": 0.371,
+      "mfeMedianPct": 0.245,
+      "maeMeanPct": 0.482,
+      "maeMedianPct": 0.407,
+      "mfeMaeRatio": 0.77,
+      "mfeFirstPct": 60.66,
+      "maeFirstPct": 38.52,
+      "sameBarPct": 0.82,
+      "timeToMfeMedianBars": 3,
+      "timeToMaeMedianBars": 7,
+      "quantilesReturn": {
+        "p25": -0.356,
+        "p50": -0.045,
+        "p75": 0.248,
+        "p90": 0.502
+      },
+      "longDecomposition": {
+        "count": 75,
+        "meanReturnPct": 0.033,
+        "posReturnPct": 49.33,
+        "mfeMeanPct": 0.438,
+        "maeMeanPct": 0.448
+      },
+      "shortDecomposition": {
+        "count": 47,
+        "meanReturnPct": -0.13,
+        "posReturnPct": 40.43,
+        "mfeMeanPct": 0.263,
+        "maeMeanPct": 0.537
+      }
+    },
+    "24bars": {
+      "horizonBars": 24,
+      "signalsEvaluated": 122,
+      "positiveReturnPct": 39.34,
+      "negativeReturnPct": 60.66,
+      "meanReturnPct": -0.119,
+      "medianReturnPct": -0.138,
+      "mfeMeanPct": 0.512,
+      "mfeMedianPct": 0.293,
+      "maeMeanPct": 0.687,
+      "maeMedianPct": 0.54,
+      "mfeMaeRatio": 0.74,
+      "mfeFirstPct": 55.74,
+      "maeFirstPct": 43.44,
+      "sameBarPct": 0.82,
+      "timeToMfeMedianBars": 7,
+      "timeToMaeMedianBars": 11,
+      "quantilesReturn": {
+        "p25": -0.498,
+        "p50": -0.138,
+        "p75": 0.201,
+        "p90": 0.575
+      },
+      "longDecomposition": {
+        "count": 75,
+        "meanReturnPct": -0.087,
+        "posReturnPct": 44,
+        "mfeMeanPct": 0.617,
+        "maeMeanPct": 0.715
+      },
+      "shortDecomposition": {
+        "count": 47,
+        "meanReturnPct": -0.171,
+        "posReturnPct": 31.91,
+        "mfeMeanPct": 0.343,
+        "maeMeanPct": 0.643
+      }
+    },
+    "48bars": {
+      "horizonBars": 48,
+      "signalsEvaluated": 122,
+      "positiveReturnPct": 50,
+      "negativeReturnPct": 50,
+      "meanReturnPct": -0.074,
+      "medianReturnPct": -0.004,
+      "mfeMeanPct": 0.688,
+      "mfeMedianPct": 0.428,
+      "maeMeanPct": 0.933,
+      "maeMedianPct": 0.654,
+      "mfeMaeRatio": 0.74,
+      "mfeFirstPct": 47.54,
+      "maeFirstPct": 51.64,
+      "sameBarPct": 0.82,
+      "timeToMfeMedianBars": 15,
+      "timeToMaeMedianBars": 22,
+      "quantilesReturn": {
+        "p25": -0.586,
+        "p50": -0.004,
+        "p75": 0.355,
+        "p90": 1.11
+      },
+      "longDecomposition": {
+        "count": 75,
+        "meanReturnPct": -0.125,
+        "posReturnPct": 45.33,
+        "mfeMeanPct": 0.78,
+        "maeMeanPct": 1.017
+      },
+      "shortDecomposition": {
+        "count": 47,
+        "meanReturnPct": 0.009,
+        "posReturnPct": 57.45,
+        "mfeMeanPct": 0.541,
+        "maeMeanPct": 0.798
+      }
+    }
+  },
+  "tf15m": {
+    "2bars": {
+      "horizonBars": 2,
+      "signalsEvaluated": 60,
+      "positiveReturnPct": 53.33,
+      "negativeReturnPct": 46.67,
+      "meanReturnPct": 0.048,
+      "medianReturnPct": 0.053,
+      "mfeMeanPct": 0.364,
+      "mfeMedianPct": 0.245,
+      "maeMeanPct": 0.334,
+      "maeMedianPct": 0.227,
+      "mfeMaeRatio": 1.09,
+      "mfeFirstPct": 33.33,
+      "maeFirstPct": 36.67,
+      "sameBarPct": 30,
+      "timeToMfeMedianBars": 1,
+      "timeToMaeMedianBars": 1,
+      "quantilesReturn": {
+        "p25": -0.32,
+        "p50": 0.053,
+        "p75": 0.255,
+        "p90": 0.475
+      },
+      "longDecomposition": {
+        "count": 35,
+        "meanReturnPct": 0.075,
+        "posReturnPct": 57.14,
+        "mfeMeanPct": 0.421,
+        "maeMeanPct": 0.371
+      },
+      "shortDecomposition": {
+        "count": 25,
+        "meanReturnPct": 0.01,
+        "posReturnPct": 48,
+        "mfeMeanPct": 0.284,
+        "maeMeanPct": 0.282
+      }
+    },
+    "4bars": {
+      "horizonBars": 4,
+      "signalsEvaluated": 60,
+      "positiveReturnPct": 48.33,
+      "negativeReturnPct": 51.67,
+      "meanReturnPct": -0.008,
+      "medianReturnPct": -0.017,
+      "mfeMeanPct": 0.494,
+      "mfeMedianPct": 0.338,
+      "maeMeanPct": 0.471,
+      "maeMedianPct": 0.364,
+      "mfeMaeRatio": 1.05,
+      "mfeFirstPct": 41.67,
+      "maeFirstPct": 45,
+      "sameBarPct": 13.33,
+      "timeToMfeMedianBars": 2,
+      "timeToMaeMedianBars": 2,
+      "quantilesReturn": {
+        "p25": -0.42,
+        "p50": -0.017,
+        "p75": 0.371,
+        "p90": 0.719
+      },
+      "longDecomposition": {
+        "count": 35,
+        "meanReturnPct": 0.034,
+        "posReturnPct": 51.43,
+        "mfeMeanPct": 0.577,
+        "maeMeanPct": 0.525
+      },
+      "shortDecomposition": {
+        "count": 25,
+        "meanReturnPct": -0.068,
+        "posReturnPct": 44,
+        "mfeMeanPct": 0.378,
+        "maeMeanPct": 0.396
+      }
+    },
+    "8bars": {
+      "horizonBars": 8,
+      "signalsEvaluated": 60,
+      "positiveReturnPct": 45,
+      "negativeReturnPct": 55,
+      "meanReturnPct": 0.116,
+      "medianReturnPct": -0.085,
+      "mfeMeanPct": 0.69,
+      "mfeMedianPct": 0.391,
+      "maeMeanPct": 0.654,
+      "maeMedianPct": 0.561,
+      "mfeMaeRatio": 1.05,
+      "mfeFirstPct": 53.33,
+      "maeFirstPct": 45,
+      "sameBarPct": 1.67,
+      "timeToMfeMedianBars": 3,
+      "timeToMaeMedianBars": 4,
+      "quantilesReturn": {
+        "p25": -0.428,
+        "p50": -0.085,
+        "p75": 0.446,
+        "p90": 1.279
+      },
+      "longDecomposition": {
+        "count": 35,
+        "meanReturnPct": 0.156,
+        "posReturnPct": 45.71,
+        "mfeMeanPct": 0.792,
+        "maeMeanPct": 0.75
+      },
+      "shortDecomposition": {
+        "count": 25,
+        "meanReturnPct": 0.061,
+        "posReturnPct": 44,
+        "mfeMeanPct": 0.546,
+        "maeMeanPct": 0.518
+      }
+    },
+    "16bars": {
+      "horizonBars": 16,
+      "signalsEvaluated": 60,
+      "positiveReturnPct": 51.67,
+      "negativeReturnPct": 48.33,
+      "meanReturnPct": 0.155,
+      "medianReturnPct": 0.029,
+      "mfeMeanPct": 0.945,
+      "mfeMedianPct": 0.686,
+      "maeMeanPct": 0.849,
+      "maeMedianPct": 0.692,
+      "mfeMaeRatio": 1.11,
+      "mfeFirstPct": 38.33,
+      "maeFirstPct": 61.67,
+      "sameBarPct": 0,
+      "timeToMfeMedianBars": 9,
+      "timeToMaeMedianBars": 6,
+      "quantilesReturn": {
+        "p25": -0.491,
+        "p50": 0.029,
+        "p75": 0.442,
+        "p90": 1.824
+      },
+      "longDecomposition": {
+        "count": 35,
+        "meanReturnPct": 0.159,
+        "posReturnPct": 48.57,
+        "mfeMeanPct": 1.056,
+        "maeMeanPct": 0.956
+      },
+      "shortDecomposition": {
+        "count": 25,
+        "meanReturnPct": 0.149,
+        "posReturnPct": 56,
+        "mfeMeanPct": 0.79,
+        "maeMeanPct": 0.7
+      }
+    },
+    "32bars": {
+      "horizonBars": 32,
+      "signalsEvaluated": 60,
+      "positiveReturnPct": 63.33,
+      "negativeReturnPct": 36.67,
+      "meanReturnPct": 0.197,
+      "medianReturnPct": 0.239,
+      "mfeMeanPct": 1.18,
+      "mfeMedianPct": 0.851,
+      "maeMeanPct": 1.066,
+      "maeMedianPct": 0.829,
+      "mfeMaeRatio": 1.11,
+      "mfeFirstPct": 40,
+      "maeFirstPct": 60,
+      "sameBarPct": 0,
+      "timeToMfeMedianBars": 15,
+      "timeToMaeMedianBars": 9,
+      "quantilesReturn": {
+        "p25": -0.347,
+        "p50": 0.239,
+        "p75": 0.727,
+        "p90": 1.328
+      },
+      "longDecomposition": {
+        "count": 35,
+        "meanReturnPct": 0.102,
+        "posReturnPct": 62.86,
+        "mfeMeanPct": 1.308,
+        "maeMeanPct": 1.262
+      },
+      "shortDecomposition": {
+        "count": 25,
+        "meanReturnPct": 0.329,
+        "posReturnPct": 64,
+        "mfeMeanPct": 1.001,
+        "maeMeanPct": 0.792
+      }
+    }
+  },
+  "tf1h": {
+    "2bars": {
+      "horizonBars": 2,
+      "signalsEvaluated": 15,
+      "positiveReturnPct": 53.33,
+      "negativeReturnPct": 46.67,
+      "meanReturnPct": 0.241,
+      "medianReturnPct": 0.147,
+      "mfeMeanPct": 0.797,
+      "mfeMedianPct": 0.331,
+      "maeMeanPct": 0.517,
+      "maeMedianPct": 0.254,
+      "mfeMaeRatio": 1.54,
+      "mfeFirstPct": 40,
+      "maeFirstPct": 46.67,
+      "sameBarPct": 13.33,
+      "timeToMfeMedianBars": 1,
+      "timeToMaeMedianBars": 1,
+      "quantilesReturn": {
+        "p25": -0.428,
+        "p50": 0.147,
+        "p75": 0.654,
+        "p90": 0.799
+      },
+      "longDecomposition": {
+        "count": 8,
+        "meanReturnPct": 0.722,
+        "posReturnPct": 75,
+        "mfeMeanPct": 1.048,
+        "maeMeanPct": 0.202
+      },
+      "shortDecomposition": {
+        "count": 7,
+        "meanReturnPct": -0.308,
+        "posReturnPct": 28.57,
+        "mfeMeanPct": 0.509,
+        "maeMeanPct": 0.876
+      }
+    },
+    "4bars": {
+      "horizonBars": 4,
+      "signalsEvaluated": 15,
+      "positiveReturnPct": 73.33,
+      "negativeReturnPct": 26.67,
+      "meanReturnPct": 0.541,
+      "medianReturnPct": 0.39,
+      "mfeMeanPct": 1.103,
+      "mfeMedianPct": 1.073,
+      "maeMeanPct": 0.535,
+      "maeMedianPct": 0.45,
+      "mfeMaeRatio": 2.06,
+      "mfeFirstPct": 26.67,
+      "maeFirstPct": 60,
+      "sameBarPct": 13.33,
+      "timeToMfeMedianBars": 2,
+      "timeToMaeMedianBars": 1,
+      "quantilesReturn": {
+        "p25": -0.165,
+        "p50": 0.39,
+        "p75": 0.921,
+        "p90": 1.253
+      },
+      "longDecomposition": {
+        "count": 8,
+        "meanReturnPct": 0.983,
+        "posReturnPct": 75,
+        "mfeMeanPct": 1.542,
+        "maeMeanPct": 0.237
+      },
+      "shortDecomposition": {
+        "count": 7,
+        "meanReturnPct": 0.036,
+        "posReturnPct": 71.43,
+        "mfeMeanPct": 0.601,
+        "maeMeanPct": 0.876
+      }
+    },
+    "8bars": {
+      "horizonBars": 8,
+      "signalsEvaluated": 15,
+      "positiveReturnPct": 73.33,
+      "negativeReturnPct": 26.67,
+      "meanReturnPct": 0.565,
+      "medianReturnPct": 0.437,
+      "mfeMeanPct": 1.498,
+      "mfeMedianPct": 1.199,
+      "maeMeanPct": 0.739,
+      "maeMedianPct": 0.815,
+      "mfeMaeRatio": 2.03,
+      "mfeFirstPct": 33.33,
+      "maeFirstPct": 60,
+      "sameBarPct": 6.67,
+      "timeToMfeMedianBars": 4,
+      "timeToMaeMedianBars": 2,
+      "quantilesReturn": {
+        "p25": -0.194,
+        "p50": 0.437,
+        "p75": 0.689,
+        "p90": 0.868
+      },
+      "longDecomposition": {
+        "count": 8,
+        "meanReturnPct": 0.928,
+        "posReturnPct": 75,
+        "mfeMeanPct": 1.927,
+        "maeMeanPct": 0.548
+      },
+      "shortDecomposition": {
+        "count": 7,
+        "meanReturnPct": 0.151,
+        "posReturnPct": 71.43,
+        "mfeMeanPct": 1.008,
+        "maeMeanPct": 0.958
+      }
+    },
+    "12bars": {
+      "horizonBars": 12,
+      "signalsEvaluated": 15,
+      "positiveReturnPct": 66.67,
+      "negativeReturnPct": 33.33,
+      "meanReturnPct": 0.52,
+      "medianReturnPct": 0.185,
+      "mfeMeanPct": 1.536,
+      "mfeMedianPct": 1.255,
+      "maeMeanPct": 0.864,
+      "maeMedianPct": 0.815,
+      "mfeMaeRatio": 1.78,
+      "mfeFirstPct": 33.33,
+      "maeFirstPct": 60,
+      "sameBarPct": 6.67,
+      "timeToMfeMedianBars": 5,
+      "timeToMaeMedianBars": 2,
+      "quantilesReturn": {
+        "p25": -0.133,
+        "p50": 0.185,
+        "p75": 0.529,
+        "p90": 1.238
+      },
+      "longDecomposition": {
+        "count": 8,
+        "meanReturnPct": 0.888,
+        "posReturnPct": 62.5,
+        "mfeMeanPct": 1.964,
+        "maeMeanPct": 0.774
+      },
+      "shortDecomposition": {
+        "count": 7,
+        "meanReturnPct": 0.101,
+        "posReturnPct": 71.43,
+        "mfeMeanPct": 1.046,
+        "maeMeanPct": 0.967
+      }
+    },
+    "24bars": {
+      "horizonBars": 24,
+      "signalsEvaluated": 15,
+      "positiveReturnPct": 46.67,
+      "negativeReturnPct": 53.33,
+      "meanReturnPct": -0.004,
+      "medianReturnPct": -0.053,
+      "mfeMeanPct": 2.014,
+      "mfeMedianPct": 2.252,
+      "maeMeanPct": 1.454,
+      "maeMedianPct": 1.19,
+      "mfeMaeRatio": 1.39,
+      "mfeFirstPct": 46.67,
+      "maeFirstPct": 53.33,
+      "sameBarPct": 0,
+      "timeToMfeMedianBars": 8,
+      "timeToMaeMedianBars": 11,
+      "quantilesReturn": {
+        "p25": -1.106,
+        "p50": -0.053,
+        "p75": 1.35,
+        "p90": 2.391
+      },
+      "longDecomposition": {
+        "count": 8,
+        "meanReturnPct": 0.073,
+        "posReturnPct": 62.5,
+        "mfeMeanPct": 2.655,
+        "maeMeanPct": 1.62
+      },
+      "shortDecomposition": {
+        "count": 7,
+        "meanReturnPct": -0.093,
+        "posReturnPct": 28.57,
+        "mfeMeanPct": 1.282,
+        "maeMeanPct": 1.265
+      }
+    }
+  }
+}

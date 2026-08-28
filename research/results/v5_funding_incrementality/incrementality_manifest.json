@@ -1,0 +1,163 @@
+{
+  "experimentId": "EXP-V5-FUNDING-INCREMENTALITY-005",
+  "timestamp": "2026-08-28T03:05:31.463Z",
+  "matrix2x2": {
+    "cellA": {
+      "name": "Cell A: Spring=1, Funding<0 (Treatment)",
+      "n": 25,
+      "fwdRetMeanPct": 0.673,
+      "fwdRetMedianPct": 0.35,
+      "mfeMeanPct": 1.583,
+      "maeMeanPct": 0.664,
+      "mfeMaeRatio": 2.38,
+      "posRatePct": 64,
+      "grossPnL": 158.99,
+      "netPnL": 108.99,
+      "grossExpectancy": 6.36,
+      "netExpectancy": 4.36,
+      "profitFactorNet": 2.2,
+      "winRateNet": 60
+    },
+    "cellB": {
+      "name": "Cell B: Spring=1, Funding>=0 (Event Only)",
+      "n": 204,
+      "fwdRetMeanPct": 0.059,
+      "fwdRetMedianPct": 0.18,
+      "mfeMeanPct": 1.025,
+      "maeMeanPct": 1.2,
+      "mfeMaeRatio": 0.85,
+      "posRatePct": 54.41,
+      "grossPnL": -96.54,
+      "netPnL": -504.54,
+      "grossExpectancy": -0.473,
+      "netExpectancy": -2.473,
+      "profitFactorNet": 0.54,
+      "winRateNet": 33.33
+    },
+    "cellC": {
+      "name": "Cell C: Spring=0, Funding<0 (Regime Only)",
+      "n": 4375,
+      "fwdRetMeanPct": 0.103,
+      "fwdRetMedianPct": 0.015,
+      "mfeMeanPct": 0.897,
+      "maeMeanPct": 0.813,
+      "mfeMaeRatio": 1.1,
+      "posRatePct": 50.9,
+      "grossPnL": -1151.64,
+      "netPnL": -9901.64,
+      "grossExpectancy": -0.263,
+      "netExpectancy": -2.263,
+      "profitFactorNet": 0.53,
+      "winRateNet": 31.79
+    },
+    "cellD": {
+      "name": "Cell D: Spring=0, Funding>=0 (Pure Control)",
+      "n": 27340,
+      "fwdRetMeanPct": 0.025,
+      "fwdRetMedianPct": 0.02,
+      "mfeMeanPct": 0.829,
+      "maeMeanPct": 0.855,
+      "mfeMaeRatio": 0.97,
+      "posRatePct": 51.31,
+      "grossPnL": -9497.05,
+      "netPnL": -64177.05,
+      "grossExpectancy": -0.347,
+      "netExpectancy": -2.347,
+      "profitFactorNet": 0.49,
+      "winRateNet": 31.32
+    }
+  },
+  "interactionTerms": {
+    "didForwardRet": 0.536,
+    "incrementalOverRegime": 0.57,
+    "incrementalOverEvent": 0.614,
+    "didNetExp": 6.749,
+    "netIncrementalOverRegime": 6.623
+  },
+  "statisticalInference": {
+    "permutationTest10k": {
+      "empiricalPValue": 0.0191
+    },
+    "bootstrap10kCellA": {
+      "ci95": [
+        -0.791,
+        9.747
+      ]
+    }
+  },
+  "continuousBins": {
+    "deepDiscount": {
+      "name": "deepDiscount",
+      "n": 0
+    },
+    "moderateDiscount": {
+      "name": "moderateDiscount",
+      "n": 25,
+      "fwdRetMeanPct": 0.673,
+      "fwdRetMedianPct": 0.35,
+      "mfeMeanPct": 1.583,
+      "maeMeanPct": 0.664,
+      "mfeMaeRatio": 2.38,
+      "posRatePct": 64,
+      "grossPnL": 158.99,
+      "netPnL": 108.99,
+      "grossExpectancy": 6.36,
+      "netExpectancy": 4.36,
+      "profitFactorNet": 2.2,
+      "winRateNet": 60
+    },
+    "neutralLow": {
+      "name": "neutralLow",
+      "n": 62,
+      "fwdRetMeanPct": 0.162,
+      "fwdRetMedianPct": 0.237,
+      "mfeMeanPct": 1.062,
+      "maeMeanPct": 0.912,
+      "mfeMaeRatio": 1.16,
+      "posRatePct": 56.45,
+      "grossPnL": 43.15,
+      "netPnL": -80.85,
+      "grossExpectancy": 0.696,
+      "netExpectancy": -1.304,
+      "profitFactorNet": 0.69,
+      "winRateNet": 33.87
+    },
+    "mildPremium": {
+      "name": "mildPremium",
+      "n": 116,
+      "fwdRetMeanPct": -0.016,
+      "fwdRetMedianPct": 0.091,
+      "mfeMeanPct": 0.969,
+      "maeMeanPct": 1.207,
+      "mfeMaeRatio": 0.8,
+      "posRatePct": 52.59,
+      "grossPnL": -61.94,
+      "netPnL": -293.94,
+      "grossExpectancy": -0.534,
+      "netExpectancy": -2.534,
+      "profitFactorNet": 0.52,
+      "winRateNet": 33.62
+    },
+    "elevatedPremium": {
+      "name": "elevatedPremium",
+      "n": 26,
+      "fwdRetMeanPct": 0.145,
+      "fwdRetMedianPct": 0.283,
+      "mfeMeanPct": 1.189,
+      "maeMeanPct": 1.852,
+      "mfeMaeRatio": 0.64,
+      "posRatePct": 57.69,
+      "grossPnL": -77.75,
+      "netPnL": -129.75,
+      "grossExpectancy": -2.99,
+      "netExpectancy": -4.99,
+      "profitFactorNet": 0.42,
+      "winRateNet": 30.77
+    }
+  },
+  "governanceVerdict": {
+    "classification": "🟡 PROMISING CONDITIONAL EVIDENCE — STATISTICALLY UNCONFIRMED (N=25)",
+    "productionStatus": "🚫 PERMANENTLY BLOCKED",
+    "shadowStatus": "🟢 ACTIVE SHADOW TRACKING PROTOCOL"
+  }
+}

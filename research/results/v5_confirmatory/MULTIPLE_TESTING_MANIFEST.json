@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-08-28T05:09:42.000Z",
+  "adversarialAttacks": {
+    "totalAttacksTested": 5,
+    "totalAttacksBlocked": 5,
+    "firewallIntegrityPass": true
+  },
+  "determinismReplay": {
+    "repeatRuns": 3,
+    "grossPnL": 138.56,
+    "netPnL": 78.42,
+    "profitFactor": 1.9,
+    "winRatePct": 56.0,
+    "isExactMatch": true
+  },
+  "scalingBenchmark": {
+    "batch100": { "elapsedMs": 9.6, "hypothesesPerSec": 10390, "bonferroniAlpha": 0.0005, "sigRaw": 5, "sigBonferroni": 2, "sigFDR": 2 },
+    "batch1000": { "elapsedMs": 307.8, "hypothesesPerSec": 3249, "bonferroniAlpha": 0.00005, "sigRaw": 45, "sigBonferroni": 1, "sigFDR": 1 },
+    "batch10000": { "elapsedMs": 33852.8, "hypothesesPerSec": 295, "bonferroniAlpha": 0.000005, "sigRaw": 445, "sigBonferroni": 0, "sigFDR": 0 }
+  },
+  "v5Isolation": {
+    "configHashMatches": true,
+    "lockboxHashMatches": true,
+    "baselineReconciled": true
+  }
+}

@@ -15,10 +15,12 @@ import { LiquidityGraph } from '../causality/liquidityGraph.js';
 import { MetaAgentValidator } from '../causality/metaAgentValidator.js';
 
 export class InstitutionalMarketCausalityEngine {
-  constructor() {
+  constructor(config = {}) {
     this.marketStateEngine = new MarketStateEngine();
     this.liquidityGraph = new LiquidityGraph();
     this.metaAgentValidator = new MetaAgentValidator();
+    this.minScore = config.minScore || 60;
+    this.targetAtrMultiplier = config.targetAtrMultiplier || 2.0;
   }
 
   /**
@@ -126,7 +128,7 @@ export class InstitutionalMarketCausalityEngine {
     const explanationText = `[IMCE V4] ${whatHappened}. Objective: ${wherePriceWantsToGo}. State: ${marketStateResult.state}. Final Score: ${finalScore}/100. RedTeam: ${metaAudit.reason}.`;
 
     return {
-      signal: finalScore >= 60 ? signal : 'flat',
+      signal: finalScore >= this.minScore ? signal : 'flat',
       confidence,
       narrative: whatHappened,
       explanationText,
