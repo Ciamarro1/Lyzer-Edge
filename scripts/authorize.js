@@ -79,7 +79,7 @@ if (command === 'generate-keys') {
     tier: 'T1',                          // 'T1' | 'T2' | 'T3'
     authorized_capacity: 500,            // USD — valor máximo de capital
     issued_at: new Date().toISOString(),
-    expires_at: new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString(), // 48h
+    // expires_at: ausente = sem expiração
     nonce: crypto.randomUUID(),
     authorization_id: crypto.randomUUID(),
     emergency_recovery: 'HALT_ALL',
@@ -111,7 +111,7 @@ if (command === 'generate-keys') {
   console.log(`Ambiente  : ${payload.environment}`);
   console.log(`Tier      : ${payload.tier}`);
   console.log(`Capital   : $${payload.authorized_capacity}`);
-  console.log(`Expira em : ${payload.expires_at}`);
+  console.log(`Expira em : ${payload.expires_at || 'SEM EXPIRAÇÃO'}`);
   console.log(`Nonce     : ${payload.nonce}`);
   console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n');
 
