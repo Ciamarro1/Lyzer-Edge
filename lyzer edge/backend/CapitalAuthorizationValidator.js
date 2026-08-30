@@ -48,21 +48,28 @@ export class CapitalAuthorizationValidator {
   }
 
   static validateScope(payload) {
-    // 1. Validate Provider Hash
+    // 1. Validate Provider
     const expectedProvider = 'REC_COMP_INSTITUTIONAL_v1';
     if (payload.provider !== expectedProvider) {
       throw new Error(`AUTHORIZATION_SCOPE_VIOLATION: Provider mismatch. Expected ${expectedProvider}, got ${payload.provider}`);
     }
 
-    // 2. Validate Expiration
+    // 2. Validate Environment matches ARL_MODE
+    const runningMode = process.env.ARL_MODE || 'SIMULATION';
+    if (payload.environment !== runningMode) {
+      throw new Error(`AUTHORIZATION_SCOPE_VIOLATION: Environment mismatch. Payload authorizes ${payload.environment}, but ARL_MODE is ${runningMode}.`);
+    }
+
+    // 3. Validate Expiration
     if (payload.expires_at) {
       const now = Date.now();
-      if (now > payload.expires_at) {
-        throw new Error("AUTHORIZATION_SCOPE_VIOLATION: Signature expired.");
+      const expiresAt = new Date(payload.expires_at).getTime(); // Fix: parse ISO string → ms
+      if (now > expiresAt) {
+        throw new Error(`AUTHORIZATION_SCOPE_VIOLATION: Signature expired at ${payload.expires_at}.`);
       }
     }
 
-    // 3. Validate Capacity constraints
+    // 4. Validate Capacity constraints
     const maxCapacity = parseFloat(process.env.MAX_AUTHORIZED_CAPACITY || '150000');
     if (payload.authorized_capacity > maxCapacity) {
       throw new Error(`AUTHORIZATION_SCOPE_VIOLATION: Authorized capacity (${payload.authorized_capacity}) exceeds structural ceiling (${maxCapacity}).`);
