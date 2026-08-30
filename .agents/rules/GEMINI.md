@@ -10,6 +10,8 @@ trigger: always_on
 
 ## CRITICAL: AGENT & SKILL PROTOCOL (START HERE)
 
+> **ABSOLUTE PRIORITY:** You MUST read and obey `c:\Users\WDAGUtilityAccount\Documents\Nova pasta\Lyzer-Edge\.agents\rules\MASTER_PROMPT.md` before taking any action. This file contains the ultimate executive institutional mandate for Lyzer Edge.
+
 > **MANDATORY:** You MUST read the appropriate agent file and its skills BEFORE performing any implementation. This is the highest priority rule.
 
 ### 1. Modular Skill Loading Protocol

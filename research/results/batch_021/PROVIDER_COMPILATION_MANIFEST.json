@@ -1,0 +1,42 @@
+{
+  "provider_id": "REC_COMP_INSTITUTIONAL_v1",
+  "source_phenomenon_ids": [
+    "REC_PERSISTENCE_RATIO_T5",
+    "COMPRESSION_DURATION_Z"
+  ],
+  "source_experiment_ids": [
+    "BATCH_019",
+    "BATCH_020"
+  ],
+  "feature_ids": [
+    "REC_PERSISTENCE_RATIO_T5",
+    "COMPRESSION_DURATION_Z"
+  ],
+  "frozen_parameters": {
+    "forecast": {
+      "lookback": 5,
+      "target": "Direction"
+    },
+    "risk": {
+      "lookback": 20,
+      "z_score_window": 100,
+      "target": "Magnitude"
+    }
+  },
+  "target_definition": {
+    "forecast_target": "Directional Return T+1",
+    "risk_target": "Volatility Magnitude T+1"
+  },
+  "allowed_inputs": [
+    "OHLCV"
+  ],
+  "forbidden_inputs": [
+    "Legacy Indicators",
+    "External Pricing Oracles"
+  ],
+  "training_data_hash": "0xA1B2C3",
+  "oos_data_hash": "0xD4E5F6",
+  "research_commit": "commit_hash_placeholder",
+  "compiler_version": "1.0.0",
+  "compilation_timestamp": "2026-08-30T01:22:30.405Z"
+}

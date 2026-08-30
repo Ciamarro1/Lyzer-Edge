@@ -1,0 +1,776 @@
+{
+  "batch": "011",
+  "datasetHash": "...",
+  "executionTimestamp": "2026-08-29T23:40:19.871Z",
+  "hypothesisCount": 27,
+  "fwerAlpha": 0.000185,
+  "results": [
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 1,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 114,
+      "meanNet": 0.011052641095313658,
+      "winRate": 49.122807017543856,
+      "pf": 1.9884076985887233,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 8,
+      "pValue": 0.0538,
+      "signalCountStats": {
+        "1": {
+          "n": 114,
+          "net": 1.260001084865756
+        }
+      },
+      "portfolioEquity": 1.260001084865756
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 2,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 114,
+      "meanNet": 0.011052641095313658,
+      "winRate": 49.122807017543856,
+      "pf": 1.9884076985887233,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 8,
+      "pValue": 0.049,
+      "signalCountStats": {
+        "1": {
+          "n": 114,
+          "net": 1.260001084865756
+        }
+      },
+      "portfolioEquity": 1.260001084865756
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 4,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 114,
+      "meanNet": 0.011052641095313658,
+      "winRate": 49.122807017543856,
+      "pf": 1.9884076985887233,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 8,
+      "pValue": 0.0486,
+      "signalCountStats": {
+        "1": {
+          "n": 114,
+          "net": 1.260001084865756
+        }
+      },
+      "portfolioEquity": 1.260001084865756
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 8,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 114,
+      "meanNet": 0.011052641095313658,
+      "winRate": 49.122807017543856,
+      "pf": 1.9884076985887233,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 8,
+      "pValue": 0.0509,
+      "signalCountStats": {
+        "1": {
+          "n": 114,
+          "net": 1.260001084865756
+        }
+      },
+      "portfolioEquity": 1.260001084865756
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 12,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 114,
+      "meanNet": 0.011052641095313658,
+      "winRate": 49.122807017543856,
+      "pf": 1.9884076985887233,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 8,
+      "pValue": 0.0541,
+      "signalCountStats": {
+        "1": {
+          "n": 114,
+          "net": 1.260001084865756
+        }
+      },
+      "portfolioEquity": 1.260001084865756
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 112,
+      "meanNet": 0.009859759790381927,
+      "winRate": 48.214285714285715,
+      "pf": 1.8439774459609903,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 7,
+      "pValue": 0.0947,
+      "signalCountStats": {
+        "1": {
+          "n": 112,
+          "net": 1.1042930965227757
+        }
+      },
+      "portfolioEquity": 1.1042930965227757
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "GAP_ANALYSIS",
+        "clusterGap": 48,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 107,
+      "meanNet": 0.009682203586232941,
+      "winRate": 48.598130841121495,
+      "pf": 1.810977639302176,
+      "maxDD": 0.2550020079875932,
+      "wfaScore": 7,
+      "pValue": 0.1057,
+      "signalCountStats": {
+        "1": {
+          "n": 107,
+          "net": 1.035995783726925
+        }
+      },
+      "portfolioEquity": 1.035995783726925
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 12,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 142,
+      "meanNet": 0.002527477118458597,
+      "winRate": 48.59154929577465,
+      "pf": 1.4480383486259019,
+      "maxDD": 0.1433475969741046,
+      "wfaScore": 6,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 142,
+          "net": 0.3589017508211209
+        }
+      },
+      "portfolioEquity": 0.3589017508211209
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 24,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 142,
+      "meanNet": 0.0037382086601755672,
+      "winRate": 49.29577464788733,
+      "pf": 1.4462345612369285,
+      "maxDD": 0.14382221803551448,
+      "wfaScore": 7,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 142,
+          "net": 0.5308256297449305
+        }
+      },
+      "portfolioEquity": 0.5308256297449305
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 36,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 130,
+      "meanNet": 0.006309290809726326,
+      "winRate": 51.53846153846153,
+      "pf": 1.6324037103378866,
+      "maxDD": 0.21452888277192106,
+      "wfaScore": 7,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 130,
+          "net": 0.8202078052644232
+        }
+      },
+      "portfolioEquity": 0.8202078052644232
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 48,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 125,
+      "meanNet": 0.009308025688818243,
+      "winRate": 51.2,
+      "pf": 1.8971188123763774,
+      "maxDD": 0.19917426206010252,
+      "wfaScore": 9,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 125,
+          "net": 1.1635032111022814
+        }
+      },
+      "portfolioEquity": 1.1635032111022814
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 60,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 117,
+      "meanNet": 0.008713993937842045,
+      "winRate": 44.44444444444444,
+      "pf": 1.7148150856886926,
+      "maxDD": 0.1904287354257172,
+      "wfaScore": 7,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 117,
+          "net": 1.0195372907275186
+        }
+      },
+      "portfolioEquity": 1.0195372907275186
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 112,
+      "meanNet": 0.009859759790381927,
+      "winRate": 48.214285714285715,
+      "pf": 1.8439774459609903,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 7,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 112,
+          "net": 1.1042930965227757
+        }
+      },
+      "portfolioEquity": 1.1042930965227757
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 84,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 107,
+      "meanNet": 0.011312836353631079,
+      "winRate": 51.4018691588785,
+      "pf": 1.8767606025541803,
+      "maxDD": 0.29514919856730526,
+      "wfaScore": 9,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 107,
+          "net": 1.2104734898385245
+        }
+      },
+      "portfolioEquity": 1.2104734898385245
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 96,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 103,
+      "meanNet": 0.012919785917166296,
+      "winRate": 47.57281553398058,
+      "pf": 1.9472456226803454,
+      "maxDD": 0.217949425514954,
+      "wfaScore": 8,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 103,
+          "net": 1.3307379494681277
+        }
+      },
+      "portfolioEquity": 1.3307379494681277
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "HORIZON",
+        "clusterGap": 24,
+        "horizon": 120,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 98,
+      "meanNet": 0.013146721164315684,
+      "winRate": 51.02040816326531,
+      "pf": 1.7663257182532186,
+      "maxDD": 0.28685192582061436,
+      "wfaScore": 6,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 98,
+          "net": 1.2883786741029362
+        }
+      },
+      "portfolioEquity": 1.2883786741029362
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "PYRAMIDING",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "ONE_POSITION"
+      },
+      "nClusters": 112,
+      "meanNet": 0.009859759790381927,
+      "winRate": 48.214285714285715,
+      "pf": 1.8439774459609903,
+      "maxDD": 0.27392853067895206,
+      "wfaScore": 7,
+      "pValue": 0.0849,
+      "signalCountStats": {
+        "1": {
+          "n": 112,
+          "net": 1.1042930965227757
+        }
+      },
+      "portfolioEquity": 1.1042930965227757
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "PYRAMIDING",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "INDEPENDENT"
+      },
+      "nClusters": 114,
+      "meanNet": 0.02118095103556649,
+      "winRate": 45.614035087719294,
+      "pf": 2.4166967277796156,
+      "maxDD": 0.3442069232376528,
+      "wfaScore": 9,
+      "pValue": 0.0094,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.12652691423482013
+        },
+        "2": {
+          "n": 29,
+          "net": 0.5671087145107261
+        },
+        "3": {
+          "n": 2,
+          "net": 0.43635123604422277
+        },
+        "4": {
+          "n": 4,
+          "net": 0.8827533403893921
+        },
+        "5": {
+          "n": 2,
+          "net": 0.6549420413450584
+        }
+      },
+      "portfolioEquity": 2.4146284180545785
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "PYRAMIDING",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_05_025"
+      },
+      "nClusters": 114,
+      "meanNet": 0.01556993668203847,
+      "winRate": 47.368421052631575,
+      "pf": 2.203538409835747,
+      "maxDD": 0.3090677269583024,
+      "wfaScore": 9,
+      "pValue": 0.0218,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.12652691423482013
+        },
+        "2": {
+          "n": 29,
+          "net": 0.548009553931974
+        },
+        "3": {
+          "n": 8,
+          "net": 1.3534901420552319
+        }
+      },
+      "portfolioEquity": 1.7749727817523853
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "PYRAMIDING",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_05_05_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.016566298746931964,
+      "winRate": 47.368421052631575,
+      "pf": 2.2749361855806933,
+      "maxDD": 0.3090677269583022,
+      "wfaScore": 9,
+      "pValue": 0.0175,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.12652691423482013
+        },
+        "2": {
+          "n": 29,
+          "net": 0.548009553931974
+        },
+        "3": {
+          "n": 2,
+          "net": 0.3155317475149376
+        },
+        "4": {
+          "n": 6,
+          "net": 1.1515436699381525
+        }
+      },
+      "portfolioEquity": 1.8885580571502436
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": true,
+        "suite": "PYRAMIDING",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.01819972594793937,
+      "winRate": 46.49122807017544,
+      "pf": 2.309821111713507,
+      "maxDD": 0.32663732509797705,
+      "wfaScore": 9,
+      "pValue": 0.0145,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.12652691423482013
+        },
+        "2": {
+          "n": 29,
+          "net": 0.55755913422135
+        },
+        "3": {
+          "n": 8,
+          "net": 1.6437365380785585
+        }
+      },
+      "portfolioEquity": 2.0747687580650878
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.01819972594793937,
+      "winRate": 46.49122807017544,
+      "pf": 2.309821111713507,
+      "maxDD": 0.32663732509797705,
+      "wfaScore": 9,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.12652691423482013
+        },
+        "2": {
+          "n": 29,
+          "net": 0.55755913422135
+        },
+        "3": {
+          "n": 8,
+          "net": 1.6437365380785585
+        }
+      },
+      "portfolioEquity": 2.0747687580650878
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0.0005,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.016921217176009556,
+      "winRate": 45.614035087719294,
+      "pf": 2.163673573454323,
+      "maxDD": 0.3591373250979777,
+      "wfaScore": 8,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.20352691423482006
+        },
+        "2": {
+          "n": 29,
+          "net": 0.5068091342213502
+        },
+        "3": {
+          "n": 8,
+          "net": 1.6257365380785582
+        }
+      },
+      "portfolioEquity": 1.9290187580650888
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0.001,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.01564270840407972,
+      "winRate": 43.859649122807014,
+      "pf": 2.029840404247492,
+      "maxDD": 0.39163732509797744,
+      "wfaScore": 8,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.28052691423482007
+        },
+        "2": {
+          "n": 29,
+          "net": 0.4560591342213499
+        },
+        "3": {
+          "n": 8,
+          "net": 1.6077365380785582
+        }
+      },
+      "portfolioEquity": 1.7832687580650872
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0.002,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.01308569086022008,
+      "winRate": 41.228070175438596,
+      "pf": 1.7907836311292653,
+      "maxDD": 0.4566373250979774,
+      "wfaScore": 8,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.43452691423482004
+        },
+        "2": {
+          "n": 29,
+          "net": 0.35455913422135016
+        },
+        "3": {
+          "n": 8,
+          "net": 1.5717365380785582
+        }
+      },
+      "portfolioEquity": 1.4917687580650871
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0.003,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.010528673316360425,
+      "winRate": 38.59649122807017,
+      "pf": 1.586104495895612,
+      "maxDD": 0.5216373250979771,
+      "wfaScore": 7,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.5885269142348201
+        },
+        "2": {
+          "n": 29,
+          "net": 0.25305913422134996
+        },
+        "3": {
+          "n": 8,
+          "net": 1.5357365380785584
+        }
+      },
+      "portfolioEquity": 1.2002687580650875
+    },
+    {
+      "config": {
+        "feePct": 0.0008,
+        "slippagePct": 0.005,
+        "runPermutation": false,
+        "suite": "FRICTION",
+        "clusterGap": 24,
+        "horizon": 72,
+        "execMode": "PYRAMID_1_075_05"
+      },
+      "nClusters": 114,
+      "meanNet": 0.005414638228641117,
+      "winRate": 36.84210526315789,
+      "pf": 1.2593709959054578,
+      "maxDD": 0.8253387910842831,
+      "wfaScore": 4,
+      "pValue": 1,
+      "signalCountStats": {
+        "1": {
+          "n": 77,
+          "net": -0.8965269142348201
+        },
+        "2": {
+          "n": 29,
+          "net": 0.05005913422135002
+        },
+        "3": {
+          "n": 8,
+          "net": 1.4637365380785585
+        }
+      },
+      "portfolioEquity": 0.6172687580650884
+    }
+  ]
+}

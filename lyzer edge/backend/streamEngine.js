@@ -256,8 +256,37 @@ export class StreamEngine extends EventEmitter {
     this.regimeEngine = new RegimeEngine();
 
     this.connectionState = 'CONNECTED';
-    this.liveTradingEnabled = process.env.LIVE_TRADING_ENABLED === 'true';
-    this.maxDailyCapital = parseFloat(process.env.MAX_DAILY_CAPITAL || '0');
+    // --- INSTITUTIONAL BOOT CONTRACT ---
+    this.authorizationState = process.env.AUTHORIZATION_STATE || 'HALTED';
+    if (this.authorizationState !== 'AUTHORIZED') {
+      console.warn('⚠️ [CONTROL PLANE] AUTHORIZATION_STATE is not AUTHORIZED. Operating in SHADOW/HALTED Mode.');
+      this.liveTradingEnabled = false;
+      this.maxDailyCapital = 0;
+    } else {
+      console.log('🟢 [CONTROL PLANE] AUTHORIZATION_STATE is AUTHORIZED. Operating in LIVE Mode.');
+      this.liveTradingEnabled = true;
+      this.maxDailyCapital = parseFloat(process.env.MAX_DAILY_CAPITAL || '0');
+      
+      const authProvider = process.env.AUTHORIZED_PROVIDER;
+      if (authProvider === 'REC_COMP_INSTITUTIONAL_v1') {
+        console.log(`🔒 [FIDELITY GATE] Isolating Operational Alpha to: ${authProvider} (v5 Engine). Disabling all other providers.`);
+        // Forcefully override to disable everything EXCEPT the authorized engine (v5)
+        this.disabledProviders = new Set(['v1', 'v2', 'v3', 'v4', 'v6', 'v7']);
+        
+        // --- RUNTIME CONTRACT ENFORCEMENT ---
+        // Ensure that StreamEngine halts if someone tries to instantiate it with unauthorized parameters.
+        if (this.symbol !== 'BTCUSDT') throw new Error(`[HALT] Unauthorized Asset. Artifact only permits BTCUSDT, got ${this.symbol}.`);
+        if (this.interval !== '1h') throw new Error(`[HALT] Unauthorized Timeframe. Artifact only permits 1h, got ${this.interval}.`);
+        if (this.exitPolicy !== 'DYNAMIC_TP') throw new Error(`[HALT] Unauthorized Exit Policy. Artifact only permits DYNAMIC_TP, got ${this.exitPolicy}.`);
+        if (this.timeExitMinutes !== 360) throw new Error(`[HALT] Unauthorized Time Exit. Artifact only permits 360 min (6h), got ${this.timeExitMinutes}.`);
+        
+        const slMult = process.env.ATR_SL_MULTIPLIER;
+        const tpMult = process.env.ATR_TP_MULTIPLIER;
+        if (slMult !== '1.0') throw new Error(`[HALT] Unauthorized SL. Artifact only permits 1.0 ATR, got ${slMult}.`);
+        if (tpMult !== '2.5') throw new Error(`[HALT] Unauthorized TP. Artifact only permits 2.5 ATR, got ${tpMult}.`);
+      }
+    }
+    // -----------------------------------
     this.dailyCapitalUsed = 0;
 
     this.globalEVMemory = {
@@ -481,7 +510,7 @@ export class StreamEngine extends EventEmitter {
           return;
         }
         if (this.maxDailyCapital <= 0) {
-          console.error('[RISK BLOCK] LIVE mode execution blocked: MAX_DAILY_CAPITAL must be greater than 0.');
+          console.error('[RISK BLOCK] LIVE mode execution blocked: CAPITAL_AUTHORIZATION is missing or capacity is 0.');
           this.execution = null;
           return;
         }
@@ -2061,7 +2090,7 @@ export class StreamEngine extends EventEmitter {
       if (this.mode === 'LIVE') {
         const estimatedCost = candle.close * this.activePosition.quantity;
         if (this.dailyCapitalUsed + estimatedCost > this.maxDailyCapital) {
-          console.warn(`[RISK BLOCK] LIVE order rejected: MAX_DAILY_CAPITAL limit reached ($${this.dailyCapitalUsed.toFixed(2)} + $${estimatedCost.toFixed(2)} > $${this.maxDailyCapital.toFixed(2)}).`);
+          console.warn(`[RISK BLOCK] LIVE order rejected: MAX_AUTHORIZED_CAPACITY / DEFAULT_CAPACITY limit reached ($${this.dailyCapitalUsed.toFixed(2)} + $${estimatedCost.toFixed(2)} > $${this.maxDailyCapital.toFixed(2)}).`);
           this.activePosition = null; // Reset local position state on risk block
           return;
         }

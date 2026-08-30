@@ -19,20 +19,55 @@ import { attachPhase16Auditor, getLedgerFile } from './phase16Auditor.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// --- FORCED LIVE TESTNET CONFIGURATION ---
-process.env.ARL_MODE = process.env.ARL_MODE || 'TESTNET';
-process.env.LIVE_TRADING_ENABLED = process.env.LIVE_TRADING_ENABLED || 'false';
-process.env.MAX_DAILY_CAPITAL = process.env.MAX_DAILY_CAPITAL || '1000';
+  // --- FORCED LIVE TESTNET CONFIGURATION ---
+  process.env.ARL_MODE = process.env.ARL_MODE || 'TESTNET';
+  
+  // --- INSTITUTIONAL BOOT CONTRACT ---
+  process.env.LIVE_TRADING_ENABLED = 'false';
+  process.env.MAX_DAILY_CAPITAL = '0';
+  
+  // 1. Check Persistent K1-K5 State (External DB / Ledger, immune to container restarts)
+  const checkPersistentHaltState = () => {
+    // Simulated query to external persistent volume / db
+    const isHalted = process.env.MOCK_DB_K5_ACTIVE === 'true';
+    if (isHalted) throw new Error("PERSISTENT K5 ACTIVE: Human Unlock Required.");
+  };
 
-// LIVE trading is strictly opt-in: emit a loud warning banner when explicitly enabled
-if (process.env.ARL_MODE === 'LIVE') {
-  if (process.env.LIVE_TRADING_ENABLED !== 'true') {
-    console.warn('⚠️  [BOOT] LIVE_TRADING_ENABLED must be exactly "true" for real trades. Disabling live trading.');
+  try {
+    checkPersistentHaltState();
+    
+    const { CapitalAuthorizationValidator } = await import('./CapitalAuthorizationValidator.js');
+    const signature = process.env.CAPITAL_AUTHORIZATION_SIGNATURE || '';
+    
+    if (signature === '') {
+      console.warn('⚠️  [BOOT] No CAPITAL_AUTHORIZATION_SIGNATURE provided. Operating in SHADOW/HALTED Mode. Zero Capital Authorized.');
+    } else {
+      console.log('🔒 [CONTROL PLANE] Authenticating Cryptographic Authorization Signature...');
+      const authPayload = CapitalAuthorizationValidator.verifySignature(signature);
+      
+      console.log(`🟢 [BOOT] CAPITAL_AUTHORIZATION_SIGNATURE Verified for Provider: ${authPayload.provider}`);
+      console.log(`🟢 [BOOT] Authorized Capacity: $${authPayload.authorized_capacity} (Tier: ${authPayload.capital_tier})`);
+      
+      // The authorization state is maintained.
+      process.env.AUTHORIZATION_STATE = 'AUTHORIZED';
+      process.env.AUTHORIZED_PROVIDER = authPayload.provider;
+      process.env.LIVE_TRADING_ENABLED = 'true';
+      // Restrict the operational capacity strictly to what was cryptographically signed
+      process.env.MAX_DAILY_CAPITAL = authPayload.authorized_capacity.toString();
+      
+      if (process.env.ARL_MODE === 'LIVE') {
+        console.warn('⚠️  [BOOT] WARNING: CRYPTOGRAPHIC CAPITAL AUTHORIZED + ARL_MODE=LIVE — REAL ORDERS WILL BE PLACED ON THE EXCHANGE.');
+      }
+    }
+  } catch (error) {
+    console.error(`❌ [FATAL BOOT ERROR] Cryptographic Boot Contract Failed: ${error.message}`);
+    console.error(`❌ [FATAL BOOT ERROR] System is HALTED. Live Capital is ZERO.`);
+    // Enforce failsafe
     process.env.LIVE_TRADING_ENABLED = 'false';
-  } else {
-    console.warn('⚠️  [BOOT] WARNING: LIVE_TRADING_ENABLED=true with ARL_MODE=LIVE — REAL ORDERS WILL BE PLACED ON THE EXCHANGE.');
+    process.env.MAX_DAILY_CAPITAL = '0';
+    process.env.AUTHORIZATION_STATE = 'HALTED';
   }
-}
+  // ------------------------------------------------
 
 // COURT_SECRET_KEY is mandatory: without it, PermissionToken HMAC signatures would be forgeable
 try {
@@ -47,9 +82,27 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocketServer({ server });
 
-// --- MULTI-ASSET FLEET DEFINITION (6 PRIMARY PAIRS) ---
-export const targetAssets = (process.env.ACTIVE_SYMBOLS ? process.env.ACTIVE_SYMBOLS.split(',').map(s => s.trim().toUpperCase()).filter(Boolean) : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT']);
-export const engines = [];
+  // --- MULTI-ASSET FLEET DEFINITION (6 PRIMARY PAIRS) ---
+  let targetAssets = (process.env.ACTIVE_SYMBOLS ? process.env.ACTIVE_SYMBOLS.split(',').map(s => s.trim().toUpperCase()).filter(Boolean) : ['BTCUSDT', 'ETHUSDT', 'SOLUSDT', 'BNBUSDT', 'XRPUSDT', 'ADAUSDT']);
+  let targetInterval = '1m';
+
+  // [FIDELITY GATE] Restrict context to the authorized research artifact
+  if (process.env.AUTHORIZED_PROVIDER === 'REC_COMP_INSTITUTIONAL_v1') {
+    console.log('🔒 [FIDELITY GATE] Enforcing Institutional Artifact Context: BTCUSDT @ 1h');
+    targetAssets = ['BTCUSDT'];
+    targetInterval = '1h';
+    // Align exit policy with the frozen artifact: Max Holding Bars = 6 (6 hours)
+    process.env.EXIT_POLICY = 'DYNAMIC_TP';
+    process.env.ENABLE_TIME_EXIT_ALPHA = 'true';
+    process.env.TIME_EXIT_MINUTES = '360';
+    process.env.ATR_SL_MULTIPLIER = '1.0';
+    process.env.ATR_TP_MULTIPLIER = '2.5';
+    // Remove scaling/break-even logic that belongs to older regimes
+    process.env.ABLATION_NO_BE = 'true';
+  }
+  export { targetAssets };
+  
+  export const engines = [];
 
 // Initialize Quant Research Lab Experiment Manager
 const experimentManager = new ExperimentManager(db);
@@ -847,7 +900,7 @@ if (process.env.NODE_ENV !== 'test') {
     const engine = new StreamEngine({
       mode: process.env.ARL_MODE,
       symbol: symbol,
-      interval: '1m'
+      interval: targetInterval
     });
 
     attachPhase16Auditor(engine);

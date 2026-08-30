@@ -1,0 +1,458 @@
+{
+  "batch": "013",
+  "hypothesis": "H009",
+  "executionTimestamp": "2026-08-30T00:16:59.587Z",
+  "hypothesisCount": 22,
+  "results": [
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.005341909353362655,
+      "winRate": 64.28571428571429,
+      "pf": 1.6433252183619051,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.0007755106440696501,
+        "r2": 0.010626124684639637
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_CONT",
+        "horizon": 24
+      },
+      "nEvents": 15,
+      "meanNet": -0.002580109829792493,
+      "winRate": 53.333333333333336,
+      "pf": 0.7634089621523883,
+      "wfaScore": 4,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_NULL",
+        "horizon": 24
+      },
+      "nEvents": 285,
+      "meanNet": 0.0016185685018650206,
+      "winRate": 49.824561403508774,
+      "pf": 1.1966306531098323,
+      "wfaScore": 7,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_NULL",
+        "horizon": 24
+      },
+      "nEvents": 253,
+      "meanNet": -0.0016776843366672232,
+      "winRate": 45.059288537549406,
+      "pf": 0.8277652476848824,
+      "wfaScore": 3,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_NULL",
+        "horizon": 24
+      },
+      "nEvents": 281,
+      "meanNet": 0.0014707683251314134,
+      "winRate": 48.39857651245551,
+      "pf": 1.1904314718071463,
+      "wfaScore": 5,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_NULL",
+        "horizon": 24
+      },
+      "nEvents": 269,
+      "meanNet": 0.00010399708499563035,
+      "winRate": 48.698884758364315,
+      "pf": 1.012811696008423,
+      "wfaScore": 7,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "CONTROL",
+        "mode": "CONTROL_NULL",
+        "horizon": 24
+      },
+      "nEvents": 299,
+      "meanNet": -0.000040223235906214096,
+      "winRate": 46.82274247491639,
+      "pf": 0.9953804457699277,
+      "wfaScore": 6,
+      "ols": {
+        "slope": 0,
+        "r2": 0
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 1,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 89,
+      "meanNet": 0.0036728832096454664,
+      "winRate": 60.67415730337079,
+      "pf": 1.4295925891328813,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.0003296023891461545,
+        "r2": 0.002007463206429083
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 1.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 82,
+      "meanNet": 0.003953908110068462,
+      "winRate": 60.97560975609756,
+      "pf": 1.443637454953302,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.0003986751578287846,
+        "r2": 0.0027771301893042555
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 2,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 76,
+      "meanNet": 0.0046726575578331766,
+      "winRate": 63.1578947368421,
+      "pf": 1.5533506091215457,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.0005897357805404036,
+        "r2": 0.005942237441518783
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.005341909353362655,
+      "winRate": 64.28571428571429,
+      "pf": 1.6433252183619051,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.0007755106440696501,
+        "r2": 0.010626124684639637
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 3,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 56,
+      "meanNet": 0.002518238897653377,
+      "winRate": 58.92857142857143,
+      "pf": 1.2682515667194125,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.00029031507757382933,
+        "r2": 0.001628938210602504
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "DOSE_RESPONSE",
+        "mode": "SPRING",
+        "volumeZScore": 3.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 48,
+      "meanNet": 0.002918943088484803,
+      "winRate": 58.333333333333336,
+      "pf": 1.303594883941048,
+      "wfaScore": 5,
+      "ols": {
+        "slope": -0.0003814837276868145,
+        "r2": 0.0026412848811427914
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "HORIZON",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 12
+      },
+      "nEvents": 70,
+      "meanNet": 0.0042943628386818535,
+      "winRate": 55.714285714285715,
+      "pf": 1.7423289598588807,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.00017729360638778688,
+        "r2": 0.001112267390780075
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "HORIZON",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.005341909353362655,
+      "winRate": 64.28571428571429,
+      "pf": 1.6433252183619051,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.0007755106440696501,
+        "r2": 0.010626124684639637
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "HORIZON",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 36
+      },
+      "nEvents": 70,
+      "meanNet": 0.001756460341389405,
+      "winRate": 61.42857142857143,
+      "pf": 1.1401795132626669,
+      "wfaScore": 4,
+      "ols": {
+        "slope": -0.00015605673528935548,
+        "r2": 0.0003382237088959128
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "HORIZON",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 48
+      },
+      "nEvents": 70,
+      "meanNet": 0.003241350772297022,
+      "winRate": 54.285714285714285,
+      "pf": 1.2599039429407086,
+      "wfaScore": 6,
+      "ols": {
+        "slope": 0.00009438321588895487,
+        "r2": 0.00010498372626777108
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "HORIZON",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 72
+      },
+      "nEvents": 70,
+      "meanNet": 0.0054498919055060826,
+      "winRate": 55.714285714285715,
+      "pf": 1.357434684225213,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.0007769863944412516,
+        "r2": 0.004192236332012378
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0,
+        "suite": "FRICTION",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.005341909353362655,
+      "winRate": 64.28571428571429,
+      "pf": 1.6433252183619051,
+      "wfaScore": 7,
+      "ols": {
+        "slope": -0.0007755106440696501,
+        "r2": 0.010626124684639637
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0.0005,
+        "suite": "FRICTION",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.004341909353362654,
+      "winRate": 61.42857142857143,
+      "pf": 1.5003902231513284,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.0007755106440696499,
+        "r2": 0.010626124684639415
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0.0015,
+        "suite": "FRICTION",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": 0.002341909353362654,
+      "winRate": 55.714285714285715,
+      "pf": 1.2457790164142553,
+      "wfaScore": 6,
+      "ols": {
+        "slope": -0.0007755106440696499,
+        "r2": 0.010626124684639415
+      }
+    },
+    {
+      "config": {
+        "lookback": 60,
+        "feePct": 0.0008,
+        "slippagePct": 0.003,
+        "suite": "FRICTION",
+        "mode": "SPRING",
+        "volumeZScore": 2.5,
+        "minPierceATR": 1,
+        "horizon": 24
+      },
+      "nEvents": 70,
+      "meanNet": -0.0006580906466373457,
+      "winRate": 48.57142857142857,
+      "pf": 0.9396127529374045,
+      "wfaScore": 5,
+      "ols": {
+        "slope": -0.0007755106440696496,
+        "r2": 0.010626124684639304
+      }
+    }
+  ]
+}

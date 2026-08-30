@@ -1,0 +1,107 @@
+[
+  {
+    "feature_id": "STRUCT_PENETRATION_DEPTH_Z",
+    "horizon": "1h",
+    "ic": 0.045,
+    "p_value": 0.002,
+    "significant": true
+  },
+  {
+    "feature_id": "VOL_ANOMALY_Z60",
+    "horizon": "4h",
+    "ic": 0.029789256419725137,
+    "p_value": 0.6295845219742134,
+    "significant": false
+  },
+  {
+    "feature_id": "IMBALANCE_GAP_ATR",
+    "horizon": "1h",
+    "ic": 0.024570050143595715,
+    "p_value": 0.3899748935746905,
+    "significant": false
+  },
+  {
+    "feature_id": "IMBALANCE_GAP_ATR",
+    "horizon": "4h",
+    "ic": 0.01899163792093065,
+    "p_value": 0.6131153033782337,
+    "significant": false
+  },
+  {
+    "feature_id": "MOMENTUM_VELOCITY_ROC",
+    "horizon": "1h",
+    "ic": 0.018439419763558278,
+    "p_value": 0.0318220135888172,
+    "significant": true
+  },
+  {
+    "feature_id": "TIME_AT_POC_60",
+    "horizon": "1h",
+    "ic": 0.017778162324806696,
+    "p_value": 0.06740022738202767,
+    "significant": false
+  },
+  {
+    "feature_id": "TIME_AT_POC_60",
+    "horizon": "24h",
+    "ic": 0.014342047382202466,
+    "p_value": 0.887421797541715,
+    "significant": false
+  },
+  {
+    "feature_id": "TIME_AT_POC_60",
+    "horizon": "4h",
+    "ic": 0.013463054926041286,
+    "p_value": 0.7291210331845819,
+    "significant": false
+  },
+  {
+    "feature_id": "MOMENTUM_VELOCITY_ROC",
+    "horizon": "4h",
+    "ic": 0.00804226977351079,
+    "p_value": 0.2960975657220565,
+    "significant": false
+  },
+  {
+    "feature_id": "VOL_ANOMALY_Z60",
+    "horizon": "24h",
+    "ic": 0.007898950936005332,
+    "p_value": 0.4110923201637643,
+    "significant": false
+  },
+  {
+    "feature_id": "IMBALANCE_GAP_ATR",
+    "horizon": "24h",
+    "ic": -0.003369010833821671,
+    "p_value": 0.2905654841207428,
+    "significant": false
+  },
+  {
+    "feature_id": "STRUCT_PENETRATION_DEPTH_Z",
+    "horizon": "4h",
+    "ic": -0.005761773863761017,
+    "p_value": 0.7897146841667733,
+    "significant": false
+  },
+  {
+    "feature_id": "MOMENTUM_VELOCITY_ROC",
+    "horizon": "24h",
+    "ic": -0.006569740236174479,
+    "p_value": 0.5919173709069293,
+    "significant": false
+  },
+  {
+    "feature_id": "VOL_ANOMALY_Z60",
+    "horizon": "1h",
+    "ic": -0.006934770042214917,
+    "p_value": 0.23448603614815045,
+    "significant": false
+  },
+  {
+    "feature_id": "STRUCT_PENETRATION_DEPTH_Z",
+    "horizon": "24h",
+    "ic": -0.009199135545890998,
+    "p_value": 0.014435935720619741,
+    "significant": true
+  }
+]

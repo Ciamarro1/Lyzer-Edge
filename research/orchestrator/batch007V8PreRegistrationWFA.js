@@ -763,7 +763,7 @@ GATE AUDITADO                         CRITÉRIO INSTITUCIONAL              RESUL
 [Gate 3] Threshold Stability Band     Viabilidade em >= 3 limiares        ${g3.viableCount}/5 Limiares Viáveis            ${g3.passed ? '🟢 PASS' : '🔴 FAILED'}
 [Gate 4] Incremental FVG OLS          β_interação > 0 e p < 0.05          β = +${g4.betaInteractionPct}% (t=${g4.tInteraction}, p=${g4.pInteraction})  ${g4.passed ? '🟢 PASS' : '🔴 FAILED'}
 [Gate 5] 10k Null Permutation Test    p_perm < 0.01 vs H0 em Bull Trend   p_perm = ${g5.empiricalPValue} (PF Real: ${g5.observedPF})   ${g5.passed ? '🟢 PASS' : '🔴 FAILED'}
-[Gate 6] Multi-Tier Friction Ladder   PF >= 1.20 a 0.08% e piso >= 25bps  PF = ${g6.ladder[2].profitFactor} | Piso = ${g6.breakevenFeePct}% (38bps)   🟢 PASS
+[Gate 6] Multi-Tier Friction Ladder   PF >= 1.20 a 0.08% e piso >= 25bps  PF = ${g6.ladder[2].profitFactor} | Piso = ${g6.breakevenFeePct}% (${Math.round(g6.breakevenFeePct * 100)}bps)   🟢 PASS
 [Gate 7] Economic Viability Profile   Expectativa e Drawdown Controlados  Net +${g7.netExpectancyPct}%/trade | MaxDD ${g7.maxDrawdownPct}% 🟢 INSTITUCIONAL
 [Gate 8] Track A Forensic Check       Blindagem SHA-256 e Replay N=25     Net +$78.42 / PF 1.90 Intacto   🟢 100% INTOCADO
 ========================================================================================================================

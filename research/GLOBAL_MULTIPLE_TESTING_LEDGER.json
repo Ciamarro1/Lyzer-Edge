@@ -1,0 +1,59 @@
+{
+  "totalHypothesesExplored": 163,
+  "totalBatches": 12,
+  "families": [
+    {
+      "familyName": "Auction Failure Reversion",
+      "hypothesesTested": 4,
+      "status": "ARCHIVED"
+    },
+    {
+      "familyName": "SMC Break of Structure",
+      "hypothesesTested": 4,
+      "status": "ARCHIVED"
+    },
+    {
+      "familyName": "Displacement Alpha (V8)",
+      "hypothesesTested": 133,
+      "batches": [
+        "005",
+        "006",
+        "007",
+        "008A",
+        "008B",
+        "009",
+        "010",
+        "011"
+      ],
+      "status": "ARCHIVED",
+      "notes": "Over 130 variations of displacement filters, horizons, adversarial constraints, and pyramiding structures were tested. Entire family discarded due to FWER correction failure and Overlap Illusion."
+    },
+    {
+      "familyName": "Wyckoff Failed Breakouts / Exhaustion (Family G)",
+      "hypothesesTested": 22,
+      "batches": [
+        "013"
+      ],
+      "status": "EXPLORATORY",
+      "notes": "Discovery Phase (Batch 013). Tested Wyckoff Springs with Negative Controls (Breakout Continuation), Null Placebos, Volume Z-Score dose-response sweeps, horizon sweeps, and friction tolerances."
+    }
+  ],
+  "experiments": [
+    {
+      "experiment_id": "EXP_1788050284512",
+      "hypothesis_id": "H_NAKED_SWEEP_REVERSION",
+      "family": "STRUCTURE",
+      "features_tested": [
+        "penetration_depth"
+      ],
+      "date": "2026-08-30T00:38:04.512Z",
+      "dataset": "BINANCE_BTCUSDT_2023_H1_IN_SAMPLE",
+      "status": "REJECTED",
+      "oos_usage": false,
+      "p_value": 0.12,
+      "correction": "Bonferroni",
+      "degrees_of_freedom_consumed": 3,
+      "information_coefficient": 0.005
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "scenarioName": "Scenario A — Idealized Baseline",
+    "parameters": {
+      "delay_candles": 0,
+      "taker_fee": 0,
+      "adverse_slippage": 0,
+      "fill_ratio": 1
+    },
+    "grossExpectancy": 0.004,
+    "totalFriction": 0,
+    "netExpectancy": 0.004,
+    "status": "PROFITABLE"
+  },
+  {
+    "scenarioName": "Scenario B — Conservative Retail",
+    "parameters": {
+      "delay_candles": 1,
+      "taker_fee": 0.0006,
+      "adverse_slippage": 0.0005,
+      "fill_ratio": 1
+    },
+    "grossExpectancy": 0.004,
+    "totalFriction": 0.0015999999999999999,
+    "netExpectancy": 0.0024000000000000002,
+    "status": "PROFITABLE"
+  },
+  {
+    "scenarioName": "Scenario C — Institutional Moderate",
+    "parameters": {
+      "delay_candles": 0,
+      "taker_fee": 0.0002,
+      "adverse_slippage": 0.001,
+      "fill_ratio": 0.85
+    },
+    "grossExpectancy": 0.004,
+    "totalFriction": 0.0012000000000000001,
+    "netExpectancy": 0.0023799999999999997,
+    "status": "PROFITABLE"
+  },
+  {
+    "scenarioName": "Scenario D — Institutional Adverse",
+    "parameters": {
+      "delay_candles": 2,
+      "taker_fee": 0.0002,
+      "adverse_slippage": 0.002,
+      "fill_ratio": 0.6
+    },
+    "grossExpectancy": 0.004,
+    "totalFriction": 0.0032,
+    "netExpectancy": 0.00047999999999999996,
+    "status": "PROFITABLE"
+  },
+  {
+    "scenarioName": "Scenario E — Crisis / Liquidity Shock",
+    "parameters": {
+      "delay_candles": 5,
+      "taker_fee": 0.0002,
+      "adverse_slippage": 0.004,
+      "fill_ratio": 0.3
+    },
+    "grossExpectancy": 0.004,
+    "totalFriction": 0.0067,
+    "netExpectancy": -0.0008100000000000001,
+    "status": "FRICTION_BREAKPOINT"
+  }
+]

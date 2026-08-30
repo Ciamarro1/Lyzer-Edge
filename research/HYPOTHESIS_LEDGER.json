@@ -1,0 +1,96 @@
+[
+  {
+    "id": "H001",
+    "date": "2026-08-01T00:00:00.000Z",
+    "parentBatch": "003",
+    "hypothesis": "Reversão ao POC em Falhas de Leilão",
+    "economicRationale": "Auction failures represent exhaustion and trap liquidity, forcing mean reversion to the Point of Control.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "reasonForRejection": "62.5% of events diverged instead of reverting."
+  },
+  {
+    "id": "H002",
+    "date": "2026-08-05T00:00:00.000Z",
+    "parentBatch": "004",
+    "hypothesis": "SMC BOS de Swing Pivot",
+    "economicRationale": "Break of Structure after a Swing Pivot confirms trend continuation.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "reasonForRejection": "Latency forces entry at the extreme top of the impulse, yielding negative expectancy."
+  },
+  {
+    "id": "H003",
+    "date": "2026-08-06T00:00:00.000Z",
+    "parentBatch": "004",
+    "hypothesis": "Ordens Limite de Pullback",
+    "economicRationale": "Entering at limit on a retracement to an FVG improves Risk/Reward.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "reasonForRejection": "Severe adverse selection; filled orders overwhelmingly correlated with regime breakdown."
+  },
+  {
+    "id": "H004",
+    "date": "2026-08-10T00:00:00.000Z",
+    "parentBatch": "005",
+    "hypothesis": "Continuação de Queda em Bitcoin após Bearish Displacement",
+    "economicRationale": "Large bearish candles imply panic selling and momentum continuation.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "reasonForRejection": "Bearish displacements suffer massive liquidity absorption and mean revert upwards."
+  },
+  {
+    "id": "H005",
+    "date": "2026-08-25T00:00:00.000Z",
+    "parentBatch": "008B",
+    "hypothesis": "V8.1-DIPBUY",
+    "economicRationale": "Buying the reversion after a Bearish Displacement captures the absorption premium.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "pValue": 0.40,
+    "reasonForRejection": "Regression and permutation proven to be statistical noise. No true alpha."
+  },
+  {
+    "id": "H006",
+    "date": "2026-08-25T00:00:00.000Z",
+    "parentBatch": "008A",
+    "hypothesis": "V8.0-DISPLACEMENT-FVG-LONG",
+    "economicRationale": "Bullish displacement coupled with FVG identifies institutional momentum ignition.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "wfa": "6/10",
+    "reasonForRejection": "Over-filtration caused by FVG requirement destroys temporal stability across WFA windows."
+  },
+  {
+    "id": "H007",
+    "date": "2026-08-29T20:00:00.000Z",
+    "parentBatch": "010",
+    "hypothesis": "V8.2-DISPLACEMENT-MOMENTUM",
+    "economicRationale": "Bullish displacement without FVG yields sufficient sample size for 72h momentum maturation.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "pValue": 0.0497,
+    "reasonForRejection": "Edge was an illusion caused by Overlapping Trades. Independent event WFA collapsed."
+  },
+  {
+    "id": "H008",
+    "date": "2026-08-29T20:40:00.000Z",
+    "parentBatch": "011",
+    "hypothesis": "V8 FAMILY (CLUSTER PYRAMIDING)",
+    "economicRationale": "Displacements cluster during regime ignition; structural pyramiding captures this alpha efficiently.",
+    "status": "ARCHIVED",
+    "result": "REJECTED",
+    "pValue": 0.0145,
+    "reasonForRejection": "Failed Family-Wise Error Rate (FWER) correction. Under Bonferroni (alpha = 0.000185), the p-value was insignificant."
+  },
+  {
+    "id": "H009",
+    "date": "2026-08-30T00:00:00.000Z",
+    "parentBatch": "013",
+    "hypothesis": "Wyckoff Spring / Volume Rejection",
+    "economicRationale": "Failed structural breakdowns (Springs) accompanied by anomalous volume represent trapped retail liquidity and institutional absorption, causing an immediate short-squeeze reversion.",
+    "status": "EXPLORATORY",
+    "result": "PROMISING",
+    "reasonForAcceptance": "Spring setup heavily outperformed negative controls and placebo. Displayed clear dose-response with Volume Z-Score up to 2.5. Edge resolved rapidly (12-24h), confirming short-squeeze thesis. Promoted to Confirmation."
+  }
+]

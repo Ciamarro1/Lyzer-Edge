@@ -1,0 +1,32 @@
+{
+  "suiteTimestamp": "2026-08-29T23:01:55.095Z",
+  "suiteElapsedSec": 20.02,
+  "datasetSha256": "9d20a9a9754ee34171ef79653dff6dc0bd5d411dcfcc5337c655b80969d49299",
+  "result008A": {
+    "status": "COMPLETED",
+    "error": null
+  },
+  "result008B": {
+    "status": "COMPLETED",
+    "error": null
+  },
+  "trackAIntegrity": {
+    "preConfigHash": "61d27f06cc14daf582a1e5c5b5a6e7669a99856091ea6ecef3c24256dadc4c74",
+    "postConfigHash": "61d27f06cc14daf582a1e5c5b5a6e7669a99856091ea6ecef3c24256dadc4c74",
+    "configMatch": true,
+    "preLockboxHash": "30e1377b8c75588f002c17319acde560f1c39d33188c0f6b80d64f5460280e03",
+    "postLockboxHash": "30e1377b8c75588f002c17319acde560f1c39d33188c0f6b80d64f5460280e03",
+    "lockboxMatch": true,
+    "preReconciliation": {
+      "nTrades": 25,
+      "netPnl": 78.42,
+      "pf": 1.9
+    },
+    "postReconciliation": {
+      "nTrades": 25,
+      "netPnl": 78.42,
+      "pf": 1.9
+    },
+    "overallIntact": true
+  }
+}

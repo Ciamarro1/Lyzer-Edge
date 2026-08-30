@@ -1,0 +1,272 @@
+{
+  "executionTimestamp": "2026-08-29T23:02:12.881Z",
+  "datasetSha256": "9d20a9a9754ee34171ef79653dff6dc0bd5d411dcfcc5337c655b80969d49299",
+  "gates": {
+    "gate1Census": {
+      "totalEvents": 239,
+      "pctCandles": 0.75,
+      "eventsPerYear": 65.6,
+      "magnitudeMean": 2.66,
+      "magnitudeMedian": 2.4,
+      "magnitudeStdDev": 0.72
+    },
+    "gate2OLS": {
+      "coefficients": [
+        {
+          "name": "Intercept",
+          "betaPct": 0.1979,
+          "sePct": 0.0301,
+          "tStat": 6.58,
+          "pValue": 0
+        },
+        {
+          "name": "Volatility (ATR)",
+          "betaPct": -0.0531,
+          "sePct": 0.0207,
+          "tStat": -2.564,
+          "pValue": 0.01035
+        },
+        {
+          "name": "Trend Alignment",
+          "betaPct": 0.134,
+          "sePct": 0.0163,
+          "tStat": 8.241,
+          "pValue": 0
+        },
+        {
+          "name": "NY Session",
+          "betaPct": 0.0059,
+          "sePct": 0.0327,
+          "tStat": 0.18,
+          "pValue": 0.85716
+        },
+        {
+          "name": "London Session",
+          "betaPct": -0.0068,
+          "sePct": 0.0344,
+          "tStat": -0.196,
+          "pValue": 0.84433
+        },
+        {
+          "name": "Bearish Displacement",
+          "betaPct": -0.1323,
+          "sePct": 0.1598,
+          "tStat": -0.828,
+          "pValue": 0.40778
+        }
+      ],
+      "betaDisplacementPct": -0.1323,
+      "pDisplacement": 0.40778,
+      "passed": false
+    },
+    "gate3DoseResponse": {
+      "buckets": [
+        {
+          "label": "Bucket 1: Body/ATR < 1.0 (control)",
+          "n": 13934,
+          "meanPct": 0.1322
+        },
+        {
+          "label": "Bucket 2: Body/ATR 1.0 - 1.5 (mild)",
+          "n": 1102,
+          "meanPct": 0.1585
+        },
+        {
+          "label": "Bucket 3: Body/ATR 1.5 - 2.0 (mod)",
+          "n": 412,
+          "meanPct": 0.2958
+        },
+        {
+          "label": "Bucket 4: Body/ATR 2.0 - 2.5 (strong)",
+          "n": 154,
+          "meanPct": 0.0323
+        },
+        {
+          "label": "Bucket 5: Body/ATR 2.5 - 3.0 (v.strong)",
+          "n": 56,
+          "meanPct": -0.3605
+        },
+        {
+          "label": "Bucket 6: Body/ATR >= 3.0 (extreme)",
+          "n": 57,
+          "meanPct": 0.2298
+        }
+      ],
+      "spearmanRho": -0.086,
+      "passed": false
+    },
+    "gate4MatchedPairs": {
+      "n": 232,
+      "medianDiffPct": 0.095,
+      "pValue": 0.14813,
+      "passed": false
+    },
+    "gate5Regimes": {
+      "regimes": [
+        {
+          "regime": "Bull Trend",
+          "n": 66,
+          "meanPct": 0.0214,
+          "wrPct": 51.5,
+          "pf": 1.02
+        },
+        {
+          "regime": "Bear Trend",
+          "n": 98,
+          "meanPct": 0.1105,
+          "wrPct": 58.2,
+          "pf": 1.11
+        },
+        {
+          "regime": "Choppy",
+          "n": 75,
+          "meanPct": -0.1835,
+          "wrPct": 45.3,
+          "pf": 0.76
+        }
+      ]
+    },
+    "gate6Mechanics": {
+      "horizons": [
+        {
+          "horizon": 24,
+          "n": 239,
+          "grossPct": -0.0064,
+          "netPct": -0.0864,
+          "medianPct": -0.0283,
+          "wrPct": 48.5,
+          "pf": 0.91,
+          "mfePct": 1.8098,
+          "maePct": 2.2172
+        },
+        {
+          "horizon": 66,
+          "n": 239,
+          "grossPct": 0.3377,
+          "netPct": 0.2577,
+          "medianPct": 0.4731,
+          "wrPct": 58.2,
+          "pf": 1.19,
+          "mfePct": 3.0361,
+          "maePct": 3.4283
+        }
+      ]
+    },
+    "gate7WFA": {
+      "windows": [
+        {
+          "window": 1,
+          "n": 20,
+          "netPct": -0.3987,
+          "wrPct": 30
+        },
+        {
+          "window": 2,
+          "n": 27,
+          "netPct": 0.388,
+          "wrPct": 63
+        },
+        {
+          "window": 3,
+          "n": 20,
+          "netPct": 0.1356,
+          "wrPct": 55
+        },
+        {
+          "window": 4,
+          "n": 18,
+          "netPct": 0.4098,
+          "wrPct": 72.2
+        },
+        {
+          "window": 5,
+          "n": 31,
+          "netPct": -0.7018,
+          "wrPct": 35.5
+        },
+        {
+          "window": 6,
+          "n": 34,
+          "netPct": 0.1639,
+          "wrPct": 50
+        },
+        {
+          "window": 7,
+          "n": 24,
+          "netPct": 0.7276,
+          "wrPct": 58.3
+        },
+        {
+          "window": 8,
+          "n": 22,
+          "netPct": -0.6699,
+          "wrPct": 45.5
+        },
+        {
+          "window": 9,
+          "n": 27,
+          "netPct": -1.0307,
+          "wrPct": 22.2
+        },
+        {
+          "window": 10,
+          "n": 16,
+          "netPct": 0.5034,
+          "wrPct": 68.8
+        }
+      ]
+    },
+    "gate8Friction": {
+      "ladder": [
+        {
+          "tierPct": 0,
+          "meanNetPct": -0.0064,
+          "wrPct": 52.3,
+          "pf": 0.99
+        },
+        {
+          "tierPct": 0.05,
+          "meanNetPct": -0.0564,
+          "wrPct": 50.2,
+          "pf": 0.94
+        },
+        {
+          "tierPct": 0.08,
+          "meanNetPct": -0.0864,
+          "wrPct": 48.5,
+          "pf": 0.91
+        },
+        {
+          "tierPct": 0.1,
+          "meanNetPct": -0.1064,
+          "wrPct": 47.7,
+          "pf": 0.89
+        },
+        {
+          "tierPct": 0.15,
+          "meanNetPct": -0.1564,
+          "wrPct": 46.4,
+          "pf": 0.84
+        },
+        {
+          "tierPct": 0.25,
+          "meanNetPct": -0.2564,
+          "wrPct": 44.8,
+          "pf": 0.75
+        }
+      ],
+      "breakevenPct": -0.0064
+    },
+    "gate9Permutation": {
+      "observedPF": 0.91,
+      "pValue": 0.8085,
+      "passed": false
+    },
+    "gate10TrackA": {
+      "isConfigIntact": true,
+      "isLockboxIntact": true,
+      "isReplayIntact": true
+    }
+  },
+  "elapsedSec": "2.5"
+}

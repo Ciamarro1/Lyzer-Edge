@@ -801,7 +801,7 @@ GATE AUDITADO                         CRITÉRIO INSTITUCIONAL              RESUL
 [Gate 4] Execution Mechanics          Modelos A, B, C, D, E               Model A (Market on Close): Net +0.30% PF 1.48 🟢 PASS
 [Gate 5] Stacking Incremental Info    D vs D+FVG vs D+BOS                 D+FVG: Net +0.51% (PF 1.86)     🟢 PASS (SINERGIA)
 [Gate 6] Multi-Tier Friction Ladder   Sobrevivência a 0.08% e 0.10%       Breakeven Floor = +0.38% (38bps)🟢 PASS
-[Gate 7] Blind OOS (30% 2025–2026)    Retenção sem tuning OOS PF >= 1.20  IS Net: +0.54% | OOS Net: +0.42% (PF 1.68) 🟢 PASS
+[Gate 7] Blind OOS (30% 2025–2026)    Retenção sem tuning OOS PF >= 1.20  IS Net: +${g7.dFVG.is.meanNetPct}% (PF ${g7.dFVG.is.pf}) | OOS Net: +${g7.dFVG.oos.meanNetPct}% (PF ${g7.dFVG.oos.pf}) ${g7.passed ? '🟢 PASS' : '🔴 FAILED'}
 [Gate 8] Economic Viability Profile   Expectativa Líquida e Frequência    +0.51%/trade (2.3 trades/mês)   🟢 INSTITUCIONAL
 [Gate 9] Track A Forensic Check       Blindagem SHA-256 e Replay N=25     Net +$78.42 / PF 1.90 Intacto   🟢 100% INTOCADO
 ========================================================================================================================
@@ -874,7 +874,7 @@ CANDIDATO 1: MODEL A (MARKET ON CLOSE - DISPLACEMENT PURO):
 CANDIDATO 2: STACKING D + FVG (DISPLACEMENT + FVG):
 - In-Sample  (70%, 2023–2025): N=${g7.dFVG.is.n}   | Net Médio: +${g7.dFVG.is.meanNetPct}% | PF: ${g7.dFVG.is.pf}
 - Out-of-Sample (30%, 2025–2026): N=${g7.dFVG.oos.n}  | Net Médio: +${g7.dFVG.oos.meanNetPct}% | PF: ${g7.dFVG.oos.pf}
-- Veredito da Validação Cega  : 🟢 PASSED (D+FVG retém rentabilidade em dados nunca vistos sem curve-fitting)
+- Veredito da Validação Cega  : ${g7.passed ? '🟢 PASSED (D+FVG retém rentabilidade em dados nunca vistos sem curve-fitting)' : '🔴 FAILED (OOS PF ' + g7.dFVG.oos.pf + ' < 1.20 — degradação em regime de consolidação)'}
 \`\`\`
 
 ---

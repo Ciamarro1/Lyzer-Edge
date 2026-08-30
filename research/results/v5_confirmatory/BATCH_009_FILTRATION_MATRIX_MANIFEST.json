@@ -1,0 +1,345 @@
+{
+  "experimentFamily": "V8.2_FILTRATION_MATRIX",
+  "executionTimestamp": "2026-08-29T23:10:29.177Z",
+  "elapsedSec": "4.6",
+  "totalModels": 24,
+  "bonferroniAlpha": 0.0004166666666666667,
+  "results": [
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "NONE",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 280,
+      "meanNet": 0.0028131224590436836,
+      "winRate": 48.57142857142857,
+      "pf": 1.4704704605464678,
+      "wfaScore": 8,
+      "pValue": 0.0125
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "NONE",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 280,
+      "meanNet": 0.004257080303896539,
+      "winRate": 47.85714285714286,
+      "pf": 1.4831978153476486,
+      "wfaScore": 7,
+      "pValue": 0.0335
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "NONE",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 280,
+      "meanNet": 0.009746464097141241,
+      "winRate": 52.142857142857146,
+      "pf": 1.8869242568752493,
+      "wfaScore": 8,
+      "pValue": 0.0033
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "NONE",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 280,
+      "meanNet": 0.012217049012857277,
+      "winRate": 52.5,
+      "pf": 2.0015465433660653,
+      "wfaScore": 9,
+      "pValue": 0.0033
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 102,
+      "meanNet": 0.004890652376223144,
+      "winRate": 50.98039215686274,
+      "pf": 1.8875340473640203,
+      "wfaScore": 6,
+      "pValue": 0.0132
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 102,
+      "meanNet": 0.006029793185083382,
+      "winRate": 46.07843137254902,
+      "pf": 1.6357941830967697,
+      "wfaScore": 6,
+      "pValue": 0.0727
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 102,
+      "meanNet": 0.00870199724155135,
+      "winRate": 53.92156862745098,
+      "pf": 1.7414721887594418,
+      "wfaScore": 6,
+      "pValue": 0.0901
+    },
+    {
+      "config": {
+        "trendFilter": "NONE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 102,
+      "meanNet": 0.01371520739226425,
+      "winRate": 50.98039215686274,
+      "pf": 2.207267930003504,
+      "wfaScore": 6,
+      "pValue": 0.0223
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "NONE",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 203,
+      "meanNet": 0.0045068539571784675,
+      "winRate": 51.231527093596064,
+      "pf": 1.7962845239553529,
+      "wfaScore": 7,
+      "pValue": 0.0037
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "NONE",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 203,
+      "meanNet": 0.007786493415574152,
+      "winRate": 53.20197044334976,
+      "pf": 1.9706209986926766,
+      "wfaScore": 8,
+      "pValue": 0.0039
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "NONE",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 203,
+      "meanNet": 0.01447908671065313,
+      "winRate": 58.128078817733986,
+      "pf": 2.4658334961307182,
+      "wfaScore": 9,
+      "pValue": 0.0004
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "NONE",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 203,
+      "meanNet": 0.018682405213996806,
+      "winRate": 57.635467980295566,
+      "pf": 2.8069610012272914,
+      "wfaScore": 9,
+      "pValue": 0
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 86,
+      "meanNet": 0.00602704158076704,
+      "winRate": 53.48837209302325,
+      "pf": 2.1150157178231757,
+      "wfaScore": 7,
+      "pValue": 0.0135
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 86,
+      "meanNet": 0.008808041221321448,
+      "winRate": 50,
+      "pf": 2.0111831750348745,
+      "wfaScore": 6,
+      "pValue": 0.0372
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 86,
+      "meanNet": 0.011853938264427124,
+      "winRate": 56.97674418604651,
+      "pf": 2.064580867040406,
+      "wfaScore": 6,
+      "pValue": 0.0604
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_SIMPLE",
+        "fvgFilter": "REQUIRED",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 86,
+      "meanNet": 0.018169349283490364,
+      "winRate": 55.81395348837209,
+      "pf": 2.872257086827888,
+      "wfaScore": 6,
+      "pValue": 0.0084
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "NONE",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 156,
+      "meanNet": 0.005462445765948572,
+      "winRate": 52.56410256410257,
+      "pf": 2.0110835758442414,
+      "wfaScore": 7,
+      "pValue": 0.0029
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "NONE",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 156,
+      "meanNet": 0.009428045059827582,
+      "winRate": 57.692307692307686,
+      "pf": 2.2341246099512198,
+      "wfaScore": 8,
+      "pValue": 0.004
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "NONE",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 156,
+      "meanNet": 0.015712351264954558,
+      "winRate": 61.53846153846154,
+      "pf": 2.587121835651139,
+      "wfaScore": 10,
+      "pValue": 0.0031
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "NONE",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 156,
+      "meanNet": 0.01980820370936755,
+      "winRate": 58.333333333333336,
+      "pf": 2.8601783691198066,
+      "wfaScore": 9,
+      "pValue": 0.0004
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "REQUIRED",
+        "horizon": 12,
+        "feePct": 0.0008
+      },
+      "n": 65,
+      "meanNet": 0.008172786959857294,
+      "winRate": 58.46153846153847,
+      "pf": 2.6162569464338468,
+      "wfaScore": 6,
+      "pValue": 0.0056
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "REQUIRED",
+        "horizon": 24,
+        "feePct": 0.0008
+      },
+      "n": 65,
+      "meanNet": 0.011686964714023227,
+      "winRate": 55.38461538461539,
+      "pf": 2.4047795026020724,
+      "wfaScore": 6,
+      "pValue": 0.0236
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "REQUIRED",
+        "horizon": 48,
+        "feePct": 0.0008
+      },
+      "n": 65,
+      "meanNet": 0.013724574910805087,
+      "winRate": 61.53846153846154,
+      "pf": 2.2184400857408715,
+      "wfaScore": 6,
+      "pValue": 0.0848
+    },
+    {
+      "config": {
+        "trendFilter": "BULL_STRICT",
+        "fvgFilter": "REQUIRED",
+        "horizon": 72,
+        "feePct": 0.0008
+      },
+      "n": 65,
+      "meanNet": 0.018978338966081337,
+      "winRate": 55.38461538461539,
+      "pf": 2.84895365313822,
+      "wfaScore": 7,
+      "pValue": 0.0208
+    }
+  ]
+}
