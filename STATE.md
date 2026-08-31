@@ -57,6 +57,11 @@ Batch 027–032   Readiness, Shadow Live & Governança    Contrato de execução
                                                        desacoplamento Rust/Node/Exchange.
 Batch 033       Deployment Fidelity & Asymmetric Boot  Ed25519 Zero-Trust out-of-band auth;     🟢 PRODUÇÃO BLINDADA
                                                        Runtime Contract e trava física.         (100% Fail-Closed)
+Batch 034       Absorption Reversal (Proxy Flow)       Testou ε_t → R_{t+k}; ausência de        🔴 FALSIFICADO EM G3
+                                                       reação gera momentum, não reversão.      [ARCHIVED / REJECT]
+Batch 035       Flow-Price Response (Real Taker Flow)  Dataset Binance Futures 2.47M certificado 🔴 FALSIFICADO EM G3
+                                                       (G-DATA-0 PASS). Fluxo M5 é ruído pós-   [ARCHIVED / REJECT]
+                                                       fricção (t-stat < 1.0, Net Edge < 0).
 ========================================================================================================================
 ```
 
