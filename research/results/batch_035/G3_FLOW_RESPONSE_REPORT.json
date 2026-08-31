@@ -1,0 +1,168 @@
+{
+  "batch": "BATCH_035",
+  "gate": "G3_DUAL_EVALUATION",
+  "status": "REJECT",
+  "evaluatedAt": "2026-08-31T23:10:30.505Z",
+  "statisticalG3a": {
+    "passed": false,
+    "best": {
+      "horizonBars": 48,
+      "minutes": 240,
+      "n": 2781,
+      "beta": -0.0001874429308940752,
+      "seHAC": 0.0002038159049773861,
+      "tStatHAC": -0.9196678292347816,
+      "pValue": 0.3577463161371337,
+      "spearmanIC": -0.024462750128844146,
+      "pearsonR": -0.015841868472108927
+    },
+    "all": [
+      {
+        "horizonBars": 1,
+        "minutes": 5,
+        "n": 2781,
+        "beta": -0.00004538096574907817,
+        "seHAC": 0.000060241094019235514,
+        "tStatHAC": -0.7533224037164337,
+        "pValue": 0.4512560534834016,
+        "spearmanIC": 0.00923807242547261,
+        "pearsonR": -0.0235056610702569
+      },
+      {
+        "horizonBars": 3,
+        "minutes": 15,
+        "n": 2781,
+        "beta": 0.00003561541866896864,
+        "seHAC": 0.00008446146460652177,
+        "tStatHAC": 0.42167654604249616,
+        "pValue": 0.6732611948868612,
+        "spearmanIC": 0.00970037954127844,
+        "pearsonR": 0.011009666041362953
+      },
+      {
+        "horizonBars": 6,
+        "minutes": 30,
+        "n": 2781,
+        "beta": -0.00005987437249056239,
+        "seHAC": 0.00011213592294020244,
+        "tStatHAC": -0.5339446175735405,
+        "pValue": 0.5933798024248926,
+        "spearmanIC": -0.019731663807274962,
+        "pearsonR": -0.014293246120350506
+      },
+      {
+        "horizonBars": 12,
+        "minutes": 60,
+        "n": 2781,
+        "beta": -0.0000507644296369005,
+        "seHAC": 0.00013266091273043634,
+        "tStatHAC": -0.38266305117357785,
+        "pValue": 0.7019697157210048,
+        "spearmanIC": -0.020213601932621766,
+        "pearsonR": -0.008602095251970992
+      },
+      {
+        "horizonBars": 24,
+        "minutes": 120,
+        "n": 2781,
+        "beta": -0.00008071140342228743,
+        "seHAC": 0.0001448544958875846,
+        "tStatHAC": -0.5571894950704471,
+        "pValue": 0.5773978946499638,
+        "spearmanIC": -0.02361382020136824,
+        "pearsonR": -0.009686440294815558
+      },
+      {
+        "horizonBars": 48,
+        "minutes": 240,
+        "n": 2781,
+        "beta": -0.0001874429308940752,
+        "seHAC": 0.0002038159049773861,
+        "tStatHAC": -0.9196678292347816,
+        "pValue": 0.3577463161371337,
+        "spearmanIC": -0.024462750128844146,
+        "pearsonR": -0.015841868472108927
+      }
+    ]
+  },
+  "economicG3b": {
+    "passed": false,
+    "best": {
+      "horizonBars": 3,
+      "minutes": 15,
+      "transmission": {
+        "n": 1032,
+        "grossReturnPct": -0.006755661273125693,
+        "netEdgePct": -0.0867556612731257
+      },
+      "absorption": {
+        "n": 28,
+        "grossReturnPct": -0.007582688325352295,
+        "netEdgePct": -0.08758268832535229
+      },
+      "unconditionedGrossPct": 0.159959194216158
+    },
+    "all": [
+      {
+        "horizonBars": 3,
+        "minutes": 15,
+        "transmission": {
+          "n": 1032,
+          "grossReturnPct": -0.006755661273125693,
+          "netEdgePct": -0.0867556612731257
+        },
+        "absorption": {
+          "n": 28,
+          "grossReturnPct": -0.007582688325352295,
+          "netEdgePct": -0.08758268832535229
+        },
+        "unconditionedGrossPct": 0.159959194216158
+      },
+      {
+        "horizonBars": 6,
+        "minutes": 30,
+        "transmission": {
+          "n": 1032,
+          "grossReturnPct": -0.008092099045143525,
+          "netEdgePct": -0.08809209904514352
+        },
+        "absorption": {
+          "n": 28,
+          "grossReturnPct": -0.0933559172087788,
+          "netEdgePct": -0.1733559172087788
+        },
+        "unconditionedGrossPct": 0.2232881448763273
+      },
+      {
+        "horizonBars": 12,
+        "minutes": 60,
+        "transmission": {
+          "n": 1032,
+          "grossReturnPct": -0.029973970640726644,
+          "netEdgePct": -0.10997397064072664
+        },
+        "absorption": {
+          "n": 28,
+          "grossReturnPct": -0.14368354946826892,
+          "netEdgePct": -0.22368354946826893
+        },
+        "unconditionedGrossPct": 0.3133565964521815
+      },
+      {
+        "horizonBars": 24,
+        "minutes": 120,
+        "transmission": {
+          "n": 1032,
+          "grossReturnPct": -0.01641389920190469,
+          "netEdgePct": -0.0964138992019047
+        },
+        "absorption": {
+          "n": 28,
+          "grossReturnPct": -0.041094229346941624,
+          "netEdgePct": -0.12109422934694163
+        },
+        "unconditionedGrossPct": 0.4425661263791761
+      }
+    ]
+  }
+}

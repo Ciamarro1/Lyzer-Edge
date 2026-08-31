@@ -1,0 +1,14 @@
+{
+  "batch": "BATCH_035",
+  "prereg": "PREREG-035",
+  "extractedAt": "2026-08-31T23:10:20.255Z",
+  "totalEvents": 385047,
+  "inSampleEvents": 210234,
+  "outOfSampleEvents": 174813,
+  "regimeBreakdownInSample": {
+    "TRANSMISSION": 1032,
+    "ABSORPTION": 28,
+    "EXPANDED_IMPACT": 455,
+    "INDETERMINATE": 208719
+  }
+}
