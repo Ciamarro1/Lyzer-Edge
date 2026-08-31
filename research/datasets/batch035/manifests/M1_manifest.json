@@ -1,0 +1,29 @@
+{
+  "interval": "1m",
+  "parts": [
+    {
+      "year": "2023",
+      "records": 525600,
+      "file": "BTCUSDT_1m_2023.json",
+      "sha256": "33f4aeefe960e71d296cacef00541f3454ae152a2034456eb7c3fc86965905a9"
+    },
+    {
+      "year": "2024",
+      "records": 527040,
+      "file": "BTCUSDT_1m_2024.json",
+      "sha256": "3599a1c20a1ce8532de58b1e0afec8f6bfed6f11afe8806b985fa587cf2f78ef"
+    },
+    {
+      "year": "2025",
+      "records": 525600,
+      "file": "BTCUSDT_1m_2025.json",
+      "sha256": "318900612c348c2ba1c18fb1287e91498c9b16d37a7574cf58debe851f0b6d98"
+    },
+    {
+      "year": "2026",
+      "records": 348480,
+      "file": "BTCUSDT_1m_2026.json",
+      "sha256": "d12d515a5bf971f38460d9377604bbd2c3adbd3909922bdef90388b722c41f03"
+    }
+  ]
+}

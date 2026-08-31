@@ -1,0 +1,20 @@
+{
+  "interval": "1h",
+  "totalRecords": 32112,
+  "file": "BTCUSDT_FUTURES_H1_2023_2026.json",
+  "sha256": "ef2358d600cf2d1bd1210854fa7bf23614af434ee584eb170e290a1151a69789",
+  "audit": {
+    "interval": "H1",
+    "totalCandles": 32112,
+    "startDate": "2023-01-01T00:00:00.000Z",
+    "endDate": "2026-08-30T23:00:00.000Z",
+    "duplicates": 0,
+    "nonMonotonic": 0,
+    "gaps": 0,
+    "invalidOhlc": 0,
+    "invalidVolume": 0,
+    "invalidTakerBuy": 0,
+    "invalidTradeCount": 0,
+    "status": "PASS"
+  }
+}
