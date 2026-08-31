@@ -62,6 +62,9 @@ Batch 034       Absorption Reversal (Proxy Flow)       Testou ε_t → R_{t+k}; 
 Batch 035       Flow-Price Response (Real Taker Flow)  Dataset Binance Futures 2.47M certificado 🔴 FALSIFICADO EM G3
                                                        (G-DATA-0 PASS). Fluxo M5 é ruído pós-   [ARCHIVED / REJECT]
                                                        fricção (t-stat < 1.0, Net Edge < 0).
+Batch 036       Funding Imbalance & Macro Vol Regime   G3b (F*V) aprovado (t=3.35), mas G3c     🔴 FALSIFICADO EM G3
+                                                       simétrico falhou (Short em funding       [ARCHIVED / REJECT]
+                                                       positivo foi destruído por momentum).
 ========================================================================================================================
 ```
 
