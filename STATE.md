@@ -62,10 +62,32 @@ Batch 034       Absorption Reversal (Proxy Flow)       Testou ε_t → R_{t+k}; 
 Batch 035       Flow-Price Response (Real Taker Flow)  Dataset Binance Futures 2.47M certificado 🔴 FALSIFICADO EM G3
                                                        (G-DATA-0 PASS). Fluxo M5 é ruído pós-   [ARCHIVED / REJECT]
                                                        fricção (t-stat < 1.0, Net Edge < 0).
-Batch 036       Funding Imbalance & Macro Vol Regime   G3b (F*V) aprovado (t=3.35), mas G3c     🔴 FALSIFICADO EM G3
-                                                       simétrico falhou (Short em funding       [ARCHIVED / REJECT]
-                                                       positivo foi destruído por momentum).
+Batch 036       Funding Imbalance & Macro Vol Regime   Interação F*V exploratória em H+168 (t=3.35) 🔴 FALSIFICADO EM G3
+                                                       mas teste econômico simétrico falhou.    [ARCHIVED / REJECT]
+Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus de liberdade (Neff) 🟢 METODOLOGIA CERTIFICADA
+                                                       e classificação de H+168 como gerador.   (META_AUDIT_BATCHES_034_036.md)
 ========================================================================================================================
+```
+
+---
+
+## 3. GOVERNANÇA INSTITUCIONAL: SEPARAÇÃO RÍGIDA EM DUAS TRILHAS
+
+```text
+┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
+│ 🏭 TRILHA 1: RAILWAY TESTNET SOAK (PRODUÇÃO OPERACIONAL)                                        │
+│  • Provider: REC_COMP_INSTITUTIONAL_v1 (V5 Wyckoff Spring 1H Long-Only + Funding Negativo)       │
+│  • Mutabilidade: ZERO. Nenhuma linha de código ou variável alterada durante o Soak de 48h.     │
+│  • Missão: Observabilidade pura (reconciliação, latência, fills, determinismo e resiliência).   │
+│  • Status Epistêmico: Hipótese operacional robusta sustentada pelo histórico compilado.        │
+├─────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ 🧪 TRILHA 2: LABORATORY EXPERIMENTAL (DESCOBERTA DE ALFA ISOLADA)                               │
+│  • B034 (Absorption Reversal)      → 🔴 REJECT (Conhecimento Negativo: não reverte).           │
+│  • B035 (Flow-Price M5 Taker Flow) → 🔴 REJECT (Conhecimento Negativo: ruído intra pós-taxas).   │
+│  • B036 (Funding Imbalance Triad)  → 🔴 REJECT (Conhecimento Negativo: simetria falhou).       │
+│  • Meta-Audit 034–036              → 🟢 CONCLUÍDO (Metodologia auditada; H+168 = gerador).      │
+│  • Próxima Fronteira (B037)        → Conditional Regime State Persistence (Planejamento).       │
+└─────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
