@@ -77,9 +77,11 @@ Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus 
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 │ 🏭 TRILHA 1: RAILWAY TESTNET SOAK (PRODUÇÃO OPERACIONAL)                                        │
 │  • Provider: REC_COMP_INSTITUTIONAL_v1 (V5 Wyckoff Spring 1H Long-Only + Funding Negativo)       │
-│  • Mutabilidade: ZERO. Nenhuma linha de código ou variável alterada durante o Soak de 48h.     │
+│  • Mutabilidade: ZERO. Nenhuma linha de código ou parâmetro alterado durante o Soak de 48h.    │
 │  • Missão: Observabilidade pura (reconciliação, latência, fills, determinismo e resiliência).   │
-│  • Status Epistêmico: Hipótese operacional robusta sustentada pelo histórico compilado.        │
+│  • Status Epistêmico: A configuração Long-Only + estrutura de preço + funding negativo          │
+│    permanece uma hipótese operacional promissora, cuja validade em produção está sendo          │
+│    avaliada no Soak.                                                                            │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 🧪 TRILHA 2: LABORATORY EXPERIMENTAL (DESCOBERTA DE ALFA ISOLADA)                               │
 │  • B034 (Absorption Reversal)      → 🔴 REJECT (Conhecimento Negativo: não reverte).           │
