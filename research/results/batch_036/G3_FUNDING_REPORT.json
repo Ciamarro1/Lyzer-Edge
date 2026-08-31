@@ -1,0 +1,225 @@
+{
+  "batch": "BATCH_036",
+  "gate": "G3_TRIAD_EVALUATION",
+  "status": "REJECT",
+  "evaluatedAt": "2026-08-31T23:19:41.903Z",
+  "g3a": {
+    "passed": false,
+    "best": {
+      "horizonHours": 168,
+      "n": 15384,
+      "beta": 0.0028252550880007708,
+      "seHAC": 0.0016017753420877086,
+      "tStatHAC": 1.7638273069670392,
+      "pValue": 0.07776096566498958,
+      "spearmanIC": 0.0307820840289273,
+      "pearsonR": 0.05240778305387777
+    },
+    "all": [
+      {
+        "horizonHours": 8,
+        "n": 15384,
+        "beta": -0.00027931573787997476,
+        "seHAC": 0.00016151255404263308,
+        "tStatHAC": -1.729374781642337,
+        "pValue": 0.0837419634026948,
+        "spearmanIC": -0.015315974167600192,
+        "pearsonR": -0.024965662555199643
+      },
+      {
+        "horizonHours": 24,
+        "n": 15384,
+        "beta": -0.00013052591991528312,
+        "seHAC": 0.00036494006973125995,
+        "tStatHAC": -0.35766398579197334,
+        "pValue": 0.7205949048844604,
+        "spearmanIC": -0.013797614504393263,
+        "pearsonR": -0.006672842616277038
+      },
+      {
+        "horizonHours": 48,
+        "n": 15384,
+        "beta": 0.0001842327615353691,
+        "seHAC": 0.0005923465171425009,
+        "tStatHAC": 0.31102193767275615,
+        "pValue": 0.7557840729853924,
+        "spearmanIC": -0.007954537318381813,
+        "pearsonR": 0.00672257766202027
+      },
+      {
+        "horizonHours": 72,
+        "n": 15384,
+        "beta": 0.0005150875788836883,
+        "seHAC": 0.0008002428092578544,
+        "tStatHAC": 0.6436641140972961,
+        "pValue": 0.5197931324846337,
+        "spearmanIC": -0.004126614761578681,
+        "pearsonR": 0.015000223151694974
+      },
+      {
+        "horizonHours": 168,
+        "n": 15384,
+        "beta": 0.0028252550880007708,
+        "seHAC": 0.0016017753420877086,
+        "tStatHAC": 1.7638273069670392,
+        "pValue": 0.07776096566498958,
+        "spearmanIC": 0.0307820840289273,
+        "pearsonR": 0.05240778305387777
+      }
+    ]
+  },
+  "g3b": {
+    "passed": true,
+    "best": {
+      "horizonHours": 168,
+      "n": 15384,
+      "betaInteraction": 0.002949956127597402,
+      "seHAC": 0.0008800747094171714,
+      "tStatHAC": 3.351938302545937,
+      "pValue": 0.0008025888704921158,
+      "spearmanIC": 0.04390796693779284
+    },
+    "all": [
+      {
+        "horizonHours": 8,
+        "n": 15384,
+        "betaInteraction": -0.00009936076498871805,
+        "seHAC": 0.00013390131111420644,
+        "tStatHAC": -0.7420447504354291,
+        "pValue": 0.4580600749673662,
+        "spearmanIC": -0.016786482000573078
+      },
+      {
+        "horizonHours": 24,
+        "n": 15384,
+        "betaInteraction": 0.00021428439494884825,
+        "seHAC": 0.0002480988108167753,
+        "tStatHAC": 0.8637058526939111,
+        "pValue": 0.3877494036158393,
+        "spearmanIC": -0.014069766025242804
+      },
+      {
+        "horizonHours": 48,
+        "n": 15384,
+        "betaInteraction": 0.0006459560889393944,
+        "seHAC": 0.0003464975975841297,
+        "tStatHAC": 1.864244062421114,
+        "pValue": 0.062287311380500254,
+        "spearmanIC": 0.0023503940022960522
+      },
+      {
+        "horizonHours": 72,
+        "n": 15384,
+        "betaInteraction": 0.0009031092584645844,
+        "seHAC": 0.00047352256043188464,
+        "tStatHAC": 1.9072148487305178,
+        "pValue": 0.056492636293058895,
+        "spearmanIC": 0.00655526531046829
+      },
+      {
+        "horizonHours": 168,
+        "n": 15384,
+        "betaInteraction": 0.002949956127597402,
+        "seHAC": 0.0008800747094171714,
+        "tStatHAC": 3.351938302545937,
+        "pValue": 0.0008025888704921158,
+        "spearmanIC": 0.04390796693779284
+      }
+    ]
+  },
+  "g3c": {
+    "passed": false,
+    "best": {
+      "horizonHours": 24,
+      "days": 1,
+      "negativeFunding": {
+        "n": 512,
+        "grossReturnPct": 0.7220398312423006
+      },
+      "positiveFunding": {
+        "n": 768,
+        "grossReturnPct": -0.3585948116225464
+      },
+      "combined": {
+        "n": 1280,
+        "grossReturnPct": 0.07365904552339235,
+        "netEdgePct": -0.0063409544766076485
+      },
+      "baselineGrossPct": 0.21585848891053053
+    },
+    "all": [
+      {
+        "horizonHours": 24,
+        "days": 1,
+        "negativeFunding": {
+          "n": 512,
+          "grossReturnPct": 0.7220398312423006
+        },
+        "positiveFunding": {
+          "n": 768,
+          "grossReturnPct": -0.3585948116225464
+        },
+        "combined": {
+          "n": 1280,
+          "grossReturnPct": 0.07365904552339235,
+          "netEdgePct": -0.0063409544766076485
+        },
+        "baselineGrossPct": 0.21585848891053053
+      },
+      {
+        "horizonHours": 48,
+        "days": 2,
+        "negativeFunding": {
+          "n": 512,
+          "grossReturnPct": 0.9488530030506951
+        },
+        "positiveFunding": {
+          "n": 768,
+          "grossReturnPct": -0.8623912475382834
+        },
+        "combined": {
+          "n": 1280,
+          "grossReturnPct": -0.13789354730269185,
+          "netEdgePct": -0.21789354730269184
+        },
+        "baselineGrossPct": 0.43557169727106465
+      },
+      {
+        "horizonHours": 72,
+        "days": 3,
+        "negativeFunding": {
+          "n": 512,
+          "grossReturnPct": 1.3089377580769925
+        },
+        "positiveFunding": {
+          "n": 768,
+          "grossReturnPct": -1.3542496635090142
+        },
+        "combined": {
+          "n": 1280,
+          "grossReturnPct": -0.28897469487460953,
+          "netEdgePct": -0.3689746948746095
+        },
+        "baselineGrossPct": 0.6629024421300539
+      },
+      {
+        "horizonHours": 168,
+        "days": 7,
+        "negativeFunding": {
+          "n": 512,
+          "grossReturnPct": 2.694666430083197
+        },
+        "positiveFunding": {
+          "n": 768,
+          "grossReturnPct": -3.0646459513744855
+        },
+        "combined": {
+          "n": 1280,
+          "grossReturnPct": -0.7609209987914108,
+          "netEdgePct": -0.8409209987914109
+        },
+        "baselineGrossPct": 1.5829175568218847
+      }
+    ]
+  }
+}

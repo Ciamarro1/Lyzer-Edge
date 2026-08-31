@@ -1,0 +1,15 @@
+{
+  "batch": "BATCH_036",
+  "prereg": "PREREG-036",
+  "extractedAt": "2026-08-31T23:19:41.308Z",
+  "totalEvents": 29952,
+  "inSampleEvents": 15384,
+  "outOfSampleEvents": 14568,
+  "extremeNegativeFundingInSample": 512,
+  "extremePositiveFundingInSample": 768,
+  "volRegimeBreakdownInSample": {
+    "COMPRESSED_VOL": 3813,
+    "NORMAL_VOL": 6966,
+    "EXPANDED_VOL": 4605
+  }
+}
