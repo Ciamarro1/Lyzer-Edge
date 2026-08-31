@@ -1,0 +1,19 @@
+{
+  "batch": "BATCH_034",
+  "prereg": "PREREG-034",
+  "created": "2026-08-31T22:15:28.594Z",
+  "totalRecords": 31516,
+  "inSampleRecords": 17043,
+  "outOfSampleRecords": 14473,
+  "olsWindow": 500,
+  "zscoreWindow": 100,
+  "horizons": [
+    1,
+    3,
+    6,
+    12,
+    24
+  ],
+  "continuityGaps": 1,
+  "sha256Source": "5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf"
+}

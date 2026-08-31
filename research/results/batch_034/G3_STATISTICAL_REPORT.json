@@ -1,0 +1,93 @@
+{
+  "batch": "BATCH_034",
+  "gate": "G3_PREDICTIVE_SIGNIFICANCE",
+  "status": "REJECT",
+  "evaluatedAt": "2026-08-31T22:16:08.182Z",
+  "inSampleRange": "2023-01-01 -> 2024-12-31",
+  "sampleSize": 17043,
+  "bestCandidate": {
+    "horizon": "k=12 (H+12)",
+    "horizonBars": 12,
+    "n": 17043,
+    "beta": -0.0000015466454955355098,
+    "seHAC": 1.0682000133448438e-7,
+    "tStatHAC": -14.478987794547152,
+    "pValue": 0,
+    "spearmanIC": -0.015296118345580664,
+    "pearsonR": -0.003982303726393271,
+    "rSquared": 0.001585874296924573
+  },
+  "allHorizons": [
+    {
+      "horizon": "k=1 (H+1)",
+      "horizonBars": 1,
+      "n": 17043,
+      "beta": 7.448021052554003e-7,
+      "seHAC": 7.45246768533059e-8,
+      "tStatHAC": 9.994033341754248,
+      "pValue": 0,
+      "spearmanIC": -0.0290827923435507,
+      "pearsonR": 0.006522820767104579,
+      "rSquared": 0.004254719075977077
+    },
+    {
+      "horizon": "k=3 (H+3)",
+      "horizonBars": 3,
+      "n": 17043,
+      "beta": -0.00000236860623352273,
+      "seHAC": 6.086639478076617e-8,
+      "tStatHAC": -38.914843602191,
+      "pValue": 0,
+      "spearmanIC": -0.023544417450330927,
+      "pearsonR": -0.01217277382844864,
+      "rSquared": 0.014817642267856418
+    },
+    {
+      "horizon": "k=6 (H+6)",
+      "horizonBars": 6,
+      "n": 17043,
+      "beta": -0.000002909190139938563,
+      "seHAC": 8.778239517434984e-8,
+      "tStatHAC": -33.140929159661766,
+      "pValue": 0,
+      "spearmanIC": -0.01554912834998356,
+      "pearsonR": -0.010598850003581607,
+      "rSquared": 0.011233562139842182
+    },
+    {
+      "horizon": "k=12 (H+12)",
+      "horizonBars": 12,
+      "n": 17043,
+      "beta": -0.0000015466454955355098,
+      "seHAC": 1.0682000133448438e-7,
+      "tStatHAC": -14.478987794547152,
+      "pValue": 0,
+      "spearmanIC": -0.015296118345580664,
+      "pearsonR": -0.003982303726393271,
+      "rSquared": 0.001585874296924573
+    },
+    {
+      "horizon": "k=24 (H+24)",
+      "horizonBars": 24,
+      "n": 17043,
+      "beta": -0.0000050831256943230075,
+      "seHAC": 1.7990241514290458e-7,
+      "tStatHAC": -28.25490525118994,
+      "pValue": 0,
+      "spearmanIC": -0.010613937228481437,
+      "pearsonR": -0.009099313814956352,
+      "rSquared": 0.008279751190305553
+    }
+  ],
+  "extremeEvents": {
+    "unconditionedMeanK6": 0.05719532253892409,
+    "bullishAbsorption": {
+      "n": 168,
+      "meanReturnK6": 0.020507423640500542
+    },
+    "bearishAbsorption": {
+      "n": 167,
+      "meanReturnK6": 0.1751355578246717
+    }
+  }
+}
