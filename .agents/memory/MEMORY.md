@@ -10,6 +10,7 @@
 
 ## 📚 Directives & Knowledge
 - [directive] LYZER EDGE — Cognitive Operating Directive v1.0 → cognitive_directive.md
+- [research] Trilha Científica (B001-B038), Fail-Closed G5 e Memorando B037 → tech-decisions.md
 - [line-b] Epistemologia do IGHT e Observatório → line-b-epistemology.md
 - [reference] Complete Codebase Structure & Architecture Map → project_structure.md
 - [reference] Master Cognitive Snapshot of Lyzer Labs Architecture → lyzer_core_architecture_snapshot.md
