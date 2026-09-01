@@ -79,6 +79,10 @@ Batch 036       Funding Imbalance & Macro Vol Regime   Interação F*V explorat�
                                                        mas teste econômico simétrico falhou.    [ARCHIVED / REJECT]
 Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus de liberdade (Neff) 🟢 METODOLOGIA CERTIFICADA
                                                        e classificação de H+168 como gerador.   (META_AUDIT_BATCHES_034_036.md)
+Batch 037       Conditional Regime State Persistence   +0.82% liq OOS em H+168 (N=36 ep), mas   🔴 ARQUIVADO / FAIL-CLOSED
+                                                       Block-Bootstrap CI cruza zero (t=1.19).  (BATCH_037_CLOSING_MEMORANDUM.md)
+Batch 038       Strict Prospective Replication         Protocolo congelado ex-ante para novos   🟡 AGUARDANDO DADOS
+                                                       dados prospectivos pós-2026-08 (N>=20).  (BATCH_038_REPLICATION_MANDATE.md)
 ========================================================================================================================
 ```
 
@@ -90,18 +94,17 @@ Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus 
 ┌─────────────────────────────────────────────────────────────────────────────────────────────────┐
 │ 🏭 TRILHA 1: RAILWAY TESTNET SOAK (PRODUÇÃO OPERACIONAL)                                        │
 │  • Provider: REC_COMP_INSTITUTIONAL_v1 (V5 Wyckoff Spring 1H Long-Only + Funding Negativo)       │
-│  • Mutabilidade: ZERO. Nenhuma linha de código ou parâmetro alterado durante o Soak de 48h.    │
-│  • Missão: Observabilidade pura (reconciliação, latência, fills, determinismo e resiliência).   │
-│  • Status Epistêmico: A configuração Long-Only + estrutura de preço + funding negativo          │
-│    permanece uma hipótese operacional promissora, cuja validade em produção está sendo          │
-│    avaliada no Soak.                                                                            │
+│  • Mutabilidade: ZERO. 48h concluídas com 100% de integridade operacional e zero degradação.    │
+│  • Status Epistêmico: Produção blindada, observabilidade selada com certificado criptográfico.   │
+│  • Readiness para Capital Real: 🔴 NOT CERTIFIED (Bloqueado por governança).                    │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 🧪 TRILHA 2: LABORATORY EXPERIMENTAL (DESCOBERTA DE ALFA ISOLADA)                               │
 │  • B034 (Absorption Reversal)      → 🔴 REJECT (Conhecimento Negativo: não reverte).           │
 │  • B035 (Flow-Price M5 Taker Flow) → 🔴 REJECT (Conhecimento Negativo: ruído intra pós-taxas).   │
 │  • B036 (Funding Imbalance Triad)  → 🔴 REJECT (Conhecimento Negativo: simetria falhou).       │
 │  • Meta-Audit 034–036              → 🟢 CONCLUÍDO (Metodologia auditada; H+168 = gerador).      │
-│  • Próxima Fronteira (B037)        → Conditional Regime State Persistence (Planejamento).       │
+│  • B037 (Regime State Persistence) → 🔴 FAIL-CLOSED (OOS +0.82% liq; CI [-0.52%, +2.34%]).     │
+│  • B038 (Prospective Replication)  → 🟡 MANDATO CONGELADO (Aguardando acúmulo prospectivo).     │
 └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
