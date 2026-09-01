@@ -123,11 +123,15 @@ Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus 
 
 ## 4. ESTADO DO SOAK TEST NO RAILWAY (CONCLUÍDO COM 100% DE SUCESSO)
 
-- **Início Oficial:** 2026-08-30 às 05:43:00 UTC (02:43:00 BRT)
-- **Término Oficial:** 2026-09-01 às 07:45:00 UTC (04:45:00 BRT) — Duração total: 48h 02min
+- **Início Agendado:** 2026-08-30 às 05:00:00 UTC (02:00:00 BRT)
+- **Início Efetivo da Persistência de Eventos:** 2026-08-30 às 05:43:00 UTC (02:43:00 BRT)
+- **Intervalo de Bootstrap / Warmup:** 43 minutos (Deep Warmup, estabilização de LHDS e preenchimento de buffer MTF)
+- **Término Oficial:** 2026-09-01 às 07:45:00 UTC (04:45:00 BRT) — Duração total: 48h 02min de persistência contínua
 - **Ambiente:** Binance Testnet via Railway Cloud Container
 - **Token Ativo:** Assinatura Ed25519 válida, Tier T1 (\$500 USD), Sem Expiração, Nonce único.
 - **Relatório Forense de Encerramento:** [`research/RAILWAY_48H_SOAK_CLOSING_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/RAILWAY_48H_SOAK_CLOSING_REPORT.md)
+- **Certificado Imutável de Hashes:** [`research/SOAK_CLOSING_CERTIFICATE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/SOAK_CLOSING_CERTIFICATE.md)
+- **Auditoria de Atrição dos Portões (467 → 146):** [`research/GATE_ATTRITION_AUDIT_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/GATE_ATTRITION_AUDIT_REPORT.md)
 - **Auditoria dos Artefatos de Produção (`historical_causal_memory.db` & logs):**
   - **Candles Persistidos:** 43.000 registros gravados sem corrupção.
   - **Vereditos do TruthKernel:** 7.515 vereditos auditados (78.8% `OBSERVED/FLAT`, 21.2% `VETO/DIVERGENCE`).
@@ -137,16 +141,14 @@ Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus 
 
 ---
 
-## 5. DIRETRIZES DE READINESS & TRANSIÇÃO DE CAPITAL
+## 5. DIRETRIZES DE READINESS & GOVERNANÇA DE DUAS TRILHAS
 
 1. **FIDELIDADE OPERACIONAL COMPROVADA:** O runtime do Lyzer Edge sobreviveu a 48h ininterruptas de streaming de mercado em nuvem com zero degradação.
-2. **TRANSIÇÃO PARA LIVE CAPITAL (FUTURO):**
-   - Executar `node scripts/authorize.js sign` alterando para `environment: 'LIVE'`.
-   - Inserir as chaves da Binance de produção e a nova assinatura no Railway.
-   - **Nenhum código precisará ser alterado.**
+2. **DISTINÇÃO EPISTEMOLÓGICA SOBERANA:** Estabilidade operacional e disciplina de *no-action* em Testnet não equivalem a rentabilidade econômica comprovada. A prontidão para capital real permanece `NOT CERTIFIED`.
 3. **PESQUISA AVANÇADA NO LABORATÓRIO (TRILHA 2):**
-   - A Trilha de Pesquisa permanece em pausa científica, com os Batches 034, 035 e 036 devidamente arquivados e a Meta-Auditoria concluída.
-   - O Batch 037 (`Conditional Regime State Persistence`) será desenhado exclusivamente no ambiente de laboratório isolado.
+   - **Batch 037:** Pré-registro congelado em [`research/BATCH_037_PRE_REGISTRATION.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/BATCH_037_PRE_REGISTRATION.md).
+   - O objeto de estudo é a persistência do estado conjunto $S_t = (F_t, V_t, P_t)$ em múltiplos horizontes ($k=24, 72, 168$).
+   - **Regra de Isolamento Inviolável:** Nenhum resultado do Batch 037 poderá alterar o motor de produção `REC_COMP_INSTITUTIONAL_v1`.
 
 ---
 
