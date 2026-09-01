@@ -1,10 +1,10 @@
 # 🏛️ LYZER EDGE — RESEARCH & OPERATIONAL STATE DASHBOARD
 
-**Data do Registro:** 2026-08-30T05:45:00Z  
+**Data do Registro:** 2026-09-01T07:45:00Z  
 **Autoridade:** Senior CTO & Executive Engineering Director  
-**Status do Repositório:** 🟢 **PRODUCTION READY / 48H TESTNET SOAK ACTIVE**  
+**Status do Repositório:** 🟢 **PRODUCTION READY / 48H TESTNET SOAK PASSED & CERTIFIED**  
 **Dataset Base:** 32.016 Hourly Candles BTCUSDT (2023–2026) | SHA-256: `5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf`  
-**Git Remote:** `https://github.com/Ciamarro1/Lyzer-Edge.git` (`origin/main` @ commit `6b71761`)
+**Git Remote:** `https://github.com/Ciamarro1/Lyzer-Edge.git` (`origin/main` @ commit `4886ef5`)
 
 ---
 
@@ -14,7 +14,7 @@
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║                      LYZER EDGE — RUNTIME DASHBOARD                           ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║ RESEARCH STATUS            🟢 CLOSED & FROZEN (Batches 001 → 033 Completed)  ║
+║ RESEARCH STATUS            🟢 CLOSED & FROZEN (Batches 001 → 036 Completed)  ║
 ║ COMPILED PROVIDER          🟢 REC_COMP_INSTITUTIONAL_v1 (Engine V5 Only)      ║
 ║ PROVIDER MUTABILITY        🔒 PROHIBITED (Zero online learning / parameter edit║
 ║ OTHER PROVIDERS (V1-V4,V6,V7) 🔒 HARD-DISABLED (NULL in RAM / Zero Execution)  ║
@@ -31,7 +31,7 @@
 ║ AUTO-PROMOTION / RESUME    🔴 PROHIBITED                                      ║
 ║ FIDELITY GATES             🟢 7/7 PASSED (verify_fidelity_gate.js)            ║
 ║ RAILWAY CLOUD DEPLOY       🟢 LIVE & STABLE (Booted 2026-08-30 05:43 UTC)     ║
-║ 48H OBSERVABILITY SOAK     🟢 ACTIVE (2026-08-30 05:43 → 2026-09-01 05:43 UTC)║
+║ 48H OBSERVABILITY SOAK     🟢 100% PASSED (Concluído em 2026-09-01 07:45 UTC) ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
 
@@ -108,35 +108,32 @@ Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus 
 
 ---
 
-## 4. ESTADO DO SOAK TEST ATIVO NO RAILWAY
+## 4. ESTADO DO SOAK TEST NO RAILWAY (CONCLUÍDO COM 100% DE SUCESSO)
 
 - **Início Oficial:** 2026-08-30 às 05:43:00 UTC (02:43:00 BRT)
-- **Fim Previsto:** 2026-09-01 às 05:43:00 UTC (02:43:00 BRT)
+- **Término Oficial:** 2026-09-01 às 07:45:00 UTC (04:45:00 BRT) — Duração total: 48h 02min
 - **Ambiente:** Binance Testnet via Railway Cloud Container
 - **Token Ativo:** Assinatura Ed25519 válida, Tier T1 (\$500 USD), Sem Expiração, Nonce único.
-- **Log de Boot Validado:**
-  ```text
-  🟢 [BOOT] CAPITAL_AUTHORIZATION_SIGNATURE Verified for Provider: REC_COMP_INSTITUTIONAL_v1
-  🟢 [BOOT] Authorized Capacity: $500 (Tier: T1)
-  🔒 [FIDELITY GATE] Enforcing Institutional Artifact Context: BTCUSDT @ 1h
-  🟢 [CONTROL PLANE] AUTHORIZATION_STATE is AUTHORIZED. Operating in LIVE Mode.
-  🔒 [FIDELITY GATE] Isolating Operational Alpha to: REC_COMP_INSTITUTIONAL_v1 (v5 Engine). Disabling all other providers.
-  [STREAM] Deep Warmup Complete. LHDS should now be stabilized.
-  [STREAM] Execution layer initialized for TESTNET
-  🟢 [INGESTOR] Binance WebSocket connected: wss://stream.binance.com:9443/...
-  🟢 [STREAM] Live real data streaming active for BTCUSDT
-  ```
+- **Relatório Forense de Encerramento:** [`research/RAILWAY_48H_SOAK_CLOSING_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/RAILWAY_48H_SOAK_CLOSING_REPORT.md)
+- **Auditoria dos Artefatos de Produção (`historical_causal_memory.db` & logs):**
+  - **Candles Persistidos:** 43.000 registros gravados sem corrupção.
+  - **Vereditos do TruthKernel:** 7.515 vereditos auditados (78.8% `OBSERVED/FLAT`, 21.2% `VETO/DIVERGENCE`).
+  - **Estabilidade Semântica:** Média SDS = 0.0404, Média LHDS = 0.2348.
+  - **Zero Erros de Runtime / Zero Vazamentos / Zero Trades Espúrios.**
+  - **Ciclos Cognitivos de Sonho:** 100% pontuais a cada 12h (05:42 e 17:42 UTC).
 
 ---
 
-## 5. REGRAS INVIOLÁVEIS PARA AS PRÓXIMAS SESSÕES
+## 5. DIRETRIZES DE READINESS & TRANSIÇÃO DE CAPITAL
 
-1. **NÃO ALTERAR CÓDIGO OU VARIÁVEIS DURANTE O SOAK:** O teste de 48h é estritamente observacional.
-2. **NÃO FORÇAR TRADES:** A estratégia Wyckoff Spring em 1h com confluência de Funding Negativo dispara raramente. A ausência de ordens em períodos calmos é prova de disciplina matemática.
-3. **TRANSIÇÃO PARA LIVE CAPITAL (FUTURO):**
+1. **FIDELIDADE OPERACIONAL COMPROVADA:** O runtime do Lyzer Edge sobreviveu a 48h ininterruptas de streaming de mercado em nuvem com zero degradação.
+2. **TRANSIÇÃO PARA LIVE CAPITAL (FUTURO):**
    - Executar `node scripts/authorize.js sign` alterando para `environment: 'LIVE'`.
    - Inserir as chaves da Binance de produção e a nova assinatura no Railway.
    - **Nenhum código precisará ser alterado.**
+3. **PESQUISA AVANÇADA NO LABORATÓRIO (TRILHA 2):**
+   - A Trilha de Pesquisa permanece em pausa científica, com os Batches 034, 035 e 036 devidamente arquivados e a Meta-Auditoria concluída.
+   - O Batch 037 (`Conditional Regime State Persistence`) será desenhado exclusivamente no ambiente de laboratório isolado.
 
 ---
 
