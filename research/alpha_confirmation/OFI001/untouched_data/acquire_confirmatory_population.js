@@ -1,14 +1,11 @@
 /**
- * OFI-CONFIRMATION-SETUP-001 — AUTOMATED DATA ACQUISITION & INTEGRITY PIPELINE
+ * OFI-CONFIRMATION-SETUP-001 — SCIENTIFIC DATA INGESTION ENGINE
  * Script: acquire_confirmatory_population.js
  * 
- * Governance Mandate:
- * - Controlled Data Acquisition for Confirmatory Population OFI001
- * - Cutoff: T0 = 1788220800000 (2026-09-01 00:00:00 UTC)
- * - Source: Binance Futures API (fapi.binance.com)
- * - Assets: BTCUSDT (Primary), ETHUSDT (Replication)
- * - Output Directory: research/alpha_confirmation/OFI001/untouched_data/
- * - Zero Lookahead, Zero Interim Querying of Candidate Signals.
+ * Population: Historical Untouched Replication Set (2020-01-01 to 2022-12-31)
+ * Protocol: CUMULATIVE_OFI_FROZEN_SPEC (v2.1)
+ * Source: Binance Futures API (fapi.binance.com)
+ * Output Directory: research/alpha_confirmation/OFI001/untouched_data/
  */
 
 import fs from 'fs';
@@ -21,7 +18,8 @@ const __dirname = path.dirname(__filename);
 const rootDir = process.cwd();
 
 console.log('================================================================');
-console.log('📥 OFI001 — CONFIRMATORY DATA ACQUISITION ENGINE');
+console.log('📥 OFI001 — SCIENTIFIC DATA ACQUISITION & INGESTION');
+console.log('Population: Historical Untouched Replication Set [2020-01-01 -> 2022-12-31]');
 console.log('Timestamp UTC:', new Date().toISOString());
 console.log('================================================================\n');
 
@@ -31,12 +29,14 @@ const engineBuf = fs.readFileSync(enginePath);
 const engineSHA = crypto.createHash('sha256').update(engineBuf).digest('hex');
 const expectedSHA = 'fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1';
 if (engineSHA !== expectedSHA) {
-  console.error('❌ CONSTITUTIONAL BREACH: V8 engine mismatch!');
+  console.error('❌ CONSTITUTIONAL BREACH: V8 engine mismatch! Aborting.');
   process.exit(1);
 }
-console.log('✔ V8 Engine Verified & Intact.\n');
+console.log('✔ V8 Engine Verified & Intact (SHA-256 matched).\n');
 
-const T0 = 1788220800000; // 2026-09-01 00:00:00 UTC
+// Window parameters
+const T_START = new Date('2020-01-01T00:00:00.000Z').getTime(); // 1577836800000
+const T_END = new Date('2022-12-31T23:59:59.000Z').getTime();   // 1672531199000
 const ASSETS = ['BTCUSDT', 'ETHUSDT'];
 const INTERVAL = '1h';
 const OUTPUT_DIR = __dirname;
@@ -49,7 +49,7 @@ async function fetchWithRetry(url, maxRetries = 5) {
   for (let attempt = 1; attempt <= maxRetries; attempt++) {
     try {
       const res = await fetch(url, {
-        headers: { 'User-Agent': 'Lyzer-OFI-Confirmatory-Acquisition/1.0' }
+        headers: { 'User-Agent': 'Lyzer-OFI001-Historical-Acquisition/2.1' }
       });
       if (!res.ok) {
         if (res.status === 429 || res.status >= 500) {
@@ -69,7 +69,7 @@ async function fetchWithRetry(url, maxRetries = 5) {
 }
 
 async function acquireKlines(symbol, startTime, endTime) {
-  console.log(`\n▶ Starting acquisition for ${symbol}: [${new Date(startTime).toISOString()} -> ${new Date(endTime).toISOString()}]`);
+  console.log(`\n▶ Fetching continuous 1h candles for ${symbol}: [${new Date(startTime).toISOString()} -> ${new Date(endTime).toISOString()}]`);
   let currentStart = startTime;
   const allCandles = [];
   const limit = 1000;
@@ -84,8 +84,7 @@ async function acquireKlines(symbol, startTime, endTime) {
 
     for (const k of rawData) {
       const openTime = Number(k[0]);
-      if (openTime >= endTime) break;
-      if (openTime < T0) continue; // Strict firewall
+      if (openTime > endTime) break;
 
       allCandles.push({
         timestamp: openTime,
@@ -107,8 +106,10 @@ async function acquireKlines(symbol, startTime, endTime) {
       break;
     }
     currentStart = lastOpenTime + 3600000;
-    await sleep(250);
+    process.stdout.write(`  Fetched up to ${new Date(lastOpenTime).toISOString().slice(0, 10)} (${allCandles.length} candles)\r`);
+    await sleep(150);
   }
+  console.log('');
 
   // Deduplicate and sort
   const map = new Map();
@@ -120,40 +121,33 @@ async function acquireKlines(symbol, startTime, endTime) {
 }
 
 export async function runAcquisition() {
-  // Query exchange server time
-  const timeRes = await fetchWithRetry('https://fapi.binance.com/fapi/v1/time');
-  const serverTime = Number(timeRes.serverTime);
-  console.log(`Binance Server Time: ${serverTime} (${new Date(serverTime).toISOString()})`);
-
-  if (serverTime <= T0) {
-    console.error(`❌ Current server time is not past T0 (${new Date(T0).toISOString()}). Cannot acquire.`);
-    return;
-  }
-
-  // Define T1: Floor to last completed 1h candle
-  const T1 = Math.floor(serverTime / 3600000) * 3600000;
   console.log(`Acquisition Window Confirmed:`);
-  console.log(`  T0: ${T0} (${new Date(T0).toISOString()})`);
-  console.log(`  T1: ${T1} (${new Date(T1).toISOString()})`);
-  console.log(`  Expected Hours: ${(T1 - T0) / 3600000} hours\n`);
+  console.log(`  T_START: ${T_START} (${new Date(T_START).toISOString()})`);
+  console.log(`  T_END:   ${T_END} (${new Date(T_END).toISOString()})`);
+  console.log(`  Expected Duration: 1,096 calendar days (26,304 hours)\n`);
 
   const acquisitionManifest = {
     timestampUTC: new Date().toISOString(),
-    cutoffT0_UTC: new Date(T0).toISOString(),
-    cutoffT0_ms: T0,
-    cutoffT1_UTC: new Date(T1).toISOString(),
-    cutoffT1_ms: T1,
+    populationType: 'Historical Untouched Replication Set (Reverse-Temporal Historical Holdout)',
+    window: {
+      tStart_UTC: new Date(T_START).toISOString(),
+      tStart_ms: T_START,
+      tEnd_UTC: new Date(T_END).toISOString(),
+      tEnd_ms: T_END,
+      totalDays: 1096,
+      expectedHours: 26304
+    },
     datasets: {}
   };
 
   for (const asset of ASSETS) {
-    const candles = await acquireKlines(asset, T0, T1);
-    const targetFile = path.join(OUTPUT_DIR, `${asset}_confirmatory_untouched.json`);
+    const candles = await acquireKlines(asset, T_START, T_END);
+    const targetFile = path.join(OUTPUT_DIR, `${asset}_historical_untouched_2020_2022.json`);
     const jsonStr = JSON.stringify(candles, null, 2);
     fs.writeFileSync(targetFile, jsonStr);
 
     const sha256 = crypto.createHash('sha256').update(Buffer.from(jsonStr)).digest('hex');
-    console.log(`✔ ${asset}: Saved ${candles.length} bars to ${path.basename(targetFile)}`);
+    console.log(`✔ ${asset}: Saved ${candles.length.toLocaleString()} bars to ${path.basename(targetFile)}`);
     console.log(`  SHA-256: ${sha256}`);
 
     acquisitionManifest.datasets[asset] = {

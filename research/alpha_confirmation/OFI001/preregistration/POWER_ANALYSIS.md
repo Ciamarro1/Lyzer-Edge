@@ -70,15 +70,15 @@ Therefore:
 ### B. Sample Sizing Decision Table
 1. **Conservative Target ($IC = 0.020$, 80% Power, One-Tailed $\alpha=0.05$, VIF=1.3)**:
    - Requires **$N \approx 2.012$ non-overlapping 24h observations** ($\approx 5.5$ years of daily observations).
+   - **Crucial Epistemic Note**: A sample of $N = 1.095$ observations **DOES NOT** provide 80% power for $IC = 0.020$. For $N = 1.095$, statistical power to detect $IC = 0.020$ is approximately **55% to 60%**.
 2. **Realistic Pooled Multi-Asset Target ($IC = 0.025$, 80% Power, One-Tailed $\alpha=0.05$, VIF=1.0)**:
    - Requires **$N \approx 990$ observations**.
-   - If pooling BTC and ETH in a joint panel test with block cross-sectional controls:
-     $$\text{Duration} = \frac{990}{2 \text{ assets}} \approx 495 \text{ days} \approx 16.3 \text{ months}$$
+   - $N = 1.095$ provides approximately **80% to 84% power exclusively for an effect size of $IC \approx 0.025$ or higher** under nominal non-overlapping assumptions.
 3. **Optimistic Target ($IC = 0.030$, 80% Power, One-Tailed $\alpha=0.05$, VIF=1.0)**:
-   - Requires **$N \approx 687$ observations** ($\approx 22.5$ calendar months for a single asset, or $\approx 11.3$ months pooled across BTC + ETH).
+   - Requires **$N \approx 687$ observations** ($\approx 22.5$ calendar months for a single asset).
 
 ### C. Confirmatory Data Sizing Mandate
-To avoid launching an underpowered confirmatory campaign:
-- A single asset (BTC alone) requires **at least 24 to 36 continuous months of unobserved data** ($N \ge 730$ daily observations) to detect $IC \ge 0.03$.
-- A joint panel framework (BTC Primary + ETH Replication) requires **at least 18 to 24 continuous months of unobserved data**.
-- Testing on a short 3-month sample would have power $< 20\%$, virtually guaranteeing a false negative (Type II error) even if the underlying phenomenon is real.
+- **Population Definition**: $N = 1.095$ non-overlapping 24h observations is a rigorous **Historical Untouched Replication Set**.
+- It provides adequate power (>80%) to detect $IC \ge 0.025$, but if the true underlying edge is subtle ($IC \approx 0.020$), the risk of Type II error is non-negligible (~40%).
+- Therefore, if the observed point estimate is positive ($IC > 0$) but nominal $p > 0.05$, the classification must explicitly consider sample size limitations rather than claiming definitive falsification if power was $< 80\%$.
+

@@ -1,23 +1,28 @@
 {
-  "timestampUTC": "2026-09-03T03:38:33.087Z",
-  "cutoffT0_UTC": "2026-09-01T00:00:00.000Z",
-  "cutoffT0_ms": 1788220800000,
-  "cutoffT1_UTC": "2026-09-03T03:00:00.000Z",
-  "cutoffT1_ms": 1788404400000,
+  "timestampUTC": "2026-09-03T03:45:42.931Z",
+  "populationType": "Historical Untouched Replication Set (Reverse-Temporal Historical Holdout)",
+  "window": {
+    "tStart_UTC": "2020-01-01T00:00:00.000Z",
+    "tStart_ms": 1577836800000,
+    "tEnd_UTC": "2022-12-31T23:59:59.000Z",
+    "tEnd_ms": 1672531199000,
+    "totalDays": 1096,
+    "expectedHours": 26304
+  },
   "datasets": {
     "BTCUSDT": {
-      "file": "BTCUSDT_confirmatory_untouched.json",
-      "records": 51,
-      "firstTimestamp": "2026-09-01T00:00:00.000Z",
-      "lastTimestamp": "2026-09-03T02:00:00.000Z",
-      "sha256": "a4c3f451dd6a786be67603bd15c4502c31dc14d2d9242f70ae74795d57e2b856"
+      "file": "BTCUSDT_historical_untouched_2020_2022.json",
+      "records": 26304,
+      "firstTimestamp": "2020-01-01T00:00:00.000Z",
+      "lastTimestamp": "2022-12-31T23:00:00.000Z",
+      "sha256": "06111dcdb69880a273ebb31ec282a9b9d36d373467df7d7d9eaa17e9647809d9"
     },
     "ETHUSDT": {
-      "file": "ETHUSDT_confirmatory_untouched.json",
-      "records": 51,
-      "firstTimestamp": "2026-09-01T00:00:00.000Z",
-      "lastTimestamp": "2026-09-03T02:00:00.000Z",
-      "sha256": "5d25e5300e301a7ceac42ade7cc05777f2c4e5f37ba2de2ae1571bb6154222ce"
+      "file": "ETHUSDT_historical_untouched_2020_2022.json",
+      "records": 26304,
+      "firstTimestamp": "2020-01-01T00:00:00.000Z",
+      "lastTimestamp": "2022-12-31T23:00:00.000Z",
+      "sha256": "71717de278dd4743dc1ecc75e3b07e963f170bf789a25811f74278960b344d5b"
     }
   }
 }

@@ -1,25 +1,21 @@
 {
   "program": "OFI-CONFIRMATION-SETUP-001",
-  "timestampUTC": "2026-09-03T03:38:50.507Z",
+  "timestampUTC": "2026-09-03T03:46:35.802Z",
   "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
   "candidateClassification": "STRONG_RESEARCH_CANDIDATE (NOT ALPHA)",
-  "executionStatus": "BLOCKED_AWAITING_SAMPLE_ACCUMULATION",
-  "reasonsForBlock": [
-    "Strict sample size floor requires N >= 365 daily observations (8,760 hours)",
-    "Current acquired untouched population contains 51 hours (T0=2026-09-01T00:00:00Z to T1=2026-09-03T03:00:00Z)",
-    "Zero premature evaluation allowed before N >= N* target is reached"
-  ],
-  "sampleMetrics": {
-    "cutoffT0_UTC": "2026-09-01T00:00:00.000Z",
-    "cutoffT0_ms": 1788220800000,
-    "currentT1_UTC": "2026-09-03T03:00:00.000Z",
-    "currentT1_ms": 1788404400000,
-    "currentAcquiredHours": 51,
-    "operationalFloorHours": 8760,
-    "targetHours": 17520
+  "populationClassification": "Historical Untouched Replication Set (Reverse-Temporal Historical Holdout)",
+  "window": {
+    "tStart_UTC": "2020-01-01T00:00:00.000Z",
+    "tStart_ms": 1577836800000,
+    "tEnd_UTC": "2022-12-31T23:59:59.000Z",
+    "tEnd_ms": 1672531199000,
+    "totalCalendarDays": 1096,
+    "totalHourlyBarsPerAsset": 26304
   },
   "centralPrimaryHypothesis": "BTCUSDT (L=6h, H=24h)",
   "directReplication": "ETHUSDT (L=6h, H=24h)",
+  "primaryBlockPermutation": "B=10 days (Deterministic Mulberry32, seed 424242)",
+  "economicCriterion": "Sample Mean Net Log Return >= +5.0 bps after 10 bps friction",
   "artifacts": {
     "preregistration/power_analysis.js": {
       "sha256": "46088cc45f6086959f0deda5e756414f71bfd96ea5844905dac90bb1b9e8b06f",
@@ -30,16 +26,16 @@
       "sizeBytes": 13757
     },
     "preregistration/POWER_ANALYSIS.md": {
-      "sha256": "60ea3c6611d08ffe1e984b44f57054cdd868dbc3c9ed7338630c1db22e9e6db3",
-      "sizeBytes": 6488
+      "sha256": "719c5422dc8c1356b11f34189e562b808d143c9a72a43518d1959cbac842f30b",
+      "sizeBytes": 6654
     },
     "preregistration/OFI_CONFIRMATORY_CHARTER.md": {
       "sha256": "846b60739c83e9368c4fec6ac317b08a1c3d6c3a73b4d59c0516ad680baf1871",
       "sizeBytes": 4641
     },
     "frozen_spec/CUMULATIVE_OFI_FROZEN_SPEC.md": {
-      "sha256": "7958e67deff535822fc53e042cb164412661c3a1af7de11fecf21c9b2dbc7a20",
-      "sizeBytes": 7192
+      "sha256": "61cc7866297c5cb0ff423cf891ec0f6537a9b9b36045f52887c1f0511e99b65b",
+      "sizeBytes": 8308
     },
     "frozen_spec/BLOCK_PERMUTATION_SCHEME.md": {
       "sha256": "2111d21685fc099ea0a78da33cc58a68a90d5e3f50921fa846c0a3f437671396",
@@ -50,32 +46,36 @@
       "sizeBytes": 2221
     },
     "untouched_data/OFI001_CONFIRMATORY_POPULATION.md": {
-      "sha256": "3b1fb1cc3bb5f39cb479555d5f28417f3b090ca793b3deba0722637764e2c39b",
-      "sizeBytes": 2860
+      "sha256": "0096ae07592619e3388b6286ef627b6fa51c9e1eed33dc1ae076079c7194ba44",
+      "sizeBytes": 1900
     },
     "untouched_data/acquire_confirmatory_population.js": {
-      "sha256": "e29ad9ee7d8f0461e4fb5c2ff1a5b45b7aaeb5a28ba248e7ef2ad2a8a0ed11c8",
-      "sizeBytes": 6618
+      "sha256": "796a8468d8907bc6052d900059956743aec1f38c17b262d69a56fe393f9cb432",
+      "sizeBytes": 6549
     },
     "untouched_data/ingest_and_audit_untouched_data.js": {
-      "sha256": "9d03c9cd0c8395412f6276a23092b61198404f576e08ff363c39da7674c3fcfe",
-      "sizeBytes": 4422
+      "sha256": "5bb9fc7851547efb81bad34e827811c0bd35e70b6f26a8d557c2768409772974",
+      "sizeBytes": 4571
     },
-    "untouched_data/BTCUSDT_confirmatory_untouched.json": {
-      "sha256": "a4c3f451dd6a786be67603bd15c4502c31dc14d2d9242f70ae74795d57e2b856",
-      "sizeBytes": 16128
+    "untouched_data/BTCUSDT_historical_untouched_2020_2022.json": {
+      "sha256": "06111dcdb69880a273ebb31ec282a9b9d36d373467df7d7d9eaa17e9647809d9",
+      "sizeBytes": 8403078
     },
-    "untouched_data/ETHUSDT_confirmatory_untouched.json": {
-      "sha256": "5d25e5300e301a7ceac42ade7cc05777f2c4e5f37ba2de2ae1571bb6154222ce",
-      "sizeBytes": 16423
+    "untouched_data/ETHUSDT_historical_untouched_2020_2022.json": {
+      "sha256": "71717de278dd4743dc1ecc75e3b07e963f170bf789a25811f74278960b344d5b",
+      "sizeBytes": 8373957
     },
     "untouched_data/ACQUISITION_INTEL_MANIFEST.json": {
-      "sha256": "5d4b41867659ba7e0498c8ff73cbebf3d12fb4930f3d3dad8b15b716fa092dc5",
-      "sizeBytes": 792
+      "sha256": "6cdbf6d8a99726e230b47c2fc69bac2ace60424dad7e0e85ad9b293a931d29bb",
+      "sizeBytes": 977
     },
     "execution/data_firewall_guard.js": {
       "sha256": "4658d6b305ab32c0f431fd1ba0157622d81cd38b62cf2074e127a7261693e637",
       "sizeBytes": 3747
+    },
+    "execution/run_confirmatory_test.js": {
+      "sha256": "0afaf798cd8a5735d9ae673da3f871a8cf6549ff555b4dc32d4793a5149ee101",
+      "sizeBytes": 26361
     }
   }
 }

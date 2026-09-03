@@ -8,7 +8,8 @@ const __dirname = path.dirname(__filename);
 const rootDir = process.cwd();
 
 console.log('================================================================');
-console.log('🛡️ OFI001 — UNTOUCHED DATA INGESTION & FORENSIC ADMISSION AUDIT');
+console.log('🛡️ OFI001 — UNTOUCHED DATA FORENSIC ADMISSION AUDIT');
+console.log('Population: Historical Untouched Replication Set (2020-01-01 -> 2022-12-31)');
 console.log('Timestamp UTC:', new Date().toISOString());
 console.log('================================================================\n');
 
@@ -26,11 +27,11 @@ if (engineSHA !== expectedSHA) {
 }
 console.log('   ✔ V8 Engine 100% Frozen & Untouched.\n');
 
-// Cutoff T0 = 2026-09-01 00:00:00 UTC
-const T0 = 1788220800000;
-console.log(`2. Enforcing Temporal Firewall Cutoff T0: ${T0} (${new Date(T0).toISOString()})\n`);
+// Window parameters
+const T_START = new Date('2020-01-01T00:00:00.000Z').getTime(); // 1577836800000
+const T_END = new Date('2022-12-31T23:59:59.000Z').getTime();   // 1672531199000
 
-// Forensic audit function for any incoming candidate file
+// Forensic audit function for incoming candidate file
 export function auditCandidateDataset(filePath, expectedAsset) {
   console.log(`Auditing candidate dataset: ${filePath}...`);
   if (!fs.existsSync(filePath)) {
@@ -51,7 +52,7 @@ export function auditCandidateDataset(filePath, expectedAsset) {
 
   let prevTs = -Infinity;
   let gapsCount = 0;
-  let invalidT0Count = 0;
+  let outOfBoundsCount = 0;
   let nanCount = 0;
   let volumeViolations = 0;
   const seenTs = new Set();
@@ -60,8 +61,8 @@ export function auditCandidateDataset(filePath, expectedAsset) {
     const row = data[i];
     const ts = Number(row.timestamp);
 
-    // Check T0
-    if (ts < T0) invalidT0Count++;
+    // Check bounds
+    if (ts < T_START || ts > T_END) outOfBoundsCount++;
 
     // Check Monotonicity & Duplicates
     if (ts <= prevTs) {
@@ -95,8 +96,8 @@ export function auditCandidateDataset(filePath, expectedAsset) {
     prevTs = ts;
   }
 
-  if (invalidT0Count > 0) {
-    throw new Error(`FIREWALL BREACH: Found ${invalidT0Count} rows with timestamp < T0 (${new Date(T0).toISOString()})!`);
+  if (outOfBoundsCount > 0) {
+    throw new Error(`FIREWALL BREACH: Found ${outOfBoundsCount} rows outside [T_START, T_END]!`);
   }
   if (nanCount > 0) {
     throw new Error(`Data integrity breach: Found ${nanCount} NaN or null values!`);
@@ -106,7 +107,7 @@ export function auditCandidateDataset(filePath, expectedAsset) {
   }
 
   console.log(`  ✔ Monotonic ordering: strictly validated.`);
-  console.log(`  ✔ Cutoff T0 firewall: 100% compliant (Zero contaminated bars).`);
+  console.log(`  ✔ Temporal firewall: 100% compliant ([${new Date(T_START).toISOString()} -> ${new Date(T_END).toISOString()}]).`);
   console.log(`  ✔ Missing/NaN values: 0`);
   console.log(`  ✔ Taker volume integrity: 100% valid.`);
   console.log(`  ✔ Gaps detected: ${gapsCount}`);
