@@ -381,8 +381,8 @@ export function evaluateAsset(symbol, candleData) {
   // Regress standardized Y on standardized X
   const meanX = mean(featCumOFI), stdX = std(featCumOFI);
   const meanY = mean(forwardRet24h), stdY = std(forwardRet24h);
-  const zX = featCumOFI.map(v => (v - meanX) / stdX);
-  const zY = forwardRet24h.map(v => (v - meanY) / stdY);
+  const zX = Array.from(featCumOFI).map(v => (v - meanX) / stdX);
+  const zY = Array.from(forwardRet24h).map(v => (v - meanY) / stdY);
   const X_ic = zX.map(v => [1.0, v]);
   const olsIC = olsNeweyWest(X_ic, zY, 5);
   const tStatHAC = olsIC.tStat[1];
@@ -391,12 +391,12 @@ export function evaluateAsset(symbol, candleData) {
   // 4. Incremental Information Model (Model 0 vs Model 1)
   console.log(`\n4. Running Incremental Information Models...`);
   // Model 0: Y = alpha0 + beta_price * PastPriceRet + eps
-  const X_mod0 = pastPriceRet6h.map(v => [1.0, v]);
-  const mod0 = olsNeweyWest(X_mod0, forwardRet24h, 5);
+  const X_mod0 = Array.from(pastPriceRet6h).map(v => [1.0, v]);
+  const mod0 = olsNeweyWest(X_mod0, Array.from(forwardRet24h), 5);
 
   // Model 1: Y = alpha1 + beta_price * PastPriceRet + beta_OFI * CumOFI + eta
   const X_mod1 = Array.from({ length: N }, (_, i) => [1.0, pastPriceRet6h[i], featCumOFI[i]]);
-  const mod1 = olsNeweyWest(X_mod1, forwardRet24h, 5);
+  const mod1 = olsNeweyWest(X_mod1, Array.from(forwardRet24h), 5);
 
   const betaPriceMod0 = mod0.beta[1];
   const betaPriceMod1 = mod1.beta[1];

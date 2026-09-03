@@ -1,0 +1,249 @@
+{
+  "program": "OFI-CONFIRMATION-SETUP-001",
+  "executionTimestampUTC": "2026-09-03T03:47:11.732Z",
+  "populationType": "Historical Untouched Replication Set (2020-01-01 to 2022-12-31)",
+  "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "overallVerdict": "FAIL (FALSIFIED ON HISTORICAL REPLICATION SET)",
+  "criteria": [
+    {
+      "id": "CRIT-1",
+      "name": "Primary Linear Correlation (BTC IC >= +0.020)",
+      "required": "IC >= +0.020",
+      "observed": "IC = +0.056",
+      "pass": true
+    },
+    {
+      "id": "CRIT-2",
+      "name": "Non-Parametric Significance (Primary Block B=10 p < 0.05)",
+      "required": "p < 0.05",
+      "observed": "p = 0.0599",
+      "pass": false
+    },
+    {
+      "id": "CRIT-3",
+      "name": "Newey-West HAC Significance (t > 1.96)",
+      "required": "t > 1.96",
+      "observed": "t = 2.25",
+      "pass": true
+    },
+    {
+      "id": "CRIT-4",
+      "name": "Sample Mean Net Return per Trade (>= +5.0 bps after 10 bps friction)",
+      "required": "Net Return >= +5.0 bps",
+      "observed": "Net Return = +14.17 bps",
+      "pass": true
+    },
+    {
+      "id": "CRIT-5",
+      "name": "Incremental Information over Price Momentum (beta_OFI > 0 and t > 1.96)",
+      "required": "beta_OFI > 0, t > 1.96",
+      "observed": "beta = 0.1134, t = 3.04",
+      "pass": true
+    },
+    {
+      "id": "CRIT-6",
+      "name": "Direct Replication Consistency (ETH IC > 0)",
+      "required": "ETH IC > 0",
+      "observed": "ETH IC = -0.0266",
+      "pass": false
+    }
+  ],
+  "btcResults": {
+    "symbol": "BTCUSDT",
+    "sampleSizeN": 1094,
+    "primaryIC": 0.056,
+    "tStatHAC": 2.25,
+    "blockPermutation": {
+      "primaryB10": {
+        "blockSize": 10,
+        "numBlocks": 110,
+        "numPerms": 1000,
+        "observedIC": 0.0560162958896601,
+        "pValue": 0.059940059940059943,
+        "nullMean": -0.0018126862336594544,
+        "nullStd": 0.02906838049449729
+      },
+      "sensitivityB5": {
+        "blockSize": 5,
+        "numBlocks": 219,
+        "numPerms": 1000,
+        "observedIC": 0.0560162958896601,
+        "pValue": 0.05194805194805195,
+        "nullMean": -0.000742157217497792,
+        "nullStd": 0.027943373023754978
+      },
+      "sensitivityB20": {
+        "blockSize": 20,
+        "numBlocks": 55,
+        "numPerms": 1000,
+        "observedIC": 0.0560162958896601,
+        "pValue": 0.06493506493506493,
+        "nullMean": -0.0027080244819225503,
+        "nullStd": 0.030047192620505973
+      },
+      "sensitivityB30": {
+        "blockSize": 30,
+        "numBlocks": 37,
+        "numPerms": 1000,
+        "observedIC": 0.0560162958896601,
+        "pValue": 0.061938061938061936,
+        "nullMean": 0.0006555669590922598,
+        "nullStd": 0.030650103966667463
+      }
+    },
+    "incrementalModel": {
+      "model0_R2": 0.00889,
+      "model1_R2": 0.01905,
+      "deltaR2": 0.01016,
+      "betaOFI": 0.1134,
+      "seOFI": 0.0373,
+      "tStatOFI": 3.04
+    },
+    "economics": {
+      "numTrades": 202,
+      "tradeFrequencyPct": 18.5,
+      "meanNetBps": 14.17,
+      "ci95LowerBps": -34.29,
+      "ci95UpperBps": 62.63,
+      "medianNetBps": -33.95,
+      "hitRatePct": 45,
+      "profitFactor": 1.13,
+      "costCurve": [
+        {
+          "frictionBps": 0,
+          "meanNetBps": 24.17,
+          "hitRate": 47
+        },
+        {
+          "frictionBps": 5,
+          "meanNetBps": 19.17,
+          "hitRate": 46.5
+        },
+        {
+          "frictionBps": 10,
+          "meanNetBps": 14.17,
+          "hitRate": 45
+        },
+        {
+          "frictionBps": 15,
+          "meanNetBps": 9.17,
+          "hitRate": 44.1
+        },
+        {
+          "frictionBps": 20,
+          "meanNetBps": 4.17,
+          "hitRate": 42.6
+        },
+        {
+          "frictionBps": 25,
+          "meanNetBps": -0.83,
+          "hitRate": 41.6
+        },
+        {
+          "frictionBps": 30,
+          "meanNetBps": -5.83,
+          "hitRate": 41.1
+        }
+      ]
+    }
+  },
+  "ethResults": {
+    "symbol": "ETHUSDT",
+    "sampleSizeN": 1094,
+    "primaryIC": -0.0266,
+    "tStatHAC": -1.02,
+    "blockPermutation": {
+      "primaryB10": {
+        "blockSize": 10,
+        "numBlocks": 110,
+        "numPerms": 1000,
+        "observedIC": -0.026648332525024156,
+        "pValue": 0.35664335664335667,
+        "nullMean": -0.001938332384208944,
+        "nullStd": 0.030136320614469168
+      },
+      "sensitivityB5": {
+        "blockSize": 5,
+        "numBlocks": 219,
+        "numPerms": 1000,
+        "observedIC": -0.026648332525024156,
+        "pValue": 0.3776223776223776,
+        "nullMean": -0.0013444774701431954,
+        "nullStd": 0.03016351175196887
+      },
+      "sensitivityB20": {
+        "blockSize": 20,
+        "numBlocks": 55,
+        "numPerms": 1000,
+        "observedIC": -0.026648332525024156,
+        "pValue": 0.4165834165834166,
+        "nullMean": -0.004967097624529795,
+        "nullStd": 0.03193170260044754
+      },
+      "sensitivityB30": {
+        "blockSize": 30,
+        "numBlocks": 37,
+        "numPerms": 1000,
+        "observedIC": -0.026648332525024156,
+        "pValue": 0.3776223776223776,
+        "nullMean": -0.0021970879033258945,
+        "nullStd": 0.029867004259285276
+      }
+    },
+    "incrementalModel": {
+      "model0_R2": 0.00959,
+      "model1_R2": 0.00984,
+      "deltaR2": 0.00025,
+      "betaOFI": 0.0233,
+      "seOFI": 0.0461,
+      "tStatOFI": 0.51
+    },
+    "economics": {
+      "numTrades": 217,
+      "tradeFrequencyPct": 19.8,
+      "meanNetBps": -47.82,
+      "ci95LowerBps": -111.76,
+      "ci95UpperBps": 16.11,
+      "medianNetBps": -52,
+      "hitRatePct": 41.9,
+      "profitFactor": 0.76,
+      "costCurve": [
+        {
+          "frictionBps": 0,
+          "meanNetBps": -37.82,
+          "hitRate": 42.9
+        },
+        {
+          "frictionBps": 5,
+          "meanNetBps": -42.82,
+          "hitRate": 42.4
+        },
+        {
+          "frictionBps": 10,
+          "meanNetBps": -47.82,
+          "hitRate": 41.9
+        },
+        {
+          "frictionBps": 15,
+          "meanNetBps": -52.82,
+          "hitRate": 41.9
+        },
+        {
+          "frictionBps": 20,
+          "meanNetBps": -57.82,
+          "hitRate": 40.6
+        },
+        {
+          "frictionBps": 25,
+          "meanNetBps": -62.82,
+          "hitRate": 40.1
+        },
+        {
+          "frictionBps": 30,
+          "meanNetBps": -67.82,
+          "hitRate": 39.2
+        }
+      ]
+    }
+  }
+}
