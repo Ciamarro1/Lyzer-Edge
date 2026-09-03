@@ -2,28 +2,28 @@
   "lockIdentifier": "H011_CONFIRMATORY_EXECUTION_LOCK",
   "program": "ALPHA_CONFIRMATION_H011",
   "hypothesisId": "H011",
-  "timestampUTC": "2026-09-03T05:12:00.000Z",
-  "executionStatus": "LOCKED_PENDING_EXECUTIVE_APPROVAL",
-  "virginDataAccess": "STRICTLY_BLOCKED",
+  "timestampUTC": "2026-09-03T05:22:00.000Z",
+  "executionStatus": "AUTHORIZED_AND_UNSEALED",
+  "virginDataAccess": "AUTHORIZED",
   "immutableHashes": {
     "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
     "frozenSpecSHA256": "20d66d8ebde80a2fb0390819117328d19b025053a24be5b54a5edaeb5288a54e",
     "preregistrationSHA256": "bf60f2e0ab068de074d520844f381d7cc0b6830465ef041bc75246fd4fa87977",
     "preregistrationAuditSHA256": "896058a8493a8ab8cc35db8cd87817e45878505e21442ba219af1d2ad5d13a8c",
-    "runnerSHA256": "0b7a47bd4270d53c5b4215fce5a135eaabfd2c1c04ba74d3f4df68dce008356c",
+    "runnerSHA256": "43d50b9aeb04c3ab77c1762fdff72211f50b504c6d2d1f690d4807c2cf534c07",
     "testSuiteSHA256": "5d85c11f9b97e6fdc1dfe8a63ad03ae9ca4ec1d8f1e3f05cf9e9b26e9852745d"
   },
   "confirmatoryCandidate": {
     "compressionThreshold": 0.65,
     "breakoutLookback": 40,
-    "volumeMultiplier": 1.5,
+    "volumeMultiplier": 1.50,
     "riskRewardRatio": "1:5",
     "riskFormula": "max(1.5 * ATR24, 0.0080 * Close)",
     "timeoutHours": 72,
     "singlePositionPolicy": "SINGLE_CONCURRENT_POSITION_PER_ASSET"
   },
   "costAccounting": {
-    "exchangeFeeRoundTrip": 0.001,
+    "exchangeFeeRoundTrip": 0.0010,
     "slippageBase": 0.0002,
     "allInRateNormalExit": 0.0012,
     "doubleCountingFixed": true

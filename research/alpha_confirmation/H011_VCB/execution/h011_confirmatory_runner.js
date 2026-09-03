@@ -329,7 +329,9 @@ export function runCalendarBlockBootstrap(trades, options = {}) {
       ci95Lower: 0, ci95Upper: 0,
       pBlock: 1.0,
       profitFactor: 0,
-      mddR: 0
+      mddR: 0,
+      maxLosingStreak: 0,
+      totalNetR: 0
     };
   }
 
@@ -394,13 +396,21 @@ export function runCalendarBlockBootstrap(trades, options = {}) {
   const ci95Upper = Number(bootMeans[Math.floor(0.975 * B)].toFixed(3));
   const pBlock = Number(((nullExceedCount + 1) / (B + 1)).toFixed(4));
 
-  // Profit Factor & MDD
+  // Profit Factor, MDD, Max Losing Streak
   let winsSum = 0, lossesSum = 0;
   let peak = 0, running = 0, maxDD = 0;
+  let currentStreak = 0, maxStreak = 0;
+
   for (let i = 0; i < n; i++) {
     const r = netRs[i];
-    if (r > 0) winsSum += r;
-    else lossesSum += Math.abs(r);
+    if (r > 0) {
+      winsSum += r;
+      currentStreak = 0;
+    } else {
+      lossesSum += Math.abs(r);
+      currentStreak++;
+      if (currentStreak > maxStreak) maxStreak = currentStreak;
+    }
 
     running += r;
     if (running > peak) peak = running;
@@ -416,6 +426,7 @@ export function runCalendarBlockBootstrap(trades, options = {}) {
     pBlock,
     profitFactor,
     mddR: Number(maxDD.toFixed(2)),
+    maxLosingStreak: maxStreak,
     totalNetR: Number(netRs.reduce((a, b) => a + b, 0).toFixed(2))
   };
 }
@@ -454,6 +465,211 @@ if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
       console.error('   To run validation tests, use: node h011_confirmatory_runner.js --dry-run-synthetic\n');
       process.exit(1);
     }
+
+    console.log('🔓 CONFIRMATORY EXECUTION LOCK UNSEALED BY EXECUTIVE ORDER.');
+    console.log('   Executing single confirmatory run on Population C (BNBUSDT, XRPUSDT, ADAUSDT, SUIUSDT)...\n');
+
+    // 3. Verify Frozen Hashes
+    const specPath = path.resolve(__dirname, '../frozen_spec/H011_FROZEN_SPECIFICATION.md');
+    const specBuf = fs.readFileSync(specPath);
+    const specSHA = crypto.createHash('sha256').update(specBuf).digest('hex');
+
+    const preregPath = path.resolve(__dirname, '../preregistration/H011_CONFIRMATORY_PREREGISTRATION.md');
+    const preregBuf = fs.readFileSync(preregPath);
+    const preregSHA = crypto.createHash('sha256').update(preregBuf).digest('hex');
+
+    if (specSHA !== lock.immutableHashes.frozenSpecSHA256 || preregSHA !== lock.immutableHashes.preregistrationSHA256) {
+      console.error('❌ FATAL: Hash mismatch in frozen specification or preregistration! ABORT / INVALID EXPERIMENT.');
+      process.exit(1);
+    }
+    console.log('✔ Hashes of Frozen Specification and Preregistration verified bit-for-bit.');
+
+    // 4. Load Virgin Population C Data
+    const batchDir = path.resolve(rootDir, 'research/datasets/batch039');
+    const VIRGIN_ASSETS = ['BNBUSDT', 'XRPUSDT', 'ADAUSDT', 'SUIUSDT'];
+    const assetCandles = {};
+
+    for (const sym of VIRGIN_ASSETS) {
+      const fpath = path.join(batchDir, `${sym}_1h.json`);
+      if (!fs.existsSync(fpath)) {
+        console.error(`❌ Missing dataset for virgin asset ${sym}: ${fpath}`);
+        process.exit(1);
+      }
+      const raw = JSON.parse(fs.readFileSync(fpath, 'utf8'));
+      raw.sort((a, b) => Number(a.timestamp) - Number(b.timestamp));
+      assetCandles[sym] = raw;
+      console.log(`   ✔ Loaded virgin holdout for ${sym}: ${raw.length.toLocaleString()} candles`);
+    }
+
+    // 5. Precompute Indicators and Simulate H011 Candidate
+    const config = {
+      compressionThreshold: lock.confirmatoryCandidate.compressionThreshold, // 0.65
+      breakoutLookback: lock.confirmatoryCandidate.breakoutLookback, // 40
+      volumeMultiplier: lock.confirmatoryCandidate.volumeMultiplier, // 1.50
+      timeoutHours: lock.confirmatoryCandidate.timeoutHours // 72
+    };
+
+    let allTrades = [];
+    const perAssetMetrics = {};
+
+    for (const sym of VIRGIN_ASSETS) {
+      const candles = assetCandles[sym];
+      const ind = precomputeIndicators(candles);
+      const trades = simulateAsset(candles, ind, config, sym);
+      allTrades = allTrades.concat(trades);
+
+      const netRs = trades.map(t => t.netR);
+      const meanR = trades.length > 0 ? netRs.reduce((a, b) => a + b, 0) / trades.length : 0;
+      let winsSum = 0, lossesSum = 0;
+      let tpCount = 0, slCount = 0, timeoutCount = 0;
+      for (const t of trades) {
+        if (t.netR > 0) winsSum += t.netR;
+        else lossesSum += Math.abs(t.netR);
+        if (t.exitType.includes('TP')) tpCount++;
+        else if (t.exitType.includes('SL')) slCount++;
+        else if (t.exitType === 'TIMEOUT') timeoutCount++;
+      }
+      const pf = lossesSum === 0 ? (winsSum > 0 ? 99 : 0) : Number((winsSum / lossesSum).toFixed(2));
+
+      perAssetMetrics[sym] = {
+        nTrades: trades.length,
+        tpCount, tpPct: trades.length > 0 ? Number(((tpCount / trades.length) * 100).toFixed(1)) : 0,
+        slCount, slPct: trades.length > 0 ? Number(((slCount / trades.length) * 100).toFixed(1)) : 0,
+        timeoutCount, timeoutPct: trades.length > 0 ? Number(((timeoutCount / trades.length) * 100).toFixed(1)) : 0,
+        meanNetR: Number(meanR.toFixed(3)),
+        profitFactor: pf
+      };
+    }
+
+    // Sort all trades chronologically by exit time
+    allTrades.sort((a, b) => Number(a.exitTime) - Number(b.exitTime));
+
+    // 6. Execute 14-Day Calendar Block Bootstrap under Centered H0
+    console.log('\n   Executing 14-Day Calendar Block Bootstrap (B = 10,000, Seed = 777777)...');
+    const pooledResults = runCalendarBlockBootstrap(allTrades, {
+      replications: lock.bootstrapSpecification.replications,
+      seed: lock.bootstrapSpecification.seed,
+      windowDays: lock.bootstrapSpecification.calendarWindowDays,
+      epochStartMs: Date.parse(lock.bootstrapSpecification.windowEpochStartUTC)
+    });
+
+    // 7. Evaluate 5 Frozen Decision Gates
+    const gate1 = pooledResults.pBlock < 0.0500;
+    const gate2 = pooledResults.meanNetR >= 0.150;
+    const gate3 = pooledResults.profitFactor >= 1.30;
+    const gate4 = pooledResults.nTrades >= 150;
+    const gate5 = pooledResults.mddR <= 30.0;
+
+    const overallVerdict = (gate1 && gate2 && gate3 && gate4 && gate5) ? 'CONFIRMED' : 'FAIL';
+
+    console.log('\n================================================================');
+    console.log(`🏛️ H011 CONFIRMATORY VERDICT: ${overallVerdict === 'CONFIRMED' ? '🟢 CONFIRMED' : '🔴 FAIL'}`);
+    console.log('================================================================');
+    console.log(`Total Evaluated Trades:          ${pooledResults.nTrades} (Gate 4 >= 150: ${gate4 ? 'PASS' : 'FAIL'})`);
+    console.log(`Sample Mean Net R:               ${pooledResults.meanNetR >= 0 ? '+' : ''}${pooledResults.meanNetR}R (Gate 2 >= +0.150R: ${gate2 ? 'PASS' : 'FAIL'})`);
+    console.log(`95% Bootstrap CI:                [${pooledResults.ci95Lower}R, ${pooledResults.ci95Upper}R]`);
+    console.log(`14-Day Calendar Block p-value:   ${pooledResults.pBlock.toFixed(4)} (Gate 1 < 0.0500: ${gate1 ? 'PASS' : 'FAIL'})`);
+    console.log(`Profit Factor Net:               ${pooledResults.profitFactor} (Gate 3 >= 1.30: ${gate3 ? 'PASS' : 'FAIL'})`);
+    console.log(`Max Drawdown:                    -${pooledResults.mddR}R (Gate 5 <= 30.0R: ${gate5 ? 'PASS' : 'FAIL'})`);
+    console.log(`Max Losing Streak:               ${pooledResults.maxLosingStreak} consecutive losses`);
+    console.log(`Total Net R Generated:           ${pooledResults.totalNetR >= 0 ? '+' : ''}${pooledResults.totalNetR}R`);
+    console.log('================================================================\n');
+
+    // 8. Persist Raw Results JSON
+    const resultsDir = path.resolve(__dirname, '../results');
+    const rawOutPath = path.join(resultsDir, 'H011_CONFIRMATORY_RAW_RESULTS.json');
+    fs.writeFileSync(rawOutPath, JSON.stringify({
+      program: 'ALPHA_CONFIRMATION_H011',
+      hypothesisId: 'H011',
+      timestampUTC: new Date().toISOString(),
+      engineFrozenSHA256: engineSHA,
+      verdict: overallVerdict,
+      gates: {
+        gate1_pValue: { value: pooledResults.pBlock, pass: gate1, rule: '< 0.0500' },
+        gate2_meanNetR: { value: pooledResults.meanNetR, pass: gate2, rule: '>= +0.150R' },
+        gate3_profitFactor: { value: pooledResults.profitFactor, pass: gate3, rule: '>= 1.30' },
+        gate4_nTrades: { value: pooledResults.nTrades, pass: gate4, rule: '>= 150' },
+        gate5_maxDrawdown: { value: pooledResults.mddR, pass: gate5, rule: '<= 30.0R' }
+      },
+      pooledMetrics: pooledResults,
+      perAssetMetrics,
+      allTradesCount: allTrades.length,
+      allTrades
+    }, null, 2));
+
+    // 9. Persist Formal Verdict Markdown Report
+    let vMd = `# LAUDO INSTITUCIONAL DE VEREDITO CONFIRMATÓRIO — H011
+## Volatility Compression Breakout (VCB) — Payoff Assimétrico 1:5 RR
+
+**Identificador da Hipótese**: \`H011\`  
+**Programa**: \`ALPHA_CONFIRMATION_H011\`  
+**Data da Execução UTC**: \`${new Date().toISOString()}\`  
+**População Confirmatória**: Opção C (\`BNBUSDT\`, \`XRPUSDT\`, \`ADAUSDT\`, \`SUIUSDT\`)  
+**SHA-256 do Motor V8**: \`${engineSHA}\` (**100% INTACTO**)  
+**Status Institucional**: **${overallVerdict === 'CONFIRMED' ? '🟢 CONFIRMED' : '🔴 FAIL'}**  
+
+---
+
+## 1. Tabela Executiva dos 5 Gates Congelados
+
+| Gate Confirmatório | Métrica Observada | Critério Pré-Registrado | Status |
+|---|:---:|:---:|:---:|
+| **GATE-1 (Estatístico Primário)** | **p = ${pooledResults.pBlock.toFixed(4)}** | $p_{\\text{block}} < 0,0500$ | ${gate1 ? '🟢 PASS' : '🔴 FAIL'} |
+| **GATE-2 (Econômico Primário)** | **E[R] = ${pooledResults.meanNetR >= 0 ? '+' : ''}${pooledResults.meanNetR}R** | $E[R]_{\\text{net}} \\ge +0,150R$ | ${gate2 ? '🟢 PASS' : '🔴 FAIL'} |
+| **GATE-3 (Rentabilidade / PF)** | **PF = ${pooledResults.profitFactor}** | $\\text{PF} \\ge 1,30$ | ${gate3 ? '🟢 PASS' : '🔴 FAIL'} |
+| **GATE-4 (Amostra Mínima)** | **N = ${pooledResults.nTrades} trades** | $N_{\\text{trades}} \\ge 150$ | ${gate4 ? '🟢 PASS' : '🔴 FAIL'} |
+| **GATE-5 (Controle de Cauda)** | **MDD = -${pooledResults.mddR}R** | $MDD_R \\le 30,0R$ | ${gate5 ? '🟢 PASS' : '🔴 FAIL'} |
+
+---
+
+## 2. Decomposição Amostral por Ativo
+
+| Ativo | Trades ($N$) | TP % | SL % | Timeout % | $E[R]_{\\text{net}}$ | Profit Factor |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+`;
+    for (const sym of VIRGIN_ASSETS) {
+      const a = perAssetMetrics[sym];
+      vMd += `| **${sym}** | ${a.nTrades} | ${a.tpPct}% | ${a.slPct}% | ${a.timeoutPct}% | ${a.meanNetR >= 0 ? '+' : ''}${a.meanNetR}R | ${a.profitFactor} |\n`;
+    }
+
+    vMd += `
+---
+
+## 3. Síntese do Teste Não-Paramétrico de Blocos Calendários
+
+- **Unidade do Bloco**: Janelas temporais contíguas de 14 dias UTC a partir de \`2023-01-01T00:00:00.000Z\`.
+- **Réplicas Monte Carlo**: $B = 10.000$ sob semente pré-registrada \`Mulberry32(seed = 777777)\`.
+- **Estimando**: Média ponderada por trades amostrados (Trade-Weighted Estimator), imune a distorção de janelas desbalanceadas.
+- **Intervalo de Confiança de 95%**: [${pooledResults.ci95Lower}R, ${pooledResults.ci95Upper}R].
+- **Drawdown Máximo**: -${pooledResults.mddR}R.
+- **Maior Sequência de Perdas Consecutivas**: ${pooledResults.maxLosingStreak} trades.
+
+---
+
+## 4. Declaração Epistêmica Final
+
+${overallVerdict === 'CONFIRMED'
+  ? `> **A HIPÓTESE H011 FOI CONFIRMADA NA POPULAÇÃO VIRGEM POR ATIVO.**  
+> Todos os cinco gates pré-registrados foram superados sem nenhuma adaptação post-hoc.`
+  : `> **A HIPÓTESE H011 NÃO FOI CONFIRMADA NA POPULAÇÃO VIRGEM POR ATIVO.**  
+> A alegação específica de generalização da configuração VCB (\\theta=0,65, K=40, v=1,50) falhou nos gates pré-registrados e está arquivada como hipótese rejeitada.`
+}
+
+O experimento foi executado exatamente uma única vez, conforme a ordem executiva.
+`;
+
+    const verdictPath = path.join(resultsDir, 'H011_CONFIRMATORY_VERDICT.md');
+    fs.writeFileSync(verdictPath, vMd);
+
+    // 10. Compulsorily Relock Execution Lock
+    lock.executionStatus = 'EXECUTED_AND_PERMANENTLY_LOCKED';
+    lock.executedAtUTC = new Date().toISOString();
+    lock.finalVerdict = overallVerdict;
+    fs.writeFileSync(lockPath, JSON.stringify(lock, null, 2));
+
+    console.log(`✔ Confirmatory Raw Results JSON persisted at: ${rawOutPath}`);
+    console.log(`✔ Confirmatory Verdict Report persisted at: ${verdictPath}`);
+    console.log('🔒 Execution Lock permanently relocked to: EXECUTED_AND_PERMANENTLY_LOCKED.\n');
   } else {
     console.log('✔ Mode: --dry-run-synthetic (Zero Virgin Data Access)');
     console.log('✔ Running validation tests on synthetic data...\n');
