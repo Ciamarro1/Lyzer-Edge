@@ -1,0 +1,111 @@
+{
+  "campaignId": "AD006_DELTA_NEUTRAL_CARRY_DISCOVERY",
+  "program": "AD006",
+  "title": "Structural Funding Yield Harvest & Delta-Neutral Carry Engine",
+  "family": "DERIVATIVES_CASH_AND_CARRY_ARBITRAGE",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframe": "8h",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "perpFeeBps": 5,
+    "slippageBps": 2,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "riskUnit": {
+    "unitRiskPct": 0.01,
+    "label": "1R is normalized to 1.0% (100 bps) net unleveraged yield"
+  },
+  "cells": [
+    {
+      "id": "AD006_STATIC_BTC_ETH",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "rebalanceDays": 0,
+      "hurdleBps": 0,
+      "description": "Static 50/50 allocation in BTC and ETH spot-perp carry, held continuously"
+    },
+    {
+      "id": "AD006_STATIC_ALL6_EQW",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "ALL_6_EQUAL_WEIGHT",
+      "rebalanceDays": 0,
+      "hurdleBps": 0,
+      "description": "Static 1/6 equal weight across all 6 core assets spot-perp carry, held continuously"
+    },
+    {
+      "id": "AD006_HURDLE_0_W1",
+      "type": "HURDLE_GATED",
+      "allocation": "BTC_ETH_50_50",
+      "lookbackDays": 7,
+      "rebalanceDays": 7,
+      "hurdleBps": 0,
+      "description": "BTC/ETH carry with weekly hurdle gate: exit to cash if 7-day rolling funding <= 0"
+    },
+    {
+      "id": "AD006_HURDLE_0_M1",
+      "type": "HURDLE_GATED",
+      "allocation": "BTC_ETH_50_50",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleBps": 0,
+      "description": "BTC/ETH carry with monthly hurdle gate: exit to cash if 30-day rolling funding <= 0"
+    },
+    {
+      "id": "AD006_HURDLE_5BPS_W1",
+      "type": "HURDLE_GATED",
+      "allocation": "BTC_ETH_50_50",
+      "lookbackDays": 7,
+      "rebalanceDays": 7,
+      "hurdleBps": 5,
+      "description": "BTC/ETH carry with weekly hurdle gate: exit to cash if 7-day rolling funding <= 5 bps annualized"
+    },
+    {
+      "id": "AD006_ROTATION_TOP2_W1",
+      "type": "DYNAMIC_ROTATION",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 7,
+      "rebalanceDays": 7,
+      "hurdleBps": 0,
+      "description": "Dynamic Rotation: Rebalance weekly into the Top 2 assets with highest rolling 7-day funding yield"
+    },
+    {
+      "id": "AD006_ROTATION_TOP2_W2",
+      "type": "DYNAMIC_ROTATION",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 14,
+      "rebalanceDays": 14,
+      "hurdleBps": 0,
+      "description": "Dynamic Rotation: Rebalance bi-weekly (14d) into the Top 2 assets with highest rolling 14-day funding yield"
+    },
+    {
+      "id": "AD006_ROTATION_TOP2_M1",
+      "type": "DYNAMIC_ROTATION",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleBps": 0,
+      "description": "Dynamic Rotation: Rebalance monthly (30d) into the Top 2 assets with highest rolling 30-day funding yield"
+    },
+    {
+      "id": "AD006_ROTATION_TOP1_W2",
+      "type": "DYNAMIC_ROTATION",
+      "allocation": "TOP_1_YIELDER",
+      "lookbackDays": 14,
+      "rebalanceDays": 14,
+      "hurdleBps": 0,
+      "description": "Dynamic Rotation: Rebalance bi-weekly (14d) 100% into the single highest yielding asset"
+    }
+  ]
+}

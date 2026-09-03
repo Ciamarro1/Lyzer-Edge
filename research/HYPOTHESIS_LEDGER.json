@@ -197,5 +197,29 @@
     "eligibleHypotheses": 0,
     "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(12)=3.1032",
     "reasonForRejection": "Discovery closed with 0/12 hypotheses meeting joint criteria (p_block < 0.0500 under BY and E[R] >= +0.150R). Sample size was extensive (N = 241 to 729 trades). Cross-sectional mean reversion was comprehensively falsified across all lookbacks (all cells negative down to -0.272R). Cross-sectional momentum showed positive gross drift at 168h lookback (+0.111R), but was insufficient to overcome the 24 bps roundtrip spread friction and achieve statistical significance (p_block = 0.2507, q_BY = 1.0000). All promotions to confirmation are BLOCKED. Holdout 2025–2026 remains 100% sealed and untouched."
+  },
+  {
+    "id": "AD006",
+    "date": "2026-09-03T08:45:00.000Z",
+    "parentBatch": "AD006_DELTA_NEUTRAL_CARRY",
+    "hypothesis": "Structural Funding Yield Harvest & Delta-Neutral Carry Engine (Delta=0, 2023-2024 Discovery)",
+    "economicRationale": "Delta-neutral cash-and-carry arbitrage (Long Spot + Short Perpetual) completely neutralizes price volatility (Delta=0) while continuously harvesting positive funding rate cash flows from retail speculative leverage, amortizing transaction costs over multi-month holding periods.",
+    "status": "DISCOVERY_COMPLETED",
+    "result": "DISCOVERY_SUCCESS (9/9 CANDIDATES ELIGIBLE UNDER BY FDR)",
+    "class": "STRUCTURAL CASH-AND-CARRY ARBITRAGE",
+    "evaluatedHypotheses": 9,
+    "eligibleHypothesesUnderBY": 9,
+    "leadCandidate": {
+      "id": "AD006_STATIC_BTC_ETH",
+      "type": "STATIC_BENCHMARK",
+      "annualizedReturnPct": 10.73,
+      "totalNetReturnPct": 22.65,
+      "annualizedSharpe": 30.8,
+      "maxDrawdownPct": 0.11,
+      "pBlock": 0.0001,
+      "qBY": 0.0004
+    },
+    "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(9)=2.8289",
+    "diagnosticNote": "AD006 discovered robust structural alpha across all 9 cells (q_BY <= 0.0020). Static BTC/ETH carry generated +10.73% annualized net yield with Sharpe 30.80 and MaxDD 0.11% in 2023-2024. Dynamic monthly rotation yielded +9.66% annualized. Promoted to H013 for independent frozen confirmatory validation on Holdout 2025-2026."
   }
 ]

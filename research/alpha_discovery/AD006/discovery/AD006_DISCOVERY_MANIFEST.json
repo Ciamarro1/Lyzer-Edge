@@ -1,0 +1,43 @@
+{
+  "campaignId": "AD006_DELTA_NEUTRAL_CARRY_DISCOVERY",
+  "program": "AD006",
+  "timestampUTC": "2026-09-03T08:44:10.656Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPeriod": "2023-01-01 to 2024-12-31",
+  "totalObservations": 13158,
+  "holdoutStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
+  "verdict": "DISCOVERY_SUCCESS_STRUCTURAL_CARRY_IDENTIFIED",
+  "eligibleCandidatesCount": "9/9",
+  "leadCandidate": {
+    "id": "AD006_STATIC_BTC_ETH",
+    "type": "STATIC_BENCHMARK",
+    "annualizedReturnPct": 10.73,
+    "totalNetReturnPct": 22.65,
+    "annualizedSharpe": 30.8,
+    "maxDrawdownPct": 0.11,
+    "pBlock": 0.0001,
+    "qBY": 0.0004
+  },
+  "artifacts": {
+    "spec/AD006_CAMPAIGN_SPEC.json": {
+      "sha256": "f2e61f9b7501f3b901f4f0741322494a61751c7cf3b536eb66aa4ba9813d8452",
+      "sizeBytes": 3467
+    },
+    "core/ad006_carry_engine.js": {
+      "sha256": "c19afd1891c8ecf26eea39db947a9e6de4d3bfa44b5a9e1230e725a0b0747b19",
+      "sizeBytes": 6299
+    },
+    "discovery/run_ad006_discovery.js": {
+      "sha256": "67fb8a1e751ff0f0219cc6895acf08f8410d73c27b28562c79af3da732bf7525",
+      "sizeBytes": 9115
+    },
+    "discovery/AD006_DISCOVERY_RESULTS.json": {
+      "sha256": "7e346989fa65ba817bbf4ad904e98a996abcf2f080f4579a71a96d22f369f00c",
+      "sizeBytes": 5579
+    },
+    "discovery/AD006_DISCOVERY_REPORT.md": {
+      "sha256": "721f2a371e5adfb7f2396b02c4bbb7c29607edf3b940439990698f7f5e6b589a",
+      "sizeBytes": 4370
+    }
+  }
+}
