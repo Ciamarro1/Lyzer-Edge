@@ -47,7 +47,7 @@
     "economicRationale": "Buying the reversion after a Bearish Displacement captures the absorption premium.",
     "status": "ARCHIVED",
     "result": "REJECTED",
-    "pValue": 0.40,
+    "pValue": 0.4,
     "reasonForRejection": "Regression and permutation proven to be statistical noise. No true alpha."
   },
   {
@@ -103,5 +103,21 @@
     "result": "REJECTED (SPECIFIC GENERALIZATION CLAIM FALSIFIED)",
     "pValue": 0.0599,
     "reasonForRejection": "Failed primary non-parametric Block Permutation test (p=0.0599 >= 0.05) in BTC, and failed direct cross-asset replication in ETH (IC = -0.0266, net return = -47.82 bps). Pre-registered confirmatory criteria not met."
+  },
+  {
+    "id": "H011",
+    "date": "2026-09-03T05:22:10.000Z",
+    "parentBatch": "AD002 / H011_VCB",
+    "hypothesis": "Volatility Compression Breakout (VCB) 1:5 Asymmetric Payoff (θ=0.65, K=40, v=1.50)",
+    "economicRationale": "Directional breakout following volatility compression (ATR12/ATR72 <= 0.65) with volume expansion (v >= 1.50) triggers asymmetric tail continuation capable of sustaining a 1:5 risk/reward profile after real trading frictions.",
+    "status": "ARCHIVED",
+    "result": "REJECTED / NOT CONFIRMED",
+    "class": "CONFIRMATORY FAILURE",
+    "pValue": 0.0945,
+    "sampleSize": 50,
+    "meanNetR": 0.589,
+    "profitFactor": 1.77,
+    "maxDrawdownR": 10.22,
+    "reasonForRejection": "Confirmatory claim not confirmed. Failed primary statistical gate under 14-day calendar block bootstrap (p = 0.0945 >= 0.0500) and failed minimum sample-size gate (N = 50 < 150) across virgin holdout population C (BNB, XRP, ADA, SUI). Economic signal observed was positive (E[R] = +0.589R, PF = 1.77, 4/4 assets positive), but evidence is statistically insufficient to reject H0 under pre-registered criteria. Economic mechanism is NOT falsified, but confirmatory promotion is BLOCKED and re-testing to seek significance is strictly prohibited."
   }
 ]
