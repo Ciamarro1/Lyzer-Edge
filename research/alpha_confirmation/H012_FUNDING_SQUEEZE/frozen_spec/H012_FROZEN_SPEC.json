@@ -1,0 +1,65 @@
+{
+  "hypothesisId": "H012",
+  "name": "Perpetual Short Squeeze via Funding Dislocation",
+  "programOrigin": "AD004",
+  "status": "FROZEN_AWAITING_UNLOCK",
+  "dateFrozenUTC": "2026-09-03T08:10:00.000Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutPopulation": {
+    "type": "TEMPORAL_HOLDOUT_VIRGIN",
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "targetAssets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "AVAXUSDT",
+      "LINKUSDT",
+      "DOGEUSDT"
+    ],
+    "timeframe": "8h"
+  },
+  "parameters": {
+    "lookbackL": 90,
+    "lookbackHours": 720,
+    "zScoreThreshold": -2.5,
+    "side": "LONG",
+    "holdingPeriods": 3,
+    "holdingHours": 24,
+    "captureFundingCashFlow": true,
+    "riskUnitATR": 21,
+    "singlePositionPerAsset": true
+  },
+  "friction": {
+    "feeRatePerLeg": 0.0005,
+    "slippageRatePerLeg": 0.0001,
+    "allInRoundtripBps": 12
+  },
+  "confirmatoryGates": {
+    "gate1_statisticalSignificance": {
+      "metric": "p_block",
+      "threshold": "< 0.0500",
+      "bootstrapReplications": 10000,
+      "calendarBlockDays": 14,
+      "hypothesisCountM": 1
+    },
+    "gate2_minimumSampleSize": {
+      "metric": "N_confirmatory",
+      "threshold": ">= 100"
+    },
+    "gate3_economicExpectancy": {
+      "metric": "E[R]_net",
+      "threshold": ">= +0.150R"
+    },
+    "gate4_crossAssetBreadth": {
+      "metric": "positiveAssetsFraction",
+      "threshold": ">= 4/6 assets (66.7%)"
+    },
+    "gate5_maximumDrawdown": {
+      "metric": "maxDrawdownR",
+      "threshold": "<= 15.0R"
+    }
+  }
+}

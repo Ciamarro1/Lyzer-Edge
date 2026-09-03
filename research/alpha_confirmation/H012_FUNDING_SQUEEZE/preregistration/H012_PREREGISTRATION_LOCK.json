@@ -1,0 +1,24 @@
+{
+  "hypothesisId": "H012",
+  "title": "Perpetual Short Squeeze via Funding Dislocation",
+  "status": "LOCKED_AWAITING_EXECUTIVE_UNLOCK",
+  "timestampUTC": "2026-09-03T08:10:13.037Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutTarget": "TEMPORAL_HOLDOUT_VIRGIN (2025-01-01 to 2026-08-31)",
+  "executiveUnlockToken": null,
+  "unlockAuthorizedBy": null,
+  "fileHashes": {
+    "charter/H012_CONFIRMATORY_CHARTER.md": {
+      "sha256": "ae9e505f9e1d3ba1bc8c82453e4edc7bbc4516b5fcf66f3070dae31afc129988",
+      "sizeBytes": 7365
+    },
+    "frozen_spec/H012_FROZEN_SPEC.json": {
+      "sha256": "ea740d462aa4a9f8171b6e92f433bbc6a29cfa35e79f8c00f673341a089df0a8",
+      "sizeBytes": 1699
+    },
+    "execution/run_h012_confirmatory.js": {
+      "sha256": "464bd28416a820674fa5747e93aeee2abce1f4fde492df828cee55c7dcfd58ab",
+      "sizeBytes": 10663
+    }
+  }
+}
