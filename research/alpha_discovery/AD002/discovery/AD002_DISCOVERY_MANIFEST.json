@@ -1,0 +1,41 @@
+{
+  "program": "ALPHA_DISCOVERY_002",
+  "hypothesisId": "H011",
+  "timestampUTC": "2026-09-03T04:28:34.894Z",
+  "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPhase": "COMPLETED_RAW_EVALUATION",
+  "evaluatedHypothesesCount": 64,
+  "fdrPassCount": 0,
+  "positiveExpectancyCount": 42,
+  "topExpectancyCandidate": "VCB031 (E[R] = +0.567R, N=36, PF=1.71)",
+  "artifacts": {
+    "charter/AD002_ASYMMETRIC_PAYOFF_CHARTER.md": {
+      "sha256": "a8deb4ed27dacd8e4ae8e995a7e9f551fc8f1b2b5ec079452d878b77751e8330",
+      "sizeBytes": 11009
+    },
+    "spec/VCB_64_HYPOTHESIS_MATRIX.json": {
+      "sha256": "b188a25034ea149ddf2ab27a85f714919b2dd017a6fa59fb7fb3182a7e8b9ea7",
+      "sizeBytes": 26466
+    },
+    "spec/VCB_64_HYPOTHESIS_MATRIX.md": {
+      "sha256": "8807bbbd54241cc729db3f1940ceb3309ecfd538582466c341633906b72d10be",
+      "sizeBytes": 10667
+    },
+    "spec/generate_hypothesis_matrix.js": {
+      "sha256": "99296843a2eb1abe2d073b12e08a6a145c2ec897c4f69f1fc666cad0b9e84f30",
+      "sizeBytes": 3094
+    },
+    "discovery/run_ad002_discovery.js": {
+      "sha256": "b0c045d0d750dc9e1341bdc29477b01b417ae3564dac0cadd6e36d0c4d197d6c",
+      "sizeBytes": 21987
+    },
+    "discovery/AD002_DISCOVERY_REPORT.md": {
+      "sha256": "9772f73224ef26e9d362abf49fab3a300ffafe5adea689f04ae9e71afc0f3df4",
+      "sizeBytes": 16379
+    },
+    "discovery/AD002_DISCOVERY_RAW_RESULTS.json": {
+      "sha256": "137f92033358054e439ab9db24c63dae3f38d5c07cb6489072a466972f6232b0",
+      "sizeBytes": 215442
+    }
+  }
+}
