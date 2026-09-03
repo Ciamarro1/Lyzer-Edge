@@ -1,8 +1,8 @@
 {
   "program": "OFI-CONFIRMATION-SETUP-001",
-  "timestampUTC": "2026-09-03T03:47:24.060Z",
+  "timestampUTC": "2026-09-03T03:52:00.275Z",
   "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
-  "candidateClassification": "FALSIFIED_HISTORICAL_REPLICATION (NOT ALPHA)",
+  "candidateClassification": "SPECIFIC_GENERALIZATION_CLAIM_FALSIFIED (NOT ALPHA)",
   "populationClassification": "Historical Untouched Replication Set (Reverse-Temporal Historical Holdout)",
   "window": {
     "tStart_UTC": "2020-01-01T00:00:00.000Z",
@@ -11,20 +11,21 @@
     "tEnd_ms": 1672531199000,
     "totalCalendarDays": 1096,
     "totalHourlyBarsPerAsset": 26304,
-    "evaluatedNonOverlappingDailyPoints": 1094
+    "evaluatedNonOverlappingDailyPoints": 1094,
+    "boundaryExplanation": "1,096 calendar days -> 1,094 evaluable non-overlapping daily observations after deterministic boundary requirements (L=6h lookback and H=24h forward return disallow boundary endpoints)"
+  },
+  "multiTieredStatus": {
+    "scientificStatus": "NOT_CONFIRMED",
+    "economicStatus": "NOT_PROMOTABLE",
+    "productionStatus": "BLOCKED",
+    "specificHypothesisStatus": "FAILED_CONFIRMATORY_GATES",
+    "generalPhenomenonStatus": "OPEN_UNRESOLVED"
   },
   "centralPrimaryHypothesis": "BTCUSDT (L=6h, H=24h)",
   "directReplication": "ETHUSDT (L=6h, H=24h)",
-  "executionStatus": "COMPLETED_DETERMINISTIC_PASS",
-  "overallVerdict": "FAIL (FALSIFIED ON HISTORICAL REPLICATION SET)",
-  "verdictSummary": {
-    "crit1_btc_ic_ge_0020": "PASS (IC = +0.0560)",
-    "crit2_btc_block_perm_b10_p_lt_005": "FAIL (p = 0.0599)",
-    "crit3_btc_newey_west_hac_t_gt_196": "PASS (t = 2.25)",
-    "crit4_btc_net_return_ge_5bps": "PASS (+14.17 bps)",
-    "crit5_btc_incremental_model_t_gt_196": "PASS (beta = 0.1134, t = 3.04)",
-    "crit6_eth_replication_ic_gt_0": "FAIL (ETH IC = -0.0266, net return = -47.82 bps)"
-  },
+  "executionStatus": "AUDITED_AND_COMPLETED",
+  "executionIntegrityAudit": "AUDITED_BENIGN_TYPING_BUG_FIX",
+  "overallVerdict": "FAIL (SPECIFIC GENERALIZATION CLAIM FALSIFIED)",
   "artifacts": {
     "preregistration/power_analysis.js": {
       "sha256": "46088cc45f6086959f0deda5e756414f71bfd96ea5844905dac90bb1b9e8b06f",
@@ -95,8 +96,12 @@
       "sizeBytes": 2102
     },
     "results/CONFIRMATORY_VERDICT.md": {
-      "sha256": "f8cfeec567e28952169d7c2533e97cdaceec5968988480f9ce1d6598fe67fc6d",
-      "sizeBytes": 2168
+      "sha256": "66d32adc182dc6e4ebb47b11384c899c4936c861a011eb1e682c4488e16d92a7",
+      "sizeBytes": 5538
+    },
+    "results/EXECUTION_INTEGRITY_AUDIT.md": {
+      "sha256": "6eb7cb5e4eb9ef37848ef16730fb97e51e5c366bb516ac58944566ab826827ef",
+      "sizeBytes": 5008
     },
     "results/confirmatory_raw_results.json": {
       "sha256": "0bdd389c775f898ce32ca12aa8a410d3ad061485a20c96831a1bea1ad2aad544",
