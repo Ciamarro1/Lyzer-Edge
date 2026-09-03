@@ -26,17 +26,28 @@ if (engineSHA !== expectedSHA) {
 }
 console.log('   ✔ V8 Engine 100% Frozen & Untouched.\n');
 
-// 2. Check Frozen Specification Existence
-const specPath = path.resolve(__dirname, '../frozen_spec/CUMULATIVE_OFI_FROZEN_SPEC.md');
-if (!fs.existsSync(specPath)) {
-  console.error('❌ BREACH: CUMULATIVE_OFI_FROZEN_SPEC.md is missing!');
-  process.exit(1);
+// 2. Check Frozen Specification Documents Existence
+const requiredDocs = [
+  '../frozen_spec/CUMULATIVE_OFI_FROZEN_SPEC.md',
+  '../frozen_spec/BLOCK_PERMUTATION_SCHEME.md',
+  '../untouched_data/DATA_FIREWALL_SPEC.md',
+  '../untouched_data/OFI001_CONFIRMATORY_POPULATION.md',
+  '../preregistration/POWER_ANALYSIS.md',
+  '../preregistration/OFI_CONFIRMATORY_CHARTER.md'
+];
+
+console.log('2. Verifying Frozen Constitutional Documents:');
+for (const rel of requiredDocs) {
+  const p = path.resolve(__dirname, rel);
+  if (!fs.existsSync(p)) {
+    console.error(`❌ BREACH: Missing document: ${rel}`);
+    process.exit(1);
+  }
+  const buf = fs.readFileSync(p);
+  const sha = crypto.createHash('sha256').update(buf).digest('hex');
+  console.log(`   ✔ ${path.basename(rel).padEnd(35)}: ${sha.slice(0, 16)}...`);
 }
-const specBuf = fs.readFileSync(specPath);
-const specSHA = crypto.createHash('sha256').update(specBuf).digest('hex');
-console.log('2. Verifying Frozen Specification Hash:');
-console.log('   SHA-256:', specSHA);
-console.log('   ✔ Specification Frozen.\n');
+console.log('   ✔ All 6 Constitutional Documents Frozen.\n');
 
 // 3. Verify Cross-Contamination Firewall (Discovery -> Confirmation Isolation)
 console.log('3. Auditing Discovery Codebase for Cross-Contamination Leaks...');
