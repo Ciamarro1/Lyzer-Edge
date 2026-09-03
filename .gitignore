@@ -30,7 +30,7 @@ lyzer edge/macro_backtest_*.json
 lyzer edge/temp_test_ledger/
 
 # Ephemeral Agent Workspaces
-.agents/m*
+!.agents/memory/
 .agents/worker*
 .agents/auditor*
 .agents/challenger*
