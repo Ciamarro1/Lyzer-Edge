@@ -1,0 +1,2737 @@
+{
+  "workerId": "W04_LIQUIDITY",
+  "timestampUTC": "2026-09-03T02:41:33.398Z",
+  "elapsedMs": 2230,
+  "totalHypothesesTested": 62,
+  "candidatesCount": 0,
+  "hypotheses": [
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3536,
+      "pearsonIC": -0.0128,
+      "spearmanIC": -0.0214,
+      "tHAC": -2.1827,
+      "pValue": 0.0291,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.019,
+          "expectancyBps": -1.9,
+          "hitRatePercent": "45.36%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0364
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.069,
+          "expectancyBps": -6.9,
+          "hitRatePercent": "39.42%",
+          "profitFactor": 0.657,
+          "unannualizedSharpe": -0.1324
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.119,
+          "expectancyBps": -11.9,
+          "hitRatePercent": "33.40%",
+          "profitFactor": 0.489,
+          "unannualizedSharpe": -0.2284
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.219,
+          "expectancyBps": -21.9,
+          "hitRatePercent": "23.22%",
+          "profitFactor": 0.282,
+          "unannualizedSharpe": -0.4204
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1721,
+      "pearsonIC": -0.0011,
+      "spearmanIC": -0.017,
+      "tHAC": -0.1166,
+      "pValue": 0.9072,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0019,
+          "expectancyBps": -0.19,
+          "hitRatePercent": "48.05%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0519,
+          "expectancyBps": -5.19,
+          "hitRatePercent": "42.53%",
+          "profitFactor": 0.795,
+          "unannualizedSharpe": -0.0728
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1019,
+          "expectancyBps": -10.19,
+          "hitRatePercent": "37.77%",
+          "profitFactor": 0.64,
+          "unannualizedSharpe": -0.143
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2019,
+          "expectancyBps": -20.19,
+          "hitRatePercent": "30.21%",
+          "profitFactor": 0.422,
+          "unannualizedSharpe": -0.2833
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 788,
+      "pearsonIC": -0.0078,
+      "spearmanIC": -0.0122,
+      "tHAC": -0.6836,
+      "pValue": 0.4942,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0242,
+          "expectancyBps": -2.42,
+          "hitRatePercent": "47.59%",
+          "profitFactor": 0.927,
+          "unannualizedSharpe": -0.0237
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0742,
+          "expectancyBps": -7.42,
+          "hitRatePercent": "42.89%",
+          "profitFactor": 0.793,
+          "unannualizedSharpe": -0.0725
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1242,
+          "expectancyBps": -12.42,
+          "hitRatePercent": "39.34%",
+          "profitFactor": 0.681,
+          "unannualizedSharpe": -0.1213
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2242,
+          "expectancyBps": -22.42,
+          "hitRatePercent": "34.77%",
+          "profitFactor": 0.504,
+          "unannualizedSharpe": -0.2189
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 331,
+      "pearsonIC": -0.0045,
+      "spearmanIC": -0.017,
+      "tHAC": -0.2352,
+      "pValue": 0.8141,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.019,
+          "expectancyBps": -1.9,
+          "hitRatePercent": "48.34%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.0139
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.069,
+          "expectancyBps": -6.9,
+          "hitRatePercent": "47.13%",
+          "profitFactor": 0.866,
+          "unannualizedSharpe": -0.0506
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.119,
+          "expectancyBps": -11.9,
+          "hitRatePercent": "44.41%",
+          "profitFactor": 0.78,
+          "unannualizedSharpe": -0.0873
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.219,
+          "expectancyBps": -21.9,
+          "hitRatePercent": "40.18%",
+          "profitFactor": 0.634,
+          "unannualizedSharpe": -0.1606
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 226,
+      "pearsonIC": -0.0045,
+      "spearmanIC": -0.0091,
+      "tHAC": -0.1987,
+      "pValue": 0.8425,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0256,
+          "expectancyBps": -2.56,
+          "hitRatePercent": "49.12%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0135
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0756,
+          "expectancyBps": -7.56,
+          "hitRatePercent": "47.79%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0398
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1256,
+          "expectancyBps": -12.56,
+          "hitRatePercent": "45.58%",
+          "profitFactor": 0.817,
+          "unannualizedSharpe": -0.0661
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2256,
+          "expectancyBps": -22.56,
+          "hitRatePercent": "40.71%",
+          "profitFactor": 0.697,
+          "unannualizedSharpe": -0.1188
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BTCUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 160,
+      "pearsonIC": -0.0313,
+      "spearmanIC": -0.0449,
+      "tHAC": -1.1717,
+      "pValue": 0.2413,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.208,
+          "expectancyBps": -20.8,
+          "hitRatePercent": "46.25%",
+          "profitFactor": 0.782,
+          "unannualizedSharpe": -0.09
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.258,
+          "expectancyBps": -25.8,
+          "hitRatePercent": "45.00%",
+          "profitFactor": 0.737,
+          "unannualizedSharpe": -0.1116
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.308,
+          "expectancyBps": -30.8,
+          "hitRatePercent": "43.75%",
+          "profitFactor": 0.695,
+          "unannualizedSharpe": -0.1333
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.408,
+          "expectancyBps": -40.8,
+          "hitRatePercent": "41.25%",
+          "profitFactor": 0.618,
+          "unannualizedSharpe": -0.1765
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3422,
+      "pearsonIC": -0.0053,
+      "spearmanIC": -0.0158,
+      "tHAC": -0.8999,
+      "pValue": 0.3682,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0107,
+          "expectancyBps": -1.07,
+          "hitRatePercent": "44.36%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0607,
+          "expectancyBps": -6.07,
+          "hitRatePercent": "39.36%",
+          "profitFactor": 0.755,
+          "unannualizedSharpe": -0.0872
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1107,
+          "expectancyBps": -11.07,
+          "hitRatePercent": "34.40%",
+          "profitFactor": 0.605,
+          "unannualizedSharpe": -0.159
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2107,
+          "expectancyBps": -21.07,
+          "hitRatePercent": "26.59%",
+          "profitFactor": 0.398,
+          "unannualizedSharpe": -0.3026
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1669,
+      "pearsonIC": -0.0108,
+      "spearmanIC": -0.0137,
+      "tHAC": -1.4055,
+      "pValue": 0.1599,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0311,
+          "expectancyBps": -3.11,
+          "hitRatePercent": "45.42%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.033
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0811,
+          "expectancyBps": -8.11,
+          "hitRatePercent": "42.30%",
+          "profitFactor": 0.767,
+          "unannualizedSharpe": -0.0858
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1311,
+          "expectancyBps": -13.11,
+          "hitRatePercent": "38.89%",
+          "profitFactor": 0.653,
+          "unannualizedSharpe": -0.1387
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2311,
+          "expectancyBps": -23.11,
+          "hitRatePercent": "32.83%",
+          "profitFactor": 0.478,
+          "unannualizedSharpe": -0.2445
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 773,
+      "pearsonIC": -0.0193,
+      "spearmanIC": -0.0045,
+      "tHAC": -1.8271,
+      "pValue": 0.0677,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0821,
+          "expectancyBps": -8.21,
+          "hitRatePercent": "46.70%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0605
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1321,
+          "expectancyBps": -13.21,
+          "hitRatePercent": "43.86%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.0974
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1821,
+          "expectancyBps": -18.21,
+          "hitRatePercent": "41.40%",
+          "profitFactor": 0.663,
+          "unannualizedSharpe": -0.1342
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2821,
+          "expectancyBps": -28.21,
+          "hitRatePercent": "37.65%",
+          "profitFactor": 0.531,
+          "unannualizedSharpe": -0.2079
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 315,
+      "pearsonIC": -0.02,
+      "spearmanIC": -0.0105,
+      "tHAC": -1.3464,
+      "pValue": 0.1782,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1309,
+          "expectancyBps": -13.09,
+          "hitRatePercent": "44.13%",
+          "profitFactor": 0.809,
+          "unannualizedSharpe": -0.0743
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1809,
+          "expectancyBps": -18.09,
+          "hitRatePercent": "41.59%",
+          "profitFactor": 0.747,
+          "unannualizedSharpe": -0.1027
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2309,
+          "expectancyBps": -23.09,
+          "hitRatePercent": "38.73%",
+          "profitFactor": 0.69,
+          "unannualizedSharpe": -0.1311
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3309,
+          "expectancyBps": -33.09,
+          "hitRatePercent": "35.24%",
+          "profitFactor": 0.59,
+          "unannualizedSharpe": -0.1879
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 233,
+      "pearsonIC": -0.0222,
+      "spearmanIC": -0.0096,
+      "tHAC": -1.0216,
+      "pValue": 0.307,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1746,
+          "expectancyBps": -17.46,
+          "hitRatePercent": "45.92%",
+          "profitFactor": 0.794,
+          "unannualizedSharpe": -0.08
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2246,
+          "expectancyBps": -22.46,
+          "hitRatePercent": "45.92%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.103
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2746,
+          "expectancyBps": -27.46,
+          "hitRatePercent": "43.35%",
+          "profitFactor": 0.696,
+          "unannualizedSharpe": -0.1259
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3746,
+          "expectancyBps": -37.46,
+          "hitRatePercent": "40.77%",
+          "profitFactor": 0.61,
+          "unannualizedSharpe": -0.1718
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ETHUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 157,
+      "pearsonIC": -0.0394,
+      "spearmanIC": -0.0543,
+      "tHAC": -1.2326,
+      "pValue": 0.2177,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3778,
+          "expectancyBps": -37.78,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.731,
+          "unannualizedSharpe": -0.1062
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4278,
+          "expectancyBps": -42.78,
+          "hitRatePercent": "43.31%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.1202
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4778,
+          "expectancyBps": -47.78,
+          "hitRatePercent": "42.68%",
+          "profitFactor": 0.673,
+          "unannualizedSharpe": -0.1343
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5778,
+          "expectancyBps": -57.78,
+          "hitRatePercent": "37.58%",
+          "profitFactor": 0.62,
+          "unannualizedSharpe": -0.1624
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3235,
+      "pearsonIC": -0.0119,
+      "spearmanIC": -0.015,
+      "tHAC": -1.9734,
+      "pValue": 0.0485,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0344,
+          "expectancyBps": -3.44,
+          "hitRatePercent": "46.52%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0343
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0844,
+          "expectancyBps": -8.44,
+          "hitRatePercent": "43.55%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0841
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1344,
+          "expectancyBps": -13.44,
+          "hitRatePercent": "40.62%",
+          "profitFactor": 0.666,
+          "unannualizedSharpe": -0.1339
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2344,
+          "expectancyBps": -23.44,
+          "hitRatePercent": "34.13%",
+          "profitFactor": 0.496,
+          "unannualizedSharpe": -0.2334
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1595,
+      "pearsonIC": -0.012,
+      "spearmanIC": -0.0166,
+      "tHAC": -1.3287,
+      "pValue": 0.184,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0499,
+          "expectancyBps": -4.99,
+          "hitRatePercent": "46.21%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0357
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0999,
+          "expectancyBps": -9.99,
+          "hitRatePercent": "43.70%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0715
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1499,
+          "expectancyBps": -14.99,
+          "hitRatePercent": "41.82%",
+          "profitFactor": 0.724,
+          "unannualizedSharpe": -0.1073
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2499,
+          "expectancyBps": -24.99,
+          "hitRatePercent": "36.49%",
+          "profitFactor": 0.587,
+          "unannualizedSharpe": -0.1788
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 746,
+      "pearsonIC": -0.0139,
+      "spearmanIC": -0.0147,
+      "tHAC": -1.2096,
+      "pValue": 0.2264,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0854,
+          "expectancyBps": -8.54,
+          "hitRatePercent": "47.05%",
+          "profitFactor": 0.873,
+          "unannualizedSharpe": -0.0439
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1354,
+          "expectancyBps": -13.54,
+          "hitRatePercent": "44.91%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0696
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1854,
+          "expectancyBps": -18.54,
+          "hitRatePercent": "43.03%",
+          "profitFactor": 0.745,
+          "unannualizedSharpe": -0.0953
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2854,
+          "expectancyBps": -28.54,
+          "hitRatePercent": "39.68%",
+          "profitFactor": 0.637,
+          "unannualizedSharpe": -0.1466
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 305,
+      "pearsonIC": -0.0275,
+      "spearmanIC": -0.0215,
+      "tHAC": -1.5641,
+      "pValue": 0.1178,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2512,
+          "expectancyBps": -25.12,
+          "hitRatePercent": "43.93%",
+          "profitFactor": 0.761,
+          "unannualizedSharpe": -0.0913
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3012,
+          "expectancyBps": -30.12,
+          "hitRatePercent": "43.93%",
+          "profitFactor": 0.721,
+          "unannualizedSharpe": -0.1094
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3512,
+          "expectancyBps": -35.12,
+          "hitRatePercent": "43.61%",
+          "profitFactor": 0.683,
+          "unannualizedSharpe": -0.1276
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4512,
+          "expectancyBps": -45.12,
+          "hitRatePercent": "41.64%",
+          "profitFactor": 0.613,
+          "unannualizedSharpe": -0.1639
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 220,
+      "pearsonIC": -0.0342,
+      "spearmanIC": -0.032,
+      "tHAC": -1.8054,
+      "pValue": 0.071,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3849,
+          "expectancyBps": -38.49,
+          "hitRatePercent": "47.27%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1241
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4349,
+          "expectancyBps": -43.49,
+          "hitRatePercent": "45.91%",
+          "profitFactor": 0.679,
+          "unannualizedSharpe": -0.1402
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4849,
+          "expectancyBps": -48.49,
+          "hitRatePercent": "45.00%",
+          "profitFactor": 0.649,
+          "unannualizedSharpe": -0.1563
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5849,
+          "expectancyBps": -58.49,
+          "hitRatePercent": "41.36%",
+          "profitFactor": 0.593,
+          "unannualizedSharpe": -0.1885
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SOLUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 151,
+      "pearsonIC": -0.0593,
+      "spearmanIC": -0.0547,
+      "tHAC": -1.7509,
+      "pValue": 0.08,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.7848,
+          "expectancyBps": -78.48,
+          "hitRatePercent": "41.06%",
+          "profitFactor": 0.643,
+          "unannualizedSharpe": -0.159
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.8348,
+          "expectancyBps": -83.48,
+          "hitRatePercent": "40.40%",
+          "profitFactor": 0.626,
+          "unannualizedSharpe": -0.1691
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.8848,
+          "expectancyBps": -88.48,
+          "hitRatePercent": "39.07%",
+          "profitFactor": 0.609,
+          "unannualizedSharpe": -0.1792
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.9848,
+          "expectancyBps": -98.48,
+          "hitRatePercent": "37.09%",
+          "profitFactor": 0.576,
+          "unannualizedSharpe": -0.1995
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_ABSORPTION_BNBUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Passive Limit Order Liquidity Absorption",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 37,
+      "pearsonIC": -0.002,
+      "spearmanIC": -0.0022,
+      "tHAC": -0.6361,
+      "pValue": 0.5247,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0343,
+          "expectancyBps": -3.43,
+          "hitRatePercent": "59.46%",
+          "profitFactor": 0.732,
+          "unannualizedSharpe": -0.1119
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0843,
+          "expectancyBps": -8.43,
+          "hitRatePercent": "48.65%",
+          "profitFactor": 0.439,
+          "unannualizedSharpe": -0.2752
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1343,
+          "expectancyBps": -13.43,
+          "hitRatePercent": "45.95%",
+          "profitFactor": 0.243,
+          "unannualizedSharpe": -0.4385
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2343,
+          "expectancyBps": -23.43,
+          "hitRatePercent": "16.22%",
+          "profitFactor": 0.062,
+          "unannualizedSharpe": -0.7651
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_ABSORPTION_BNBUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Passive Limit Order Liquidity Absorption",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 21,
+      "pearsonIC": -0.009,
+      "spearmanIC": -0.002,
+      "tHAC": -1.2933,
+      "pValue": 0.1959,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2011,
+          "expectancyBps": -20.11,
+          "hitRatePercent": "47.62%",
+          "profitFactor": 0.378,
+          "unannualizedSharpe": -0.2157
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2511,
+          "expectancyBps": -25.11,
+          "hitRatePercent": "38.10%",
+          "profitFactor": 0.283,
+          "unannualizedSharpe": -0.2694
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3011,
+          "expectancyBps": -30.11,
+          "hitRatePercent": "28.57%",
+          "profitFactor": 0.219,
+          "unannualizedSharpe": -0.323
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4011,
+          "expectancyBps": -40.11,
+          "hitRatePercent": "19.05%",
+          "profitFactor": 0.13,
+          "unannualizedSharpe": -0.4303
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3490,
+      "pearsonIC": -0.0127,
+      "spearmanIC": -0.0129,
+      "tHAC": -1.9437,
+      "pValue": 0.0519,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.022,
+          "expectancyBps": -2.2,
+          "hitRatePercent": "46.25%",
+          "profitFactor": 0.896,
+          "unannualizedSharpe": -0.034
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.072,
+          "expectancyBps": -7.2,
+          "hitRatePercent": "40.97%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.111
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.122,
+          "expectancyBps": -12.2,
+          "hitRatePercent": "36.10%",
+          "profitFactor": 0.55,
+          "unannualizedSharpe": -0.1881
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.222,
+          "expectancyBps": -22.2,
+          "hitRatePercent": "26.65%",
+          "profitFactor": 0.347,
+          "unannualizedSharpe": -0.3422
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1705,
+      "pearsonIC": -0.0083,
+      "spearmanIC": -0.0138,
+      "tHAC": -1.0237,
+      "pValue": 0.306,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0206,
+          "expectancyBps": -2.06,
+          "hitRatePercent": "46.04%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0232
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0706,
+          "expectancyBps": -7.06,
+          "hitRatePercent": "42.17%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.0795
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1206,
+          "expectancyBps": -12.06,
+          "hitRatePercent": "38.30%",
+          "profitFactor": 0.654,
+          "unannualizedSharpe": -0.1359
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2206,
+          "expectancyBps": -22.06,
+          "hitRatePercent": "31.20%",
+          "profitFactor": 0.467,
+          "unannualizedSharpe": -0.2486
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 760,
+      "pearsonIC": -0.0088,
+      "spearmanIC": -0.0018,
+      "tHAC": -0.6743,
+      "pValue": 0.5001,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0323,
+          "expectancyBps": -3.23,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0251
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0823,
+          "expectancyBps": -8.23,
+          "hitRatePercent": "46.32%",
+          "profitFactor": 0.814,
+          "unannualizedSharpe": -0.064
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1323,
+          "expectancyBps": -13.23,
+          "hitRatePercent": "42.76%",
+          "profitFactor": 0.719,
+          "unannualizedSharpe": -0.1029
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2323,
+          "expectancyBps": -23.23,
+          "hitRatePercent": "36.97%",
+          "profitFactor": 0.562,
+          "unannualizedSharpe": -0.1807
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 314,
+      "pearsonIC": -0.0536,
+      "spearmanIC": -0.0194,
+      "tHAC": -2.9313,
+      "pValue": 0.0034,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3017,
+          "expectancyBps": -30.17,
+          "hitRatePercent": "44.59%",
+          "profitFactor": 0.602,
+          "unannualizedSharpe": -0.1712
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3517,
+          "expectancyBps": -35.17,
+          "hitRatePercent": "42.99%",
+          "profitFactor": 0.553,
+          "unannualizedSharpe": -0.1996
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4017,
+          "expectancyBps": -40.17,
+          "hitRatePercent": "41.40%",
+          "profitFactor": 0.508,
+          "unannualizedSharpe": -0.2279
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5017,
+          "expectancyBps": -50.17,
+          "hitRatePercent": "36.62%",
+          "profitFactor": 0.428,
+          "unannualizedSharpe": -0.2847
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 236,
+      "pearsonIC": -0.0611,
+      "spearmanIC": -0.0228,
+      "tHAC": -2.4799,
+      "pValue": 0.0131,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3992,
+          "expectancyBps": -39.92,
+          "hitRatePercent": "43.22%",
+          "profitFactor": 0.578,
+          "unannualizedSharpe": -0.1676
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4492,
+          "expectancyBps": -44.92,
+          "hitRatePercent": "41.95%",
+          "profitFactor": 0.539,
+          "unannualizedSharpe": -0.1886
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4992,
+          "expectancyBps": -49.92,
+          "hitRatePercent": "41.53%",
+          "profitFactor": 0.503,
+          "unannualizedSharpe": -0.2096
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5992,
+          "expectancyBps": -59.92,
+          "hitRatePercent": "38.56%",
+          "profitFactor": 0.437,
+          "unannualizedSharpe": -0.2516
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_BNBUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 150,
+      "pearsonIC": -0.1342,
+      "spearmanIC": -0.0661,
+      "tHAC": -3.5108,
+      "pValue": 0.0004,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -1.0664,
+          "expectancyBps": -106.64,
+          "hitRatePercent": "38.00%",
+          "profitFactor": 0.332,
+          "unannualizedSharpe": -0.3234
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -1.1164,
+          "expectancyBps": -111.64,
+          "hitRatePercent": "37.33%",
+          "profitFactor": 0.314,
+          "unannualizedSharpe": -0.3386
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -1.1664,
+          "expectancyBps": -116.64,
+          "hitRatePercent": "35.33%",
+          "profitFactor": 0.297,
+          "unannualizedSharpe": -0.3538
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.2664,
+          "expectancyBps": -126.64,
+          "hitRatePercent": "34.67%",
+          "profitFactor": 0.266,
+          "unannualizedSharpe": -0.3841
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3471,
+      "pearsonIC": -0.0012,
+      "spearmanIC": -0.0135,
+      "tHAC": -0.1695,
+      "pValue": 0.8654,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0033,
+          "expectancyBps": -0.33,
+          "hitRatePercent": "47.42%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0029
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0533,
+          "expectancyBps": -5.33,
+          "hitRatePercent": "43.68%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0472
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1033,
+          "expectancyBps": -10.33,
+          "hitRatePercent": "40.13%",
+          "profitFactor": 0.735,
+          "unannualizedSharpe": -0.0914
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2033,
+          "expectancyBps": -20.33,
+          "hitRatePercent": "34.60%",
+          "profitFactor": 0.551,
+          "unannualizedSharpe": -0.1798
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1674,
+      "pearsonIC": -0.0041,
+      "spearmanIC": -0.014,
+      "tHAC": -0.4313,
+      "pValue": 0.6663,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.017,
+          "expectancyBps": -1.7,
+          "hitRatePercent": "47.19%",
+          "profitFactor": 0.966,
+          "unannualizedSharpe": -0.0101
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.067,
+          "expectancyBps": -6.7,
+          "hitRatePercent": "45.46%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0398
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.117,
+          "expectancyBps": -11.7,
+          "hitRatePercent": "42.35%",
+          "profitFactor": 0.787,
+          "unannualizedSharpe": -0.0695
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.217,
+          "expectancyBps": -21.7,
+          "hitRatePercent": "37.16%",
+          "profitFactor": 0.644,
+          "unannualizedSharpe": -0.1288
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 791,
+      "pearsonIC": 0.0019,
+      "spearmanIC": -0.0114,
+      "tHAC": 0.1515,
+      "pValue": 0.8796,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0115,
+          "expectancyBps": 1.15,
+          "hitRatePercent": "47.79%",
+          "profitFactor": 1.017,
+          "unannualizedSharpe": 0.0051
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0385,
+          "expectancyBps": -3.85,
+          "hitRatePercent": "46.27%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0172
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0885,
+          "expectancyBps": -8.85,
+          "hitRatePercent": "43.62%",
+          "profitFactor": 0.877,
+          "unannualizedSharpe": -0.0394
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1885,
+          "expectancyBps": -18.85,
+          "hitRatePercent": "40.33%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.084
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 328,
+      "pearsonIC": -0.0121,
+      "spearmanIC": -0.0274,
+      "tHAC": -0.615,
+      "pValue": 0.5385,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1094,
+          "expectancyBps": -10.94,
+          "hitRatePercent": "44.21%",
+          "profitFactor": 0.893,
+          "unannualizedSharpe": -0.0347
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1594,
+          "expectancyBps": -15.94,
+          "hitRatePercent": "43.60%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.0505
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2094,
+          "expectancyBps": -20.94,
+          "hitRatePercent": "42.99%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0663
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3094,
+          "expectancyBps": -30.94,
+          "hitRatePercent": "40.55%",
+          "profitFactor": 0.729,
+          "unannualizedSharpe": -0.098
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 218,
+      "pearsonIC": -0.0075,
+      "spearmanIC": -0.018,
+      "tHAC": -0.3387,
+      "pValue": 0.7348,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.083,
+          "expectancyBps": -8.3,
+          "hitRatePercent": "46.33%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0223
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.133,
+          "expectancyBps": -13.3,
+          "hitRatePercent": "46.33%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0358
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.183,
+          "expectancyBps": -18.3,
+          "hitRatePercent": "45.87%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0492
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.283,
+          "expectancyBps": -28.3,
+          "hitRatePercent": "44.95%",
+          "profitFactor": 0.797,
+          "unannualizedSharpe": -0.0761
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_DOGEUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 135,
+      "pearsonIC": -0.0829,
+      "spearmanIC": -0.0865,
+      "tHAC": -2.3195,
+      "pValue": 0.0204,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -1.164,
+          "expectancyBps": -116.4,
+          "hitRatePercent": "37.04%",
+          "profitFactor": 0.508,
+          "unannualizedSharpe": -0.2299
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -1.214,
+          "expectancyBps": -121.4,
+          "hitRatePercent": "37.04%",
+          "profitFactor": 0.494,
+          "unannualizedSharpe": -0.2398
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -1.264,
+          "expectancyBps": -126.4,
+          "hitRatePercent": "37.04%",
+          "profitFactor": 0.48,
+          "unannualizedSharpe": -0.2496
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.364,
+          "expectancyBps": -136.4,
+          "hitRatePercent": "37.04%",
+          "profitFactor": 0.453,
+          "unannualizedSharpe": -0.2694
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3399,
+      "pearsonIC": -0.005,
+      "spearmanIC": -0.0167,
+      "tHAC": -0.8736,
+      "pValue": 0.3823,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0144,
+          "expectancyBps": -1.44,
+          "hitRatePercent": "46.69%",
+          "profitFactor": 0.957,
+          "unannualizedSharpe": -0.014
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0644,
+          "expectancyBps": -6.44,
+          "hitRatePercent": "44.10%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0628
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1144,
+          "expectancyBps": -11.44,
+          "hitRatePercent": "40.92%",
+          "profitFactor": 0.705,
+          "unannualizedSharpe": -0.1116
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2144,
+          "expectancyBps": -21.44,
+          "hitRatePercent": "35.10%",
+          "profitFactor": 0.524,
+          "unannualizedSharpe": -0.2091
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1634,
+      "pearsonIC": 0.002,
+      "spearmanIC": -0.0159,
+      "tHAC": 0.2521,
+      "pValue": 0.801,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0083,
+          "expectancyBps": 0.83,
+          "hitRatePercent": "47.25%",
+          "profitFactor": 1.018,
+          "unannualizedSharpe": 0.0057
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0417,
+          "expectancyBps": -4.17,
+          "hitRatePercent": "45.84%",
+          "profitFactor": 0.915,
+          "unannualizedSharpe": -0.029
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0917,
+          "expectancyBps": -9.17,
+          "hitRatePercent": "43.39%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0638
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1917,
+          "expectancyBps": -19.17,
+          "hitRatePercent": "39.17%",
+          "profitFactor": 0.668,
+          "unannualizedSharpe": -0.1332
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 722,
+      "pearsonIC": -0.0104,
+      "spearmanIC": -0.0185,
+      "tHAC": -0.9183,
+      "pValue": 0.3585,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0639,
+          "expectancyBps": -6.39,
+          "hitRatePercent": "48.61%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0316
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1139,
+          "expectancyBps": -11.39,
+          "hitRatePercent": "47.78%",
+          "profitFactor": 0.843,
+          "unannualizedSharpe": -0.0562
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1639,
+          "expectancyBps": -16.39,
+          "hitRatePercent": "46.68%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0809
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2639,
+          "expectancyBps": -26.39,
+          "hitRatePercent": "42.38%",
+          "profitFactor": 0.672,
+          "unannualizedSharpe": -0.1303
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 303,
+      "pearsonIC": -0.0194,
+      "spearmanIC": -0.0289,
+      "tHAC": -1.4446,
+      "pValue": 0.1486,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1835,
+          "expectancyBps": -18.35,
+          "hitRatePercent": "50.50%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.069
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2335,
+          "expectancyBps": -23.35,
+          "hitRatePercent": "47.19%",
+          "profitFactor": 0.776,
+          "unannualizedSharpe": -0.0877
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2835,
+          "expectancyBps": -28.35,
+          "hitRatePercent": "46.53%",
+          "profitFactor": 0.735,
+          "unannualizedSharpe": -0.1065
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3835,
+          "expectancyBps": -38.35,
+          "hitRatePercent": "45.21%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1441
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 196,
+      "pearsonIC": -0.0095,
+      "spearmanIC": -0.0305,
+      "tHAC": -0.4744,
+      "pValue": 0.6352,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.114,
+          "expectancyBps": -11.4,
+          "hitRatePercent": "47.45%",
+          "profitFactor": 0.911,
+          "unannualizedSharpe": -0.0333
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.164,
+          "expectancyBps": -16.4,
+          "hitRatePercent": "47.45%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.0479
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.214,
+          "expectancyBps": -21.4,
+          "hitRatePercent": "45.92%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0625
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.314,
+          "expectancyBps": -31.4,
+          "hitRatePercent": "43.37%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0917
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_ADAUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 119,
+      "pearsonIC": -0.061,
+      "spearmanIC": -0.0611,
+      "tHAC": -2.0152,
+      "pValue": 0.0439,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.9171,
+          "expectancyBps": -91.71,
+          "hitRatePercent": "43.70%",
+          "profitFactor": 0.603,
+          "unannualizedSharpe": -0.1776
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.9671,
+          "expectancyBps": -96.71,
+          "hitRatePercent": "43.70%",
+          "profitFactor": 0.586,
+          "unannualizedSharpe": -0.1873
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -1.0171,
+          "expectancyBps": -101.71,
+          "hitRatePercent": "43.70%",
+          "profitFactor": 0.57,
+          "unannualizedSharpe": -0.197
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.1171,
+          "expectancyBps": -111.71,
+          "hitRatePercent": "42.86%",
+          "profitFactor": 0.539,
+          "unannualizedSharpe": -0.2164
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3404,
+      "pearsonIC": -0.0052,
+      "spearmanIC": -0.0141,
+      "tHAC": -0.878,
+      "pValue": 0.3799,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0151,
+          "expectancyBps": -1.51,
+          "hitRatePercent": "47.41%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0151
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0651,
+          "expectancyBps": -6.51,
+          "hitRatePercent": "44.10%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.065
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1151,
+          "expectancyBps": -11.51,
+          "hitRatePercent": "40.80%",
+          "profitFactor": 0.706,
+          "unannualizedSharpe": -0.1148
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2151,
+          "expectancyBps": -21.51,
+          "hitRatePercent": "34.81%",
+          "profitFactor": 0.526,
+          "unannualizedSharpe": -0.2146
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1650,
+      "pearsonIC": 0.0001,
+      "spearmanIC": -0.018,
+      "tHAC": 0.0189,
+      "pValue": 0.985,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0007,
+          "expectancyBps": 0.07,
+          "hitRatePercent": "48.06%",
+          "profitFactor": 1.001,
+          "unannualizedSharpe": 0.0004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0493,
+          "expectancyBps": -4.93,
+          "hitRatePercent": "45.58%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0332
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0993,
+          "expectancyBps": -9.93,
+          "hitRatePercent": "42.97%",
+          "profitFactor": 0.817,
+          "unannualizedSharpe": -0.0669
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1993,
+          "expectancyBps": -19.93,
+          "hitRatePercent": "38.79%",
+          "profitFactor": 0.668,
+          "unannualizedSharpe": -0.1343
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 737,
+      "pearsonIC": 0.0019,
+      "spearmanIC": -0.0089,
+      "tHAC": 0.1679,
+      "pValue": 0.8667,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.012,
+          "expectancyBps": 1.2,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 1.018,
+          "unannualizedSharpe": 0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.038,
+          "expectancyBps": -3.8,
+          "hitRatePercent": "47.90%",
+          "profitFactor": 0.946,
+          "unannualizedSharpe": -0.0191
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.088,
+          "expectancyBps": -8.8,
+          "hitRatePercent": "46.13%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0441
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.188,
+          "expectancyBps": -18.8,
+          "hitRatePercent": "42.61%",
+          "profitFactor": 0.759,
+          "unannualizedSharpe": -0.0942
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 318,
+      "pearsonIC": -0.0244,
+      "spearmanIC": -0.0229,
+      "tHAC": -1.5956,
+      "pValue": 0.1106,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2303,
+          "expectancyBps": -23.03,
+          "hitRatePercent": "44.65%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0762
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2803,
+          "expectancyBps": -28.03,
+          "hitRatePercent": "42.77%",
+          "profitFactor": 0.76,
+          "unannualizedSharpe": -0.0928
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3303,
+          "expectancyBps": -33.03,
+          "hitRatePercent": "41.82%",
+          "profitFactor": 0.724,
+          "unannualizedSharpe": -0.1093
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4303,
+          "expectancyBps": -43.03,
+          "hitRatePercent": "40.57%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1424
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 217,
+      "pearsonIC": -0.0446,
+      "spearmanIC": -0.0373,
+      "tHAC": -2.291,
+      "pValue": 0.022,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.5115,
+          "expectancyBps": -51.15,
+          "hitRatePercent": "42.86%",
+          "profitFactor": 0.651,
+          "unannualizedSharpe": -0.1493
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.5615,
+          "expectancyBps": -56.15,
+          "hitRatePercent": "42.86%",
+          "profitFactor": 0.624,
+          "unannualizedSharpe": -0.1639
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.6115,
+          "expectancyBps": -61.15,
+          "hitRatePercent": "42.40%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1784
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.7115,
+          "expectancyBps": -71.15,
+          "hitRatePercent": "41.47%",
+          "profitFactor": 0.55,
+          "unannualizedSharpe": -0.2076
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_AVAXUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 122,
+      "pearsonIC": -0.0406,
+      "spearmanIC": -0.041,
+      "tHAC": -1.5809,
+      "pValue": 0.1139,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.6209,
+          "expectancyBps": -62.09,
+          "hitRatePercent": "45.08%",
+          "profitFactor": 0.694,
+          "unannualizedSharpe": -0.1361
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.6709,
+          "expectancyBps": -67.09,
+          "hitRatePercent": "44.26%",
+          "profitFactor": 0.674,
+          "unannualizedSharpe": -0.1471
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.7209,
+          "expectancyBps": -72.09,
+          "hitRatePercent": "42.62%",
+          "profitFactor": 0.655,
+          "unannualizedSharpe": -0.158
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.8209,
+          "expectancyBps": -82.09,
+          "hitRatePercent": "42.62%",
+          "profitFactor": 0.617,
+          "unannualizedSharpe": -0.1799
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3331,
+      "pearsonIC": -0.0069,
+      "spearmanIC": -0.01,
+      "tHAC": -1.221,
+      "pValue": 0.2221,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0193,
+          "expectancyBps": -1.93,
+          "hitRatePercent": "47.37%",
+          "profitFactor": 0.94,
+          "unannualizedSharpe": -0.0204
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0693,
+          "expectancyBps": -6.93,
+          "hitRatePercent": "44.82%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0733
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1193,
+          "expectancyBps": -11.93,
+          "hitRatePercent": "41.37%",
+          "profitFactor": 0.682,
+          "unannualizedSharpe": -0.1261
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2193,
+          "expectancyBps": -21.93,
+          "hitRatePercent": "35.12%",
+          "profitFactor": 0.498,
+          "unannualizedSharpe": -0.2319
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1607,
+      "pearsonIC": -0.0094,
+      "spearmanIC": -0.0135,
+      "tHAC": -1.1678,
+      "pValue": 0.2429,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0378,
+          "expectancyBps": -3.78,
+          "hitRatePercent": "46.73%",
+          "profitFactor": 0.917,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0878,
+          "expectancyBps": -8.78,
+          "hitRatePercent": "45.18%",
+          "profitFactor": 0.817,
+          "unannualizedSharpe": -0.0686
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1378,
+          "expectancyBps": -13.78,
+          "hitRatePercent": "42.50%",
+          "profitFactor": 0.729,
+          "unannualizedSharpe": -0.1076
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2378,
+          "expectancyBps": -23.78,
+          "hitRatePercent": "38.71%",
+          "profitFactor": 0.581,
+          "unannualizedSharpe": -0.1857
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 718,
+      "pearsonIC": -0.0149,
+      "spearmanIC": -0.0075,
+      "tHAC": -1.5319,
+      "pValue": 0.1255,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0891,
+          "expectancyBps": -8.91,
+          "hitRatePercent": "46.94%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0522
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1391,
+          "expectancyBps": -13.91,
+          "hitRatePercent": "44.71%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0816
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1891,
+          "expectancyBps": -18.91,
+          "hitRatePercent": "43.45%",
+          "profitFactor": 0.728,
+          "unannualizedSharpe": -0.1109
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2891,
+          "expectancyBps": -28.91,
+          "hitRatePercent": "40.81%",
+          "profitFactor": 0.616,
+          "unannualizedSharpe": -0.1695
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 308,
+      "pearsonIC": -0.0073,
+      "spearmanIC": -0.0048,
+      "tHAC": -0.4769,
+      "pValue": 0.6334,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0648,
+          "expectancyBps": -6.48,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0257
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1148,
+          "expectancyBps": -11.48,
+          "hitRatePercent": "48.38%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0455
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1648,
+          "expectancyBps": -16.48,
+          "hitRatePercent": "47.40%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0653
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2648,
+          "expectancyBps": -26.48,
+          "hitRatePercent": "44.81%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.105
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 193,
+      "pearsonIC": -0.017,
+      "spearmanIC": -0.0102,
+      "tHAC": -0.7958,
+      "pValue": 0.4261,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1906,
+          "expectancyBps": -19.06,
+          "hitRatePercent": "51.81%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0656
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2406,
+          "expectancyBps": -24.06,
+          "hitRatePercent": "50.78%",
+          "profitFactor": 0.792,
+          "unannualizedSharpe": -0.0829
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2906,
+          "expectancyBps": -29.06,
+          "hitRatePercent": "50.78%",
+          "profitFactor": 0.754,
+          "unannualizedSharpe": -0.1001
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3906,
+          "expectancyBps": -39.06,
+          "hitRatePercent": "50.26%",
+          "profitFactor": 0.683,
+          "unannualizedSharpe": -0.1345
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_LINKUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 121,
+      "pearsonIC": -0.0406,
+      "spearmanIC": -0.0404,
+      "tHAC": -1.3507,
+      "pValue": 0.1768,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.5704,
+          "expectancyBps": -57.04,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.67,
+          "unannualizedSharpe": -0.1466
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.6204,
+          "expectancyBps": -62.04,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.647,
+          "unannualizedSharpe": -0.1595
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.6704,
+          "expectancyBps": -67.04,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.624,
+          "unannualizedSharpe": -0.1723
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.7704,
+          "expectancyBps": -77.04,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.581,
+          "unannualizedSharpe": -0.198
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3044,
+      "pearsonIC": -0.0082,
+      "spearmanIC": -0.0109,
+      "tHAC": -1.3688,
+      "pValue": 0.1711,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0287,
+          "expectancyBps": -2.87,
+          "hitRatePercent": "47.24%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0246
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0787,
+          "expectancyBps": -7.87,
+          "hitRatePercent": "45.07%",
+          "profitFactor": 0.818,
+          "unannualizedSharpe": -0.0673
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1287,
+          "expectancyBps": -12.87,
+          "hitRatePercent": "42.28%",
+          "profitFactor": 0.721,
+          "unannualizedSharpe": -0.1101
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2287,
+          "expectancyBps": -22.87,
+          "hitRatePercent": "36.76%",
+          "profitFactor": 0.562,
+          "unannualizedSharpe": -0.1956
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1505,
+      "pearsonIC": -0.0181,
+      "spearmanIC": -0.0202,
+      "tHAC": -2.3627,
+      "pValue": 0.0181,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0903,
+          "expectancyBps": -9.03,
+          "hitRatePercent": "45.32%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.0548
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1403,
+          "expectancyBps": -14.03,
+          "hitRatePercent": "43.85%",
+          "profitFactor": 0.776,
+          "unannualizedSharpe": -0.0851
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1903,
+          "expectancyBps": -19.03,
+          "hitRatePercent": "41.73%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1155
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2903,
+          "expectancyBps": -29.03,
+          "hitRatePercent": "38.34%",
+          "profitFactor": 0.594,
+          "unannualizedSharpe": -0.1762
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 691,
+      "pearsonIC": -0.017,
+      "spearmanIC": -0.0112,
+      "tHAC": -1.4312,
+      "pValue": 0.1524,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1241,
+          "expectancyBps": -12.41,
+          "hitRatePercent": "47.03%",
+          "profitFactor": 0.854,
+          "unannualizedSharpe": -0.0525
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1741,
+          "expectancyBps": -17.41,
+          "hitRatePercent": "45.88%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0736
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2241,
+          "expectancyBps": -22.41,
+          "hitRatePercent": "44.57%",
+          "profitFactor": 0.752,
+          "unannualizedSharpe": -0.0948
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3241,
+          "expectancyBps": -32.41,
+          "hitRatePercent": "41.82%",
+          "profitFactor": 0.663,
+          "unannualizedSharpe": -0.1371
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 294,
+      "pearsonIC": -0.0031,
+      "spearmanIC": -0.0023,
+      "tHAC": -0.1767,
+      "pValue": 0.8598,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0324,
+          "expectancyBps": -3.24,
+          "hitRatePercent": "49.66%",
+          "profitFactor": 0.972,
+          "unannualizedSharpe": -0.0093
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0824,
+          "expectancyBps": -8.24,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.931,
+          "unannualizedSharpe": -0.0237
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1324,
+          "expectancyBps": -13.24,
+          "hitRatePercent": "48.30%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0381
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2324,
+          "expectancyBps": -23.24,
+          "hitRatePercent": "45.58%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0669
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 233,
+      "pearsonIC": -0.0077,
+      "spearmanIC": -0.0262,
+      "tHAC": -0.4432,
+      "pValue": 0.6576,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0951,
+          "expectancyBps": -9.51,
+          "hitRatePercent": "45.49%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0272
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1451,
+          "expectancyBps": -14.51,
+          "hitRatePercent": "45.06%",
+          "profitFactor": 0.895,
+          "unannualizedSharpe": -0.0415
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1951,
+          "expectancyBps": -19.51,
+          "hitRatePercent": "44.21%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0558
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2951,
+          "expectancyBps": -29.51,
+          "hitRatePercent": "43.78%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0843
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_SUIUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 58,
+      "pearsonIC": -0.0356,
+      "spearmanIC": -0.0148,
+      "tHAC": -1.2763,
+      "pValue": 0.2018,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.8499,
+          "expectancyBps": -84.99,
+          "hitRatePercent": "48.28%",
+          "profitFactor": 0.618,
+          "unannualizedSharpe": -0.1779
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.8999,
+          "expectancyBps": -89.99,
+          "hitRatePercent": "48.28%",
+          "profitFactor": 0.601,
+          "unannualizedSharpe": -0.1883
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.9499,
+          "expectancyBps": -94.99,
+          "hitRatePercent": "46.55%",
+          "profitFactor": 0.583,
+          "unannualizedSharpe": -0.1988
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.0499,
+          "expectancyBps": -104.99,
+          "hitRatePercent": "46.55%",
+          "profitFactor": 0.55,
+          "unannualizedSharpe": -0.2197
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H1",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 3404,
+      "pearsonIC": -0.0049,
+      "spearmanIC": -0.0202,
+      "tHAC": -0.7971,
+      "pValue": 0.4254,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.013,
+          "expectancyBps": -1.3,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.0132
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.063,
+          "expectancyBps": -6.3,
+          "hitRatePercent": "43.18%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0638
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.113,
+          "expectancyBps": -11.3,
+          "hitRatePercent": "39.48%",
+          "profitFactor": 0.681,
+          "unannualizedSharpe": -0.1145
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.213,
+          "expectancyBps": -21.3,
+          "hitRatePercent": "32.14%",
+          "profitFactor": 0.492,
+          "unannualizedSharpe": -0.2157
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H2",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 1656,
+      "pearsonIC": -0.0151,
+      "spearmanIC": -0.027,
+      "tHAC": -1.6697,
+      "pValue": 0.095,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0573,
+          "expectancyBps": -5.73,
+          "hitRatePercent": "46.86%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0393
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1073,
+          "expectancyBps": -10.73,
+          "hitRatePercent": "43.78%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.0736
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1573,
+          "expectancyBps": -15.73,
+          "hitRatePercent": "40.70%",
+          "profitFactor": 0.694,
+          "unannualizedSharpe": -0.1079
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2573,
+          "expectancyBps": -25.73,
+          "hitRatePercent": "35.81%",
+          "profitFactor": 0.553,
+          "unannualizedSharpe": -0.1765
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H4",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 762,
+      "pearsonIC": -0.0198,
+      "spearmanIC": -0.0207,
+      "tHAC": -1.8071,
+      "pValue": 0.0707,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1089,
+          "expectancyBps": -10.89,
+          "hitRatePercent": "46.33%",
+          "profitFactor": 0.817,
+          "unannualizedSharpe": -0.0637
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1589,
+          "expectancyBps": -15.89,
+          "hitRatePercent": "44.23%",
+          "profitFactor": 0.745,
+          "unannualizedSharpe": -0.093
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2089,
+          "expectancyBps": -20.89,
+          "hitRatePercent": "41.99%",
+          "profitFactor": 0.679,
+          "unannualizedSharpe": -0.1223
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3089,
+          "expectancyBps": -30.89,
+          "hitRatePercent": "37.93%",
+          "profitFactor": 0.566,
+          "unannualizedSharpe": -0.1808
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H8",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 349,
+      "pearsonIC": 0.0025,
+      "spearmanIC": -0.0231,
+      "tHAC": 0.111,
+      "pValue": 0.9116,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0138,
+          "expectancyBps": 1.38,
+          "hitRatePercent": "48.42%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.0061
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0362,
+          "expectancyBps": -3.62,
+          "hitRatePercent": "47.85%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0159
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0862,
+          "expectancyBps": -8.62,
+          "hitRatePercent": "46.70%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0379
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1862,
+          "expectancyBps": -18.62,
+          "hitRatePercent": "43.55%",
+          "profitFactor": 0.778,
+          "unannualizedSharpe": -0.0819
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H12",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 225,
+      "pearsonIC": -0.0279,
+      "spearmanIC": -0.0386,
+      "tHAC": -1.664,
+      "pValue": 0.0961,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2772,
+          "expectancyBps": -27.72,
+          "hitRatePercent": "47.56%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1244
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3272,
+          "expectancyBps": -32.72,
+          "hitRatePercent": "46.22%",
+          "profitFactor": 0.665,
+          "unannualizedSharpe": -0.1468
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3772,
+          "expectancyBps": -37.72,
+          "hitRatePercent": "45.33%",
+          "profitFactor": 0.624,
+          "unannualizedSharpe": -0.1693
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4772,
+          "expectancyBps": -47.72,
+          "hitRatePercent": "42.22%",
+          "profitFactor": 0.549,
+          "unannualizedSharpe": -0.2141
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W04_FRAGILITY_XRPUSDT_H24",
+      "worker": "W04_LIQUIDITY",
+      "mechanism": "Illiquid Air-Pocket Displacement Persistence",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 152,
+      "pearsonIC": -0.0268,
+      "spearmanIC": -0.0516,
+      "tHAC": -1.1586,
+      "pValue": 0.2466,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3417,
+          "expectancyBps": -34.17,
+          "hitRatePercent": "44.08%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0791
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3917,
+          "expectancyBps": -39.17,
+          "hitRatePercent": "44.08%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.0906
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4417,
+          "expectancyBps": -44.17,
+          "hitRatePercent": "44.08%",
+          "profitFactor": 0.73,
+          "unannualizedSharpe": -0.1022
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5417,
+          "expectancyBps": -54.17,
+          "hitRatePercent": "43.42%",
+          "profitFactor": 0.68,
+          "unannualizedSharpe": -0.1253
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

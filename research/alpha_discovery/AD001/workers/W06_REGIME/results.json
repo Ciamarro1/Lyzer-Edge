@@ -1,0 +1,5289 @@
+{
+  "workerId": "W06_REGIME",
+  "timestampUTC": "2026-09-03T02:41:38.210Z",
+  "elapsedMs": 2974,
+  "totalHypothesesTested": 120,
+  "candidatesCount": 0,
+  "hypotheses": [
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8506,
+      "pearsonIC": -0.002,
+      "spearmanIC": -0.0205,
+      "tHAC": -0.3048,
+      "pValue": 0.7605,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0017,
+          "expectancyBps": -0.17,
+          "hitRatePercent": "47.46%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0517,
+          "expectancyBps": -5.17,
+          "hitRatePercent": "40.88%",
+          "profitFactor": 0.734,
+          "unannualizedSharpe": -0.0978
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1017,
+          "expectancyBps": -10.17,
+          "hitRatePercent": "34.70%",
+          "profitFactor": 0.549,
+          "unannualizedSharpe": -0.1924
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2017,
+          "expectancyBps": -20.17,
+          "hitRatePercent": "24.69%",
+          "profitFactor": 0.319,
+          "unannualizedSharpe": -0.3815
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 14129,
+      "pearsonIC": -0.0063,
+      "spearmanIC": 0.0099,
+      "tHAC": -1.1994,
+      "pValue": 0.2304,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0049,
+          "expectancyBps": -0.49,
+          "hitRatePercent": "52.01%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0103
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0549,
+          "expectancyBps": -5.49,
+          "hitRatePercent": "44.12%",
+          "profitFactor": 0.694,
+          "unannualizedSharpe": -0.1149
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1049,
+          "expectancyBps": -10.49,
+          "hitRatePercent": "36.74%",
+          "profitFactor": 0.499,
+          "unannualizedSharpe": -0.2196
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2049,
+          "expectancyBps": -20.49,
+          "hitRatePercent": "24.69%",
+          "profitFactor": 0.265,
+          "unannualizedSharpe": -0.4289
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4293,
+      "pearsonIC": -0.0171,
+      "spearmanIC": -0.0215,
+      "tHAC": -2.0475,
+      "pValue": 0.0406,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0227,
+          "expectancyBps": -2.27,
+          "hitRatePercent": "47.52%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0301
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0727,
+          "expectancyBps": -7.27,
+          "hitRatePercent": "42.56%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.0964
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1227,
+          "expectancyBps": -12.27,
+          "hitRatePercent": "38.02%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1627
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2227,
+          "expectancyBps": -22.27,
+          "hitRatePercent": "30.47%",
+          "profitFactor": 0.4,
+          "unannualizedSharpe": -0.2954
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 7041,
+      "pearsonIC": -0.0078,
+      "spearmanIC": 0.0104,
+      "tHAC": -1.0877,
+      "pValue": 0.2767,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0087,
+          "expectancyBps": -0.87,
+          "hitRatePercent": "52.31%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0131
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0587,
+          "expectancyBps": -5.87,
+          "hitRatePercent": "46.51%",
+          "profitFactor": 0.758,
+          "unannualizedSharpe": -0.0886
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1087,
+          "expectancyBps": -10.87,
+          "hitRatePercent": "41.02%",
+          "profitFactor": 0.599,
+          "unannualizedSharpe": -0.1642
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2087,
+          "expectancyBps": -20.87,
+          "hitRatePercent": "31.36%",
+          "profitFactor": 0.377,
+          "unannualizedSharpe": -0.3152
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2342,
+      "pearsonIC": -0.0282,
+      "spearmanIC": -0.0287,
+      "tHAC": -2.2604,
+      "pValue": 0.0238,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0506,
+          "expectancyBps": -5.06,
+          "hitRatePercent": "46.33%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.0477
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1006,
+          "expectancyBps": -10.06,
+          "hitRatePercent": "42.78%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.0948
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1506,
+          "expectancyBps": -15.06,
+          "hitRatePercent": "39.41%",
+          "profitFactor": 0.64,
+          "unannualizedSharpe": -0.142
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2506,
+          "expectancyBps": -25.06,
+          "hitRatePercent": "32.84%",
+          "profitFactor": 0.48,
+          "unannualizedSharpe": -0.2362
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3280,
+      "pearsonIC": -0.0078,
+      "spearmanIC": 0.0162,
+      "tHAC": -0.775,
+      "pValue": 0.4383,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.013,
+          "expectancyBps": -1.3,
+          "hitRatePercent": "52.93%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0138
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.063,
+          "expectancyBps": -6.3,
+          "hitRatePercent": "48.45%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0672
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.113,
+          "expectancyBps": -11.3,
+          "hitRatePercent": "44.70%",
+          "profitFactor": 0.685,
+          "unannualizedSharpe": -0.1206
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.213,
+          "expectancyBps": -21.3,
+          "hitRatePercent": "36.89%",
+          "profitFactor": 0.491,
+          "unannualizedSharpe": -0.2275
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1163,
+      "pearsonIC": -0.0099,
+      "spearmanIC": -0.0263,
+      "tHAC": -0.5582,
+      "pValue": 0.5767,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0245,
+          "expectancyBps": -2.45,
+          "hitRatePercent": "46.43%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0164
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0745,
+          "expectancyBps": -7.45,
+          "hitRatePercent": "43.85%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.05
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1245,
+          "expectancyBps": -12.45,
+          "hitRatePercent": "41.62%",
+          "profitFactor": 0.778,
+          "unannualizedSharpe": -0.0836
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2245,
+          "expectancyBps": -22.45,
+          "hitRatePercent": "37.32%",
+          "profitFactor": 0.639,
+          "unannualizedSharpe": -0.1507
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1646,
+      "pearsonIC": -0.0456,
+      "spearmanIC": -0.0148,
+      "tHAC": -3.07,
+      "pValue": 0.0021,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0992,
+          "expectancyBps": -9.92,
+          "hitRatePercent": "50.73%",
+          "profitFactor": 0.795,
+          "unannualizedSharpe": -0.0769
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1492,
+          "expectancyBps": -14.92,
+          "hitRatePercent": "47.87%",
+          "profitFactor": 0.707,
+          "unannualizedSharpe": -0.1157
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1992,
+          "expectancyBps": -19.92,
+          "hitRatePercent": "44.96%",
+          "profitFactor": 0.628,
+          "unannualizedSharpe": -0.1544
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2992,
+          "expectancyBps": -29.92,
+          "hitRatePercent": "38.70%",
+          "profitFactor": 0.496,
+          "unannualizedSharpe": -0.232
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 773,
+      "pearsonIC": 0.0192,
+      "spearmanIC": -0.0091,
+      "tHAC": 1.0144,
+      "pValue": 0.3104,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0635,
+          "expectancyBps": 6.35,
+          "hitRatePercent": "50.19%",
+          "profitFactor": 1.11,
+          "unannualizedSharpe": 0.0363
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0135,
+          "expectancyBps": 1.35,
+          "hitRatePercent": "47.74%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.0077
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0365,
+          "expectancyBps": -3.65,
+          "hitRatePercent": "45.80%",
+          "profitFactor": 0.942,
+          "unannualizedSharpe": -0.0208
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1365,
+          "expectancyBps": -13.65,
+          "hitRatePercent": "41.53%",
+          "profitFactor": 0.802,
+          "unannualizedSharpe": -0.078
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1080,
+      "pearsonIC": -0.0398,
+      "spearmanIC": -0.0159,
+      "tHAC": -2.3067,
+      "pValue": 0.0211,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1061,
+          "expectancyBps": -10.61,
+          "hitRatePercent": "51.02%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.0663
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1561,
+          "expectancyBps": -15.61,
+          "hitRatePercent": "48.80%",
+          "profitFactor": 0.752,
+          "unannualizedSharpe": -0.0975
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2061,
+          "expectancyBps": -20.61,
+          "hitRatePercent": "47.13%",
+          "profitFactor": 0.686,
+          "unannualizedSharpe": -0.1288
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3061,
+          "expectancyBps": -30.61,
+          "hitRatePercent": "42.69%",
+          "profitFactor": 0.569,
+          "unannualizedSharpe": -0.1913
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BTCUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 373,
+      "pearsonIC": -0.0499,
+      "spearmanIC": -0.0716,
+      "tHAC": -1.7091,
+      "pValue": 0.0874,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2196,
+          "expectancyBps": -21.96,
+          "hitRatePercent": "43.97%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.0873
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2696,
+          "expectancyBps": -26.96,
+          "hitRatePercent": "42.36%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.1072
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3196,
+          "expectancyBps": -31.96,
+          "hitRatePercent": "41.55%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.1271
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4196,
+          "expectancyBps": -41.96,
+          "hitRatePercent": "39.14%",
+          "profitFactor": 0.629,
+          "unannualizedSharpe": -0.1668
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BTCUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BTCUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 545,
+      "pearsonIC": -0.0154,
+      "spearmanIC": 0.0109,
+      "tHAC": -0.599,
+      "pValue": 0.5492,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.06,
+          "expectancyBps": -6,
+          "hitRatePercent": "55.60%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0264
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.11,
+          "expectancyBps": -11,
+          "hitRatePercent": "52.84%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0483
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.16,
+          "expectancyBps": -16,
+          "hitRatePercent": "50.83%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.0703
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.26,
+          "expectancyBps": -26,
+          "hitRatePercent": "48.07%",
+          "profitFactor": 0.721,
+          "unannualizedSharpe": -0.1143
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8847,
+      "pearsonIC": 0.005,
+      "spearmanIC": -0.0175,
+      "tHAC": 0.8174,
+      "pValue": 0.4137,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0063,
+          "expectancyBps": 0.63,
+          "hitRatePercent": "47.98%",
+          "profitFactor": 1.029,
+          "unannualizedSharpe": 0.0087
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0437,
+          "expectancyBps": -4.37,
+          "hitRatePercent": "43.34%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.0598
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0937,
+          "expectancyBps": -9.37,
+          "hitRatePercent": "38.15%",
+          "profitFactor": 0.664,
+          "unannualizedSharpe": -0.1282
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1937,
+          "expectancyBps": -19.37,
+          "hitRatePercent": "29.32%",
+          "profitFactor": 0.44,
+          "unannualizedSharpe": -0.2652
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 13804,
+      "pearsonIC": -0.0037,
+      "spearmanIC": 0.0187,
+      "tHAC": -0.7136,
+      "pValue": 0.4755,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0038,
+          "expectancyBps": -0.38,
+          "hitRatePercent": "52.52%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0538,
+          "expectancyBps": -5.38,
+          "hitRatePercent": "46.55%",
+          "profitFactor": 0.76,
+          "unannualizedSharpe": -0.0863
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1038,
+          "expectancyBps": -10.38,
+          "hitRatePercent": "40.52%",
+          "profitFactor": 0.589,
+          "unannualizedSharpe": -0.1665
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2038,
+          "expectancyBps": -20.38,
+          "hitRatePercent": "29.56%",
+          "profitFactor": 0.359,
+          "unannualizedSharpe": -0.327
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4523,
+      "pearsonIC": 0.0015,
+      "spearmanIC": -0.017,
+      "tHAC": 0.1836,
+      "pValue": 0.8543,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0027,
+          "expectancyBps": 0.27,
+          "hitRatePercent": "47.47%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0027
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0473,
+          "expectancyBps": -4.73,
+          "hitRatePercent": "43.58%",
+          "profitFactor": 0.863,
+          "unannualizedSharpe": -0.0468
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0973,
+          "expectancyBps": -9.73,
+          "hitRatePercent": "40.31%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.0962
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1973,
+          "expectancyBps": -19.73,
+          "hitRatePercent": "34.09%",
+          "profitFactor": 0.549,
+          "unannualizedSharpe": -0.195
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 6746,
+      "pearsonIC": -0.0051,
+      "spearmanIC": 0.0208,
+      "tHAC": -0.6918,
+      "pValue": 0.489,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0075,
+          "expectancyBps": -0.75,
+          "hitRatePercent": "53.39%",
+          "profitFactor": 0.974,
+          "unannualizedSharpe": -0.0084
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0575,
+          "expectancyBps": -5.75,
+          "hitRatePercent": "48.86%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0641
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1075,
+          "expectancyBps": -10.75,
+          "hitRatePercent": "44.53%",
+          "profitFactor": 0.683,
+          "unannualizedSharpe": -0.1198
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2075,
+          "expectancyBps": -20.75,
+          "hitRatePercent": "35.99%",
+          "profitFactor": 0.479,
+          "unannualizedSharpe": -0.2312
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2368,
+      "pearsonIC": -0.0046,
+      "spearmanIC": -0.0244,
+      "tHAC": -0.3809,
+      "pValue": 0.7033,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0109,
+          "expectancyBps": -1.09,
+          "hitRatePercent": "46.20%",
+          "profitFactor": 0.976,
+          "unannualizedSharpe": -0.0079
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0609,
+          "expectancyBps": -6.09,
+          "hitRatePercent": "43.33%",
+          "profitFactor": 0.873,
+          "unannualizedSharpe": -0.0441
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1109,
+          "expectancyBps": -11.09,
+          "hitRatePercent": "40.88%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0804
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2109,
+          "expectancyBps": -21.09,
+          "hitRatePercent": "36.11%",
+          "profitFactor": 0.629,
+          "unannualizedSharpe": -0.1529
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3192,
+      "pearsonIC": -0.0079,
+      "spearmanIC": 0.0156,
+      "tHAC": -0.7617,
+      "pValue": 0.4463,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0169,
+          "expectancyBps": -1.69,
+          "hitRatePercent": "52.38%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0129
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0669,
+          "expectancyBps": -6.69,
+          "hitRatePercent": "49.34%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0511
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1169,
+          "expectancyBps": -11.69,
+          "hitRatePercent": "46.46%",
+          "profitFactor": 0.755,
+          "unannualizedSharpe": -0.0893
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2169,
+          "expectancyBps": -21.69,
+          "hitRatePercent": "40.79%",
+          "profitFactor": 0.594,
+          "unannualizedSharpe": -0.1656
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1181,
+      "pearsonIC": 0.004,
+      "spearmanIC": -0.0166,
+      "tHAC": 0.2361,
+      "pValue": 0.8134,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0134,
+          "expectancyBps": 1.34,
+          "hitRatePercent": "46.15%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0069
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0366,
+          "expectancyBps": -3.66,
+          "hitRatePercent": "44.45%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.019
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0866,
+          "expectancyBps": -8.66,
+          "hitRatePercent": "42.51%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.045
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1866,
+          "expectancyBps": -18.66,
+          "hitRatePercent": "39.12%",
+          "profitFactor": 0.752,
+          "unannualizedSharpe": -0.0969
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1601,
+      "pearsonIC": -0.0353,
+      "spearmanIC": -0.0136,
+      "tHAC": -2.2171,
+      "pValue": 0.0266,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1038,
+          "expectancyBps": -10.38,
+          "hitRatePercent": "50.78%",
+          "profitFactor": 0.841,
+          "unannualizedSharpe": -0.0579
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1538,
+          "expectancyBps": -15.38,
+          "hitRatePercent": "48.16%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0858
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2038,
+          "expectancyBps": -20.38,
+          "hitRatePercent": "46.28%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1136
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3038,
+          "expectancyBps": -30.38,
+          "hitRatePercent": "42.29%",
+          "profitFactor": 0.6,
+          "unannualizedSharpe": -0.1694
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 793,
+      "pearsonIC": -0.0039,
+      "spearmanIC": -0.0262,
+      "tHAC": -0.1714,
+      "pValue": 0.8639,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0151,
+          "expectancyBps": -1.51,
+          "hitRatePercent": "45.90%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0065
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0651,
+          "expectancyBps": -6.51,
+          "hitRatePercent": "44.64%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0281
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1151,
+          "expectancyBps": -11.51,
+          "hitRatePercent": "42.75%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0496
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2151,
+          "expectancyBps": -21.51,
+          "hitRatePercent": "40.73%",
+          "profitFactor": 0.768,
+          "unannualizedSharpe": -0.0927
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1044,
+      "pearsonIC": -0.0217,
+      "spearmanIC": -0.0106,
+      "tHAC": -1.1594,
+      "pValue": 0.2463,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0794,
+          "expectancyBps": -7.94,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0368
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1294,
+          "expectancyBps": -12.94,
+          "hitRatePercent": "48.75%",
+          "profitFactor": 0.841,
+          "unannualizedSharpe": -0.0599
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1794,
+          "expectancyBps": -17.94,
+          "hitRatePercent": "47.41%",
+          "profitFactor": 0.787,
+          "unannualizedSharpe": -0.083
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2794,
+          "expectancyBps": -27.94,
+          "hitRatePercent": "44.54%",
+          "profitFactor": 0.688,
+          "unannualizedSharpe": -0.1293
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ETHUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 398,
+      "pearsonIC": -0.0307,
+      "spearmanIC": -0.0425,
+      "tHAC": -1.173,
+      "pValue": 0.2408,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1733,
+          "expectancyBps": -17.33,
+          "hitRatePercent": "45.73%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0545
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2233,
+          "expectancyBps": -22.33,
+          "hitRatePercent": "44.47%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.0702
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2733,
+          "expectancyBps": -27.33,
+          "hitRatePercent": "42.71%",
+          "profitFactor": 0.79,
+          "unannualizedSharpe": -0.086
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3733,
+          "expectancyBps": -37.33,
+          "hitRatePercent": "41.46%",
+          "profitFactor": 0.726,
+          "unannualizedSharpe": -0.1174
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ETHUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ETHUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 534,
+      "pearsonIC": 0.0059,
+      "spearmanIC": 0.013,
+      "tHAC": 0.2039,
+      "pValue": 0.8384,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0306,
+          "expectancyBps": 3.06,
+          "hitRatePercent": "54.49%",
+          "profitFactor": 1.027,
+          "unannualizedSharpe": 0.0096
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0194,
+          "expectancyBps": -1.94,
+          "hitRatePercent": "53.56%",
+          "profitFactor": 0.983,
+          "unannualizedSharpe": -0.0061
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0694,
+          "expectancyBps": -6.94,
+          "hitRatePercent": "53.00%",
+          "profitFactor": 0.941,
+          "unannualizedSharpe": -0.0219
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1694,
+          "expectancyBps": -16.94,
+          "hitRatePercent": "50.75%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0534
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8098,
+      "pearsonIC": 0.0067,
+      "spearmanIC": -0.0105,
+      "tHAC": 1.1664,
+      "pValue": 0.2434,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0124,
+          "expectancyBps": 1.24,
+          "hitRatePercent": "48.28%",
+          "profitFactor": 1.04,
+          "unannualizedSharpe": 0.0129
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0376,
+          "expectancyBps": -3.76,
+          "hitRatePercent": "45.15%",
+          "profitFactor": 0.889,
+          "unannualizedSharpe": -0.0391
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0876,
+          "expectancyBps": -8.76,
+          "hitRatePercent": "41.83%",
+          "profitFactor": 0.76,
+          "unannualizedSharpe": -0.0912
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1876,
+          "expectancyBps": -18.76,
+          "hitRatePercent": "35.68%",
+          "profitFactor": 0.56,
+          "unannualizedSharpe": -0.1953
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 14210,
+      "pearsonIC": -0.0118,
+      "spearmanIC": 0.0045,
+      "tHAC": -2.1876,
+      "pValue": 0.0287,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0165,
+          "expectancyBps": -1.65,
+          "hitRatePercent": "50.91%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0182
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0665,
+          "expectancyBps": -6.65,
+          "hitRatePercent": "47.76%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.0733
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1165,
+          "expectancyBps": -11.65,
+          "hitRatePercent": "44.39%",
+          "profitFactor": 0.681,
+          "unannualizedSharpe": -0.1284
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2165,
+          "expectancyBps": -21.65,
+          "hitRatePercent": "37.26%",
+          "profitFactor": 0.489,
+          "unannualizedSharpe": -0.2387
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4155,
+      "pearsonIC": -0.0008,
+      "spearmanIC": -0.0146,
+      "tHAC": -0.0894,
+      "pValue": 0.9288,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.002,
+          "expectancyBps": -0.2,
+          "hitRatePercent": "47.20%",
+          "profitFactor": 0.996,
+          "unannualizedSharpe": -0.0014
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.052,
+          "expectancyBps": -5.2,
+          "hitRatePercent": "45.27%",
+          "profitFactor": 0.893,
+          "unannualizedSharpe": -0.0365
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.102,
+          "expectancyBps": -10.2,
+          "hitRatePercent": "42.94%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0715
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.202,
+          "expectancyBps": -20.2,
+          "hitRatePercent": "38.36%",
+          "profitFactor": 0.647,
+          "unannualizedSharpe": -0.1416
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 6946,
+      "pearsonIC": -0.0137,
+      "spearmanIC": -0.0003,
+      "tHAC": -1.8644,
+      "pValue": 0.0623,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0274,
+          "expectancyBps": -2.74,
+          "hitRatePercent": "50.91%",
+          "profitFactor": 0.937,
+          "unannualizedSharpe": -0.0221
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0774,
+          "expectancyBps": -7.74,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0624
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1274,
+          "expectancyBps": -12.74,
+          "hitRatePercent": "45.84%",
+          "profitFactor": 0.738,
+          "unannualizedSharpe": -0.1026
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2274,
+          "expectancyBps": -22.74,
+          "hitRatePercent": "40.61%",
+          "profitFactor": 0.581,
+          "unannualizedSharpe": -0.1832
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2262,
+      "pearsonIC": 0.0101,
+      "spearmanIC": -0.0102,
+      "tHAC": 0.8553,
+      "pValue": 0.3924,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.035,
+          "expectancyBps": 3.5,
+          "hitRatePercent": "48.59%",
+          "profitFactor": 1.056,
+          "unannualizedSharpe": 0.0179
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.015,
+          "expectancyBps": -1.5,
+          "hitRatePercent": "46.20%",
+          "profitFactor": 0.977,
+          "unannualizedSharpe": -0.0077
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.065,
+          "expectancyBps": -6.5,
+          "hitRatePercent": "44.21%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0333
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.165,
+          "expectancyBps": -16.5,
+          "hitRatePercent": "40.98%",
+          "profitFactor": 0.775,
+          "unannualizedSharpe": -0.0845
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3366,
+      "pearsonIC": -0.0197,
+      "spearmanIC": -0.0096,
+      "tHAC": -1.796,
+      "pValue": 0.0725,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0561,
+          "expectancyBps": -5.61,
+          "hitRatePercent": "49.08%",
+          "profitFactor": 0.911,
+          "unannualizedSharpe": -0.0317
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1061,
+          "expectancyBps": -10.61,
+          "hitRatePercent": "47.68%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0599
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1561,
+          "expectancyBps": -15.61,
+          "hitRatePercent": "45.87%",
+          "profitFactor": 0.772,
+          "unannualizedSharpe": -0.0881
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2561,
+          "expectancyBps": -25.61,
+          "hitRatePercent": "42.36%",
+          "profitFactor": 0.655,
+          "unannualizedSharpe": -0.1445
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1128,
+      "pearsonIC": 0.0137,
+      "spearmanIC": -0.0104,
+      "tHAC": 0.7887,
+      "pValue": 0.4303,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0644,
+          "expectancyBps": 6.44,
+          "hitRatePercent": "48.05%",
+          "profitFactor": 1.072,
+          "unannualizedSharpe": 0.0236
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0144,
+          "expectancyBps": 1.44,
+          "hitRatePercent": "47.07%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0053
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0356,
+          "expectancyBps": -3.56,
+          "hitRatePercent": "46.01%",
+          "profitFactor": 0.962,
+          "unannualizedSharpe": -0.013
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1356,
+          "expectancyBps": -13.56,
+          "hitRatePercent": "44.06%",
+          "profitFactor": 0.865,
+          "unannualizedSharpe": -0.0496
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1688,
+      "pearsonIC": -0.0319,
+      "spearmanIC": -0.033,
+      "tHAC": -2.025,
+      "pValue": 0.0429,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1245,
+          "expectancyBps": -12.45,
+          "hitRatePercent": "49.41%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0507
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1745,
+          "expectancyBps": -17.45,
+          "hitRatePercent": "48.22%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.071
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2245,
+          "expectancyBps": -22.45,
+          "hitRatePercent": "47.04%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0914
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3245,
+          "expectancyBps": -32.45,
+          "hitRatePercent": "44.49%",
+          "profitFactor": 0.689,
+          "unannualizedSharpe": -0.1321
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 757,
+      "pearsonIC": 0.0374,
+      "spearmanIC": 0.0002,
+      "tHAC": 1.5984,
+      "pValue": 0.1099,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2177,
+          "expectancyBps": 21.77,
+          "hitRatePercent": "49.01%",
+          "profitFactor": 1.208,
+          "unannualizedSharpe": 0.0632
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1677,
+          "expectancyBps": 16.77,
+          "hitRatePercent": "48.08%",
+          "profitFactor": 1.156,
+          "unannualizedSharpe": 0.0487
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1177,
+          "expectancyBps": 11.77,
+          "hitRatePercent": "46.90%",
+          "profitFactor": 1.107,
+          "unannualizedSharpe": 0.0342
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0177,
+          "expectancyBps": 1.77,
+          "hitRatePercent": "45.57%",
+          "profitFactor": 1.015,
+          "unannualizedSharpe": 0.0051
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1113,
+      "pearsonIC": -0.0351,
+      "spearmanIC": -0.0385,
+      "tHAC": -1.9288,
+      "pValue": 0.0538,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1686,
+          "expectancyBps": -16.86,
+          "hitRatePercent": "47.71%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.056
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2186,
+          "expectancyBps": -21.86,
+          "hitRatePercent": "46.99%",
+          "profitFactor": 0.818,
+          "unannualizedSharpe": -0.0727
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2686,
+          "expectancyBps": -26.86,
+          "hitRatePercent": "46.63%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0893
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3686,
+          "expectancyBps": -36.86,
+          "hitRatePercent": "44.92%",
+          "profitFactor": 0.712,
+          "unannualizedSharpe": -0.1225
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SOLUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 377,
+      "pearsonIC": -0.0021,
+      "spearmanIC": -0.0366,
+      "tHAC": -0.1389,
+      "pValue": 0.8895,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0333,
+          "expectancyBps": -3.33,
+          "hitRatePercent": "47.21%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0068
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0833,
+          "expectancyBps": -8.33,
+          "hitRatePercent": "46.95%",
+          "profitFactor": 0.953,
+          "unannualizedSharpe": -0.017
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1333,
+          "expectancyBps": -13.33,
+          "hitRatePercent": "46.95%",
+          "profitFactor": 0.926,
+          "unannualizedSharpe": -0.0272
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2333,
+          "expectancyBps": -23.33,
+          "hitRatePercent": "45.62%",
+          "profitFactor": 0.873,
+          "unannualizedSharpe": -0.0476
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SOLUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SOLUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 560,
+      "pearsonIC": -0.0526,
+      "spearmanIC": -0.0534,
+      "tHAC": -1.8851,
+      "pValue": 0.0594,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.345,
+          "expectancyBps": -34.5,
+          "hitRatePercent": "48.04%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0842
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.395,
+          "expectancyBps": -39.5,
+          "hitRatePercent": "47.32%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0964
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.445,
+          "expectancyBps": -44.5,
+          "hitRatePercent": "46.07%",
+          "profitFactor": 0.749,
+          "unannualizedSharpe": -0.1086
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.545,
+          "expectancyBps": -54.5,
+          "hitRatePercent": "45.71%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.133
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 7850,
+      "pearsonIC": 0.0015,
+      "spearmanIC": -0.0099,
+      "tHAC": 0.2515,
+      "pValue": 0.8014,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0017,
+          "expectancyBps": 0.17,
+          "hitRatePercent": "47.89%",
+          "profitFactor": 1.009,
+          "unannualizedSharpe": 0.0028
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0483,
+          "expectancyBps": -4.83,
+          "hitRatePercent": "42.83%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0785
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0983,
+          "expectancyBps": -9.83,
+          "hitRatePercent": "37.69%",
+          "profitFactor": 0.613,
+          "unannualizedSharpe": -0.1598
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1983,
+          "expectancyBps": -19.83,
+          "hitRatePercent": "28.31%",
+          "profitFactor": 0.382,
+          "unannualizedSharpe": -0.3224
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 14744,
+      "pearsonIC": -0.0024,
+      "spearmanIC": 0.0152,
+      "tHAC": -0.4934,
+      "pValue": 0.6217,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0022,
+          "expectancyBps": -0.22,
+          "hitRatePercent": "51.47%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0522,
+          "expectancyBps": -5.22,
+          "hitRatePercent": "45.29%",
+          "profitFactor": 0.74,
+          "unannualizedSharpe": -0.0961
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1022,
+          "expectancyBps": -10.22,
+          "hitRatePercent": "39.16%",
+          "profitFactor": 0.555,
+          "unannualizedSharpe": -0.1881
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2022,
+          "expectancyBps": -20.22,
+          "hitRatePercent": "28.02%",
+          "profitFactor": 0.318,
+          "unannualizedSharpe": -0.3721
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4002,
+      "pearsonIC": 0.0032,
+      "spearmanIC": -0.0091,
+      "tHAC": 0.3922,
+      "pValue": 0.6949,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0051,
+          "expectancyBps": 0.51,
+          "hitRatePercent": "48.05%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0449,
+          "expectancyBps": -4.49,
+          "hitRatePercent": "44.20%",
+          "profitFactor": 0.848,
+          "unannualizedSharpe": -0.0535
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0949,
+          "expectancyBps": -9.49,
+          "hitRatePercent": "40.65%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1131
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1949,
+          "expectancyBps": -19.49,
+          "hitRatePercent": "33.21%",
+          "profitFactor": 0.498,
+          "unannualizedSharpe": -0.2322
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 7421,
+      "pearsonIC": -0.012,
+      "spearmanIC": 0.0076,
+      "tHAC": -1.6617,
+      "pValue": 0.0966,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0145,
+          "expectancyBps": -1.45,
+          "hitRatePercent": "50.73%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0191
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0645,
+          "expectancyBps": -6.45,
+          "hitRatePercent": "46.42%",
+          "profitFactor": 0.768,
+          "unannualizedSharpe": -0.085
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1145,
+          "expectancyBps": -11.45,
+          "hitRatePercent": "41.87%",
+          "profitFactor": 0.626,
+          "unannualizedSharpe": -0.1508
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2145,
+          "expectancyBps": -21.45,
+          "hitRatePercent": "33.70%",
+          "profitFactor": 0.418,
+          "unannualizedSharpe": -0.2826
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2179,
+      "pearsonIC": 0.0177,
+      "spearmanIC": 0.0037,
+      "tHAC": 1.6172,
+      "pValue": 0.1058,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0386,
+          "expectancyBps": 3.86,
+          "hitRatePercent": "49.33%",
+          "profitFactor": 1.104,
+          "unannualizedSharpe": 0.0325
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0114,
+          "expectancyBps": -1.14,
+          "hitRatePercent": "46.49%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.0096
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0614,
+          "expectancyBps": -6.14,
+          "hitRatePercent": "44.10%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0517
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1614,
+          "expectancyBps": -16.14,
+          "hitRatePercent": "38.73%",
+          "profitFactor": 0.666,
+          "unannualizedSharpe": -0.1359
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3629,
+      "pearsonIC": -0.0135,
+      "spearmanIC": 0.016,
+      "tHAC": -1.2894,
+      "pValue": 0.1972,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0231,
+          "expectancyBps": -2.31,
+          "hitRatePercent": "51.23%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0208
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0731,
+          "expectancyBps": -7.31,
+          "hitRatePercent": "48.66%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0657
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1231,
+          "expectancyBps": -12.31,
+          "hitRatePercent": "45.52%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1106
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2231,
+          "expectancyBps": -22.31,
+          "hitRatePercent": "40.12%",
+          "profitFactor": 0.536,
+          "unannualizedSharpe": -0.2005
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1089,
+      "pearsonIC": 0.0068,
+      "spearmanIC": -0.0063,
+      "tHAC": 0.4483,
+      "pValue": 0.6539,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0203,
+          "expectancyBps": 2.03,
+          "hitRatePercent": "48.12%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.0124
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0297,
+          "expectancyBps": -2.97,
+          "hitRatePercent": "45.64%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0181
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0797,
+          "expectancyBps": -7.97,
+          "hitRatePercent": "44.26%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0486
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1797,
+          "expectancyBps": -17.97,
+          "hitRatePercent": "40.13%",
+          "profitFactor": 0.73,
+          "unannualizedSharpe": -0.1096
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1815,
+      "pearsonIC": -0.0141,
+      "spearmanIC": 0.0163,
+      "tHAC": -0.9459,
+      "pValue": 0.3442,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0338,
+          "expectancyBps": -3.38,
+          "hitRatePercent": "51.29%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0216
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0838,
+          "expectancyBps": -8.38,
+          "hitRatePercent": "49.59%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.0535
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1338,
+          "expectancyBps": -13.38,
+          "hitRatePercent": "47.38%",
+          "profitFactor": 0.769,
+          "unannualizedSharpe": -0.0855
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2338,
+          "expectancyBps": -23.38,
+          "hitRatePercent": "43.47%",
+          "profitFactor": 0.631,
+          "unannualizedSharpe": -0.1494
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 737,
+      "pearsonIC": 0.0112,
+      "spearmanIC": -0.0059,
+      "tHAC": 0.6065,
+      "pValue": 0.5442,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0405,
+          "expectancyBps": 4.05,
+          "hitRatePercent": "47.76%",
+          "profitFactor": 1.064,
+          "unannualizedSharpe": 0.0219
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0095,
+          "expectancyBps": -0.95,
+          "hitRatePercent": "46.54%",
+          "profitFactor": 0.986,
+          "unannualizedSharpe": -0.0051
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0595,
+          "expectancyBps": -5.95,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0322
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1595,
+          "expectancyBps": -15.95,
+          "hitRatePercent": "42.06%",
+          "profitFactor": 0.785,
+          "unannualizedSharpe": -0.0862
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1208,
+      "pearsonIC": 0.0172,
+      "spearmanIC": 0.0275,
+      "tHAC": 0.8562,
+      "pValue": 0.3919,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0485,
+          "expectancyBps": 4.85,
+          "hitRatePercent": "52.65%",
+          "profitFactor": 1.077,
+          "unannualizedSharpe": 0.0245
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0015,
+          "expectancyBps": -0.15,
+          "hitRatePercent": "50.66%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0515,
+          "expectancyBps": -5.15,
+          "hitRatePercent": "49.42%",
+          "profitFactor": 0.924,
+          "unannualizedSharpe": -0.026
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1515,
+          "expectancyBps": -15.15,
+          "hitRatePercent": "46.69%",
+          "profitFactor": 0.793,
+          "unannualizedSharpe": -0.0764
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_BNBUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 367,
+      "pearsonIC": -0.005,
+      "spearmanIC": -0.0101,
+      "tHAC": -0.2514,
+      "pValue": 0.8015,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0315,
+          "expectancyBps": -3.15,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.012
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0815,
+          "expectancyBps": -8.15,
+          "hitRatePercent": "47.68%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0311
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1315,
+          "expectancyBps": -13.15,
+          "hitRatePercent": "46.05%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0502
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2315,
+          "expectancyBps": -23.15,
+          "hitRatePercent": "44.14%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0883
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_BNBUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "BNBUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 615,
+      "pearsonIC": 0.0108,
+      "spearmanIC": 0.0194,
+      "tHAC": 0.4066,
+      "pValue": 0.6843,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0425,
+          "expectancyBps": 4.25,
+          "hitRatePercent": "52.85%",
+          "profitFactor": 1.048,
+          "unannualizedSharpe": 0.0163
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0075,
+          "expectancyBps": -0.75,
+          "hitRatePercent": "52.20%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0029
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0575,
+          "expectancyBps": -5.75,
+          "hitRatePercent": "50.57%",
+          "profitFactor": 0.939,
+          "unannualizedSharpe": -0.022
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1575,
+          "expectancyBps": -15.75,
+          "hitRatePercent": "48.62%",
+          "profitFactor": 0.842,
+          "unannualizedSharpe": -0.0603
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8013,
+      "pearsonIC": -0.0023,
+      "spearmanIC": -0.0155,
+      "tHAC": -0.4039,
+      "pValue": 0.6863,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0044,
+          "expectancyBps": -0.44,
+          "hitRatePercent": "47.54%",
+          "profitFactor": 0.986,
+          "unannualizedSharpe": -0.0044
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0544,
+          "expectancyBps": -5.44,
+          "hitRatePercent": "44.03%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0548
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1044,
+          "expectancyBps": -10.44,
+          "hitRatePercent": "40.52%",
+          "profitFactor": 0.715,
+          "unannualizedSharpe": -0.1051
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2044,
+          "expectancyBps": -20.44,
+          "hitRatePercent": "34.11%",
+          "profitFactor": 0.524,
+          "unannualizedSharpe": -0.2059
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 14704,
+      "pearsonIC": -0.008,
+      "spearmanIC": 0.0116,
+      "tHAC": -1.4344,
+      "pValue": 0.1515,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0112,
+          "expectancyBps": -1.12,
+          "hitRatePercent": "51.48%",
+          "profitFactor": 0.962,
+          "unannualizedSharpe": -0.012
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0612,
+          "expectancyBps": -6.12,
+          "hitRatePercent": "47.72%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0657
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1112,
+          "expectancyBps": -11.12,
+          "hitRatePercent": "43.27%",
+          "profitFactor": 0.678,
+          "unannualizedSharpe": -0.1193
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2112,
+          "expectancyBps": -21.12,
+          "hitRatePercent": "35.55%",
+          "profitFactor": 0.479,
+          "unannualizedSharpe": -0.2265
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4243,
+      "pearsonIC": -0.0059,
+      "spearmanIC": -0.0089,
+      "tHAC": -0.7103,
+      "pValue": 0.4775,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0156,
+          "expectancyBps": -1.56,
+          "hitRatePercent": "49.28%",
+          "profitFactor": 0.965,
+          "unannualizedSharpe": -0.0109
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0656,
+          "expectancyBps": -6.56,
+          "hitRatePercent": "47.09%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0458
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1156,
+          "expectancyBps": -11.56,
+          "hitRatePercent": "44.47%",
+          "profitFactor": 0.769,
+          "unannualizedSharpe": -0.0807
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2156,
+          "expectancyBps": -21.56,
+          "hitRatePercent": "38.58%",
+          "profitFactor": 0.613,
+          "unannualizedSharpe": -0.1505
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 7163,
+      "pearsonIC": -0.0028,
+      "spearmanIC": 0.0128,
+      "tHAC": -0.3838,
+      "pValue": 0.7011,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0057,
+          "expectancyBps": -0.57,
+          "hitRatePercent": "51.78%",
+          "profitFactor": 0.986,
+          "unannualizedSharpe": -0.0045
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0557,
+          "expectancyBps": -5.57,
+          "hitRatePercent": "48.93%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0439
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1057,
+          "expectancyBps": -10.57,
+          "hitRatePercent": "45.83%",
+          "profitFactor": 0.768,
+          "unannualizedSharpe": -0.0833
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2057,
+          "expectancyBps": -20.57,
+          "hitRatePercent": "40.08%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1622
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2134,
+      "pearsonIC": 0,
+      "spearmanIC": -0.0144,
+      "tHAC": 0.0029,
+      "pValue": 0.9977,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0001,
+          "expectancyBps": 0.01,
+          "hitRatePercent": "48.27%",
+          "profitFactor": 1,
+          "unannualizedSharpe": 0.0001
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0499,
+          "expectancyBps": -4.99,
+          "hitRatePercent": "46.67%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0256
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0999,
+          "expectancyBps": -9.99,
+          "hitRatePercent": "44.70%",
+          "profitFactor": 0.851,
+          "unannualizedSharpe": -0.0512
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1999,
+          "expectancyBps": -19.99,
+          "hitRatePercent": "41.19%",
+          "profitFactor": 0.726,
+          "unannualizedSharpe": -0.1024
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3544,
+      "pearsonIC": -0.0059,
+      "spearmanIC": 0.0051,
+      "tHAC": -0.6177,
+      "pValue": 0.5368,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0168,
+          "expectancyBps": -1.68,
+          "hitRatePercent": "50.28%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.0097
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0668,
+          "expectancyBps": -6.68,
+          "hitRatePercent": "48.73%",
+          "profitFactor": 0.888,
+          "unannualizedSharpe": -0.0386
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1168,
+          "expectancyBps": -11.68,
+          "hitRatePercent": "46.76%",
+          "profitFactor": 0.813,
+          "unannualizedSharpe": -0.0675
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2168,
+          "expectancyBps": -21.68,
+          "hitRatePercent": "43.06%",
+          "profitFactor": 0.68,
+          "unannualizedSharpe": -0.1254
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1062,
+      "pearsonIC": 0.0034,
+      "spearmanIC": -0.0181,
+      "tHAC": 0.2038,
+      "pValue": 0.8385,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0172,
+          "expectancyBps": 1.72,
+          "hitRatePercent": "48.21%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0328,
+          "expectancyBps": -3.28,
+          "hitRatePercent": "46.61%",
+          "profitFactor": 0.965,
+          "unannualizedSharpe": -0.0114
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0828,
+          "expectancyBps": -8.28,
+          "hitRatePercent": "45.10%",
+          "profitFactor": 0.915,
+          "unannualizedSharpe": -0.0287
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1828,
+          "expectancyBps": -18.28,
+          "hitRatePercent": "43.13%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0633
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1772,
+      "pearsonIC": -0.017,
+      "spearmanIC": -0.0168,
+      "tHAC": -1.1752,
+      "pValue": 0.2399,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.066,
+          "expectancyBps": -6.6,
+          "hitRatePercent": "50.17%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.0285
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.116,
+          "expectancyBps": -11.6,
+          "hitRatePercent": "49.15%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0502
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.166,
+          "expectancyBps": -16.6,
+          "hitRatePercent": "47.86%",
+          "profitFactor": 0.811,
+          "unannualizedSharpe": -0.0718
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.266,
+          "expectancyBps": -26.6,
+          "hitRatePercent": "45.43%",
+          "profitFactor": 0.715,
+          "unannualizedSharpe": -0.115
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 717,
+      "pearsonIC": 0.0336,
+      "spearmanIC": -0.0119,
+      "tHAC": 1.6751,
+      "pValue": 0.0939,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2013,
+          "expectancyBps": 20.13,
+          "hitRatePercent": "47.98%",
+          "profitFactor": 1.199,
+          "unannualizedSharpe": 0.0616
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1513,
+          "expectancyBps": 15.13,
+          "hitRatePercent": "47.14%",
+          "profitFactor": 1.146,
+          "unannualizedSharpe": 0.0463
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1013,
+          "expectancyBps": 10.13,
+          "hitRatePercent": "45.33%",
+          "profitFactor": 1.095,
+          "unannualizedSharpe": 0.031
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0013,
+          "expectancyBps": 0.13,
+          "hitRatePercent": "44.07%",
+          "profitFactor": 1.001,
+          "unannualizedSharpe": 0.0004
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1181,
+      "pearsonIC": 0.0111,
+      "spearmanIC": -0.0022,
+      "tHAC": 0.6101,
+      "pValue": 0.5418,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.052,
+          "expectancyBps": 5.2,
+          "hitRatePercent": "51.82%",
+          "profitFactor": 1.051,
+          "unannualizedSharpe": 0.017
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.002,
+          "expectancyBps": 0.2,
+          "hitRatePercent": "50.55%",
+          "profitFactor": 1.002,
+          "unannualizedSharpe": 0.0007
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.048,
+          "expectancyBps": -4.8,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0157
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.148,
+          "expectancyBps": -14.8,
+          "hitRatePercent": "47.08%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0483
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_DOGEUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 354,
+      "pearsonIC": -0.002,
+      "spearmanIC": -0.0341,
+      "tHAC": -0.0816,
+      "pValue": 0.935,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0178,
+          "expectancyBps": -1.78,
+          "hitRatePercent": "47.46%",
+          "profitFactor": 0.989,
+          "unannualizedSharpe": -0.0038
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0678,
+          "expectancyBps": -6.78,
+          "hitRatePercent": "46.89%",
+          "profitFactor": 0.959,
+          "unannualizedSharpe": -0.0146
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1178,
+          "expectancyBps": -11.78,
+          "hitRatePercent": "46.05%",
+          "profitFactor": 0.931,
+          "unannualizedSharpe": -0.0253
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2178,
+          "expectancyBps": -21.78,
+          "hitRatePercent": "44.92%",
+          "profitFactor": 0.876,
+          "unannualizedSharpe": -0.0468
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_DOGEUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "DOGEUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 600,
+      "pearsonIC": 0.0179,
+      "spearmanIC": 0.0221,
+      "tHAC": 0.7239,
+      "pValue": 0.4691,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.116,
+          "expectancyBps": 11.6,
+          "hitRatePercent": "53.67%",
+          "profitFactor": 1.085,
+          "unannualizedSharpe": 0.0289
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.066,
+          "expectancyBps": 6.6,
+          "hitRatePercent": "52.17%",
+          "profitFactor": 1.047,
+          "unannualizedSharpe": 0.0164
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.016,
+          "expectancyBps": 1.6,
+          "hitRatePercent": "51.50%",
+          "profitFactor": 1.011,
+          "unannualizedSharpe": 0.004
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.084,
+          "expectancyBps": -8.4,
+          "hitRatePercent": "49.50%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0209
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 7989,
+      "pearsonIC": 0.0057,
+      "spearmanIC": -0.0108,
+      "tHAC": 0.9168,
+      "pValue": 0.3593,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0107,
+          "expectancyBps": 1.07,
+          "hitRatePercent": "48.15%",
+          "profitFactor": 1.034,
+          "unannualizedSharpe": 0.0103
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0393,
+          "expectancyBps": -3.93,
+          "hitRatePercent": "45.79%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0378
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0893,
+          "expectancyBps": -8.93,
+          "hitRatePercent": "42.83%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.0858
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1893,
+          "expectancyBps": -18.93,
+          "hitRatePercent": "36.48%",
+          "profitFactor": 0.558,
+          "unannualizedSharpe": -0.1818
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 14446,
+      "pearsonIC": -0.0004,
+      "spearmanIC": 0.0101,
+      "tHAC": -0.0857,
+      "pValue": 0.9317,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0006,
+          "expectancyBps": -0.06,
+          "hitRatePercent": "50.60%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0007
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0506,
+          "expectancyBps": -5.06,
+          "hitRatePercent": "47.95%",
+          "profitFactor": 0.838,
+          "unannualizedSharpe": -0.0576
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1006,
+          "expectancyBps": -10.06,
+          "hitRatePercent": "44.15%",
+          "profitFactor": 0.704,
+          "unannualizedSharpe": -0.1145
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2006,
+          "expectancyBps": -20.06,
+          "hitRatePercent": "36.89%",
+          "profitFactor": 0.497,
+          "unannualizedSharpe": -0.2282
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4087,
+      "pearsonIC": 0.0016,
+      "spearmanIC": -0.0136,
+      "tHAC": 0.1751,
+      "pValue": 0.861,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0043,
+          "expectancyBps": 0.43,
+          "hitRatePercent": "48.47%",
+          "profitFactor": 1.009,
+          "unannualizedSharpe": 0.0027
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0457,
+          "expectancyBps": -4.57,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 0.906,
+          "unannualizedSharpe": -0.0284
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0957,
+          "expectancyBps": -9.57,
+          "hitRatePercent": "44.09%",
+          "profitFactor": 0.814,
+          "unannualizedSharpe": -0.0594
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1957,
+          "expectancyBps": -19.57,
+          "hitRatePercent": "39.78%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1216
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 7080,
+      "pearsonIC": -0.0019,
+      "spearmanIC": 0.0077,
+      "tHAC": -0.2603,
+      "pValue": 0.7947,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0039,
+          "expectancyBps": -0.39,
+          "hitRatePercent": "50.71%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0539,
+          "expectancyBps": -5.39,
+          "hitRatePercent": "48.70%",
+          "profitFactor": 0.876,
+          "unannualizedSharpe": -0.0433
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1039,
+          "expectancyBps": -10.39,
+          "hitRatePercent": "45.83%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0835
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2039,
+          "expectancyBps": -20.39,
+          "hitRatePercent": "40.47%",
+          "profitFactor": 0.606,
+          "unannualizedSharpe": -0.1639
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2016,
+      "pearsonIC": 0.0093,
+      "spearmanIC": -0.0135,
+      "tHAC": 0.7491,
+      "pValue": 0.4538,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0344,
+          "expectancyBps": 3.44,
+          "hitRatePercent": "48.46%",
+          "profitFactor": 1.055,
+          "unannualizedSharpe": 0.0162
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0156,
+          "expectancyBps": -1.56,
+          "hitRatePercent": "47.07%",
+          "profitFactor": 0.976,
+          "unannualizedSharpe": -0.0073
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0656,
+          "expectancyBps": -6.56,
+          "hitRatePercent": "45.63%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0308
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1656,
+          "expectancyBps": -16.56,
+          "hitRatePercent": "41.82%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0778
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3537,
+      "pearsonIC": -0.0139,
+      "spearmanIC": -0.0068,
+      "tHAC": -1.2405,
+      "pValue": 0.2148,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0388,
+          "expectancyBps": -3.88,
+          "hitRatePercent": "49.31%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0216
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0888,
+          "expectancyBps": -8.88,
+          "hitRatePercent": "48.01%",
+          "profitFactor": 0.859,
+          "unannualizedSharpe": -0.0494
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1388,
+          "expectancyBps": -13.88,
+          "hitRatePercent": "46.42%",
+          "profitFactor": 0.789,
+          "unannualizedSharpe": -0.0772
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2388,
+          "expectancyBps": -23.88,
+          "hitRatePercent": "42.75%",
+          "profitFactor": 0.665,
+          "unannualizedSharpe": -0.1328
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 997,
+      "pearsonIC": 0.0089,
+      "spearmanIC": -0.017,
+      "tHAC": 0.5135,
+      "pValue": 0.6076,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0468,
+          "expectancyBps": 4.68,
+          "hitRatePercent": "46.94%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0032,
+          "expectancyBps": -0.32,
+          "hitRatePercent": "46.34%",
+          "profitFactor": 0.997,
+          "unannualizedSharpe": -0.001
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0532,
+          "expectancyBps": -5.32,
+          "hitRatePercent": "45.14%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0174
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1532,
+          "expectancyBps": -15.32,
+          "hitRatePercent": "42.93%",
+          "profitFactor": 0.848,
+          "unannualizedSharpe": -0.0503
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1771,
+      "pearsonIC": -0.0282,
+      "spearmanIC": -0.0292,
+      "tHAC": -1.8043,
+      "pValue": 0.0712,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1105,
+          "expectancyBps": -11.05,
+          "hitRatePercent": "48.62%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0447
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1605,
+          "expectancyBps": -16.05,
+          "hitRatePercent": "47.77%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0649
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2105,
+          "expectancyBps": -21.05,
+          "hitRatePercent": "46.47%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0852
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3105,
+          "expectancyBps": -31.05,
+          "hitRatePercent": "44.38%",
+          "profitFactor": 0.694,
+          "unannualizedSharpe": -0.1256
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 679,
+      "pearsonIC": 0.0208,
+      "spearmanIC": -0.0104,
+      "tHAC": 1.0023,
+      "pValue": 0.3162,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1303,
+          "expectancyBps": 13.03,
+          "hitRatePercent": "50.96%",
+          "profitFactor": 1.126,
+          "unannualizedSharpe": 0.0365
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0803,
+          "expectancyBps": 8.03,
+          "hitRatePercent": "49.78%",
+          "profitFactor": 1.076,
+          "unannualizedSharpe": 0.0225
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0303,
+          "expectancyBps": 3.03,
+          "hitRatePercent": "48.31%",
+          "profitFactor": 1.028,
+          "unannualizedSharpe": 0.0085
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0697,
+          "expectancyBps": -6.97,
+          "hitRatePercent": "46.10%",
+          "profitFactor": 0.939,
+          "unannualizedSharpe": -0.0195
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1166,
+      "pearsonIC": -0.0289,
+      "spearmanIC": -0.0379,
+      "tHAC": -1.4767,
+      "pValue": 0.1397,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1384,
+          "expectancyBps": -13.84,
+          "hitRatePercent": "48.20%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0433
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1884,
+          "expectancyBps": -18.84,
+          "hitRatePercent": "47.43%",
+          "profitFactor": 0.84,
+          "unannualizedSharpe": -0.059
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2384,
+          "expectancyBps": -23.84,
+          "hitRatePercent": "46.40%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0746
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3384,
+          "expectancyBps": -33.84,
+          "hitRatePercent": "44.77%",
+          "profitFactor": 0.73,
+          "unannualizedSharpe": -0.1059
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_ADAUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 332,
+      "pearsonIC": -0.0115,
+      "spearmanIC": -0.0271,
+      "tHAC": -0.3703,
+      "pValue": 0.7111,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0963,
+          "expectancyBps": -9.63,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0193
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1463,
+          "expectancyBps": -14.63,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 0.914,
+          "unannualizedSharpe": -0.0293
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1963,
+          "expectancyBps": -19.63,
+          "hitRatePercent": "47.29%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0393
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2963,
+          "expectancyBps": -29.63,
+          "hitRatePercent": "45.18%",
+          "profitFactor": 0.834,
+          "unannualizedSharpe": -0.0593
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_ADAUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "ADAUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 579,
+      "pearsonIC": -0.0367,
+      "spearmanIC": -0.0531,
+      "tHAC": -1.2231,
+      "pValue": 0.2213,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2415,
+          "expectancyBps": -24.15,
+          "hitRatePercent": "47.15%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0558
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2915,
+          "expectancyBps": -29.15,
+          "hitRatePercent": "46.29%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0674
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3415,
+          "expectancyBps": -34.15,
+          "hitRatePercent": "46.11%",
+          "profitFactor": 0.802,
+          "unannualizedSharpe": -0.0789
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4415,
+          "expectancyBps": -44.15,
+          "hitRatePercent": "44.21%",
+          "profitFactor": 0.752,
+          "unannualizedSharpe": -0.102
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8920,
+      "pearsonIC": 0.0013,
+      "spearmanIC": -0.0147,
+      "tHAC": 0.2403,
+      "pValue": 0.8101,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0024,
+          "expectancyBps": 0.24,
+          "hitRatePercent": "48.64%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0025
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0476,
+          "expectancyBps": -4.76,
+          "hitRatePercent": "45.38%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0488
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0976,
+          "expectancyBps": -9.76,
+          "hitRatePercent": "41.84%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.1002
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1976,
+          "expectancyBps": -19.76,
+          "hitRatePercent": "35.78%",
+          "profitFactor": 0.542,
+          "unannualizedSharpe": -0.2028
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 13350,
+      "pearsonIC": -0.0002,
+      "spearmanIC": 0.0057,
+      "tHAC": -0.0502,
+      "pValue": 0.9599,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0004,
+          "expectancyBps": -0.04,
+          "hitRatePercent": "50.94%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0504,
+          "expectancyBps": -5.04,
+          "hitRatePercent": "47.47%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0554
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1004,
+          "expectancyBps": -10.04,
+          "hitRatePercent": "44.07%",
+          "profitFactor": 0.719,
+          "unannualizedSharpe": -0.1104
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2004,
+          "expectancyBps": -20.04,
+          "hitRatePercent": "37.39%",
+          "profitFactor": 0.519,
+          "unannualizedSharpe": -0.2204
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4569,
+      "pearsonIC": -0.0011,
+      "spearmanIC": -0.0116,
+      "tHAC": -0.1295,
+      "pValue": 0.897,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0027,
+          "expectancyBps": -0.27,
+          "hitRatePercent": "48.92%",
+          "profitFactor": 0.994,
+          "unannualizedSharpe": -0.0019
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0527,
+          "expectancyBps": -5.27,
+          "hitRatePercent": "46.51%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0365
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1027,
+          "expectancyBps": -10.27,
+          "hitRatePercent": "44.36%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0711
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2027,
+          "expectancyBps": -20.27,
+          "hitRatePercent": "40.21%",
+          "profitFactor": 0.646,
+          "unannualizedSharpe": -0.1404
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 6551,
+      "pearsonIC": -0.0021,
+      "spearmanIC": 0.0085,
+      "tHAC": -0.2902,
+      "pValue": 0.7717,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0046,
+          "expectancyBps": -0.46,
+          "hitRatePercent": "51.93%",
+          "profitFactor": 0.989,
+          "unannualizedSharpe": -0.0036
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0546,
+          "expectancyBps": -5.46,
+          "hitRatePercent": "49.49%",
+          "profitFactor": 0.881,
+          "unannualizedSharpe": -0.0428
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1046,
+          "expectancyBps": -10.46,
+          "hitRatePercent": "46.86%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.082
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2046,
+          "expectancyBps": -20.46,
+          "hitRatePercent": "41.49%",
+          "profitFactor": 0.62,
+          "unannualizedSharpe": -0.1604
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2307,
+      "pearsonIC": 0.0043,
+      "spearmanIC": -0.0102,
+      "tHAC": 0.3892,
+      "pValue": 0.6972,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.015,
+          "expectancyBps": 1.5,
+          "hitRatePercent": "49.24%",
+          "profitFactor": 1.025,
+          "unannualizedSharpe": 0.0082
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.035,
+          "expectancyBps": -3.5,
+          "hitRatePercent": "47.64%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0192
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.085,
+          "expectancyBps": -8.5,
+          "hitRatePercent": "45.64%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0466
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.185,
+          "expectancyBps": -18.5,
+          "hitRatePercent": "42.00%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.1015
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3358,
+      "pearsonIC": -0.0071,
+      "spearmanIC": 0,
+      "tHAC": -0.6945,
+      "pValue": 0.4874,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0209,
+          "expectancyBps": -2.09,
+          "hitRatePercent": "50.33%",
+          "profitFactor": 0.967,
+          "unannualizedSharpe": -0.0115
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0709,
+          "expectancyBps": -7.09,
+          "hitRatePercent": "48.81%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0392
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1209,
+          "expectancyBps": -12.09,
+          "hitRatePercent": "46.66%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0668
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2209,
+          "expectancyBps": -22.09,
+          "hitRatePercent": "42.97%",
+          "profitFactor": 0.698,
+          "unannualizedSharpe": -0.122
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1144,
+      "pearsonIC": 0.0095,
+      "spearmanIC": -0.0094,
+      "tHAC": 0.6254,
+      "pValue": 0.5317,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0477,
+          "expectancyBps": 4.77,
+          "hitRatePercent": "50.70%",
+          "profitFactor": 1.053,
+          "unannualizedSharpe": 0.0179
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0023,
+          "expectancyBps": -0.23,
+          "hitRatePercent": "49.48%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0523,
+          "expectancyBps": -5.23,
+          "hitRatePercent": "47.55%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0196
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1523,
+          "expectancyBps": -15.23,
+          "hitRatePercent": "45.80%",
+          "profitFactor": 0.848,
+          "unannualizedSharpe": -0.0571
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1676,
+      "pearsonIC": -0.0078,
+      "spearmanIC": -0.0005,
+      "tHAC": -0.5235,
+      "pValue": 0.6006,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0328,
+          "expectancyBps": -3.28,
+          "hitRatePercent": "51.01%",
+          "profitFactor": 0.965,
+          "unannualizedSharpe": -0.0128
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0828,
+          "expectancyBps": -8.28,
+          "hitRatePercent": "49.94%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0323
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1328,
+          "expectancyBps": -13.28,
+          "hitRatePercent": "48.45%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0519
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2328,
+          "expectancyBps": -23.28,
+          "hitRatePercent": "46.30%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0909
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 771,
+      "pearsonIC": 0.0235,
+      "spearmanIC": -0.0045,
+      "tHAC": 1.4437,
+      "pValue": 0.1488,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1415,
+          "expectancyBps": 14.15,
+          "hitRatePercent": "50.58%",
+          "profitFactor": 1.141,
+          "unannualizedSharpe": 0.0481
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0915,
+          "expectancyBps": 9.15,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 1.089,
+          "unannualizedSharpe": 0.0311
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0415,
+          "expectancyBps": 4.15,
+          "hitRatePercent": "48.77%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.0141
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0585,
+          "expectancyBps": -5.85,
+          "hitRatePercent": "47.34%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0199
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1109,
+      "pearsonIC": -0.0148,
+      "spearmanIC": -0.007,
+      "tHAC": -0.8105,
+      "pValue": 0.4176,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0751,
+          "expectancyBps": -7.51,
+          "hitRatePercent": "50.14%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.024
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1251,
+          "expectancyBps": -12.51,
+          "hitRatePercent": "49.41%",
+          "profitFactor": 0.895,
+          "unannualizedSharpe": -0.04
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1751,
+          "expectancyBps": -17.51,
+          "hitRatePercent": "48.24%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.056
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2751,
+          "expectancyBps": -27.51,
+          "hitRatePercent": "46.98%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.088
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_AVAXUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 378,
+      "pearsonIC": 0.0203,
+      "spearmanIC": -0.0157,
+      "tHAC": 0.8433,
+      "pValue": 0.3991,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1671,
+          "expectancyBps": 16.71,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 1.114,
+          "unannualizedSharpe": 0.04
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1171,
+          "expectancyBps": 11.71,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 1.079,
+          "unannualizedSharpe": 0.028
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0671,
+          "expectancyBps": 6.71,
+          "hitRatePercent": "48.41%",
+          "profitFactor": 1.044,
+          "unannualizedSharpe": 0.0161
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0329,
+          "expectancyBps": -3.29,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0079
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_AVAXUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "AVAXUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 557,
+      "pearsonIC": -0.0295,
+      "spearmanIC": -0.0242,
+      "tHAC": -1.0326,
+      "pValue": 0.3018,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2012,
+          "expectancyBps": -20.12,
+          "hitRatePercent": "48.83%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0466
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2512,
+          "expectancyBps": -25.12,
+          "hitRatePercent": "48.29%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0582
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3012,
+          "expectancyBps": -30.12,
+          "hitRatePercent": "47.76%",
+          "profitFactor": 0.83,
+          "unannualizedSharpe": -0.0698
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4012,
+          "expectancyBps": -40.12,
+          "hitRatePercent": "47.22%",
+          "profitFactor": 0.78,
+          "unannualizedSharpe": -0.093
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 8401,
+      "pearsonIC": 0.0017,
+      "spearmanIC": -0.0148,
+      "tHAC": 0.2888,
+      "pValue": 0.7727,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0031,
+          "expectancyBps": 0.31,
+          "hitRatePercent": "47.99%",
+          "profitFactor": 1.01,
+          "unannualizedSharpe": 0.0031
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0469,
+          "expectancyBps": -4.69,
+          "hitRatePercent": "44.73%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0483
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0969,
+          "expectancyBps": -9.69,
+          "hitRatePercent": "41.63%",
+          "profitFactor": 0.735,
+          "unannualizedSharpe": -0.0997
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1969,
+          "expectancyBps": -19.69,
+          "hitRatePercent": "35.63%",
+          "profitFactor": 0.539,
+          "unannualizedSharpe": -0.2025
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 13922,
+      "pearsonIC": -0.0028,
+      "spearmanIC": 0.0006,
+      "tHAC": -0.5459,
+      "pValue": 0.5851,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0038,
+          "expectancyBps": -0.38,
+          "hitRatePercent": "50.27%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0044
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0538,
+          "expectancyBps": -5.38,
+          "hitRatePercent": "47.31%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0628
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1038,
+          "expectancyBps": -10.38,
+          "hitRatePercent": "43.71%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.1212
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2038,
+          "expectancyBps": -20.38,
+          "hitRatePercent": "37.01%",
+          "profitFactor": 0.5,
+          "unannualizedSharpe": -0.2379
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4371,
+      "pearsonIC": -0.0041,
+      "spearmanIC": -0.0158,
+      "tHAC": -0.475,
+      "pValue": 0.6348,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0099,
+          "expectancyBps": -0.99,
+          "hitRatePercent": "48.18%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0072
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0599,
+          "expectancyBps": -5.99,
+          "hitRatePercent": "46.01%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0431
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1099,
+          "expectancyBps": -10.99,
+          "hitRatePercent": "43.65%",
+          "profitFactor": 0.782,
+          "unannualizedSharpe": -0.0791
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2099,
+          "expectancyBps": -20.99,
+          "hitRatePercent": "38.71%",
+          "profitFactor": 0.628,
+          "unannualizedSharpe": -0.1511
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 6793,
+      "pearsonIC": 0.0041,
+      "spearmanIC": 0.008,
+      "tHAC": 0.5459,
+      "pValue": 0.5851,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0081,
+          "expectancyBps": 0.81,
+          "hitRatePercent": "50.82%",
+          "profitFactor": 1.02,
+          "unannualizedSharpe": 0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0419,
+          "expectancyBps": -4.19,
+          "hitRatePercent": "48.51%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0345
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0919,
+          "expectancyBps": -9.19,
+          "hitRatePercent": "46.05%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0757
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1919,
+          "expectancyBps": -19.19,
+          "hitRatePercent": "41.00%",
+          "profitFactor": 0.628,
+          "unannualizedSharpe": -0.158
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2287,
+      "pearsonIC": -0.0202,
+      "spearmanIC": -0.024,
+      "tHAC": -1.7641,
+      "pValue": 0.0777,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0675,
+          "expectancyBps": -6.75,
+          "hitRatePercent": "47.53%",
+          "profitFactor": 0.896,
+          "unannualizedSharpe": -0.0371
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1175,
+          "expectancyBps": -11.75,
+          "hitRatePercent": "46.17%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0645
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1675,
+          "expectancyBps": -16.75,
+          "hitRatePercent": "44.16%",
+          "profitFactor": 0.763,
+          "unannualizedSharpe": -0.0919
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2675,
+          "expectancyBps": -26.75,
+          "hitRatePercent": "40.45%",
+          "profitFactor": 0.65,
+          "unannualizedSharpe": -0.1468
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3253,
+      "pearsonIC": -0.0097,
+      "spearmanIC": 0.0004,
+      "tHAC": -0.901,
+      "pValue": 0.3676,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0271,
+          "expectancyBps": -2.71,
+          "hitRatePercent": "50.29%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0155
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0771,
+          "expectancyBps": -7.71,
+          "hitRatePercent": "48.57%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.044
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1271,
+          "expectancyBps": -12.71,
+          "hitRatePercent": "46.94%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0726
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2271,
+          "expectancyBps": -22.71,
+          "hitRatePercent": "43.04%",
+          "profitFactor": 0.68,
+          "unannualizedSharpe": -0.1296
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1147,
+      "pearsonIC": -0.0132,
+      "spearmanIC": -0.0199,
+      "tHAC": -0.8927,
+      "pValue": 0.372,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0608,
+          "expectancyBps": -6.08,
+          "hitRatePercent": "48.39%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0238
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1108,
+          "expectancyBps": -11.08,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.881,
+          "unannualizedSharpe": -0.0434
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1608,
+          "expectancyBps": -16.08,
+          "hitRatePercent": "45.51%",
+          "profitFactor": 0.833,
+          "unannualizedSharpe": -0.0629
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2608,
+          "expectancyBps": -26.08,
+          "hitRatePercent": "43.50%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.1021
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1640,
+      "pearsonIC": -0.0308,
+      "spearmanIC": -0.0184,
+      "tHAC": -1.9413,
+      "pValue": 0.0522,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1176,
+          "expectancyBps": -11.76,
+          "hitRatePercent": "48.84%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0475
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1676,
+          "expectancyBps": -16.76,
+          "hitRatePercent": "47.87%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0676
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2176,
+          "expectancyBps": -21.76,
+          "hitRatePercent": "46.83%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0878
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3176,
+          "expectancyBps": -31.76,
+          "hitRatePercent": "44.70%",
+          "profitFactor": 0.688,
+          "unannualizedSharpe": -0.1281
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 747,
+      "pearsonIC": -0.0216,
+      "spearmanIC": -0.0405,
+      "tHAC": -1.0534,
+      "pValue": 0.2922,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.124,
+          "expectancyBps": -12.4,
+          "hitRatePercent": "44.18%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0392
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.174,
+          "expectancyBps": -17.4,
+          "hitRatePercent": "43.37%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.055
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.224,
+          "expectancyBps": -22.4,
+          "hitRatePercent": "42.70%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.0708
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.324,
+          "expectancyBps": -32.4,
+          "hitRatePercent": "41.90%",
+          "profitFactor": 0.744,
+          "unannualizedSharpe": -0.1023
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1085,
+      "pearsonIC": -0.0131,
+      "spearmanIC": -0.0241,
+      "tHAC": -0.7205,
+      "pValue": 0.4712,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0611,
+          "expectancyBps": -6.11,
+          "hitRatePercent": "48.20%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0205
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1111,
+          "expectancyBps": -11.11,
+          "hitRatePercent": "47.47%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0372
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1611,
+          "expectancyBps": -16.11,
+          "hitRatePercent": "46.36%",
+          "profitFactor": 0.859,
+          "unannualizedSharpe": -0.0539
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2611,
+          "expectancyBps": -26.11,
+          "hitRatePercent": "44.15%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0874
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_LINKUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 372,
+      "pearsonIC": -0.08,
+      "spearmanIC": -0.0807,
+      "tHAC": -3.0623,
+      "pValue": 0.0022,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.6305,
+          "expectancyBps": -63.05,
+          "hitRatePercent": "40.32%",
+          "profitFactor": 0.659,
+          "unannualizedSharpe": -0.1519
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.6805,
+          "expectancyBps": -68.05,
+          "hitRatePercent": "39.78%",
+          "profitFactor": 0.637,
+          "unannualizedSharpe": -0.164
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.7305,
+          "expectancyBps": -73.05,
+          "hitRatePercent": "38.98%",
+          "profitFactor": 0.617,
+          "unannualizedSharpe": -0.176
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.8305,
+          "expectancyBps": -83.05,
+          "hitRatePercent": "38.17%",
+          "profitFactor": 0.578,
+          "unannualizedSharpe": -0.2001
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_LINKUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "LINKUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 543,
+      "pearsonIC": 0.0093,
+      "spearmanIC": -0.004,
+      "tHAC": 0.3688,
+      "pValue": 0.7123,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0645,
+          "expectancyBps": 6.45,
+          "hitRatePercent": "50.83%",
+          "profitFactor": 1.041,
+          "unannualizedSharpe": 0.015
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0145,
+          "expectancyBps": 1.45,
+          "hitRatePercent": "50.28%",
+          "profitFactor": 1.009,
+          "unannualizedSharpe": 0.0034
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0355,
+          "expectancyBps": -3.55,
+          "hitRatePercent": "49.72%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0083
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1355,
+          "expectancyBps": -13.55,
+          "hitRatePercent": "48.25%",
+          "profitFactor": 0.919,
+          "unannualizedSharpe": -0.0315
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 7948,
+      "pearsonIC": -0.0081,
+      "spearmanIC": -0.0192,
+      "tHAC": -1.3638,
+      "pValue": 0.1726,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0176,
+          "expectancyBps": -1.76,
+          "hitRatePercent": "48.01%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.0149
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0676,
+          "expectancyBps": -6.76,
+          "hitRatePercent": "45.38%",
+          "profitFactor": 0.843,
+          "unannualizedSharpe": -0.057
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1176,
+          "expectancyBps": -11.76,
+          "hitRatePercent": "42.70%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.0991
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2176,
+          "expectancyBps": -21.76,
+          "hitRatePercent": "37.75%",
+          "profitFactor": 0.58,
+          "unannualizedSharpe": -0.1834
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 12618,
+      "pearsonIC": -0.0044,
+      "spearmanIC": 0.0083,
+      "tHAC": -0.7894,
+      "pValue": 0.4299,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0078,
+          "expectancyBps": -0.78,
+          "hitRatePercent": "50.78%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.007
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0578,
+          "expectancyBps": -5.78,
+          "hitRatePercent": "48.25%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.052
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1078,
+          "expectancyBps": -10.78,
+          "hitRatePercent": "45.63%",
+          "profitFactor": 0.75,
+          "unannualizedSharpe": -0.0971
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2078,
+          "expectancyBps": -20.78,
+          "hitRatePercent": "40.05%",
+          "profitFactor": 0.574,
+          "unannualizedSharpe": -0.1871
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 4053,
+      "pearsonIC": -0.0129,
+      "spearmanIC": -0.027,
+      "tHAC": -1.5306,
+      "pValue": 0.1259,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0392,
+          "expectancyBps": -3.92,
+          "hitRatePercent": "46.11%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.023
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0892,
+          "expectancyBps": -8.92,
+          "hitRatePercent": "44.16%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.0525
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1392,
+          "expectancyBps": -13.92,
+          "hitRatePercent": "42.44%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0819
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2392,
+          "expectancyBps": -23.92,
+          "hitRatePercent": "39.08%",
+          "profitFactor": 0.656,
+          "unannualizedSharpe": -0.1407
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 6167,
+      "pearsonIC": 0.0014,
+      "spearmanIC": 0.0145,
+      "tHAC": 0.1568,
+      "pValue": 0.8754,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0031,
+          "expectancyBps": 0.31,
+          "hitRatePercent": "51.73%",
+          "profitFactor": 1.006,
+          "unannualizedSharpe": 0.002
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0469,
+          "expectancyBps": -4.69,
+          "hitRatePercent": "49.89%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0299
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0969,
+          "expectancyBps": -9.69,
+          "hitRatePercent": "47.79%",
+          "profitFactor": 0.833,
+          "unannualizedSharpe": -0.0618
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1969,
+          "expectancyBps": -19.69,
+          "hitRatePercent": "43.94%",
+          "profitFactor": 0.69,
+          "unannualizedSharpe": -0.1256
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2096,
+      "pearsonIC": -0.0105,
+      "spearmanIC": -0.0194,
+      "tHAC": -0.9373,
+      "pValue": 0.3486,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0439,
+          "expectancyBps": -4.39,
+          "hitRatePercent": "47.33%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0199
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0939,
+          "expectancyBps": -9.39,
+          "hitRatePercent": "45.80%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0425
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1439,
+          "expectancyBps": -14.39,
+          "hitRatePercent": "44.47%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0651
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2439,
+          "expectancyBps": -24.39,
+          "hitRatePercent": "41.70%",
+          "profitFactor": 0.732,
+          "unannualizedSharpe": -0.1103
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2959,
+      "pearsonIC": -0.0009,
+      "spearmanIC": 0.0087,
+      "tHAC": -0.0917,
+      "pValue": 0.9269,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.004,
+          "expectancyBps": -0.4,
+          "hitRatePercent": "50.79%",
+          "profitFactor": 0.995,
+          "unannualizedSharpe": -0.0017
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.054,
+          "expectancyBps": -5.4,
+          "hitRatePercent": "49.27%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0229
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.104,
+          "expectancyBps": -10.4,
+          "hitRatePercent": "47.89%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0441
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.204,
+          "expectancyBps": -20.4,
+          "hitRatePercent": "45.15%",
+          "profitFactor": 0.769,
+          "unannualizedSharpe": -0.0866
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1053,
+      "pearsonIC": 0.0045,
+      "spearmanIC": 0.0009,
+      "tHAC": 0.2766,
+      "pValue": 0.7821,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.026,
+          "expectancyBps": 2.6,
+          "hitRatePercent": "49.48%",
+          "profitFactor": 1.025,
+          "unannualizedSharpe": 0.0086
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.024,
+          "expectancyBps": -2.4,
+          "hitRatePercent": "48.34%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.074,
+          "expectancyBps": -7.4,
+          "hitRatePercent": "47.67%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0246
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.174,
+          "expectancyBps": -17.4,
+          "hitRatePercent": "45.68%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0577
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1470,
+      "pearsonIC": -0.0289,
+      "spearmanIC": -0.0068,
+      "tHAC": -1.6337,
+      "pValue": 0.1023,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1422,
+          "expectancyBps": -14.22,
+          "hitRatePercent": "49.59%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0456
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1922,
+          "expectancyBps": -19.22,
+          "hitRatePercent": "48.84%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0616
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2422,
+          "expectancyBps": -24.22,
+          "hitRatePercent": "48.10%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0776
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3422,
+          "expectancyBps": -34.22,
+          "hitRatePercent": "46.26%",
+          "profitFactor": 0.731,
+          "unannualizedSharpe": -0.1097
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 704,
+      "pearsonIC": 0.0123,
+      "spearmanIC": 0.0052,
+      "tHAC": 0.6103,
+      "pValue": 0.5417,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0888,
+          "expectancyBps": 8.88,
+          "hitRatePercent": "50.99%",
+          "profitFactor": 1.068,
+          "unannualizedSharpe": 0.0238
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0388,
+          "expectancyBps": 3.88,
+          "hitRatePercent": "50.43%",
+          "profitFactor": 1.029,
+          "unannualizedSharpe": 0.0104
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0112,
+          "expectancyBps": -1.12,
+          "hitRatePercent": "50.28%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.003
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1112,
+          "expectancyBps": -11.12,
+          "hitRatePercent": "49.15%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0298
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 981,
+      "pearsonIC": -0.0278,
+      "spearmanIC": -0.0068,
+      "tHAC": -1.284,
+      "pValue": 0.1992,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1717,
+          "expectancyBps": -17.17,
+          "hitRatePercent": "49.44%",
+          "profitFactor": 0.882,
+          "unannualizedSharpe": -0.0423
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2217,
+          "expectancyBps": -22.17,
+          "hitRatePercent": "48.93%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0546
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2717,
+          "expectancyBps": -27.17,
+          "hitRatePercent": "47.91%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.0669
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3717,
+          "expectancyBps": -37.17,
+          "hitRatePercent": "46.18%",
+          "profitFactor": 0.761,
+          "unannualizedSharpe": -0.0916
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_SUIUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 359,
+      "pearsonIC": 0.0226,
+      "spearmanIC": 0.0126,
+      "tHAC": 0.8561,
+      "pValue": 0.392,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2257,
+          "expectancyBps": 22.57,
+          "hitRatePercent": "49.03%",
+          "profitFactor": 1.132,
+          "unannualizedSharpe": 0.0451
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1757,
+          "expectancyBps": 17.57,
+          "hitRatePercent": "48.75%",
+          "profitFactor": 1.101,
+          "unannualizedSharpe": 0.0351
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1257,
+          "expectancyBps": 12.57,
+          "hitRatePercent": "47.91%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0251
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0257,
+          "expectancyBps": 2.57,
+          "hitRatePercent": "47.08%",
+          "profitFactor": 1.014,
+          "unannualizedSharpe": 0.0051
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_SUIUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "SUIUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 501,
+      "pearsonIC": -0.0281,
+      "spearmanIC": -0.0074,
+      "tHAC": -0.8996,
+      "pValue": 0.3683,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2441,
+          "expectancyBps": -24.41,
+          "hitRatePercent": "50.50%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0437
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2941,
+          "expectancyBps": -29.41,
+          "hitRatePercent": "49.70%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.0527
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3441,
+          "expectancyBps": -34.41,
+          "hitRatePercent": "49.10%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0617
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4441,
+          "expectancyBps": -44.41,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 0.797,
+          "unannualizedSharpe": -0.0796
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 7595,
+      "pearsonIC": -0.0059,
+      "spearmanIC": -0.0272,
+      "tHAC": -0.969,
+      "pValue": 0.3325,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0104,
+          "expectancyBps": -1.04,
+          "hitRatePercent": "46.32%",
+          "profitFactor": 0.962,
+          "unannualizedSharpe": -0.0114
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0604,
+          "expectancyBps": -6.04,
+          "hitRatePercent": "43.03%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0663
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1104,
+          "expectancyBps": -11.04,
+          "hitRatePercent": "38.71%",
+          "profitFactor": 0.667,
+          "unannualizedSharpe": -0.1211
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2104,
+          "expectancyBps": -21.04,
+          "hitRatePercent": "31.67%",
+          "profitFactor": 0.469,
+          "unannualizedSharpe": -0.2308
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H1",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 1,
+      "sampleSize": 15291,
+      "pearsonIC": -0.0041,
+      "spearmanIC": 0.0063,
+      "tHAC": -0.7155,
+      "pValue": 0.4743,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0049,
+          "expectancyBps": -0.49,
+          "hitRatePercent": "51.38%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0549,
+          "expectancyBps": -5.49,
+          "hitRatePercent": "47.15%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0669
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1049,
+          "expectancyBps": -10.49,
+          "hitRatePercent": "42.42%",
+          "profitFactor": 0.649,
+          "unannualizedSharpe": -0.1277
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2049,
+          "expectancyBps": -20.49,
+          "hitRatePercent": "33.46%",
+          "profitFactor": 0.433,
+          "unannualizedSharpe": -0.2495
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 3934,
+      "pearsonIC": -0.0078,
+      "spearmanIC": -0.0245,
+      "tHAC": -0.9241,
+      "pValue": 0.3555,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0193,
+          "expectancyBps": -1.93,
+          "hitRatePercent": "46.24%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0142
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0693,
+          "expectancyBps": -6.93,
+          "hitRatePercent": "44.26%",
+          "profitFactor": 0.835,
+          "unannualizedSharpe": -0.0512
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1193,
+          "expectancyBps": -11.93,
+          "hitRatePercent": "41.59%",
+          "profitFactor": 0.734,
+          "unannualizedSharpe": -0.0881
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2193,
+          "expectancyBps": -21.93,
+          "hitRatePercent": "36.10%",
+          "profitFactor": 0.57,
+          "unannualizedSharpe": -0.1619
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H2",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 2,
+      "sampleSize": 7523,
+      "pearsonIC": 0.0003,
+      "spearmanIC": 0.015,
+      "tHAC": 0.0742,
+      "pValue": 0.9408,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.001,
+          "expectancyBps": 0.1,
+          "hitRatePercent": "51.95%",
+          "profitFactor": 1.003,
+          "unannualizedSharpe": 0.0008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.049,
+          "expectancyBps": -4.9,
+          "hitRatePercent": "49.21%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0418
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.099,
+          "expectancyBps": -9.9,
+          "hitRatePercent": "45.81%",
+          "profitFactor": 0.754,
+          "unannualizedSharpe": -0.0845
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.199,
+          "expectancyBps": -19.9,
+          "hitRatePercent": "39.17%",
+          "profitFactor": 0.567,
+          "unannualizedSharpe": -0.1699
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 2046,
+      "pearsonIC": -0.0052,
+      "spearmanIC": -0.027,
+      "tHAC": -0.4131,
+      "pValue": 0.6795,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0175,
+          "expectancyBps": -1.75,
+          "hitRatePercent": "46.68%",
+          "profitFactor": 0.967,
+          "unannualizedSharpe": -0.0097
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0675,
+          "expectancyBps": -6.75,
+          "hitRatePercent": "45.06%",
+          "profitFactor": 0.88,
+          "unannualizedSharpe": -0.0372
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1175,
+          "expectancyBps": -11.75,
+          "hitRatePercent": "42.77%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0648
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2175,
+          "expectancyBps": -21.75,
+          "hitRatePercent": "39.25%",
+          "profitFactor": 0.666,
+          "unannualizedSharpe": -0.1199
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H4",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 4,
+      "sampleSize": 3733,
+      "pearsonIC": -0.0025,
+      "spearmanIC": 0.015,
+      "tHAC": -0.1893,
+      "pValue": 0.8498,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0052,
+          "expectancyBps": -0.52,
+          "hitRatePercent": "52.05%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0552,
+          "expectancyBps": -5.52,
+          "hitRatePercent": "49.83%",
+          "profitFactor": 0.895,
+          "unannualizedSharpe": -0.0337
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1052,
+          "expectancyBps": -10.52,
+          "hitRatePercent": "47.41%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0643
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2052,
+          "expectancyBps": -20.52,
+          "hitRatePercent": "42.97%",
+          "profitFactor": 0.663,
+          "unannualizedSharpe": -0.1254
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1031,
+      "pearsonIC": 0.0175,
+      "spearmanIC": -0.0332,
+      "tHAC": 1.0589,
+      "pValue": 0.2896,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.077,
+          "expectancyBps": 7.7,
+          "hitRatePercent": "45.20%",
+          "profitFactor": 1.11,
+          "unannualizedSharpe": 0.0314
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.027,
+          "expectancyBps": 2.7,
+          "hitRatePercent": "44.03%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.011
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.023,
+          "expectancyBps": -2.3,
+          "hitRatePercent": "42.77%",
+          "profitFactor": 0.969,
+          "unannualizedSharpe": -0.0094
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.123,
+          "expectancyBps": -12.3,
+          "hitRatePercent": "39.77%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.0501
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H8",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 8,
+      "sampleSize": 1868,
+      "pearsonIC": -0.0216,
+      "spearmanIC": -0.0106,
+      "tHAC": -1.3378,
+      "pValue": 0.1809,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0687,
+          "expectancyBps": -6.87,
+          "hitRatePercent": "49.73%",
+          "profitFactor": 0.905,
+          "unannualizedSharpe": -0.0318
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1187,
+          "expectancyBps": -11.87,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 0.842,
+          "unannualizedSharpe": -0.0549
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1687,
+          "expectancyBps": -16.87,
+          "hitRatePercent": "46.47%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.078
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2687,
+          "expectancyBps": -26.87,
+          "hitRatePercent": "43.15%",
+          "profitFactor": 0.677,
+          "unannualizedSharpe": -0.1242
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 688,
+      "pearsonIC": 0.0024,
+      "spearmanIC": -0.0295,
+      "tHAC": 0.1152,
+      "pValue": 0.9083,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0126,
+          "expectancyBps": 1.26,
+          "hitRatePercent": "47.09%",
+          "profitFactor": 1.014,
+          "unannualizedSharpe": 0.0044
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0374,
+          "expectancyBps": -3.74,
+          "hitRatePercent": "45.64%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.013
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0874,
+          "expectancyBps": -8.74,
+          "hitRatePercent": "44.62%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0303
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1874,
+          "expectancyBps": -18.74,
+          "hitRatePercent": "42.01%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.065
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H12",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 12,
+      "sampleSize": 1259,
+      "pearsonIC": 0.0001,
+      "spearmanIC": 0.0065,
+      "tHAC": 0.0509,
+      "pValue": 0.9594,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.004,
+          "expectancyBps": 0.4,
+          "hitRatePercent": "52.66%",
+          "profitFactor": 1.004,
+          "unannualizedSharpe": 0.0014
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.046,
+          "expectancyBps": -4.6,
+          "hitRatePercent": "51.63%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0159
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.096,
+          "expectancyBps": -9.6,
+          "hitRatePercent": "50.44%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0331
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.196,
+          "expectancyBps": -19.6,
+          "hitRatePercent": "47.58%",
+          "profitFactor": 0.805,
+          "unannualizedSharpe": -0.0676
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_MOM_XRPUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Trend Following in Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 343,
+      "pearsonIC": -0.0281,
+      "spearmanIC": -0.0573,
+      "tHAC": -0.9362,
+      "pValue": 0.3492,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2241,
+          "expectancyBps": -22.41,
+          "hitRatePercent": "44.31%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0536
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2741,
+          "expectancyBps": -27.41,
+          "hitRatePercent": "43.44%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.0656
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3241,
+          "expectancyBps": -32.41,
+          "hitRatePercent": "42.27%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0776
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4241,
+          "expectancyBps": -42.41,
+          "hitRatePercent": "40.23%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.1015
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W06_GATED_REV_XRPUSDT_H24",
+      "worker": "W06_REGIME",
+      "mechanism": "Hurst-Gated Mean Reversion in Anti-Persistent Regimes",
+      "asset": "XRPUSDT",
+      "lookback": 64,
+      "horizon": 24,
+      "sampleSize": 622,
+      "pearsonIC": -0.0139,
+      "spearmanIC": -0.0079,
+      "tHAC": -0.4799,
+      "pValue": 0.6313,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0708,
+          "expectancyBps": -7.08,
+          "hitRatePercent": "50.16%",
+          "profitFactor": 0.946,
+          "unannualizedSharpe": -0.0179
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1208,
+          "expectancyBps": -12.08,
+          "hitRatePercent": "49.20%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0305
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1708,
+          "expectancyBps": -17.08,
+          "hitRatePercent": "48.39%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.0431
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2708,
+          "expectancyBps": -27.08,
+          "hitRatePercent": "46.62%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0684
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

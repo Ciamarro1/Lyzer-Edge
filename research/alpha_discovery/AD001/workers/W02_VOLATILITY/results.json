@@ -1,0 +1,5289 @@
+{
+  "workerId": "W02_VOLATILITY",
+  "timestampUTC": "2026-09-03T02:41:35.069Z",
+  "elapsedMs": 3925,
+  "totalHypothesesTested": 120,
+  "candidatesCount": 1,
+  "hypotheses": [
+    {
+      "id": "W02_VER_BTCUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 26473,
+      "pearsonIC": 0.0067,
+      "spearmanIC": -0.0038,
+      "tHAC": 1.9245,
+      "pValue": 0.0543,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0058,
+          "expectancyBps": 0.58,
+          "hitRatePercent": "50.55%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.0119
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0442,
+          "expectancyBps": -4.42,
+          "hitRatePercent": "43.09%",
+          "profitFactor": 0.751,
+          "unannualizedSharpe": -0.0904
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0942,
+          "expectancyBps": -9.42,
+          "hitRatePercent": "35.81%",
+          "profitFactor": 0.547,
+          "unannualizedSharpe": -0.1926
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1942,
+          "expectancyBps": -19.42,
+          "hitRatePercent": "24.87%",
+          "profitFactor": 0.301,
+          "unannualizedSharpe": -0.3972
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BTCUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 13231,
+      "pearsonIC": 0.0103,
+      "spearmanIC": -0.0014,
+      "tHAC": 1.9595,
+      "pValue": 0.0501,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0119,
+          "expectancyBps": 1.19,
+          "hitRatePercent": "51.15%",
+          "profitFactor": 1.056,
+          "unannualizedSharpe": 0.0173
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0381,
+          "expectancyBps": -3.81,
+          "hitRatePercent": "45.83%",
+          "profitFactor": 0.84,
+          "unannualizedSharpe": -0.0555
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0881,
+          "expectancyBps": -8.81,
+          "hitRatePercent": "40.64%",
+          "profitFactor": 0.669,
+          "unannualizedSharpe": -0.1284
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1881,
+          "expectancyBps": -18.81,
+          "hitRatePercent": "31.18%",
+          "profitFactor": 0.43,
+          "unannualizedSharpe": -0.2742
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BTCUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6648,
+      "pearsonIC": 0.0091,
+      "spearmanIC": -0.0098,
+      "tHAC": 1.8873,
+      "pValue": 0.0591,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0226,
+          "expectancyBps": 2.26,
+          "hitRatePercent": "50.98%",
+          "profitFactor": 1.075,
+          "unannualizedSharpe": 0.0228
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0274,
+          "expectancyBps": -2.74,
+          "hitRatePercent": "46.93%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0278
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0774,
+          "expectancyBps": -7.74,
+          "hitRatePercent": "43.01%",
+          "profitFactor": 0.782,
+          "unannualizedSharpe": -0.0783
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1774,
+          "expectancyBps": -17.74,
+          "hitRatePercent": "36.09%",
+          "profitFactor": 0.573,
+          "unannualizedSharpe": -0.1795
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BTCUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3352,
+      "pearsonIC": 0.0042,
+      "spearmanIC": -0.0106,
+      "tHAC": 0.567,
+      "pValue": 0.5707,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0132,
+          "expectancyBps": 1.32,
+          "hitRatePercent": "49.79%",
+          "profitFactor": 1.029,
+          "unannualizedSharpe": 0.0096
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0368,
+          "expectancyBps": -3.68,
+          "hitRatePercent": "46.84%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0269
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0868,
+          "expectancyBps": -8.68,
+          "hitRatePercent": "44.06%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0633
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1868,
+          "expectancyBps": -18.68,
+          "hitRatePercent": "39.05%",
+          "profitFactor": 0.668,
+          "unannualizedSharpe": -0.1363
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BTCUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2219,
+      "pearsonIC": -0.0103,
+      "spearmanIC": -0.0156,
+      "tHAC": 0.2544,
+      "pValue": 0.7992,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0091,
+          "expectancyBps": 0.91,
+          "hitRatePercent": "49.30%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0052
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0409,
+          "expectancyBps": -4.09,
+          "hitRatePercent": "46.78%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0235
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0909,
+          "expectancyBps": -9.09,
+          "hitRatePercent": "44.57%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0523
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1909,
+          "expectancyBps": -19.09,
+          "hitRatePercent": "40.06%",
+          "profitFactor": 0.716,
+          "unannualizedSharpe": -0.1098
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BTCUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BTCUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1096,
+      "pearsonIC": 0.0272,
+      "spearmanIC": -0.0088,
+      "tHAC": 0.4934,
+      "pValue": 0.6218,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.035,
+          "expectancyBps": 3.5,
+          "hitRatePercent": "50.82%",
+          "profitFactor": 1.042,
+          "unannualizedSharpe": 0.0144
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.015,
+          "expectancyBps": -1.5,
+          "hitRatePercent": "49.00%",
+          "profitFactor": 0.982,
+          "unannualizedSharpe": -0.0062
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.065,
+          "expectancyBps": -6.5,
+          "hitRatePercent": "47.17%",
+          "profitFactor": 0.926,
+          "unannualizedSharpe": -0.0268
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.165,
+          "expectancyBps": -16.5,
+          "hitRatePercent": "43.70%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0681
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3119,
+      "pearsonIC": 0.0068,
+      "spearmanIC": -0.0121,
+      "tHAC": -0.4943,
+      "pValue": 0.6211,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0059,
+          "expectancyBps": -0.59,
+          "hitRatePercent": "51.23%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0087
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0559,
+          "expectancyBps": -5.59,
+          "hitRatePercent": "46.14%",
+          "profitFactor": 0.772,
+          "unannualizedSharpe": -0.0826
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1059,
+          "expectancyBps": -10.59,
+          "hitRatePercent": "40.37%",
+          "profitFactor": 0.613,
+          "unannualizedSharpe": -0.1566
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2059,
+          "expectancyBps": -20.59,
+          "hitRatePercent": "30.84%",
+          "profitFactor": 0.391,
+          "unannualizedSharpe": -0.3044
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1565,
+      "pearsonIC": -0.0037,
+      "spearmanIC": -0.0155,
+      "tHAC": -1.1423,
+      "pValue": 0.2533,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.025,
+          "expectancyBps": -2.5,
+          "hitRatePercent": "49.71%",
+          "profitFactor": 0.919,
+          "unannualizedSharpe": -0.0273
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.075,
+          "expectancyBps": -7.5,
+          "hitRatePercent": "45.75%",
+          "profitFactor": 0.776,
+          "unannualizedSharpe": -0.0821
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.125,
+          "expectancyBps": -12.5,
+          "hitRatePercent": "41.98%",
+          "profitFactor": 0.656,
+          "unannualizedSharpe": -0.1368
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.225,
+          "expectancyBps": -22.5,
+          "hitRatePercent": "34.89%",
+          "profitFactor": 0.471,
+          "unannualizedSharpe": -0.2463
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 787,
+      "pearsonIC": 0.0048,
+      "spearmanIC": -0.0124,
+      "tHAC": -1.0301,
+      "pValue": 0.303,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0461,
+          "expectancyBps": -4.61,
+          "hitRatePercent": "50.06%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.0362
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0961,
+          "expectancyBps": -9.61,
+          "hitRatePercent": "47.40%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0756
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1461,
+          "expectancyBps": -14.61,
+          "hitRatePercent": "43.96%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.1149
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2461,
+          "expectancyBps": -24.61,
+          "hitRatePercent": "38.88%",
+          "profitFactor": 0.549,
+          "unannualizedSharpe": -0.1936
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 398,
+      "pearsonIC": -0.0015,
+      "spearmanIC": -0.0333,
+      "tHAC": -1.1863,
+      "pValue": 0.2355,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1043,
+          "expectancyBps": -10.43,
+          "hitRatePercent": "50.75%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0638
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1543,
+          "expectancyBps": -15.43,
+          "hitRatePercent": "46.23%",
+          "profitFactor": 0.754,
+          "unannualizedSharpe": -0.0944
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2043,
+          "expectancyBps": -20.43,
+          "hitRatePercent": "43.97%",
+          "profitFactor": 0.688,
+          "unannualizedSharpe": -0.1249
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3043,
+          "expectancyBps": -30.43,
+          "hitRatePercent": "40.45%",
+          "profitFactor": 0.574,
+          "unannualizedSharpe": -0.1861
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 243,
+      "pearsonIC": 0.0421,
+      "spearmanIC": 0.0215,
+      "tHAC": 0.9218,
+      "pValue": 0.3566,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1164,
+          "expectancyBps": 11.64,
+          "hitRatePercent": "53.50%",
+          "profitFactor": 1.176,
+          "unannualizedSharpe": 0.0521
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0664,
+          "expectancyBps": 6.64,
+          "hitRatePercent": "51.44%",
+          "profitFactor": 1.097,
+          "unannualizedSharpe": 0.0297
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0164,
+          "expectancyBps": 1.64,
+          "hitRatePercent": "48.97%",
+          "profitFactor": 1.023,
+          "unannualizedSharpe": 0.0074
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0836,
+          "expectancyBps": -8.36,
+          "hitRatePercent": "46.09%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0374
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BTCUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 153,
+      "pearsonIC": 0.0228,
+      "spearmanIC": 0.0298,
+      "tHAC": -0.2118,
+      "pValue": 0.8322,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0518,
+          "expectancyBps": -5.18,
+          "hitRatePercent": "50.98%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0184
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1018,
+          "expectancyBps": -10.18,
+          "hitRatePercent": "50.33%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0363
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1518,
+          "expectancyBps": -15.18,
+          "hitRatePercent": "49.67%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0541
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2518,
+          "expectancyBps": -25.18,
+          "hitRatePercent": "48.37%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0897
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 25559,
+      "pearsonIC": 0.0122,
+      "spearmanIC": 0.0002,
+      "tHAC": 2.781,
+      "pValue": 0.0054,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0114,
+          "expectancyBps": 1.14,
+          "hitRatePercent": "50.81%",
+          "profitFactor": 1.058,
+          "unannualizedSharpe": 0.0175
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0386,
+          "expectancyBps": -3.86,
+          "hitRatePercent": "44.96%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0593
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0886,
+          "expectancyBps": -8.86,
+          "hitRatePercent": "39.41%",
+          "profitFactor": 0.65,
+          "unannualizedSharpe": -0.1361
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1886,
+          "expectancyBps": -18.86,
+          "hitRatePercent": "29.87%",
+          "profitFactor": 0.408,
+          "unannualizedSharpe": -0.2898
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12753,
+      "pearsonIC": 0.0137,
+      "spearmanIC": -0.0099,
+      "tHAC": 2.3894,
+      "pValue": 0.0169,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0198,
+          "expectancyBps": 1.98,
+          "hitRatePercent": "51.30%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0216
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0302,
+          "expectancyBps": -3.02,
+          "hitRatePercent": "47.16%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0328
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0802,
+          "expectancyBps": -8.02,
+          "hitRatePercent": "43.06%",
+          "profitFactor": 0.76,
+          "unannualizedSharpe": -0.0872
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1802,
+          "expectancyBps": -18.02,
+          "hitRatePercent": "35.73%",
+          "profitFactor": 0.544,
+          "unannualizedSharpe": -0.196
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6403,
+      "pearsonIC": 0.0078,
+      "spearmanIC": -0.0222,
+      "tHAC": 2.2915,
+      "pValue": 0.0219,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0378,
+          "expectancyBps": 3.78,
+          "hitRatePercent": "51.43%",
+          "profitFactor": 1.094,
+          "unannualizedSharpe": 0.0287
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0122,
+          "expectancyBps": -1.22,
+          "hitRatePercent": "47.95%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.0093
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0622,
+          "expectancyBps": -6.22,
+          "hitRatePercent": "45.01%",
+          "profitFactor": 0.863,
+          "unannualizedSharpe": -0.0472
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1622,
+          "expectancyBps": -16.22,
+          "hitRatePercent": "39.65%",
+          "profitFactor": 0.683,
+          "unannualizedSharpe": -0.123
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3255,
+      "pearsonIC": 0.0199,
+      "spearmanIC": -0.0149,
+      "tHAC": 1.2009,
+      "pValue": 0.2298,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0392,
+          "expectancyBps": 3.92,
+          "hitRatePercent": "51.09%",
+          "profitFactor": 1.066,
+          "unannualizedSharpe": 0.0213
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0108,
+          "expectancyBps": -1.08,
+          "hitRatePercent": "48.88%",
+          "profitFactor": 0.982,
+          "unannualizedSharpe": -0.0059
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0608,
+          "expectancyBps": -6.08,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.905,
+          "unannualizedSharpe": -0.0331
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1608,
+          "expectancyBps": -16.08,
+          "hitRatePercent": "42.67%",
+          "profitFactor": 0.77,
+          "unannualizedSharpe": -0.0875
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2130,
+      "pearsonIC": -0.0006,
+      "spearmanIC": -0.0202,
+      "tHAC": 1.6037,
+      "pValue": 0.1088,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0826,
+          "expectancyBps": 8.26,
+          "hitRatePercent": "49.86%",
+          "profitFactor": 1.116,
+          "unannualizedSharpe": 0.0358
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0326,
+          "expectancyBps": 3.26,
+          "hitRatePercent": "48.40%",
+          "profitFactor": 1.044,
+          "unannualizedSharpe": 0.0141
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0174,
+          "expectancyBps": -1.74,
+          "hitRatePercent": "46.85%",
+          "profitFactor": 0.977,
+          "unannualizedSharpe": -0.0075
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1174,
+          "expectancyBps": -11.74,
+          "hitRatePercent": "43.29%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0509
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ETHUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ETHUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1069,
+      "pearsonIC": 0.021,
+      "spearmanIC": -0.0029,
+      "tHAC": -0.1344,
+      "pValue": 0.8931,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0132,
+          "expectancyBps": -1.32,
+          "hitRatePercent": "49.11%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0632,
+          "expectancyBps": -6.32,
+          "hitRatePercent": "47.99%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0194
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1132,
+          "expectancyBps": -11.32,
+          "hitRatePercent": "46.96%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0348
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2132,
+          "expectancyBps": -21.32,
+          "hitRatePercent": "44.81%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0656
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3334,
+      "pearsonIC": -0.0129,
+      "spearmanIC": -0.0111,
+      "tHAC": -1.0603,
+      "pValue": 0.289,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0161,
+          "expectancyBps": -1.61,
+          "hitRatePercent": "51.53%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0182
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0661,
+          "expectancyBps": -6.61,
+          "hitRatePercent": "47.66%",
+          "profitFactor": 0.788,
+          "unannualizedSharpe": -0.0745
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1161,
+          "expectancyBps": -11.61,
+          "hitRatePercent": "43.40%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1308
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2161,
+          "expectancyBps": -21.61,
+          "hitRatePercent": "35.12%",
+          "profitFactor": 0.46,
+          "unannualizedSharpe": -0.2434
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1670,
+      "pearsonIC": -0.028,
+      "spearmanIC": -0.0179,
+      "tHAC": -1.7796,
+      "pValue": 0.0751,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0513,
+          "expectancyBps": -5.13,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.043
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1013,
+          "expectancyBps": -10.13,
+          "hitRatePercent": "47.19%",
+          "profitFactor": 0.767,
+          "unannualizedSharpe": -0.085
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1513,
+          "expectancyBps": -15.13,
+          "hitRatePercent": "43.35%",
+          "profitFactor": 0.672,
+          "unannualizedSharpe": -0.1269
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2513,
+          "expectancyBps": -25.13,
+          "hitRatePercent": "37.31%",
+          "profitFactor": 0.518,
+          "unannualizedSharpe": -0.2107
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 827,
+      "pearsonIC": -0.0317,
+      "spearmanIC": -0.0168,
+      "tHAC": -0.6443,
+      "pValue": 0.5194,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0378,
+          "expectancyBps": -3.78,
+          "hitRatePercent": "52.60%",
+          "profitFactor": 0.931,
+          "unannualizedSharpe": -0.0226
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0878,
+          "expectancyBps": -8.78,
+          "hitRatePercent": "50.79%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0524
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1378,
+          "expectancyBps": -13.78,
+          "hitRatePercent": "47.88%",
+          "profitFactor": 0.771,
+          "unannualizedSharpe": -0.0822
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2378,
+          "expectancyBps": -23.78,
+          "hitRatePercent": "43.53%",
+          "profitFactor": 0.637,
+          "unannualizedSharpe": -0.1419
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 419,
+      "pearsonIC": -0.048,
+      "spearmanIC": -0.0462,
+      "tHAC": -2.0681,
+      "pValue": 0.0386,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2294,
+          "expectancyBps": -22.94,
+          "hitRatePercent": "52.03%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.1016
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2794,
+          "expectancyBps": -27.94,
+          "hitRatePercent": "49.64%",
+          "profitFactor": 0.695,
+          "unannualizedSharpe": -0.1237
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3294,
+          "expectancyBps": -32.94,
+          "hitRatePercent": "47.97%",
+          "profitFactor": 0.65,
+          "unannualizedSharpe": -0.1458
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4294,
+          "expectancyBps": -42.94,
+          "hitRatePercent": "43.68%",
+          "profitFactor": 0.568,
+          "unannualizedSharpe": -0.1901
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 260,
+      "pearsonIC": -0.0216,
+      "spearmanIC": -0.0041,
+      "tHAC": 0.4568,
+      "pValue": 0.6478,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0683,
+          "expectancyBps": 6.83,
+          "hitRatePercent": "51.54%",
+          "profitFactor": 1.077,
+          "unannualizedSharpe": 0.0245
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0183,
+          "expectancyBps": 1.83,
+          "hitRatePercent": "51.15%",
+          "profitFactor": 1.02,
+          "unannualizedSharpe": 0.0066
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0317,
+          "expectancyBps": -3.17,
+          "hitRatePercent": "50.38%",
+          "profitFactor": 0.966,
+          "unannualizedSharpe": -0.0113
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1317,
+          "expectancyBps": -13.17,
+          "hitRatePercent": "46.92%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0472
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ETHUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 156,
+      "pearsonIC": 0.0162,
+      "spearmanIC": 0.0354,
+      "tHAC": 0.1463,
+      "pValue": 0.8837,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0407,
+          "expectancyBps": 4.07,
+          "hitRatePercent": "54.49%",
+          "profitFactor": 1.03,
+          "unannualizedSharpe": 0.0113
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0093,
+          "expectancyBps": -0.93,
+          "hitRatePercent": "54.49%",
+          "profitFactor": 0.993,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0593,
+          "expectancyBps": -5.93,
+          "hitRatePercent": "53.21%",
+          "profitFactor": 0.957,
+          "unannualizedSharpe": -0.0164
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1593,
+          "expectancyBps": -15.93,
+          "hitRatePercent": "51.92%",
+          "profitFactor": 0.889,
+          "unannualizedSharpe": -0.044
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24556,
+      "pearsonIC": 0.0051,
+      "spearmanIC": -0.0076,
+      "tHAC": 2.9494,
+      "pValue": 0.0032,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0171,
+          "expectancyBps": 1.71,
+          "hitRatePercent": "50.68%",
+          "profitFactor": 1.057,
+          "unannualizedSharpe": 0.0185
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0329,
+          "expectancyBps": -3.29,
+          "hitRatePercent": "47.58%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0355
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0829,
+          "expectancyBps": -8.29,
+          "hitRatePercent": "44.28%",
+          "profitFactor": 0.763,
+          "unannualizedSharpe": -0.0896
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1829,
+          "expectancyBps": -18.29,
+          "hitRatePercent": "37.45%",
+          "profitFactor": 0.553,
+          "unannualizedSharpe": -0.1976
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12259,
+      "pearsonIC": 0.0028,
+      "spearmanIC": -0.0126,
+      "tHAC": 2.7071,
+      "pValue": 0.0068,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0313,
+          "expectancyBps": 3.13,
+          "hitRatePercent": "51.40%",
+          "profitFactor": 1.075,
+          "unannualizedSharpe": 0.0239
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0187,
+          "expectancyBps": -1.87,
+          "hitRatePercent": "49.00%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0142
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0687,
+          "expectancyBps": -6.87,
+          "hitRatePercent": "46.42%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.0524
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1687,
+          "expectancyBps": -16.87,
+          "hitRatePercent": "41.42%",
+          "profitFactor": 0.677,
+          "unannualizedSharpe": -0.1287
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6151,
+      "pearsonIC": 0.0094,
+      "spearmanIC": -0.0126,
+      "tHAC": 2.5621,
+      "pValue": 0.0104,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0596,
+          "expectancyBps": 5.96,
+          "hitRatePercent": "51.24%",
+          "profitFactor": 1.102,
+          "unannualizedSharpe": 0.0328
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0096,
+          "expectancyBps": 0.96,
+          "hitRatePercent": "49.33%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0053
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0404,
+          "expectancyBps": -4.04,
+          "hitRatePercent": "47.60%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0222
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1404,
+          "expectancyBps": -14.04,
+          "hitRatePercent": "44.07%",
+          "profitFactor": 0.796,
+          "unannualizedSharpe": -0.0771
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3083,
+      "pearsonIC": 0.0418,
+      "spearmanIC": 0.0176,
+      "tHAC": 1.411,
+      "pValue": 0.1582,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0631,
+          "expectancyBps": 6.31,
+          "hitRatePercent": "51.18%",
+          "profitFactor": 1.074,
+          "unannualizedSharpe": 0.0247
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0131,
+          "expectancyBps": 1.31,
+          "hitRatePercent": "50.11%",
+          "profitFactor": 1.015,
+          "unannualizedSharpe": 0.0051
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0369,
+          "expectancyBps": -3.69,
+          "hitRatePercent": "48.98%",
+          "profitFactor": 0.959,
+          "unannualizedSharpe": -0.0144
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1369,
+          "expectancyBps": -13.69,
+          "hitRatePercent": "46.68%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0536
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2073,
+      "pearsonIC": 0.003,
+      "spearmanIC": -0.0084,
+      "tHAC": 1.1542,
+      "pValue": 0.2484,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0768,
+          "expectancyBps": 7.68,
+          "hitRatePercent": "50.80%",
+          "profitFactor": 1.073,
+          "unannualizedSharpe": 0.0246
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0268,
+          "expectancyBps": 2.68,
+          "hitRatePercent": "49.69%",
+          "profitFactor": 1.025,
+          "unannualizedSharpe": 0.0086
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0232,
+          "expectancyBps": -2.32,
+          "hitRatePercent": "49.16%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0074
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1232,
+          "expectancyBps": -12.32,
+          "hitRatePercent": "46.65%",
+          "profitFactor": 0.893,
+          "unannualizedSharpe": -0.0395
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SOLUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SOLUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1013,
+      "pearsonIC": -0.0014,
+      "spearmanIC": -0.019,
+      "tHAC": -0.7316,
+      "pValue": 0.4644,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1004,
+          "expectancyBps": -10.04,
+          "hitRatePercent": "48.96%",
+          "profitFactor": 0.94,
+          "unannualizedSharpe": -0.0224
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1504,
+          "expectancyBps": -15.04,
+          "hitRatePercent": "48.37%",
+          "profitFactor": 0.911,
+          "unannualizedSharpe": -0.0336
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2004,
+          "expectancyBps": -20.04,
+          "hitRatePercent": "47.68%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0448
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3004,
+          "expectancyBps": -30.04,
+          "hitRatePercent": "46.59%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0671
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3185,
+      "pearsonIC": 0.0004,
+      "spearmanIC": -0.0081,
+      "tHAC": -0.8542,
+      "pValue": 0.393,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0183,
+          "expectancyBps": -1.83,
+          "hitRatePercent": "50.93%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0142
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0683,
+          "expectancyBps": -6.83,
+          "hitRatePercent": "48.63%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0529
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1183,
+          "expectancyBps": -11.83,
+          "hitRatePercent": "46.19%",
+          "profitFactor": 0.755,
+          "unannualizedSharpe": -0.0916
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2183,
+          "expectancyBps": -21.83,
+          "hitRatePercent": "40.82%",
+          "profitFactor": 0.595,
+          "unannualizedSharpe": -0.1691
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1590,
+      "pearsonIC": -0.0077,
+      "spearmanIC": -0.011,
+      "tHAC": -1.1144,
+      "pValue": 0.2651,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0467,
+          "expectancyBps": -4.67,
+          "hitRatePercent": "50.44%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0266
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0967,
+          "expectancyBps": -9.67,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0551
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1467,
+          "expectancyBps": -14.67,
+          "hitRatePercent": "46.92%",
+          "profitFactor": 0.777,
+          "unannualizedSharpe": -0.0836
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2467,
+          "expectancyBps": -24.67,
+          "hitRatePercent": "42.83%",
+          "profitFactor": 0.654,
+          "unannualizedSharpe": -0.1405
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 790,
+      "pearsonIC": -0.0177,
+      "spearmanIC": -0.0118,
+      "tHAC": -1.3844,
+      "pValue": 0.1662,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1138,
+          "expectancyBps": -11.38,
+          "hitRatePercent": "50.89%",
+          "profitFactor": 0.865,
+          "unannualizedSharpe": -0.0479
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1638,
+          "expectancyBps": -16.38,
+          "hitRatePercent": "49.24%",
+          "profitFactor": 0.811,
+          "unannualizedSharpe": -0.0689
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2138,
+          "expectancyBps": -21.38,
+          "hitRatePercent": "47.97%",
+          "profitFactor": 0.76,
+          "unannualizedSharpe": -0.09
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3138,
+          "expectancyBps": -31.38,
+          "hitRatePercent": "45.32%",
+          "profitFactor": 0.668,
+          "unannualizedSharpe": -0.132
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 404,
+      "pearsonIC": -0.0555,
+      "spearmanIC": -0.0469,
+      "tHAC": -2.763,
+      "pValue": 0.0057,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3978,
+          "expectancyBps": -39.78,
+          "hitRatePercent": "44.06%",
+          "profitFactor": 0.688,
+          "unannualizedSharpe": -0.1259
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4478,
+          "expectancyBps": -44.78,
+          "hitRatePercent": "43.32%",
+          "profitFactor": 0.656,
+          "unannualizedSharpe": -0.1418
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4978,
+          "expectancyBps": -49.78,
+          "hitRatePercent": "42.57%",
+          "profitFactor": 0.626,
+          "unannualizedSharpe": -0.1576
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5978,
+          "expectancyBps": -59.78,
+          "hitRatePercent": "40.10%",
+          "profitFactor": 0.569,
+          "unannualizedSharpe": -0.1893
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 257,
+      "pearsonIC": -0.0114,
+      "spearmanIC": -0.0224,
+      "tHAC": -0.8982,
+      "pValue": 0.3691,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1875,
+          "expectancyBps": -18.75,
+          "hitRatePercent": "45.53%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0477
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2375,
+          "expectancyBps": -23.75,
+          "hitRatePercent": "44.75%",
+          "profitFactor": 0.838,
+          "unannualizedSharpe": -0.0605
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2875,
+          "expectancyBps": -28.75,
+          "hitRatePercent": "44.36%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0732
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3875,
+          "expectancyBps": -38.75,
+          "hitRatePercent": "42.80%",
+          "profitFactor": 0.749,
+          "unannualizedSharpe": -0.0987
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SOLUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 154,
+      "pearsonIC": 0.0053,
+      "spearmanIC": 0.009,
+      "tHAC": -0.3088,
+      "pValue": 0.7575,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1348,
+          "expectancyBps": -13.48,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.0256
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1848,
+          "expectancyBps": -18.48,
+          "hitRatePercent": "44.81%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0351
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2348,
+          "expectancyBps": -23.48,
+          "hitRatePercent": "43.51%",
+          "profitFactor": 0.885,
+          "unannualizedSharpe": -0.0446
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3348,
+          "expectancyBps": -33.48,
+          "hitRatePercent": "43.51%",
+          "profitFactor": 0.841,
+          "unannualizedSharpe": -0.0636
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24964,
+      "pearsonIC": -0.0028,
+      "spearmanIC": -0.013,
+      "tHAC": 1.5551,
+      "pValue": 0.1199,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0056,
+          "expectancyBps": 0.56,
+          "hitRatePercent": "50.67%",
+          "profitFactor": 1.031,
+          "unannualizedSharpe": 0.0097
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0444,
+          "expectancyBps": -4.44,
+          "hitRatePercent": "44.80%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0766
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0944,
+          "expectancyBps": -9.44,
+          "hitRatePercent": "38.90%",
+          "profitFactor": 0.601,
+          "unannualizedSharpe": -0.1629
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1944,
+          "expectancyBps": -19.44,
+          "hitRatePercent": "28.69%",
+          "profitFactor": 0.359,
+          "unannualizedSharpe": -0.3355
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12470,
+      "pearsonIC": -0.004,
+      "spearmanIC": -0.0183,
+      "tHAC": 1.4638,
+      "pValue": 0.1433,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0106,
+          "expectancyBps": 1.06,
+          "hitRatePercent": "50.63%",
+          "profitFactor": 1.042,
+          "unannualizedSharpe": 0.0131
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0394,
+          "expectancyBps": -3.94,
+          "hitRatePercent": "46.33%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0488
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0894,
+          "expectancyBps": -8.94,
+          "hitRatePercent": "41.82%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1107
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1894,
+          "expectancyBps": -18.94,
+          "hitRatePercent": "34.04%",
+          "profitFactor": 0.486,
+          "unannualizedSharpe": -0.2346
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6266,
+      "pearsonIC": 0.0001,
+      "spearmanIC": -0.0189,
+      "tHAC": 1.3708,
+      "pValue": 0.1704,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.02,
+          "expectancyBps": 2,
+          "hitRatePercent": "50.37%",
+          "profitFactor": 1.055,
+          "unannualizedSharpe": 0.0174
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.03,
+          "expectancyBps": -3,
+          "hitRatePercent": "47.70%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0262
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.08,
+          "expectancyBps": -8,
+          "hitRatePercent": "44.53%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0698
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.18,
+          "expectancyBps": -18,
+          "hitRatePercent": "39.10%",
+          "profitFactor": 0.62,
+          "unannualizedSharpe": -0.1571
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3150,
+      "pearsonIC": 0.0045,
+      "spearmanIC": -0.0141,
+      "tHAC": 0.6273,
+      "pValue": 0.5305,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0173,
+          "expectancyBps": 1.73,
+          "hitRatePercent": "50.54%",
+          "profitFactor": 1.033,
+          "unannualizedSharpe": 0.0108
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0327,
+          "expectancyBps": -3.27,
+          "hitRatePercent": "48.29%",
+          "profitFactor": 0.94,
+          "unannualizedSharpe": -0.0204
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0827,
+          "expectancyBps": -8.27,
+          "hitRatePercent": "45.62%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0517
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1827,
+          "expectancyBps": -18.27,
+          "hitRatePercent": "41.78%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1142
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2119,
+      "pearsonIC": -0.0173,
+      "spearmanIC": -0.0074,
+      "tHAC": -0.1371,
+      "pValue": 0.891,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0056,
+          "expectancyBps": -0.56,
+          "hitRatePercent": "50.02%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.0029
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0556,
+          "expectancyBps": -5.56,
+          "hitRatePercent": "48.23%",
+          "profitFactor": 0.917,
+          "unannualizedSharpe": -0.0283
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1056,
+          "expectancyBps": -10.56,
+          "hitRatePercent": "46.15%",
+          "profitFactor": 0.848,
+          "unannualizedSharpe": -0.0537
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2056,
+          "expectancyBps": -20.56,
+          "hitRatePercent": "42.90%",
+          "profitFactor": 0.727,
+          "unannualizedSharpe": -0.1046
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_BNBUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "BNBUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1061,
+      "pearsonIC": -0.0269,
+      "spearmanIC": -0.0326,
+      "tHAC": -2.4282,
+      "pValue": 0.0152,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1763,
+          "expectancyBps": -17.63,
+          "hitRatePercent": "48.16%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2263,
+          "expectancyBps": -22.63,
+          "hitRatePercent": "46.94%",
+          "profitFactor": 0.782,
+          "unannualizedSharpe": -0.0847
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2763,
+          "expectancyBps": -27.63,
+          "hitRatePercent": "45.15%",
+          "profitFactor": 0.74,
+          "unannualizedSharpe": -0.1034
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3763,
+          "expectancyBps": -37.63,
+          "hitRatePercent": "43.73%",
+          "profitFactor": 0.664,
+          "unannualizedSharpe": -0.1408
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3693,
+      "pearsonIC": 0.0212,
+      "spearmanIC": 0.0079,
+      "tHAC": 1.0341,
+      "pValue": 0.3011,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.013,
+          "expectancyBps": 1.3,
+          "hitRatePercent": "51.94%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0158
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.037,
+          "expectancyBps": -3.7,
+          "hitRatePercent": "48.25%",
+          "profitFactor": 0.866,
+          "unannualizedSharpe": -0.0449
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.087,
+          "expectancyBps": -8.7,
+          "hitRatePercent": "43.87%",
+          "profitFactor": 0.714,
+          "unannualizedSharpe": -0.1056
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.187,
+          "expectancyBps": -18.7,
+          "hitRatePercent": "35.15%",
+          "profitFactor": 0.487,
+          "unannualizedSharpe": -0.227
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1828,
+      "pearsonIC": 0.0203,
+      "spearmanIC": 0.0123,
+      "tHAC": 0.8762,
+      "pValue": 0.3809,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0222,
+          "expectancyBps": 2.22,
+          "hitRatePercent": "52.79%",
+          "profitFactor": 1.065,
+          "unannualizedSharpe": 0.0198
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0278,
+          "expectancyBps": -2.78,
+          "hitRatePercent": "49.67%",
+          "profitFactor": 0.924,
+          "unannualizedSharpe": -0.0249
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0778,
+          "expectancyBps": -7.78,
+          "hitRatePercent": "46.66%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0697
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1778,
+          "expectancyBps": -17.78,
+          "hitRatePercent": "40.70%",
+          "profitFactor": 0.602,
+          "unannualizedSharpe": -0.1592
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 921,
+      "pearsonIC": 0.0196,
+      "spearmanIC": 0.015,
+      "tHAC": 0.767,
+      "pValue": 0.4431,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.034,
+          "expectancyBps": 3.4,
+          "hitRatePercent": "52.99%",
+          "profitFactor": 1.073,
+          "unannualizedSharpe": 0.0225
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.016,
+          "expectancyBps": -1.6,
+          "hitRatePercent": "50.60%",
+          "profitFactor": 0.967,
+          "unannualizedSharpe": -0.0106
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.066,
+          "expectancyBps": -6.6,
+          "hitRatePercent": "48.21%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0437
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.166,
+          "expectancyBps": -16.6,
+          "hitRatePercent": "43.97%",
+          "profitFactor": 0.709,
+          "unannualizedSharpe": -0.1098
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 467,
+      "pearsonIC": 0.0198,
+      "spearmanIC": 0.0128,
+      "tHAC": -0.0681,
+      "pValue": 0.9457,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0063,
+          "expectancyBps": -0.63,
+          "hitRatePercent": "54.18%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0563,
+          "expectancyBps": -5.63,
+          "hitRatePercent": "52.46%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.028
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1063,
+          "expectancyBps": -10.63,
+          "hitRatePercent": "50.96%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0528
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2063,
+          "expectancyBps": -20.63,
+          "hitRatePercent": "48.82%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.1024
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 301,
+      "pearsonIC": 0.0474,
+      "spearmanIC": 0.0282,
+      "tHAC": 2.0176,
+      "pValue": 0.0436,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2487,
+          "expectancyBps": 24.87,
+          "hitRatePercent": "54.49%",
+          "profitFactor": 1.351,
+          "unannualizedSharpe": 0.0976
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1987,
+          "expectancyBps": 19.87,
+          "hitRatePercent": "53.82%",
+          "profitFactor": 1.272,
+          "unannualizedSharpe": 0.078
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1487,
+          "expectancyBps": 14.87,
+          "hitRatePercent": "53.16%",
+          "profitFactor": 1.197,
+          "unannualizedSharpe": 0.0584
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0487,
+          "expectancyBps": 4.87,
+          "hitRatePercent": "52.16%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0191
+        }
+      },
+      "classification": "DISCOVERY_CANDIDATE"
+    },
+    {
+      "id": "W02_SHOCK_BNBUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 164,
+      "pearsonIC": 0.0935,
+      "spearmanIC": 0.0396,
+      "tHAC": 0.6682,
+      "pValue": 0.504,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.169,
+          "expectancyBps": 16.9,
+          "hitRatePercent": "51.22%",
+          "profitFactor": 1.164,
+          "unannualizedSharpe": 0.0506
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.119,
+          "expectancyBps": 11.9,
+          "hitRatePercent": "50.61%",
+          "profitFactor": 1.113,
+          "unannualizedSharpe": 0.0356
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.069,
+          "expectancyBps": 6.9,
+          "hitRatePercent": "48.78%",
+          "profitFactor": 1.064,
+          "unannualizedSharpe": 0.0207
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.031,
+          "expectancyBps": -3.1,
+          "hitRatePercent": "46.34%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0093
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24878,
+      "pearsonIC": -0.0021,
+      "spearmanIC": -0.0113,
+      "tHAC": 2.0082,
+      "pValue": 0.0446,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0117,
+          "expectancyBps": 1.17,
+          "hitRatePercent": "50.89%",
+          "profitFactor": 1.04,
+          "unannualizedSharpe": 0.0122
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0383,
+          "expectancyBps": -3.83,
+          "hitRatePercent": "47.05%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0399
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0883,
+          "expectancyBps": -8.83,
+          "hitRatePercent": "43.11%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.0919
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1883,
+          "expectancyBps": -18.83,
+          "hitRatePercent": "35.85%",
+          "profitFactor": 0.534,
+          "unannualizedSharpe": -0.196
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12394,
+      "pearsonIC": -0.0053,
+      "spearmanIC": -0.0267,
+      "tHAC": 2.4625,
+      "pValue": 0.0138,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0288,
+          "expectancyBps": 2.88,
+          "hitRatePercent": "51.51%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0212
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0212,
+          "expectancyBps": -2.12,
+          "hitRatePercent": "49.04%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0156
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0712,
+          "expectancyBps": -7.12,
+          "hitRatePercent": "46.34%",
+          "profitFactor": 0.844,
+          "unannualizedSharpe": -0.0523
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1712,
+          "expectancyBps": -17.12,
+          "hitRatePercent": "40.78%",
+          "profitFactor": 0.665,
+          "unannualizedSharpe": -0.1259
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6186,
+      "pearsonIC": -0.0133,
+      "spearmanIC": -0.0355,
+      "tHAC": 2.995,
+      "pValue": 0.0027,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0693,
+          "expectancyBps": 6.93,
+          "hitRatePercent": "52.96%",
+          "profitFactor": 1.123,
+          "unannualizedSharpe": 0.0369
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0193,
+          "expectancyBps": 1.93,
+          "hitRatePercent": "51.13%",
+          "profitFactor": 1.033,
+          "unannualizedSharpe": 0.0103
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0307,
+          "expectancyBps": -3.07,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0163
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1307,
+          "expectancyBps": -13.07,
+          "hitRatePercent": "44.96%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.0695
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3132,
+      "pearsonIC": -0.0124,
+      "spearmanIC": -0.0352,
+      "tHAC": 0.3908,
+      "pValue": 0.696,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0175,
+          "expectancyBps": 1.75,
+          "hitRatePercent": "51.44%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0069
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0325,
+          "expectancyBps": -3.25,
+          "hitRatePercent": "50.22%",
+          "profitFactor": 0.963,
+          "unannualizedSharpe": -0.0127
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0825,
+          "expectancyBps": -8.25,
+          "hitRatePercent": "49.07%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0322
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1825,
+          "expectancyBps": -18.25,
+          "hitRatePercent": "46.30%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0713
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2104,
+      "pearsonIC": -0.0064,
+      "spearmanIC": -0.0255,
+      "tHAC": 1.1904,
+      "pValue": 0.2339,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0789,
+          "expectancyBps": 7.89,
+          "hitRatePercent": "50.95%",
+          "profitFactor": 1.079,
+          "unannualizedSharpe": 0.025
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0289,
+          "expectancyBps": 2.89,
+          "hitRatePercent": "49.86%",
+          "profitFactor": 1.028,
+          "unannualizedSharpe": 0.0092
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0211,
+          "expectancyBps": -2.11,
+          "hitRatePercent": "48.29%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0067
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1211,
+          "expectancyBps": -12.11,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0384
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_DOGEUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "DOGEUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1057,
+      "pearsonIC": 0.0547,
+      "spearmanIC": 0.0127,
+      "tHAC": 0.5298,
+      "pValue": 0.5962,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0687,
+          "expectancyBps": 6.87,
+          "hitRatePercent": "51.37%",
+          "profitFactor": 1.046,
+          "unannualizedSharpe": 0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0187,
+          "expectancyBps": 1.87,
+          "hitRatePercent": "50.90%",
+          "profitFactor": 1.012,
+          "unannualizedSharpe": 0.0042
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0313,
+          "expectancyBps": -3.13,
+          "hitRatePercent": "50.05%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.007
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1313,
+          "expectancyBps": -13.13,
+          "hitRatePercent": "47.97%",
+          "profitFactor": 0.918,
+          "unannualizedSharpe": -0.0295
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3575,
+      "pearsonIC": 0.0155,
+      "spearmanIC": -0.0006,
+      "tHAC": -0.1916,
+      "pValue": 0.8481,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0042,
+          "expectancyBps": -0.42,
+          "hitRatePercent": "51.27%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0031
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0542,
+          "expectancyBps": -5.42,
+          "hitRatePercent": "48.67%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0401
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1042,
+          "expectancyBps": -10.42,
+          "hitRatePercent": "45.20%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.077
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2042,
+          "expectancyBps": -20.42,
+          "hitRatePercent": "39.89%",
+          "profitFactor": 0.613,
+          "unannualizedSharpe": -0.151
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1795,
+      "pearsonIC": 0.0229,
+      "spearmanIC": 0.006,
+      "tHAC": -0.5542,
+      "pValue": 0.5794,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0223,
+          "expectancyBps": -2.23,
+          "hitRatePercent": "52.59%",
+          "profitFactor": 0.963,
+          "unannualizedSharpe": -0.012
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0723,
+          "expectancyBps": -7.23,
+          "hitRatePercent": "50.42%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0389
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1223,
+          "expectancyBps": -12.23,
+          "hitRatePercent": "48.41%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0659
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2223,
+          "expectancyBps": -22.23,
+          "hitRatePercent": "44.79%",
+          "profitFactor": 0.682,
+          "unannualizedSharpe": -0.1197
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 893,
+      "pearsonIC": 0.0119,
+      "spearmanIC": 0.0066,
+      "tHAC": -0.6502,
+      "pValue": 0.5156,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0539,
+          "expectancyBps": -5.39,
+          "hitRatePercent": "52.74%",
+          "profitFactor": 0.937,
+          "unannualizedSharpe": -0.0205
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1039,
+          "expectancyBps": -10.39,
+          "hitRatePercent": "51.74%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0395
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1539,
+          "expectancyBps": -15.39,
+          "hitRatePercent": "50.62%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0586
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2539,
+          "expectancyBps": -25.39,
+          "hitRatePercent": "46.47%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.0966
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 447,
+      "pearsonIC": 0.0138,
+      "spearmanIC": 0.0119,
+      "tHAC": -1.5208,
+      "pValue": 0.1283,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2345,
+          "expectancyBps": -23.45,
+          "hitRatePercent": "52.35%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.0678
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2845,
+          "expectancyBps": -28.45,
+          "hitRatePercent": "51.45%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.0823
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3345,
+          "expectancyBps": -33.45,
+          "hitRatePercent": "51.23%",
+          "profitFactor": 0.745,
+          "unannualizedSharpe": -0.0967
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4345,
+          "expectancyBps": -43.45,
+          "hitRatePercent": "49.44%",
+          "profitFactor": 0.681,
+          "unannualizedSharpe": -0.1256
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 290,
+      "pearsonIC": 0.0003,
+      "spearmanIC": 0.0211,
+      "tHAC": -0.4152,
+      "pValue": 0.678,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0978,
+          "expectancyBps": -9.78,
+          "hitRatePercent": "51.38%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.0227
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1478,
+          "expectancyBps": -14.78,
+          "hitRatePercent": "51.38%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0342
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1978,
+          "expectancyBps": -19.78,
+          "hitRatePercent": "51.03%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0458
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2978,
+          "expectancyBps": -29.78,
+          "hitRatePercent": "48.97%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.069
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_DOGEUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 162,
+      "pearsonIC": -0.0257,
+      "spearmanIC": 0.0104,
+      "tHAC": -0.7656,
+      "pValue": 0.4439,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.4216,
+          "expectancyBps": -42.16,
+          "hitRatePercent": "52.47%",
+          "profitFactor": 0.804,
+          "unannualizedSharpe": -0.0758
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4716,
+          "expectancyBps": -47.16,
+          "hitRatePercent": "52.47%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.0848
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.5216,
+          "expectancyBps": -52.16,
+          "hitRatePercent": "51.23%",
+          "profitFactor": 0.763,
+          "unannualizedSharpe": -0.0938
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.6216,
+          "expectancyBps": -62.16,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.723,
+          "unannualizedSharpe": -0.1118
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24050,
+      "pearsonIC": 0.0074,
+      "spearmanIC": -0.0043,
+      "tHAC": 1.4667,
+      "pValue": 0.1425,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0085,
+          "expectancyBps": 0.85,
+          "hitRatePercent": "50.17%",
+          "profitFactor": 1.029,
+          "unannualizedSharpe": 0.009
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0415,
+          "expectancyBps": -4.15,
+          "hitRatePercent": "47.48%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.044
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0915,
+          "expectancyBps": -9.15,
+          "hitRatePercent": "44.07%",
+          "profitFactor": 0.735,
+          "unannualizedSharpe": -0.097
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1915,
+          "expectancyBps": -19.15,
+          "hitRatePercent": "36.82%",
+          "profitFactor": 0.527,
+          "unannualizedSharpe": -0.2031
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12008,
+      "pearsonIC": 0.0015,
+      "spearmanIC": -0.0101,
+      "tHAC": 0.7478,
+      "pValue": 0.4546,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0091,
+          "expectancyBps": 0.91,
+          "hitRatePercent": "50.63%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0409,
+          "expectancyBps": -4.09,
+          "hitRatePercent": "48.90%",
+          "profitFactor": 0.907,
+          "unannualizedSharpe": -0.0298
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0909,
+          "expectancyBps": -9.09,
+          "hitRatePercent": "46.06%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0662
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1909,
+          "expectancyBps": -19.09,
+          "hitRatePercent": "40.85%",
+          "profitFactor": 0.636,
+          "unannualizedSharpe": -0.139
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6000,
+      "pearsonIC": -0.0036,
+      "spearmanIC": -0.0181,
+      "tHAC": 0.9862,
+      "pValue": 0.324,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.024,
+          "expectancyBps": 2.4,
+          "hitRatePercent": "50.68%",
+          "profitFactor": 1.041,
+          "unannualizedSharpe": 0.0127
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.026,
+          "expectancyBps": -2.6,
+          "hitRatePercent": "49.35%",
+          "profitFactor": 0.957,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.076,
+          "expectancyBps": -7.6,
+          "hitRatePercent": "47.80%",
+          "profitFactor": 0.88,
+          "unannualizedSharpe": -0.04
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.176,
+          "expectancyBps": -17.6,
+          "hitRatePercent": "44.38%",
+          "profitFactor": 0.744,
+          "unannualizedSharpe": -0.0928
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3043,
+      "pearsonIC": -0.0116,
+      "spearmanIC": -0.023,
+      "tHAC": 0.3733,
+      "pValue": 0.7089,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0176,
+          "expectancyBps": 1.76,
+          "hitRatePercent": "50.97%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0067
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0324,
+          "expectancyBps": -3.24,
+          "hitRatePercent": "49.95%",
+          "profitFactor": 0.963,
+          "unannualizedSharpe": -0.0122
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0824,
+          "expectancyBps": -8.24,
+          "hitRatePercent": "48.60%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0311
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1824,
+          "expectancyBps": -18.24,
+          "hitRatePercent": "45.61%",
+          "profitFactor": 0.809,
+          "unannualizedSharpe": -0.0688
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2005,
+      "pearsonIC": -0.013,
+      "spearmanIC": -0.0089,
+      "tHAC": -0.0178,
+      "pValue": 0.9858,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0014,
+          "expectancyBps": -0.14,
+          "hitRatePercent": "51.27%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0514,
+          "expectancyBps": -5.14,
+          "hitRatePercent": "50.37%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0155
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1014,
+          "expectancyBps": -10.14,
+          "hitRatePercent": "49.43%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0306
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2014,
+          "expectancyBps": -20.14,
+          "hitRatePercent": "47.28%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.0609
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_ADAUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "ADAUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1010,
+      "pearsonIC": -0.0076,
+      "spearmanIC": -0.0043,
+      "tHAC": 0.8177,
+      "pValue": 0.4135,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1006,
+          "expectancyBps": 10.06,
+          "hitRatePercent": "52.28%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0241
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0506,
+          "expectancyBps": 5.06,
+          "hitRatePercent": "51.68%",
+          "profitFactor": 1.035,
+          "unannualizedSharpe": 0.0121
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0006,
+          "expectancyBps": 0.06,
+          "hitRatePercent": "50.89%",
+          "profitFactor": 1,
+          "unannualizedSharpe": 0.0001
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0994,
+          "expectancyBps": -9.94,
+          "hitRatePercent": "48.91%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0238
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3501,
+      "pearsonIC": -0.0149,
+      "spearmanIC": -0.01,
+      "tHAC": -0.7829,
+      "pValue": 0.4337,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0181,
+          "expectancyBps": -1.81,
+          "hitRatePercent": "50.84%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.0133
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0681,
+          "expectancyBps": -6.81,
+          "hitRatePercent": "48.47%",
+          "profitFactor": 0.846,
+          "unannualizedSharpe": -0.0501
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1181,
+          "expectancyBps": -11.81,
+          "hitRatePercent": "45.64%",
+          "profitFactor": 0.747,
+          "unannualizedSharpe": -0.0869
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2181,
+          "expectancyBps": -21.81,
+          "hitRatePercent": "40.13%",
+          "profitFactor": 0.585,
+          "unannualizedSharpe": -0.1604
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1750,
+      "pearsonIC": -0.0014,
+      "spearmanIC": -0.003,
+      "tHAC": 0.346,
+      "pValue": 0.7293,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0147,
+          "expectancyBps": 1.47,
+          "hitRatePercent": "52.29%",
+          "profitFactor": 1.027,
+          "unannualizedSharpe": 0.0083
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0353,
+          "expectancyBps": -3.53,
+          "hitRatePercent": "50.74%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0199
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0853,
+          "expectancyBps": -8.53,
+          "hitRatePercent": "48.74%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0482
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1853,
+          "expectancyBps": -18.53,
+          "hitRatePercent": "44.86%",
+          "profitFactor": 0.716,
+          "unannualizedSharpe": -0.1047
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 871,
+      "pearsonIC": -0.0185,
+      "spearmanIC": -0.0106,
+      "tHAC": -0.7249,
+      "pValue": 0.4685,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0542,
+          "expectancyBps": -5.42,
+          "hitRatePercent": "49.48%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0229
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1042,
+          "expectancyBps": -10.42,
+          "hitRatePercent": "48.45%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.044
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1542,
+          "expectancyBps": -15.42,
+          "hitRatePercent": "47.53%",
+          "profitFactor": 0.811,
+          "unannualizedSharpe": -0.065
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2542,
+          "expectancyBps": -25.42,
+          "hitRatePercent": "44.43%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1072
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 438,
+      "pearsonIC": -0.001,
+      "spearmanIC": -0.0167,
+      "tHAC": -1.6412,
+      "pValue": 0.1008,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1982,
+          "expectancyBps": -19.82,
+          "hitRatePercent": "50.23%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0632
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2482,
+          "expectancyBps": -24.82,
+          "hitRatePercent": "48.63%",
+          "profitFactor": 0.787,
+          "unannualizedSharpe": -0.0791
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2982,
+          "expectancyBps": -29.82,
+          "hitRatePercent": "48.17%",
+          "profitFactor": 0.75,
+          "unannualizedSharpe": -0.0951
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3982,
+          "expectancyBps": -39.82,
+          "hitRatePercent": "46.35%",
+          "profitFactor": 0.68,
+          "unannualizedSharpe": -0.127
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 278,
+      "pearsonIC": 0.0225,
+      "spearmanIC": 0.004,
+      "tHAC": -0.0242,
+      "pValue": 0.9807,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.004,
+          "expectancyBps": -0.4,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.997,
+          "unannualizedSharpe": -0.0011
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.054,
+          "expectancyBps": -5.4,
+          "hitRatePercent": "49.64%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0146
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.104,
+          "expectancyBps": -10.4,
+          "hitRatePercent": "48.56%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0281
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.204,
+          "expectancyBps": -20.4,
+          "hitRatePercent": "45.68%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0551
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_ADAUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 162,
+      "pearsonIC": 0.0951,
+      "spearmanIC": 0.0197,
+      "tHAC": -0.3085,
+      "pValue": 0.7577,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1097,
+          "expectancyBps": -10.97,
+          "hitRatePercent": "46.30%",
+          "profitFactor": 0.934,
+          "unannualizedSharpe": -0.0235
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1597,
+          "expectancyBps": -15.97,
+          "hitRatePercent": "46.30%",
+          "profitFactor": 0.906,
+          "unannualizedSharpe": -0.0342
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2097,
+          "expectancyBps": -20.97,
+          "hitRatePercent": "45.06%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.045
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3097,
+          "expectancyBps": -30.97,
+          "hitRatePercent": "42.59%",
+          "profitFactor": 0.826,
+          "unannualizedSharpe": -0.0664
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24072,
+      "pearsonIC": 0.001,
+      "spearmanIC": -0.0093,
+      "tHAC": 2.1333,
+      "pValue": 0.0329,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.013,
+          "expectancyBps": 1.3,
+          "hitRatePercent": "50.61%",
+          "profitFactor": 1.043,
+          "unannualizedSharpe": 0.0137
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.037,
+          "expectancyBps": -3.7,
+          "hitRatePercent": "47.37%",
+          "profitFactor": 0.888,
+          "unannualizedSharpe": -0.0387
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.087,
+          "expectancyBps": -8.7,
+          "hitRatePercent": "43.66%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.0911
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.187,
+          "expectancyBps": -18.7,
+          "hitRatePercent": "37.27%",
+          "profitFactor": 0.551,
+          "unannualizedSharpe": -0.1959
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12037,
+      "pearsonIC": -0.0046,
+      "spearmanIC": -0.014,
+      "tHAC": 1.6998,
+      "pValue": 0.0892,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0207,
+          "expectancyBps": 2.07,
+          "hitRatePercent": "51.47%",
+          "profitFactor": 1.048,
+          "unannualizedSharpe": 0.0153
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0293,
+          "expectancyBps": -2.93,
+          "hitRatePercent": "49.15%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0216
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0793,
+          "expectancyBps": -7.93,
+          "hitRatePercent": "46.52%",
+          "profitFactor": 0.836,
+          "unannualizedSharpe": -0.0584
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1793,
+          "expectancyBps": -17.93,
+          "hitRatePercent": "41.59%",
+          "profitFactor": 0.668,
+          "unannualizedSharpe": -0.1321
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6037,
+      "pearsonIC": -0.0133,
+      "spearmanIC": -0.0196,
+      "tHAC": 0.7937,
+      "pValue": 0.4274,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.019,
+          "expectancyBps": 1.9,
+          "hitRatePercent": "51.43%",
+          "profitFactor": 1.031,
+          "unannualizedSharpe": 0.01
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.031,
+          "expectancyBps": -3.1,
+          "hitRatePercent": "49.61%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0164
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.081,
+          "expectancyBps": -8.1,
+          "hitRatePercent": "47.44%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0429
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.181,
+          "expectancyBps": -18.1,
+          "hitRatePercent": "43.45%",
+          "profitFactor": 0.749,
+          "unannualizedSharpe": -0.0959
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3047,
+      "pearsonIC": -0.0218,
+      "spearmanIC": -0.0315,
+      "tHAC": -0.3364,
+      "pValue": 0.7365,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0162,
+          "expectancyBps": -1.62,
+          "hitRatePercent": "50.90%",
+          "profitFactor": 0.983,
+          "unannualizedSharpe": -0.0061
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0662,
+          "expectancyBps": -6.62,
+          "hitRatePercent": "49.82%",
+          "profitFactor": 0.931,
+          "unannualizedSharpe": -0.0247
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1162,
+          "expectancyBps": -11.62,
+          "hitRatePercent": "48.24%",
+          "profitFactor": 0.882,
+          "unannualizedSharpe": -0.0434
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2162,
+          "expectancyBps": -21.62,
+          "hitRatePercent": "45.45%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0808
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2042,
+      "pearsonIC": -0.0464,
+      "spearmanIC": -0.0397,
+      "tHAC": -0.5451,
+      "pValue": 0.5857,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0407,
+          "expectancyBps": -4.07,
+          "hitRatePercent": "49.66%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0123
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0907,
+          "expectancyBps": -9.07,
+          "hitRatePercent": "49.02%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0273
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1407,
+          "expectancyBps": -14.07,
+          "hitRatePercent": "47.89%",
+          "profitFactor": 0.882,
+          "unannualizedSharpe": -0.0424
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2407,
+          "expectancyBps": -24.07,
+          "hitRatePercent": "45.98%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0725
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_AVAXUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "AVAXUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1021,
+      "pearsonIC": -0.0486,
+      "spearmanIC": -0.0439,
+      "tHAC": -1.3527,
+      "pValue": 0.1761,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2071,
+          "expectancyBps": -20.71,
+          "hitRatePercent": "49.36%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0447
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2571,
+          "expectancyBps": -25.71,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0555
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3071,
+          "expectancyBps": -30.71,
+          "hitRatePercent": "47.99%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0662
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4071,
+          "expectancyBps": -40.71,
+          "hitRatePercent": "45.94%",
+          "profitFactor": 0.782,
+          "unannualizedSharpe": -0.0878
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3343,
+      "pearsonIC": 0.0044,
+      "spearmanIC": 0.0056,
+      "tHAC": -0.0859,
+      "pValue": 0.9315,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0018,
+          "expectancyBps": -0.18,
+          "hitRatePercent": "51.15%",
+          "profitFactor": 0.996,
+          "unannualizedSharpe": -0.0014
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0518,
+          "expectancyBps": -5.18,
+          "hitRatePercent": "48.67%",
+          "profitFactor": 0.88,
+          "unannualizedSharpe": -0.0407
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1018,
+          "expectancyBps": -10.18,
+          "hitRatePercent": "45.92%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.08
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2018,
+          "expectancyBps": -20.18,
+          "hitRatePercent": "40.80%",
+          "profitFactor": 0.609,
+          "unannualizedSharpe": -0.1586
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1653,
+      "pearsonIC": 0.0143,
+      "spearmanIC": 0.0118,
+      "tHAC": 0.1622,
+      "pValue": 0.8711,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0066,
+          "expectancyBps": 0.66,
+          "hitRatePercent": "52.99%",
+          "profitFactor": 1.012,
+          "unannualizedSharpe": 0.0037
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0434,
+          "expectancyBps": -4.34,
+          "hitRatePercent": "51.24%",
+          "profitFactor": 0.927,
+          "unannualizedSharpe": -0.0242
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0934,
+          "expectancyBps": -9.34,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 0.848,
+          "unannualizedSharpe": -0.0521
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1934,
+          "expectancyBps": -19.34,
+          "hitRatePercent": "45.25%",
+          "profitFactor": 0.711,
+          "unannualizedSharpe": -0.1078
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 833,
+      "pearsonIC": 0.0172,
+      "spearmanIC": 0.0109,
+      "tHAC": -0.0953,
+      "pValue": 0.9241,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0074,
+          "expectancyBps": -0.74,
+          "hitRatePercent": "49.46%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0031
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0574,
+          "expectancyBps": -5.74,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0243
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1074,
+          "expectancyBps": -10.74,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0455
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2074,
+          "expectancyBps": -20.74,
+          "hitRatePercent": "44.30%",
+          "profitFactor": 0.764,
+          "unannualizedSharpe": -0.0879
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 423,
+      "pearsonIC": 0.041,
+      "spearmanIC": -0.0061,
+      "tHAC": -1.0796,
+      "pValue": 0.2803,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1485,
+          "expectancyBps": -14.85,
+          "hitRatePercent": "48.46%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0474
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1985,
+          "expectancyBps": -19.85,
+          "hitRatePercent": "48.23%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0634
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2485,
+          "expectancyBps": -24.85,
+          "hitRatePercent": "47.28%",
+          "profitFactor": 0.793,
+          "unannualizedSharpe": -0.0794
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3485,
+          "expectancyBps": -34.85,
+          "hitRatePercent": "43.26%",
+          "profitFactor": 0.723,
+          "unannualizedSharpe": -0.1113
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 263,
+      "pearsonIC": 0.0362,
+      "spearmanIC": 0.009,
+      "tHAC": 0.5702,
+      "pValue": 0.5685,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1123,
+          "expectancyBps": 11.23,
+          "hitRatePercent": "52.85%",
+          "profitFactor": 1.101,
+          "unannualizedSharpe": 0.0342
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0623,
+          "expectancyBps": 6.23,
+          "hitRatePercent": "52.09%",
+          "profitFactor": 1.055,
+          "unannualizedSharpe": 0.019
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0123,
+          "expectancyBps": 1.23,
+          "hitRatePercent": "51.71%",
+          "profitFactor": 1.011,
+          "unannualizedSharpe": 0.0037
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0877,
+          "expectancyBps": -8.77,
+          "hitRatePercent": "47.53%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0267
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_AVAXUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 147,
+      "pearsonIC": 0.0368,
+      "spearmanIC": 0.0358,
+      "tHAC": 0.6017,
+      "pValue": 0.5474,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2123,
+          "expectancyBps": 21.23,
+          "hitRatePercent": "50.34%",
+          "profitFactor": 1.132,
+          "unannualizedSharpe": 0.0476
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1623,
+          "expectancyBps": 16.23,
+          "hitRatePercent": "49.66%",
+          "profitFactor": 1.099,
+          "unannualizedSharpe": 0.0364
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1123,
+          "expectancyBps": 11.23,
+          "hitRatePercent": "48.98%",
+          "profitFactor": 1.068,
+          "unannualizedSharpe": 0.0252
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0123,
+          "expectancyBps": 1.23,
+          "hitRatePercent": "47.62%",
+          "profitFactor": 1.007,
+          "unannualizedSharpe": 0.0028
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 24214,
+      "pearsonIC": -0.0016,
+      "spearmanIC": -0.0099,
+      "tHAC": 1.8646,
+      "pValue": 0.0622,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0107,
+          "expectancyBps": 1.07,
+          "hitRatePercent": "50.97%",
+          "profitFactor": 1.036,
+          "unannualizedSharpe": 0.0118
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0393,
+          "expectancyBps": -3.93,
+          "hitRatePercent": "47.83%",
+          "profitFactor": 0.877,
+          "unannualizedSharpe": -0.0436
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0893,
+          "expectancyBps": -8.93,
+          "hitRatePercent": "44.53%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.0989
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1893,
+          "expectancyBps": -18.93,
+          "hitRatePercent": "37.56%",
+          "profitFactor": 0.532,
+          "unannualizedSharpe": -0.2097
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12106,
+      "pearsonIC": -0.0013,
+      "spearmanIC": -0.0147,
+      "tHAC": 1.2507,
+      "pValue": 0.211,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0146,
+          "expectancyBps": 1.46,
+          "hitRatePercent": "51.32%",
+          "profitFactor": 1.035,
+          "unannualizedSharpe": 0.0114
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0354,
+          "expectancyBps": -3.54,
+          "hitRatePercent": "48.88%",
+          "profitFactor": 0.919,
+          "unannualizedSharpe": -0.0277
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0854,
+          "expectancyBps": -8.54,
+          "hitRatePercent": "46.31%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0667
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1854,
+          "expectancyBps": -18.54,
+          "hitRatePercent": "41.47%",
+          "profitFactor": 0.645,
+          "unannualizedSharpe": -0.1448
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6066,
+      "pearsonIC": -0.014,
+      "spearmanIC": -0.0355,
+      "tHAC": 0.2415,
+      "pValue": 0.8092,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0055,
+          "expectancyBps": 0.55,
+          "hitRatePercent": "50.94%",
+          "profitFactor": 1.009,
+          "unannualizedSharpe": 0.0031
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0445,
+          "expectancyBps": -4.45,
+          "hitRatePercent": "49.21%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0248
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0945,
+          "expectancyBps": -9.45,
+          "hitRatePercent": "47.10%",
+          "profitFactor": 0.854,
+          "unannualizedSharpe": -0.0526
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1945,
+          "expectancyBps": -19.45,
+          "hitRatePercent": "43.54%",
+          "profitFactor": 0.724,
+          "unannualizedSharpe": -0.1083
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3088,
+      "pearsonIC": 0.0021,
+      "spearmanIC": -0.0207,
+      "tHAC": -0.4781,
+      "pValue": 0.6326,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0205,
+          "expectancyBps": -2.05,
+          "hitRatePercent": "50.16%",
+          "profitFactor": 0.976,
+          "unannualizedSharpe": -0.0083
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0705,
+          "expectancyBps": -7.05,
+          "hitRatePercent": "48.96%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.0284
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1205,
+          "expectancyBps": -12.05,
+          "hitRatePercent": "47.60%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0485
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2205,
+          "expectancyBps": -22.05,
+          "hitRatePercent": "45.27%",
+          "profitFactor": 0.772,
+          "unannualizedSharpe": -0.0888
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2025,
+      "pearsonIC": -0.0113,
+      "spearmanIC": -0.0363,
+      "tHAC": -0.6562,
+      "pValue": 0.5117,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0447,
+          "expectancyBps": -4.47,
+          "hitRatePercent": "48.59%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.015
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0947,
+          "expectancyBps": -9.47,
+          "hitRatePercent": "47.75%",
+          "profitFactor": 0.912,
+          "unannualizedSharpe": -0.0319
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1447,
+          "expectancyBps": -14.47,
+          "hitRatePercent": "46.72%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0487
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2447,
+          "expectancyBps": -24.47,
+          "hitRatePercent": "45.23%",
+          "profitFactor": 0.789,
+          "unannualizedSharpe": -0.0823
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_LINKUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "LINKUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1015,
+      "pearsonIC": -0.0082,
+      "spearmanIC": -0.0264,
+      "tHAC": -0.9622,
+      "pValue": 0.336,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1275,
+          "expectancyBps": -12.75,
+          "hitRatePercent": "49.85%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1775,
+          "expectancyBps": -17.75,
+          "hitRatePercent": "49.16%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0411
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2275,
+          "expectancyBps": -22.75,
+          "hitRatePercent": "48.47%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0527
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3275,
+          "expectancyBps": -32.75,
+          "hitRatePercent": "47.78%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0759
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3253,
+      "pearsonIC": 0.0018,
+      "spearmanIC": -0.0045,
+      "tHAC": -0.9921,
+      "pValue": 0.3211,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0201,
+          "expectancyBps": -2.01,
+          "hitRatePercent": "51.18%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0167
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0701,
+          "expectancyBps": -7.01,
+          "hitRatePercent": "48.79%",
+          "profitFactor": 0.835,
+          "unannualizedSharpe": -0.0582
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1201,
+          "expectancyBps": -12.01,
+          "hitRatePercent": "45.83%",
+          "profitFactor": 0.734,
+          "unannualizedSharpe": -0.0998
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2201,
+          "expectancyBps": -22.01,
+          "hitRatePercent": "40.42%",
+          "profitFactor": 0.566,
+          "unannualizedSharpe": -0.1829
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1622,
+      "pearsonIC": 0.0048,
+      "spearmanIC": -0.0044,
+      "tHAC": -0.8564,
+      "pValue": 0.3918,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0345,
+          "expectancyBps": -3.45,
+          "hitRatePercent": "50.55%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0208
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0845,
+          "expectancyBps": -8.45,
+          "hitRatePercent": "49.01%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0509
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1345,
+          "expectancyBps": -13.45,
+          "hitRatePercent": "47.10%",
+          "profitFactor": 0.78,
+          "unannualizedSharpe": -0.081
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2345,
+          "expectancyBps": -23.45,
+          "hitRatePercent": "43.77%",
+          "profitFactor": 0.648,
+          "unannualizedSharpe": -0.1412
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 815,
+      "pearsonIC": -0.0131,
+      "spearmanIC": -0.0153,
+      "tHAC": -1.5566,
+      "pValue": 0.1196,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1205,
+          "expectancyBps": -12.05,
+          "hitRatePercent": "48.96%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0532
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1705,
+          "expectancyBps": -17.05,
+          "hitRatePercent": "46.63%",
+          "profitFactor": 0.794,
+          "unannualizedSharpe": -0.0753
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2205,
+          "expectancyBps": -22.05,
+          "hitRatePercent": "44.54%",
+          "profitFactor": 0.743,
+          "unannualizedSharpe": -0.0973
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3205,
+          "expectancyBps": -32.05,
+          "hitRatePercent": "41.96%",
+          "profitFactor": 0.649,
+          "unannualizedSharpe": -0.1415
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 408,
+      "pearsonIC": -0.0203,
+      "spearmanIC": -0.0186,
+      "tHAC": -2.6546,
+      "pValue": 0.0079,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3797,
+          "expectancyBps": -37.97,
+          "hitRatePercent": "43.38%",
+          "profitFactor": 0.693,
+          "unannualizedSharpe": -0.1237
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4297,
+          "expectancyBps": -42.97,
+          "hitRatePercent": "41.91%",
+          "profitFactor": 0.661,
+          "unannualizedSharpe": -0.14
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4797,
+          "expectancyBps": -47.97,
+          "hitRatePercent": "40.93%",
+          "profitFactor": 0.63,
+          "unannualizedSharpe": -0.1563
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5797,
+          "expectancyBps": -57.97,
+          "hitRatePercent": "40.44%",
+          "profitFactor": 0.572,
+          "unannualizedSharpe": -0.1889
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 265,
+      "pearsonIC": 0.006,
+      "spearmanIC": -0.0023,
+      "tHAC": -0.1252,
+      "pValue": 0.9004,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0242,
+          "expectancyBps": -2.42,
+          "hitRatePercent": "52.45%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0064
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0742,
+          "expectancyBps": -7.42,
+          "hitRatePercent": "50.94%",
+          "profitFactor": 0.94,
+          "unannualizedSharpe": -0.0198
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1242,
+          "expectancyBps": -12.42,
+          "hitRatePercent": "49.81%",
+          "profitFactor": 0.901,
+          "unannualizedSharpe": -0.0331
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2242,
+          "expectancyBps": -22.42,
+          "hitRatePercent": "47.55%",
+          "profitFactor": 0.829,
+          "unannualizedSharpe": -0.0597
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_LINKUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 145,
+      "pearsonIC": 0.0018,
+      "spearmanIC": -0.0073,
+      "tHAC": 0.0703,
+      "pValue": 0.944,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0324,
+          "expectancyBps": 3.24,
+          "hitRatePercent": "44.83%",
+          "profitFactor": 1.018,
+          "unannualizedSharpe": 0.0067
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0176,
+          "expectancyBps": -1.76,
+          "hitRatePercent": "44.83%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0036
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0676,
+          "expectancyBps": -6.76,
+          "hitRatePercent": "44.83%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0139
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1676,
+          "expectancyBps": -16.76,
+          "hitRatePercent": "44.14%",
+          "profitFactor": 0.912,
+          "unannualizedSharpe": -0.0345
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 21661,
+      "pearsonIC": -0.0027,
+      "spearmanIC": -0.0047,
+      "tHAC": 1.3018,
+      "pValue": 0.193,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0099,
+          "expectancyBps": 0.99,
+          "hitRatePercent": "50.36%",
+          "profitFactor": 1.026,
+          "unannualizedSharpe": 0.0086
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0401,
+          "expectancyBps": -4.01,
+          "hitRatePercent": "47.85%",
+          "profitFactor": 0.901,
+          "unannualizedSharpe": -0.0348
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0901,
+          "expectancyBps": -9.01,
+          "hitRatePercent": "45.23%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0782
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1901,
+          "expectancyBps": -19.01,
+          "hitRatePercent": "39.67%",
+          "profitFactor": 0.611,
+          "unannualizedSharpe": -0.165
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 10834,
+      "pearsonIC": -0.0122,
+      "spearmanIC": -0.0136,
+      "tHAC": 1.2245,
+      "pValue": 0.2208,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0188,
+          "expectancyBps": 1.88,
+          "hitRatePercent": "50.71%",
+          "profitFactor": 1.036,
+          "unannualizedSharpe": 0.0116
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0312,
+          "expectancyBps": -3.12,
+          "hitRatePercent": "48.92%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0192
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0812,
+          "expectancyBps": -8.12,
+          "hitRatePercent": "47.00%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.0501
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1812,
+          "expectancyBps": -18.12,
+          "hitRatePercent": "43.11%",
+          "profitFactor": 0.715,
+          "unannualizedSharpe": -0.1117
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 5429,
+      "pearsonIC": -0.0217,
+      "spearmanIC": -0.022,
+      "tHAC": 1.578,
+      "pValue": 0.1146,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0482,
+          "expectancyBps": 4.82,
+          "hitRatePercent": "50.78%",
+          "profitFactor": 1.065,
+          "unannualizedSharpe": 0.0213
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0018,
+          "expectancyBps": -0.18,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0518,
+          "expectancyBps": -5.18,
+          "hitRatePercent": "48.54%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0229
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1518,
+          "expectancyBps": -15.18,
+          "hitRatePercent": "45.44%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0671
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 2754,
+      "pearsonIC": -0.0222,
+      "spearmanIC": -0.029,
+      "tHAC": 1.4554,
+      "pValue": 0.1456,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0858,
+          "expectancyBps": 8.58,
+          "hitRatePercent": "51.20%",
+          "profitFactor": 1.083,
+          "unannualizedSharpe": 0.0277
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0358,
+          "expectancyBps": 3.58,
+          "hitRatePercent": "50.47%",
+          "profitFactor": 1.034,
+          "unannualizedSharpe": 0.0116
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0142,
+          "expectancyBps": -1.42,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0046
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1142,
+          "expectancyBps": -11.42,
+          "hitRatePercent": "47.49%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0369
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 1826,
+      "pearsonIC": -0.009,
+      "spearmanIC": -0.0153,
+      "tHAC": 0.8479,
+      "pValue": 0.3965,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.079,
+          "expectancyBps": 7.9,
+          "hitRatePercent": "50.22%",
+          "profitFactor": 1.06,
+          "unannualizedSharpe": 0.0203
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.029,
+          "expectancyBps": 2.9,
+          "hitRatePercent": "49.73%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.0075
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.021,
+          "expectancyBps": -2.1,
+          "hitRatePercent": "48.90%",
+          "profitFactor": 0.985,
+          "unannualizedSharpe": -0.0054
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.121,
+          "expectancyBps": -12.1,
+          "hitRatePercent": "46.93%",
+          "profitFactor": 0.915,
+          "unannualizedSharpe": -0.0311
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_SUIUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "SUIUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 899,
+      "pearsonIC": 0.013,
+      "spearmanIC": -0.0138,
+      "tHAC": -0.0083,
+      "pValue": 0.9934,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0016,
+          "expectancyBps": -0.16,
+          "hitRatePercent": "48.72%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0003
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0516,
+          "expectancyBps": -5.16,
+          "hitRatePercent": "48.61%",
+          "profitFactor": 0.974,
+          "unannualizedSharpe": -0.0094
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1016,
+          "expectancyBps": -10.16,
+          "hitRatePercent": "48.28%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0186
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2016,
+          "expectancyBps": -20.16,
+          "hitRatePercent": "46.72%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0368
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3170,
+      "pearsonIC": 0.0136,
+      "spearmanIC": -0.0007,
+      "tHAC": 0.9579,
+      "pValue": 0.3381,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0251,
+          "expectancyBps": 2.51,
+          "hitRatePercent": "51.55%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0165
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0249,
+          "expectancyBps": -2.49,
+          "hitRatePercent": "49.78%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0163
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0749,
+          "expectancyBps": -7.49,
+          "hitRatePercent": "47.85%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0491
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1749,
+          "expectancyBps": -17.49,
+          "hitRatePercent": "43.66%",
+          "profitFactor": 0.705,
+          "unannualizedSharpe": -0.1146
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1590,
+      "pearsonIC": 0.0207,
+      "spearmanIC": 0.0002,
+      "tHAC": 1.261,
+      "pValue": 0.2073,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0632,
+          "expectancyBps": 6.32,
+          "hitRatePercent": "52.96%",
+          "profitFactor": 1.095,
+          "unannualizedSharpe": 0.0307
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0132,
+          "expectancyBps": 1.32,
+          "hitRatePercent": "51.19%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.0064
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0368,
+          "expectancyBps": -3.68,
+          "hitRatePercent": "49.62%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0179
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1368,
+          "expectancyBps": -13.68,
+          "hitRatePercent": "46.04%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0664
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 791,
+      "pearsonIC": 0.0221,
+      "spearmanIC": 0.0032,
+      "tHAC": 1.5718,
+      "pValue": 0.116,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1559,
+          "expectancyBps": 15.59,
+          "hitRatePercent": "53.10%",
+          "profitFactor": 1.178,
+          "unannualizedSharpe": 0.0566
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1059,
+          "expectancyBps": 10.59,
+          "hitRatePercent": "51.58%",
+          "profitFactor": 1.118,
+          "unannualizedSharpe": 0.0385
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0559,
+          "expectancyBps": 5.59,
+          "hitRatePercent": "50.57%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0203
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0441,
+          "expectancyBps": -4.41,
+          "hitRatePercent": "48.17%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.016
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 412,
+      "pearsonIC": 0.0253,
+      "spearmanIC": -0.0022,
+      "tHAC": 0.0584,
+      "pValue": 0.9534,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.01,
+          "expectancyBps": 1,
+          "hitRatePercent": "50.24%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0029
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.04,
+          "expectancyBps": -4,
+          "hitRatePercent": "49.51%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0115
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.09,
+          "expectancyBps": -9,
+          "hitRatePercent": "49.03%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0259
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.19,
+          "expectancyBps": -19,
+          "hitRatePercent": "46.60%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0546
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 274,
+      "pearsonIC": 0.0373,
+      "spearmanIC": -0.0039,
+      "tHAC": 0.1423,
+      "pValue": 0.8869,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0322,
+          "expectancyBps": 3.22,
+          "hitRatePercent": "55.11%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0178,
+          "expectancyBps": -1.78,
+          "hitRatePercent": "54.74%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.0044
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0678,
+          "expectancyBps": -6.78,
+          "hitRatePercent": "53.65%",
+          "profitFactor": 0.954,
+          "unannualizedSharpe": -0.0169
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1678,
+          "expectancyBps": -16.78,
+          "hitRatePercent": "53.28%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0417
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_SUIUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 148,
+      "pearsonIC": -0.0008,
+      "spearmanIC": -0.0003,
+      "tHAC": -0.1915,
+      "pValue": 0.8481,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0823,
+          "expectancyBps": -8.23,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.959,
+          "unannualizedSharpe": -0.0152
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1323,
+          "expectancyBps": -13.23,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0244
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1823,
+          "expectancyBps": -18.23,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.912,
+          "unannualizedSharpe": -0.0337
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2823,
+          "expectancyBps": -28.23,
+          "hitRatePercent": "47.30%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0521
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 1,
+      "sampleSize": 25382,
+      "pearsonIC": 0.0083,
+      "spearmanIC": -0.004,
+      "tHAC": 2.3787,
+      "pValue": 0.0174,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0124,
+          "expectancyBps": 1.24,
+          "hitRatePercent": "50.47%",
+          "profitFactor": 1.05,
+          "unannualizedSharpe": 0.0144
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0376,
+          "expectancyBps": -3.76,
+          "hitRatePercent": "46.49%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0435
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0876,
+          "expectancyBps": -8.76,
+          "hitRatePercent": "42.00%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1014
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1876,
+          "expectancyBps": -18.76,
+          "hitRatePercent": "33.72%",
+          "profitFactor": 0.482,
+          "unannualizedSharpe": -0.2172
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 2,
+      "sampleSize": 12671,
+      "pearsonIC": 0.0087,
+      "spearmanIC": -0.0079,
+      "tHAC": 1.8319,
+      "pValue": 0.067,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0189,
+          "expectancyBps": 1.89,
+          "hitRatePercent": "50.67%",
+          "profitFactor": 1.054,
+          "unannualizedSharpe": 0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0311,
+          "expectancyBps": -3.11,
+          "hitRatePercent": "48.17%",
+          "profitFactor": 0.917,
+          "unannualizedSharpe": -0.0253
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0811,
+          "expectancyBps": -8.11,
+          "hitRatePercent": "45.00%",
+          "profitFactor": 0.797,
+          "unannualizedSharpe": -0.0659
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1811,
+          "expectancyBps": -18.11,
+          "hitRatePercent": "38.85%",
+          "profitFactor": 0.605,
+          "unannualizedSharpe": -0.1472
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 4,
+      "sampleSize": 6333,
+      "pearsonIC": -0.0013,
+      "spearmanIC": -0.0124,
+      "tHAC": 1.3658,
+      "pValue": 0.172,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0275,
+          "expectancyBps": 2.75,
+          "hitRatePercent": "51.49%",
+          "profitFactor": 1.057,
+          "unannualizedSharpe": 0.0165
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0225,
+          "expectancyBps": -2.25,
+          "hitRatePercent": "49.50%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.0134
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0725,
+          "expectancyBps": -7.25,
+          "hitRatePercent": "47.01%",
+          "profitFactor": 0.865,
+          "unannualizedSharpe": -0.0434
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1725,
+          "expectancyBps": -17.25,
+          "hitRatePercent": "42.62%",
+          "profitFactor": 0.709,
+          "unannualizedSharpe": -0.1032
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 8,
+      "sampleSize": 3177,
+      "pearsonIC": -0.0029,
+      "spearmanIC": -0.0315,
+      "tHAC": 0.8758,
+      "pValue": 0.3811,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.031,
+          "expectancyBps": 3.1,
+          "hitRatePercent": "50.05%",
+          "profitFactor": 1.045,
+          "unannualizedSharpe": 0.0139
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.019,
+          "expectancyBps": -1.9,
+          "hitRatePercent": "48.57%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0086
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.069,
+          "expectancyBps": -6.9,
+          "hitRatePercent": "46.99%",
+          "profitFactor": 0.906,
+          "unannualizedSharpe": -0.031
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.169,
+          "expectancyBps": -16.9,
+          "hitRatePercent": "43.63%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0759
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 12,
+      "sampleSize": 2084,
+      "pearsonIC": -0.03,
+      "spearmanIC": -0.0312,
+      "tHAC": 0.3175,
+      "pValue": 0.7509,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0192,
+          "expectancyBps": 1.92,
+          "hitRatePercent": "50.24%",
+          "profitFactor": 1.023,
+          "unannualizedSharpe": 0.0067
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0308,
+          "expectancyBps": -3.08,
+          "hitRatePercent": "49.23%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0108
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0808,
+          "expectancyBps": -8.08,
+          "hitRatePercent": "47.94%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0283
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1808,
+          "expectancyBps": -18.08,
+          "hitRatePercent": "44.77%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0634
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_VER_XRPUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Expansion Trend Continuation",
+      "asset": "XRPUSDT",
+      "lookback": 48,
+      "horizon": 24,
+      "sampleSize": 1046,
+      "pearsonIC": -0.04,
+      "spearmanIC": -0.0422,
+      "tHAC": -0.7506,
+      "pValue": 0.4529,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0853,
+          "expectancyBps": -8.53,
+          "hitRatePercent": "49.90%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0206
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1353,
+          "expectancyBps": -13.53,
+          "hitRatePercent": "49.04%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0327
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1853,
+          "expectancyBps": -18.53,
+          "hitRatePercent": "48.47%",
+          "profitFactor": 0.863,
+          "unannualizedSharpe": -0.0447
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2853,
+          "expectancyBps": -28.53,
+          "hitRatePercent": "46.65%",
+          "profitFactor": 0.797,
+          "unannualizedSharpe": -0.0689
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H1",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 3428,
+      "pearsonIC": -0.007,
+      "spearmanIC": 0.0014,
+      "tHAC": 1.0068,
+      "pValue": 0.314,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0229,
+          "expectancyBps": 2.29,
+          "hitRatePercent": "52.19%",
+          "profitFactor": 1.06,
+          "unannualizedSharpe": 0.0176
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0271,
+          "expectancyBps": -2.71,
+          "hitRatePercent": "49.36%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0208
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0771,
+          "expectancyBps": -7.71,
+          "hitRatePercent": "46.47%",
+          "profitFactor": 0.821,
+          "unannualizedSharpe": -0.0593
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1771,
+          "expectancyBps": -17.71,
+          "hitRatePercent": "40.84%",
+          "profitFactor": 0.636,
+          "unannualizedSharpe": -0.1362
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H2",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 1719,
+      "pearsonIC": -0.0019,
+      "spearmanIC": 0.0015,
+      "tHAC": 1.0542,
+      "pValue": 0.2918,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0429,
+          "expectancyBps": 4.29,
+          "hitRatePercent": "53.11%",
+          "profitFactor": 1.082,
+          "unannualizedSharpe": 0.024
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0071,
+          "expectancyBps": -0.71,
+          "hitRatePercent": "51.37%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.004
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0571,
+          "expectancyBps": -5.71,
+          "hitRatePercent": "49.04%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0319
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1571,
+          "expectancyBps": -15.71,
+          "hitRatePercent": "44.56%",
+          "profitFactor": 0.748,
+          "unannualizedSharpe": -0.0877
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H4",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 862,
+      "pearsonIC": -0.0073,
+      "spearmanIC": -0.0012,
+      "tHAC": 1.0735,
+      "pValue": 0.283,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0862,
+          "expectancyBps": 8.62,
+          "hitRatePercent": "53.02%",
+          "profitFactor": 1.122,
+          "unannualizedSharpe": 0.0347
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0362,
+          "expectancyBps": 3.62,
+          "hitRatePercent": "50.93%",
+          "profitFactor": 1.05,
+          "unannualizedSharpe": 0.0146
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0138,
+          "expectancyBps": -1.38,
+          "hitRatePercent": "49.30%",
+          "profitFactor": 0.982,
+          "unannualizedSharpe": -0.0056
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1138,
+          "expectancyBps": -11.38,
+          "hitRatePercent": "45.94%",
+          "profitFactor": 0.859,
+          "unannualizedSharpe": -0.0459
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H8",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 437,
+      "pearsonIC": -0.0277,
+      "spearmanIC": 0.0064,
+      "tHAC": -0.3624,
+      "pValue": 0.7171,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0543,
+          "expectancyBps": -5.43,
+          "hitRatePercent": "50.11%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0168
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1043,
+          "expectancyBps": -10.43,
+          "hitRatePercent": "49.89%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0322
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1543,
+          "expectancyBps": -15.43,
+          "hitRatePercent": "48.97%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0476
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2543,
+          "expectancyBps": -25.43,
+          "hitRatePercent": "47.14%",
+          "profitFactor": 0.777,
+          "unannualizedSharpe": -0.0785
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H12",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 276,
+      "pearsonIC": 0.0317,
+      "spearmanIC": 0.0205,
+      "tHAC": 0.2548,
+      "pValue": 0.7988,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0469,
+          "expectancyBps": 4.69,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 1.041,
+          "unannualizedSharpe": 0.0133
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0031,
+          "expectancyBps": -0.31,
+          "hitRatePercent": "46.74%",
+          "profitFactor": 0.997,
+          "unannualizedSharpe": -0.0009
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0531,
+          "expectancyBps": -5.31,
+          "hitRatePercent": "46.38%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.015
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1531,
+          "expectancyBps": -15.31,
+          "hitRatePercent": "44.93%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0432
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W02_SHOCK_XRPUSDT_H24",
+      "worker": "W02_VOLATILITY",
+      "mechanism": "Volatility Spike Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 160,
+      "pearsonIC": 0.0902,
+      "spearmanIC": 0.0532,
+      "tHAC": 0.5025,
+      "pValue": 0.6153,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2079,
+          "expectancyBps": 20.79,
+          "hitRatePercent": "52.50%",
+          "profitFactor": 1.142,
+          "unannualizedSharpe": 0.0428
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1579,
+          "expectancyBps": 15.79,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.106,
+          "unannualizedSharpe": 0.0325
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1079,
+          "expectancyBps": 10.79,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0222
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0079,
+          "expectancyBps": 0.79,
+          "hitRatePercent": "48.75%",
+          "profitFactor": 1.005,
+          "unannualizedSharpe": 0.0016
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

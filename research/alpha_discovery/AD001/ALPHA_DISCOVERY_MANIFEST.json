@@ -1,0 +1,32 @@
+{
+  "campaign": "ALPHA_DISCOVERY_001",
+  "timestampUTC": "2026-09-03T02:41:42.009Z",
+  "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "totalHypotheses": 1580,
+  "promotionCandidates": 0,
+  "discoveryCandidates": 16,
+  "weakCandidates": 52,
+  "rejectedHypotheses": 1512,
+  "artifacts": {
+    "DATASET_CATALOG.md": {
+      "sha256": "fbddc962cad8cbfb1dd50496d8b23b55a60877d84b59e381e7ac731599bdbd6b",
+      "sizeBytes": 6214
+    },
+    "DATASET_MANIFEST.json": {
+      "sha256": "73f5192779e483edb7a5e68a88b3e7c0c4a2c0ce94e6e61eac09296d6cb4da5b",
+      "sizeBytes": 16749
+    },
+    "COMPUTE_CAPACITY.json": {
+      "sha256": "6155906631129c0b4fd972f707843a1e64de4874dd4f785139d18b728238cad5",
+      "sizeBytes": 1600
+    },
+    "DISCOVERY_PROTOCOL.md": {
+      "sha256": "5c6866025e67e91012be9f9465d49ce62b680bf44e4dc4a26a005e1fc80dd3ac",
+      "sizeBytes": 7658
+    },
+    "FINAL_DISCOVERY_REPORT.md": {
+      "sha256": "ac061445a2a027c7e5acb7f028a92343a2dcce07b90eea3c81de0a628ef12dd3",
+      "sizeBytes": 8290
+    }
+  }
+}

@@ -1,0 +1,1765 @@
+{
+  "workerId": "W08_LEAD_LAG",
+  "timestampUTC": "2026-09-03T02:41:38.804Z",
+  "elapsedMs": 680,
+  "fixedHorizonsTested": [
+    1,
+    2,
+    4,
+    8,
+    12,
+    24
+  ],
+  "responseCurves": {
+    "BTCUSDT": {
+      "OFI_Decay": [
+        {
+          "horizon": 1,
+          "ic": -0.0008,
+          "tHAC": -1.07,
+          "pVal": 0.285
+        },
+        {
+          "horizon": 2,
+          "ic": 0.0032,
+          "tHAC": -0.21,
+          "pVal": 0.833
+        },
+        {
+          "horizon": 4,
+          "ic": 0.0055,
+          "tHAC": 0.9,
+          "pVal": 0.367
+        },
+        {
+          "horizon": 8,
+          "ic": -0.0051,
+          "tHAC": -0.17,
+          "pVal": 0.869
+        },
+        {
+          "horizon": 12,
+          "ic": -0.0002,
+          "tHAC": -0.24,
+          "pVal": 0.812
+        },
+        {
+          "horizon": 24,
+          "ic": 0.0385,
+          "tHAC": 1.09,
+          "pVal": 0.276
+        }
+      ],
+      "Momentum_Decay": [
+        {
+          "horizon": 1,
+          "ic": -0.0027,
+          "tHAC": 1.63,
+          "pVal": 0.104
+        },
+        {
+          "horizon": 2,
+          "ic": -0.0006,
+          "tHAC": 1.21,
+          "pVal": 0.225
+        },
+        {
+          "horizon": 4,
+          "ic": -0.0059,
+          "tHAC": 0.85,
+          "pVal": 0.395
+        },
+        {
+          "horizon": 8,
+          "ic": 0.0178,
+          "tHAC": 2.57,
+          "pVal": 0.01
+        },
+        {
+          "horizon": 12,
+          "ic": -0.0123,
+          "tHAC": 0.28,
+          "pVal": 0.777
+        },
+        {
+          "horizon": 24,
+          "ic": -0.0238,
+          "tHAC": 0.66,
+          "pVal": 0.511
+        }
+      ]
+    },
+    "ETHUSDT": {
+      "OFI_Decay": [
+        {
+          "horizon": 1,
+          "ic": 0.0053,
+          "tHAC": 2.19,
+          "pVal": 0.029
+        },
+        {
+          "horizon": 2,
+          "ic": 0.0091,
+          "tHAC": 1.09,
+          "pVal": 0.274
+        },
+        {
+          "horizon": 4,
+          "ic": 0.0144,
+          "tHAC": 1.33,
+          "pVal": 0.183
+        },
+        {
+          "horizon": 8,
+          "ic": 0.006,
+          "tHAC": -0.1,
+          "pVal": 0.92
+        },
+        {
+          "horizon": 12,
+          "ic": 0.0052,
+          "tHAC": 0.33,
+          "pVal": 0.745
+        },
+        {
+          "horizon": 24,
+          "ic": -0.0214,
+          "tHAC": 0.35,
+          "pVal": 0.726
+        }
+      ],
+      "Momentum_Decay": [
+        {
+          "horizon": 1,
+          "ic": 0.0072,
+          "tHAC": 1.79,
+          "pVal": 0.074
+        },
+        {
+          "horizon": 2,
+          "ic": 0.0111,
+          "tHAC": 1.79,
+          "pVal": 0.073
+        },
+        {
+          "horizon": 4,
+          "ic": 0.0122,
+          "tHAC": 0.97,
+          "pVal": 0.334
+        },
+        {
+          "horizon": 8,
+          "ic": 0.0288,
+          "tHAC": 2.08,
+          "pVal": 0.037
+        },
+        {
+          "horizon": 12,
+          "ic": -0.0063,
+          "tHAC": 0.27,
+          "pVal": 0.787
+        },
+        {
+          "horizon": 24,
+          "ic": -0.0365,
+          "tHAC": 0.02,
+          "pVal": 0.985
+        }
+      ]
+    },
+    "SOLUSDT": {
+      "OFI_Decay": [
+        {
+          "horizon": 1,
+          "ic": 0.0017,
+          "tHAC": -0.09,
+          "pVal": 0.926
+        },
+        {
+          "horizon": 2,
+          "ic": 0.0067,
+          "tHAC": 0.17,
+          "pVal": 0.863
+        },
+        {
+          "horizon": 4,
+          "ic": 0.022,
+          "tHAC": 1.68,
+          "pVal": 0.093
+        },
+        {
+          "horizon": 8,
+          "ic": 0.0085,
+          "tHAC": 0.12,
+          "pVal": 0.906
+        },
+        {
+          "horizon": 12,
+          "ic": 0.0182,
+          "tHAC": 0.08,
+          "pVal": 0.939
+        },
+        {
+          "horizon": 24,
+          "ic": 0.0293,
+          "tHAC": 1.12,
+          "pVal": 0.263
+        }
+      ],
+      "Momentum_Decay": [
+        {
+          "horizon": 1,
+          "ic": -0.0065,
+          "tHAC": 1.25,
+          "pVal": 0.211
+        },
+        {
+          "horizon": 2,
+          "ic": -0.009,
+          "tHAC": 1.1,
+          "pVal": 0.271
+        },
+        {
+          "horizon": 4,
+          "ic": -0.0011,
+          "tHAC": 1.63,
+          "pVal": 0.104
+        },
+        {
+          "horizon": 8,
+          "ic": 0.0147,
+          "tHAC": 1.81,
+          "pVal": 0.071
+        },
+        {
+          "horizon": 12,
+          "ic": -0.0028,
+          "tHAC": 0.6,
+          "pVal": 0.549
+        },
+        {
+          "horizon": 24,
+          "ic": -0.0277,
+          "tHAC": -0.5,
+          "pVal": 0.617
+        }
+      ]
+    }
+  },
+  "totalHypothesesTested": 36,
+  "candidatesCount": 0,
+  "hypotheses": [
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 1,
+      "sampleSize": 5838,
+      "pearsonIC": -0.0008,
+      "tHAC": -1.0687,
+      "pValue": 0.2852,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.006,
+          "expectancyBps": -0.6,
+          "hitRatePercent": "46.81%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0136
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.056,
+          "expectancyBps": -5.6,
+          "hitRatePercent": "38.49%",
+          "profitFactor": 0.672,
+          "unannualizedSharpe": -0.1276
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.106,
+          "expectancyBps": -10.6,
+          "hitRatePercent": "31.00%",
+          "profitFactor": 0.479,
+          "unannualizedSharpe": -0.2416
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.206,
+          "expectancyBps": -20.6,
+          "hitRatePercent": "20.88%",
+          "profitFactor": 0.259,
+          "unannualizedSharpe": -0.4695
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 1,
+      "sampleSize": 20135,
+      "pearsonIC": -0.0027,
+      "tHAC": 1.627,
+      "pValue": 0.1037,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0062,
+          "expectancyBps": 0.62,
+          "hitRatePercent": "47.61%",
+          "profitFactor": 1.035,
+          "unannualizedSharpe": 0.0113
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0438,
+          "expectancyBps": -4.38,
+          "hitRatePercent": "41.90%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0799
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0938,
+          "expectancyBps": -9.38,
+          "hitRatePercent": "36.50%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1711
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1938,
+          "expectancyBps": -19.38,
+          "hitRatePercent": "26.96%",
+          "profitFactor": 0.358,
+          "unannualizedSharpe": -0.3535
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 2,
+      "sampleSize": 2931,
+      "pearsonIC": 0.0032,
+      "tHAC": -0.2112,
+      "pValue": 0.8327,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0023,
+          "expectancyBps": -0.23,
+          "hitRatePercent": "47.22%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.0038
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0523,
+          "expectancyBps": -5.23,
+          "hitRatePercent": "40.87%",
+          "profitFactor": 0.766,
+          "unannualizedSharpe": -0.0868
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1023,
+          "expectancyBps": -10.23,
+          "hitRatePercent": "35.52%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1698
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2023,
+          "expectancyBps": -20.23,
+          "hitRatePercent": "26.58%",
+          "profitFactor": 0.374,
+          "unannualizedSharpe": -0.3358
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 2,
+      "sampleSize": 10066,
+      "pearsonIC": -0.0006,
+      "tHAC": 1.2123,
+      "pValue": 0.2254,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.009,
+          "expectancyBps": 0.9,
+          "hitRatePercent": "47.45%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.0119
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.041,
+          "expectancyBps": -4.1,
+          "hitRatePercent": "43.04%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.0542
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.091,
+          "expectancyBps": -9.1,
+          "hitRatePercent": "38.94%",
+          "profitFactor": 0.697,
+          "unannualizedSharpe": -0.1203
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.191,
+          "expectancyBps": -19.1,
+          "hitRatePercent": "31.48%",
+          "profitFactor": 0.477,
+          "unannualizedSharpe": -0.2525
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 4,
+      "sampleSize": 1467,
+      "pearsonIC": 0.0055,
+      "tHAC": 0.9029,
+      "pValue": 0.3666,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0195,
+          "expectancyBps": 1.95,
+          "hitRatePercent": "46.69%",
+          "profitFactor": 1.071,
+          "unannualizedSharpe": 0.0227
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0305,
+          "expectancyBps": -3.05,
+          "hitRatePercent": "42.60%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0357
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0805,
+          "expectancyBps": -8.05,
+          "hitRatePercent": "38.24%",
+          "profitFactor": 0.756,
+          "unannualizedSharpe": -0.0941
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1805,
+          "expectancyBps": -18.05,
+          "hitRatePercent": "31.83%",
+          "profitFactor": 0.543,
+          "unannualizedSharpe": -0.2109
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 4,
+      "sampleSize": 4983,
+      "pearsonIC": -0.0059,
+      "tHAC": 0.8513,
+      "pValue": 0.3946,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0129,
+          "expectancyBps": 1.29,
+          "hitRatePercent": "46.86%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.012
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0371,
+          "expectancyBps": -3.71,
+          "hitRatePercent": "43.61%",
+          "profitFactor": 0.901,
+          "unannualizedSharpe": -0.0346
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0871,
+          "expectancyBps": -8.71,
+          "hitRatePercent": "40.68%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0812
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1871,
+          "expectancyBps": -18.71,
+          "hitRatePercent": "35.24%",
+          "profitFactor": 0.598,
+          "unannualizedSharpe": -0.1745
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 8,
+      "sampleSize": 730,
+      "pearsonIC": -0.0051,
+      "tHAC": -0.1653,
+      "pValue": 0.8687,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0078,
+          "expectancyBps": -0.78,
+          "hitRatePercent": "48.22%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0578,
+          "expectancyBps": -5.78,
+          "hitRatePercent": "44.66%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0487
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1078,
+          "expectancyBps": -10.78,
+          "hitRatePercent": "40.96%",
+          "profitFactor": 0.767,
+          "unannualizedSharpe": -0.0908
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2078,
+          "expectancyBps": -20.78,
+          "hitRatePercent": "36.30%",
+          "profitFactor": 0.604,
+          "unannualizedSharpe": -0.1751
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 8,
+      "sampleSize": 2528,
+      "pearsonIC": 0.0178,
+      "tHAC": 2.5706,
+      "pValue": 0.0102,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0757,
+          "expectancyBps": 7.57,
+          "hitRatePercent": "47.82%",
+          "profitFactor": 1.163,
+          "unannualizedSharpe": 0.0511
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0257,
+          "expectancyBps": 2.57,
+          "hitRatePercent": "45.57%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0174
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0243,
+          "expectancyBps": -2.43,
+          "hitRatePercent": "43.55%",
+          "profitFactor": 0.953,
+          "unannualizedSharpe": -0.0164
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1243,
+          "expectancyBps": -12.43,
+          "hitRatePercent": "39.32%",
+          "profitFactor": 0.785,
+          "unannualizedSharpe": -0.0839
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 12,
+      "sampleSize": 495,
+      "pearsonIC": -0.0002,
+      "tHAC": -0.2374,
+      "pValue": 0.8123,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0167,
+          "expectancyBps": -1.67,
+          "hitRatePercent": "49.70%",
+          "profitFactor": 0.967,
+          "unannualizedSharpe": -0.0114
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0667,
+          "expectancyBps": -6.67,
+          "hitRatePercent": "46.87%",
+          "profitFactor": 0.873,
+          "unannualizedSharpe": -0.0456
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1167,
+          "expectancyBps": -11.67,
+          "hitRatePercent": "44.04%",
+          "profitFactor": 0.789,
+          "unannualizedSharpe": -0.0797
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2167,
+          "expectancyBps": -21.67,
+          "hitRatePercent": "40.00%",
+          "profitFactor": 0.646,
+          "unannualizedSharpe": -0.148
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 12,
+      "sampleSize": 1622,
+      "pearsonIC": -0.0123,
+      "tHAC": 0.2827,
+      "pValue": 0.7774,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0128,
+          "expectancyBps": 1.28,
+          "hitRatePercent": "47.66%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.007
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0372,
+          "expectancyBps": -3.72,
+          "hitRatePercent": "46.24%",
+          "profitFactor": 0.942,
+          "unannualizedSharpe": -0.0203
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0872,
+          "expectancyBps": -8.72,
+          "hitRatePercent": "44.27%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0477
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1872,
+          "expectancyBps": -18.72,
+          "hitRatePercent": "41.12%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.1024
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_BTCUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "BTCUSDT",
+      "horizon": 24,
+      "sampleSize": 251,
+      "pearsonIC": 0.0385,
+      "tHAC": 1.0899,
+      "pValue": 0.2758,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1381,
+          "expectancyBps": 13.81,
+          "hitRatePercent": "50.60%",
+          "profitFactor": 1.196,
+          "unannualizedSharpe": 0.0631
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0881,
+          "expectancyBps": 8.81,
+          "hitRatePercent": "48.61%",
+          "profitFactor": 1.121,
+          "unannualizedSharpe": 0.0402
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0381,
+          "expectancyBps": 3.81,
+          "hitRatePercent": "47.41%",
+          "profitFactor": 1.05,
+          "unannualizedSharpe": 0.0174
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0619,
+          "expectancyBps": -6.19,
+          "hitRatePercent": "44.62%",
+          "profitFactor": 0.924,
+          "unannualizedSharpe": -0.0283
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_BTCUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "BTCUSDT",
+      "horizon": 24,
+      "sampleSize": 873,
+      "pearsonIC": -0.0238,
+      "tHAC": 0.657,
+      "pValue": 0.5112,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.06,
+          "expectancyBps": 6,
+          "hitRatePercent": "47.77%",
+          "profitFactor": 1.068,
+          "unannualizedSharpe": 0.0229
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.01,
+          "expectancyBps": 1,
+          "hitRatePercent": "46.74%",
+          "profitFactor": 1.011,
+          "unannualizedSharpe": 0.0038
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.04,
+          "expectancyBps": -4,
+          "hitRatePercent": "45.59%",
+          "profitFactor": 0.957,
+          "unannualizedSharpe": -0.0153
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.14,
+          "expectancyBps": -14,
+          "hitRatePercent": "42.84%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.0534
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 1,
+      "sampleSize": 4606,
+      "pearsonIC": 0.0053,
+      "tHAC": 2.1887,
+      "pValue": 0.0286,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0226,
+          "expectancyBps": 2.26,
+          "hitRatePercent": "46.37%",
+          "profitFactor": 1.114,
+          "unannualizedSharpe": 0.0329
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0274,
+          "expectancyBps": -2.74,
+          "hitRatePercent": "40.36%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0398
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0774,
+          "expectancyBps": -7.74,
+          "hitRatePercent": "35.65%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.1125
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1774,
+          "expectancyBps": -17.74,
+          "hitRatePercent": "27.42%",
+          "profitFactor": 0.457,
+          "unannualizedSharpe": -0.2579
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 1,
+      "sampleSize": 22873,
+      "pearsonIC": 0.0072,
+      "tHAC": 1.7882,
+      "pValue": 0.0737,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0084,
+          "expectancyBps": 0.84,
+          "hitRatePercent": "46.98%",
+          "profitFactor": 1.038,
+          "unannualizedSharpe": 0.0119
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0416,
+          "expectancyBps": -4.16,
+          "hitRatePercent": "42.36%",
+          "profitFactor": 0.834,
+          "unannualizedSharpe": -0.0586
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0916,
+          "expectancyBps": -9.16,
+          "hitRatePercent": "37.70%",
+          "profitFactor": 0.673,
+          "unannualizedSharpe": -0.1291
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1916,
+          "expectancyBps": -19.16,
+          "hitRatePercent": "29.59%",
+          "profitFactor": 0.448,
+          "unannualizedSharpe": -0.27
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 2,
+      "sampleSize": 2323,
+      "pearsonIC": 0.0091,
+      "tHAC": 1.0942,
+      "pValue": 0.2739,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0215,
+          "expectancyBps": 2.15,
+          "hitRatePercent": "45.93%",
+          "profitFactor": 1.076,
+          "unannualizedSharpe": 0.0228
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0285,
+          "expectancyBps": -2.85,
+          "hitRatePercent": "41.76%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0302
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0785,
+          "expectancyBps": -7.85,
+          "hitRatePercent": "37.54%",
+          "profitFactor": 0.77,
+          "unannualizedSharpe": -0.0831
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1785,
+          "expectancyBps": -17.85,
+          "hitRatePercent": "31.30%",
+          "profitFactor": 0.561,
+          "unannualizedSharpe": -0.1891
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 2,
+      "sampleSize": 11431,
+      "pearsonIC": 0.0111,
+      "tHAC": 1.7937,
+      "pValue": 0.0729,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0169,
+          "expectancyBps": 1.69,
+          "hitRatePercent": "46.96%",
+          "profitFactor": 1.054,
+          "unannualizedSharpe": 0.0168
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0331,
+          "expectancyBps": -3.31,
+          "hitRatePercent": "43.34%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.033
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0831,
+          "expectancyBps": -8.31,
+          "hitRatePercent": "40.20%",
+          "profitFactor": 0.776,
+          "unannualizedSharpe": -0.0828
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1831,
+          "expectancyBps": -18.31,
+          "hitRatePercent": "34.22%",
+          "profitFactor": 0.578,
+          "unannualizedSharpe": -0.1824
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 4,
+      "sampleSize": 1137,
+      "pearsonIC": 0.0144,
+      "tHAC": 1.3313,
+      "pValue": 0.1831,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.048,
+          "expectancyBps": 4.8,
+          "hitRatePercent": "48.37%",
+          "profitFactor": 1.127,
+          "unannualizedSharpe": 0.0369
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.002,
+          "expectancyBps": -0.2,
+          "hitRatePercent": "45.03%",
+          "profitFactor": 0.995,
+          "unannualizedSharpe": -0.0016
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.052,
+          "expectancyBps": -5.2,
+          "hitRatePercent": "41.25%",
+          "profitFactor": 0.88,
+          "unannualizedSharpe": -0.04
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.152,
+          "expectancyBps": -15.2,
+          "hitRatePercent": "35.97%",
+          "profitFactor": 0.693,
+          "unannualizedSharpe": -0.1169
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 4,
+      "sampleSize": 5710,
+      "pearsonIC": 0.0122,
+      "tHAC": 0.9669,
+      "pValue": 0.3336,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0178,
+          "expectancyBps": 1.78,
+          "hitRatePercent": "46.78%",
+          "profitFactor": 1.04,
+          "unannualizedSharpe": 0.0128
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0322,
+          "expectancyBps": -3.22,
+          "hitRatePercent": "44.06%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0231
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0822,
+          "expectancyBps": -8.22,
+          "hitRatePercent": "41.70%",
+          "profitFactor": 0.837,
+          "unannualizedSharpe": -0.0589
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1822,
+          "expectancyBps": -18.22,
+          "hitRatePercent": "37.53%",
+          "profitFactor": 0.678,
+          "unannualizedSharpe": -0.1305
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 8,
+      "sampleSize": 575,
+      "pearsonIC": 0.006,
+      "tHAC": -0.1009,
+      "pValue": 0.9197,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0082,
+          "expectancyBps": -0.82,
+          "hitRatePercent": "45.22%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0045
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0582,
+          "expectancyBps": -5.82,
+          "hitRatePercent": "42.96%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0321
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1082,
+          "expectancyBps": -10.82,
+          "hitRatePercent": "40.70%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0597
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2082,
+          "expectancyBps": -20.82,
+          "hitRatePercent": "36.70%",
+          "profitFactor": 0.716,
+          "unannualizedSharpe": -0.1149
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 8,
+      "sampleSize": 2859,
+      "pearsonIC": 0.0288,
+      "tHAC": 2.0826,
+      "pValue": 0.0373,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0738,
+          "expectancyBps": 7.38,
+          "hitRatePercent": "48.13%",
+          "profitFactor": 1.119,
+          "unannualizedSharpe": 0.0386
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0238,
+          "expectancyBps": 2.38,
+          "hitRatePercent": "46.27%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.0124
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0262,
+          "expectancyBps": -2.62,
+          "hitRatePercent": "44.77%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1262,
+          "expectancyBps": -12.62,
+          "hitRatePercent": "41.48%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0659
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 12,
+      "sampleSize": 384,
+      "pearsonIC": 0.0052,
+      "tHAC": 0.3258,
+      "pValue": 0.7446,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0334,
+          "expectancyBps": 3.34,
+          "hitRatePercent": "48.44%",
+          "profitFactor": 1.047,
+          "unannualizedSharpe": 0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0166,
+          "expectancyBps": -1.66,
+          "hitRatePercent": "46.61%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0076
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0666,
+          "expectancyBps": -6.66,
+          "hitRatePercent": "44.27%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0307
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1666,
+          "expectancyBps": -16.66,
+          "hitRatePercent": "41.93%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0768
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 12,
+      "sampleSize": 1894,
+      "pearsonIC": -0.0063,
+      "tHAC": 0.2704,
+      "pValue": 0.7869,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0152,
+          "expectancyBps": 1.52,
+          "hitRatePercent": "47.84%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.0063
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0348,
+          "expectancyBps": -3.48,
+          "hitRatePercent": "46.78%",
+          "profitFactor": 0.959,
+          "unannualizedSharpe": -0.0144
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0848,
+          "expectancyBps": -8.48,
+          "hitRatePercent": "45.51%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0351
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1848,
+          "expectancyBps": -18.48,
+          "hitRatePercent": "43.45%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0764
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_ETHUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "ETHUSDT",
+      "horizon": 24,
+      "sampleSize": 189,
+      "pearsonIC": -0.0214,
+      "tHAC": 0.3507,
+      "pValue": 0.7258,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0754,
+          "expectancyBps": 7.54,
+          "hitRatePercent": "52.91%",
+          "profitFactor": 1.07,
+          "unannualizedSharpe": 0.0247
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0254,
+          "expectancyBps": 2.54,
+          "hitRatePercent": "52.38%",
+          "profitFactor": 1.023,
+          "unannualizedSharpe": 0.0083
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0246,
+          "expectancyBps": -2.46,
+          "hitRatePercent": "51.85%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0081
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1246,
+          "expectancyBps": -12.46,
+          "hitRatePercent": "51.32%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.0408
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_ETHUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "ETHUSDT",
+      "horizon": 24,
+      "sampleSize": 970,
+      "pearsonIC": -0.0365,
+      "tHAC": 0.0184,
+      "pValue": 0.9853,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0021,
+          "expectancyBps": 0.21,
+          "hitRatePercent": "46.80%",
+          "profitFactor": 1.002,
+          "unannualizedSharpe": 0.0006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0479,
+          "expectancyBps": -4.79,
+          "hitRatePercent": "46.39%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.0141
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0979,
+          "expectancyBps": -9.79,
+          "hitRatePercent": "45.57%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0288
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1979,
+          "expectancyBps": -19.79,
+          "hitRatePercent": "43.30%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0581
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 1,
+      "sampleSize": 4429,
+      "pearsonIC": 0.0017,
+      "tHAC": -0.093,
+      "pValue": 0.9259,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0012,
+          "expectancyBps": -0.12,
+          "hitRatePercent": "45.41%",
+          "profitFactor": 0.996,
+          "unannualizedSharpe": -0.0014
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0512,
+          "expectancyBps": -5.12,
+          "hitRatePercent": "42.00%",
+          "profitFactor": 0.829,
+          "unannualizedSharpe": -0.0614
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1012,
+          "expectancyBps": -10.12,
+          "hitRatePercent": "38.68%",
+          "profitFactor": 0.693,
+          "unannualizedSharpe": -0.1215
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2012,
+          "expectancyBps": -20.12,
+          "hitRatePercent": "32.29%",
+          "profitFactor": 0.49,
+          "unannualizedSharpe": -0.2416
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H1",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 1,
+      "sampleSize": 26127,
+      "pearsonIC": -0.0065,
+      "tHAC": 1.2517,
+      "pValue": 0.2107,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0072,
+          "expectancyBps": 0.72,
+          "hitRatePercent": "48.03%",
+          "profitFactor": 1.023,
+          "unannualizedSharpe": 0.0075
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0428,
+          "expectancyBps": -4.28,
+          "hitRatePercent": "45.16%",
+          "profitFactor": 0.876,
+          "unannualizedSharpe": -0.0446
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0928,
+          "expectancyBps": -9.28,
+          "hitRatePercent": "42.11%",
+          "profitFactor": 0.751,
+          "unannualizedSharpe": -0.0967
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1928,
+          "expectancyBps": -19.28,
+          "hitRatePercent": "35.74%",
+          "profitFactor": 0.555,
+          "unannualizedSharpe": -0.201
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 2,
+      "sampleSize": 2209,
+      "pearsonIC": 0.0067,
+      "tHAC": 0.1729,
+      "pValue": 0.8628,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0044,
+          "expectancyBps": 0.44,
+          "hitRatePercent": "46.45%",
+          "profitFactor": 1.012,
+          "unannualizedSharpe": 0.0037
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0456,
+          "expectancyBps": -4.56,
+          "hitRatePercent": "44.36%",
+          "profitFactor": 0.888,
+          "unannualizedSharpe": -0.039
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0956,
+          "expectancyBps": -9.56,
+          "hitRatePercent": "41.96%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.0817
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1956,
+          "expectancyBps": -19.56,
+          "hitRatePercent": "36.44%",
+          "profitFactor": 0.607,
+          "unannualizedSharpe": -0.1672
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H2",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 2,
+      "sampleSize": 13125,
+      "pearsonIC": -0.009,
+      "tHAC": 1.1015,
+      "pValue": 0.2707,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0127,
+          "expectancyBps": 1.27,
+          "hitRatePercent": "48.27%",
+          "profitFactor": 1.028,
+          "unannualizedSharpe": 0.0094
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0373,
+          "expectancyBps": -3.73,
+          "hitRatePercent": "46.15%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0275
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0873,
+          "expectancyBps": -8.73,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.826,
+          "unannualizedSharpe": -0.0645
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1873,
+          "expectancyBps": -18.73,
+          "hitRatePercent": "39.60%",
+          "profitFactor": 0.665,
+          "unannualizedSharpe": -0.1383
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 4,
+      "sampleSize": 1121,
+      "pearsonIC": 0.022,
+      "tHAC": 1.6776,
+      "pValue": 0.0934,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0756,
+          "expectancyBps": 7.56,
+          "hitRatePercent": "49.87%",
+          "profitFactor": 1.153,
+          "unannualizedSharpe": 0.0477
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0256,
+          "expectancyBps": 2.56,
+          "hitRatePercent": "47.10%",
+          "profitFactor": 1.049,
+          "unannualizedSharpe": 0.0161
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0244,
+          "expectancyBps": -2.44,
+          "hitRatePercent": "44.78%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0154
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1244,
+          "expectancyBps": -12.44,
+          "hitRatePercent": "41.03%",
+          "profitFactor": 0.794,
+          "unannualizedSharpe": -0.0786
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H4",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 4,
+      "sampleSize": 6539,
+      "pearsonIC": -0.0011,
+      "tHAC": 1.6254,
+      "pValue": 0.1041,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0383,
+          "expectancyBps": 3.83,
+          "hitRatePercent": "49.55%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0201
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0117,
+          "expectancyBps": -1.17,
+          "hitRatePercent": "47.58%",
+          "profitFactor": 0.982,
+          "unannualizedSharpe": -0.0061
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0617,
+          "expectancyBps": -6.17,
+          "hitRatePercent": "45.66%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0324
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1617,
+          "expectancyBps": -16.17,
+          "hitRatePercent": "42.13%",
+          "profitFactor": 0.78,
+          "unannualizedSharpe": -0.0848
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 8,
+      "sampleSize": 587,
+      "pearsonIC": 0.0085,
+      "tHAC": 0.1177,
+      "pValue": 0.9063,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0109,
+          "expectancyBps": 1.09,
+          "hitRatePercent": "47.53%",
+          "profitFactor": 1.014,
+          "unannualizedSharpe": 0.0048
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0391,
+          "expectancyBps": -3.91,
+          "hitRatePercent": "46.68%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0174
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0891,
+          "expectancyBps": -8.91,
+          "hitRatePercent": "45.14%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0396
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1891,
+          "expectancyBps": -18.91,
+          "hitRatePercent": "42.42%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0841
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H8",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 8,
+      "sampleSize": 3298,
+      "pearsonIC": 0.0147,
+      "tHAC": 1.8054,
+      "pValue": 0.071,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0805,
+          "expectancyBps": 8.05,
+          "hitRatePercent": "49.03%",
+          "profitFactor": 1.092,
+          "unannualizedSharpe": 0.0307
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0305,
+          "expectancyBps": 3.05,
+          "hitRatePercent": "48.12%",
+          "profitFactor": 1.034,
+          "unannualizedSharpe": 0.0116
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0195,
+          "expectancyBps": -1.95,
+          "hitRatePercent": "47.33%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0074
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1195,
+          "expectancyBps": -11.95,
+          "hitRatePercent": "45.21%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0456
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 12,
+      "sampleSize": 381,
+      "pearsonIC": 0.0182,
+      "tHAC": 0.0766,
+      "pValue": 0.9389,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0111,
+          "expectancyBps": 1.11,
+          "hitRatePercent": "51.44%",
+          "profitFactor": 1.011,
+          "unannualizedSharpe": 0.0037
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0389,
+          "expectancyBps": -3.89,
+          "hitRatePercent": "50.39%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.013
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0889,
+          "expectancyBps": -8.89,
+          "hitRatePercent": "49.87%",
+          "profitFactor": 0.914,
+          "unannualizedSharpe": -0.0297
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1889,
+          "expectancyBps": -18.89,
+          "hitRatePercent": "46.98%",
+          "profitFactor": 0.826,
+          "unannualizedSharpe": -0.0631
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H12",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 12,
+      "sampleSize": 2179,
+      "pearsonIC": -0.0028,
+      "tHAC": 0.5997,
+      "pValue": 0.5487,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0401,
+          "expectancyBps": 4.01,
+          "hitRatePercent": "50.71%",
+          "profitFactor": 1.036,
+          "unannualizedSharpe": 0.0123
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0099,
+          "expectancyBps": -0.99,
+          "hitRatePercent": "49.79%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.003
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0599,
+          "expectancyBps": -5.99,
+          "hitRatePercent": "49.29%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0183
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1599,
+          "expectancyBps": -15.99,
+          "hitRatePercent": "47.22%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.049
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_OFI_HORIZON_SOLUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Order Flow Imbalance Temporal Decay",
+      "asset": "SOLUSDT",
+      "horizon": 24,
+      "sampleSize": 193,
+      "pearsonIC": 0.0293,
+      "tHAC": 1.1201,
+      "pValue": 0.2627,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.3666,
+          "expectancyBps": 36.66,
+          "hitRatePercent": "53.37%",
+          "profitFactor": 1.267,
+          "unannualizedSharpe": 0.0857
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.3166,
+          "expectancyBps": 31.66,
+          "hitRatePercent": "53.37%",
+          "profitFactor": 1.227,
+          "unannualizedSharpe": 0.074
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.2666,
+          "expectancyBps": 26.66,
+          "hitRatePercent": "52.33%",
+          "profitFactor": 1.188,
+          "unannualizedSharpe": 0.0623
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.1666,
+          "expectancyBps": 16.66,
+          "hitRatePercent": "51.81%",
+          "profitFactor": 1.114,
+          "unannualizedSharpe": 0.039
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W08_MOM_HORIZON_SOLUSDT_H24",
+      "worker": "W08_LEAD_LAG",
+      "mechanism": "Price Momentum Temporal Curve",
+      "asset": "SOLUSDT",
+      "horizon": 24,
+      "sampleSize": 1109,
+      "pearsonIC": -0.0277,
+      "tHAC": -0.5002,
+      "pValue": 0.6169,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0625,
+          "expectancyBps": -6.25,
+          "hitRatePercent": "49.23%",
+          "profitFactor": 0.963,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1125,
+          "expectancyBps": -11.25,
+          "hitRatePercent": "48.51%",
+          "profitFactor": 0.934,
+          "unannualizedSharpe": -0.0246
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1625,
+          "expectancyBps": -16.25,
+          "hitRatePercent": "47.88%",
+          "profitFactor": 0.906,
+          "unannualizedSharpe": -0.0356
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2625,
+          "expectancyBps": -26.25,
+          "hitRatePercent": "46.35%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.0574
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

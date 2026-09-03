@@ -1,0 +1,62 @@
+{
+  "timestampUTC": "2026-09-03T02:37:24.388Z",
+  "environment": {
+    "platform": "win32",
+    "arch": "x64",
+    "osRelease": "10.0.26100",
+    "cpuModel": "12th Gen Intel(R) Core(TM) i5-12400F",
+    "cpuLogicalCores": 12,
+    "totalRAMBytes": 6441340928,
+    "totalRAM_GB": 6,
+    "freeRAMBytes": 1206517760,
+    "freeRAM_GB": 1.12,
+    "nodeVersion": "v24.15.0",
+    "pythonVersion": "NOT_AVAILABLE",
+    "workerThreadsSupported": true,
+    "childProcessSupported": true
+  },
+  "benchmarkResults": [
+    {
+      "concurrency": 1,
+      "elapsedMs": 17,
+      "totalObservations": 100000,
+      "throughputObsPerSec": 5882353,
+      "heapDeltaMB": -0.42
+    },
+    {
+      "concurrency": 2,
+      "elapsedMs": 15,
+      "totalObservations": 200000,
+      "throughputObsPerSec": 13333333,
+      "heapDeltaMB": 0.02
+    },
+    {
+      "concurrency": 4,
+      "elapsedMs": 35,
+      "totalObservations": 400000,
+      "throughputObsPerSec": 11428571,
+      "heapDeltaMB": 0.03
+    },
+    {
+      "concurrency": 6,
+      "elapsedMs": 53,
+      "totalObservations": 600000,
+      "throughputObsPerSec": 11320755,
+      "heapDeltaMB": -1.01
+    },
+    {
+      "concurrency": 8,
+      "elapsedMs": 62,
+      "totalObservations": 800000,
+      "throughputObsPerSec": 12903226,
+      "heapDeltaMB": 0.05
+    }
+  ],
+  "schedulerConfiguration": {
+    "selectedWorkerCount": 6,
+    "workerModel": "Isolated Modular Process / Worker Pool",
+    "maxRAMAllocationPerWorkerMB": 180,
+    "ioStrategy": "Batch streaming with synchronous memory releases",
+    "checkpointCadence": "Per Hypothesis Family Batch"
+  }
+}

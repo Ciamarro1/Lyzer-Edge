@@ -1,0 +1,5289 @@
+{
+  "workerId": "W05_FUNDING_OI",
+  "timestampUTC": "2026-09-03T02:41:37.924Z",
+  "elapsedMs": 4306,
+  "totalHypothesesTested": 120,
+  "candidatesCount": 4,
+  "hypotheses": [
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 3137,
+      "pearsonIC": 0.0089,
+      "spearmanIC": 0.0033,
+      "tHAC": 1.2531,
+      "pValue": 0.2102,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0118,
+          "expectancyBps": 1.18,
+          "hitRatePercent": "50.40%",
+          "profitFactor": 1.073,
+          "unannualizedSharpe": 0.0226
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0382,
+          "expectancyBps": -3.82,
+          "hitRatePercent": "43.07%",
+          "profitFactor": 0.796,
+          "unannualizedSharpe": -0.0734
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0882,
+          "expectancyBps": -8.82,
+          "hitRatePercent": "36.75%",
+          "profitFactor": 0.595,
+          "unannualizedSharpe": -0.1693
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1882,
+          "expectancyBps": -18.82,
+          "hitRatePercent": "25.85%",
+          "profitFactor": 0.344,
+          "unannualizedSharpe": -0.3613
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1571,
+      "pearsonIC": 0.0127,
+      "spearmanIC": 0.0059,
+      "tHAC": 1.27,
+      "pValue": 0.2041,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0238,
+          "expectancyBps": 2.38,
+          "hitRatePercent": "49.65%",
+          "profitFactor": 1.108,
+          "unannualizedSharpe": 0.0327
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0262,
+          "expectancyBps": -2.62,
+          "hitRatePercent": "44.88%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.036
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0762,
+          "expectancyBps": -7.62,
+          "hitRatePercent": "39.97%",
+          "profitFactor": 0.723,
+          "unannualizedSharpe": -0.1047
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1762,
+          "expectancyBps": -17.62,
+          "hitRatePercent": "31.83%",
+          "profitFactor": 0.481,
+          "unannualizedSharpe": -0.2422
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 794,
+      "pearsonIC": 0.0181,
+      "spearmanIC": 0.0132,
+      "tHAC": 1.2667,
+      "pValue": 0.2053,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0473,
+          "expectancyBps": 4.73,
+          "hitRatePercent": "48.36%",
+          "profitFactor": 1.149,
+          "unannualizedSharpe": 0.0461
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0027,
+          "expectancyBps": -0.27,
+          "hitRatePercent": "45.21%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0527,
+          "expectancyBps": -5.27,
+          "hitRatePercent": "42.70%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0512
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1527,
+          "expectancyBps": -15.27,
+          "hitRatePercent": "36.52%",
+          "profitFactor": 0.647,
+          "unannualizedSharpe": -0.1485
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 404,
+      "pearsonIC": 0.0259,
+      "spearmanIC": 0.0181,
+      "tHAC": 1.0714,
+      "pValue": 0.284,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0821,
+          "expectancyBps": 8.21,
+          "hitRatePercent": "48.02%",
+          "profitFactor": 1.188,
+          "unannualizedSharpe": 0.0589
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0321,
+          "expectancyBps": 3.21,
+          "hitRatePercent": "44.80%",
+          "profitFactor": 1.069,
+          "unannualizedSharpe": 0.023
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0179,
+          "expectancyBps": -1.79,
+          "hitRatePercent": "43.07%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0128
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1179,
+          "expectancyBps": -11.79,
+          "hitRatePercent": "38.12%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0846
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 266,
+      "pearsonIC": 0.023,
+      "spearmanIC": 0.0186,
+      "tHAC": 0.9476,
+      "pValue": 0.3433,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1173,
+          "expectancyBps": 11.73,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 1.215,
+          "unannualizedSharpe": 0.0638
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0673,
+          "expectancyBps": 6.73,
+          "hitRatePercent": "46.62%",
+          "profitFactor": 1.118,
+          "unannualizedSharpe": 0.0366
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0173,
+          "expectancyBps": 1.73,
+          "hitRatePercent": "44.36%",
+          "profitFactor": 1.029,
+          "unannualizedSharpe": 0.0094
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0827,
+          "expectancyBps": -8.27,
+          "hitRatePercent": "39.85%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.0449
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BTCUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BTCUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 144,
+      "pearsonIC": -0.0113,
+      "spearmanIC": 0.0056,
+      "tHAC": -0.7568,
+      "pValue": 0.4491,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1916,
+          "expectancyBps": -19.16,
+          "hitRatePercent": "44.44%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0718
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2416,
+          "expectancyBps": -24.16,
+          "hitRatePercent": "43.75%",
+          "profitFactor": 0.764,
+          "unannualizedSharpe": -0.0905
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2916,
+          "expectancyBps": -29.16,
+          "hitRatePercent": "40.97%",
+          "profitFactor": 0.723,
+          "unannualizedSharpe": -0.1092
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3916,
+          "expectancyBps": -39.16,
+          "hitRatePercent": "40.28%",
+          "profitFactor": 0.648,
+          "unannualizedSharpe": -0.1467
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 20609,
+      "pearsonIC": -0.0057,
+      "spearmanIC": 0.0169,
+      "tHAC": -1.3761,
+      "pValue": 0.1688,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.005,
+          "expectancyBps": -0.5,
+          "hitRatePercent": "51.44%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.0093
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.055,
+          "expectancyBps": -5.5,
+          "hitRatePercent": "44.42%",
+          "profitFactor": 0.721,
+          "unannualizedSharpe": -0.1032
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.105,
+          "expectancyBps": -10.5,
+          "hitRatePercent": "37.67%",
+          "profitFactor": 0.536,
+          "unannualizedSharpe": -0.197
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.205,
+          "expectancyBps": -20.5,
+          "hitRatePercent": "26.77%",
+          "profitFactor": 0.303,
+          "unannualizedSharpe": -0.3847
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 10052,
+      "pearsonIC": -0.0081,
+      "spearmanIC": 0.0154,
+      "tHAC": -1.7307,
+      "pValue": 0.0835,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0125,
+          "expectancyBps": -1.25,
+          "hitRatePercent": "51.19%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.017
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0625,
+          "expectancyBps": -6.25,
+          "hitRatePercent": "46.18%",
+          "profitFactor": 0.765,
+          "unannualizedSharpe": -0.0851
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1125,
+          "expectancyBps": -11.25,
+          "hitRatePercent": "41.05%",
+          "profitFactor": 0.618,
+          "unannualizedSharpe": -0.1531
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2125,
+          "expectancyBps": -21.25,
+          "hitRatePercent": "32.39%",
+          "profitFactor": 0.406,
+          "unannualizedSharpe": -0.2892
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 4716,
+      "pearsonIC": -0.0114,
+      "spearmanIC": 0.0248,
+      "tHAC": -1.0941,
+      "pValue": 0.2739,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0171,
+          "expectancyBps": -1.71,
+          "hitRatePercent": "51.99%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0163
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0671,
+          "expectancyBps": -6.71,
+          "hitRatePercent": "48.41%",
+          "profitFactor": 0.818,
+          "unannualizedSharpe": -0.0638
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1171,
+          "expectancyBps": -11.71,
+          "hitRatePercent": "44.80%",
+          "profitFactor": 0.704,
+          "unannualizedSharpe": -0.1113
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2171,
+          "expectancyBps": -21.71,
+          "hitRatePercent": "37.60%",
+          "profitFactor": 0.522,
+          "unannualizedSharpe": -0.2063
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2049,
+      "pearsonIC": -0.0172,
+      "spearmanIC": 0.0079,
+      "tHAC": -1.9682,
+      "pValue": 0.049,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0676,
+          "expectancyBps": -6.76,
+          "hitRatePercent": "49.78%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0461
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1176,
+          "expectancyBps": -11.76,
+          "hitRatePercent": "47.14%",
+          "profitFactor": 0.779,
+          "unannualizedSharpe": -0.0802
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1676,
+          "expectancyBps": -16.76,
+          "hitRatePercent": "44.31%",
+          "profitFactor": 0.701,
+          "unannualizedSharpe": -0.1143
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2676,
+          "expectancyBps": -26.76,
+          "hitRatePercent": "39.34%",
+          "profitFactor": 0.567,
+          "unannualizedSharpe": -0.1825
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1532,
+      "pearsonIC": -0.0198,
+      "spearmanIC": 0.004,
+      "tHAC": -1.487,
+      "pValue": 0.137,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0769,
+          "expectancyBps": -7.69,
+          "hitRatePercent": "50.07%",
+          "profitFactor": 0.882,
+          "unannualizedSharpe": -0.0408
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1269,
+          "expectancyBps": -12.69,
+          "hitRatePercent": "47.19%",
+          "profitFactor": 0.813,
+          "unannualizedSharpe": -0.0673
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1769,
+          "expectancyBps": -17.69,
+          "hitRatePercent": "45.30%",
+          "profitFactor": 0.749,
+          "unannualizedSharpe": -0.0938
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2769,
+          "expectancyBps": -27.69,
+          "hitRatePercent": "41.19%",
+          "profitFactor": 0.636,
+          "unannualizedSharpe": -0.1468
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BTCUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BTCUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 670,
+      "pearsonIC": -0.0291,
+      "spearmanIC": -0.0127,
+      "tHAC": -1.9665,
+      "pValue": 0.0492,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2096,
+          "expectancyBps": -20.96,
+          "hitRatePercent": "49.25%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0817
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2596,
+          "expectancyBps": -25.96,
+          "hitRatePercent": "47.16%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.1011
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3096,
+          "expectancyBps": -30.96,
+          "hitRatePercent": "45.82%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.1206
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4096,
+          "expectancyBps": -40.96,
+          "hitRatePercent": "41.64%",
+          "profitFactor": 0.623,
+          "unannualizedSharpe": -0.1596
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2896,
+      "pearsonIC": 0.0109,
+      "spearmanIC": 0.0112,
+      "tHAC": -0.432,
+      "pValue": 0.6658,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0064,
+          "expectancyBps": -0.64,
+          "hitRatePercent": "48.65%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0078
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0564,
+          "expectancyBps": -5.64,
+          "hitRatePercent": "44.58%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.0685
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1064,
+          "expectancyBps": -10.64,
+          "hitRatePercent": "40.54%",
+          "profitFactor": 0.662,
+          "unannualizedSharpe": -0.1292
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2064,
+          "expectancyBps": -20.64,
+          "hitRatePercent": "32.56%",
+          "profitFactor": 0.454,
+          "unannualizedSharpe": -0.2505
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1454,
+      "pearsonIC": 0.0156,
+      "spearmanIC": 0.0182,
+      "tHAC": -0.4238,
+      "pValue": 0.6717,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0125,
+          "expectancyBps": -1.25,
+          "hitRatePercent": "49.86%",
+          "profitFactor": 0.967,
+          "unannualizedSharpe": -0.0108
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0625,
+          "expectancyBps": -6.25,
+          "hitRatePercent": "47.25%",
+          "profitFactor": 0.844,
+          "unannualizedSharpe": -0.054
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1125,
+          "expectancyBps": -11.25,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.737,
+          "unannualizedSharpe": -0.0971
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2125,
+          "expectancyBps": -21.25,
+          "hitRatePercent": "36.93%",
+          "profitFactor": 0.563,
+          "unannualizedSharpe": -0.1835
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 732,
+      "pearsonIC": 0.0218,
+      "spearmanIC": 0.0228,
+      "tHAC": -0.447,
+      "pValue": 0.6549,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0254,
+          "expectancyBps": -2.54,
+          "hitRatePercent": "50.41%",
+          "profitFactor": 0.954,
+          "unannualizedSharpe": -0.0153
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0754,
+          "expectancyBps": -7.54,
+          "hitRatePercent": "48.77%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0453
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1254,
+          "expectancyBps": -12.54,
+          "hitRatePercent": "47.27%",
+          "profitFactor": 0.792,
+          "unannualizedSharpe": -0.0754
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2254,
+          "expectancyBps": -22.54,
+          "hitRatePercent": "42.90%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1355
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 372,
+      "pearsonIC": 0.03,
+      "spearmanIC": 0.0305,
+      "tHAC": -0.5287,
+      "pValue": 0.597,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0537,
+          "expectancyBps": -5.37,
+          "hitRatePercent": "51.34%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0253
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1037,
+          "expectancyBps": -10.37,
+          "hitRatePercent": "49.73%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0488
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1537,
+          "expectancyBps": -15.37,
+          "hitRatePercent": "48.12%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0723
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2537,
+          "expectancyBps": -25.37,
+          "hitRatePercent": "43.55%",
+          "profitFactor": 0.707,
+          "unannualizedSharpe": -0.1194
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 255,
+      "pearsonIC": 0.0392,
+      "spearmanIC": 0.0445,
+      "tHAC": 0.0344,
+      "pValue": 0.9726,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0055,
+          "expectancyBps": 0.55,
+          "hitRatePercent": "48.63%",
+          "profitFactor": 1.006,
+          "unannualizedSharpe": 0.0019
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0445,
+          "expectancyBps": -4.45,
+          "hitRatePercent": "48.24%",
+          "profitFactor": 0.954,
+          "unannualizedSharpe": -0.0154
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0945,
+          "expectancyBps": -9.45,
+          "hitRatePercent": "45.88%",
+          "profitFactor": 0.906,
+          "unannualizedSharpe": -0.0327
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1945,
+          "expectancyBps": -19.45,
+          "hitRatePercent": "43.14%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0672
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ETHUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ETHUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 132,
+      "pearsonIC": 0.0238,
+      "spearmanIC": 0.056,
+      "tHAC": 0.4783,
+      "pValue": 0.6324,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1295,
+          "expectancyBps": 12.95,
+          "hitRatePercent": "53.79%",
+          "profitFactor": 1.1,
+          "unannualizedSharpe": 0.034
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0795,
+          "expectancyBps": 7.95,
+          "hitRatePercent": "52.27%",
+          "profitFactor": 1.06,
+          "unannualizedSharpe": 0.0209
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0295,
+          "expectancyBps": 2.95,
+          "hitRatePercent": "51.52%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.0077
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0705,
+          "expectancyBps": -7.05,
+          "hitRatePercent": "50.76%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0185
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 23119,
+      "pearsonIC": -0.0031,
+      "spearmanIC": 0.0229,
+      "tHAC": -0.9934,
+      "pValue": 0.3205,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0044,
+          "expectancyBps": -0.44,
+          "hitRatePercent": "51.70%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0065
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0544,
+          "expectancyBps": -5.44,
+          "hitRatePercent": "45.77%",
+          "profitFactor": 0.775,
+          "unannualizedSharpe": -0.0799
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1044,
+          "expectancyBps": -10.44,
+          "hitRatePercent": "40.53%",
+          "profitFactor": 0.614,
+          "unannualizedSharpe": -0.1533
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2044,
+          "expectancyBps": -20.44,
+          "hitRatePercent": "30.84%",
+          "profitFactor": 0.389,
+          "unannualizedSharpe": -0.3
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 11271,
+      "pearsonIC": -0.0043,
+      "spearmanIC": 0.0186,
+      "tHAC": -0.8457,
+      "pValue": 0.3977,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0078,
+          "expectancyBps": -0.78,
+          "hitRatePercent": "50.77%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0578,
+          "expectancyBps": -5.78,
+          "hitRatePercent": "46.91%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0593
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1078,
+          "expectancyBps": -10.78,
+          "hitRatePercent": "42.62%",
+          "profitFactor": 0.703,
+          "unannualizedSharpe": -0.1105
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2078,
+          "expectancyBps": -20.78,
+          "hitRatePercent": "35.43%",
+          "profitFactor": 0.51,
+          "unannualizedSharpe": -0.213
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 5311,
+      "pearsonIC": -0.0061,
+      "spearmanIC": 0.0229,
+      "tHAC": -1.3814,
+      "pValue": 0.1671,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0262,
+          "expectancyBps": -2.62,
+          "hitRatePercent": "51.70%",
+          "profitFactor": 0.942,
+          "unannualizedSharpe": -0.019
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0762,
+          "expectancyBps": -7.62,
+          "hitRatePercent": "48.75%",
+          "profitFactor": 0.841,
+          "unannualizedSharpe": -0.0552
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1262,
+          "expectancyBps": -12.62,
+          "hitRatePercent": "45.68%",
+          "profitFactor": 0.75,
+          "unannualizedSharpe": -0.0914
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2262,
+          "expectancyBps": -22.62,
+          "hitRatePercent": "40.75%",
+          "profitFactor": 0.597,
+          "unannualizedSharpe": -0.1638
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2361,
+      "pearsonIC": -0.0093,
+      "spearmanIC": 0.0099,
+      "tHAC": -1.6312,
+      "pValue": 0.1029,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0681,
+          "expectancyBps": -6.81,
+          "hitRatePercent": "51.33%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.035
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1181,
+          "expectancyBps": -11.81,
+          "hitRatePercent": "48.88%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0607
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1681,
+          "expectancyBps": -16.81,
+          "hitRatePercent": "46.93%",
+          "profitFactor": 0.769,
+          "unannualizedSharpe": -0.0864
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2681,
+          "expectancyBps": -26.81,
+          "hitRatePercent": "42.19%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1378
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1746,
+      "pearsonIC": -0.0109,
+      "spearmanIC": -0.0028,
+      "tHAC": -1.2181,
+      "pValue": 0.2232,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0761,
+          "expectancyBps": -7.61,
+          "hitRatePercent": "50.40%",
+          "profitFactor": 0.91,
+          "unannualizedSharpe": -0.0311
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1261,
+          "expectancyBps": -12.61,
+          "hitRatePercent": "48.74%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0516
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1761,
+          "expectancyBps": -17.61,
+          "hitRatePercent": "47.08%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.0721
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2761,
+          "expectancyBps": -27.61,
+          "hitRatePercent": "43.64%",
+          "profitFactor": 0.709,
+          "unannualizedSharpe": -0.113
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ETHUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ETHUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 787,
+      "pearsonIC": -0.0155,
+      "spearmanIC": -0.0291,
+      "tHAC": -1.3395,
+      "pValue": 0.1804,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1842,
+          "expectancyBps": -18.42,
+          "hitRatePercent": "47.78%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0545
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2342,
+          "expectancyBps": -23.42,
+          "hitRatePercent": "46.89%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.0693
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2842,
+          "expectancyBps": -28.42,
+          "hitRatePercent": "46.12%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0841
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3842,
+          "expectancyBps": -38.42,
+          "hitRatePercent": "44.35%",
+          "profitFactor": 0.722,
+          "unannualizedSharpe": -0.1137
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2389,
+      "pearsonIC": 0.0052,
+      "spearmanIC": 0.0026,
+      "tHAC": 0.9448,
+      "pValue": 0.3447,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0192,
+          "expectancyBps": 1.92,
+          "hitRatePercent": "50.15%",
+          "profitFactor": 1.058,
+          "unannualizedSharpe": 0.0184
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0308,
+          "expectancyBps": -3.08,
+          "hitRatePercent": "46.88%",
+          "profitFactor": 0.914,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0808,
+          "expectancyBps": -8.08,
+          "hitRatePercent": "43.49%",
+          "profitFactor": 0.79,
+          "unannualizedSharpe": -0.0773
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1808,
+          "expectancyBps": -18.08,
+          "hitRatePercent": "37.63%",
+          "profitFactor": 0.593,
+          "unannualizedSharpe": -0.1729
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1198,
+      "pearsonIC": 0.0081,
+      "spearmanIC": 0.0038,
+      "tHAC": 0.9151,
+      "pValue": 0.3601,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0363,
+          "expectancyBps": 3.63,
+          "hitRatePercent": "50.58%",
+          "profitFactor": 1.08,
+          "unannualizedSharpe": 0.0252
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0137,
+          "expectancyBps": -1.37,
+          "hitRatePercent": "48.75%",
+          "profitFactor": 0.972,
+          "unannualizedSharpe": -0.0095
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0637,
+          "expectancyBps": -6.37,
+          "hitRatePercent": "45.99%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0441
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1637,
+          "expectancyBps": -16.37,
+          "hitRatePercent": "40.32%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1134
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 604,
+      "pearsonIC": 0.0115,
+      "spearmanIC": 0.0118,
+      "tHAC": 0.846,
+      "pValue": 0.3975,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0643,
+          "expectancyBps": 6.43,
+          "hitRatePercent": "51.99%",
+          "profitFactor": 1.102,
+          "unannualizedSharpe": 0.0316
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0143,
+          "expectancyBps": 1.43,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.007
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0357,
+          "expectancyBps": -3.57,
+          "hitRatePercent": "47.19%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0176
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1357,
+          "expectancyBps": -13.57,
+          "hitRatePercent": "42.72%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.0668
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 307,
+      "pearsonIC": 0.0191,
+      "spearmanIC": 0.0049,
+      "tHAC": 0.8262,
+      "pValue": 0.4087,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1198,
+          "expectancyBps": 11.98,
+          "hitRatePercent": "51.79%",
+          "profitFactor": 1.14,
+          "unannualizedSharpe": 0.0442
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0698,
+          "expectancyBps": 6.98,
+          "hitRatePercent": "50.49%",
+          "profitFactor": 1.079,
+          "unannualizedSharpe": 0.0258
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0198,
+          "expectancyBps": 1.98,
+          "hitRatePercent": "49.84%",
+          "profitFactor": 1.022,
+          "unannualizedSharpe": 0.0073
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0802,
+          "expectancyBps": -8.02,
+          "hitRatePercent": "46.91%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0296
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 205,
+      "pearsonIC": -0.0043,
+      "spearmanIC": 0.0038,
+      "tHAC": 0.2946,
+      "pValue": 0.7683,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0522,
+          "expectancyBps": 5.22,
+          "hitRatePercent": "49.27%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0184
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0022,
+          "expectancyBps": 0.22,
+          "hitRatePercent": "48.29%",
+          "profitFactor": 1.002,
+          "unannualizedSharpe": 0.0008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0478,
+          "expectancyBps": -4.78,
+          "hitRatePercent": "48.29%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0168
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1478,
+          "expectancyBps": -14.78,
+          "hitRatePercent": "46.83%",
+          "profitFactor": 0.866,
+          "unannualizedSharpe": -0.0521
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SOLUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SOLUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 107,
+      "pearsonIC": -0.0643,
+      "spearmanIC": -0.0222,
+      "tHAC": -0.8053,
+      "pValue": 0.4206,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3598,
+          "expectancyBps": -35.98,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0781
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4098,
+          "expectancyBps": -40.98,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0889
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4598,
+          "expectancyBps": -45.98,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 0.761,
+          "unannualizedSharpe": -0.0998
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5598,
+          "expectancyBps": -55.98,
+          "hitRatePercent": "47.66%",
+          "profitFactor": 0.717,
+          "unannualizedSharpe": -0.1215
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 25670,
+      "pearsonIC": -0.0036,
+      "spearmanIC": 0.0186,
+      "tHAC": 0.1278,
+      "pValue": 0.8983,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0007,
+          "expectancyBps": 0.07,
+          "hitRatePercent": "50.96%",
+          "profitFactor": 1.002,
+          "unannualizedSharpe": 0.0008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0493,
+          "expectancyBps": -4.93,
+          "hitRatePercent": "47.90%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0514
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0993,
+          "expectancyBps": -9.93,
+          "hitRatePercent": "44.72%",
+          "profitFactor": 0.732,
+          "unannualizedSharpe": -0.1035
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1993,
+          "expectancyBps": -19.93,
+          "hitRatePercent": "38.28%",
+          "profitFactor": 0.535,
+          "unannualizedSharpe": -0.2077
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 12620,
+      "pearsonIC": -0.0049,
+      "spearmanIC": 0.0176,
+      "tHAC": 0.3805,
+      "pValue": 0.7036,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0046,
+          "expectancyBps": 0.46,
+          "hitRatePercent": "50.98%",
+          "profitFactor": 1.01,
+          "unannualizedSharpe": 0.0033
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0454,
+          "expectancyBps": -4.54,
+          "hitRatePercent": "48.72%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0334
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0954,
+          "expectancyBps": -9.54,
+          "hitRatePercent": "46.25%",
+          "profitFactor": 0.809,
+          "unannualizedSharpe": -0.0701
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1954,
+          "expectancyBps": -19.54,
+          "hitRatePercent": "41.55%",
+          "profitFactor": 0.649,
+          "unannualizedSharpe": -0.1435
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 6043,
+      "pearsonIC": -0.0076,
+      "spearmanIC": 0.0179,
+      "tHAC": 0.0659,
+      "pValue": 0.9474,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0017,
+          "expectancyBps": 0.17,
+          "hitRatePercent": "51.02%",
+          "profitFactor": 1.003,
+          "unannualizedSharpe": 0.0009
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0483,
+          "expectancyBps": -4.83,
+          "hitRatePercent": "49.45%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0251
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0983,
+          "expectancyBps": -9.83,
+          "hitRatePercent": "47.76%",
+          "profitFactor": 0.859,
+          "unannualizedSharpe": -0.051
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1983,
+          "expectancyBps": -19.83,
+          "hitRatePercent": "44.66%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.1029
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2776,
+      "pearsonIC": -0.0128,
+      "spearmanIC": 0.0037,
+      "tHAC": -1.1492,
+      "pValue": 0.2505,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0588,
+          "expectancyBps": -5.88,
+          "hitRatePercent": "49.96%",
+          "profitFactor": 0.939,
+          "unannualizedSharpe": -0.0219
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1088,
+          "expectancyBps": -10.88,
+          "hitRatePercent": "48.70%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0406
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1588,
+          "expectancyBps": -15.88,
+          "hitRatePercent": "47.62%",
+          "profitFactor": 0.844,
+          "unannualizedSharpe": -0.0592
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2588,
+          "expectancyBps": -25.88,
+          "hitRatePercent": "45.21%",
+          "profitFactor": 0.758,
+          "unannualizedSharpe": -0.0965
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1985,
+      "pearsonIC": -0.0152,
+      "spearmanIC": -0.0064,
+      "tHAC": -0.3492,
+      "pValue": 0.7269,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.027,
+          "expectancyBps": -2.7,
+          "hitRatePercent": "48.72%",
+          "profitFactor": 0.977,
+          "unannualizedSharpe": -0.0081
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.077,
+          "expectancyBps": -7.7,
+          "hitRatePercent": "47.96%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.023
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.127,
+          "expectancyBps": -12.7,
+          "hitRatePercent": "47.15%",
+          "profitFactor": 0.897,
+          "unannualizedSharpe": -0.038
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.227,
+          "expectancyBps": -22.7,
+          "hitRatePercent": "45.29%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0678
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SOLUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SOLUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 935,
+      "pearsonIC": -0.0247,
+      "spearmanIC": -0.0049,
+      "tHAC": -0.8973,
+      "pValue": 0.3696,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1278,
+          "expectancyBps": -12.78,
+          "hitRatePercent": "50.05%",
+          "profitFactor": 0.926,
+          "unannualizedSharpe": -0.0281
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1778,
+          "expectancyBps": -17.78,
+          "hitRatePercent": "49.73%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0391
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2278,
+          "expectancyBps": -22.78,
+          "hitRatePercent": "48.98%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0501
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3278,
+          "expectancyBps": -32.78,
+          "hitRatePercent": "47.81%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.0721
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 3101,
+      "pearsonIC": -0.0059,
+      "spearmanIC": 0.0046,
+      "tHAC": -0.0033,
+      "pValue": 0.9974,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0,
+          "expectancyBps": 0,
+          "hitRatePercent": "50.95%",
+          "profitFactor": 1,
+          "unannualizedSharpe": -0.0001
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.05,
+          "expectancyBps": -5,
+          "hitRatePercent": "46.08%",
+          "profitFactor": 0.777,
+          "unannualizedSharpe": -0.0839
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1,
+          "expectancyBps": -10,
+          "hitRatePercent": "41.05%",
+          "profitFactor": 0.604,
+          "unannualizedSharpe": -0.1678
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2,
+          "expectancyBps": -20,
+          "hitRatePercent": "31.38%",
+          "profitFactor": 0.369,
+          "unannualizedSharpe": -0.3355
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1555,
+      "pearsonIC": -0.0086,
+      "spearmanIC": 0.0017,
+      "tHAC": -0.0204,
+      "pValue": 0.9837,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0004,
+          "expectancyBps": -0.04,
+          "hitRatePercent": "51.64%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0005
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0504,
+          "expectancyBps": -5.04,
+          "hitRatePercent": "47.78%",
+          "profitFactor": 0.835,
+          "unannualizedSharpe": -0.0585
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1004,
+          "expectancyBps": -10.04,
+          "hitRatePercent": "43.86%",
+          "profitFactor": 0.699,
+          "unannualizedSharpe": -0.1165
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2004,
+          "expectancyBps": -20.04,
+          "hitRatePercent": "36.21%",
+          "profitFactor": 0.49,
+          "unannualizedSharpe": -0.2325
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 781,
+      "pearsonIC": -0.0128,
+      "spearmanIC": 0.0069,
+      "tHAC": -0.0279,
+      "pValue": 0.9777,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.001,
+          "expectancyBps": -0.1,
+          "hitRatePercent": "51.22%",
+          "profitFactor": 0.997,
+          "unannualizedSharpe": -0.0008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.051,
+          "expectancyBps": -5.1,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0417
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.101,
+          "expectancyBps": -10.1,
+          "hitRatePercent": "46.48%",
+          "profitFactor": 0.775,
+          "unannualizedSharpe": -0.0826
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.201,
+          "expectancyBps": -20.1,
+          "hitRatePercent": "40.72%",
+          "profitFactor": 0.601,
+          "unannualizedSharpe": -0.1644
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 394,
+      "pearsonIC": -0.0163,
+      "spearmanIC": 0.0013,
+      "tHAC": -0.0251,
+      "pValue": 0.9799,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0018,
+          "expectancyBps": -0.18,
+          "hitRatePercent": "51.27%",
+          "profitFactor": 0.997,
+          "unannualizedSharpe": -0.0011
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0518,
+          "expectancyBps": -5.18,
+          "hitRatePercent": "49.24%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0332
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1018,
+          "expectancyBps": -10.18,
+          "hitRatePercent": "47.72%",
+          "profitFactor": 0.828,
+          "unannualizedSharpe": -0.0653
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2018,
+          "expectancyBps": -20.18,
+          "hitRatePercent": "43.40%",
+          "profitFactor": 0.687,
+          "unannualizedSharpe": -0.1295
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 269,
+      "pearsonIC": -0.0262,
+      "spearmanIC": 0.0091,
+      "tHAC": -0.2523,
+      "pValue": 0.8008,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0303,
+          "expectancyBps": -3.03,
+          "hitRatePercent": "48.70%",
+          "profitFactor": 0.954,
+          "unannualizedSharpe": -0.0144
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0803,
+          "expectancyBps": -8.03,
+          "hitRatePercent": "46.47%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0382
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1303,
+          "expectancyBps": -13.03,
+          "hitRatePercent": "46.10%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.0619
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2303,
+          "expectancyBps": -23.03,
+          "hitRatePercent": "43.87%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.1095
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_BNBUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "BNBUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 143,
+      "pearsonIC": -0.0242,
+      "spearmanIC": -0.0007,
+      "tHAC": -1.1709,
+      "pValue": 0.2416,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2315,
+          "expectancyBps": -23.15,
+          "hitRatePercent": "53.85%",
+          "profitFactor": 0.776,
+          "unannualizedSharpe": -0.0867
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2815,
+          "expectancyBps": -28.15,
+          "hitRatePercent": "51.05%",
+          "profitFactor": 0.734,
+          "unannualizedSharpe": -0.1054
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3315,
+          "expectancyBps": -33.15,
+          "hitRatePercent": "51.05%",
+          "profitFactor": 0.694,
+          "unannualizedSharpe": -0.1241
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4315,
+          "expectancyBps": -43.15,
+          "hitRatePercent": "48.95%",
+          "profitFactor": 0.619,
+          "unannualizedSharpe": -0.1616
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 22245,
+      "pearsonIC": 0.0042,
+      "spearmanIC": 0.0282,
+      "tHAC": -0.0056,
+      "pValue": 0.9955,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0,
+          "expectancyBps": 0,
+          "hitRatePercent": "51.32%",
+          "profitFactor": 1,
+          "unannualizedSharpe": 0
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.05,
+          "expectancyBps": -5,
+          "hitRatePercent": "45.72%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0818
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1,
+          "expectancyBps": -10,
+          "hitRatePercent": "40.09%",
+          "profitFactor": 0.599,
+          "unannualizedSharpe": -0.1636
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2,
+          "expectancyBps": -20,
+          "hitRatePercent": "29.90%",
+          "profitFactor": 0.364,
+          "unannualizedSharpe": -0.3272
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 10878,
+      "pearsonIC": 0.0059,
+      "spearmanIC": 0.0277,
+      "tHAC": -0.3545,
+      "pValue": 0.7229,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0028,
+          "expectancyBps": -0.28,
+          "hitRatePercent": "50.56%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0033
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0528,
+          "expectancyBps": -5.28,
+          "hitRatePercent": "46.38%",
+          "profitFactor": 0.824,
+          "unannualizedSharpe": -0.0616
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1028,
+          "expectancyBps": -10.28,
+          "hitRatePercent": "42.56%",
+          "profitFactor": 0.686,
+          "unannualizedSharpe": -0.1198
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2028,
+          "expectancyBps": -20.28,
+          "hitRatePercent": "35.06%",
+          "profitFactor": 0.479,
+          "unannualizedSharpe": -0.2363
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 5160,
+      "pearsonIC": 0.0082,
+      "spearmanIC": 0.0291,
+      "tHAC": -0.4123,
+      "pValue": 0.6802,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0069,
+          "expectancyBps": -0.69,
+          "hitRatePercent": "50.81%",
+          "profitFactor": 0.983,
+          "unannualizedSharpe": -0.0057
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0569,
+          "expectancyBps": -5.69,
+          "hitRatePercent": "48.35%",
+          "profitFactor": 0.866,
+          "unannualizedSharpe": -0.0466
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1069,
+          "expectancyBps": -10.69,
+          "hitRatePercent": "44.90%",
+          "profitFactor": 0.763,
+          "unannualizedSharpe": -0.0875
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2069,
+          "expectancyBps": -20.69,
+          "hitRatePercent": "39.79%",
+          "profitFactor": 0.593,
+          "unannualizedSharpe": -0.1693
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2281,
+      "pearsonIC": 0.0113,
+      "spearmanIC": 0.0174,
+      "tHAC": -0.9286,
+      "pValue": 0.3531,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0322,
+          "expectancyBps": -3.22,
+          "hitRatePercent": "49.76%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0189
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0822,
+          "expectancyBps": -8.22,
+          "hitRatePercent": "48.01%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0482
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1322,
+          "expectancyBps": -13.22,
+          "hitRatePercent": "45.68%",
+          "profitFactor": 0.79,
+          "unannualizedSharpe": -0.0776
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2322,
+          "expectancyBps": -23.22,
+          "hitRatePercent": "42.31%",
+          "profitFactor": 0.661,
+          "unannualizedSharpe": -0.1362
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1702,
+      "pearsonIC": 0.0138,
+      "spearmanIC": 0.0116,
+      "tHAC": -0.4583,
+      "pValue": 0.6467,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0233,
+          "expectancyBps": -2.33,
+          "hitRatePercent": "49.41%",
+          "profitFactor": 0.966,
+          "unannualizedSharpe": -0.0115
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0733,
+          "expectancyBps": -7.33,
+          "hitRatePercent": "47.71%",
+          "profitFactor": 0.896,
+          "unannualizedSharpe": -0.0361
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1233,
+          "expectancyBps": -12.33,
+          "hitRatePercent": "45.71%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0607
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2233,
+          "expectancyBps": -22.33,
+          "hitRatePercent": "42.89%",
+          "profitFactor": 0.717,
+          "unannualizedSharpe": -0.1099
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_BNBUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "BNBUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 745,
+      "pearsonIC": 0.0206,
+      "spearmanIC": 0.0138,
+      "tHAC": -0.0175,
+      "pValue": 0.9861,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0019,
+          "expectancyBps": -0.19,
+          "hitRatePercent": "49.53%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0007
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0519,
+          "expectancyBps": -5.19,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0182
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1019,
+          "expectancyBps": -10.19,
+          "hitRatePercent": "46.85%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0357
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2019,
+          "expectancyBps": -20.19,
+          "hitRatePercent": "45.23%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0707
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2546,
+      "pearsonIC": 0.0023,
+      "spearmanIC": 0.0088,
+      "tHAC": -0.1107,
+      "pValue": 0.9119,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0027,
+          "expectancyBps": -0.27,
+          "hitRatePercent": "50.16%",
+          "profitFactor": 0.993,
+          "unannualizedSharpe": -0.0021
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0527,
+          "expectancyBps": -5.27,
+          "hitRatePercent": "47.37%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0415
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1027,
+          "expectancyBps": -10.27,
+          "hitRatePercent": "43.28%",
+          "profitFactor": 0.764,
+          "unannualizedSharpe": -0.0808
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2027,
+          "expectancyBps": -20.27,
+          "hitRatePercent": "37.71%",
+          "profitFactor": 0.59,
+          "unannualizedSharpe": -0.1594
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1278,
+      "pearsonIC": 0.0033,
+      "spearmanIC": 0.0136,
+      "tHAC": -0.0933,
+      "pValue": 0.9257,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0045,
+          "expectancyBps": -0.45,
+          "hitRatePercent": "50.94%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0545,
+          "expectancyBps": -5.45,
+          "hitRatePercent": "49.14%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0308
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1045,
+          "expectancyBps": -10.45,
+          "hitRatePercent": "47.57%",
+          "profitFactor": 0.824,
+          "unannualizedSharpe": -0.0589
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2045,
+          "expectancyBps": -20.45,
+          "hitRatePercent": "43.35%",
+          "profitFactor": 0.685,
+          "unannualizedSharpe": -0.1153
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 647,
+      "pearsonIC": 0.0053,
+      "spearmanIC": 0.0186,
+      "tHAC": -0.1569,
+      "pValue": 0.8753,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0143,
+          "expectancyBps": -1.43,
+          "hitRatePercent": "49.46%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0057
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0643,
+          "expectancyBps": -6.43,
+          "hitRatePercent": "48.22%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.0254
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1143,
+          "expectancyBps": -11.43,
+          "hitRatePercent": "46.99%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0451
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2143,
+          "expectancyBps": -21.43,
+          "hitRatePercent": "43.28%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.0846
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 331,
+      "pearsonIC": 0.0071,
+      "spearmanIC": 0.0289,
+      "tHAC": -0.0089,
+      "pValue": 0.9929,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0014,
+          "expectancyBps": -0.14,
+          "hitRatePercent": "54.98%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0514,
+          "expectancyBps": -5.14,
+          "hitRatePercent": "54.38%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0151
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1014,
+          "expectancyBps": -10.14,
+          "hitRatePercent": "53.78%",
+          "profitFactor": 0.912,
+          "unannualizedSharpe": -0.0297
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2014,
+          "expectancyBps": -20.14,
+          "hitRatePercent": "51.06%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0591
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 224,
+      "pearsonIC": 0.0161,
+      "spearmanIC": 0.0516,
+      "tHAC": 0.1548,
+      "pValue": 0.877,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0428,
+          "expectancyBps": 4.28,
+          "hitRatePercent": "57.59%",
+          "profitFactor": 1.033,
+          "unannualizedSharpe": 0.0102
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0072,
+          "expectancyBps": -0.72,
+          "hitRatePercent": "57.14%",
+          "profitFactor": 0.995,
+          "unannualizedSharpe": -0.0017
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0572,
+          "expectancyBps": -5.72,
+          "hitRatePercent": "55.36%",
+          "profitFactor": 0.957,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1572,
+          "expectancyBps": -15.72,
+          "hitRatePercent": "54.02%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0376
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_DOGEUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "DOGEUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 128,
+      "pearsonIC": -0.0024,
+      "spearmanIC": 0.0611,
+      "tHAC": -0.4831,
+      "pValue": 0.629,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2824,
+          "expectancyBps": -28.24,
+          "hitRatePercent": "58.59%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0508
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3324,
+          "expectancyBps": -33.24,
+          "hitRatePercent": "58.59%",
+          "profitFactor": 0.831,
+          "unannualizedSharpe": -0.0598
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3824,
+          "expectancyBps": -38.24,
+          "hitRatePercent": "57.03%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0688
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4824,
+          "expectancyBps": -48.24,
+          "hitRatePercent": "54.69%",
+          "profitFactor": 0.762,
+          "unannualizedSharpe": -0.0868
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 25592,
+      "pearsonIC": 0.0007,
+      "spearmanIC": 0.0153,
+      "tHAC": -0.5776,
+      "pValue": 0.5635,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0034,
+          "expectancyBps": -0.34,
+          "hitRatePercent": "50.45%",
+          "profitFactor": 0.989,
+          "unannualizedSharpe": -0.0034
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0534,
+          "expectancyBps": -5.34,
+          "hitRatePercent": "46.86%",
+          "profitFactor": 0.84,
+          "unannualizedSharpe": -0.0539
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1034,
+          "expectancyBps": -10.34,
+          "hitRatePercent": "43.03%",
+          "profitFactor": 0.714,
+          "unannualizedSharpe": -0.1044
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2034,
+          "expectancyBps": -20.34,
+          "hitRatePercent": "36.07%",
+          "profitFactor": 0.518,
+          "unannualizedSharpe": -0.2054
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 12570,
+      "pearsonIC": 0.0012,
+      "spearmanIC": 0.0137,
+      "tHAC": -0.0601,
+      "pValue": 0.9521,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0007,
+          "expectancyBps": -0.07,
+          "hitRatePercent": "50.52%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0005
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0507,
+          "expectancyBps": -5.07,
+          "hitRatePercent": "48.00%",
+          "profitFactor": 0.89,
+          "unannualizedSharpe": -0.0358
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1007,
+          "expectancyBps": -10.07,
+          "hitRatePercent": "44.99%",
+          "profitFactor": 0.794,
+          "unannualizedSharpe": -0.0711
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2007,
+          "expectancyBps": -20.07,
+          "hitRatePercent": "39.80%",
+          "profitFactor": 0.633,
+          "unannualizedSharpe": -0.1417
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 6012,
+      "pearsonIC": 0.0011,
+      "spearmanIC": 0.0082,
+      "tHAC": -0.4214,
+      "pValue": 0.6735,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.01,
+          "expectancyBps": -1,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.984,
+          "unannualizedSharpe": -0.0051
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.06,
+          "expectancyBps": -6,
+          "hitRatePercent": "48.74%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0306
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.11,
+          "expectancyBps": -11,
+          "hitRatePercent": "46.86%",
+          "profitFactor": 0.838,
+          "unannualizedSharpe": -0.0562
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.21,
+          "expectancyBps": -21,
+          "hitRatePercent": "42.93%",
+          "profitFactor": 0.713,
+          "unannualizedSharpe": -0.1072
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2737,
+      "pearsonIC": 0,
+      "spearmanIC": -0.0003,
+      "tHAC": -0.348,
+      "pValue": 0.7278,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0168,
+          "expectancyBps": -1.68,
+          "hitRatePercent": "50.09%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0063
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0668,
+          "expectancyBps": -6.68,
+          "hitRatePercent": "48.89%",
+          "profitFactor": 0.927,
+          "unannualizedSharpe": -0.0248
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1168,
+          "expectancyBps": -11.68,
+          "hitRatePercent": "47.46%",
+          "profitFactor": 0.876,
+          "unannualizedSharpe": -0.0434
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2168,
+          "expectancyBps": -21.68,
+          "hitRatePercent": "45.16%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.0806
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1997,
+      "pearsonIC": -0.0005,
+      "spearmanIC": -0.016,
+      "tHAC": -0.8078,
+      "pValue": 0.4192,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.062,
+          "expectancyBps": -6.2,
+          "hitRatePercent": "48.82%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0187
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.112,
+          "expectancyBps": -11.2,
+          "hitRatePercent": "47.97%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0338
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.162,
+          "expectancyBps": -16.2,
+          "hitRatePercent": "46.97%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0489
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.262,
+          "expectancyBps": -26.2,
+          "hitRatePercent": "45.67%",
+          "profitFactor": 0.787,
+          "unannualizedSharpe": -0.0791
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_DOGEUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "DOGEUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 916,
+      "pearsonIC": -0.0009,
+      "spearmanIC": -0.0384,
+      "tHAC": -0.2632,
+      "pValue": 0.7924,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0424,
+          "expectancyBps": -4.24,
+          "hitRatePercent": "47.93%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0092
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0924,
+          "expectancyBps": -9.24,
+          "hitRatePercent": "47.60%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0202
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1424,
+          "expectancyBps": -14.24,
+          "hitRatePercent": "47.05%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0311
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2424,
+          "expectancyBps": -24.24,
+          "hitRatePercent": "45.31%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0529
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2468,
+      "pearsonIC": 0.0058,
+      "spearmanIC": 0.0014,
+      "tHAC": 1.1835,
+      "pValue": 0.2366,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0301,
+          "expectancyBps": 3.01,
+          "hitRatePercent": "51.22%",
+          "profitFactor": 1.081,
+          "unannualizedSharpe": 0.0231
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0199,
+          "expectancyBps": -1.99,
+          "hitRatePercent": "49.19%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0153
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0699,
+          "expectancyBps": -6.99,
+          "hitRatePercent": "45.99%",
+          "profitFactor": 0.834,
+          "unannualizedSharpe": -0.0538
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1699,
+          "expectancyBps": -16.99,
+          "hitRatePercent": "39.99%",
+          "profitFactor": 0.645,
+          "unannualizedSharpe": -0.1307
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1242,
+      "pearsonIC": 0.0079,
+      "spearmanIC": 0.0047,
+      "tHAC": 1.1726,
+      "pValue": 0.2409,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0591,
+          "expectancyBps": 5.91,
+          "hitRatePercent": "51.61%",
+          "profitFactor": 1.116,
+          "unannualizedSharpe": 0.0329
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0091,
+          "expectancyBps": 0.91,
+          "hitRatePercent": "50.72%",
+          "profitFactor": 1.017,
+          "unannualizedSharpe": 0.005
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0409,
+          "expectancyBps": -4.09,
+          "hitRatePercent": "48.23%",
+          "profitFactor": 0.927,
+          "unannualizedSharpe": -0.0228
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1409,
+          "expectancyBps": -14.09,
+          "hitRatePercent": "43.24%",
+          "profitFactor": 0.771,
+          "unannualizedSharpe": -0.0784
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 626,
+      "pearsonIC": 0.0116,
+      "spearmanIC": 0.0096,
+      "tHAC": 1.1504,
+      "pValue": 0.25,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1135,
+          "expectancyBps": 11.35,
+          "hitRatePercent": "53.19%",
+          "profitFactor": 1.163,
+          "unannualizedSharpe": 0.0461
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0635,
+          "expectancyBps": 6.35,
+          "hitRatePercent": "51.44%",
+          "profitFactor": 1.088,
+          "unannualizedSharpe": 0.0258
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0135,
+          "expectancyBps": 1.35,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.018,
+          "unannualizedSharpe": 0.0055
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0865,
+          "expectancyBps": -8.65,
+          "hitRatePercent": "46.65%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0351
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 317,
+      "pearsonIC": 0.0169,
+      "spearmanIC": 0.0136,
+      "tHAC": 1.2072,
+      "pValue": 0.2274,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2286,
+          "expectancyBps": 22.86,
+          "hitRatePercent": "55.52%",
+          "profitFactor": 1.233,
+          "unannualizedSharpe": 0.0679
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1786,
+          "expectancyBps": 17.86,
+          "hitRatePercent": "55.21%",
+          "profitFactor": 1.178,
+          "unannualizedSharpe": 0.053
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1286,
+          "expectancyBps": 12.86,
+          "hitRatePercent": "54.89%",
+          "profitFactor": 1.125,
+          "unannualizedSharpe": 0.0382
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0286,
+          "expectancyBps": 2.86,
+          "hitRatePercent": "52.37%",
+          "profitFactor": 1.027,
+          "unannualizedSharpe": 0.0085
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 213,
+      "pearsonIC": 0.0084,
+      "spearmanIC": 0.0156,
+      "tHAC": 0.6223,
+      "pValue": 0.5337,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1756,
+          "expectancyBps": 17.56,
+          "hitRatePercent": "56.81%",
+          "profitFactor": 1.152,
+          "unannualizedSharpe": 0.0446
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1256,
+          "expectancyBps": 12.56,
+          "hitRatePercent": "56.34%",
+          "profitFactor": 1.107,
+          "unannualizedSharpe": 0.0319
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0756,
+          "expectancyBps": 7.56,
+          "hitRatePercent": "55.87%",
+          "profitFactor": 1.063,
+          "unannualizedSharpe": 0.0192
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0244,
+          "expectancyBps": -2.44,
+          "hitRatePercent": "53.05%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0062
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_ADAUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "ADAUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 113,
+      "pearsonIC": 0.0012,
+      "spearmanIC": 0.013,
+      "tHAC": 0.3556,
+      "pValue": 0.7221,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1685,
+          "expectancyBps": 16.85,
+          "hitRatePercent": "56.64%",
+          "profitFactor": 1.098,
+          "unannualizedSharpe": 0.0301
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1185,
+          "expectancyBps": 11.85,
+          "hitRatePercent": "56.64%",
+          "profitFactor": 1.068,
+          "unannualizedSharpe": 0.0212
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0685,
+          "expectancyBps": 6.85,
+          "hitRatePercent": "56.64%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.0122
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0315,
+          "expectancyBps": -3.15,
+          "hitRatePercent": "54.87%",
+          "profitFactor": 0.983,
+          "unannualizedSharpe": -0.0056
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 25576,
+      "pearsonIC": -0.0014,
+      "spearmanIC": 0.0133,
+      "tHAC": -0.1274,
+      "pValue": 0.8986,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0007,
+          "expectancyBps": -0.07,
+          "hitRatePercent": "50.23%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0507,
+          "expectancyBps": -5.07,
+          "hitRatePercent": "47.76%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0522
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1007,
+          "expectancyBps": -10.07,
+          "hitRatePercent": "44.34%",
+          "profitFactor": 0.72,
+          "unannualizedSharpe": -0.1037
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2007,
+          "expectancyBps": -20.07,
+          "hitRatePercent": "37.32%",
+          "profitFactor": 0.521,
+          "unannualizedSharpe": -0.2066
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 12647,
+      "pearsonIC": -0.0014,
+      "spearmanIC": 0.0128,
+      "tHAC": 0.12,
+      "pValue": 0.9045,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0015,
+          "expectancyBps": 0.15,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.003,
+          "unannualizedSharpe": 0.0011
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0485,
+          "expectancyBps": -4.85,
+          "hitRatePercent": "48.07%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.0346
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0985,
+          "expectancyBps": -9.85,
+          "hitRatePercent": "45.55%",
+          "profitFactor": 0.796,
+          "unannualizedSharpe": -0.0702
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1985,
+          "expectancyBps": -19.85,
+          "hitRatePercent": "40.85%",
+          "profitFactor": 0.633,
+          "unannualizedSharpe": -0.1415
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 6087,
+      "pearsonIC": -0.003,
+      "spearmanIC": 0.0057,
+      "tHAC": -0.6627,
+      "pValue": 0.5075,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0155,
+          "expectancyBps": -1.55,
+          "hitRatePercent": "50.91%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0084
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0655,
+          "expectancyBps": -6.55,
+          "hitRatePercent": "49.61%",
+          "profitFactor": 0.898,
+          "unannualizedSharpe": -0.0354
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1155,
+          "expectancyBps": -11.55,
+          "hitRatePercent": "48.05%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0623
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2155,
+          "expectancyBps": -21.55,
+          "hitRatePercent": "43.83%",
+          "profitFactor": 0.701,
+          "unannualizedSharpe": -0.1163
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2811,
+      "pearsonIC": -0.005,
+      "spearmanIC": 0.0053,
+      "tHAC": -0.2759,
+      "pValue": 0.7826,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0142,
+          "expectancyBps": -1.42,
+          "hitRatePercent": "50.73%",
+          "profitFactor": 0.984,
+          "unannualizedSharpe": -0.0054
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0642,
+          "expectancyBps": -6.42,
+          "hitRatePercent": "49.95%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0243
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1142,
+          "expectancyBps": -11.42,
+          "hitRatePercent": "48.99%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.0433
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2142,
+          "expectancyBps": -21.42,
+          "hitRatePercent": "46.18%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0812
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1995,
+      "pearsonIC": -0.006,
+      "spearmanIC": -0.0102,
+      "tHAC": -0.7611,
+      "pValue": 0.4466,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0538,
+          "expectancyBps": -5.38,
+          "hitRatePercent": "50.58%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0168
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1038,
+          "expectancyBps": -10.38,
+          "hitRatePercent": "49.67%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0324
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1538,
+          "expectancyBps": -15.38,
+          "hitRatePercent": "48.52%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.048
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2538,
+          "expectancyBps": -25.38,
+          "hitRatePercent": "46.52%",
+          "profitFactor": 0.79,
+          "unannualizedSharpe": -0.0792
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_ADAUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "ADAUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 921,
+      "pearsonIC": -0.0075,
+      "spearmanIC": -0.0263,
+      "tHAC": -0.2778,
+      "pValue": 0.7812,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0405,
+          "expectancyBps": -4.05,
+          "hitRatePercent": "48.97%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0093
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0905,
+          "expectancyBps": -9.05,
+          "hitRatePercent": "47.88%",
+          "profitFactor": 0.941,
+          "unannualizedSharpe": -0.0209
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1405,
+          "expectancyBps": -14.05,
+          "hitRatePercent": "47.45%",
+          "profitFactor": 0.91,
+          "unannualizedSharpe": -0.0324
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2405,
+          "expectancyBps": -24.05,
+          "hitRatePercent": "46.04%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0555
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2761,
+      "pearsonIC": 0.0086,
+      "spearmanIC": 0.0017,
+      "tHAC": 1.4274,
+      "pValue": 0.1535,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0296,
+          "expectancyBps": 2.96,
+          "hitRatePercent": "50.05%",
+          "profitFactor": 1.086,
+          "unannualizedSharpe": 0.0269
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0204,
+          "expectancyBps": -2.04,
+          "hitRatePercent": "47.12%",
+          "profitFactor": 0.945,
+          "unannualizedSharpe": -0.0185
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0704,
+          "expectancyBps": -7.04,
+          "hitRatePercent": "44.01%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.064
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1704,
+          "expectancyBps": -17.04,
+          "hitRatePercent": "38.21%",
+          "profitFactor": 0.626,
+          "unannualizedSharpe": -0.1548
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1384,
+      "pearsonIC": 0.0119,
+      "spearmanIC": 0.0061,
+      "tHAC": 1.4823,
+      "pValue": 0.1383,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0582,
+          "expectancyBps": 5.82,
+          "hitRatePercent": "51.37%",
+          "profitFactor": 1.12,
+          "unannualizedSharpe": 0.0368
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0082,
+          "expectancyBps": 0.82,
+          "hitRatePercent": "48.99%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0052
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0418,
+          "expectancyBps": -4.18,
+          "hitRatePercent": "46.17%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0265
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1418,
+          "expectancyBps": -14.18,
+          "hitRatePercent": "42.70%",
+          "profitFactor": 0.761,
+          "unannualizedSharpe": -0.0898
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 697,
+      "pearsonIC": 0.0169,
+      "spearmanIC": 0.0108,
+      "tHAC": 1.4974,
+      "pValue": 0.1343,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1167,
+          "expectancyBps": 11.67,
+          "hitRatePercent": "51.94%",
+          "profitFactor": 1.172,
+          "unannualizedSharpe": 0.0507
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0667,
+          "expectancyBps": 6.67,
+          "hitRatePercent": "51.08%",
+          "profitFactor": 1.095,
+          "unannualizedSharpe": 0.029
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0167,
+          "expectancyBps": 1.67,
+          "hitRatePercent": "48.92%",
+          "profitFactor": 1.023,
+          "unannualizedSharpe": 0.0073
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0833,
+          "expectancyBps": -8.33,
+          "hitRatePercent": "46.20%",
+          "profitFactor": 0.893,
+          "unannualizedSharpe": -0.0362
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 353,
+      "pearsonIC": 0.0244,
+      "spearmanIC": 0.0187,
+      "tHAC": 1.454,
+      "pValue": 0.146,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2161,
+          "expectancyBps": 21.61,
+          "hitRatePercent": "52.41%",
+          "profitFactor": 1.232,
+          "unannualizedSharpe": 0.0743
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1661,
+          "expectancyBps": 16.61,
+          "hitRatePercent": "51.56%",
+          "profitFactor": 1.174,
+          "unannualizedSharpe": 0.0571
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1161,
+          "expectancyBps": 11.61,
+          "hitRatePercent": "51.56%",
+          "profitFactor": 1.118,
+          "unannualizedSharpe": 0.0399
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0161,
+          "expectancyBps": 1.61,
+          "hitRatePercent": "49.29%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0055
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 238,
+      "pearsonIC": 0.0235,
+      "spearmanIC": 0.0355,
+      "tHAC": -0.0434,
+      "pValue": 0.9654,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0124,
+          "expectancyBps": -1.24,
+          "hitRatePercent": "53.36%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0624,
+          "expectancyBps": -6.24,
+          "hitRatePercent": "52.94%",
+          "profitFactor": 0.954,
+          "unannualizedSharpe": -0.0159
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1124,
+          "expectancyBps": -11.24,
+          "hitRatePercent": "52.94%",
+          "profitFactor": 0.919,
+          "unannualizedSharpe": -0.0287
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2124,
+          "expectancyBps": -21.24,
+          "hitRatePercent": "51.68%",
+          "profitFactor": 0.851,
+          "unannualizedSharpe": -0.0543
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_AVAXUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "AVAXUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 118,
+      "pearsonIC": 0.0166,
+      "spearmanIC": 0.0234,
+      "tHAC": -0.0578,
+      "pValue": 0.9539,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0303,
+          "expectancyBps": -3.03,
+          "hitRatePercent": "50.85%",
+          "profitFactor": 0.984,
+          "unannualizedSharpe": -0.006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0803,
+          "expectancyBps": -8.03,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0158
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1303,
+          "expectancyBps": -13.03,
+          "hitRatePercent": "49.15%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.0256
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2303,
+          "expectancyBps": -23.03,
+          "hitRatePercent": "48.31%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0453
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 25918,
+      "pearsonIC": -0.0008,
+      "spearmanIC": 0.0088,
+      "tHAC": 0.3655,
+      "pValue": 0.7148,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0022,
+          "expectancyBps": 0.22,
+          "hitRatePercent": "50.79%",
+          "profitFactor": 1.007,
+          "unannualizedSharpe": 0.0022
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0478,
+          "expectancyBps": -4.78,
+          "hitRatePercent": "47.71%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0489
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0978,
+          "expectancyBps": -9.78,
+          "hitRatePercent": "44.26%",
+          "profitFactor": 0.737,
+          "unannualizedSharpe": -0.0999
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1978,
+          "expectancyBps": -19.78,
+          "hitRatePercent": "37.88%",
+          "profitFactor": 0.542,
+          "unannualizedSharpe": -0.2021
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 12769,
+      "pearsonIC": -0.0008,
+      "spearmanIC": 0.0055,
+      "tHAC": 0.1026,
+      "pValue": 0.9183,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0013,
+          "expectancyBps": 0.13,
+          "hitRatePercent": "50.76%",
+          "profitFactor": 1.003,
+          "unannualizedSharpe": 0.0009
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0487,
+          "expectancyBps": -4.87,
+          "hitRatePercent": "48.53%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0348
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0987,
+          "expectancyBps": -9.87,
+          "hitRatePercent": "46.05%",
+          "profitFactor": 0.806,
+          "unannualizedSharpe": -0.0704
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1987,
+          "expectancyBps": -19.87,
+          "hitRatePercent": "41.27%",
+          "profitFactor": 0.649,
+          "unannualizedSharpe": -0.1417
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 6160,
+      "pearsonIC": -0.0019,
+      "spearmanIC": -0.003,
+      "tHAC": -0.6369,
+      "pValue": 0.5242,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0155,
+          "expectancyBps": -1.55,
+          "hitRatePercent": "50.83%",
+          "profitFactor": 0.976,
+          "unannualizedSharpe": -0.008
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0655,
+          "expectancyBps": -6.55,
+          "hitRatePercent": "49.04%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0337
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1155,
+          "expectancyBps": -11.55,
+          "hitRatePercent": "46.98%",
+          "profitFactor": 0.836,
+          "unannualizedSharpe": -0.0594
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2155,
+          "expectancyBps": -21.55,
+          "hitRatePercent": "43.34%",
+          "profitFactor": 0.717,
+          "unannualizedSharpe": -0.1108
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2857,
+      "pearsonIC": -0.0031,
+      "spearmanIC": 0.0031,
+      "tHAC": -0.2758,
+      "pValue": 0.7827,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.014,
+          "expectancyBps": -1.4,
+          "hitRatePercent": "50.61%",
+          "profitFactor": 0.985,
+          "unannualizedSharpe": -0.0051
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.064,
+          "expectancyBps": -6.4,
+          "hitRatePercent": "49.35%",
+          "profitFactor": 0.934,
+          "unannualizedSharpe": -0.0233
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.114,
+          "expectancyBps": -11.4,
+          "hitRatePercent": "48.02%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0416
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.214,
+          "expectancyBps": -21.4,
+          "hitRatePercent": "45.29%",
+          "profitFactor": 0.796,
+          "unannualizedSharpe": -0.078
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 2009,
+      "pearsonIC": -0.0039,
+      "spearmanIC": -0.0059,
+      "tHAC": -0.1548,
+      "pValue": 0.877,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0112,
+          "expectancyBps": -1.12,
+          "hitRatePercent": "50.72%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0033
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0612,
+          "expectancyBps": -6.12,
+          "hitRatePercent": "49.73%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0181
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1112,
+          "expectancyBps": -11.12,
+          "hitRatePercent": "48.88%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.0328
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2112,
+          "expectancyBps": -21.12,
+          "hitRatePercent": "46.94%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0624
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_AVAXUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "AVAXUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 928,
+      "pearsonIC": -0.0037,
+      "spearmanIC": 0.0055,
+      "tHAC": 0.5818,
+      "pValue": 0.5607,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0918,
+          "expectancyBps": 9.18,
+          "hitRatePercent": "50.97%",
+          "profitFactor": 1.055,
+          "unannualizedSharpe": 0.0193
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0418,
+          "expectancyBps": 4.18,
+          "hitRatePercent": "50.32%",
+          "profitFactor": 1.025,
+          "unannualizedSharpe": 0.0088
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0082,
+          "expectancyBps": -0.82,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 0.995,
+          "unannualizedSharpe": -0.0017
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1082,
+          "expectancyBps": -10.82,
+          "hitRatePercent": "47.63%",
+          "profitFactor": 0.939,
+          "unannualizedSharpe": -0.0227
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2631,
+      "pearsonIC": 0.0086,
+      "spearmanIC": 0.0071,
+      "tHAC": 0.7594,
+      "pValue": 0.4476,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0149,
+          "expectancyBps": 1.49,
+          "hitRatePercent": "49.33%",
+          "profitFactor": 1.044,
+          "unannualizedSharpe": 0.0141
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0351,
+          "expectancyBps": -3.51,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 0.904,
+          "unannualizedSharpe": -0.0332
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0851,
+          "expectancyBps": -8.51,
+          "hitRatePercent": "43.37%",
+          "profitFactor": 0.784,
+          "unannualizedSharpe": -0.0804
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1851,
+          "expectancyBps": -18.51,
+          "hitRatePercent": "37.44%",
+          "profitFactor": 0.592,
+          "unannualizedSharpe": -0.175
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1318,
+      "pearsonIC": 0.0118,
+      "spearmanIC": 0.0161,
+      "tHAC": 0.8005,
+      "pValue": 0.4234,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0297,
+          "expectancyBps": 2.97,
+          "hitRatePercent": "49.77%",
+          "profitFactor": 1.062,
+          "unannualizedSharpe": 0.02
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0203,
+          "expectancyBps": -2.03,
+          "hitRatePercent": "48.41%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0703,
+          "expectancyBps": -7.03,
+          "hitRatePercent": "46.21%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0474
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1703,
+          "expectancyBps": -17.03,
+          "hitRatePercent": "42.94%",
+          "profitFactor": 0.709,
+          "unannualizedSharpe": -0.1149
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 660,
+      "pearsonIC": 0.0164,
+      "spearmanIC": 0.0234,
+      "tHAC": 0.8265,
+      "pValue": 0.4085,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0603,
+          "expectancyBps": 6.03,
+          "hitRatePercent": "51.52%",
+          "profitFactor": 1.093,
+          "unannualizedSharpe": 0.0296
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0103,
+          "expectancyBps": 1.03,
+          "hitRatePercent": "49.70%",
+          "profitFactor": 1.015,
+          "unannualizedSharpe": 0.0051
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0397,
+          "expectancyBps": -3.97,
+          "hitRatePercent": "48.48%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0195
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1397,
+          "expectancyBps": -13.97,
+          "hitRatePercent": "45.15%",
+          "profitFactor": 0.814,
+          "unannualizedSharpe": -0.0685
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 334,
+      "pearsonIC": 0.0254,
+      "spearmanIC": 0.0261,
+      "tHAC": 0.9914,
+      "pValue": 0.3215,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1388,
+          "expectancyBps": 13.88,
+          "hitRatePercent": "53.59%",
+          "profitFactor": 1.155,
+          "unannualizedSharpe": 0.0519
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0888,
+          "expectancyBps": 8.88,
+          "hitRatePercent": "51.80%",
+          "profitFactor": 1.097,
+          "unannualizedSharpe": 0.0332
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0388,
+          "expectancyBps": 3.88,
+          "hitRatePercent": "50.30%",
+          "profitFactor": 1.041,
+          "unannualizedSharpe": 0.0145
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0612,
+          "expectancyBps": -6.12,
+          "hitRatePercent": "48.50%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0229
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 225,
+      "pearsonIC": 0.0159,
+      "spearmanIC": 0.0262,
+      "tHAC": 0.1676,
+      "pValue": 0.8669,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0389,
+          "expectancyBps": 3.89,
+          "hitRatePercent": "52.00%",
+          "profitFactor": 1.034,
+          "unannualizedSharpe": 0.0112
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0111,
+          "expectancyBps": -1.11,
+          "hitRatePercent": "51.11%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0611,
+          "expectancyBps": -6.11,
+          "hitRatePercent": "50.67%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0176
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1611,
+          "expectancyBps": -16.11,
+          "hitRatePercent": "48.00%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0463
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_LINKUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "LINKUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 115,
+      "pearsonIC": 0.0225,
+      "spearmanIC": 0.0316,
+      "tHAC": -0.1718,
+      "pValue": 0.8636,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0668,
+          "expectancyBps": -6.68,
+          "hitRatePercent": "48.70%",
+          "profitFactor": 0.955,
+          "unannualizedSharpe": -0.0167
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1168,
+          "expectancyBps": -11.68,
+          "hitRatePercent": "47.83%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0292
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1668,
+          "expectancyBps": -16.68,
+          "hitRatePercent": "46.09%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0416
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2668,
+          "expectancyBps": -26.68,
+          "hitRatePercent": "44.35%",
+          "profitFactor": 0.834,
+          "unannualizedSharpe": -0.0666
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 25690,
+      "pearsonIC": -0.0043,
+      "spearmanIC": 0.0097,
+      "tHAC": -0.7204,
+      "pValue": 0.4713,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0041,
+          "expectancyBps": -0.41,
+          "hitRatePercent": "50.62%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0044
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0541,
+          "expectancyBps": -5.41,
+          "hitRatePercent": "47.56%",
+          "profitFactor": 0.839,
+          "unannualizedSharpe": -0.0582
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1041,
+          "expectancyBps": -10.41,
+          "hitRatePercent": "44.38%",
+          "profitFactor": 0.712,
+          "unannualizedSharpe": -0.112
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2041,
+          "expectancyBps": -20.41,
+          "hitRatePercent": "37.75%",
+          "profitFactor": 0.515,
+          "unannualizedSharpe": -0.2197
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 12636,
+      "pearsonIC": -0.0059,
+      "spearmanIC": 0.0093,
+      "tHAC": -0.2975,
+      "pValue": 0.7661,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0034,
+          "expectancyBps": -0.34,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0534,
+          "expectancyBps": -5.34,
+          "hitRatePercent": "48.27%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0404
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1034,
+          "expectancyBps": -10.34,
+          "hitRatePercent": "45.83%",
+          "profitFactor": 0.788,
+          "unannualizedSharpe": -0.0781
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2034,
+          "expectancyBps": -20.34,
+          "hitRatePercent": "40.90%",
+          "profitFactor": 0.627,
+          "unannualizedSharpe": -0.1537
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 6049,
+      "pearsonIC": -0.0091,
+      "spearmanIC": 0.0138,
+      "tHAC": -0.547,
+      "pValue": 0.5844,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0126,
+          "expectancyBps": -1.26,
+          "hitRatePercent": "50.95%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0068
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0626,
+          "expectancyBps": -6.26,
+          "hitRatePercent": "49.31%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0338
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1126,
+          "expectancyBps": -11.26,
+          "hitRatePercent": "47.38%",
+          "profitFactor": 0.833,
+          "unannualizedSharpe": -0.0608
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2126,
+          "expectancyBps": -21.26,
+          "hitRatePercent": "43.74%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1148
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2780,
+      "pearsonIC": -0.0146,
+      "spearmanIC": -0.0029,
+      "tHAC": -1.3707,
+      "pValue": 0.1705,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0642,
+          "expectancyBps": -6.42,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0249
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1142,
+          "expectancyBps": -11.42,
+          "hitRatePercent": "48.56%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0443
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1642,
+          "expectancyBps": -16.42,
+          "hitRatePercent": "47.34%",
+          "profitFactor": 0.829,
+          "unannualizedSharpe": -0.0637
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2642,
+          "expectancyBps": -26.42,
+          "hitRatePercent": "44.75%",
+          "profitFactor": 0.739,
+          "unannualizedSharpe": -0.1025
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1989,
+      "pearsonIC": -0.0165,
+      "spearmanIC": -0.0073,
+      "tHAC": -0.7739,
+      "pValue": 0.439,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0535,
+          "expectancyBps": -5.35,
+          "hitRatePercent": "49.12%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0171
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1035,
+          "expectancyBps": -10.35,
+          "hitRatePercent": "48.37%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0331
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1535,
+          "expectancyBps": -15.35,
+          "hitRatePercent": "47.31%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0491
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2535,
+          "expectancyBps": -25.35,
+          "hitRatePercent": "45.65%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.081
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_LINKUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "LINKUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 927,
+      "pearsonIC": -0.0234,
+      "spearmanIC": -0.0157,
+      "tHAC": -0.2103,
+      "pValue": 0.8334,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0308,
+          "expectancyBps": -3.08,
+          "hitRatePercent": "49.62%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.007
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0808,
+          "expectancyBps": -8.08,
+          "hitRatePercent": "49.30%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0183
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1308,
+          "expectancyBps": -13.08,
+          "hitRatePercent": "48.87%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0296
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2308,
+          "expectancyBps": -23.08,
+          "hitRatePercent": "48.11%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0523
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2415,
+      "pearsonIC": 0.0175,
+      "spearmanIC": 0.0071,
+      "tHAC": 1.9424,
+      "pValue": 0.0521,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0502,
+          "expectancyBps": 5.02,
+          "hitRatePercent": "50.43%",
+          "profitFactor": 1.114,
+          "unannualizedSharpe": 0.0371
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0002,
+          "expectancyBps": 0.02,
+          "hitRatePercent": "48.45%",
+          "profitFactor": 1,
+          "unannualizedSharpe": 0.0002
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0498,
+          "expectancyBps": -4.98,
+          "hitRatePercent": "46.25%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0368
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1498,
+          "expectancyBps": -14.98,
+          "hitRatePercent": "41.95%",
+          "profitFactor": 0.726,
+          "unannualizedSharpe": -0.1106
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1212,
+      "pearsonIC": 0.024,
+      "spearmanIC": 0.0167,
+      "tHAC": 2.2921,
+      "pValue": 0.0219,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1082,
+          "expectancyBps": 10.82,
+          "hitRatePercent": "50.74%",
+          "profitFactor": 1.184,
+          "unannualizedSharpe": 0.058
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0582,
+          "expectancyBps": 5.82,
+          "hitRatePercent": "48.84%",
+          "profitFactor": 1.095,
+          "unannualizedSharpe": 0.0312
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0082,
+          "expectancyBps": 0.82,
+          "hitRatePercent": "46.62%",
+          "profitFactor": 1.013,
+          "unannualizedSharpe": 0.0044
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0918,
+          "expectancyBps": -9.18,
+          "hitRatePercent": "43.98%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0492
+        }
+      },
+      "classification": "WEAK_CANDIDATE"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 610,
+      "pearsonIC": 0.034,
+      "spearmanIC": 0.0225,
+      "tHAC": 2.5563,
+      "pValue": 0.0106,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.2337,
+          "expectancyBps": 23.37,
+          "hitRatePercent": "51.15%",
+          "profitFactor": 1.302,
+          "unannualizedSharpe": 0.0904
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1837,
+          "expectancyBps": 18.37,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.23,
+          "unannualizedSharpe": 0.0711
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.1337,
+          "expectancyBps": 13.37,
+          "hitRatePercent": "49.18%",
+          "profitFactor": 1.163,
+          "unannualizedSharpe": 0.0517
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.0337,
+          "expectancyBps": 3.37,
+          "hitRatePercent": "46.23%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.013
+        }
+      },
+      "classification": "DISCOVERY_CANDIDATE"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 310,
+      "pearsonIC": 0.0488,
+      "spearmanIC": 0.0325,
+      "tHAC": 2.6676,
+      "pValue": 0.0076,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.5082,
+          "expectancyBps": 50.82,
+          "hitRatePercent": "54.19%",
+          "profitFactor": 1.519,
+          "unannualizedSharpe": 0.1464
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.4582,
+          "expectancyBps": 45.82,
+          "hitRatePercent": "52.26%",
+          "profitFactor": 1.457,
+          "unannualizedSharpe": 0.132
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.4082,
+          "expectancyBps": 40.82,
+          "hitRatePercent": "51.61%",
+          "profitFactor": 1.398,
+          "unannualizedSharpe": 0.1176
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.3082,
+          "expectancyBps": 30.82,
+          "hitRatePercent": "49.68%",
+          "profitFactor": 1.287,
+          "unannualizedSharpe": 0.0888
+        }
+      },
+      "classification": "DISCOVERY_CANDIDATE"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 197,
+      "pearsonIC": 0.0615,
+      "spearmanIC": 0.0453,
+      "tHAC": 2.5416,
+      "pValue": 0.011,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.8169,
+          "expectancyBps": 81.69,
+          "hitRatePercent": "54.31%",
+          "profitFactor": 1.749,
+          "unannualizedSharpe": 0.2042
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.7669,
+          "expectancyBps": 76.69,
+          "hitRatePercent": "54.31%",
+          "profitFactor": 1.689,
+          "unannualizedSharpe": 0.1917
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.7169,
+          "expectancyBps": 71.69,
+          "hitRatePercent": "53.81%",
+          "profitFactor": 1.631,
+          "unannualizedSharpe": 0.1792
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.6169,
+          "expectancyBps": 61.69,
+          "hitRatePercent": "52.79%",
+          "profitFactor": 1.521,
+          "unannualizedSharpe": 0.1542
+        }
+      },
+      "classification": "DISCOVERY_CANDIDATE"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_SUIUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "SUIUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 98,
+      "pearsonIC": 0.0608,
+      "spearmanIC": 0.0524,
+      "tHAC": 1.0805,
+      "pValue": 0.2799,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.5477,
+          "expectancyBps": 54.77,
+          "hitRatePercent": "51.02%",
+          "profitFactor": 1.332,
+          "unannualizedSharpe": 0.1081
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.4977,
+          "expectancyBps": 49.77,
+          "hitRatePercent": "51.02%",
+          "profitFactor": 1.297,
+          "unannualizedSharpe": 0.0982
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.4477,
+          "expectancyBps": 44.77,
+          "hitRatePercent": "51.02%",
+          "profitFactor": 1.263,
+          "unannualizedSharpe": 0.0883
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.3477,
+          "expectancyBps": 34.77,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 1.199,
+          "unannualizedSharpe": 0.0686
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 23913,
+      "pearsonIC": 0.009,
+      "spearmanIC": 0.0194,
+      "tHAC": 0.6254,
+      "pValue": 0.5317,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0047,
+          "expectancyBps": 0.47,
+          "hitRatePercent": "50.85%",
+          "profitFactor": 1.012,
+          "unannualizedSharpe": 0.004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0453,
+          "expectancyBps": -4.53,
+          "hitRatePercent": "48.45%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0384
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0953,
+          "expectancyBps": -9.53,
+          "hitRatePercent": "45.94%",
+          "profitFactor": 0.786,
+          "unannualizedSharpe": -0.0808
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1953,
+          "expectancyBps": -19.53,
+          "hitRatePercent": "40.95%",
+          "profitFactor": 0.611,
+          "unannualizedSharpe": -0.1656
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 11818,
+      "pearsonIC": 0.0127,
+      "spearmanIC": 0.0254,
+      "tHAC": 1.3055,
+      "pValue": 0.1917,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0198,
+          "expectancyBps": 1.98,
+          "hitRatePercent": "51.53%",
+          "profitFactor": 1.036,
+          "unannualizedSharpe": 0.0119
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0302,
+          "expectancyBps": -3.02,
+          "hitRatePercent": "49.54%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0181
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0802,
+          "expectancyBps": -8.02,
+          "hitRatePercent": "47.72%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0482
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1802,
+          "expectancyBps": -18.02,
+          "hitRatePercent": "43.92%",
+          "profitFactor": 0.725,
+          "unannualizedSharpe": -0.1083
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 5702,
+      "pearsonIC": 0.0176,
+      "spearmanIC": 0.0239,
+      "tHAC": 1.0164,
+      "pValue": 0.3095,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0312,
+          "expectancyBps": 3.12,
+          "hitRatePercent": "51.23%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.0133
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0188,
+          "expectancyBps": -1.88,
+          "hitRatePercent": "50.05%",
+          "profitFactor": 0.977,
+          "unannualizedSharpe": -0.008
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0688,
+          "expectancyBps": -6.88,
+          "hitRatePercent": "48.81%",
+          "profitFactor": 0.918,
+          "unannualizedSharpe": -0.0292
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1688,
+          "expectancyBps": -16.88,
+          "hitRatePercent": "45.91%",
+          "profitFactor": 0.811,
+          "unannualizedSharpe": -0.0716
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2665,
+      "pearsonIC": 0.0234,
+      "spearmanIC": 0.015,
+      "tHAC": 0.435,
+      "pValue": 0.6636,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0267,
+          "expectancyBps": 2.67,
+          "hitRatePercent": "51.22%",
+          "profitFactor": 1.024,
+          "unannualizedSharpe": 0.0083
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0233,
+          "expectancyBps": -2.33,
+          "hitRatePercent": "50.06%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0073
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0733,
+          "expectancyBps": -7.33,
+          "hitRatePercent": "49.31%",
+          "profitFactor": 0.937,
+          "unannualizedSharpe": -0.0229
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1733,
+          "expectancyBps": -17.33,
+          "hitRatePercent": "47.62%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0542
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1919,
+      "pearsonIC": 0.0323,
+      "spearmanIC": 0.026,
+      "tHAC": 0.9543,
+      "pValue": 0.3399,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0793,
+          "expectancyBps": 7.93,
+          "hitRatePercent": "51.43%",
+          "profitFactor": 1.059,
+          "unannualizedSharpe": 0.0203
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0293,
+          "expectancyBps": 2.93,
+          "hitRatePercent": "50.81%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0075
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0207,
+          "expectancyBps": -2.07,
+          "hitRatePercent": "49.77%",
+          "profitFactor": 0.985,
+          "unannualizedSharpe": -0.0053
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1207,
+          "expectancyBps": -12.07,
+          "hitRatePercent": "48.41%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0309
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_SUIUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "SUIUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 891,
+      "pearsonIC": 0.0459,
+      "spearmanIC": 0.0292,
+      "tHAC": 1.8332,
+      "pValue": 0.0668,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.313,
+          "expectancyBps": 31.3,
+          "hitRatePercent": "52.75%",
+          "profitFactor": 1.178,
+          "unannualizedSharpe": 0.0594
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.263,
+          "expectancyBps": 26.3,
+          "hitRatePercent": "52.30%",
+          "profitFactor": 1.147,
+          "unannualizedSharpe": 0.0499
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.213,
+          "expectancyBps": 21.3,
+          "hitRatePercent": "51.96%",
+          "profitFactor": 1.118,
+          "unannualizedSharpe": 0.0404
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.113,
+          "expectancyBps": 11.3,
+          "hitRatePercent": "50.06%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0214
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 1,
+      "sampleSize": 2788,
+      "pearsonIC": 0.0077,
+      "spearmanIC": 0.0116,
+      "tHAC": -0.2694,
+      "pValue": 0.7876,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0045,
+          "expectancyBps": -0.45,
+          "hitRatePercent": "48.53%",
+          "profitFactor": 0.985,
+          "unannualizedSharpe": -0.0048
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0545,
+          "expectancyBps": -5.45,
+          "hitRatePercent": "44.94%",
+          "profitFactor": 0.835,
+          "unannualizedSharpe": -0.0571
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1045,
+          "expectancyBps": -10.45,
+          "hitRatePercent": "41.21%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1095
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2045,
+          "expectancyBps": -20.45,
+          "hitRatePercent": "34.54%",
+          "profitFactor": 0.514,
+          "unannualizedSharpe": -0.2142
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 2,
+      "sampleSize": 1399,
+      "pearsonIC": 0.0104,
+      "spearmanIC": 0.0182,
+      "tHAC": -0.2933,
+      "pValue": 0.7693,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0095,
+          "expectancyBps": -0.95,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0069
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0595,
+          "expectancyBps": -5.95,
+          "hitRatePercent": "46.68%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0435
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1095,
+          "expectancyBps": -10.95,
+          "hitRatePercent": "44.46%",
+          "profitFactor": 0.775,
+          "unannualizedSharpe": -0.0801
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2095,
+          "expectancyBps": -20.95,
+          "hitRatePercent": "39.03%",
+          "profitFactor": 0.616,
+          "unannualizedSharpe": -0.1533
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 4,
+      "sampleSize": 708,
+      "pearsonIC": 0.0148,
+      "spearmanIC": 0.0264,
+      "tHAC": -0.3611,
+      "pValue": 0.718,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0221,
+          "expectancyBps": -2.21,
+          "hitRatePercent": "49.44%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0117
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0721,
+          "expectancyBps": -7.21,
+          "hitRatePercent": "47.18%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0383
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1221,
+          "expectancyBps": -12.21,
+          "hitRatePercent": "45.20%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.0648
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2221,
+          "expectancyBps": -22.21,
+          "hitRatePercent": "42.09%",
+          "profitFactor": 0.69,
+          "unannualizedSharpe": -0.1178
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 8,
+      "sampleSize": 359,
+      "pearsonIC": 0.0202,
+      "spearmanIC": 0.0346,
+      "tHAC": -0.5141,
+      "pValue": 0.6072,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0556,
+          "expectancyBps": -5.56,
+          "hitRatePercent": "47.35%",
+          "profitFactor": 0.931,
+          "unannualizedSharpe": -0.0241
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1056,
+          "expectancyBps": -10.56,
+          "hitRatePercent": "47.08%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0457
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1556,
+          "expectancyBps": -15.56,
+          "hitRatePercent": "45.68%",
+          "profitFactor": 0.818,
+          "unannualizedSharpe": -0.0674
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2556,
+          "expectancyBps": -25.56,
+          "hitRatePercent": "42.62%",
+          "profitFactor": 0.719,
+          "unannualizedSharpe": -0.1107
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 12,
+      "sampleSize": 234,
+      "pearsonIC": 0.0179,
+      "spearmanIC": 0.0439,
+      "tHAC": 0.632,
+      "pValue": 0.5274,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1024,
+          "expectancyBps": 10.24,
+          "hitRatePercent": "49.15%",
+          "profitFactor": 1.111,
+          "unannualizedSharpe": 0.0357
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0524,
+          "expectancyBps": 5.24,
+          "hitRatePercent": "47.01%",
+          "profitFactor": 1.055,
+          "unannualizedSharpe": 0.0182
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0024,
+          "expectancyBps": 0.24,
+          "hitRatePercent": "46.15%",
+          "profitFactor": 1.002,
+          "unannualizedSharpe": 0.0008
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0976,
+          "expectancyBps": -9.76,
+          "hitRatePercent": "42.74%",
+          "profitFactor": 0.905,
+          "unannualizedSharpe": -0.034
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_CROWDED_FUNDING_XRPUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual Funding Rate Sentiment Exhaustion Reversal",
+      "asset": "XRPUSDT",
+      "lookback": 720,
+      "horizon": 24,
+      "sampleSize": 124,
+      "pearsonIC": 0.0126,
+      "spearmanIC": 0.0572,
+      "tHAC": -0.3117,
+      "pValue": 0.7553,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1203,
+          "expectancyBps": -12.03,
+          "hitRatePercent": "53.23%",
+          "profitFactor": 0.915,
+          "unannualizedSharpe": -0.0305
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1703,
+          "expectancyBps": -17.03,
+          "hitRatePercent": "53.23%",
+          "profitFactor": 0.882,
+          "unannualizedSharpe": -0.0431
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2203,
+          "expectancyBps": -22.03,
+          "hitRatePercent": "52.42%",
+          "profitFactor": 0.85,
+          "unannualizedSharpe": -0.0558
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3203,
+          "expectancyBps": -32.03,
+          "hitRatePercent": "50.81%",
+          "profitFactor": 0.789,
+          "unannualizedSharpe": -0.0812
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H1",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 1,
+      "sampleSize": 23844,
+      "pearsonIC": -0.0015,
+      "spearmanIC": 0.0141,
+      "tHAC": -0.4415,
+      "pValue": 0.6589,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0026,
+          "expectancyBps": -0.26,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.99,
+          "unannualizedSharpe": -0.0028
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0526,
+          "expectancyBps": -5.26,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0575
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1026,
+          "expectancyBps": -10.26,
+          "hitRatePercent": "42.72%",
+          "profitFactor": 0.685,
+          "unannualizedSharpe": -0.1122
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2026,
+          "expectancyBps": -20.26,
+          "hitRatePercent": "34.92%",
+          "profitFactor": 0.476,
+          "unannualizedSharpe": -0.2216
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H2",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 2,
+      "sampleSize": 11684,
+      "pearsonIC": -0.002,
+      "spearmanIC": 0.0201,
+      "tHAC": 0.3304,
+      "pValue": 0.7411,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.004,
+          "expectancyBps": 0.4,
+          "hitRatePercent": "51.18%",
+          "profitFactor": 1.01,
+          "unannualizedSharpe": 0.0031
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.046,
+          "expectancyBps": -4.6,
+          "hitRatePercent": "48.36%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0359
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.096,
+          "expectancyBps": -9.6,
+          "hitRatePercent": "45.31%",
+          "profitFactor": 0.777,
+          "unannualizedSharpe": -0.0748
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.196,
+          "expectancyBps": -19.6,
+          "hitRatePercent": "39.03%",
+          "profitFactor": 0.599,
+          "unannualizedSharpe": -0.1527
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H4",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 4,
+      "sampleSize": 5553,
+      "pearsonIC": -0.0039,
+      "spearmanIC": 0.0089,
+      "tHAC": -1.2412,
+      "pValue": 0.2145,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0298,
+          "expectancyBps": -2.98,
+          "hitRatePercent": "50.41%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0167
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0798,
+          "expectancyBps": -7.98,
+          "hitRatePercent": "48.66%",
+          "profitFactor": 0.863,
+          "unannualizedSharpe": -0.0447
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1298,
+          "expectancyBps": -12.98,
+          "hitRatePercent": "46.35%",
+          "profitFactor": 0.787,
+          "unannualizedSharpe": -0.0727
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2298,
+          "expectancyBps": -22.98,
+          "hitRatePercent": "42.23%",
+          "profitFactor": 0.655,
+          "unannualizedSharpe": -0.1288
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H8",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 8,
+      "sampleSize": 2495,
+      "pearsonIC": -0.007,
+      "spearmanIC": -0.0006,
+      "tHAC": -1.4481,
+      "pValue": 0.1476,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.074,
+          "expectancyBps": -7.4,
+          "hitRatePercent": "50.74%",
+          "profitFactor": 0.909,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.124,
+          "expectancyBps": -12.4,
+          "hitRatePercent": "49.78%",
+          "profitFactor": 0.851,
+          "unannualizedSharpe": -0.0494
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.174,
+          "expectancyBps": -17.4,
+          "hitRatePercent": "48.14%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0693
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.274,
+          "expectancyBps": -27.4,
+          "hitRatePercent": "44.93%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.1091
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H12",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 12,
+      "sampleSize": 1826,
+      "pearsonIC": -0.0103,
+      "spearmanIC": -0.006,
+      "tHAC": -1.7523,
+      "pValue": 0.0797,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1297,
+          "expectancyBps": -12.97,
+          "hitRatePercent": "50.82%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0423
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1797,
+          "expectancyBps": -17.97,
+          "hitRatePercent": "49.84%",
+          "profitFactor": 0.824,
+          "unannualizedSharpe": -0.0587
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2297,
+          "expectancyBps": -22.97,
+          "hitRatePercent": "48.80%",
+          "profitFactor": 0.781,
+          "unannualizedSharpe": -0.075
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3297,
+          "expectancyBps": -32.97,
+          "hitRatePercent": "45.95%",
+          "profitFactor": 0.701,
+          "unannualizedSharpe": -0.1076
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W05_BASIS_SPREAD_XRPUSDT_H24",
+      "worker": "W05_FUNDING_OI",
+      "mechanism": "Perpetual-Spot Basis Premium Transmission",
+      "asset": "XRPUSDT",
+      "lookback": 72,
+      "horizon": 24,
+      "sampleSize": 818,
+      "pearsonIC": -0.0122,
+      "spearmanIC": -0.0035,
+      "tHAC": -0.5113,
+      "pValue": 0.6091,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0745,
+          "expectancyBps": -7.45,
+          "hitRatePercent": "50.24%",
+          "profitFactor": 0.947,
+          "unannualizedSharpe": -0.0166
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1245,
+          "expectancyBps": -12.45,
+          "hitRatePercent": "49.39%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0278
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1745,
+          "expectancyBps": -17.45,
+          "hitRatePercent": "48.17%",
+          "profitFactor": 0.88,
+          "unannualizedSharpe": -0.0389
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2745,
+          "expectancyBps": -27.45,
+          "hitRatePercent": "46.82%",
+          "profitFactor": 0.818,
+          "unannualizedSharpe": -0.0612
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

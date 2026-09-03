@@ -1,0 +1,4761 @@
+{
+  "workerId": "W07_CROSS_ASSET",
+  "timestampUTC": "2026-09-03T02:41:39.405Z",
+  "elapsedMs": 3052,
+  "totalHypothesesTested": 108,
+  "candidatesCount": 0,
+  "hypotheses": [
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": 0.0036,
+      "spearmanIC": -0.045,
+      "tHAC": 0.6528,
+      "pValue": 0.5139,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0039,
+          "expectancyBps": 0.39,
+          "hitRatePercent": "46.37%",
+          "profitFactor": 1.016,
+          "unannualizedSharpe": 0.0051
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0461,
+          "expectancyBps": -4.61,
+          "hitRatePercent": "42.08%",
+          "profitFactor": 0.829,
+          "unannualizedSharpe": -0.0606
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0961,
+          "expectancyBps": -9.61,
+          "hitRatePercent": "37.89%",
+          "profitFactor": 0.679,
+          "unannualizedSharpe": -0.1263
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1961,
+          "expectancyBps": -19.61,
+          "hitRatePercent": "30.52%",
+          "profitFactor": 0.463,
+          "unannualizedSharpe": -0.2578
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": 0.0069,
+      "spearmanIC": -0.0386,
+      "tHAC": 0.8839,
+      "pValue": 0.3767,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0104,
+          "expectancyBps": 1.04,
+          "hitRatePercent": "47.02%",
+          "profitFactor": 1.031,
+          "unannualizedSharpe": 0.0098
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0396,
+          "expectancyBps": -3.96,
+          "hitRatePercent": "43.88%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0371
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0896,
+          "expectancyBps": -8.96,
+          "hitRatePercent": "40.57%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0839
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1896,
+          "expectancyBps": -18.96,
+          "hitRatePercent": "34.63%",
+          "profitFactor": 0.586,
+          "unannualizedSharpe": -0.1776
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": 0.0033,
+      "spearmanIC": -0.0321,
+      "tHAC": 1.0263,
+      "pValue": 0.3047,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0246,
+          "expectancyBps": 2.46,
+          "hitRatePercent": "46.79%",
+          "profitFactor": 1.052,
+          "unannualizedSharpe": 0.0165
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0254,
+          "expectancyBps": -2.54,
+          "hitRatePercent": "44.61%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.017
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0754,
+          "expectancyBps": -7.54,
+          "hitRatePercent": "42.44%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0506
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1754,
+          "expectancyBps": -17.54,
+          "hitRatePercent": "38.70%",
+          "profitFactor": 0.702,
+          "unannualizedSharpe": -0.1178
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": 0.0291,
+      "spearmanIC": -0.0151,
+      "tHAC": 1.1993,
+      "pValue": 0.2304,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0551,
+          "expectancyBps": 5.51,
+          "hitRatePercent": "47.33%",
+          "profitFactor": 1.086,
+          "unannualizedSharpe": 0.0279
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0051,
+          "expectancyBps": 0.51,
+          "hitRatePercent": "45.24%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0026
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0449,
+          "expectancyBps": -4.49,
+          "hitRatePercent": "43.82%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0228
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1449,
+          "expectancyBps": -14.49,
+          "hitRatePercent": "40.97%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0736
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": 0.0019,
+      "spearmanIC": -0.0093,
+      "tHAC": 0.3231,
+      "pValue": 0.7466,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.025,
+          "expectancyBps": 2.5,
+          "hitRatePercent": "48.69%",
+          "profitFactor": 1.03,
+          "unannualizedSharpe": 0.0099
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.025,
+          "expectancyBps": -2.5,
+          "hitRatePercent": "47.17%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.0099
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.075,
+          "expectancyBps": -7.5,
+          "hitRatePercent": "45.99%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0297
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.175,
+          "expectancyBps": -17.5,
+          "hitRatePercent": "43.88%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0692
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ETHUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0543,
+      "spearmanIC": -0.0517,
+      "tHAC": -0.8007,
+      "pValue": 0.4233,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1159,
+          "expectancyBps": -11.59,
+          "hitRatePercent": "45.54%",
+          "profitFactor": 0.914,
+          "unannualizedSharpe": -0.0321
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1659,
+          "expectancyBps": -16.59,
+          "hitRatePercent": "44.90%",
+          "profitFactor": 0.879,
+          "unannualizedSharpe": -0.046
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2159,
+          "expectancyBps": -21.59,
+          "hitRatePercent": "44.27%",
+          "profitFactor": 0.845,
+          "unannualizedSharpe": -0.0598
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3159,
+          "expectancyBps": -31.59,
+          "hitRatePercent": "42.99%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.0875
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 1,
+      "sampleSize": 765,
+      "pearsonIC": 0.0091,
+      "spearmanIC": 0.0261,
+      "tHAC": -0.1999,
+      "pValue": 0.8416,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.009,
+          "expectancyBps": -0.9,
+          "hitRatePercent": "52.68%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0072
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.059,
+          "expectancyBps": -5.9,
+          "hitRatePercent": "49.80%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0474
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.109,
+          "expectancyBps": -10.9,
+          "hitRatePercent": "45.62%",
+          "profitFactor": 0.759,
+          "unannualizedSharpe": -0.0875
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.209,
+          "expectancyBps": -20.9,
+          "hitRatePercent": "40.39%",
+          "profitFactor": 0.59,
+          "unannualizedSharpe": -0.1678
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 2,
+      "sampleSize": 380,
+      "pearsonIC": 0.0117,
+      "spearmanIC": 0.0345,
+      "tHAC": -1.0414,
+      "pValue": 0.2977,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0893,
+          "expectancyBps": -8.93,
+          "hitRatePercent": "50.26%",
+          "profitFactor": 0.859,
+          "unannualizedSharpe": -0.0511
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1393,
+          "expectancyBps": -13.93,
+          "hitRatePercent": "48.16%",
+          "profitFactor": 0.788,
+          "unannualizedSharpe": -0.0797
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1893,
+          "expectancyBps": -18.93,
+          "hitRatePercent": "46.58%",
+          "profitFactor": 0.723,
+          "unannualizedSharpe": -0.1083
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2893,
+          "expectancyBps": -28.93,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.608,
+          "unannualizedSharpe": -0.1655
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 4,
+      "sampleSize": 191,
+      "pearsonIC": 0.0145,
+      "spearmanIC": 0.0416,
+      "tHAC": -0.8315,
+      "pValue": 0.4057,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1178,
+          "expectancyBps": -11.78,
+          "hitRatePercent": "49.74%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0484
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1678,
+          "expectancyBps": -16.78,
+          "hitRatePercent": "49.21%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.069
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2178,
+          "expectancyBps": -21.78,
+          "hitRatePercent": "47.64%",
+          "profitFactor": 0.752,
+          "unannualizedSharpe": -0.0895
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3178,
+          "expectancyBps": -31.78,
+          "hitRatePercent": "43.46%",
+          "profitFactor": 0.66,
+          "unannualizedSharpe": -0.1306
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 8,
+      "sampleSize": 93,
+      "pearsonIC": 0.0104,
+      "spearmanIC": 0.0363,
+      "tHAC": -1.168,
+      "pValue": 0.2428,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2992,
+          "expectancyBps": -29.92,
+          "hitRatePercent": "48.39%",
+          "profitFactor": 0.762,
+          "unannualizedSharpe": -0.0972
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.3492,
+          "expectancyBps": -34.92,
+          "hitRatePercent": "47.31%",
+          "profitFactor": 0.728,
+          "unannualizedSharpe": -0.1135
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3992,
+          "expectancyBps": -39.92,
+          "hitRatePercent": "46.24%",
+          "profitFactor": 0.696,
+          "unannualizedSharpe": -0.1297
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4992,
+          "expectancyBps": -49.92,
+          "hitRatePercent": "44.09%",
+          "profitFactor": 0.635,
+          "unannualizedSharpe": -0.1622
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 12,
+      "sampleSize": 60,
+      "pearsonIC": 0.0023,
+      "spearmanIC": 0.041,
+      "tHAC": -2.3546,
+      "pValue": 0.0185,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.6782,
+          "expectancyBps": -67.82,
+          "hitRatePercent": "45.00%",
+          "profitFactor": 0.602,
+          "unannualizedSharpe": -0.1726
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.7282,
+          "expectancyBps": -72.82,
+          "hitRatePercent": "43.33%",
+          "profitFactor": 0.58,
+          "unannualizedSharpe": -0.1853
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.7782,
+          "expectancyBps": -77.82,
+          "hitRatePercent": "43.33%",
+          "profitFactor": 0.558,
+          "unannualizedSharpe": -0.1981
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.8782,
+          "expectancyBps": -87.82,
+          "hitRatePercent": "43.33%",
+          "profitFactor": 0.517,
+          "unannualizedSharpe": -0.2235
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ETHUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ETHUSDT",
+      "horizon": 24,
+      "sampleSize": 34,
+      "pearsonIC": -0.0038,
+      "spearmanIC": 0.0271,
+      "tHAC": -1.9507,
+      "pValue": 0.0511,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -1.0857,
+          "expectancyBps": -108.57,
+          "hitRatePercent": "47.06%",
+          "profitFactor": 0.461,
+          "unannualizedSharpe": -0.2974
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -1.1357,
+          "expectancyBps": -113.57,
+          "hitRatePercent": "47.06%",
+          "profitFactor": 0.443,
+          "unannualizedSharpe": -0.3111
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -1.1857,
+          "expectancyBps": -118.57,
+          "hitRatePercent": "47.06%",
+          "profitFactor": 0.426,
+          "unannualizedSharpe": -0.3247
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.2857,
+          "expectancyBps": -128.57,
+          "hitRatePercent": "47.06%",
+          "profitFactor": 0.393,
+          "unannualizedSharpe": -0.3521
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.0085,
+      "spearmanIC": -0.0322,
+      "tHAC": -0.6787,
+      "pValue": 0.4973,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0055,
+          "expectancyBps": -0.55,
+          "hitRatePercent": "47.56%",
+          "profitFactor": 0.984,
+          "unannualizedSharpe": -0.0052
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0555,
+          "expectancyBps": -5.55,
+          "hitRatePercent": "44.89%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.0531
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1055,
+          "expectancyBps": -10.55,
+          "hitRatePercent": "42.02%",
+          "profitFactor": 0.74,
+          "unannualizedSharpe": -0.1009
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2055,
+          "expectancyBps": -20.55,
+          "hitRatePercent": "36.17%",
+          "profitFactor": 0.56,
+          "unannualizedSharpe": -0.1966
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0082,
+      "spearmanIC": -0.0312,
+      "tHAC": -0.632,
+      "pValue": 0.5274,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0102,
+          "expectancyBps": -1.02,
+          "hitRatePercent": "47.49%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0069
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0602,
+          "expectancyBps": -6.02,
+          "hitRatePercent": "45.50%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0408
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1102,
+          "expectancyBps": -11.02,
+          "hitRatePercent": "43.31%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0747
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2102,
+          "expectancyBps": -21.02,
+          "hitRatePercent": "39.60%",
+          "profitFactor": 0.652,
+          "unannualizedSharpe": -0.1425
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0127,
+      "spearmanIC": -0.0259,
+      "tHAC": -0.7389,
+      "pValue": 0.46,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0235,
+          "expectancyBps": -2.35,
+          "hitRatePercent": "47.67%",
+          "profitFactor": 0.966,
+          "unannualizedSharpe": -0.0118
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0735,
+          "expectancyBps": -7.35,
+          "hitRatePercent": "46.06%",
+          "profitFactor": 0.897,
+          "unannualizedSharpe": -0.0369
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1235,
+          "expectancyBps": -12.35,
+          "hitRatePercent": "44.48%",
+          "profitFactor": 0.834,
+          "unannualizedSharpe": -0.0621
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2235,
+          "expectancyBps": -22.35,
+          "hitRatePercent": "41.53%",
+          "profitFactor": 0.721,
+          "unannualizedSharpe": -0.1123
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.0045,
+      "spearmanIC": -0.0268,
+      "tHAC": -0.9237,
+      "pValue": 0.3556,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0548,
+          "expectancyBps": -5.48,
+          "hitRatePercent": "46.97%",
+          "profitFactor": 0.943,
+          "unannualizedSharpe": -0.0209
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1048,
+          "expectancyBps": -10.48,
+          "hitRatePercent": "46.26%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.04
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1548,
+          "expectancyBps": -15.48,
+          "hitRatePercent": "45.70%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0591
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2548,
+          "expectancyBps": -25.48,
+          "hitRatePercent": "43.66%",
+          "profitFactor": 0.761,
+          "unannualizedSharpe": -0.0972
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": -0.0127,
+      "spearmanIC": -0.0243,
+      "tHAC": -0.7692,
+      "pValue": 0.4418,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0705,
+          "expectancyBps": -7.05,
+          "hitRatePercent": "49.20%",
+          "profitFactor": 0.941,
+          "unannualizedSharpe": -0.0215
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1205,
+          "expectancyBps": -12.05,
+          "hitRatePercent": "48.35%",
+          "profitFactor": 0.902,
+          "unannualizedSharpe": -0.0368
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1705,
+          "expectancyBps": -17.05,
+          "hitRatePercent": "47.59%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.052
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2705,
+          "expectancyBps": -27.05,
+          "hitRatePercent": "45.65%",
+          "profitFactor": 0.793,
+          "unannualizedSharpe": -0.0825
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SOLUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0821,
+      "spearmanIC": -0.1005,
+      "tHAC": -2.691,
+      "pValue": 0.0071,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.4949,
+          "expectancyBps": -49.49,
+          "hitRatePercent": "43.63%",
+          "profitFactor": 0.746,
+          "unannualizedSharpe": -0.1068
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.5449,
+          "expectancyBps": -54.49,
+          "hitRatePercent": "42.52%",
+          "profitFactor": 0.725,
+          "unannualizedSharpe": -0.1176
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.5949,
+          "expectancyBps": -59.49,
+          "hitRatePercent": "42.20%",
+          "profitFactor": 0.704,
+          "unannualizedSharpe": -0.1284
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.6949,
+          "expectancyBps": -69.49,
+          "hitRatePercent": "41.40%",
+          "profitFactor": 0.664,
+          "unannualizedSharpe": -0.1499
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 1,
+      "sampleSize": 2805,
+      "pearsonIC": 0.0018,
+      "spearmanIC": 0.0225,
+      "tHAC": 0.6109,
+      "pValue": 0.5412,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.017,
+          "expectancyBps": 1.7,
+          "hitRatePercent": "52.91%",
+          "profitFactor": 1.033,
+          "unannualizedSharpe": 0.0112
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.033,
+          "expectancyBps": -3.3,
+          "hitRatePercent": "50.87%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0218
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.083,
+          "expectancyBps": -8.3,
+          "hitRatePercent": "48.59%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0548
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.183,
+          "expectancyBps": -18.3,
+          "hitRatePercent": "44.92%",
+          "profitFactor": 0.701,
+          "unannualizedSharpe": -0.1208
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 2,
+      "sampleSize": 1393,
+      "pearsonIC": 0.0035,
+      "spearmanIC": 0.0284,
+      "tHAC": 0.6026,
+      "pValue": 0.5468,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.033,
+          "expectancyBps": 3.3,
+          "hitRatePercent": "53.05%",
+          "profitFactor": 1.046,
+          "unannualizedSharpe": 0.0154
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.017,
+          "expectancyBps": -1.7,
+          "hitRatePercent": "51.76%",
+          "profitFactor": 0.977,
+          "unannualizedSharpe": -0.0079
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.067,
+          "expectancyBps": -6.7,
+          "hitRatePercent": "49.96%",
+          "profitFactor": 0.912,
+          "unannualizedSharpe": -0.0312
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.167,
+          "expectancyBps": -16.7,
+          "hitRatePercent": "47.38%",
+          "profitFactor": 0.795,
+          "unannualizedSharpe": -0.0778
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 4,
+      "sampleSize": 690,
+      "pearsonIC": -0.0035,
+      "spearmanIC": 0.0279,
+      "tHAC": 0.654,
+      "pValue": 0.5131,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0687,
+          "expectancyBps": 6.87,
+          "hitRatePercent": "54.35%",
+          "profitFactor": 1.073,
+          "unannualizedSharpe": 0.0238
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0187,
+          "expectancyBps": 1.87,
+          "hitRatePercent": "53.91%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.0065
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0313,
+          "expectancyBps": -3.13,
+          "hitRatePercent": "53.19%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0109
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1313,
+          "expectancyBps": -13.13,
+          "hitRatePercent": "51.16%",
+          "profitFactor": 0.873,
+          "unannualizedSharpe": -0.0455
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 8,
+      "sampleSize": 341,
+      "pearsonIC": -0.0157,
+      "spearmanIC": 0.0026,
+      "tHAC": -0.4868,
+      "pValue": 0.6264,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0887,
+          "expectancyBps": -8.87,
+          "hitRatePercent": "48.68%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0236
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1387,
+          "expectancyBps": -13.87,
+          "hitRatePercent": "48.09%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.037
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1887,
+          "expectancyBps": -18.87,
+          "hitRatePercent": "47.21%",
+          "profitFactor": 0.867,
+          "unannualizedSharpe": -0.0503
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2887,
+          "expectancyBps": -28.87,
+          "hitRatePercent": "45.16%",
+          "profitFactor": 0.803,
+          "unannualizedSharpe": -0.0769
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 12,
+      "sampleSize": 235,
+      "pearsonIC": -0.027,
+      "spearmanIC": -0.0254,
+      "tHAC": 0.0276,
+      "pValue": 0.978,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0082,
+          "expectancyBps": 0.82,
+          "hitRatePercent": "49.36%",
+          "profitFactor": 1.005,
+          "unannualizedSharpe": 0.0018
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0418,
+          "expectancyBps": -4.18,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0091
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0918,
+          "expectancyBps": -9.18,
+          "hitRatePercent": "48.94%",
+          "profitFactor": 0.946,
+          "unannualizedSharpe": -0.02
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1918,
+          "expectancyBps": -19.18,
+          "hitRatePercent": "47.66%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0418
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SOLUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SOLUSDT",
+      "horizon": 24,
+      "sampleSize": 117,
+      "pearsonIC": -0.013,
+      "spearmanIC": 0.0048,
+      "tHAC": -0.403,
+      "pValue": 0.687,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2108,
+          "expectancyBps": -21.08,
+          "hitRatePercent": "52.99%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0328
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2608,
+          "expectancyBps": -26.08,
+          "hitRatePercent": "52.99%",
+          "profitFactor": 0.897,
+          "unannualizedSharpe": -0.0405
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3108,
+          "expectancyBps": -31.08,
+          "hitRatePercent": "52.99%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.0483
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4108,
+          "expectancyBps": -41.08,
+          "hitRatePercent": "51.28%",
+          "profitFactor": 0.842,
+          "unannualizedSharpe": -0.0639
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.0173,
+      "spearmanIC": -0.0459,
+      "tHAC": -1.8336,
+      "pValue": 0.0667,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0089,
+          "expectancyBps": -0.89,
+          "hitRatePercent": "46.44%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0139
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0589,
+          "expectancyBps": -5.89,
+          "hitRatePercent": "41.92%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.0916
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1089,
+          "expectancyBps": -10.89,
+          "hitRatePercent": "37.04%",
+          "profitFactor": 0.6,
+          "unannualizedSharpe": -0.1693
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2089,
+          "expectancyBps": -20.89,
+          "hitRatePercent": "28.72%",
+          "profitFactor": 0.385,
+          "unannualizedSharpe": -0.3248
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0154,
+      "spearmanIC": -0.0408,
+      "tHAC": -0.3722,
+      "pValue": 0.7097,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0037,
+          "expectancyBps": -0.37,
+          "hitRatePercent": "47.29%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.0041
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0537,
+          "expectancyBps": -5.37,
+          "hitRatePercent": "43.46%",
+          "profitFactor": 0.833,
+          "unannualizedSharpe": -0.0596
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1037,
+          "expectancyBps": -10.37,
+          "hitRatePercent": "39.78%",
+          "profitFactor": 0.705,
+          "unannualizedSharpe": -0.1151
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2037,
+          "expectancyBps": -20.37,
+          "hitRatePercent": "33.42%",
+          "profitFactor": 0.509,
+          "unannualizedSharpe": -0.2261
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0155,
+      "spearmanIC": -0.0339,
+      "tHAC": -0.2214,
+      "pValue": 0.8247,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0044,
+          "expectancyBps": -0.44,
+          "hitRatePercent": "47.82%",
+          "profitFactor": 0.989,
+          "unannualizedSharpe": -0.0035
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0544,
+          "expectancyBps": -5.44,
+          "hitRatePercent": "45.44%",
+          "profitFactor": 0.876,
+          "unannualizedSharpe": -0.0442
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1044,
+          "expectancyBps": -10.44,
+          "hitRatePercent": "42.80%",
+          "profitFactor": 0.777,
+          "unannualizedSharpe": -0.0848
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2044,
+          "expectancyBps": -20.44,
+          "hitRatePercent": "37.44%",
+          "profitFactor": 0.612,
+          "unannualizedSharpe": -0.166
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.0022,
+      "spearmanIC": -0.0261,
+      "tHAC": -0.5066,
+      "pValue": 0.6125,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0182,
+          "expectancyBps": -1.82,
+          "hitRatePercent": "48.35%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0112
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0682,
+          "expectancyBps": -6.82,
+          "hitRatePercent": "46.01%",
+          "profitFactor": 0.885,
+          "unannualizedSharpe": -0.0419
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1182,
+          "expectancyBps": -11.82,
+          "hitRatePercent": "44.27%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0727
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2182,
+          "expectancyBps": -21.82,
+          "hitRatePercent": "40.76%",
+          "profitFactor": 0.679,
+          "unannualizedSharpe": -0.1342
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": -0.0251,
+      "spearmanIC": -0.0357,
+      "tHAC": -1.2245,
+      "pValue": 0.2208,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0737,
+          "expectancyBps": -7.37,
+          "hitRatePercent": "46.50%",
+          "profitFactor": 0.896,
+          "unannualizedSharpe": -0.0362
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1237,
+          "expectancyBps": -12.37,
+          "hitRatePercent": "44.73%",
+          "profitFactor": 0.832,
+          "unannualizedSharpe": -0.0607
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1737,
+          "expectancyBps": -17.37,
+          "hitRatePercent": "43.38%",
+          "profitFactor": 0.773,
+          "unannualizedSharpe": -0.0853
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2737,
+          "expectancyBps": -27.37,
+          "hitRatePercent": "40.42%",
+          "profitFactor": 0.667,
+          "unannualizedSharpe": -0.1343
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_BNBUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0689,
+      "spearmanIC": -0.0671,
+      "tHAC": -1.7929,
+      "pValue": 0.073,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2079,
+          "expectancyBps": -20.79,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0746
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2579,
+          "expectancyBps": -25.79,
+          "hitRatePercent": "42.83%",
+          "profitFactor": 0.767,
+          "unannualizedSharpe": -0.0926
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3079,
+          "expectancyBps": -30.79,
+          "hitRatePercent": "41.56%",
+          "profitFactor": 0.729,
+          "unannualizedSharpe": -0.1105
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4079,
+          "expectancyBps": -40.79,
+          "hitRatePercent": "39.65%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1464
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 1,
+      "sampleSize": 1081,
+      "pearsonIC": 0.0034,
+      "spearmanIC": 0.0048,
+      "tHAC": 1.0437,
+      "pValue": 0.2966,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0309,
+          "expectancyBps": 3.09,
+          "hitRatePercent": "52.64%",
+          "profitFactor": 1.09,
+          "unannualizedSharpe": 0.0302
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0191,
+          "expectancyBps": -1.91,
+          "hitRatePercent": "50.51%",
+          "profitFactor": 0.948,
+          "unannualizedSharpe": -0.0187
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0691,
+          "expectancyBps": -6.91,
+          "hitRatePercent": "47.27%",
+          "profitFactor": 0.825,
+          "unannualizedSharpe": -0.0675
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1691,
+          "expectancyBps": -16.91,
+          "hitRatePercent": "41.17%",
+          "profitFactor": 0.624,
+          "unannualizedSharpe": -0.1652
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 2,
+      "sampleSize": 534,
+      "pearsonIC": 0.0062,
+      "spearmanIC": 0.0102,
+      "tHAC": 0.6383,
+      "pValue": 0.5233,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.037,
+          "expectancyBps": 3.7,
+          "hitRatePercent": "53.75%",
+          "profitFactor": 1.079,
+          "unannualizedSharpe": 0.0276
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.013,
+          "expectancyBps": -1.3,
+          "hitRatePercent": "50.75%",
+          "profitFactor": 0.974,
+          "unannualizedSharpe": -0.0097
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.063,
+          "expectancyBps": -6.3,
+          "hitRatePercent": "48.13%",
+          "profitFactor": 0.878,
+          "unannualizedSharpe": -0.047
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.163,
+          "expectancyBps": -16.3,
+          "hitRatePercent": "44.76%",
+          "profitFactor": 0.715,
+          "unannualizedSharpe": -0.1215
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 4,
+      "sampleSize": 261,
+      "pearsonIC": 0.01,
+      "spearmanIC": 0.0177,
+      "tHAC": 0.8351,
+      "pValue": 0.4037,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0959,
+          "expectancyBps": 9.59,
+          "hitRatePercent": "55.56%",
+          "profitFactor": 1.152,
+          "unannualizedSharpe": 0.0503
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0459,
+          "expectancyBps": 4.59,
+          "hitRatePercent": "53.64%",
+          "profitFactor": 1.07,
+          "unannualizedSharpe": 0.0241
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0041,
+          "expectancyBps": -0.41,
+          "hitRatePercent": "53.26%",
+          "profitFactor": 0.994,
+          "unannualizedSharpe": -0.0022
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1041,
+          "expectancyBps": -10.41,
+          "hitRatePercent": "50.57%",
+          "profitFactor": 0.856,
+          "unannualizedSharpe": -0.0546
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 8,
+      "sampleSize": 131,
+      "pearsonIC": 0.0088,
+      "spearmanIC": 0.0081,
+      "tHAC": 0.9027,
+      "pValue": 0.3667,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1776,
+          "expectancyBps": 17.76,
+          "hitRatePercent": "57.25%",
+          "profitFactor": 1.212,
+          "unannualizedSharpe": 0.0696
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1276,
+          "expectancyBps": 12.76,
+          "hitRatePercent": "55.73%",
+          "profitFactor": 1.148,
+          "unannualizedSharpe": 0.05
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0776,
+          "expectancyBps": 7.76,
+          "hitRatePercent": "54.20%",
+          "profitFactor": 1.088,
+          "unannualizedSharpe": 0.0304
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0224,
+          "expectancyBps": -2.24,
+          "hitRatePercent": "50.38%",
+          "profitFactor": 0.976,
+          "unannualizedSharpe": -0.0088
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 12,
+      "sampleSize": 88,
+      "pearsonIC": -0.0098,
+      "spearmanIC": 0.0013,
+      "tHAC": 0.1922,
+      "pValue": 0.8476,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0544,
+          "expectancyBps": 5.44,
+          "hitRatePercent": "51.14%",
+          "profitFactor": 1.053,
+          "unannualizedSharpe": 0.0195
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0044,
+          "expectancyBps": 0.44,
+          "hitRatePercent": "51.14%",
+          "profitFactor": 1.004,
+          "unannualizedSharpe": 0.0016
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0456,
+          "expectancyBps": -4.56,
+          "hitRatePercent": "51.14%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0163
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1456,
+          "expectancyBps": -14.56,
+          "hitRatePercent": "48.86%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0521
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_BNBUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "BNBUSDT",
+      "horizon": 24,
+      "sampleSize": 46,
+      "pearsonIC": -0.0325,
+      "spearmanIC": 0.0071,
+      "tHAC": -0.5526,
+      "pValue": 0.5805,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.2456,
+          "expectancyBps": -24.56,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0563
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.2956,
+          "expectancyBps": -29.56,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.83,
+          "unannualizedSharpe": -0.0678
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.3456,
+          "expectancyBps": -34.56,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.805,
+          "unannualizedSharpe": -0.0792
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.4456,
+          "expectancyBps": -44.56,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.755,
+          "unannualizedSharpe": -0.1021
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.0078,
+      "spearmanIC": -0.038,
+      "tHAC": -0.6732,
+      "pValue": 0.5008,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0055,
+          "expectancyBps": -0.55,
+          "hitRatePercent": "46.70%",
+          "profitFactor": 0.984,
+          "unannualizedSharpe": -0.0051
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0555,
+          "expectancyBps": -5.55,
+          "hitRatePercent": "43.56%",
+          "profitFactor": 0.849,
+          "unannualizedSharpe": -0.051
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1055,
+          "expectancyBps": -10.55,
+          "hitRatePercent": "40.37%",
+          "profitFactor": 0.734,
+          "unannualizedSharpe": -0.097
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2055,
+          "expectancyBps": -20.55,
+          "hitRatePercent": "34.94%",
+          "profitFactor": 0.553,
+          "unannualizedSharpe": -0.1889
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0092,
+      "spearmanIC": -0.0363,
+      "tHAC": -0.3851,
+      "pValue": 0.7002,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0064,
+          "expectancyBps": -0.64,
+          "hitRatePercent": "47.09%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0041
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0564,
+          "expectancyBps": -5.64,
+          "hitRatePercent": "45.01%",
+          "profitFactor": 0.889,
+          "unannualizedSharpe": -0.0363
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1064,
+          "expectancyBps": -10.64,
+          "hitRatePercent": "42.39%",
+          "profitFactor": 0.802,
+          "unannualizedSharpe": -0.0684
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2064,
+          "expectancyBps": -20.64,
+          "hitRatePercent": "37.93%",
+          "profitFactor": 0.654,
+          "unannualizedSharpe": -0.1327
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0083,
+      "spearmanIC": -0.0323,
+      "tHAC": -0.1094,
+      "pValue": 0.9129,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0035,
+          "expectancyBps": -0.35,
+          "hitRatePercent": "46.79%",
+          "profitFactor": 0.995,
+          "unannualizedSharpe": -0.0017
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0535,
+          "expectancyBps": -5.35,
+          "hitRatePercent": "45.16%",
+          "profitFactor": 0.924,
+          "unannualizedSharpe": -0.0257
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1035,
+          "expectancyBps": -10.35,
+          "hitRatePercent": "43.81%",
+          "profitFactor": 0.858,
+          "unannualizedSharpe": -0.0496
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2035,
+          "expectancyBps": -20.35,
+          "hitRatePercent": "40.34%",
+          "profitFactor": 0.741,
+          "unannualizedSharpe": -0.0976
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": 0.0102,
+      "spearmanIC": -0.0241,
+      "tHAC": 0.1631,
+      "pValue": 0.8704,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0102,
+          "expectancyBps": 1.02,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 1.011,
+          "unannualizedSharpe": 0.0037
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0398,
+          "expectancyBps": -3.98,
+          "hitRatePercent": "45.65%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0143
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0898,
+          "expectancyBps": -8.98,
+          "hitRatePercent": "44.02%",
+          "profitFactor": 0.907,
+          "unannualizedSharpe": -0.0324
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1898,
+          "expectancyBps": -18.98,
+          "hitRatePercent": "41.88%",
+          "profitFactor": 0.815,
+          "unannualizedSharpe": -0.0684
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": 0.0244,
+      "spearmanIC": 0.0181,
+      "tHAC": 1.6556,
+      "pValue": 0.0978,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1771,
+          "expectancyBps": 17.71,
+          "hitRatePercent": "48.69%",
+          "profitFactor": 1.166,
+          "unannualizedSharpe": 0.0513
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1271,
+          "expectancyBps": 12.71,
+          "hitRatePercent": "48.02%",
+          "profitFactor": 1.117,
+          "unannualizedSharpe": 0.0368
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0771,
+          "expectancyBps": 7.71,
+          "hitRatePercent": "47.09%",
+          "profitFactor": 1.069,
+          "unannualizedSharpe": 0.0223
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0229,
+          "expectancyBps": -2.29,
+          "hitRatePercent": "45.99%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0066
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_DOGEUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0339,
+      "spearmanIC": -0.0398,
+      "tHAC": -0.2784,
+      "pValue": 0.7807,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0495,
+          "expectancyBps": -4.95,
+          "hitRatePercent": "44.43%",
+          "profitFactor": 0.971,
+          "unannualizedSharpe": -0.01
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0995,
+          "expectancyBps": -9.95,
+          "hitRatePercent": "44.11%",
+          "profitFactor": 0.942,
+          "unannualizedSharpe": -0.0202
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1495,
+          "expectancyBps": -14.95,
+          "hitRatePercent": "43.95%",
+          "profitFactor": 0.915,
+          "unannualizedSharpe": -0.0303
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2495,
+          "expectancyBps": -24.95,
+          "hitRatePercent": "42.99%",
+          "profitFactor": 0.862,
+          "unannualizedSharpe": -0.0506
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 1,
+      "sampleSize": 2916,
+      "pearsonIC": 0.0182,
+      "spearmanIC": 0.0327,
+      "tHAC": 0.3886,
+      "pValue": 0.6975,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0111,
+          "expectancyBps": 1.11,
+          "hitRatePercent": "52.57%",
+          "profitFactor": 1.02,
+          "unannualizedSharpe": 0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0389,
+          "expectancyBps": -3.89,
+          "hitRatePercent": "50.38%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.0233
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0889,
+          "expectancyBps": -8.89,
+          "hitRatePercent": "48.46%",
+          "profitFactor": 0.851,
+          "unannualizedSharpe": -0.0532
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1889,
+          "expectancyBps": -18.89,
+          "hitRatePercent": "45.20%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.113
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 2,
+      "sampleSize": 1482,
+      "pearsonIC": 0.0257,
+      "spearmanIC": 0.0353,
+      "tHAC": 0.4089,
+      "pValue": 0.6826,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0242,
+          "expectancyBps": 2.42,
+          "hitRatePercent": "52.77%",
+          "profitFactor": 1.031,
+          "unannualizedSharpe": 0.0102
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0258,
+          "expectancyBps": -2.58,
+          "hitRatePercent": "51.75%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0109
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0758,
+          "expectancyBps": -7.58,
+          "hitRatePercent": "50.20%",
+          "profitFactor": 0.908,
+          "unannualizedSharpe": -0.032
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1758,
+          "expectancyBps": -17.58,
+          "hitRatePercent": "47.30%",
+          "profitFactor": 0.8,
+          "unannualizedSharpe": -0.0742
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 4,
+      "sampleSize": 753,
+      "pearsonIC": 0.0216,
+      "spearmanIC": 0.0356,
+      "tHAC": 0.1892,
+      "pValue": 0.8499,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0214,
+          "expectancyBps": 2.14,
+          "hitRatePercent": "54.05%",
+          "profitFactor": 1.019,
+          "unannualizedSharpe": 0.0064
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0286,
+          "expectancyBps": -2.86,
+          "hitRatePercent": "53.39%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0085
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0786,
+          "expectancyBps": -7.86,
+          "hitRatePercent": "52.59%",
+          "profitFactor": 0.933,
+          "unannualizedSharpe": -0.0235
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1786,
+          "expectancyBps": -17.86,
+          "hitRatePercent": "51.00%",
+          "profitFactor": 0.853,
+          "unannualizedSharpe": -0.0533
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 8,
+      "sampleSize": 374,
+      "pearsonIC": 0.0154,
+      "spearmanIC": 0.0299,
+      "tHAC": -0.0622,
+      "pValue": 0.9504,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0138,
+          "expectancyBps": -1.38,
+          "hitRatePercent": "53.48%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.0032
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0638,
+          "expectancyBps": -6.38,
+          "hitRatePercent": "52.94%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0146
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1138,
+          "expectancyBps": -11.38,
+          "hitRatePercent": "52.67%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.0261
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2138,
+          "expectancyBps": -21.38,
+          "hitRatePercent": "51.87%",
+          "profitFactor": 0.871,
+          "unannualizedSharpe": -0.0491
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 12,
+      "sampleSize": 244,
+      "pearsonIC": 0.001,
+      "spearmanIC": 0.0388,
+      "tHAC": -0.2963,
+      "pValue": 0.767,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.092,
+          "expectancyBps": -9.2,
+          "hitRatePercent": "56.97%",
+          "profitFactor": 0.95,
+          "unannualizedSharpe": -0.0182
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.142,
+          "expectancyBps": -14.2,
+          "hitRatePercent": "56.56%",
+          "profitFactor": 0.923,
+          "unannualizedSharpe": -0.0281
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.192,
+          "expectancyBps": -19.2,
+          "hitRatePercent": "56.15%",
+          "profitFactor": 0.897,
+          "unannualizedSharpe": -0.038
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.292,
+          "expectancyBps": -29.2,
+          "hitRatePercent": "55.74%",
+          "profitFactor": 0.847,
+          "unannualizedSharpe": -0.0577
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_DOGEUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "DOGEUSDT",
+      "horizon": 24,
+      "sampleSize": 120,
+      "pearsonIC": -0.0534,
+      "spearmanIC": -0.0068,
+      "tHAC": -2.0288,
+      "pValue": 0.0425,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -1.5201,
+          "expectancyBps": -152.01,
+          "hitRatePercent": "40.83%",
+          "profitFactor": 0.569,
+          "unannualizedSharpe": -0.2041
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -1.5701,
+          "expectancyBps": -157.01,
+          "hitRatePercent": "40.83%",
+          "profitFactor": 0.558,
+          "unannualizedSharpe": -0.2108
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -1.6201,
+          "expectancyBps": -162.01,
+          "hitRatePercent": "40.83%",
+          "profitFactor": 0.548,
+          "unannualizedSharpe": -0.2175
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -1.7201,
+          "expectancyBps": -172.01,
+          "hitRatePercent": "40.83%",
+          "profitFactor": 0.528,
+          "unannualizedSharpe": -0.2309
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.0065,
+      "spearmanIC": -0.0311,
+      "tHAC": -0.3591,
+      "pValue": 0.7195,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0029,
+          "expectancyBps": -0.29,
+          "hitRatePercent": "46.56%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.0027
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0529,
+          "expectancyBps": -5.29,
+          "hitRatePercent": "44.43%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0495
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1029,
+          "expectancyBps": -10.29,
+          "hitRatePercent": "41.43%",
+          "profitFactor": 0.739,
+          "unannualizedSharpe": -0.0963
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2029,
+          "expectancyBps": -20.29,
+          "hitRatePercent": "35.75%",
+          "profitFactor": 0.554,
+          "unannualizedSharpe": -0.1899
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0063,
+      "spearmanIC": -0.0303,
+      "tHAC": -0.1224,
+      "pValue": 0.9026,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0021,
+          "expectancyBps": -0.21,
+          "hitRatePercent": "46.79%",
+          "profitFactor": 0.996,
+          "unannualizedSharpe": -0.0013
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0521,
+          "expectancyBps": -5.21,
+          "hitRatePercent": "44.99%",
+          "profitFactor": 0.897,
+          "unannualizedSharpe": -0.0335
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1021,
+          "expectancyBps": -10.21,
+          "hitRatePercent": "42.79%",
+          "profitFactor": 0.808,
+          "unannualizedSharpe": -0.0656
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2021,
+          "expectancyBps": -20.21,
+          "hitRatePercent": "38.70%",
+          "profitFactor": 0.658,
+          "unannualizedSharpe": -0.1299
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0012,
+      "spearmanIC": -0.0181,
+      "tHAC": 0.7724,
+      "pValue": 0.4399,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0247,
+          "expectancyBps": 2.47,
+          "hitRatePercent": "47.49%",
+          "profitFactor": 1.038,
+          "unannualizedSharpe": 0.0126
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0253,
+          "expectancyBps": -2.53,
+          "hitRatePercent": "46.58%",
+          "profitFactor": 0.962,
+          "unannualizedSharpe": -0.0129
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0753,
+          "expectancyBps": -7.53,
+          "hitRatePercent": "45.10%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0383
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1753,
+          "expectancyBps": -17.53,
+          "hitRatePercent": "41.76%",
+          "profitFactor": 0.768,
+          "unannualizedSharpe": -0.0893
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.0168,
+      "spearmanIC": -0.0353,
+      "tHAC": -0.7996,
+      "pValue": 0.424,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0485,
+          "expectancyBps": -4.85,
+          "hitRatePercent": "47.07%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.018
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0985,
+          "expectancyBps": -9.85,
+          "hitRatePercent": "46.06%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0366
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1485,
+          "expectancyBps": -14.85,
+          "hitRatePercent": "44.89%",
+          "profitFactor": 0.851,
+          "unannualizedSharpe": -0.0552
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2485,
+          "expectancyBps": -24.85,
+          "hitRatePercent": "42.65%",
+          "profitFactor": 0.764,
+          "unannualizedSharpe": -0.0923
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": -0.0076,
+      "spearmanIC": 0.0015,
+      "tHAC": 0.4646,
+      "pValue": 0.6422,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0435,
+          "expectancyBps": 4.35,
+          "hitRatePercent": "49.79%",
+          "profitFactor": 1.039,
+          "unannualizedSharpe": 0.0134
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0065,
+          "expectancyBps": -0.65,
+          "hitRatePercent": "49.45%",
+          "profitFactor": 0.994,
+          "unannualizedSharpe": -0.002
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0565,
+          "expectancyBps": -5.65,
+          "hitRatePercent": "48.69%",
+          "profitFactor": 0.952,
+          "unannualizedSharpe": -0.0173
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1565,
+          "expectancyBps": -15.65,
+          "hitRatePercent": "46.67%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0481
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_ADAUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.069,
+      "spearmanIC": -0.0764,
+      "tHAC": -2.177,
+      "pValue": 0.0295,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3908,
+          "expectancyBps": -39.08,
+          "hitRatePercent": "44.59%",
+          "profitFactor": 0.789,
+          "unannualizedSharpe": -0.0777
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4408,
+          "expectancyBps": -44.08,
+          "hitRatePercent": "43.79%",
+          "profitFactor": 0.765,
+          "unannualizedSharpe": -0.0877
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4908,
+          "expectancyBps": -49.08,
+          "hitRatePercent": "43.63%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.0976
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5908,
+          "expectancyBps": -59.08,
+          "hitRatePercent": "41.56%",
+          "profitFactor": 0.699,
+          "unannualizedSharpe": -0.1175
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 1,
+      "sampleSize": 2452,
+      "pearsonIC": 0.0086,
+      "spearmanIC": 0.0299,
+      "tHAC": 0.1351,
+      "pValue": 0.8926,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0044,
+          "expectancyBps": 0.44,
+          "hitRatePercent": "52.81%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0025
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0456,
+          "expectancyBps": -4.56,
+          "hitRatePercent": "51.59%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0262
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0956,
+          "expectancyBps": -9.56,
+          "hitRatePercent": "49.47%",
+          "profitFactor": 0.844,
+          "unannualizedSharpe": -0.0549
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1956,
+          "expectancyBps": -19.56,
+          "hitRatePercent": "45.84%",
+          "profitFactor": 0.706,
+          "unannualizedSharpe": -0.1123
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 2,
+      "sampleSize": 1226,
+      "pearsonIC": 0.0184,
+      "spearmanIC": 0.0339,
+      "tHAC": 0.6374,
+      "pValue": 0.5239,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0428,
+          "expectancyBps": 4.28,
+          "hitRatePercent": "54.16%",
+          "profitFactor": 1.056,
+          "unannualizedSharpe": 0.0182
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0072,
+          "expectancyBps": -0.72,
+          "hitRatePercent": "53.26%",
+          "profitFactor": 0.991,
+          "unannualizedSharpe": -0.003
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0572,
+          "expectancyBps": -5.72,
+          "hitRatePercent": "52.28%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0243
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1572,
+          "expectancyBps": -15.72,
+          "hitRatePercent": "50.33%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.0669
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 4,
+      "sampleSize": 602,
+      "pearsonIC": 0.0105,
+      "spearmanIC": 0.0376,
+      "tHAC": 0.6561,
+      "pValue": 0.5118,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0782,
+          "expectancyBps": 7.82,
+          "hitRatePercent": "56.48%",
+          "profitFactor": 1.076,
+          "unannualizedSharpe": 0.0247
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0282,
+          "expectancyBps": 2.82,
+          "hitRatePercent": "55.98%",
+          "profitFactor": 1.027,
+          "unannualizedSharpe": 0.0089
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0218,
+          "expectancyBps": -2.18,
+          "hitRatePercent": "55.65%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0069
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1218,
+          "expectancyBps": -12.18,
+          "hitRatePercent": "54.32%",
+          "profitFactor": 0.891,
+          "unannualizedSharpe": -0.0385
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 8,
+      "sampleSize": 292,
+      "pearsonIC": 0.0108,
+      "spearmanIC": 0.0422,
+      "tHAC": 0.2048,
+      "pValue": 0.8377,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0437,
+          "expectancyBps": 4.37,
+          "hitRatePercent": "59.25%",
+          "profitFactor": 1.03,
+          "unannualizedSharpe": 0.0103
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0063,
+          "expectancyBps": -0.63,
+          "hitRatePercent": "58.56%",
+          "profitFactor": 0.996,
+          "unannualizedSharpe": -0.0015
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0563,
+          "expectancyBps": -5.63,
+          "hitRatePercent": "57.19%",
+          "profitFactor": 0.962,
+          "unannualizedSharpe": -0.0132
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1563,
+          "expectancyBps": -15.63,
+          "hitRatePercent": "56.51%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.0368
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 12,
+      "sampleSize": 205,
+      "pearsonIC": 0.0253,
+      "spearmanIC": 0.0334,
+      "tHAC": 0.5082,
+      "pValue": 0.6113,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1585,
+          "expectancyBps": 15.85,
+          "hitRatePercent": "57.07%",
+          "profitFactor": 1.09,
+          "unannualizedSharpe": 0.0311
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1085,
+          "expectancyBps": 10.85,
+          "hitRatePercent": "57.07%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0213
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0585,
+          "expectancyBps": 5.85,
+          "hitRatePercent": "56.59%",
+          "profitFactor": 1.032,
+          "unannualizedSharpe": 0.0115
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0415,
+          "expectancyBps": -4.15,
+          "hitRatePercent": "55.61%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0082
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_ADAUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "ADAUSDT",
+      "horizon": 24,
+      "sampleSize": 100,
+      "pearsonIC": 0.0183,
+      "spearmanIC": -0.0221,
+      "tHAC": -0.1625,
+      "pValue": 0.8709,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1003,
+          "expectancyBps": -10.03,
+          "hitRatePercent": "51.00%",
+          "profitFactor": 0.956,
+          "unannualizedSharpe": -0.0163
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1503,
+          "expectancyBps": -15.03,
+          "hitRatePercent": "51.00%",
+          "profitFactor": 0.935,
+          "unannualizedSharpe": -0.0244
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2003,
+          "expectancyBps": -20.03,
+          "hitRatePercent": "51.00%",
+          "profitFactor": 0.914,
+          "unannualizedSharpe": -0.0325
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3003,
+          "expectancyBps": -30.03,
+          "hitRatePercent": "49.00%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.0487
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.0075,
+      "spearmanIC": -0.0329,
+      "tHAC": -0.7198,
+      "pValue": 0.4716,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0059,
+          "expectancyBps": -0.59,
+          "hitRatePercent": "47.38%",
+          "profitFactor": 0.983,
+          "unannualizedSharpe": -0.0056
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0559,
+          "expectancyBps": -5.59,
+          "hitRatePercent": "44.69%",
+          "profitFactor": 0.854,
+          "unannualizedSharpe": -0.0529
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1059,
+          "expectancyBps": -10.59,
+          "hitRatePercent": "41.66%",
+          "profitFactor": 0.742,
+          "unannualizedSharpe": -0.1002
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2059,
+          "expectancyBps": -20.59,
+          "hitRatePercent": "36.28%",
+          "profitFactor": 0.563,
+          "unannualizedSharpe": -0.1948
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0078,
+      "spearmanIC": -0.0304,
+      "tHAC": -0.1792,
+      "pValue": 0.8578,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0029,
+          "expectancyBps": -0.29,
+          "hitRatePercent": "47.32%",
+          "profitFactor": 0.994,
+          "unannualizedSharpe": -0.0019
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0529,
+          "expectancyBps": -5.29,
+          "hitRatePercent": "45.39%",
+          "profitFactor": 0.899,
+          "unannualizedSharpe": -0.035
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1029,
+          "expectancyBps": -10.29,
+          "hitRatePercent": "43.25%",
+          "profitFactor": 0.814,
+          "unannualizedSharpe": -0.068
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2029,
+          "expectancyBps": -20.29,
+          "hitRatePercent": "39.53%",
+          "profitFactor": 0.669,
+          "unannualizedSharpe": -0.1341
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0051,
+      "spearmanIC": -0.0179,
+      "tHAC": 0.242,
+      "pValue": 0.8088,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.008,
+          "expectancyBps": 0.8,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 1.012,
+          "unannualizedSharpe": 0.0039
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.042,
+          "expectancyBps": -4.2,
+          "hitRatePercent": "46.50%",
+          "profitFactor": 0.941,
+          "unannualizedSharpe": -0.0206
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.092,
+          "expectancyBps": -9.2,
+          "hitRatePercent": "44.90%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0451
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.192,
+          "expectancyBps": -19.2,
+          "hitRatePercent": "41.58%",
+          "profitFactor": 0.758,
+          "unannualizedSharpe": -0.0941
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.006,
+      "spearmanIC": -0.0292,
+      "tHAC": -0.4974,
+      "pValue": 0.6189,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0318,
+          "expectancyBps": -3.18,
+          "hitRatePercent": "47.07%",
+          "profitFactor": 0.968,
+          "unannualizedSharpe": -0.0111
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0818,
+          "expectancyBps": -8.18,
+          "hitRatePercent": "46.01%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.0286
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1318,
+          "expectancyBps": -13.18,
+          "hitRatePercent": "44.89%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0461
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2318,
+          "expectancyBps": -23.18,
+          "hitRatePercent": "42.54%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.0812
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": -0.007,
+      "spearmanIC": -0.0077,
+      "tHAC": 0.2607,
+      "pValue": 0.7943,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.025,
+          "expectancyBps": 2.5,
+          "hitRatePercent": "50.21%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0074
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.025,
+          "expectancyBps": -2.5,
+          "hitRatePercent": "49.20%",
+          "profitFactor": 0.979,
+          "unannualizedSharpe": -0.0074
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.075,
+          "expectancyBps": -7.5,
+          "hitRatePercent": "48.35%",
+          "profitFactor": 0.939,
+          "unannualizedSharpe": -0.0223
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.175,
+          "expectancyBps": -17.5,
+          "hitRatePercent": "46.41%",
+          "profitFactor": 0.864,
+          "unannualizedSharpe": -0.0519
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_AVAXUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0753,
+      "spearmanIC": -0.0932,
+      "tHAC": -2.344,
+      "pValue": 0.0191,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.3964,
+          "expectancyBps": -39.64,
+          "hitRatePercent": "43.63%",
+          "profitFactor": 0.794,
+          "unannualizedSharpe": -0.0834
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4464,
+          "expectancyBps": -44.64,
+          "hitRatePercent": "42.99%",
+          "profitFactor": 0.772,
+          "unannualizedSharpe": -0.0939
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.4964,
+          "expectancyBps": -49.64,
+          "hitRatePercent": "42.36%",
+          "profitFactor": 0.75,
+          "unannualizedSharpe": -0.1045
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.5964,
+          "expectancyBps": -59.64,
+          "hitRatePercent": "41.24%",
+          "profitFactor": 0.708,
+          "unannualizedSharpe": -0.1255
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 1,
+      "sampleSize": 3426,
+      "pearsonIC": 0.0111,
+      "spearmanIC": 0.0236,
+      "tHAC": 1.2631,
+      "pValue": 0.2066,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0298,
+          "expectancyBps": 2.98,
+          "hitRatePercent": "53.56%",
+          "profitFactor": 1.061,
+          "unannualizedSharpe": 0.0203
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0202,
+          "expectancyBps": -2.02,
+          "hitRatePercent": "51.75%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0702,
+          "expectancyBps": -7.02,
+          "hitRatePercent": "49.82%",
+          "profitFactor": 0.869,
+          "unannualizedSharpe": -0.0478
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1702,
+          "expectancyBps": -17.02,
+          "hitRatePercent": "45.30%",
+          "profitFactor": 0.711,
+          "unannualizedSharpe": -0.116
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 2,
+      "sampleSize": 1710,
+      "pearsonIC": 0.0161,
+      "spearmanIC": 0.0266,
+      "tHAC": 1.6501,
+      "pValue": 0.0989,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0745,
+          "expectancyBps": 7.45,
+          "hitRatePercent": "54.39%",
+          "profitFactor": 1.111,
+          "unannualizedSharpe": 0.0364
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0245,
+          "expectancyBps": 2.45,
+          "hitRatePercent": "52.34%",
+          "profitFactor": 1.035,
+          "unannualizedSharpe": 0.0119
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0255,
+          "expectancyBps": -2.55,
+          "hitRatePercent": "51.05%",
+          "profitFactor": 0.964,
+          "unannualizedSharpe": -0.0125
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1255,
+          "expectancyBps": -12.55,
+          "hitRatePercent": "48.71%",
+          "profitFactor": 0.837,
+          "unannualizedSharpe": -0.0613
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 4,
+      "sampleSize": 875,
+      "pearsonIC": 0.0137,
+      "spearmanIC": 0.0274,
+      "tHAC": 0.8297,
+      "pValue": 0.4067,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0741,
+          "expectancyBps": 7.41,
+          "hitRatePercent": "52.57%",
+          "profitFactor": 1.082,
+          "unannualizedSharpe": 0.0269
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0241,
+          "expectancyBps": 2.41,
+          "hitRatePercent": "51.66%",
+          "profitFactor": 1.026,
+          "unannualizedSharpe": 0.0088
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0259,
+          "expectancyBps": -2.59,
+          "hitRatePercent": "50.17%",
+          "profitFactor": 0.973,
+          "unannualizedSharpe": -0.0094
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1259,
+          "expectancyBps": -12.59,
+          "hitRatePercent": "48.34%",
+          "profitFactor": 0.875,
+          "unannualizedSharpe": -0.0457
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 8,
+      "sampleSize": 428,
+      "pearsonIC": 0.025,
+      "spearmanIC": 0.0201,
+      "tHAC": 1.0779,
+      "pValue": 0.2811,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1807,
+          "expectancyBps": 18.07,
+          "hitRatePercent": "53.50%",
+          "profitFactor": 1.148,
+          "unannualizedSharpe": 0.0508
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.1307,
+          "expectancyBps": 13.07,
+          "hitRatePercent": "53.04%",
+          "profitFactor": 1.105,
+          "unannualizedSharpe": 0.0368
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0807,
+          "expectancyBps": 8.07,
+          "hitRatePercent": "52.10%",
+          "profitFactor": 1.064,
+          "unannualizedSharpe": 0.0227
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0193,
+          "expectancyBps": -1.93,
+          "hitRatePercent": "50.23%",
+          "profitFactor": 0.985,
+          "unannualizedSharpe": -0.0054
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 12,
+      "sampleSize": 298,
+      "pearsonIC": -0.0004,
+      "spearmanIC": 0.0213,
+      "tHAC": -0.6018,
+      "pValue": 0.5473,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1318,
+          "expectancyBps": -13.18,
+          "hitRatePercent": "55.03%",
+          "profitFactor": 0.916,
+          "unannualizedSharpe": -0.0323
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1818,
+          "expectancyBps": -18.18,
+          "hitRatePercent": "55.03%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0446
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2318,
+          "expectancyBps": -23.18,
+          "hitRatePercent": "54.36%",
+          "profitFactor": 0.857,
+          "unannualizedSharpe": -0.0569
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3318,
+          "expectancyBps": -33.18,
+          "hitRatePercent": "53.02%",
+          "profitFactor": 0.801,
+          "unannualizedSharpe": -0.0814
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_AVAXUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "AVAXUSDT",
+      "horizon": 24,
+      "sampleSize": 151,
+      "pearsonIC": -0.0199,
+      "spearmanIC": -0.0059,
+      "tHAC": -1.5036,
+      "pValue": 0.1327,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.6315,
+          "expectancyBps": -63.15,
+          "hitRatePercent": "49.01%",
+          "profitFactor": 0.747,
+          "unannualizedSharpe": -0.1085
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.6815,
+          "expectancyBps": -68.15,
+          "hitRatePercent": "48.34%",
+          "profitFactor": 0.73,
+          "unannualizedSharpe": -0.1171
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.7315,
+          "expectancyBps": -73.15,
+          "hitRatePercent": "47.02%",
+          "profitFactor": 0.713,
+          "unannualizedSharpe": -0.1257
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.8315,
+          "expectancyBps": -83.15,
+          "hitRatePercent": "45.70%",
+          "profitFactor": 0.681,
+          "unannualizedSharpe": -0.1428
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.014,
+      "spearmanIC": -0.0375,
+      "tHAC": -1.7469,
+      "pValue": 0.0807,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0137,
+          "expectancyBps": -1.37,
+          "hitRatePercent": "46.89%",
+          "profitFactor": 0.96,
+          "unannualizedSharpe": -0.0134
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0637,
+          "expectancyBps": -6.37,
+          "hitRatePercent": "44.38%",
+          "profitFactor": 0.829,
+          "unannualizedSharpe": -0.0625
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1137,
+          "expectancyBps": -11.37,
+          "hitRatePercent": "41.41%",
+          "profitFactor": 0.716,
+          "unannualizedSharpe": -0.1116
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2137,
+          "expectancyBps": -21.37,
+          "hitRatePercent": "35.86%",
+          "profitFactor": 0.537,
+          "unannualizedSharpe": -0.2097
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0166,
+      "spearmanIC": -0.034,
+      "tHAC": -0.9093,
+      "pValue": 0.3632,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0143,
+          "expectancyBps": -1.43,
+          "hitRatePercent": "47.43%",
+          "profitFactor": 0.97,
+          "unannualizedSharpe": -0.0099
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0643,
+          "expectancyBps": -6.43,
+          "hitRatePercent": "45.20%",
+          "profitFactor": 0.874,
+          "unannualizedSharpe": -0.0445
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1143,
+          "expectancyBps": -11.43,
+          "hitRatePercent": "43.00%",
+          "profitFactor": 0.788,
+          "unannualizedSharpe": -0.079
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2143,
+          "expectancyBps": -21.43,
+          "hitRatePercent": "38.66%",
+          "profitFactor": 0.641,
+          "unannualizedSharpe": -0.1482
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.017,
+      "spearmanIC": -0.0206,
+      "tHAC": -0.5309,
+      "pValue": 0.5955,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0167,
+          "expectancyBps": -1.67,
+          "hitRatePercent": "48.11%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0086
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0667,
+          "expectancyBps": -6.67,
+          "hitRatePercent": "46.53%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0344
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1167,
+          "expectancyBps": -11.67,
+          "hitRatePercent": "44.97%",
+          "profitFactor": 0.837,
+          "unannualizedSharpe": -0.0602
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2167,
+          "expectancyBps": -21.67,
+          "hitRatePercent": "41.40%",
+          "profitFactor": 0.72,
+          "unannualizedSharpe": -0.1118
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.0063,
+      "spearmanIC": -0.0193,
+      "tHAC": -0.1977,
+      "pValue": 0.8432,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0109,
+          "expectancyBps": -1.09,
+          "hitRatePercent": "48.80%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.0043
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0609,
+          "expectancyBps": -6.09,
+          "hitRatePercent": "47.53%",
+          "profitFactor": 0.934,
+          "unannualizedSharpe": -0.0237
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1109,
+          "expectancyBps": -11.09,
+          "hitRatePercent": "45.80%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.0431
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2109,
+          "expectancyBps": -21.09,
+          "hitRatePercent": "44.07%",
+          "profitFactor": 0.791,
+          "unannualizedSharpe": -0.082
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": -0.023,
+      "spearmanIC": -0.0099,
+      "tHAC": -0.2411,
+      "pValue": 0.8095,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0207,
+          "expectancyBps": -2.07,
+          "hitRatePercent": "49.20%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0707,
+          "expectancyBps": -7.07,
+          "hitRatePercent": "48.02%",
+          "profitFactor": 0.938,
+          "unannualizedSharpe": -0.0226
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1207,
+          "expectancyBps": -12.07,
+          "hitRatePercent": "47.00%",
+          "profitFactor": 0.896,
+          "unannualizedSharpe": -0.0386
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2207,
+          "expectancyBps": -22.07,
+          "hitRatePercent": "45.65%",
+          "profitFactor": 0.819,
+          "unannualizedSharpe": -0.0707
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_LINKUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0798,
+      "spearmanIC": -0.085,
+      "tHAC": -2.7672,
+      "pValue": 0.0057,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.4469,
+          "expectancyBps": -44.69,
+          "hitRatePercent": "44.59%",
+          "profitFactor": 0.758,
+          "unannualizedSharpe": -0.1006
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.4969,
+          "expectancyBps": -49.69,
+          "hitRatePercent": "44.11%",
+          "profitFactor": 0.735,
+          "unannualizedSharpe": -0.1119
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.5469,
+          "expectancyBps": -54.69,
+          "hitRatePercent": "43.15%",
+          "profitFactor": 0.712,
+          "unannualizedSharpe": -0.1232
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.6469,
+          "expectancyBps": -64.69,
+          "hitRatePercent": "41.88%",
+          "profitFactor": 0.67,
+          "unannualizedSharpe": -0.1457
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 1,
+      "sampleSize": 2955,
+      "pearsonIC": 0.0085,
+      "spearmanIC": 0.0159,
+      "tHAC": 1.2589,
+      "pValue": 0.2081,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0312,
+          "expectancyBps": 3.12,
+          "hitRatePercent": "52.45%",
+          "profitFactor": 1.068,
+          "unannualizedSharpe": 0.0228
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0188,
+          "expectancyBps": -1.88,
+          "hitRatePercent": "50.66%",
+          "profitFactor": 0.961,
+          "unannualizedSharpe": -0.0137
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0688,
+          "expectancyBps": -6.88,
+          "hitRatePercent": "48.16%",
+          "profitFactor": 0.865,
+          "unannualizedSharpe": -0.0502
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1688,
+          "expectancyBps": -16.88,
+          "hitRatePercent": "43.99%",
+          "profitFactor": 0.7,
+          "unannualizedSharpe": -0.1231
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 2,
+      "sampleSize": 1483,
+      "pearsonIC": 0.0127,
+      "spearmanIC": 0.016,
+      "tHAC": 1.0148,
+      "pValue": 0.3102,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0506,
+          "expectancyBps": 5.06,
+          "hitRatePercent": "51.85%",
+          "profitFactor": 1.08,
+          "unannualizedSharpe": 0.0266
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0006,
+          "expectancyBps": 0.06,
+          "hitRatePercent": "50.44%",
+          "profitFactor": 1.001,
+          "unannualizedSharpe": 0.0003
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0494,
+          "expectancyBps": -4.94,
+          "hitRatePercent": "48.62%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.026
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1494,
+          "expectancyBps": -14.94,
+          "hitRatePercent": "46.59%",
+          "profitFactor": 0.797,
+          "unannualizedSharpe": -0.0785
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 4,
+      "sampleSize": 736,
+      "pearsonIC": 0.0104,
+      "spearmanIC": 0.0238,
+      "tHAC": 0.0324,
+      "pValue": 0.9741,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0031,
+          "expectancyBps": 0.31,
+          "hitRatePercent": "51.77%",
+          "profitFactor": 1.003,
+          "unannualizedSharpe": 0.0011
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0469,
+          "expectancyBps": -4.69,
+          "hitRatePercent": "50.27%",
+          "profitFactor": 0.951,
+          "unannualizedSharpe": -0.0168
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0969,
+          "expectancyBps": -9.69,
+          "hitRatePercent": "49.05%",
+          "profitFactor": 0.901,
+          "unannualizedSharpe": -0.0348
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1969,
+          "expectancyBps": -19.69,
+          "hitRatePercent": "46.88%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0706
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 8,
+      "sampleSize": 362,
+      "pearsonIC": 0.0107,
+      "spearmanIC": 0.0119,
+      "tHAC": -0.3211,
+      "pValue": 0.7481,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0555,
+          "expectancyBps": -5.55,
+          "hitRatePercent": "47.51%",
+          "profitFactor": 0.958,
+          "unannualizedSharpe": -0.0155
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1055,
+          "expectancyBps": -10.55,
+          "hitRatePercent": "46.96%",
+          "profitFactor": 0.921,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1555,
+          "expectancyBps": -15.55,
+          "hitRatePercent": "46.69%",
+          "profitFactor": 0.886,
+          "unannualizedSharpe": -0.0435
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2555,
+          "expectancyBps": -25.55,
+          "hitRatePercent": "44.75%",
+          "profitFactor": 0.82,
+          "unannualizedSharpe": -0.0714
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 12,
+      "sampleSize": 251,
+      "pearsonIC": -0.0071,
+      "spearmanIC": 0.0031,
+      "tHAC": -1.0529,
+      "pValue": 0.2924,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.263,
+          "expectancyBps": -26.3,
+          "hitRatePercent": "50.60%",
+          "profitFactor": 0.838,
+          "unannualizedSharpe": -0.0617
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.313,
+          "expectancyBps": -31.3,
+          "hitRatePercent": "49.80%",
+          "profitFactor": 0.81,
+          "unannualizedSharpe": -0.0735
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.363,
+          "expectancyBps": -36.3,
+          "hitRatePercent": "47.41%",
+          "profitFactor": 0.783,
+          "unannualizedSharpe": -0.0852
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.463,
+          "expectancyBps": -46.3,
+          "hitRatePercent": "45.82%",
+          "profitFactor": 0.732,
+          "unannualizedSharpe": -0.1087
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_LINKUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "LINKUSDT",
+      "horizon": 24,
+      "sampleSize": 113,
+      "pearsonIC": -0.011,
+      "spearmanIC": 0.002,
+      "tHAC": 0.1149,
+      "pValue": 0.9085,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0612,
+          "expectancyBps": 6.12,
+          "hitRatePercent": "53.98%",
+          "profitFactor": 1.031,
+          "unannualizedSharpe": 0.0111
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0112,
+          "expectancyBps": 1.12,
+          "hitRatePercent": "53.10%",
+          "profitFactor": 1.006,
+          "unannualizedSharpe": 0.002
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0388,
+          "expectancyBps": -3.88,
+          "hitRatePercent": "53.10%",
+          "profitFactor": 0.981,
+          "unannualizedSharpe": -0.007
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1388,
+          "expectancyBps": -13.88,
+          "hitRatePercent": "53.10%",
+          "profitFactor": 0.934,
+          "unannualizedSharpe": -0.0251
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 1,
+      "sampleSize": 14426,
+      "pearsonIC": -0.0039,
+      "spearmanIC": 0.0028,
+      "tHAC": 0.3297,
+      "pValue": 0.7416,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0031,
+          "expectancyBps": 0.31,
+          "hitRatePercent": "49.90%",
+          "profitFactor": 1.008,
+          "unannualizedSharpe": 0.0027
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0469,
+          "expectancyBps": -4.69,
+          "hitRatePercent": "47.36%",
+          "profitFactor": 0.883,
+          "unannualizedSharpe": -0.0412
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0969,
+          "expectancyBps": -9.69,
+          "hitRatePercent": "44.74%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.085
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1969,
+          "expectancyBps": -19.69,
+          "hitRatePercent": "39.41%",
+          "profitFactor": 0.596,
+          "unannualizedSharpe": -0.1728
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 2,
+      "sampleSize": 7173,
+      "pearsonIC": -0.0052,
+      "spearmanIC": 0.0028,
+      "tHAC": -0.2316,
+      "pValue": 0.8169,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0041,
+          "expectancyBps": -0.41,
+          "hitRatePercent": "49.76%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0026
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0541,
+          "expectancyBps": -5.41,
+          "hitRatePercent": "47.85%",
+          "profitFactor": 0.903,
+          "unannualizedSharpe": -0.0341
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1041,
+          "expectancyBps": -10.41,
+          "hitRatePercent": "45.82%",
+          "profitFactor": 0.823,
+          "unannualizedSharpe": -0.0655
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2041,
+          "expectancyBps": -20.41,
+          "hitRatePercent": "41.87%",
+          "profitFactor": 0.683,
+          "unannualizedSharpe": -0.1284
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 4,
+      "sampleSize": 3531,
+      "pearsonIC": -0.0129,
+      "spearmanIC": 0.0052,
+      "tHAC": -0.5468,
+      "pValue": 0.5845,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0201,
+          "expectancyBps": -2.01,
+          "hitRatePercent": "49.93%",
+          "profitFactor": 0.974,
+          "unannualizedSharpe": -0.0089
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0701,
+          "expectancyBps": -7.01,
+          "hitRatePercent": "48.57%",
+          "profitFactor": 0.913,
+          "unannualizedSharpe": -0.0311
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1201,
+          "expectancyBps": -12.01,
+          "hitRatePercent": "47.58%",
+          "profitFactor": 0.855,
+          "unannualizedSharpe": -0.0532
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2201,
+          "expectancyBps": -22.01,
+          "hitRatePercent": "44.86%",
+          "profitFactor": 0.751,
+          "unannualizedSharpe": -0.0975
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 8,
+      "sampleSize": 1793,
+      "pearsonIC": -0.0266,
+      "spearmanIC": -0.0122,
+      "tHAC": -1.7611,
+      "pValue": 0.0782,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1347,
+          "expectancyBps": -13.47,
+          "hitRatePercent": "48.19%",
+          "profitFactor": 0.884,
+          "unannualizedSharpe": -0.043
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1847,
+          "expectancyBps": -18.47,
+          "hitRatePercent": "47.46%",
+          "profitFactor": 0.844,
+          "unannualizedSharpe": -0.0589
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2347,
+          "expectancyBps": -23.47,
+          "hitRatePercent": "46.63%",
+          "profitFactor": 0.807,
+          "unannualizedSharpe": -0.0748
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3347,
+          "expectancyBps": -33.47,
+          "hitRatePercent": "45.01%",
+          "profitFactor": 0.736,
+          "unannualizedSharpe": -0.1067
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 12,
+      "sampleSize": 1085,
+      "pearsonIC": -0.0169,
+      "spearmanIC": -0.014,
+      "tHAC": -0.8359,
+      "pValue": 0.4032,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0961,
+          "expectancyBps": -9.61,
+          "hitRatePercent": "49.86%",
+          "profitFactor": 0.929,
+          "unannualizedSharpe": -0.025
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1461,
+          "expectancyBps": -14.61,
+          "hitRatePercent": "48.85%",
+          "profitFactor": 0.895,
+          "unannualizedSharpe": -0.0381
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1961,
+          "expectancyBps": -19.61,
+          "hitRatePercent": "47.93%",
+          "profitFactor": 0.861,
+          "unannualizedSharpe": -0.0511
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2961,
+          "expectancyBps": -29.61,
+          "hitRatePercent": "45.99%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0772
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_SUIUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 24,
+      "sampleSize": 582,
+      "pearsonIC": 0.0014,
+      "spearmanIC": 0.0279,
+      "tHAC": -0.286,
+      "pValue": 0.7749,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0595,
+          "expectancyBps": -5.95,
+          "hitRatePercent": "50.86%",
+          "profitFactor": 0.969,
+          "unannualizedSharpe": -0.011
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1095,
+          "expectancyBps": -10.95,
+          "hitRatePercent": "50.00%",
+          "profitFactor": 0.944,
+          "unannualizedSharpe": -0.0202
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1595,
+          "expectancyBps": -15.95,
+          "hitRatePercent": "49.66%",
+          "profitFactor": 0.92,
+          "unannualizedSharpe": -0.0295
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2595,
+          "expectancyBps": -25.95,
+          "hitRatePercent": "47.94%",
+          "profitFactor": 0.872,
+          "unannualizedSharpe": -0.0479
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 1,
+      "sampleSize": 9520,
+      "pearsonIC": 0.0143,
+      "spearmanIC": 0.0283,
+      "tHAC": 0.7226,
+      "pValue": 0.4699,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0098,
+          "expectancyBps": 0.98,
+          "hitRatePercent": "51.69%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0071
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0402,
+          "expectancyBps": -4.02,
+          "hitRatePercent": "49.66%",
+          "profitFactor": 0.917,
+          "unannualizedSharpe": -0.0292
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0902,
+          "expectancyBps": -9.02,
+          "hitRatePercent": "47.57%",
+          "profitFactor": 0.824,
+          "unannualizedSharpe": -0.0655
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1902,
+          "expectancyBps": -19.02,
+          "hitRatePercent": "43.29%",
+          "profitFactor": 0.664,
+          "unannualizedSharpe": -0.1382
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 2,
+      "sampleSize": 4767,
+      "pearsonIC": 0.0204,
+      "spearmanIC": 0.0422,
+      "tHAC": 1.3134,
+      "pValue": 0.189,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0355,
+          "expectancyBps": 3.55,
+          "hitRatePercent": "52.84%",
+          "profitFactor": 1.057,
+          "unannualizedSharpe": 0.0188
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0145,
+          "expectancyBps": -1.45,
+          "hitRatePercent": "51.25%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0077
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0645,
+          "expectancyBps": -6.45,
+          "hitRatePercent": "49.63%",
+          "profitFactor": 0.905,
+          "unannualizedSharpe": -0.0342
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1645,
+          "expectancyBps": -16.45,
+          "hitRatePercent": "46.65%",
+          "profitFactor": 0.774,
+          "unannualizedSharpe": -0.0872
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 4,
+      "sampleSize": 2394,
+      "pearsonIC": 0.0158,
+      "spearmanIC": 0.0442,
+      "tHAC": 0.5751,
+      "pValue": 0.5652,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0298,
+          "expectancyBps": 2.98,
+          "hitRatePercent": "53.68%",
+          "profitFactor": 1.034,
+          "unannualizedSharpe": 0.0116
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0202,
+          "expectancyBps": -2.02,
+          "hitRatePercent": "52.59%",
+          "profitFactor": 0.978,
+          "unannualizedSharpe": -0.0078
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0702,
+          "expectancyBps": -7.02,
+          "hitRatePercent": "51.46%",
+          "profitFactor": 0.925,
+          "unannualizedSharpe": -0.0272
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1702,
+          "expectancyBps": -17.02,
+          "hitRatePercent": "49.25%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0659
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 8,
+      "sampleSize": 1182,
+      "pearsonIC": 0.0144,
+      "spearmanIC": 0.0442,
+      "tHAC": 0.1233,
+      "pValue": 0.9018,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0123,
+          "expectancyBps": 1.23,
+          "hitRatePercent": "53.47%",
+          "profitFactor": 1.01,
+          "unannualizedSharpe": 0.0035
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0377,
+          "expectancyBps": -3.77,
+          "hitRatePercent": "52.54%",
+          "profitFactor": 0.97,
+          "unannualizedSharpe": -0.0107
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0877,
+          "expectancyBps": -8.77,
+          "hitRatePercent": "51.78%",
+          "profitFactor": 0.932,
+          "unannualizedSharpe": -0.025
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1877,
+          "expectancyBps": -18.77,
+          "hitRatePercent": "49.32%",
+          "profitFactor": 0.86,
+          "unannualizedSharpe": -0.0535
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 12,
+      "sampleSize": 803,
+      "pearsonIC": 0.0286,
+      "spearmanIC": 0.0595,
+      "tHAC": 0.6094,
+      "pValue": 0.5422,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0881,
+          "expectancyBps": 8.81,
+          "hitRatePercent": "55.29%",
+          "profitFactor": 1.06,
+          "unannualizedSharpe": 0.0206
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0381,
+          "expectancyBps": 3.81,
+          "hitRatePercent": "54.79%",
+          "profitFactor": 1.026,
+          "unannualizedSharpe": 0.0089
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0119,
+          "expectancyBps": -1.19,
+          "hitRatePercent": "53.92%",
+          "profitFactor": 0.992,
+          "unannualizedSharpe": -0.0028
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1119,
+          "expectancyBps": -11.19,
+          "hitRatePercent": "52.18%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0262
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_SUIUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "SUIUSDT",
+      "horizon": 24,
+      "sampleSize": 404,
+      "pearsonIC": 0.0117,
+      "spearmanIC": 0.035,
+      "tHAC": 0.191,
+      "pValue": 0.8485,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0488,
+          "expectancyBps": 4.88,
+          "hitRatePercent": "53.96%",
+          "profitFactor": 1.024,
+          "unannualizedSharpe": 0.0088
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0012,
+          "expectancyBps": -0.12,
+          "hitRatePercent": "53.47%",
+          "profitFactor": 0.999,
+          "unannualizedSharpe": -0.0002
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0512,
+          "expectancyBps": -5.12,
+          "hitRatePercent": "53.22%",
+          "profitFactor": 0.975,
+          "unannualizedSharpe": -0.0093
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1512,
+          "expectancyBps": -15.12,
+          "hitRatePercent": "52.23%",
+          "profitFactor": 0.928,
+          "unannualizedSharpe": -0.0274
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 1,
+      "sampleSize": 15768,
+      "pearsonIC": -0.013,
+      "spearmanIC": -0.0304,
+      "tHAC": -0.0576,
+      "pValue": 0.954,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0004,
+          "expectancyBps": -0.04,
+          "hitRatePercent": "47.20%",
+          "profitFactor": 0.998,
+          "unannualizedSharpe": -0.0004
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0504,
+          "expectancyBps": -5.04,
+          "hitRatePercent": "44.03%",
+          "profitFactor": 0.841,
+          "unannualizedSharpe": -0.0514
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1004,
+          "expectancyBps": -10.04,
+          "hitRatePercent": "40.25%",
+          "profitFactor": 0.71,
+          "unannualizedSharpe": -0.1024
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2004,
+          "expectancyBps": -20.04,
+          "hitRatePercent": "33.38%",
+          "profitFactor": 0.511,
+          "unannualizedSharpe": -0.2043
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 2,
+      "sampleSize": 7848,
+      "pearsonIC": -0.0144,
+      "spearmanIC": -0.0323,
+      "tHAC": 0.4535,
+      "pValue": 0.6502,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0069,
+          "expectancyBps": 0.69,
+          "hitRatePercent": "47.09%",
+          "profitFactor": 1.017,
+          "unannualizedSharpe": 0.0049
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0431,
+          "expectancyBps": -4.31,
+          "hitRatePercent": "44.92%",
+          "profitFactor": 0.9,
+          "unannualizedSharpe": -0.0307
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0931,
+          "expectancyBps": -9.31,
+          "hitRatePercent": "42.29%",
+          "profitFactor": 0.798,
+          "unannualizedSharpe": -0.0663
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1931,
+          "expectancyBps": -19.31,
+          "hitRatePercent": "37.49%",
+          "profitFactor": 0.63,
+          "unannualizedSharpe": -0.1375
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 4,
+      "sampleSize": 3860,
+      "pearsonIC": -0.0127,
+      "spearmanIC": -0.024,
+      "tHAC": 0.7235,
+      "pValue": 0.4694,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0205,
+          "expectancyBps": 2.05,
+          "hitRatePercent": "47.51%",
+          "profitFactor": 1.037,
+          "unannualizedSharpe": 0.0112
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0295,
+          "expectancyBps": -2.95,
+          "hitRatePercent": "45.93%",
+          "profitFactor": 0.949,
+          "unannualizedSharpe": -0.0161
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0795,
+          "expectancyBps": -7.95,
+          "hitRatePercent": "43.78%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0435
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1795,
+          "expectancyBps": -17.95,
+          "hitRatePercent": "40.41%",
+          "profitFactor": 0.731,
+          "unannualizedSharpe": -0.0982
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 8,
+      "sampleSize": 1965,
+      "pearsonIC": -0.0112,
+      "spearmanIC": -0.0241,
+      "tHAC": -0.1669,
+      "pValue": 0.8674,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0092,
+          "expectancyBps": -0.92,
+          "hitRatePercent": "47.84%",
+          "profitFactor": 0.988,
+          "unannualizedSharpe": -0.0038
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0592,
+          "expectancyBps": -5.92,
+          "hitRatePercent": "46.72%",
+          "profitFactor": 0.926,
+          "unannualizedSharpe": -0.0244
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1092,
+          "expectancyBps": -10.92,
+          "hitRatePercent": "45.50%",
+          "profitFactor": 0.868,
+          "unannualizedSharpe": -0.0449
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2092,
+          "expectancyBps": -20.92,
+          "hitRatePercent": "42.65%",
+          "profitFactor": 0.764,
+          "unannualizedSharpe": -0.0861
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 12,
+      "sampleSize": 1185,
+      "pearsonIC": 0.0042,
+      "spearmanIC": 0.0137,
+      "tHAC": 1.464,
+      "pValue": 0.1432,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.1232,
+          "expectancyBps": 12.32,
+          "hitRatePercent": "51.48%",
+          "profitFactor": 1.14,
+          "unannualizedSharpe": 0.0432
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0732,
+          "expectancyBps": 7.32,
+          "hitRatePercent": "50.80%",
+          "profitFactor": 1.081,
+          "unannualizedSharpe": 0.0257
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.0232,
+          "expectancyBps": 2.32,
+          "hitRatePercent": "49.79%",
+          "profitFactor": 1.025,
+          "unannualizedSharpe": 0.0081
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.0768,
+          "expectancyBps": -7.68,
+          "hitRatePercent": "47.43%",
+          "profitFactor": 0.922,
+          "unannualizedSharpe": -0.0269
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_BTC_LEAD_XRPUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "BTC Directional Lead-Lag Spillover to Altcoins",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 24,
+      "sampleSize": 628,
+      "pearsonIC": -0.0494,
+      "spearmanIC": -0.0402,
+      "tHAC": -1.0822,
+      "pValue": 0.2792,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.201,
+          "expectancyBps": -20.1,
+          "hitRatePercent": "46.97%",
+          "profitFactor": 0.87,
+          "unannualizedSharpe": -0.0411
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.251,
+          "expectancyBps": -25.1,
+          "hitRatePercent": "46.34%",
+          "profitFactor": 0.84,
+          "unannualizedSharpe": -0.0513
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.301,
+          "expectancyBps": -30.1,
+          "hitRatePercent": "45.54%",
+          "profitFactor": 0.812,
+          "unannualizedSharpe": -0.0615
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.401,
+          "expectancyBps": -40.1,
+          "hitRatePercent": "43.47%",
+          "profitFactor": 0.757,
+          "unannualizedSharpe": -0.082
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H1",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 1,
+      "sampleSize": 2175,
+      "pearsonIC": 0.0008,
+      "spearmanIC": 0.0206,
+      "tHAC": 0.2209,
+      "pValue": 0.8252,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0084,
+          "expectancyBps": 0.84,
+          "hitRatePercent": "52.23%",
+          "profitFactor": 1.015,
+          "unannualizedSharpe": 0.0047
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0416,
+          "expectancyBps": -4.16,
+          "hitRatePercent": "50.48%",
+          "profitFactor": 0.93,
+          "unannualizedSharpe": -0.0231
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0916,
+          "expectancyBps": -9.16,
+          "hitRatePercent": "48.64%",
+          "profitFactor": 0.852,
+          "unannualizedSharpe": -0.0509
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1916,
+          "expectancyBps": -19.16,
+          "hitRatePercent": "44.87%",
+          "profitFactor": 0.715,
+          "unannualizedSharpe": -0.1064
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H2",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 2,
+      "sampleSize": 1100,
+      "pearsonIC": 0.0089,
+      "spearmanIC": 0.0249,
+      "tHAC": 0.7572,
+      "pValue": 0.4489,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0528,
+          "expectancyBps": 5.28,
+          "hitRatePercent": "53.73%",
+          "profitFactor": 1.07,
+          "unannualizedSharpe": 0.0221
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.0028,
+          "expectancyBps": 0.28,
+          "hitRatePercent": "53.00%",
+          "profitFactor": 1.004,
+          "unannualizedSharpe": 0.0012
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0472,
+          "expectancyBps": -4.72,
+          "hitRatePercent": "51.55%",
+          "profitFactor": 0.941,
+          "unannualizedSharpe": -0.0197
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1472,
+          "expectancyBps": -14.72,
+          "hitRatePercent": "48.36%",
+          "profitFactor": 0.827,
+          "unannualizedSharpe": -0.0615
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H4",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 4,
+      "sampleSize": 548,
+      "pearsonIC": -0.0017,
+      "spearmanIC": 0.0275,
+      "tHAC": -0.1612,
+      "pValue": 0.8719,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.0226,
+          "expectancyBps": -2.26,
+          "hitRatePercent": "53.28%",
+          "profitFactor": 0.98,
+          "unannualizedSharpe": -0.0066
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0726,
+          "expectancyBps": -7.26,
+          "hitRatePercent": "52.37%",
+          "profitFactor": 0.936,
+          "unannualizedSharpe": -0.0211
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.1226,
+          "expectancyBps": -12.26,
+          "hitRatePercent": "51.09%",
+          "profitFactor": 0.894,
+          "unannualizedSharpe": -0.0357
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.2226,
+          "expectancyBps": -22.26,
+          "hitRatePercent": "49.82%",
+          "profitFactor": 0.816,
+          "unannualizedSharpe": -0.0648
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H8",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 8,
+      "sampleSize": 270,
+      "pearsonIC": -0.0053,
+      "spearmanIC": 0.0408,
+      "tHAC": 0.1306,
+      "pValue": 0.8961,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.0306,
+          "expectancyBps": 3.06,
+          "hitRatePercent": "57.78%",
+          "profitFactor": 1.021,
+          "unannualizedSharpe": 0.0071
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.0194,
+          "expectancyBps": -1.94,
+          "hitRatePercent": "57.04%",
+          "profitFactor": 0.987,
+          "unannualizedSharpe": -0.0045
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.0694,
+          "expectancyBps": -6.94,
+          "hitRatePercent": "57.04%",
+          "profitFactor": 0.953,
+          "unannualizedSharpe": -0.0161
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.1694,
+          "expectancyBps": -16.94,
+          "hitRatePercent": "54.81%",
+          "profitFactor": 0.889,
+          "unannualizedSharpe": -0.0394
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H12",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 12,
+      "sampleSize": 198,
+      "pearsonIC": -0.0024,
+      "spearmanIC": 0.0414,
+      "tHAC": -0.4054,
+      "pValue": 0.6852,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": -0.1418,
+          "expectancyBps": -14.18,
+          "hitRatePercent": "54.04%",
+          "profitFactor": 0.919,
+          "unannualizedSharpe": -0.0299
+        },
+        "cost_5bps": {
+          "meanReturnPercent": -0.1918,
+          "expectancyBps": -19.18,
+          "hitRatePercent": "53.03%",
+          "profitFactor": 0.892,
+          "unannualizedSharpe": -0.0404
+        },
+        "cost_10bps": {
+          "meanReturnPercent": -0.2418,
+          "expectancyBps": -24.18,
+          "hitRatePercent": "52.53%",
+          "profitFactor": 0.865,
+          "unannualizedSharpe": -0.051
+        },
+        "cost_20bps": {
+          "meanReturnPercent": -0.3418,
+          "expectancyBps": -34.18,
+          "hitRatePercent": "48.99%",
+          "profitFactor": 0.814,
+          "unannualizedSharpe": -0.0721
+        }
+      },
+      "classification": "REJECTED"
+    },
+    {
+      "id": "W07_REL_STRENGTH_REV_XRPUSDT_H24",
+      "worker": "W07_CROSS_ASSET",
+      "mechanism": "Cross-Asset Dispersion Mean Reversion vs BTC Benchmark",
+      "leadAsset": "BTCUSDT",
+      "followerAsset": "XRPUSDT",
+      "horizon": 24,
+      "sampleSize": 99,
+      "pearsonIC": 0.0481,
+      "spearmanIC": 0.0292,
+      "tHAC": 0.5633,
+      "pValue": 0.5733,
+      "costSensitivity": {
+        "cost_0bps": {
+          "meanReturnPercent": 0.4567,
+          "expectancyBps": 45.67,
+          "hitRatePercent": "56.57%",
+          "profitFactor": 1.191,
+          "unannualizedSharpe": 0.0606
+        },
+        "cost_5bps": {
+          "meanReturnPercent": 0.4067,
+          "expectancyBps": 40.67,
+          "hitRatePercent": "54.55%",
+          "profitFactor": 1.169,
+          "unannualizedSharpe": 0.054
+        },
+        "cost_10bps": {
+          "meanReturnPercent": 0.3567,
+          "expectancyBps": 35.67,
+          "hitRatePercent": "54.55%",
+          "profitFactor": 1.147,
+          "unannualizedSharpe": 0.0473
+        },
+        "cost_20bps": {
+          "meanReturnPercent": 0.2567,
+          "expectancyBps": 25.67,
+          "hitRatePercent": "54.55%",
+          "profitFactor": 1.104,
+          "unannualizedSharpe": 0.0341
+        }
+      },
+      "classification": "REJECTED"
+    }
+  ]
+}

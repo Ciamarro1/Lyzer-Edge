@@ -1,0 +1,50 @@
+{
+  "workerId": "W10_ROBUSTNESS",
+  "timestampUTC": "2026-09-03T02:41:39.902Z",
+  "elapsedMs": 785,
+  "permutationsPerTest": 500,
+  "controls": [
+    {
+      "signalName": "OFI_Momentum_H4",
+      "horizon": 4,
+      "realIC": 0.0056,
+      "temporalShuffle": {
+        "meanNullIC": 0.0001,
+        "empiricalPValue": 0.65,
+        "passed": false
+      },
+      "signPermutation": {
+        "meanNullIC": -0.0007,
+        "empiricalPValue": 0.606,
+        "passed": false
+      },
+      "blockShuffle": {
+        "meanNullIC": -0.0002,
+        "empiricalPValue": 0.656,
+        "passed": false
+      },
+      "robustnessVerdict": "FAILED_NULL_CONTROL"
+    },
+    {
+      "signalName": "Absorption_Reversal_H8",
+      "horizon": 8,
+      "realIC": 0.0021,
+      "temporalShuffle": {
+        "meanNullIC": -0.0004,
+        "empiricalPValue": 0.886,
+        "passed": false
+      },
+      "signPermutation": {
+        "meanNullIC": -0.0003,
+        "empiricalPValue": 0.8,
+        "passed": false
+      },
+      "blockShuffle": {
+        "meanNullIC": 0.0003,
+        "empiricalPValue": 0.906,
+        "passed": false
+      },
+      "robustnessVerdict": "FAILED_NULL_CONTROL"
+    }
+  ]
+}
