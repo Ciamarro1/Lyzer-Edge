@@ -1,0 +1,28 @@
+{
+  "auditId": "AD001_CANDIDATE_AUDIT_001",
+  "campaign": "ALPHA_DISCOVERY_001",
+  "timestampUTC": "2026-09-03T03:17:01.824Z",
+  "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": {
+    "MULTIPLE_TESTING_AUDIT.md": {
+      "sha256": "e046dddfdaee303c3ddaa31442c5844da2f943d1ea7b397f0a4d96768d1bea5a",
+      "sizeBytes": 8948
+    },
+    "OFI_COMPLETE_SURFACE.md": {
+      "sha256": "9e672f7a7c4323c9e20b1a1191fbb4ada75ad9489c25d01474d49b8829f4582e",
+      "sizeBytes": 7703
+    },
+    "W10_NULL_RECONSTRUCTION.md": {
+      "sha256": "36b3447ad5231f16ee2da9e184fefcc2ab4ce8cca66a973e0df34d9c51149d67",
+      "sizeBytes": 4596
+    },
+    "COST_AND_BREAKEVEN_AUDIT.md": {
+      "sha256": "02d2fcd5aafb8fa12acf1194ba1aebe48465e55690de27d5f6d793025c185886",
+      "sizeBytes": 1572
+    },
+    "CANDIDATE_AUDIT_FINAL_VERDICT.md": {
+      "sha256": "d164f53860613e803442aa1721ab7e28317765f313f2764bd93b3d0ee8246d89",
+      "sizeBytes": 5049
+    }
+  }
+}
