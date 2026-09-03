@@ -119,5 +119,20 @@
     "profitFactor": 1.77,
     "maxDrawdownR": 10.22,
     "reasonForRejection": "Confirmatory claim not confirmed. Failed primary statistical gate under 14-day calendar block bootstrap (p = 0.0945 >= 0.0500) and failed minimum sample-size gate (N = 50 < 150) across virgin holdout population C (BNB, XRP, ADA, SUI). Economic signal observed was positive (E[R] = +0.589R, PF = 1.77, 4/4 assets positive), but evidence is statistically insufficient to reject H0 under pre-registered criteria. Economic mechanism is NOT falsified, but confirmatory promotion is BLOCKED and re-testing to seek significance is strictly prohibited."
+  },
+  {
+    "id": "AD003",
+    "date": "2026-09-03T06:20:00.000Z",
+    "parentBatch": "AD003_TSD",
+    "hypothesis": "Temporal Scale Dependence of Volatility Compression Breakouts (15m, 30m, 2h, 4h, 1:5 RR)",
+    "economicRationale": "Volatility compression breakout phenomenon scales across diverse temporal horizons (economic market hours vs intrinsic bar lookbacks), generating tradeable asymmetric tail expansions in higher or lower timeframes under institutional costs.",
+    "status": "ARCHIVED",
+    "result": "DISCOVERY FAIL / NO CANDIDATE PROMOTED",
+    "class": "DISCOVERY FAILURE (EVENT DENSITY SCARCITY / FRICTION FLOOR)",
+    "mechanismStatus": "NOT FALSIFIED (HYPOTHESIS NOT ESTABLISHED)",
+    "evaluatedHypotheses": 40,
+    "eligibleHypotheses": 0,
+    "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(M)=4.2785",
+    "reasonForRejection": "Discovery closed with 0/40 hypotheses meeting joint pre-registered criteria (N >= 60 observed eligible trades and q_BY < 0.0500). Apparent significance in 4 micro-sample cells was forensically proven to be a mechanical artifact of the centered bootstrap on N <= 4. In 15m/30m, setups were filtered by the 80 bps feasibility floor; in 2h/4h, setups suffered from structural event density scarcity over 2 years. The economic mechanism is NOT falsified, but the hypothesis of scale invariance remains unestablished. All promotions to confirmation are BLOCKED. Holdout 2025–2026 remains 100% sealed and untouched."
   }
 ]

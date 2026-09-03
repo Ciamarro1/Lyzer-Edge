@@ -5,7 +5,7 @@
   "engineV8FrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
   "discoveryPeriod": "2023-01-01T00:00:00.000Z to 2024-12-31T23:59:59.999Z",
   "holdoutPeriodStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
-  "verdict": "DISCOVERY_FAIL_ZERO_CANDIDATES_PROMOTED",
+  "verdict": "DISCOVERY_FAIL_NO_CANDIDATE_PROMOTED_MECHANISM_NOT_FALSIFIED",
   "artifacts": {
     "prepare_ad003_discovery_data.js": {
       "sha256": "54e656b66e2749cdedaaf933a15b92c2c0d82e6edcc584e2b9b08dd12e1963f6",
@@ -20,8 +20,10 @@
       "sizeBytes": 17667
     },
     "AD003_DISCOVERY_REPORT.md": {
-      "sha256": "c4beb3d394c69bebe742325a9008e4edff77d2e776eb6204be7a81dcc10a3c25",
-      "sizeBytes": 6227
+      "sha256": "266947752ffbe3d6a110fbca42730fd2edd57cdc231cf7614ad3018360e5a059",
+      "sizeBytes": 10947
     }
-  }
+  },
+  "epistemologicalStatus": "HYPOTHESIS_NOT_ESTABLISHED_DUE_TO_EVENT_DENSITY_SCARCITY_AND_FRICTION_FLOOR",
+  "updatedAtUTC": "2026-09-03T06:18:28.672Z"
 }
