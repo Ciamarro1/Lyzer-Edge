@@ -1,0 +1,35 @@
+{
+  "suite": "H011_CONFIRMATORY_SUITE",
+  "hypothesisId": "H011",
+  "timestampUTC": "2026-09-03T05:13:06.021Z",
+  "engineV8FrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "executionLockStatus": "LOCKED_PENDING_EXECUTIVE_APPROVAL",
+  "virginDataAccess": "STRICTLY_BLOCKED",
+  "syntheticTestStatus": "ALL_15_PASSED",
+  "artifacts": {
+    "frozen_spec/H011_FROZEN_SPECIFICATION.md": {
+      "sha256": "20d66d8ebde80a2fb0390819117328d19b025053a24be5b54a5edaeb5288a54e",
+      "sizeBytes": 7186
+    },
+    "preregistration/H011_CONFIRMATORY_PREREGISTRATION.md": {
+      "sha256": "bf60f2e0ab068de074d520844f381d7cc0b6830465ef041bc75246fd4fa87977",
+      "sizeBytes": 7280
+    },
+    "preregistration/H011_PREREGISTRATION_CONSTITUTIONAL_AUDIT.md": {
+      "sha256": "896058a8493a8ab8cc35db8cd87817e45878505e21442ba219af1d2ad5d13a8c",
+      "sizeBytes": 5553
+    },
+    "execution/CONFIRMATORY_EXECUTION_LOCK.json": {
+      "sha256": "8e14b7646fc4908ff778db8d63517a78db962954a507d32975189683687661e6",
+      "sizeBytes": 1981
+    },
+    "execution/h011_confirmatory_runner.js": {
+      "sha256": "0b7a47bd4270d53c5b4215fce5a135eaabfd2c1c04ba74d3f4df68dce008356c",
+      "sizeBytes": 15468
+    },
+    "tests/synthetic_dry_run.test.js": {
+      "sha256": "5d85c11f9b97e6fdc1dfe8a63ad03ae9ca4ec1d8f1e3f05cf9e9b26e9852745d",
+      "sizeBytes": 7237
+    }
+  }
+}

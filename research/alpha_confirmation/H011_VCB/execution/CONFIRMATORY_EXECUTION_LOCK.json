@@ -1,0 +1,58 @@
+{
+  "lockIdentifier": "H011_CONFIRMATORY_EXECUTION_LOCK",
+  "program": "ALPHA_CONFIRMATION_H011",
+  "hypothesisId": "H011",
+  "timestampUTC": "2026-09-03T05:12:00.000Z",
+  "executionStatus": "LOCKED_PENDING_EXECUTIVE_APPROVAL",
+  "virginDataAccess": "STRICTLY_BLOCKED",
+  "immutableHashes": {
+    "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+    "frozenSpecSHA256": "20d66d8ebde80a2fb0390819117328d19b025053a24be5b54a5edaeb5288a54e",
+    "preregistrationSHA256": "bf60f2e0ab068de074d520844f381d7cc0b6830465ef041bc75246fd4fa87977",
+    "preregistrationAuditSHA256": "896058a8493a8ab8cc35db8cd87817e45878505e21442ba219af1d2ad5d13a8c",
+    "runnerSHA256": "0b7a47bd4270d53c5b4215fce5a135eaabfd2c1c04ba74d3f4df68dce008356c",
+    "testSuiteSHA256": "5d85c11f9b97e6fdc1dfe8a63ad03ae9ca4ec1d8f1e3f05cf9e9b26e9852745d"
+  },
+  "confirmatoryCandidate": {
+    "compressionThreshold": 0.65,
+    "breakoutLookback": 40,
+    "volumeMultiplier": 1.5,
+    "riskRewardRatio": "1:5",
+    "riskFormula": "max(1.5 * ATR24, 0.0080 * Close)",
+    "timeoutHours": 72,
+    "singlePositionPolicy": "SINGLE_CONCURRENT_POSITION_PER_ASSET"
+  },
+  "costAccounting": {
+    "exchangeFeeRoundTrip": 0.001,
+    "slippageBase": 0.0002,
+    "allInRateNormalExit": 0.0012,
+    "doubleCountingFixed": true
+  },
+  "bootstrapSpecification": {
+    "method": "CALENDAR_WINDOW_BLOCK_BOOTSTRAP_NULL_CENTERED",
+    "calendarWindowDays": 14,
+    "windowEpochStartUTC": "2023-01-01T00:00:00.000Z",
+    "replications": 10000,
+    "prng": "Mulberry32",
+    "seed": 777777,
+    "estimator": "TRADE_WEIGHTED_MEAN_NOT_WINDOW_AVERAGE"
+  },
+  "confirmatoryPopulation": {
+    "option": "C",
+    "designation": "População confirmatória não contaminada pela mineração/seleção de H011, com possível dependência de regime temporal compartilhado",
+    "assets": [
+      "BNBUSDT",
+      "XRPUSDT",
+      "ADAUSDT",
+      "SUIUSDT"
+    ],
+    "timeframe": "1h"
+  },
+  "decisionGates": {
+    "gate1_pValue": "< 0.0500",
+    "gate2_meanNetR": ">= +0.150R",
+    "gate3_profitFactor": ">= 1.30",
+    "gate4_minTrades": ">= 150",
+    "gate5_maxDrawdown": "<= 30.0R"
+  }
+}
