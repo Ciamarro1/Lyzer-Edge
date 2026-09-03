@@ -1,11 +1,23 @@
 {
   "program": "OFI-CONFIRMATION-SETUP-001",
-  "timestampUTC": "2026-09-03T03:37:30.016Z",
+  "timestampUTC": "2026-09-03T03:38:50.507Z",
   "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
   "candidateClassification": "STRONG_RESEARCH_CANDIDATE (NOT ALPHA)",
-  "executionStatus": "BLOCKED_PENDING_UNTOUCHED_DATA",
-  "cutoffT0_UTC": "2026-09-01T00:00:00.000Z",
-  "cutoffT0_ms": 1788220800000,
+  "executionStatus": "BLOCKED_AWAITING_SAMPLE_ACCUMULATION",
+  "reasonsForBlock": [
+    "Strict sample size floor requires N >= 365 daily observations (8,760 hours)",
+    "Current acquired untouched population contains 51 hours (T0=2026-09-01T00:00:00Z to T1=2026-09-03T03:00:00Z)",
+    "Zero premature evaluation allowed before N >= N* target is reached"
+  ],
+  "sampleMetrics": {
+    "cutoffT0_UTC": "2026-09-01T00:00:00.000Z",
+    "cutoffT0_ms": 1788220800000,
+    "currentT1_UTC": "2026-09-03T03:00:00.000Z",
+    "currentT1_ms": 1788404400000,
+    "currentAcquiredHours": 51,
+    "operationalFloorHours": 8760,
+    "targetHours": 17520
+  },
   "centralPrimaryHypothesis": "BTCUSDT (L=6h, H=24h)",
   "directReplication": "ETHUSDT (L=6h, H=24h)",
   "artifacts": {
@@ -41,9 +53,25 @@
       "sha256": "3b1fb1cc3bb5f39cb479555d5f28417f3b090ca793b3deba0722637764e2c39b",
       "sizeBytes": 2860
     },
+    "untouched_data/acquire_confirmatory_population.js": {
+      "sha256": "e29ad9ee7d8f0461e4fb5c2ff1a5b45b7aaeb5a28ba248e7ef2ad2a8a0ed11c8",
+      "sizeBytes": 6618
+    },
     "untouched_data/ingest_and_audit_untouched_data.js": {
       "sha256": "9d03c9cd0c8395412f6276a23092b61198404f576e08ff363c39da7674c3fcfe",
       "sizeBytes": 4422
+    },
+    "untouched_data/BTCUSDT_confirmatory_untouched.json": {
+      "sha256": "a4c3f451dd6a786be67603bd15c4502c31dc14d2d9242f70ae74795d57e2b856",
+      "sizeBytes": 16128
+    },
+    "untouched_data/ETHUSDT_confirmatory_untouched.json": {
+      "sha256": "5d25e5300e301a7ceac42ade7cc05777f2c4e5f37ba2de2ae1571bb6154222ce",
+      "sizeBytes": 16423
+    },
+    "untouched_data/ACQUISITION_INTEL_MANIFEST.json": {
+      "sha256": "5d4b41867659ba7e0498c8ff73cbebf3d12fb4930f3d3dad8b15b716fa092dc5",
+      "sizeBytes": 792
     },
     "execution/data_firewall_guard.js": {
       "sha256": "4658d6b305ab32c0f431fd1ba0157622d81cd38b62cf2074e127a7261693e637",

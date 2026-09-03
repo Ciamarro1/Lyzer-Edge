@@ -1,0 +1,23 @@
+{
+  "timestampUTC": "2026-09-03T03:38:33.087Z",
+  "cutoffT0_UTC": "2026-09-01T00:00:00.000Z",
+  "cutoffT0_ms": 1788220800000,
+  "cutoffT1_UTC": "2026-09-03T03:00:00.000Z",
+  "cutoffT1_ms": 1788404400000,
+  "datasets": {
+    "BTCUSDT": {
+      "file": "BTCUSDT_confirmatory_untouched.json",
+      "records": 51,
+      "firstTimestamp": "2026-09-01T00:00:00.000Z",
+      "lastTimestamp": "2026-09-03T02:00:00.000Z",
+      "sha256": "a4c3f451dd6a786be67603bd15c4502c31dc14d2d9242f70ae74795d57e2b856"
+    },
+    "ETHUSDT": {
+      "file": "ETHUSDT_confirmatory_untouched.json",
+      "records": 51,
+      "firstTimestamp": "2026-09-01T00:00:00.000Z",
+      "lastTimestamp": "2026-09-03T02:00:00.000Z",
+      "sha256": "5d25e5300e301a7ceac42ade7cc05777f2c4e5f37ba2de2ae1571bb6154222ce"
+    }
+  }
+}
