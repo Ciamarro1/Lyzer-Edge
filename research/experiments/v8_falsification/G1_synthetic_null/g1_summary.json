@@ -1,0 +1,209 @@
+{
+  "gate": "G1_SYNTHETIC_NULL_FALSIFICATION",
+  "timestampUTC": "2026-09-03T00:53:48.189Z",
+  "overallStatus": "PASS",
+  "totalReplications": 6000,
+  "totalEdgeDetections": 3,
+  "meanFPR": 0.0005,
+  "elapsedSeconds": 2.12,
+  "families": [
+    {
+      "id": "N1_GAUSSIAN_IID",
+      "name": "Gaussian IID",
+      "replications": 1000,
+      "totalSignalsEmitted": 509,
+      "signalsPerPathMean": 0.509,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0,
+        "q95": 0,
+        "q975": 0.0173,
+        "q99": 0.0898,
+        "q995": 0.1139
+      },
+      "hitRateMedian": 0.5,
+      "medianSharpe": 1.4197,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": 0.001088
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 7263,
+        "MEAN_REVERTING": 5182,
+        "TRENDING_PERSISTENT": 4555,
+        "VOLATILITY_SHOCK": 0,
+        "noiseSuppressionRate": 0.4272
+      },
+      "status": "PASS",
+      "elapsedMs": 383
+    },
+    {
+      "id": "N2_STUDENT_T_IID",
+      "name": "Student-t IID",
+      "replications": 1000,
+      "totalSignalsEmitted": 433,
+      "signalsPerPathMean": 0.433,
+      "edgeDetections": 1,
+      "fpr": 0.001,
+      "fprPercent": "0.10%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0.2524,
+        "q95": 0.8435,
+        "q975": 0.886,
+        "q99": 0.9375,
+        "q995": 0.9547
+      },
+      "hitRateMedian": 0.5,
+      "medianSharpe": 3.2935,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": -0.003759
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 7692,
+        "MEAN_REVERTING": 4918,
+        "TRENDING_PERSISTENT": 4374,
+        "VOLATILITY_SHOCK": 16,
+        "noiseSuppressionRate": 0.4525
+      },
+      "status": "PASS",
+      "elapsedMs": 396
+    },
+    {
+      "id": "N3_RANDOM_WALK",
+      "name": "Random Walk / GBM",
+      "replications": 1000,
+      "totalSignalsEmitted": 480,
+      "signalsPerPathMean": 0.48,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0,
+        "q95": 0.022,
+        "q975": 0.1026,
+        "q99": 0.1639,
+        "q995": 0.1844
+      },
+      "hitRateMedian": 0.5,
+      "medianSharpe": 4.2958,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": 0.004838
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 7391,
+        "MEAN_REVERTING": 5032,
+        "TRENDING_PERSISTENT": 4577,
+        "VOLATILITY_SHOCK": 0,
+        "noiseSuppressionRate": 0.4348
+      },
+      "status": "PASS",
+      "elapsedMs": 328
+    },
+    {
+      "id": "N4_TEMPORAL_SHUFFLE",
+      "name": "Temporal Shuffle",
+      "replications": 1000,
+      "totalSignalsEmitted": 443,
+      "signalsPerPathMean": 0.443,
+      "edgeDetections": 1,
+      "fpr": 0.001,
+      "fprPercent": "0.10%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0.1673,
+        "q95": 0.4901,
+        "q975": 0.6985,
+        "q99": 0.8011,
+        "q995": 0.8353
+      },
+      "hitRateMedian": 0.3333,
+      "medianSharpe": -0.7819,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": -0.001831
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 7698,
+        "MEAN_REVERTING": 5078,
+        "TRENDING_PERSISTENT": 4224,
+        "VOLATILITY_SHOCK": 0,
+        "noiseSuppressionRate": 0.4528
+      },
+      "status": "PASS",
+      "elapsedMs": 332
+    },
+    {
+      "id": "N5_BLOCK_SHUFFLE",
+      "name": "Block Shuffle",
+      "replications": 1000,
+      "totalSignalsEmitted": 548,
+      "signalsPerPathMean": 0.548,
+      "edgeDetections": 1,
+      "fpr": 0.001,
+      "fprPercent": "0.10%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0,
+        "q95": 0.1242,
+        "q975": 0.4338,
+        "q99": 0.7294,
+        "q995": 0.8279
+      },
+      "hitRateMedian": 0.5,
+      "medianSharpe": -2.9634,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": 0.00154
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 6067,
+        "MEAN_REVERTING": 6990,
+        "TRENDING_PERSISTENT": 3939,
+        "VOLATILITY_SHOCK": 4,
+        "noiseSuppressionRate": 0.3569
+      },
+      "status": "PASS",
+      "elapsedMs": 335
+    },
+    {
+      "id": "N6_VOLATILITY_NULL",
+      "name": "Volatility Null (GARCH)",
+      "replications": 1000,
+      "totalSignalsEmitted": 537,
+      "signalsPerPathMean": 0.537,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "icDistribution": {
+        "median": 0,
+        "q90": 0,
+        "q95": 0.5414,
+        "q975": 0.6831,
+        "q99": 0.7222,
+        "q995": 0.7352
+      },
+      "hitRateMedian": 0.5,
+      "medianSharpe": 8.1649,
+      "vsRandomBaseline": {
+        "medianDeltaHitRate": 0,
+        "meanDeltaExpectancy": 0.000623
+      },
+      "regimesDistribution": {
+        "RANDOM_WALK_NOISE": 7073,
+        "MEAN_REVERTING": 5189,
+        "TRENDING_PERSISTENT": 4721,
+        "VOLATILITY_SHOCK": 17,
+        "noiseSuppressionRate": 0.4161
+      },
+      "status": "PASS",
+      "elapsedMs": 346
+    }
+  ]
+}

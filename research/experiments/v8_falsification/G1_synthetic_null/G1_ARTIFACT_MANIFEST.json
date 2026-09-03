@@ -1,0 +1,59 @@
+{
+  "gate": "G1_SYNTHETIC_NULL_FALSIFICATION",
+  "timestampUTC": "2026-09-03T00:53:48.189Z",
+  "gitCommit": "5172631",
+  "artifacts": {
+    "G1_PROTOCOL.md": {
+      "sha256": "20a507038999eb3d48b458ae7d8df23dfa6dbde37cabdfe843985bd6c70cca40",
+      "sizeBytes": 4603
+    },
+    "G1_GENERATORS.md": {
+      "sha256": "991f6526ed9ae5ddc4850cf68c3386bd67dac00d9ced6ab7a9b16032a61cf1ce",
+      "sizeBytes": 3511
+    },
+    "01_gaussian_iid.js": {
+      "sha256": "17c45030b4b870584c188ce8d46d17d67c04f7fd729de6f57398b6676da93fdc",
+      "sizeBytes": 1466
+    },
+    "02_student_t_iid.js": {
+      "sha256": "5d1cac0a00b2860df6eb5c7b4bbe8599b495d0567480d6a40d3538c878b33476",
+      "sizeBytes": 1574
+    },
+    "03_random_walk.js": {
+      "sha256": "1e3a28043c5fdec477950542989265c570694ee679f7140085a86851321cd455",
+      "sizeBytes": 1173
+    },
+    "04_temporal_shuffle.js": {
+      "sha256": "cac4888672a8a04726128998cf81bcbfd1bc3706985552dfa8d5360cdcbf68c7",
+      "sizeBytes": 1672
+    },
+    "05_block_shuffle.js": {
+      "sha256": "57ef916c95cda92c0e84c7940b80e316ce3c91ded72fd6a2d94c09069a6055fc",
+      "sizeBytes": 2104
+    },
+    "06_volatility_null.js": {
+      "sha256": "5d9a7c419fad92bbddc2131ac642c9b4816353bce6e676bff6f571437ef92a4a",
+      "sizeBytes": 1934
+    },
+    "run_g1.js": {
+      "sha256": "240839f32c8675c64a247bd540632ac947171982205e7096caf6038109d44392",
+      "sizeBytes": 20385
+    },
+    "g1_summary.json": {
+      "sha256": "250cab25564dc0f40f97bda3361b9823db265d44782ff634e77cdcfef350abc7",
+      "sizeBytes": 5330
+    },
+    "g1_raw_results.json": {
+      "sha256": "462d3f511951f4f16bbdd20e6840800b46ab2280a9aaafd1a04fb945be6ab48a",
+      "sizeBytes": 3126602
+    },
+    "G1_SYNTHETIC_NULL_REPORT.md": {
+      "sha256": "1ff481fe21175497fdb9704141b402913f617266e6d2c9140921580370624c6e",
+      "sizeBytes": 4341
+    },
+    "G1_FALSE_POSITIVE_ANALYSIS.md": {
+      "sha256": "e379b249ee9a2d2dffde5570b7ba2af0fe8b45b79a436545ec7a7361b08564c6",
+      "sizeBytes": 1999
+    }
+  }
+}
