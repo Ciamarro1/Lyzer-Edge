@@ -1,7 +1,7 @@
 # AD002 — Relatório Completo de Mineração Exploratória (VCB001 a VCB064)
 
 **Identificador do Programa**: `ALPHA_DISCOVERY_002` (`AD002`)  
-**Data da Mineração UTC**: `2026-09-03T04:28:13.830Z`  
+**Data da Mineração UTC**: `2026-09-03T04:37:04.856Z`  
 **Dataset de Mineração**: Batch 039 (`2023-01-01` a `2026-08-31`)  
 **Universo de Ativos**: `BTCUSDT, ETHUSDT, SOLUSDT, AVAXUSDT, LINKUSDT, DOGEUSDT` (6 ativos de alta liquidez e alto beta)  
 **Total de Hipóteses Fechadas**: **64 hipóteses ($4 \times 4 \times 4$)**  
