@@ -92,5 +92,16 @@
     "status": "EXPLORATORY",
     "result": "PROMISING",
     "reasonForAcceptance": "Spring setup heavily outperformed negative controls and placebo. Displayed clear dose-response with Volume Z-Score up to 2.5. Edge resolved rapidly (12-24h), confirming short-squeeze thesis. Promoted to Confirmation."
+  },
+  {
+    "id": "H010",
+    "date": "2026-09-03T03:47:11.000Z",
+    "parentBatch": "OFI001",
+    "hypothesis": "Cumulative Order Flow Imbalance (L=6h, H=24h)",
+    "economicRationale": "Persistent aggressor volume imbalance (taker buys vs sells) creates inventory pressure and information asymmetry, forecasting 24h forward returns.",
+    "status": "ARCHIVED",
+    "result": "REJECTED (SPECIFIC GENERALIZATION CLAIM FALSIFIED)",
+    "pValue": 0.0599,
+    "reasonForRejection": "Failed primary non-parametric Block Permutation test (p=0.0599 >= 0.05) in BTC, and failed direct cross-asset replication in ETH (IC = -0.0266, net return = -47.82 bps). Pre-registered confirmatory criteria not met."
   }
 ]

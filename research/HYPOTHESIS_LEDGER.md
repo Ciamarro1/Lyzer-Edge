@@ -15,6 +15,7 @@ This ledger maintains a permanent, immutable record of all scientific hypotheses
 | **H006** | 008A | V8.0-DISPLACEMENT-FVG-LONG | Over-filtration (N=63) destroyed Walk-Forward Analysis (6/10). |
 | **H007** | 010 | V8.2-DISPLACEMENT-MOMENTUM | Overlap Illusion: dependent trades inflated N and p-value. |
 | **H008** | 011 | V8 FAMILY (CLUSTER PYRAMIDING) | Failed FWER Correction (Bonferroni $\alpha = 0.000185 > p = 0.0145$). |
+| **H010** | OFI001 | Cumulative Order Flow Imbalance (L=6h, H=24h) | Failed Block Permutation ($p=0.0599 \ge 0.05$) in BTC; sign inversion on ETH replication ($IC = -0.0266$). Specific generalization claim falsified. |
 
 ---
 
