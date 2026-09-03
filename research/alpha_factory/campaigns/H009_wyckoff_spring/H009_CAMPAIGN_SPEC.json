@@ -1,0 +1,154 @@
+{
+  "campaignId": "H009_WYCKOFF_SPRING_ALPHA_FACTORY",
+  "title": "Wyckoff Spring / Volume Rejection Cross-Asset Discovery & Causal Robustness",
+  "hypothesisId": "H009",
+  "family": "G_FAILED_BREAKOUTS_LIQUIDITY_TRAP",
+  "timeframe": "1h",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "feeRate": 0.0010,
+    "slippageRate": 0.0002,
+    "totalAllInBps": 12,
+    "floorRate": 0.0080
+  },
+  "cells": [
+    {
+      "id": "H009_REAL_CORE_Z25_H24",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.5,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "CORE_CANDIDATE"
+    },
+    {
+      "id": "H009_ABL_PRICE_ONLY",
+      "mode": "PRICE_ONLY",
+      "volumeZScore": 1.0,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "CAUSAL_ABLATION_PRICE_ONLY"
+    },
+    {
+      "id": "H009_ABL_VOL_ONLY",
+      "mode": "VOL_ONLY",
+      "volumeZScore": 2.5,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "CAUSAL_ABLATION_VOL_ONLY"
+    },
+    {
+      "id": "H009_NEG_CONTROL_CONT",
+      "mode": "NEGATIVE_CONTROL_CONTINUATION",
+      "volumeZScore": 1.0,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "NEGATIVE_CONTROL_CONTINUATION"
+    },
+    {
+      "id": "H009_BASIN_Z20_H18",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.0,
+      "horizon": 18,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z20_H24",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.0,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z20_H30",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.0,
+      "horizon": 30,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z25_H18",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.5,
+      "horizon": 18,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z25_H30",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.5,
+      "horizon": 30,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z30_H18",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 3.0,
+      "horizon": 18,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z30_H24",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 3.0,
+      "horizon": 24,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_BASIN_Z30_H30",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 3.0,
+      "horizon": 30,
+      "minPierceATR": 1.0,
+      "lookback": 60,
+      "role": "LOCAL_STABILITY"
+    },
+    {
+      "id": "H009_PIERCE_075_Z25_H24",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.5,
+      "horizon": 24,
+      "minPierceATR": 0.75,
+      "lookback": 60,
+      "role": "PIERCE_SENSITIVITY"
+    },
+    {
+      "id": "H009_PIERCE_125_Z25_H24",
+      "mode": "REAL_SPRING",
+      "volumeZScore": 2.5,
+      "horizon": 24,
+      "minPierceATR": 1.25,
+      "lookback": 60,
+      "role": "PIERCE_SENSITIVITY"
+    }
+  ]
+}

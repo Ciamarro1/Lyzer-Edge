@@ -86,12 +86,19 @@
   {
     "id": "H009",
     "date": "2026-08-30T00:00:00.000Z",
-    "parentBatch": "013",
+    "archivedDate": "2026-09-03T07:28:11.000Z",
+    "parentBatch": "013 / ALPHA_FACTORY_H009",
     "hypothesis": "Wyckoff Spring / Volume Rejection",
     "economicRationale": "Failed structural breakdowns (Springs) accompanied by anomalous volume represent trapped retail liquidity and institutional absorption, causing an immediate short-squeeze reversion.",
-    "status": "EXPLORATORY",
-    "result": "PROMISING",
-    "reasonForAcceptance": "Spring setup heavily outperformed negative controls and placebo. Displayed clear dose-response with Volume Z-Score up to 2.5. Edge resolved rapidly (12-24h), confirming short-squeeze thesis. Promoted to Confirmation."
+    "status": "ARCHIVED",
+    "result": "REJECTED (FALSIFIED IN MULTI-ASSET CROSS-VALIDATION)",
+    "class": "DISCOVERY FALSIFICATION (CROSS-ASSET FAILURE)",
+    "sampleSize": 158,
+    "meanNetR": -0.247,
+    "profitFactor": 0.76,
+    "pValue": 0.8640,
+    "qBY": 1.0000,
+    "reasonForRejection": "Failed cross-asset replication across 6 core assets in 1H under 12 bps institutional friction (2023-2024 Discovery Data Lake). 6/6 assets exhibited negative expectancy (BTC: -0.034R, ETH: -0.335R, SOL: -0.222R, AVAX: -0.046R, LINK: -0.315R, DOGE: -0.469R), with pooled E[R] = -0.247R, PF = 0.76, and p_block = 0.8640 (q_BY = 1.0000). The negative continuation control outperformed the spring setup (+0.329R), proving that 60-bar structural breakdowns in crypto tend toward trend continuation rather than short-squeeze reversion. The cross-asset generalization claim of Wyckoff Spring is FALSIFIED. Promotion blocked, holdout 2025-2026 untouched."
   },
   {
     "id": "H010",

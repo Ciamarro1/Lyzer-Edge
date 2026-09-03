@@ -8,7 +8,7 @@
     "endDateUTC": "2024-12-31T23:59:59.999Z"
   },
   "holdoutStatus": "2025-2026 PERMANENTLY SEALED OUTSIDE LAKE",
-  "totalDatasets": 24,
+  "totalDatasets": 30,
   "datasets": {
     "AVAXUSDT_15m.json": {
       "symbol": "AVAXUSDT",
@@ -18,6 +18,15 @@
       "sha256": "5eae04630bf32e8078da862ce01c2fb02d3ac7e3eaae156cc391c7a845b0a5c9",
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
+    },
+    "AVAXUSDT_1h.json": {
+      "symbol": "AVAXUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4056518,
+      "sha256": "c18c39a1efde451e6ba83f9de77b632657b302998cfded034ce73da1ff6cabd9",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
     },
     "AVAXUSDT_2h.json": {
       "symbol": "AVAXUSDT",
@@ -55,6 +64,15 @@
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
     },
+    "BTCUSDT_1h.json": {
+      "symbol": "BTCUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4302693,
+      "sha256": "ce372e46e41b5f0db0500c51ed74875679ee81a534ed09ab776a934e427cdbad",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
+    },
     "BTCUSDT_2h.json": {
       "symbol": "BTCUSDT",
       "timeframe": "2h",
@@ -90,6 +108,15 @@
       "sha256": "d4e0eee38efdd5a87dab10d0f379d8e6e2d132018e578196d2267001e0abde78",
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
+    },
+    "DOGEUSDT_1h.json": {
+      "symbol": "DOGEUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4312145,
+      "sha256": "ba1a370789490e93fc2d68c628feecc3fe37e719007a3077cd8857a53933beae",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
     },
     "DOGEUSDT_2h.json": {
       "symbol": "DOGEUSDT",
@@ -127,6 +154,15 @@
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
     },
+    "ETHUSDT_1h.json": {
+      "symbol": "ETHUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4361626,
+      "sha256": "f3260fd82c6109cf96d39ccd0a7042b58a154ec58a8f3bf92be0b0682c0cb312",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
+    },
     "ETHUSDT_2h.json": {
       "symbol": "ETHUSDT",
       "timeframe": "2h",
@@ -163,6 +199,15 @@
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
     },
+    "LINKUSDT_1h.json": {
+      "symbol": "LINKUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4216122,
+      "sha256": "420d85daa50dec0747b41a7e7f7a1d688e488faa76467240cb2d26125347b82c",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
+    },
     "LINKUSDT_2h.json": {
       "symbol": "LINKUSDT",
       "timeframe": "2h",
@@ -198,6 +243,15 @@
       "sha256": "ad202cf91d230378f2db50d0b30ee8d4cccb89bcfda902320f3e28f698953311",
       "firstCandleUTC": "2023-01-01T00:00:00.000Z",
       "lastCandleUTC": "2024-12-31T23:45:00.000Z"
+    },
+    "SOLUSDT_1h.json": {
+      "symbol": "SOLUSDT",
+      "timeframe": "1h",
+      "candlesCount": 17544,
+      "sizeBytes": 4126508,
+      "sha256": "2babfbe7ebf3017cef27244999595157f53264cbf54c1731cb798c131fd6070b",
+      "firstCandleUTC": "2023-01-01T00:00:00.000Z",
+      "lastCandleUTC": "2024-12-31T23:00:00.000Z"
     },
     "SOLUSDT_2h.json": {
       "symbol": "SOLUSDT",

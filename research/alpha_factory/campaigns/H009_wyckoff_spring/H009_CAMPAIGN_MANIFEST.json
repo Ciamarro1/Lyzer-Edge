@@ -1,0 +1,31 @@
+{
+  "campaignId": "H009_WYCKOFF_SPRING_ALPHA_FACTORY",
+  "hypothesisId": "H009",
+  "timestampUTC": "2026-09-03T07:28:49.209Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPeriod": "2023-01-01 to 2024-12-31",
+  "holdoutStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
+  "verdict": "FALSIFIED_IN_CROSS_ASSET_VALIDATION",
+  "artifacts": {
+    "H009_CAMPAIGN_SPEC.json": {
+      "sha256": "f96627c96e6bc2d5ce42c448aa37697deeeb319852a0cb7b27918ff715ac5e57",
+      "sizeBytes": 3582
+    },
+    "h009_spring_detector.js": {
+      "sha256": "f0ceff4a3da4e8ed53c4600bc9fd86c0fc236798018dd57901981e99277723f4",
+      "sizeBytes": 3192
+    },
+    "run_h009_campaign.js": {
+      "sha256": "b026c65ecb059a05e21257a227e457ad46eb01b4d6bfe09fc8fc8d3412b998c1",
+      "sizeBytes": 12729
+    },
+    "H009_DISCOVERY_RESULTS.json": {
+      "sha256": "d0fe54b6582c39696492b296daff0ade8f5cdd867bc43fb2517ad71a2dc5e909",
+      "sizeBytes": 10258
+    },
+    "H009_DISCOVERY_REPORT.md": {
+      "sha256": "67dcc1c31fb9a54c6dc0b593fa6d1a57db9786a4e105d17c75fd7af6cff39e71",
+      "sizeBytes": 5550
+    }
+  }
+}
