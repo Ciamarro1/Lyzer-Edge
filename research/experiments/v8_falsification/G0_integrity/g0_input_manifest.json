@@ -1,0 +1,27 @@
+{
+  "gate": "G0_INTEGRITY",
+  "timestampUTC": "2026-09-03T00:45:00.000Z",
+  "gitCommit": "7944a982f1b0a501e5df8fc8bafe5f98cf641885",
+  "engineFile": "packages/lyzer-shared/src/providers/institutional_quant_signal_engine.js",
+  "engineSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "testSuites": [
+    "lyzer edge/tests/providers/institutional_quant_signal_engine.test.js",
+    "lyzer edge/tests/unit/commandCenter/sdk/evidenceFusion.test.js",
+    "lyzer edge/tests/verification/verify_suite.test.js"
+  ],
+  "sampleDataset": {
+    "path": "research/datasets/batch039/BTCUSDT_1h.json",
+    "sha256": "d2ab2b0234ee372cd01ba56cc9e952a0bc0d05802dcc2a8ed07b4e022011a79f",
+    "sampleSlice": [0, 500]
+  },
+  "determinismParameters": {
+    "iterations": 50,
+    "inputConditions": [
+      "real_btc_hourly_sample",
+      "synthetic_flat_candles",
+      "synthetic_explosive_spikes",
+      "minimal_bars_threshold",
+      "sub_minimal_bars_threshold"
+    ]
+  }
+}

@@ -2,7 +2,7 @@
 
 | Gate | Test Description | Result | Key Metric | Gate Threshold | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
-| **G0** | **Software / Contract Integrity & Determinism** | PENDING | Vitest Unit + Determinism (100% Bitwise) | 0 failures, 100% deterministic | **EXECUTING** |
+| **G0** | **Software / Contract Integrity & Determinism** | **PASS** | Vitest Unit (59/59) + Determinism (250/250) | 0 failures, 100% deterministic | **COMPLETED** |
 | **G1** | Synthetic Null Falsification (IID, Random Walk, Shuffled) | - | False Positive Rate, IC on noise | No statistically significant edge on noise | PENDING |
 | **G2** | Temporal OOS (Pre-registered Chinese Wall) | - | Out-Of-Sample IC, Net Sharpe | IC > 0, Sharpe > 0 OOS | PENDING |
 | **G3** | Purged + Embargoed Cross-Validation | - | Horizon-adjusted Purge Leakage | Zero temporal leakage | PENDING |

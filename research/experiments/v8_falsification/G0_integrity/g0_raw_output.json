@@ -1,0 +1,83 @@
+{
+  "gate": "G0_INTEGRITY",
+  "timestampUTC": "2026-09-03T00:44:46.776Z",
+  "engineVersion": "1.1.0",
+  "suites": {
+    "v8Engine": {
+      "passed": true,
+      "testsCount": 20,
+      "details": "20/20 tests passed"
+    },
+    "evidenceFusion": {
+      "passed": true,
+      "testsCount": 4,
+      "details": "4/4 tests passed (>300k ops/sec)"
+    },
+    "verification": {
+      "passed": true,
+      "testsCount": 35,
+      "details": "35/35 tests passed"
+    }
+  },
+  "determinism": {
+    "deterministic": true,
+    "totalConditionsTested": 5,
+    "totalInvocations": 250,
+    "details": {
+      "real_btc_sample_1": {
+        "iterations": 50,
+        "uniqueOutputHashes": 1,
+        "outputHash": "6776e463feb96be567a45f6128213c48691a2a58340d44cf833e6a6ab5b7839c",
+        "deterministic": true,
+        "signal": "flat",
+        "confidence": 0,
+        "narrative": "RANDOM_WALK_NOISE_REJECTED: Hurst exponent 0.534 indicates Brownian motion noise. No statistical edge."
+      },
+      "real_btc_sample_2": {
+        "iterations": 50,
+        "uniqueOutputHashes": 1,
+        "outputHash": "b9c5ec7ae6fd0a7cc32071a923059452e60b0efd53644143be6ecc055c14e30a",
+        "deterministic": true,
+        "signal": "flat",
+        "confidence": 0,
+        "narrative": "MEAN_REVERTING_EQUILIBRIUM: Z-Score 0.22 within neutral boundary (+-1.96)."
+      },
+      "synthetic_flat": {
+        "iterations": 50,
+        "uniqueOutputHashes": 1,
+        "outputHash": "b4947b04111e2b431180bb8bc871ff592229bb0787b23b0e3f174d3de0931a37",
+        "deterministic": true,
+        "signal": "flat",
+        "confidence": 0,
+        "narrative": "RANDOM_WALK_NOISE_REJECTED: Hurst exponent 0.500 indicates Brownian motion noise. No statistical edge."
+      },
+      "synthetic_trending": {
+        "iterations": 50,
+        "uniqueOutputHashes": 1,
+        "outputHash": "4901646332ea7c0e44fb40e1b9f869cd4d45cfdf1f5918ced4d4b6cde670362d",
+        "deterministic": true,
+        "signal": "long",
+        "confidence": 98,
+        "narrative": "MOMENTUM_DRIFT_BULLISH: Drift t-stat 265.58 (p=0.0000), persistent upward acceleration."
+      },
+      "insufficient_bars": {
+        "iterations": 50,
+        "uniqueOutputHashes": 1,
+        "outputHash": "1aa541e39c207077ebfb5685973bbf24c21058d0df4803af4b047368fca1ab61",
+        "deterministic": true,
+        "signal": "flat",
+        "confidence": 0,
+        "narrative": "INSUFFICIENT_STATISTICAL_SAMPLE"
+      }
+    }
+  },
+  "contractIntegrity": {
+    "contractPassed": true,
+    "missingTopLevel": [],
+    "missingQuantMetrics": [],
+    "signalValid": true,
+    "confidenceValid": true,
+    "sourceIdentifier": "INSTITUTIONAL_QUANT"
+  },
+  "status": "PASS"
+}
