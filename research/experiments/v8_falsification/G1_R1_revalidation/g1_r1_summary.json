@@ -1,0 +1,240 @@
+{
+  "gate": "G1_R1_REVALIDATION",
+  "timestampUTC": "2026-09-03T01:47:21.602Z",
+  "overallVerdict": "PASS",
+  "totalReplications": 6000,
+  "totalTradesEvaluated": 2950,
+  "totalObservations": 102000,
+  "meanFPR": 0,
+  "elapsedSeconds": 2.01,
+  "families": [
+    {
+      "id": "N1_GAUSSIAN_IID",
+      "name": "Gaussian IID",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 509,
+      "exposurePercent": 2.99,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": 0.1032,
+        "stdReturnPercent": 3.1325,
+        "unannualizedSharpe": 0.033,
+        "tStat": 0.7434,
+        "pValue": 0.4572
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": 0.0057,
+        "meanReturnPercent": 0.003091
+      },
+      "pooledIC": {
+        "ic": 0.0305,
+        "ci95": [
+          -0.0565,
+          0.1171
+        ],
+        "tStat": 0.6875,
+        "pValue": 0.4918
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": 0.1936,
+        "pairedTStat": 0.9956,
+        "pairedPValue": 0.3194
+      },
+      "status": "PASS",
+      "elapsedMs": 344
+    },
+    {
+      "id": "N2_STUDENT_T_IID",
+      "name": "Student-t IID",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 433,
+      "exposurePercent": 2.55,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": -0.0417,
+        "stdReturnPercent": 3.0297,
+        "unannualizedSharpe": -0.0138,
+        "tStat": -0.2861,
+        "pValue": 0.7748
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": -0.0022,
+        "meanReturnPercent": -0.001061
+      },
+      "pooledIC": {
+        "ic": -0.0142,
+        "ci95": [
+          -0.1083,
+          0.0801
+        ],
+        "tStat": -0.2948,
+        "pValue": 0.7681
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": -0.1917,
+        "pairedTStat": -0.9053,
+        "pairedPValue": 0.3653
+      },
+      "status": "PASS",
+      "elapsedMs": 364
+    },
+    {
+      "id": "N3_RANDOM_WALK",
+      "name": "Random Walk",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 480,
+      "exposurePercent": 2.82,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": 0.0632,
+        "stdReturnPercent": 3.5413,
+        "unannualizedSharpe": 0.0178,
+        "tStat": 0.3907,
+        "pValue": 0.696
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": 0.003,
+        "meanReturnPercent": 0.001783
+      },
+      "pooledIC": {
+        "ic": 0.0144,
+        "ci95": [
+          -0.0752,
+          0.1038
+        ],
+        "tStat": 0.3153,
+        "pValue": 0.7526
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": 0.454,
+        "pairedTStat": 1.9215,
+        "pairedPValue": 0.0547
+      },
+      "status": "PASS",
+      "elapsedMs": 393
+    },
+    {
+      "id": "N4_TEMPORAL_SHUFFLE",
+      "name": "Temporal Shuffle",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 443,
+      "exposurePercent": 2.61,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": -0.1453,
+        "stdReturnPercent": 1.5716,
+        "unannualizedSharpe": -0.0925,
+        "tStat": -1.9462,
+        "pValue": 0.0516
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": -0.0149,
+        "meanReturnPercent": -0.003787
+      },
+      "pooledIC": {
+        "ic": -0.0928,
+        "ci95": [
+          -0.1844,
+          0.0004
+        ],
+        "tStat": -1.9574,
+        "pValue": 0.0503
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": -0.1915,
+        "pairedTStat": -1.88,
+        "pairedPValue": 0.0601
+      },
+      "status": "PASS",
+      "elapsedMs": 304
+    },
+    {
+      "id": "N5_BLOCK_SHUFFLE",
+      "name": "Block Shuffle",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 548,
+      "exposurePercent": 3.22,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": -0.0984,
+        "stdReturnPercent": 1.7472,
+        "unannualizedSharpe": -0.0563,
+        "tStat": -1.3181,
+        "pValue": 0.1875
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": -0.0101,
+        "meanReturnPercent": -0.003171
+      },
+      "pooledIC": {
+        "ic": -0.0591,
+        "ci95": [
+          -0.1421,
+          0.0248
+        ],
+        "tStat": -1.3825,
+        "pValue": 0.1668
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": 0.1218,
+        "pairedTStat": 1.2542,
+        "pairedPValue": 0.2098
+      },
+      "status": "PASS",
+      "elapsedMs": 294
+    },
+    {
+      "id": "N6_VOLATILITY_NULL",
+      "name": "GARCH Null",
+      "replications": 1000,
+      "totalEvaluations": 17000,
+      "totalTradesEmitted": 537,
+      "exposurePercent": 3.16,
+      "edgeDetections": 0,
+      "fpr": 0,
+      "fprPercent": "0.00%",
+      "pooledTradeMetrics": {
+        "meanReturnPercent": -0.0093,
+        "stdReturnPercent": 4.4844,
+        "unannualizedSharpe": -0.0021,
+        "tStat": -0.0482,
+        "pValue": 0.9616
+      },
+      "continuousStrategyMetrics": {
+        "unannualizedSharpe": -0.0004,
+        "meanReturnPercent": -0.000294
+      },
+      "pooledIC": {
+        "ic": -0.0046,
+        "ci95": [
+          -0.0892,
+          0.0801
+        ],
+        "tStat": -0.1061,
+        "pValue": 0.9155
+      },
+      "vsRandomBaseline": {
+        "meanDeltaPercent": 0.2189,
+        "pairedTStat": 0.7979,
+        "pairedPValue": 0.4249
+      },
+      "status": "PASS",
+      "elapsedMs": 306
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "gate": "G1_R1_REVALIDATION",
+  "timestampUTC": "2026-09-03T01:47:25.000Z",
+  "gitBaselineCommit": "d639e1c",
+  "engineSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": {
+    "G1_R1_PROTOCOL.md": {
+      "sha256": "d33a9f5a9e9513ffe1a9d546a0aff0db1f53a313cba56f11b23ee7d2ca19ec2d",
+      "sizeBytes": 6542
+    },
+    "G1_R1_FREEZE_MANIFEST.json": {
+      "sha256": "9df46f1aa8d99fffea29c9e5bff2535e7f8803a3acb09c5b75d82c2fc886ea89",
+      "sizeBytes": 837
+    },
+    "run_g1_r1.js": {
+      "sha256": "45bbc62ff6d211f2cb5708d14dedf0d42f9b033baf893cbd8a080a5b8b8a0c71",
+      "sizeBytes": 14578
+    },
+    "g1_r1_summary.json": {
+      "sha256": "ccd7a5f5afc61fce274efd55f9e18c8a336c8d58a3a5cfe77584378c588ce1ef",
+      "sizeBytes": 5945
+    },
+    "g1_r1_raw_results.json": {
+      "sha256": "b5330f098b87e10654a2e37cc055074b48b654fa1463c62604305e95993df5d2",
+      "sizeBytes": 907688
+    },
+    "G1_R1_REVALIDATION_REPORT.md": {
+      "sha256": "4897dd361d26f2953c77df46dcde5da35e6dfc9fedfa05732cfc47004b44e99b",
+      "sizeBytes": 2784
+    }
+  }
+}
