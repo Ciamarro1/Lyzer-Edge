@@ -1,0 +1,94 @@
+{
+  "gate": "G2_TEMPORAL_OOS",
+  "protocolVersion": "G2_TEMPORAL_OOS_PROTOCOL_v2_1",
+  "timestampUTC": "2026-09-03T02:00:19.503Z",
+  "engineSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "gateDecision": "FAIL",
+  "consistencyRatios": {
+    "icRetentionRatio": null,
+    "icRetentionStatus": "NOT EVALUABLE (IS BASELINE NON-POSITIVE)",
+    "sharpeRetentionRatio": 0
+  },
+  "inSample": {
+    "periodName": "IN_SAMPLE",
+    "startIdx": 0,
+    "endIdx": 17544,
+    "totalBars": 17544,
+    "observationBars": 17480,
+    "signalCounts": {
+      "total": 585,
+      "long": 367,
+      "short": 218,
+      "flat": 16895,
+      "exposurePercent": 3.35
+    },
+    "tradeMetrics": {
+      "nTrades": 56,
+      "hitRateNet": 0.375,
+      "hitRateNetPercent": "37.50%",
+      "grossMeanReturnPercent": -0.1308,
+      "netMeanReturnPercent": -0.2308,
+      "netExpectancyBps": -23.08,
+      "profitFactor": 0.647,
+      "unannualizedPooledTradeSharpe": -0.1484,
+      "tradeTHAC": -1.4506,
+      "tradePValueHAC": 0.1469
+    },
+    "informationCoefficient": {
+      "ic": -0.1175,
+      "ci95": [
+        -0.369,
+        0.1501
+      ],
+      "tHAC": -1.3363,
+      "pValueHAC": 0.1815
+    },
+    "continuousPortfolio": {
+      "totalReturnPercent": -37.64,
+      "annualizedStrategySharpe": -0.6601,
+      "maxDrawdownPercent": 44.47
+    },
+    "elapsedMs": 281
+  },
+  "outOfSample": {
+    "periodName": "OUT_OF_SAMPLE",
+    "startIdx": 17644,
+    "endIdx": 32136,
+    "totalBars": 14492,
+    "observationBars": 14428,
+    "signalCounts": {
+      "total": 331,
+      "long": 195,
+      "short": 136,
+      "flat": 14097,
+      "exposurePercent": 2.29
+    },
+    "tradeMetrics": {
+      "nTrades": 25,
+      "hitRateNet": 0.52,
+      "hitRateNetPercent": "52.00%",
+      "grossMeanReturnPercent": 0.397,
+      "netMeanReturnPercent": 0.297,
+      "netExpectancyBps": 29.7,
+      "profitFactor": 1.474,
+      "unannualizedPooledTradeSharpe": 0.1539,
+      "tradeTHAC": 0.8077,
+      "tradePValueHAC": 0.4193
+    },
+    "informationCoefficient": {
+      "ic": 0.1976,
+      "ci95": [
+        -0.2142,
+        0.5498
+      ],
+      "tHAC": 1.0002,
+      "pValueHAC": 0.3172
+    },
+    "continuousPortfolio": {
+      "totalReturnPercent": -12.22,
+      "annualizedStrategySharpe": 0.0456,
+      "maxDrawdownPercent": 25.49
+    },
+    "elapsedMs": 228
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "gate": "G2_TEMPORAL_OOS_EXECUTION",
+  "timestampUTC": "2026-09-03T02:00:25.000Z",
+  "gitBaselineCommit": "6581f83",
+  "engineSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "datasetSHA256": "d2ab2b0234ee372cd01ba56cc9e952a0bc0d05802dcc2a8ed07b4e022011a79f",
+  "gateVerdict": "FAIL",
+  "artifacts": {
+    "G2_PROTOCOL.md": {
+      "sha256": "e43292e857282c0e8d003161b9bc0f722f8d909cf9fd8862784041e5e0c05f2a",
+      "sizeBytes": 8167
+    },
+    "G2_FREEZE_MANIFEST.json": {
+      "sha256": "33478d5b14aa5584eb3484c642b9b65feb160edba3b7241a5f45d94f011942c3",
+      "sizeBytes": 2216
+    },
+    "run_g2_oos.js": {
+      "sha256": "c59a56b61886656c4d46804573ad64d1ab941dbbcdaf545da3f61c8a045f1906",
+      "sizeBytes": 19146
+    },
+    "g2_oos_summary.json": {
+      "sha256": "8433f75948ad86c481d7fe5173cca4eb5eed2c0cb7b41f0302ee7fa0e1f976ba",
+      "sizeBytes": 2370
+    },
+    "G2_TEMPORAL_OOS_REPORT.md": {
+      "sha256": "0a1d6cf059d423a8d8b627083beed98aa130ffda16560f34742455f40d76e5a7",
+      "sizeBytes": 2825
+    }
+  }
+}
