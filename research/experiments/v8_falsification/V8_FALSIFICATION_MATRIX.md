@@ -1,8 +1,8 @@
 # V8 Institutional Quant Signal Engine — Falsification Matrix
 
-> **CAMPAIGN STATUS**: 🛑 **HALTED ON GATE G2 FALSIFICATION (FAIL-CLOSED)**  
+> **CAMPAIGN STATUS**: 🛑 **HALTED ON GATE G2 — HYPOTHESIS NOT CONFIRMED (FAIL-CLOSED)**  
 > **Target Engine**: `InstitutionalQuantSignalEngine` (V8, Frozen SHA-256: `fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1`)  
-> **Final Scientific Verdict**: V8 suppresses noise under pure synthetic nulls (G1-R1 PASS), but fails to demonstrate statistically significant directional predictive edge out-of-sample under Newey-West HAC inference ($p = 0.3172 \ge 0.05$), with an in-sample baseline that does not support temporal retention (G2 FAIL).
+> **Final Epistemic Verdict**: V8 preserves software and determinism integrity (G0 PASS) and suppresses noise without manufacturing spurious alpha under pure synthetic nulls (G1-R1 PASS). However, the hypothesis of statistically significant, out-of-sample directional predictive edge across time is not confirmed under Newey-West HAC inference ($p = 0.3172 \ge 0.05$), with an in-sample baseline that does not support temporal retention (G2 FAIL).
 
 | Gate | Test Description | Result | Key Metric | Gate Threshold | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
@@ -17,7 +17,7 @@
 | **G7** | Regime Stability (Hurst Bands, Vol Shock, OU vs Trend) | - | Purity & Sharpe per Regime | Regime hypotheses empirically match | 🛑 **BLOCKED** |
 | **G8** | Ablation Study (Component Marginal Contribution) | - | Marginal Sharpe of V8 vs simple naive | V8 full > stripped components | 🛑 **BLOCKED** |
 | **G9** | Shadow Live Forward Testing (Cold Zero-Capital Ingestion) | - | Real-time Forward Realization | Realized matches predicted distribution | 🛑 **BLOCKED** |
-| **G10**| Final Institutional Economic Verdict | **FAIL** | Empirical Falsification at Gate G2 | EDGE DETECTED / EDGE NOT DETECTED | **FINAL VERDICT: EDGE NOT DETECTED** |
+| **G10**| Final Institutional Economic Verdict | **NOT CONFIRMED** | Empirical Falsification at Gate G2 | EDGE CONFIRMED / EDGE NOT CONFIRMED | **FINAL VERDICT: EDGE NOT CONFIRMED** |
 
 ---
 
@@ -29,5 +29,5 @@
 | **Chinese Wall** | 100 bars (buffer) | - | - | 0.00% | - | - | - | - | - | - | **EMBARGO** |
 | **Out-Of-Sample (OOS)** | 14,492 bars (~20 mos) | 331 | 25 | 2.29% | 52.00% | +29.70 bps | +0.1976 | 0.3172 | +0.05 | 25.49% | **FAIL ($p \ge 0.05$)** |
 
-*Official Finding*: In-Sample baseline was non-positive ($IC_{\text{IS}} = -0.1175$), rendering retention formally `NOT EVALUABLE (IS BASELINE NON-POSITIVE)` per pre-registered Protocol v2.1.
-While Out-Of-Sample realized returns were economically positive (+29.7 bps net per trade, 52% hit rate), the small sample size ($N=25$) under HAC covariance estimation fails to reject the null hypothesis of zero predictive edge ($p = 0.3172 \ge 0.05$).
+*Official Epistemic Finding*: In-Sample baseline was non-positive ($IC_{\text{IS}} = -0.1175$), rendering retention formally `NOT EVALUABLE (IS BASELINE NON-POSITIVE)` per pre-registered Protocol v2.1.
+While Out-Of-Sample realized returns were economically positive (+29.7 bps net per trade, 52% hit rate, Profit Factor 1.474), the small sample size ($N=25$) under HAC covariance estimation ($L=5$) fails to reject the null hypothesis of zero predictive edge ($p = 0.3172 \ge 0.05$).

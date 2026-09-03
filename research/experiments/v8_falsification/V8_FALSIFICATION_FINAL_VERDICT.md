@@ -4,30 +4,35 @@
 **Target Engine**: `InstitutionalQuantSignalEngine` (V8)  
 **Frozen Engine SHA-256**: `fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1`  
 **Governance Standard**: Executive Institutional Quant Mandate (Zero Post-Hoc Tuning, Fail-Closed)  
-**Closing Timestamp UTC**: `2026-09-03T02:18:00.000Z`  
-**Final Institutional Classification**: 🛑 **CAMPAIGN CONCLUDED — EDGE NOT DETECTED (FALSIFIED AT GATE G2)**  
+**Closing Timestamp UTC**: `2026-09-03T02:22:00.000Z`  
+**Final Institutional Classification**: 🛑 **CAMPAIGN CONCLUDED — HYPOTHESIS NOT CONFIRMED (FAIL AT GATE G2)**  
 
 ---
 
-## 1. Executive Summary & Trajectory
+## 1. Executive Summary & Epistemic Scope
 
-Under the strict executive mandate of scientific falsification, the `InstitutionalQuantSignalEngine` (V8) was subjected to an unbending testing protocol designed to disprove its hypotheses rather than curve-fit its parameters.
+Under the strict executive mandate of scientific falsification, the `InstitutionalQuantSignalEngine` (V8) was subjected to an unbending testing protocol designed to challenge its quantitative hypotheses rather than curve-fit its parameters.
+
+### Epistemic Clarification:
+- **Integridade de Software (G0)**: O motor V8 **não foi refutado como software**. Os contratos, tipos, integridade de execução e determinismo foram comprovados a 100% (G0 PASS).
+- **Filtragem de Ruído (G1-R1)**: O motor V8 **não fabrica alpha espúrio em ruído aleatório**. Sob 6 famílias de processos nulos e 102.000 períodos avaliados, a taxa de falso positivo foi de 0,00% (G1-R1 PASS).
+- **Hipótese Não Confirmada (G2)**: O que falhou e encerrou a campanha foi a **hipótese de edge econômico temporalmente generalizável** sob o protocolo cego pré-registrado.
 
 ```text
 V8 FREEZE (7944a98)
        │
        ▼
-G0: CONTRACT & DETERMINISM ──────────────────────────► PASS (5172631)
+G0: CONTRACT & DETERMINISM ──────────────────────────► PASS (commit 5172631)
        │
        ▼
 G1: SYNTHETIC NULL (HISTORICAL) ─────────────────────► INCONCLUSIVE (Metric Defect, f16513b)
        │
        ▼
-G1-R1: SYNTHETIC NULL REVALIDATION ──────────────────► PASS (40c85a1)
+G1-R1: SYNTHETIC NULL REVALIDATION ──────────────────► PASS (commit 40c85a1)
        │  (6,000 paths, 102,000 evals, FPR=0.00%, zero spurious alpha)
        │
        ▼
-G2: TEMPORAL OUT-OF-SAMPLE (Protocol v2.1, 6581f83) ─► FAIL (44a6f00)
+G2: TEMPORAL OUT-OF-SAMPLE (Protocol v2.1, 6581f83) ─► FAIL (commit 44a6f00)
        │  (OOS Net Exp = +29.7 bps, but HAC p = 0.3172 >= 0.05; IS baseline negative)
        │
        ▼
@@ -56,15 +61,16 @@ G3–G10: REMAINING GATES ──────────────────
   - **OOS Economic Realization**: Realized $+29.70$ bps net mean return, $52.00\%$ net hit rate, Profit Factor $1.474$, and continuous Sharpe $+0.0456$ across 25 non-overlapping trades.
   - **Statistical Falsification**: Under Newey-West HAC covariance estimation, $IC_{\text{OOS}} = +0.1976$ yielded $t_{\text{HAC}} = +1.0002$ with $p = 0.3172$ ($p \ge 0.05$). The 95% confidence interval $[-0.2142, +0.5498]$ widely spans zero.
   - **Baseline Inversion**: In-Sample baseline was negative ($IC_{\text{IS}} = -0.1175$), rendering temporal retention formally `NOT EVALUABLE (IS BASELINE NON-POSITIVE)`.
-- **Conclusion**: V8 failed to demonstrate statistically significant directional predictive edge out-of-sample under pre-registered criteria.
+- **Conclusion**: The quantitative hypothesis of out-of-sample directional predictive edge across time is **not confirmed**.
 
 ---
 
-## 3. Scientific Findings & Institutional Value
+## 3. Methodological Caveats Preserved for Future Research
 
-1. **High Noise Suppression**: V8 demonstrates exceptional selectivity, remaining flat/abstained in ~97% of observations and suppressing pure random walk noise without false breakouts.
-2. **Economic Sample vs Statistical Significance**: While OOS realized returns were sample-positive (+29.7 bps net), a sample of 25 trades over 20 months does not provide sufficient statistical power to reject the null hypothesis of no edge under serial dependence.
-3. **Purity of Governance**: The research process was executed with zero post-hoc parameter adjustments, zero data dredging, zero model hopping, and zero retroactive re-interpretations. The fail-closed rule halted the campaign immediately upon falsification at Gate G2.
+1. **Residual Temporal Dependence**: Aggregated inferences in G2 retain residual temporal dependence/overlap from the 64-bar lookback window, despite the pre-registered Newey-West HAC ($L=5$) correction. This is permanently recorded as a methodological consideration for future designs rather than patched post-hoc.
+2. **Sample Size & Economic Observation**: While OOS realized returns were sample-positive (+29.7 bps net), a sample of 25 trades over 20 months does not provide sufficient statistical power to reject the null hypothesis of zero edge under serial dependence.
+3. **Purity of Governance**: The research process was executed with zero post-hoc parameter adjustments, zero data dredging, zero model hopping, and zero retroactive re-interpretations. The fail-closed rule halted the campaign immediately upon Gate G2.
+4. **Separation of Future Research**: Any future investigation (e.g., regime shift modeling, multi-asset diversification, alternative cadences) must be conducted under an entirely new research charter and pre-registration protocol, leaving this evidence intact and immutable.
 
 ---
 
@@ -80,4 +86,4 @@ G3–G10: REMAINING GATES ──────────────────
 | **G1-R1** | `40c85a1` | Complete-universe revalidation execution (PASS) |
 | **G2 Freeze v2.1** | `6581f83` | Temporal OOS protocol with HAC and strict denominator |
 | **G2 Execution** | `44a6f00` | Temporal OOS validation execution (FAIL) |
-| **Final Closure** | *(Current)* | Final governance matrix closure and campaign synthesis |
+| **Final Closure** | `4e4a7b6` | Formal campaign closure on G2 falsification verdict |
