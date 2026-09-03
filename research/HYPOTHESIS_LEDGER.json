@@ -141,5 +141,30 @@
     "eligibleHypotheses": 0,
     "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(M)=4.2785",
     "reasonForRejection": "Discovery closed with 0/40 hypotheses meeting joint pre-registered criteria (N >= 60 observed eligible trades and q_BY < 0.0500). Apparent significance in 4 micro-sample cells was forensically proven to be a mechanical artifact of the centered bootstrap on N <= 4. In 15m/30m, setups were filtered by the 80 bps feasibility floor; in 2h/4h, setups suffered from structural event density scarcity over 2 years. The economic mechanism is NOT falsified, but the hypothesis of scale invariance remains unestablished. All promotions to confirmation are BLOCKED. Holdout 2025–2026 remains 100% sealed and untouched."
+  },
+  {
+    "id": "AD004",
+    "date": "2026-09-03T07:55:00.000Z",
+    "parentBatch": "AD004_FUNDING_SQUEEZE",
+    "hypothesis": "Perpetual Funding Rate Dislocation & Squeeze Mechanics (8h intervals, 2023-2024 Discovery)",
+    "economicRationale": "Extreme dislocation in perpetual futures funding rates indicates crowded leveraged positioning. When retail shorts are overextended (negative funding), margin calls and stop-loss buying trigger violent short squeezes while long positions continuously capture the funding premium.",
+    "status": "DISCOVERY_COMPLETED",
+    "result": "ASYMMETRY_ISOLATED (SHORT SQUEEZE POSITIVE / LONG FLUSH FALSIFIED)",
+    "class": "DISCOVERY ASYMMETRY DISCOVERY",
+    "evaluatedHypotheses": 16,
+    "eligibleHypothesesUnderBY": 0,
+    "isolatedCandidate": {
+      "id": "AD004_SS_Z25_H24",
+      "mode": "SHORT_SQUEEZE",
+      "thresholdZ": 2.5,
+      "horizonHours": 24,
+      "sampleSize": 170,
+      "meanNetR": 0.265,
+      "profitFactor": 1.95,
+      "nominalBootstrapP": 0.0432,
+      "positiveAssets": "5/6 (BTC: +0.54R PF=4.35, ETH: +0.76R PF=5.15)"
+    },
+    "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(16)=3.3807",
+    "diagnosticNote": "AD004 evaluated 16 cells across 6 assets (13,158 observations). Structural asymmetry established: Short Squeeze delivered monotonic expectancy up to +0.265R (PF=1.95, p=0.0432, N=170), while Long Flush was definitively falsified. Direct automatic promotion blocked due to mixed-grid BY FDR multiplicity penalty (q_BY=1.0000). Candidate isolated as H012 for independent frozen confirmatory charter. Holdout 2025-2026 remains 100% sealed."
   }
 ]

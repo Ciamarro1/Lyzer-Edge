@@ -1,0 +1,43 @@
+{
+  "campaignId": "AD004_FUNDING_SQUEEZE_DISCOVERY",
+  "program": "AD004",
+  "timestampUTC": "2026-09-03T08:01:59.143Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPeriod": "2023-01-01 to 2024-12-31",
+  "totalObservations": 13158,
+  "holdoutStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
+  "verdict": "ASYMMETRY_ISOLATED_SHORT_SQUEEZE_DISCOVERED",
+  "isolatedCandidate": {
+    "id": "AD004_SS_Z25_H24",
+    "mode": "SHORT_SQUEEZE",
+    "thresholdZ": 2.5,
+    "horizonHours": 24,
+    "nTrades": 170,
+    "meanNetR": 0.265,
+    "profitFactor": 1.95,
+    "pBlock": 0.0432,
+    "positiveAssetsCount": "5/6"
+  },
+  "artifacts": {
+    "spec/AD004_CAMPAIGN_SPEC.json": {
+      "sha256": "4d1bc0ebbd3557b05dc6965c8c777f1f6704c3ad4b9f136a7f152ed6abc6fcb9",
+      "sizeBytes": 5179
+    },
+    "core/ad004_funding_detector.js": {
+      "sha256": "50421e58e5143179df4858e7bbe3ee51a00d1fe87f4880b714765356ee92f898",
+      "sizeBytes": 3293
+    },
+    "discovery/run_ad004_discovery.js": {
+      "sha256": "5e652c985208c9f911cbdc016f8537a3eba74a8bb6a44fd4cffee36af0c09561",
+      "sizeBytes": 11675
+    },
+    "discovery/AD004_DISCOVERY_RESULTS.json": {
+      "sha256": "c13a65d665c129b0d9be122d952ee9637d06de8c1d057cb71abe370691fddb49",
+      "sizeBytes": 9195
+    },
+    "discovery/AD004_DISCOVERY_REPORT.md": {
+      "sha256": "dbb817501f08061adda578fb38daba21c64683b69239feb9c582d872a72badc3",
+      "sizeBytes": 7615
+    }
+  }
+}

@@ -1,0 +1,187 @@
+{
+  "campaignId": "AD004_FUNDING_SQUEEZE_DISCOVERY",
+  "program": "AD004",
+  "title": "Perpetual Funding Rate Dislocation & Squeeze Mechanics",
+  "family": "DERIVATIVES_MICROSTRUCTURE_FUNDING_RATE",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframe": "8h",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "feeRate": 0.0005,
+    "slippageRate": 0.0001,
+    "allInRoundtripBps": 12
+  },
+  "cells": [
+    {
+      "id": "AD004_SS_Z20_H8",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 1,
+      "horizonHours": 8,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR Z-Score <= -2.0, held for 8h"
+    },
+    {
+      "id": "AD004_SS_Z20_H16",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 2,
+      "horizonHours": 16,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR Z-Score <= -2.0, held for 16h"
+    },
+    {
+      "id": "AD004_SS_Z20_H24",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR Z-Score <= -2.0, held for 24h"
+    },
+    {
+      "id": "AD004_SS_Z25_H24",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ZSCORE",
+      "threshold": 2.5,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR Z-Score <= -2.5, held for 24h"
+    },
+    {
+      "id": "AD004_SS_ABS02_H24",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ABSOLUTE",
+      "threshold": 0.0002,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR <= -0.02%, held for 24h"
+    },
+    {
+      "id": "AD004_SS_ABS04_H24",
+      "mode": "SHORT_SQUEEZE",
+      "metricType": "ABSOLUTE",
+      "threshold": 0.0004,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Short Squeeze Long bet when FR <= -0.04%, held for 24h"
+    },
+    {
+      "id": "AD004_LF_Z20_H8",
+      "mode": "LONG_FLUSH",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 1,
+      "horizonHours": 8,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR Z-Score >= +2.0, held for 8h"
+    },
+    {
+      "id": "AD004_LF_Z20_H16",
+      "mode": "LONG_FLUSH",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 2,
+      "horizonHours": 16,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR Z-Score >= +2.0, held for 16h"
+    },
+    {
+      "id": "AD004_LF_Z20_H24",
+      "mode": "LONG_FLUSH",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR Z-Score >= +2.0, held for 24h"
+    },
+    {
+      "id": "AD004_LF_Z25_H24",
+      "mode": "LONG_FLUSH",
+      "metricType": "ZSCORE",
+      "threshold": 2.5,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR Z-Score >= +2.5, held for 24h"
+    },
+    {
+      "id": "AD004_LF_ABS02_H24",
+      "mode": "LONG_FLUSH",
+      "metricType": "ABSOLUTE",
+      "threshold": 0.0002,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR >= +0.02%, held for 24h"
+    },
+    {
+      "id": "AD004_LF_ABS04_H24",
+      "mode": "LONG_FLUSH",
+      "metricType": "ABSOLUTE",
+      "threshold": 0.0004,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Long Flush Short bet when FR >= +0.04%, held for 24h"
+    },
+    {
+      "id": "AD004_SYM_Z20_H8",
+      "mode": "SYMMETRIC",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 1,
+      "horizonHours": 8,
+      "lookbackL": 90,
+      "description": "Symmetric Mean Reversion when |FR Z| >= 2.0, held for 8h"
+    },
+    {
+      "id": "AD004_SYM_Z20_H16",
+      "mode": "SYMMETRIC",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 2,
+      "horizonHours": 16,
+      "lookbackL": 90,
+      "description": "Symmetric Mean Reversion when |FR Z| >= 2.0, held for 16h"
+    },
+    {
+      "id": "AD004_SYM_Z20_H24",
+      "mode": "SYMMETRIC",
+      "metricType": "ZSCORE",
+      "threshold": 2.0,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Symmetric Mean Reversion when |FR Z| >= 2.0, held for 24h"
+    },
+    {
+      "id": "AD004_SYM_Z25_H24",
+      "mode": "SYMMETRIC",
+      "metricType": "ZSCORE",
+      "threshold": 2.5,
+      "horizonPeriods": 3,
+      "horizonHours": 24,
+      "lookbackL": 90,
+      "description": "Symmetric Mean Reversion when |FR Z| >= 2.5, held for 24h"
+    }
+  ]
+}
