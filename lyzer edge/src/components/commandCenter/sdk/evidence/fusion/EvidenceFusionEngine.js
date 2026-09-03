@@ -16,7 +16,8 @@ export class EvidenceFusionEngine {
       VOLATILITY_ENGINE: 0.00,
       WYCKOFF_VOLUME_ENGINE: 0.30,
       MARKET_PROFILE_ENGINE: 0.00,
-      TAPE_READING_ENGINE: 0.00
+      TAPE_READING_ENGINE: 0.00,
+      QUANT_INSTITUTIONAL_ENGINE: 0.15
     };
     this._historicalPerformance = {
       LYZER_NATIVE: 0.65,
@@ -26,7 +27,8 @@ export class EvidenceFusionEngine {
       VOLATILITY_ENGINE: 0.55,
       WYCKOFF_VOLUME_ENGINE: 0.80,
       MARKET_PROFILE_ENGINE: 0.20,
-      TAPE_READING_ENGINE: 0.25
+      TAPE_READING_ENGINE: 0.25,
+      QUANT_INSTITUTIONAL_ENGINE: 0.85
     };
     this.REGIMES = ['BALANCED', 'HIGH_VOLATILITY', 'RANGING', 'LOW_LIQUIDITY_NIGHT'];
     this._currentRegime = 'BALANCED';
@@ -42,7 +44,8 @@ export class EvidenceFusionEngine {
         VOLATILITY_ENGINE: 0.65,
         WYCKOFF_VOLUME_ENGINE: 0.75,
         MARKET_PROFILE_ENGINE: 0.65,
-        TAPE_READING_ENGINE: 0.70
+        TAPE_READING_ENGINE: 0.70,
+        QUANT_INSTITUTIONAL_ENGINE: 0.85
       };
     }
     this._disposed = false;
@@ -65,6 +68,7 @@ export class EvidenceFusionEngine {
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.25;
       this._weights.MARKET_PROFILE_ENGINE = 0.15;
       this._weights.TAPE_READING_ENGINE = 0.00;
+      this._weights.QUANT_INSTITUTIONAL_ENGINE = 0.05;
     } else if (targetRegime === 'RANGING' || targetRegime === 'CONSOLIDATION' || targetRegime === 'CHOPPY') {
       // In ranging markets, SMC structure and Market Profile gain higher weight (OpenMobius 0.24 after normalization)
       this._weights.OPENMOBIUS_SMC = 0.30;
@@ -75,6 +79,7 @@ export class EvidenceFusionEngine {
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
       this._weights.MARKET_PROFILE_ENGINE = 0.40;
       this._weights.TAPE_READING_ENGINE = 0.10;
+      this._weights.QUANT_INSTITUTIONAL_ENGINE = 0.00;
     } else if (targetRegime === 'HIGH_VOLATILITY') {
       // In volatile markets, Volatility, Momentum & Tape Reading dominate
       this._weights.VOLATILITY_ENGINE = 0.30;
@@ -85,6 +90,7 @@ export class EvidenceFusionEngine {
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.05;
       this._weights.MARKET_PROFILE_ENGINE = 0.05;
       this._weights.TAPE_READING_ENGINE = 0.30;
+      this._weights.QUANT_INSTITUTIONAL_ENGINE = 0.20;
     } else {
       // Default balanced Bayesian weights
       this._weights.LYZER_NATIVE = 0.25;
@@ -95,6 +101,7 @@ export class EvidenceFusionEngine {
       this._weights.WYCKOFF_VOLUME_ENGINE = 0.15;
       this._weights.MARKET_PROFILE_ENGINE = 0.10;
       this._weights.TAPE_READING_ENGINE = 0.15;
+      this._weights.QUANT_INSTITUTIONAL_ENGINE = 0.20;
     }
 
     this._currentRegime = this.REGIMES.includes(targetRegime) ? targetRegime : 'BALANCED';
@@ -156,7 +163,8 @@ export class EvidenceFusionEngine {
                         src.includes('VOLATILITY') ? 'VOLATILITY_ENGINE' :
                         src.includes('MACRO') ? 'MACRO_REGIME' :
                         src.includes('WYCKOFF') ? 'WYCKOFF_VOLUME_ENGINE' :
-                        src.includes('TAPE_READING') ? 'TAPE_READING_ENGINE' : 'LYZER_NATIVE';
+                        src.includes('TAPE_READING') ? 'TAPE_READING_ENGINE' :
+                        (src.includes('QUANT') || src.includes('V8')) ? 'QUANT_INSTITUTIONAL_ENGINE' : 'LYZER_NATIVE';
 
       const baseWeight = this._weights[weightKey] !== undefined ? this._weights[weightKey] : 0.15;
       const perf = perfMap[weightKey] !== undefined ? perfMap[weightKey] : (this._historicalPerformance[weightKey] || 0.70);

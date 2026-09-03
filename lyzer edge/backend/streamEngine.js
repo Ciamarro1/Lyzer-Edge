@@ -24,6 +24,7 @@ import { InstitutionalMarketCausalityEngine } from "../../packages/lyzer-shared/
 import { WyckoffVolumeProfileEngine } from "../../packages/lyzer-shared/src/providers/v5_wyckoff_volume_profile.js";
 import { MarketProfileEngine } from "../../packages/lyzer-shared/src/providers/v6_market_profile.js";
 import { TapeReadingEngine } from "../../packages/lyzer-shared/src/providers/v7_tape_reading.js";
+import { InstitutionalQuantSignalEngine } from "../../packages/lyzer-shared/src/providers/institutional_quant_signal_engine.js";
 import { LiquidityEngine } from "../../packages/lyzer-shared/src/smc/liquidityEngine.js";
 import { StructureEngine } from "../../packages/lyzer-shared/src/smc/structureEngine.js";
 import { SmcEngineFacade } from "../../packages/lyzer-shared/src/smc/smcFacade.js";
@@ -224,6 +225,7 @@ export class StreamEngine extends EventEmitter {
     this.v5 = this.disabledProviders.has('v5') ? null : new WyckoffVolumeProfileEngine(config.providerConfigs?.v5);
     this.v6 = this.disabledProviders.has('v6') ? null : new MarketProfileEngine(config.providerConfigs?.v6);
     this.v7 = this.disabledProviders.has('v7') ? null : new TapeReadingEngine(config.providerConfigs?.v7);
+    this.v8Quant = this.disabledProviders.has('v8') ? null : new InstitutionalQuantSignalEngine(config.providerConfigs?.v8 || config.providerConfigs?.quant);
     this.smcLiquidity = new LiquidityEngine();
     this.smcStructure = new StructureEngine();
     this.smcFacade = new SmcEngineFacade();
@@ -271,7 +273,7 @@ export class StreamEngine extends EventEmitter {
       if (authProvider === 'REC_COMP_INSTITUTIONAL_v1') {
         console.log(`🔒 [FIDELITY GATE] Isolating Operational Alpha to: ${authProvider} (v5 Engine). Disabling all other providers.`);
         // Forcefully override to disable everything EXCEPT the authorized engine (v5)
-        this.disabledProviders = new Set(['v1', 'v2', 'v3', 'v4', 'v6', 'v7']);
+        this.disabledProviders = new Set(['v1', 'v2', 'v3', 'v4', 'v6', 'v7', 'v8']);
         
         // --- RUNTIME CONTRACT ENFORCEMENT ---
         // Ensure that StreamEngine halts if someone tries to instantiate it with unauthorized parameters.
@@ -717,6 +719,7 @@ export class StreamEngine extends EventEmitter {
                 if (v.engine === 'v5') weightKey = 'WYCKOFF_VOLUME_ENGINE';
                 if (v.engine === 'v6') weightKey = 'MARKET_PROFILE_ENGINE';
                 if (v.engine === 'v7') weightKey = 'TAPE_READING_ENGINE';
+                if (v.engine === 'v8') weightKey = 'QUANT_INSTITUTIONAL_ENGINE';
                 
                 if (weightKey) {
                    if ((isSigLong && isTradeLong) || (!isSigLong && !isTradeLong)) {
@@ -831,6 +834,7 @@ export class StreamEngine extends EventEmitter {
     const v5Narrative = this.disabledProviders.has('v5') ? defaultNarrative : this.v5.reconstruct(mappedCandles);
     const v6Narrative = this.disabledProviders.has('v6') ? defaultNarrative : this.v6.reconstruct(mappedCandles);
     const v7Narrative = this.disabledProviders.has('v7') ? defaultNarrative : this.v7.reconstruct(mappedCandles);
+    const v8Narrative = (!this.v8Quant || this.disabledProviders.has('v8')) ? defaultNarrative : this.v8Quant.reconstruct(mappedCandles);
 
     // 1b. Full SMC Liquidity + Structure evaluation via SmcEngineFacade
     const smcResult = this.smcFacade.evaluate(this.mtfCandles);
@@ -963,6 +967,7 @@ export class StreamEngine extends EventEmitter {
     const v5Sig = this.disabledProviders.has('v5') ? { signal: 'flat', confidence: 0 } : { signal: v5Narrative.signal, confidence: v5Narrative.confidence };
     const v6Sig = { signal: v6Narrative.signal, confidence: v6Narrative.confidence };
     const v7Sig = { signal: v7Narrative.signal, confidence: v7Narrative.confidence !== undefined ? v7Narrative.confidence : 50 };
+    const v8Sig = (!this.v8Quant || this.disabledProviders.has('v8')) ? { signal: 'flat', confidence: 0 } : { signal: v8Narrative.signal, confidence: v8Narrative.confidence };
 
     const dateObj = new Date(candle.timestamp || candle.openTime || Date.now());
     const utcHours = process.env.NODE_ENV === 'test' ? null : dateObj.getUTCHours();
@@ -976,7 +981,8 @@ export class StreamEngine extends EventEmitter {
         v4: { ...v4Sig, id: 'v4' },
         v5: { ...v5Sig, id: 'v5' },
         v6: { ...v6Sig, id: 'v6' },
-        v7: { ...v7Sig, id: 'v7' }
+        v7: { ...v7Sig, id: 'v7' },
+        v8: { ...v8Sig, id: 'v8' }
     };
     
     // 2.5 Dual Reality Divergence Validation
@@ -1109,7 +1115,8 @@ export class StreamEngine extends EventEmitter {
       { sourceEngine: 'WYCKOFF_VOLUME_ENGINE', evidenceMetrics: { confidence: v5Sig.confidence, probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'MARKET_PROFILE_ENGINE', evidenceMetrics: { confidence: v6Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } },
       { sourceEngine: 'TAPE_READING_ENGINE', evidenceMetrics: { confidence: v7Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } },
-      { sourceEngine: 'OPENMOBIUS_SMC', evidenceMetrics: { confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0, probability: 0.5, uncertainty: 0.5 } }
+      { sourceEngine: 'OPENMOBIUS_SMC', evidenceMetrics: { confidence: this.openMobius._fvgs.length > 0 ? 0.6 : 0, probability: 0.5, uncertainty: 0.5 } },
+      { sourceEngine: 'QUANT_INSTITUTIONAL_ENGINE', evidenceMetrics: { confidence: v8Sig.confidence || 0, probability: 0.5, uncertainty: 0.5 } }
     ];
     const fusionResult = this.evidenceFusion.fuseEvidence(evidenceArray, dynamicWeights.activeRegime);
 
@@ -1126,7 +1133,8 @@ export class StreamEngine extends EventEmitter {
       { engine: 'v4', sig: v4Sig, weight: weights.MACRO_REGIME || 0.10 },
       { engine: 'v5', sig: v5Sig, weight: weights.WYCKOFF_VOLUME_ENGINE || 0.20 },
       { engine: 'v6', sig: v6Sig, weight: weights.MARKET_PROFILE_ENGINE || 0.05 },
-      { engine: 'v7', sig: v7Sig, weight: weights.TAPE_READING_ENGINE || 0.15 }
+      { engine: 'v7', sig: v7Sig, weight: weights.TAPE_READING_ENGINE || 0.15 },
+      { engine: 'v8', sig: v8Sig, weight: weights.QUANT_INSTITUTIONAL_ENGINE || 0.20 }
     ];
 
     for (const v of vectorMap) {
@@ -1202,7 +1210,8 @@ export class StreamEngine extends EventEmitter {
         v4Narrative.narrative,
         v5Narrative.narrative,
         v6Narrative.narrative,
-        v7Narrative.narrative
+        v7Narrative.narrative,
+        v8Narrative.narrative
       ],
       explanationText: v4Narrative ? v4Narrative.explanationText : null,
       tradeDna: v4Narrative ? v4Narrative.tradeDna : null,

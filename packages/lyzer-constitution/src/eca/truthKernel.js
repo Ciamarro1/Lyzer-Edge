@@ -133,14 +133,15 @@ export class TruthKernel {
     const v5 = providers.v5;
     const v6 = providers.v6;
     const v7 = providers.v7;
+    const v8 = providers.v8 !== undefined ? providers.v8 : providers.quant;
 
     // 1. Compute dynamic limits for this tick
     const dynamicLimits = this.computeDynamicLimits(micro);
     const effectiveLhdsLimit = dynamicLimits.lhdsVetoLimit;
     const effectiveCollapseLimit = dynamicLimits.ontologicalCollapseTrg;
 
-    // 2. Residualization & Consensus Destruction across all active engines (V1-V7)
-    const providerList = [v1, v2, v3, v4, v5, v6, v7].filter(p => p !== undefined && p !== null);
+    // 2. Residualization & Consensus Destruction across all active engines (V1-V8)
+    const providerList = [v1, v2, v3, v4, v5, v6, v7, v8].filter(p => p !== undefined && p !== null);
     const { dvf, trg } = this.rl.evaluate(...providerList, micro);
 
     // 3. Execution Trigger Evaluation

@@ -8,10 +8,10 @@
 export class DynamicWeightMatrix {
   constructor() {
     this.BASE_MATRICES = {
-      BALANCED: { v1: 1.0, v2: 1.0, v3: 1.0, v4: 1.0, v5: 1.0, v6: 1.0, v7: 1.0 },
-      HIGH_VOLATILITY: { v1: 1.2, v2: 0.5, v3: 1.5, v4: 1.5, v5: 0.5, v6: 0.5, v7: 2.0 },
-      RANGING: { v1: 1.0, v2: 1.8, v3: 0.8, v4: 0.5, v5: 1.6, v6: 1.5, v7: 0.4 },
-      LOW_LIQUIDITY_NIGHT: { v1: 1.2, v2: 0.8, v3: 0.3, v4: 0.2, v5: 0.8, v6: 1.5, v7: 0.1 }
+      BALANCED: { v1: 1.0, v2: 1.0, v3: 1.0, v4: 1.0, v5: 1.0, v6: 1.0, v7: 1.0, v8: 1.0, quant: 1.0 },
+      HIGH_VOLATILITY: { v1: 1.2, v2: 0.5, v3: 1.5, v4: 1.5, v5: 0.5, v6: 0.5, v7: 2.0, v8: 1.4, quant: 1.4 },
+      RANGING: { v1: 1.0, v2: 1.8, v3: 0.8, v4: 0.5, v5: 1.6, v6: 1.5, v7: 0.4, v8: 1.3, quant: 1.3 },
+      LOW_LIQUIDITY_NIGHT: { v1: 1.2, v2: 0.8, v3: 0.3, v4: 0.2, v5: 0.8, v6: 1.5, v7: 0.1, v8: 0.8, quant: 0.8 }
     };
   }
 
