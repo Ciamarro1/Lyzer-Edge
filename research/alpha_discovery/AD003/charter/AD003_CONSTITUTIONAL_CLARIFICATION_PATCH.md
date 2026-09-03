@@ -47,8 +47,12 @@ $$c(M) = \sum_{i=1}^{M} \frac{1}{i} = 1 + \frac{1}{2} + \frac{1}{3} + \dots + \f
 4. **Critério de Rejeição e Elegibilidade**:
    Uma hipótese $h$ é considerada estatisticamente significante se e somente se **$q_{\text{BY}, h} < 0,0500$**.
 
-### 2.3. Vantagem Epistemológica:
-O procedimento BY garante matematicamente o controle do FDR ($\le 0,05$) sob **qualquer estrutura arbitrária de dependência** (correlações cruzadas entre ativos, agrupamentos de regimes, correlações seriais ou dependência estrutural no grafo de hipóteses), erradicando qualquer premissa silenciosa de independência ou dependência positiva (PRDS).
+### 2.3. Delimitação Epistemológica de Benjamini–Yekutieli:
+Benjamini–Yekutieli is used as the multiplicity-control procedure because it controls FDR under arbitrary dependence among valid individual hypothesis tests.
+
+The validity of each individual bootstrap p-value remains dependent on the pre-specified block-bootstrap approximation being appropriate for the temporal and cross-asset dependence structure.
+
+O BY resolve rigorosamente o controle de multiplicidade sob qualquer estrutura de correlação entre os 40 testes, sem assumir independência ou dependência positiva (PRDS). No entanto, não substitui nem valida por si só a premissa de aproximação não-paramétrica do bootstrap para cada teste individual, cuja adequação permanece vinculada à pertinência dos blocos em tempo calendário de 14 dias para capturar a estrutura de agrupamento temporal e dependência entre ativos.
 
 ---
 

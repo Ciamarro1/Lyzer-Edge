@@ -3,7 +3,7 @@
   "title": "Temporal Scale Dependence of Volatility Compression Breakouts",
   "timestampUTC": "2026-09-03T05:54:59.506Z",
   "engineV8FrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
-  "status": "PENDING_EXECUTIVE_HOMOLOGATION",
+  "status": "DISCOVERY_FIREWALL_AUTHORIZED_FOR_2023_2024",
   "fdrProcedure": "BENJAMINI_YEKUTIELI_2001",
   "sampleSizeCriterion": "N_MIN_60_OBSERVED_ELIGIBLE_TRADES_WITHOUT_INDEPENDENCE_ASSUMPTION",
   "dataFirewallStatus": {
@@ -21,8 +21,8 @@
       "sizeBytes": 11264
     },
     "charter/AD003_CONSTITUTIONAL_CLARIFICATION_PATCH.md": {
-      "sha256": "de0c730e486c1c481ec7ae39a2dc342dd467822fb1a57ccc7bfe55f4e9a0f3c5",
-      "sizeBytes": 5995
+      "sha256": "36bc4a629322dc21ff263594eea4e3c50f785b30805c6f5686f742adc948e18f",
+      "sizeBytes": 6508
     },
     "spec/TSD_40_HYPOTHESIS_MATRIX.json": {
       "sha256": "ddeba7ae2a70b359f176593744d60855320dd32c5346ba79d97d681df651cfc0",
@@ -36,5 +36,6 @@
       "sha256": "495f6157d6147ee66814a4f3df7bfd8cdd1698491fd1060645baee53cb3c9e5d",
       "sizeBytes": 16768
     }
-  }
+  },
+  "authorizedAtUTC": "2026-09-03T06:04:50.067Z"
 }
