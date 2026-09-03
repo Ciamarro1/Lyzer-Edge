@@ -1,0 +1,107 @@
+{
+  "protocol": "LYZER_EDGE_V8_FREEZE_FALSIFICATION_OOS",
+  "version": "1.0.0",
+  "timestampUTC": "2026-09-03T00:43:00.000Z",
+  "gitCommit": "af29a48794c58b89ca51d6762fc5507e0d95e173",
+  "environment": {
+    "nodeVersion": "v24.15.0",
+    "os": "Windows_NT 10.0.19045",
+    "architecture": "x64",
+    "testRunner": "vitest/1.6.1"
+  },
+  "frozenObject": {
+    "name": "InstitutionalQuantSignalEngine",
+    "version": "1.1.0",
+    "sourceIdentifier": "INSTITUTIONAL_QUANT",
+    "primaryFile": "packages/lyzer-shared/src/providers/institutional_quant_signal_engine.js",
+    "sha256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+    "sizeBytes": 34339
+  },
+  "pipelineIntegrations": {
+    "aliasWrapper": {
+      "path": "packages/lyzer-shared/src/providers/v8_institutional_quant.js",
+      "sha256": "4ecb42c7a81763b927cc445c20bded02b6aa9638ddf354363cc4dc33e7155bf4",
+      "sizeBytes": 325
+    },
+    "sharedIndex": {
+      "path": "packages/lyzer-shared/src/index.js",
+      "sha256": "3de04a970a59b6b121c2923f39f6764eb75f354a3f12fcea56cc230e60cb0145",
+      "sizeBytes": 292
+    },
+    "weightMatrix": {
+      "path": "packages/lyzer-shared/src/engine/weightMatrix.js",
+      "sha256": "97d5d195469b3f0e9a52b158935f62e0acc641cd72144c9344f071d4f2139796",
+      "sizeBytes": 2236
+    },
+    "truthKernel": {
+      "path": "packages/lyzer-constitution/src/eca/truthKernel.js",
+      "sha256": "c7d303eed0e9af02ebe9f2489a459ccc724aee97d88f47cdfe276d69e46e60fc",
+      "sizeBytes": 11257
+    },
+    "streamEngine": {
+      "path": "lyzer edge/backend/streamEngine.js",
+      "sha256": "720cf08ccf03d5fb1f889d3ecbf46457f4e6c7d4cc24e8435c054a1366fc2916",
+      "sizeBytes": 103134
+    },
+    "evidenceFusionEngine": {
+      "path": "lyzer edge/src/components/commandCenter/sdk/evidence/fusion/EvidenceFusionEngine.js",
+      "sha256": "8e91ad2cc89221943026b5697e09edbd22c36ab9ea8e1a0ac5eecf3b181c8ac7",
+      "sizeBytes": 9711
+    },
+    "unitTestVerification": {
+      "path": "lyzer edge/tests/providers/institutional_quant_signal_engine.test.js",
+      "sha256": "c501d93f76a4db6638f0d35b9148f1b66460ee2019008606c26db408f7d804d4",
+      "sizeBytes": 19004
+    }
+  },
+  "effectiveParameters": {
+    "lookback": 64,
+    "minBars": 30,
+    "significanceLevel": 0.05,
+    "zScoreThreshold": 1.96,
+    "tStatThreshold": 2,
+    "hurstMeanReversionMax": 0.45,
+    "hurstTrendingMin": 0.55,
+    "minHalfLife": 2,
+    "maxHalfLife": 35,
+    "volShockMultiplier": 2.8,
+    "volShockFloor": 0.005,
+    "maxExpectedShortfall": 0.06,
+    "maxNegativeSkew": -1.2,
+    "maxPositiveSkew": 1.2,
+    "kurtosisThreshold": 3,
+    "ofiVetoThreshold": 0.3,
+    "preferredTimeframe": "intermediate"
+  },
+  "preRegisteredDatasets": {
+    "BTCUSDT_1h": {
+      "path": "research/datasets/batch039/BTCUSDT_1h.json",
+      "sha256": "d2ab2b0234ee372cd01ba56cc9e952a0bc0d05802dcc2a8ed07b4e022011a79f",
+      "sizeBytes": 10202123,
+      "recordCount": 32136,
+      "firstTimestamp": "2023-01-01T00:00:00.000Z",
+      "lastTimestamp": "2026-08-31T23:00:00.000Z"
+    },
+    "ETHUSDT_1h": {
+      "path": "research/datasets/batch039/ETHUSDT_1h.json",
+      "sha256": "e760a6fb079e3364860f139c99d20ada7cd47842263d6afcb30fda1728e7b124",
+      "sizeBytes": 10321554,
+      "recordCount": 32136,
+      "firstTimestamp": "2023-01-01T00:00:00.000Z",
+      "lastTimestamp": "2026-08-31T23:00:00.000Z"
+    },
+    "SOLUSDT_1h": {
+      "path": "research/datasets/batch039/SOLUSDT_1h.json",
+      "sha256": "b9c9732ee4a4b57746acd5df4d15efe1bbda3c3000f01a1d136897fb6303660d",
+      "sizeBytes": 9942663,
+      "recordCount": 32136,
+      "firstTimestamp": "2023-01-01T00:00:00.000Z",
+      "lastTimestamp": "2026-08-31T23:00:00.000Z"
+    }
+  },
+  "freezeStatus": "LOCKED",
+  "governance": {
+    "ruleOfFreeze": "NO_PARAMETER_PATCHING_NO_P_HACKING_FAIL_CLOSED",
+    "authority": "LYZER_EDGE_SCIENTIFIC_METAPROMPT_EXECUTIVE"
+  }
+}
