@@ -1,0 +1,37 @@
+{
+  "program": "OFI-CONFIRMATION-SETUP-001",
+  "timestampUTC": "2026-09-03T03:29:06.788Z",
+  "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "candidateClassification": "STRONG_RESEARCH_CANDIDATE (NOT ALPHA)",
+  "executionStatus": "BLOCKED_PENDING_UNTOUCHED_DATA",
+  "artifacts": {
+    "preregistration/power_analysis.js": {
+      "sha256": "46088cc45f6086959f0deda5e756414f71bfd96ea5844905dac90bb1b9e8b06f",
+      "sizeBytes": 6950
+    },
+    "preregistration/POWER_ANALYSIS.json": {
+      "sha256": "e0609d7205d1a4cc169b241813bf793a05ccdbf7d1135b2fe033d6018b2832b3",
+      "sizeBytes": 13757
+    },
+    "preregistration/POWER_ANALYSIS.md": {
+      "sha256": "60ea3c6611d08ffe1e984b44f57054cdd868dbc3c9ed7338630c1db22e9e6db3",
+      "sizeBytes": 6488
+    },
+    "preregistration/OFI_CONFIRMATORY_CHARTER.md": {
+      "sha256": "846b60739c83e9368c4fec6ac317b08a1c3d6c3a73b4d59c0516ad680baf1871",
+      "sizeBytes": 4641
+    },
+    "frozen_spec/CUMULATIVE_OFI_FROZEN_SPEC.md": {
+      "sha256": "485355fa11b34fe98b84211da48f7c91f02816a0520e42dda51a2430dc19ce7a",
+      "sizeBytes": 7087
+    },
+    "untouched_data/DATA_FIREWALL_SPEC.md": {
+      "sha256": "5c65a7b662992e7e04d9c36680a7252332f897b2d53905ddee5b06a657eed201",
+      "sizeBytes": 2221
+    },
+    "execution/data_firewall_guard.js": {
+      "sha256": "72d735a24b87560529e3eba50d68041b36bf47ea1310da06ce9bd1ee87be946d",
+      "sizeBytes": 3392
+    }
+  }
+}
