@@ -1,0 +1,143 @@
+{
+  "program": "ALPHA_DISCOVERY_AD003",
+  "period": "2023-01-01T00:00:00.000Z to 2024-12-31T23:59:59.999Z",
+  "startMs": 1672531200000,
+  "endMs": 1735689599999,
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframes": [
+    "15m",
+    "30m",
+    "2h",
+    "4h"
+  ],
+  "holdoutStatus": "2025-2026 STRICTLY SEALED",
+  "files": {
+    "BTCUSDT_15m": {
+      "sha256": "af6be36143237bf32d8f5d540652655e36fb2695d241007c1897de2cea7cc7b9",
+      "sizeBytes": 7627970,
+      "candlesCount": 70171
+    },
+    "BTCUSDT_30m": {
+      "sha256": "97ac4e185a6bd8e208a293e148dbe2c3bc4edb34f5a3c96e97a12d83bd9304f1",
+      "sizeBytes": 3785067,
+      "candlesCount": 35085
+    },
+    "BTCUSDT_2h": {
+      "sha256": "dffac1fc10fceec7aea89deab3388a47ae38bbc76582b1cb59cd03f98078b0ea",
+      "sizeBytes": 918707,
+      "candlesCount": 8772
+    },
+    "BTCUSDT_4h": {
+      "sha256": "f164185fd2e5ad32024364005051db9e0359947937b4803c3f6cd215570257bc",
+      "sizeBytes": 460161,
+      "candlesCount": 4386
+    },
+    "ETHUSDT_15m": {
+      "sha256": "fcd74493b42c86483b028f1ca28845a38cba89cda34d246f5a33fc262c81303a",
+      "sizeBytes": 7410203,
+      "candlesCount": 70171
+    },
+    "ETHUSDT_30m": {
+      "sha256": "9c585c9cd55088007c31533ab77b892dd111ad8d1c0826cf316d3caf10331c17",
+      "sizeBytes": 3713045,
+      "candlesCount": 35085
+    },
+    "ETHUSDT_2h": {
+      "sha256": "8c5179a7da641baa5fb5f854e50b79625f5580d8bfaefe24ba422a1b3f02dc3d",
+      "sizeBytes": 932657,
+      "candlesCount": 8772
+    },
+    "ETHUSDT_4h": {
+      "sha256": "1f066f2d15bce04a137bc5acd29559722c5c4cd1c26a8ef3233d366be27c0a64",
+      "sizeBytes": 466974,
+      "candlesCount": 4386
+    },
+    "SOLUSDT_15m": {
+      "sha256": "ad202cf91d230378f2db50d0b30ee8d4cccb89bcfda902320f3e28f698953311",
+      "sizeBytes": 6985666,
+      "candlesCount": 70171
+    },
+    "SOLUSDT_30m": {
+      "sha256": "c44e1b5ff30ddaf5f42e810fe55ba2bad3f3a4709e529b71f6884de24f1c6aba",
+      "sizeBytes": 3502242,
+      "candlesCount": 35085
+    },
+    "SOLUSDT_2h": {
+      "sha256": "8081fd88dca6c2ad5c040d62bdbf24460c9a2a8f9d48f96f270d6aaf4f943484",
+      "sizeBytes": 889046,
+      "candlesCount": 8772
+    },
+    "SOLUSDT_4h": {
+      "sha256": "3904ea37e78045c244fdaa8664d44fd32c11407a5893a8fc68c554e12163094c",
+      "sizeBytes": 445388,
+      "candlesCount": 4386
+    },
+    "AVAXUSDT_15m": {
+      "sha256": "5eae04630bf32e8078da862ce01c2fb02d3ac7e3eaae156cc391c7a845b0a5c9",
+      "sizeBytes": 6795689,
+      "candlesCount": 70171
+    },
+    "AVAXUSDT_30m": {
+      "sha256": "1607de4945624a67e6b63259b07012f53f607937f4b86abb02f6d3c6a05c362b",
+      "sizeBytes": 3409325,
+      "candlesCount": 35085
+    },
+    "AVAXUSDT_2h": {
+      "sha256": "dc1cac027b3383780945bccdab04693328e4e7a4814c01689abefd27a088a641",
+      "sizeBytes": 872575,
+      "candlesCount": 8772
+    },
+    "AVAXUSDT_4h": {
+      "sha256": "87b02d391be7aa05b0fd54b74d946c8194807fccf7e9127b8834f8a695113df1",
+      "sizeBytes": 438014,
+      "candlesCount": 4386
+    },
+    "LINKUSDT_15m": {
+      "sha256": "f050e3a5eba1bc6f604bb594580391c5ddcfdd116b8e7706315f1c945caa8ed2",
+      "sizeBytes": 6935978,
+      "candlesCount": 70171
+    },
+    "LINKUSDT_30m": {
+      "sha256": "8fb33791651b72cfbe26d22672ae82af701e171539e3e1831a4c8793edcad7fa",
+      "sizeBytes": 3478202,
+      "candlesCount": 35085
+    },
+    "LINKUSDT_2h": {
+      "sha256": "65998697151c4e15b728f202b3a20c240da8ea96a5667563e93b5538bef96c02",
+      "sizeBytes": 890108,
+      "candlesCount": 8772
+    },
+    "LINKUSDT_4h": {
+      "sha256": "25cf60bd0462c7cf373df4da2a512080f806b15e6b5c65a871b974a0df883293",
+      "sizeBytes": 446352,
+      "candlesCount": 4386
+    },
+    "DOGEUSDT_15m": {
+      "sha256": "d4e0eee38efdd5a87dab10d0f379d8e6e2d132018e578196d2267001e0abde78",
+      "sizeBytes": 7359564,
+      "candlesCount": 70171
+    },
+    "DOGEUSDT_30m": {
+      "sha256": "d20ee13ec21649128cf3dd35938e1792437d0487064beaa1aaaef789d00ea415",
+      "sizeBytes": 3690735,
+      "candlesCount": 35085
+    },
+    "DOGEUSDT_2h": {
+      "sha256": "45bcc967e9691ef5a15294bef669b9c1e6000dd9ec484f081480ba92ed392654",
+      "sizeBytes": 934850,
+      "candlesCount": 8772
+    },
+    "DOGEUSDT_4h": {
+      "sha256": "8144703c8aaf9827d0dfd0b694235061165050d1d48575b4f5eeae35d978cd16",
+      "sizeBytes": 468551,
+      "candlesCount": 4386
+    }
+  }
+}

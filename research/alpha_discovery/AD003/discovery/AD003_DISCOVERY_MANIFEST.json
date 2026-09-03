@@ -1,0 +1,27 @@
+{
+  "program": "ALPHA_DISCOVERY_AD003",
+  "title": "Temporal Scale Dependence Discovery Phase Results",
+  "timestampUTC": "2026-09-03T06:10:20.407Z",
+  "engineV8FrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPeriod": "2023-01-01T00:00:00.000Z to 2024-12-31T23:59:59.999Z",
+  "holdoutPeriodStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
+  "verdict": "DISCOVERY_FAIL_ZERO_CANDIDATES_PROMOTED",
+  "artifacts": {
+    "prepare_ad003_discovery_data.js": {
+      "sha256": "54e656b66e2749cdedaaf933a15b92c2c0d82e6edcc584e2b9b08dd12e1963f6",
+      "sizeBytes": 9297
+    },
+    "run_ad003_discovery.js": {
+      "sha256": "d65f27d1229c8e8c0081931e53dc8837fbcf43f98867c8771ca96f2e0a5e6def",
+      "sizeBytes": 27509
+    },
+    "AD003_DISCOVERY_RAW_RESULTS.json": {
+      "sha256": "74fb3ffb6acce227478b57100ec6193bedd220062110fd47e0c547ab7b4dd208",
+      "sizeBytes": 17667
+    },
+    "AD003_DISCOVERY_REPORT.md": {
+      "sha256": "c4beb3d394c69bebe742325a9008e4edff77d2e776eb6204be7a81dcc10a3c25",
+      "sizeBytes": 6227
+    }
+  }
+}
