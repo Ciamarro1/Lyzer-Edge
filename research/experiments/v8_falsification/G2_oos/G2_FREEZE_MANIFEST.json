@@ -1,7 +1,7 @@
 {
-  "gate": "G2_TEMPORAL_OOS_PROTOCOL_FREEZE",
-  "timestampUTC": "2026-09-03T01:53:00.000Z",
-  "gitBaselineCommit": "40c85a1",
+  "gate": "G2_TEMPORAL_OOS_PROTOCOL_FREEZE_v2",
+  "timestampUTC": "2026-09-03T01:55:00.000Z",
+  "gitBaselineCommit": "b1cacc3",
   "engineUnderAudit": {
     "name": "InstitutionalQuantSignalEngine",
     "version": "1.1.0",
@@ -14,49 +14,57 @@
     "sha256": "d2ab2b0234ee372cd01ba56cc9e952a0bc0d05802dcc2a8ed07b4e022011a79f",
     "totalBars": 32136
   },
-  "chineseWallSpecification": {
+  "segmentation": {
     "inSample": {
       "range": [
         "2023-01-01T00:00:00.000Z",
-        "2024-12-30T23:00:00.000Z"
+        "2024-12-31T23:00:00.000Z"
       ],
       "bars": [
         0,
-        17519
+        17543
       ],
-      "count": 17520
+      "count": 17544,
+      "note": "731 calendar days = exactly 24 civil months including leap year 2024"
     },
     "embargo": {
       "range": [
-        "2024-12-31T00:00:00.000Z",
-        "2025-01-04T03:00:00.000Z"
+        "2025-01-01T00:00:00.000Z",
+        "2025-01-05T03:00:00.000Z"
       ],
       "bars": [
-        17520,
-        17619
+        17544,
+        17643
       ],
-      "count": 100
+      "count": 100,
+      "note": "Chinese Wall buffer purging lookback and forward horizon overlap"
     },
     "outOfSample": {
       "range": [
-        "2025-01-04T04:00:00.000Z",
+        "2025-01-05T04:00:00.000Z",
         "2026-08-31T23:00:00.000Z"
       ],
       "bars": [
-        17620,
+        17644,
         32135
       ],
-      "count": 14516
+      "count": 14492,
+      "note": "20 civil months of blind forward testing"
     }
+  },
+  "methodologyUpdates": {
+    "inference": "Newey-West HAC (L=5 lags) for trade returns and IC",
+    "friction": "Fixed exogenous 10 bps (0.10%) round-trip per trade",
+    "timeline": "Continuous hourly portfolio tracking"
   },
   "protocolArtifacts": {
     "G2_PROTOCOL.md": {
-      "sha256": "588d5bbe688f6666de7c328c7057bbbe474f54362053ca13c77954d991c3977e",
-      "sizeBytes": 6711
+      "sha256": "7ae05776333f06ea2a663ace7e1920aac2957a7fca5c779921695c816e39f140",
+      "sizeBytes": 7842
     },
     "run_g2_oos.js": {
-      "sha256": "bdf115f0bdc52dc9922ceb4d8abfd01575ec9e784f75f80b43ae597d08ddeb5e",
-      "sizeBytes": 16681
+      "sha256": "fe552304ecc035d4dc62aea73e7ec687aebce92831b457e8bd269579a22a5d85",
+      "sizeBytes": 18445
     }
   },
   "executionState": "BLOCKED_AWAITING_EXPLICIT_AUTHORIZATION"
