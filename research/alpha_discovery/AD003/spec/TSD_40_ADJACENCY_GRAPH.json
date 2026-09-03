@@ -1,0 +1,970 @@
+{
+  "graphIdentifier": "TSD_40_TOPOLOGICAL_ADJACENCY_GRAPH",
+  "program": "ALPHA_DISCOVERY_AD003",
+  "totalNodes": 40,
+  "totalEdges": 74,
+  "nodes": [
+    {
+      "id": "TSD001",
+      "t": 0,
+      "m": 0,
+      "th": 0,
+      "timeframe": "15m",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD002",
+      "t": 0,
+      "m": 0,
+      "th": 1,
+      "timeframe": "15m",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD003",
+      "t": 0,
+      "m": 1,
+      "th": 0,
+      "timeframe": "15m",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD004",
+      "t": 0,
+      "m": 1,
+      "th": 1,
+      "timeframe": "15m",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD005",
+      "t": 0,
+      "m": 2,
+      "th": 0,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD006",
+      "t": 0,
+      "m": 2,
+      "th": 1,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD007",
+      "t": 0,
+      "m": 3,
+      "th": 0,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD008",
+      "t": 0,
+      "m": 3,
+      "th": 1,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD009",
+      "t": 0,
+      "m": 4,
+      "th": 0,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD010",
+      "t": 0,
+      "m": 4,
+      "th": 1,
+      "timeframe": "15m",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD011",
+      "t": 1,
+      "m": 0,
+      "th": 0,
+      "timeframe": "30m",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD012",
+      "t": 1,
+      "m": 0,
+      "th": 1,
+      "timeframe": "30m",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD013",
+      "t": 1,
+      "m": 1,
+      "th": 0,
+      "timeframe": "30m",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD014",
+      "t": 1,
+      "m": 1,
+      "th": 1,
+      "timeframe": "30m",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD015",
+      "t": 1,
+      "m": 2,
+      "th": 0,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD016",
+      "t": 1,
+      "m": 2,
+      "th": 1,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD017",
+      "t": 1,
+      "m": 3,
+      "th": 0,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD018",
+      "t": 1,
+      "m": 3,
+      "th": 1,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD019",
+      "t": 1,
+      "m": 4,
+      "th": 0,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD020",
+      "t": 1,
+      "m": 4,
+      "th": 1,
+      "timeframe": "30m",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD021",
+      "t": 2,
+      "m": 0,
+      "th": 0,
+      "timeframe": "2h",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD022",
+      "t": 2,
+      "m": 0,
+      "th": 1,
+      "timeframe": "2h",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD023",
+      "t": 2,
+      "m": 1,
+      "th": 0,
+      "timeframe": "2h",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD024",
+      "t": 2,
+      "m": 1,
+      "th": 1,
+      "timeframe": "2h",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD025",
+      "t": 2,
+      "m": 2,
+      "th": 0,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD026",
+      "t": 2,
+      "m": 2,
+      "th": 1,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD027",
+      "t": 2,
+      "m": 3,
+      "th": 0,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD028",
+      "t": 2,
+      "m": 3,
+      "th": 1,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD029",
+      "t": 2,
+      "m": 4,
+      "th": 0,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD030",
+      "t": 2,
+      "m": 4,
+      "th": 1,
+      "timeframe": "2h",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD031",
+      "t": 3,
+      "m": 0,
+      "th": 0,
+      "timeframe": "4h",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD032",
+      "t": 3,
+      "m": 0,
+      "th": 1,
+      "timeframe": "4h",
+      "modelType": "ECONOMIC_24H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD033",
+      "t": 3,
+      "m": 1,
+      "th": 0,
+      "timeframe": "4h",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD034",
+      "t": 3,
+      "m": 1,
+      "th": 1,
+      "timeframe": "4h",
+      "modelType": "ECONOMIC_48H",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD035",
+      "t": 3,
+      "m": 2,
+      "th": 0,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD036",
+      "t": 3,
+      "m": 2,
+      "th": 1,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_20",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD037",
+      "t": 3,
+      "m": 3,
+      "th": 0,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD038",
+      "t": 3,
+      "m": 3,
+      "th": 1,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_40",
+      "theta": 0.65
+    },
+    {
+      "id": "TSD039",
+      "t": 3,
+      "m": 4,
+      "th": 0,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.6
+    },
+    {
+      "id": "TSD040",
+      "t": 3,
+      "m": 4,
+      "th": 1,
+      "timeframe": "4h",
+      "modelType": "INTRINSIC_80",
+      "theta": 0.65
+    }
+  ],
+  "edges": [
+    {
+      "source": "TSD001",
+      "target": "TSD002",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD001",
+      "target": "TSD003",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD001",
+      "target": "TSD011",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD002",
+      "target": "TSD004",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD002",
+      "target": "TSD012",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD003",
+      "target": "TSD004",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD003",
+      "target": "TSD013",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD004",
+      "target": "TSD014",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD005",
+      "target": "TSD006",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD005",
+      "target": "TSD007",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD005",
+      "target": "TSD015",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD006",
+      "target": "TSD008",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD006",
+      "target": "TSD016",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD007",
+      "target": "TSD008",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD007",
+      "target": "TSD009",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD007",
+      "target": "TSD017",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD008",
+      "target": "TSD010",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD008",
+      "target": "TSD018",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD009",
+      "target": "TSD010",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD009",
+      "target": "TSD019",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD010",
+      "target": "TSD020",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD011",
+      "target": "TSD012",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD011",
+      "target": "TSD013",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD011",
+      "target": "TSD021",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD012",
+      "target": "TSD014",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD012",
+      "target": "TSD022",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD013",
+      "target": "TSD014",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD013",
+      "target": "TSD023",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD014",
+      "target": "TSD024",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD015",
+      "target": "TSD016",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD015",
+      "target": "TSD017",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD015",
+      "target": "TSD025",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD016",
+      "target": "TSD018",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD016",
+      "target": "TSD026",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD017",
+      "target": "TSD018",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD017",
+      "target": "TSD019",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD017",
+      "target": "TSD027",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD018",
+      "target": "TSD020",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD018",
+      "target": "TSD028",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD019",
+      "target": "TSD020",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD019",
+      "target": "TSD029",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD020",
+      "target": "TSD030",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD021",
+      "target": "TSD022",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD021",
+      "target": "TSD023",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD021",
+      "target": "TSD031",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD022",
+      "target": "TSD024",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD022",
+      "target": "TSD032",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD023",
+      "target": "TSD024",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD023",
+      "target": "TSD033",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD024",
+      "target": "TSD034",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD025",
+      "target": "TSD026",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD025",
+      "target": "TSD027",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD025",
+      "target": "TSD035",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD026",
+      "target": "TSD028",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD026",
+      "target": "TSD036",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD027",
+      "target": "TSD028",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD027",
+      "target": "TSD029",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD027",
+      "target": "TSD037",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD028",
+      "target": "TSD030",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD028",
+      "target": "TSD038",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD029",
+      "target": "TSD030",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD029",
+      "target": "TSD039",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD030",
+      "target": "TSD040",
+      "type": "TIMEFRAME_SHIFT"
+    },
+    {
+      "source": "TSD031",
+      "target": "TSD032",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD031",
+      "target": "TSD033",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD032",
+      "target": "TSD034",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD033",
+      "target": "TSD034",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD035",
+      "target": "TSD036",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD035",
+      "target": "TSD037",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD036",
+      "target": "TSD038",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD037",
+      "target": "TSD038",
+      "type": "THETA_SHIFT"
+    },
+    {
+      "source": "TSD037",
+      "target": "TSD039",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD038",
+      "target": "TSD040",
+      "type": "SCALE_SHIFT"
+    },
+    {
+      "source": "TSD039",
+      "target": "TSD040",
+      "type": "THETA_SHIFT"
+    }
+  ],
+  "adjacencyList": {
+    "TSD001": [
+      "TSD002",
+      "TSD003",
+      "TSD011"
+    ],
+    "TSD002": [
+      "TSD001",
+      "TSD004",
+      "TSD012"
+    ],
+    "TSD003": [
+      "TSD001",
+      "TSD004",
+      "TSD013"
+    ],
+    "TSD004": [
+      "TSD002",
+      "TSD003",
+      "TSD014"
+    ],
+    "TSD005": [
+      "TSD006",
+      "TSD007",
+      "TSD015"
+    ],
+    "TSD006": [
+      "TSD005",
+      "TSD008",
+      "TSD016"
+    ],
+    "TSD007": [
+      "TSD005",
+      "TSD008",
+      "TSD009",
+      "TSD017"
+    ],
+    "TSD008": [
+      "TSD006",
+      "TSD007",
+      "TSD010",
+      "TSD018"
+    ],
+    "TSD009": [
+      "TSD007",
+      "TSD010",
+      "TSD019"
+    ],
+    "TSD010": [
+      "TSD008",
+      "TSD009",
+      "TSD020"
+    ],
+    "TSD011": [
+      "TSD001",
+      "TSD012",
+      "TSD013",
+      "TSD021"
+    ],
+    "TSD012": [
+      "TSD002",
+      "TSD011",
+      "TSD014",
+      "TSD022"
+    ],
+    "TSD013": [
+      "TSD003",
+      "TSD011",
+      "TSD014",
+      "TSD023"
+    ],
+    "TSD014": [
+      "TSD004",
+      "TSD012",
+      "TSD013",
+      "TSD024"
+    ],
+    "TSD015": [
+      "TSD005",
+      "TSD016",
+      "TSD017",
+      "TSD025"
+    ],
+    "TSD016": [
+      "TSD006",
+      "TSD015",
+      "TSD018",
+      "TSD026"
+    ],
+    "TSD017": [
+      "TSD007",
+      "TSD015",
+      "TSD018",
+      "TSD019",
+      "TSD027"
+    ],
+    "TSD018": [
+      "TSD008",
+      "TSD016",
+      "TSD017",
+      "TSD020",
+      "TSD028"
+    ],
+    "TSD019": [
+      "TSD009",
+      "TSD017",
+      "TSD020",
+      "TSD029"
+    ],
+    "TSD020": [
+      "TSD010",
+      "TSD018",
+      "TSD019",
+      "TSD030"
+    ],
+    "TSD021": [
+      "TSD011",
+      "TSD022",
+      "TSD023",
+      "TSD031"
+    ],
+    "TSD022": [
+      "TSD012",
+      "TSD021",
+      "TSD024",
+      "TSD032"
+    ],
+    "TSD023": [
+      "TSD013",
+      "TSD021",
+      "TSD024",
+      "TSD033"
+    ],
+    "TSD024": [
+      "TSD014",
+      "TSD022",
+      "TSD023",
+      "TSD034"
+    ],
+    "TSD025": [
+      "TSD015",
+      "TSD026",
+      "TSD027",
+      "TSD035"
+    ],
+    "TSD026": [
+      "TSD016",
+      "TSD025",
+      "TSD028",
+      "TSD036"
+    ],
+    "TSD027": [
+      "TSD017",
+      "TSD025",
+      "TSD028",
+      "TSD029",
+      "TSD037"
+    ],
+    "TSD028": [
+      "TSD018",
+      "TSD026",
+      "TSD027",
+      "TSD030",
+      "TSD038"
+    ],
+    "TSD029": [
+      "TSD019",
+      "TSD027",
+      "TSD030",
+      "TSD039"
+    ],
+    "TSD030": [
+      "TSD020",
+      "TSD028",
+      "TSD029",
+      "TSD040"
+    ],
+    "TSD031": [
+      "TSD021",
+      "TSD032",
+      "TSD033"
+    ],
+    "TSD032": [
+      "TSD022",
+      "TSD031",
+      "TSD034"
+    ],
+    "TSD033": [
+      "TSD023",
+      "TSD031",
+      "TSD034"
+    ],
+    "TSD034": [
+      "TSD024",
+      "TSD032",
+      "TSD033"
+    ],
+    "TSD035": [
+      "TSD025",
+      "TSD036",
+      "TSD037"
+    ],
+    "TSD036": [
+      "TSD026",
+      "TSD035",
+      "TSD038"
+    ],
+    "TSD037": [
+      "TSD027",
+      "TSD035",
+      "TSD038",
+      "TSD039"
+    ],
+    "TSD038": [
+      "TSD028",
+      "TSD036",
+      "TSD037",
+      "TSD040"
+    ],
+    "TSD039": [
+      "TSD029",
+      "TSD037",
+      "TSD040"
+    ],
+    "TSD040": [
+      "TSD030",
+      "TSD038",
+      "TSD039"
+    ]
+  }
+}
