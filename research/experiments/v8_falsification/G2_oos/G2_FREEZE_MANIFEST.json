@@ -1,0 +1,63 @@
+{
+  "gate": "G2_TEMPORAL_OOS_PROTOCOL_FREEZE",
+  "timestampUTC": "2026-09-03T01:53:00.000Z",
+  "gitBaselineCommit": "40c85a1",
+  "engineUnderAudit": {
+    "name": "InstitutionalQuantSignalEngine",
+    "version": "1.1.0",
+    "path": "packages/lyzer-shared/src/providers/institutional_quant_signal_engine.js",
+    "sha256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+    "status": "LOCKED_ZERO_MODIFICATIONS"
+  },
+  "datasetUnderAudit": {
+    "path": "research/datasets/batch039/BTCUSDT_1h.json",
+    "sha256": "d2ab2b0234ee372cd01ba56cc9e952a0bc0d05802dcc2a8ed07b4e022011a79f",
+    "totalBars": 32136
+  },
+  "chineseWallSpecification": {
+    "inSample": {
+      "range": [
+        "2023-01-01T00:00:00.000Z",
+        "2024-12-30T23:00:00.000Z"
+      ],
+      "bars": [
+        0,
+        17519
+      ],
+      "count": 17520
+    },
+    "embargo": {
+      "range": [
+        "2024-12-31T00:00:00.000Z",
+        "2025-01-04T03:00:00.000Z"
+      ],
+      "bars": [
+        17520,
+        17619
+      ],
+      "count": 100
+    },
+    "outOfSample": {
+      "range": [
+        "2025-01-04T04:00:00.000Z",
+        "2026-08-31T23:00:00.000Z"
+      ],
+      "bars": [
+        17620,
+        32135
+      ],
+      "count": 14516
+    }
+  },
+  "protocolArtifacts": {
+    "G2_PROTOCOL.md": {
+      "sha256": "588d5bbe688f6666de7c328c7057bbbe474f54362053ca13c77954d991c3977e",
+      "sizeBytes": 6711
+    },
+    "run_g2_oos.js": {
+      "sha256": "bdf115f0bdc52dc9922ceb4d8abfd01575ec9e784f75f80b43ae597d08ddeb5e",
+      "sizeBytes": 16681
+    }
+  },
+  "executionState": "BLOCKED_AWAITING_EXPLICIT_AUTHORIZATION"
+}
