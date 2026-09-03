@@ -3,7 +3,7 @@
   "program": "ALPHA_CONFIRMATION_H011",
   "hypothesisId": "H011",
   "timestampUTC": "2026-09-03T05:22:00.000Z",
-  "executionStatus": "AUTHORIZED_AND_UNSEALED",
+  "executionStatus": "EXECUTED_AND_PERMANENTLY_LOCKED",
   "virginDataAccess": "AUTHORIZED",
   "immutableHashes": {
     "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
@@ -16,14 +16,14 @@
   "confirmatoryCandidate": {
     "compressionThreshold": 0.65,
     "breakoutLookback": 40,
-    "volumeMultiplier": 1.50,
+    "volumeMultiplier": 1.5,
     "riskRewardRatio": "1:5",
     "riskFormula": "max(1.5 * ATR24, 0.0080 * Close)",
     "timeoutHours": 72,
     "singlePositionPolicy": "SINGLE_CONCURRENT_POSITION_PER_ASSET"
   },
   "costAccounting": {
-    "exchangeFeeRoundTrip": 0.0010,
+    "exchangeFeeRoundTrip": 0.001,
     "slippageBase": 0.0002,
     "allInRateNormalExit": 0.0012,
     "doubleCountingFixed": true
@@ -54,5 +54,7 @@
     "gate3_profitFactor": ">= 1.30",
     "gate4_minTrades": ">= 150",
     "gate5_maxDrawdown": "<= 30.0R"
-  }
+  },
+  "executedAtUTC": "2026-09-03T05:22:09.937Z",
+  "finalVerdict": "FAIL"
 }
