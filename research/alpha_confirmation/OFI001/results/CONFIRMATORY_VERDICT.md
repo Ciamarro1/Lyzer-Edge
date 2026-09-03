@@ -41,7 +41,7 @@ Na replicação direta da especificação congelada em ETHUSDT:
 - O sinal inverteu para **$IC = -0,0266$** ($t_{\text{HAC}} = -1,02, p_{\text{block}} = 0,3566$).
 - O retorno médio líquido por trade foi de **$-47,82\text{ bps}$**.
 - O modelo incremental não detectou significância ($\beta_{\text{OFI}} = 0,0233, t = 0,51, \Delta R^2 = 0,025\%$).
-- Essa divergência refuta a hipótese de uma propriedade estrutural transversal e universal do OFI.
+- A alegação específica de generalização da configuração OFI001 não sobreviveu à replicação histórica pré-registrada.
 
 ### C. Conexão com o Discovery AD001
 Os resultados são consistentes com seleção múltipla, heterogeneidade de microestrutura ou dependência estrita de regime, não fornecendo evidência empírica suficiente para distinguir essas hipóteses no presente holdout.

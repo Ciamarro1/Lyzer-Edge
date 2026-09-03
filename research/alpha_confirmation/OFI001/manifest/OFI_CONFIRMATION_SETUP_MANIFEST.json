@@ -1,6 +1,6 @@
 {
   "program": "OFI-CONFIRMATION-SETUP-001",
-  "timestampUTC": "2026-09-03T03:52:00.275Z",
+  "timestampUTC": "2026-09-03T04:10:55.224Z",
   "engineFrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
   "candidateClassification": "SPECIFIC_GENERALIZATION_CLAIM_FALSIFIED (NOT ALPHA)",
   "populationClassification": "Historical Untouched Replication Set (Reverse-Temporal Historical Holdout)",
@@ -23,7 +23,7 @@
   },
   "centralPrimaryHypothesis": "BTCUSDT (L=6h, H=24h)",
   "directReplication": "ETHUSDT (L=6h, H=24h)",
-  "executionStatus": "AUDITED_AND_COMPLETED",
+  "executionStatus": "ARCHIVED_CLOSED",
   "executionIntegrityAudit": "AUDITED_BENIGN_TYPING_BUG_FIX",
   "overallVerdict": "FAIL (SPECIFIC GENERALIZATION CLAIM FALSIFIED)",
   "artifacts": {
@@ -96,8 +96,8 @@
       "sizeBytes": 2102
     },
     "results/CONFIRMATORY_VERDICT.md": {
-      "sha256": "66d32adc182dc6e4ebb47b11384c899c4936c861a011eb1e682c4488e16d92a7",
-      "sizeBytes": 5538
+      "sha256": "c7e7e104a4d2c1441b934a6ee815eed3c4c87bb97bf20f9d6ed2c8c95c837555",
+      "sizeBytes": 5568
     },
     "results/EXECUTION_INTEGRITY_AUDIT.md": {
       "sha256": "6eb7cb5e4eb9ef37848ef16730fb97e51e5c366bb516ac58944566ab826827ef",
