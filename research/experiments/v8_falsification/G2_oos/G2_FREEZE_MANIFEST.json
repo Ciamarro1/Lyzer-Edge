@@ -1,7 +1,7 @@
 {
-  "gate": "G2_TEMPORAL_OOS_PROTOCOL_FREEZE_v2",
-  "timestampUTC": "2026-09-03T01:55:00.000Z",
-  "gitBaselineCommit": "b1cacc3",
+  "gate": "G2_TEMPORAL_OOS_PROTOCOL_FREEZE_v2_1",
+  "timestampUTC": "2026-09-03T01:59:00.000Z",
+  "gitBaselineCommit": "d0aca03",
   "engineUnderAudit": {
     "name": "InstitutionalQuantSignalEngine",
     "version": "1.1.0",
@@ -49,22 +49,23 @@
         32135
       ],
       "count": 14492,
-      "note": "20 civil months of blind forward testing"
+      "note": "Approximately 20 months of blind forward testing (14,492 hours)"
     }
   },
   "methodologyUpdates": {
     "inference": "Newey-West HAC (L=5 lags) for trade returns and IC",
     "friction": "Fixed exogenous 10 bps (0.10%) round-trip per trade",
-    "timeline": "Continuous hourly portfolio tracking"
+    "timeline": "Continuous hourly portfolio tracking",
+    "retentionCriterion": "Evaluable iff IC_IS > 0; PASS requires IC_IS > 0 AND IC_OOS > 0 AND (IC_OOS / IC_IS) >= 0.30"
   },
   "protocolArtifacts": {
     "G2_PROTOCOL.md": {
-      "sha256": "7ae05776333f06ea2a663ace7e1920aac2957a7fca5c779921695c816e39f140",
-      "sizeBytes": 7842
+      "sha256": "e43292e857282c0e8d003161b9bc0f722f8d909cf9fd8862784041e5e0c05f2a",
+      "sizeBytes": 8167
     },
     "run_g2_oos.js": {
-      "sha256": "fe552304ecc035d4dc62aea73e7ec687aebce92831b457e8bd269579a22a5d85",
-      "sizeBytes": 18445
+      "sha256": "c59a56b61886656c4d46804573ad64d1ab941dbbcdaf545da3f61c8a045f1906",
+      "sizeBytes": 19146
     }
   },
   "executionState": "BLOCKED_AWAITING_EXPLICIT_AUTHORIZATION"

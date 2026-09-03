@@ -1,10 +1,10 @@
-# Gate G2 — Temporal Out-Of-Sample (OOS) Validation Protocol (v2)
-**Document ID**: `G2_TEMPORAL_OOS_PROTOCOL_v2`  
+# Gate G2 — Temporal Out-Of-Sample (OOS) Validation Protocol (v2.1)
+**Document ID**: `G2_TEMPORAL_OOS_PROTOCOL_v2_1`  
 **Target Engine**: `InstitutionalQuantSignalEngine` (V8, Frozen SHA-256: `fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1`)  
 **Campaign**: `LYZER_EDGE_V8_FREEZE_FALSIFICATION_OOS`  
 **Governance Authority**: Senior Quantitative Architecture Review  
-**Timestamp UTC**: `2026-09-03T01:55:00.000Z`  
-**Execution State**: 🔒 **FROZEN PROTOCOL (v2) — EXECUTION STRICTLY BLOCKED**  
+**Timestamp UTC**: `2026-09-03T01:59:00.000Z`  
+**Execution State**: 🔒 **FROZEN PROTOCOL (v2.1) — EXECUTION STRICTLY BLOCKED**  
 
 ---
 
@@ -26,7 +26,7 @@ The dataset `research/datasets/batch039/BTCUSDT_1h.json` (SHA-256: `d2ab2b02...`
 ```text
 2023-01-01 00:00Z                        2024-12-31 23:00Z    2025-01-05 04:00Z             2026-08-31 23:00Z
 [======================== IN-SAMPLE ========================] [EMBARGO] [================ OUT-OF-SAMPLE ================]
-           17,544 bars (24 civil months, leap year 2024)       100 bars                     14,492 bars (20 civil months)
+           17,544 bars (24 civil months, leap year 2024)       100 bars             14,492 bars (~20 months)
 ```
 
 ### 2.1 In-Sample Period (Historical Reference Baseline)
@@ -41,26 +41,31 @@ The dataset `research/datasets/batch039/BTCUSDT_1h.json` (SHA-256: `d2ab2b02...`
 
 ### 2.3 Out-Of-Sample Period (Blind Temporal Validation)
 - **Time Range**: `2025-01-05T04:00:00.000Z` → `2026-08-31T23:00:00.000Z`
-- **Bar Indices**: `[17644, 32135]` (14,492 hourly bars, exactly 20 calendar months).
+- **Bar Indices**: `[17644, 32135]` (14,492 hourly bars, approximately 20 months: from Jan 5, 2025 to Aug 31, 2026).
 - **Execution Contamination Controls**: At every timestep $t \ge 17644$, the engine consumes strictly past bars `candles.slice(t - 64, t)`. No subsequent candle $t + k$ is accessible to the engine.
 
 ---
 
-## 3. Methodological Revisions from Audit Feedback
+## 3. Methodological Design
 
 ### 3.1 Inference Under Temporal Dependence (HAC Newey-West)
-- **Correction**: We formally retract any claim of "asymptotic independence" derived purely from non-overlapping forward horizons ($H = 10$). Because consecutive evaluations share up to 54 bars of the 64-bar lookback window, and underlying financial regimes exhibit persistence, observations remain potentially correlated.
-- **Implementation**: All hypothesis tests on mean trade returns and Information Coefficients use **Newey-West HAC (Heteroskedasticity and Autocorrelation Consistent)** covariance estimation:
+- All hypothesis tests on mean trade returns and Information Coefficients use **Newey-West HAC (Heteroskedasticity and Autocorrelation Consistent)** covariance estimation:
   $$SE_{\text{HAC}}(\bar{y}) = \sqrt{\frac{1}{N}\left(\hat{\gamma}_0 + 2\sum_{l=1}^L \left(1 - \frac{l}{L+1}\right)\hat{\gamma}_l\right)}$$
-  With fixed pre-registered lag truncation $L = 5$ lags.
+  With fixed pre-registered lag truncation $L = 5$ lags:
   $$t_{\text{HAC}} = \frac{\bar{y}}{SE_{\text{HAC}}(\bar{y})}, \quad p_{\text{HAC}} = 2(1 - \Phi(|t_{\text{HAC}}|))$$
 
 ### 3.2 Fixed Exogenous Execution Friction (10 bps)
-- **Operational Definition**: Trading friction is modeled as a **strictly fixed exogenous cost of 10 bps (0.10% = 0.0010) applied once per round-trip trade** (5 bps deducted on entry, 5 bps deducted on exit), regardless of whether orders are simulated as maker or taker, and independent of trade outcome.
-- Zero discretion or post-hoc adjustment of fee tiers is permitted.
+- Trading friction is modeled as a **strictly fixed exogenous cost of 10 bps (0.10% = 0.0010) applied once per round-trip trade** (5 bps deducted on entry, 5 bps deducted on exit), regardless of order type (maker/taker) or outcome. Zero post-hoc adjustment permitted.
 
-### 3.3 Complete Continuous Timeline
-- In addition to trade-level statistics, the strategy is evaluated continuously across all 14,492 hours of the OOS period, with zero return during flat/abstention periods, properly reflecting real portfolio exposure, cash drag, and continuous maximum drawdown.
+### 3.3 Formalization of Information Coefficient Retention Ratio ($IC_{\text{ratio}}$)
+To prevent mathematical indefiniteness (division by zero) or economic misinterpretation (positive ratio derived from two negative IC values):
+1. **Evaluable Condition**:
+   The retention ratio is mathematically and economically evaluable **if and only if** the In-Sample Information Coefficient is strictly positive:
+   $$IC_{\text{IS}} > 0$$
+   If $IC_{\text{IS}} \le 0$, the retention criterion is formally classified as **`NOT EVALUABLE (NON-POSITIVE IS BASELINE)`**, and **cannot** independently satisfy the retention gate requirement.
+2. **Mandatory Conjunction for Retention PASS**:
+   $$IC_{\text{IS}} > 0 \;\land\; IC_{\text{OOS}} > 0 \;\land\; \left(\frac{IC_{\text{OOS}}}{IC_{\text{IS}}} \ge 0.30\right)$$
+   This ensures that both periods demonstrate genuine directional edge and that OOS retains at least $30\%$ of the in-sample predictive capacity.
 
 ---
 
@@ -88,7 +93,7 @@ For both In-Sample (IS) and Out-Of-Sample (OOS):
    - Maximum Drawdown ($MDD$) on continuous equity curve.
    - Profit Factor ($PF = \frac{\sum \text{Net Wins}}{\sum |\text{Net Losses}|}$).
 4. **Temporal Retention Consistency**:
-   - $IC_{\text{ratio}} = \frac{IC_{\text{OOS}}}{IC_{\text{IS}}}$.
+   - $IC_{\text{ratio}} = \frac{IC_{\text{OOS}}}{IC_{\text{IS}}}$ (subject to $IC_{\text{IS}} > 0$).
    - $\text{Sharpe}_{\text{ratio}} = \frac{\text{Sharpe}_{\text{OOS}}}{\text{Sharpe}_{\text{IS}}}$.
 
 ---
@@ -97,8 +102,8 @@ For both In-Sample (IS) and Out-Of-Sample (OOS):
 
 | Gate Decision | Mandatory Mathematical Conditions |
 |---|---|
-| **PASS** | 1. $IC_{\text{OOS}} > 0$ with HAC-adjusted $p < 0.05$ (statistically significant positive predictive correlation).<br>2. Net Expectancy on OOS $> 0$ (profitable net of 10 bps fixed friction).<br>3. Continuous Strategy Sharpe on OOS $> 0$.<br>4. $IC_{\text{ratio}} \ge 0.30$ (retains at least $30\%$ of in-sample predictive capacity, ruling out catastrophic temporal degradation). |
-| **FAIL** | $IC_{\text{OOS}} \le 0$ OR Net Expectancy on OOS $\le 0$ OR HAC $p \ge 0.05$ (Edge Not Detected Out-of-Sample). |
+| **PASS** | 1. $IC_{\text{OOS}} > 0$ with HAC-adjusted $p < 0.05$ (statistically significant positive predictive correlation).<br>2. Net Expectancy on OOS $> 0$ (profitable net of 10 bps fixed friction).<br>3. Continuous Strategy Sharpe on OOS $> 0$.<br>4. IC Retention: $IC_{\text{IS}} > 0 \;\land\; IC_{\text{OOS}} > 0 \;\land\; \frac{IC_{\text{OOS}}}{IC_{\text{IS}}} \ge 0.30$ (retains at least $30\%$ of in-sample predictive capacity). |
+| **FAIL** | $IC_{\text{OOS}} \le 0$ OR Net Expectancy on OOS $\le 0$ OR HAC $p \ge 0.05$ OR Retention $< 30\%$ when evaluable (Edge Not Detected Out-of-Sample). |
 | **INCONCLUSIVE** | Data corruption, runtime failure, or insufficient trade count ($N_{\text{trades}} < 30$). |
 | **PROTOCOL INVALIDATED** | Parameter modification to V8, threshold adjustment, or temporal leakage across the Chinese Wall. |
 
@@ -106,5 +111,5 @@ For both In-Sample (IS) and Out-Of-Sample (OOS):
 
 ## 6. Execution Governance Constraint
 - **Execution Status**: 🛑 **STRICTLY BLOCKED**
-- The script `run_g2_oos.js` is pre-registered and frozen under `G2_TEMPORAL_OOS_PROTOCOL_v2`.
+- The script `run_g2_oos.js` is pre-registered and frozen under `G2_TEMPORAL_OOS_PROTOCOL_v2_1`.
 - **Execution will occur only after explicit executive authorization.**
