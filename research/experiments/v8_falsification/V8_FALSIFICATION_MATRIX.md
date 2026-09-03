@@ -3,7 +3,8 @@
 | Gate | Test Description | Result | Key Metric | Gate Threshold | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **G0** | **Software / Contract Integrity & Determinism** | **PASS** | Vitest Unit (59/59) + Determinism (250/250) | 0 failures, 100% deterministic | **COMPLETED** |
-| **G1** | **Synthetic Null Falsification (6 Families x 1,000)** | **INCONCLUSIVE** | FPR: 0.05% (Valid), Sharpe/IC Calc Defect (Audited) | FPR $\le 6.5\%$, metric audit required | **INCONCLUSIVE (METRIC DEFECT)** |
+| **G1** | **Synthetic Null Falsification (Historical)** | **INCONCLUSIVE** | FPR: 0.05% (Valid), Micro-Sharpe Defect | FPR $\le 6.5\%$, metric defect audited | **HISTORICAL (INCONCLUSIVE)** |
+| **G1-R1**| **Synthetic Null Revalidation (Complete Universe)** | **PENDING** | Pooled Sharpe, Continuous Sharpe, Fisher-Z IC | Complete accounting, zero survivor bias | 🔒 **PROTOCOL FROZEN (BLOCKED)** |
 | **G2** | Temporal OOS (Pre-registered Chinese Wall) | - | Out-Of-Sample IC, Net Sharpe | IC > 0, Sharpe > 0 OOS | **BLOCKED** |
 | **G3** | Purged + Embargoed Cross-Validation | - | Horizon-adjusted Purge Leakage | Zero temporal leakage | PENDING |
 | **G4** | Multiple Testing Correction (FDR / Holm-Bonferroni / DSR) | - | Family-Wise Error Rate, Adjusted p-value | Adjusted $p < 0.05$ | PENDING |
@@ -16,7 +17,7 @@
 
 ---
 
-### Gate G1 Forensic Audit Reconciliation Breakdown
+### Gate G1 Forensic Audit Historical Record (`commit f16513b`)
 
 | Null Family | Replications ($\ge 3$ Signals) | Original Reported Med. Sharpe | True Pooled Trade Sharpe | True Continuous Strategy Sharpe | True Pooled IC | Status |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |

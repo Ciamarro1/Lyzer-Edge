@@ -1,0 +1,24 @@
+{
+  "gate": "G1_R1_REVALIDATION_PROTOCOL_FREEZE",
+  "timestampUTC": "2026-09-03T01:30:00.000Z",
+  "gitBaselineCommit": "f16513b",
+  "engineUnderAudit": {
+    "name": "InstitutionalQuantSignalEngine",
+    "version": "1.1.0",
+    "path": "packages/lyzer-shared/src/providers/institutional_quant_signal_engine.js",
+    "sha256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+    "status": "LOCKED_ZERO_MODIFICATIONS"
+  },
+  "protocolArtifacts": {
+    "G1_R1_PROTOCOL.md": {
+      "sha256": "d33a9f5a9e9513ffe1a9d546a0aff0db1f53a313cba56f11b23ee7d2ca19ec2d",
+      "sizeBytes": 6542
+    },
+    "run_g1_r1.js": {
+      "sha256": "45bbc62ff6d211f2cb5708d14dedf0d42f9b033baf893cbd8a080a5b8b8a0c71",
+      "sizeBytes": 14578
+    }
+  },
+  "executionState": "BLOCKED_AWAITING_EXPLICIT_AUTHORIZATION",
+  "g2State": "BLOCKED"
+}
