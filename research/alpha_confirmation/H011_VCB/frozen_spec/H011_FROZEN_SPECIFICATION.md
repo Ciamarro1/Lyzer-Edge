@@ -100,29 +100,30 @@ A fricção é separada de maneira inequívoca:
 ## 4. Universo de Ativos e Timeframe
 
 - **Timeframe**: **1 hora (1h)** (fechamento de vela).
-- **Universo de Ativos Primário**:
-  `BTCUSDT`, `ETHUSDT`, `SOLUSDT`, `AVAXUSDT`, `LINKUSDT`, `DOGEUSDT` (6 ativos).
+- **População Confirmatória Virgem (Opção C)**:
+  `BNBUSDT`, `XRPUSDT`, `ADAUSDT`, `SUIUSDT` (4 ativos completamente virgens de mineração em AD002/H011).
 
 ---
 
-## 5. Métrica Primária e Gates Confirmatórios
+## 5. Métrica Primária e Gates Confirmatórios (Thresholds Restaurados)
 
 ### Métrica Primária:
 Média Aritmética Amostral dos Retornos Líquidos em Unidades de R:
 $$E[R]_{\text{net}} = \frac{1}{N} \sum_{i=1}^N r_{\text{net}, i}$$
 
-### Gates de Decisão Pré-Registrados:
-1. **Gate Estatístico Primário (Block Bootstrap sob $H_0$ Centrada)**:
-   - Reamostragem com $B = 10.000$ réplicas e semente fixa `Mulberry32(seed = 555555)`;
-   - Blocos de $L = 10$ trades cronológicos;
+### Gates de Decisão Pré-Registrados (Zero Drift):
+1. **Gate Estatístico Primário (Block Bootstrap Calendário 14d sob $H_0$ Centrada)**:
+   - Reamostragem com $B = 10.000$ réplicas e semente fixa `Mulberry32(seed = 777777)`;
+   - Janelas em tempo calendário de 14 dias agrupando todos os ativos;
    - **Critério de Aprovação:** **$p_{\text{block}} < 0,0500$**.
 2. **Gate Econômico Primário**:
    - **Expectativa Líquida:** **$E[R]_{\text{net}} \ge +0,150R$ por trade**.
-   - **Profit Factor Líquido:** **$\text{PF} \ge 1,25$**.
-3. **Gate Amostral Mínimo**:
-   - **$N_{\text{trades}} \ge 100$ trades independentes** no universo combinado.
-4. **Gate de Cauda e Risco**:
-   - **Drawdown Máximo:** $MDD_R \le 25,0R$.
+3. **Gate de Rentabilidade (Profit Factor)**:
+   - **Profit Factor Líquido:** **$\text{PF} \ge 1,30$** (Restaurado de Charter v2.0 §10.A.2).
+4. **Gate Amostral Mínimo**:
+   - **$N_{\text{trades}} \ge 150$ trades independentes** no universo dos 4 ativos (Restaurado de Charter v2.0 §13.2).
+5. **Gate de Cauda e Risco**:
+   - **Drawdown Máximo:** **$MDD_R \le 30,0R$** (Restaurado de Charter v2.0 §13.3).
 
 ---
 
