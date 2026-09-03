@@ -3,8 +3,8 @@
 | Gate | Test Description | Result | Key Metric | Gate Threshold | Status |
 | :--- | :--- | :---: | :---: | :---: | :---: |
 | **G0** | **Software / Contract Integrity & Determinism** | **PASS** | Vitest Unit (59/59) + Determinism (250/250) | 0 failures, 100% deterministic | **COMPLETED** |
-| **G1** | **Synthetic Null Falsification (6 Families x 1,000)** | **PASS** | Mean FPR: 0.05% (3/6,000), Median IC: 0.0000 | FPR $\le 6.5\%$, no spurious alpha | **COMPLETED** |
-| **G2** | Temporal OOS (Pre-registered Chinese Wall) | - | Out-Of-Sample IC, Net Sharpe | IC > 0, Sharpe > 0 OOS | PENDING |
+| **G1** | **Synthetic Null Falsification (6 Families x 1,000)** | **INCONCLUSIVE** | FPR: 0.05% (Valid), Sharpe/IC Calc Defect (Audited) | FPR $\le 6.5\%$, metric audit required | **INCONCLUSIVE (METRIC DEFECT)** |
+| **G2** | Temporal OOS (Pre-registered Chinese Wall) | - | Out-Of-Sample IC, Net Sharpe | IC > 0, Sharpe > 0 OOS | **BLOCKED** |
 | **G3** | Purged + Embargoed Cross-Validation | - | Horizon-adjusted Purge Leakage | Zero temporal leakage | PENDING |
 | **G4** | Multiple Testing Correction (FDR / Holm-Bonferroni / DSR) | - | Family-Wise Error Rate, Adjusted p-value | Adjusted $p < 0.05$ | PENDING |
 | **G5** | Economic Significance (Fee-Drag, Slippage, Spread, Latency) | - | Net Expectancy, Net PnL, Turnover | Net PnL > 0 after friction | PENDING |
@@ -16,13 +16,13 @@
 
 ---
 
-### Gate G1 Detailed Synthetic Null Breakdown
+### Gate G1 Forensic Audit Reconciliation Breakdown
 
-| Null Family | Replications | Edge Detections | FPR (%) | Median IC | 95% IC | Median Sharpe | Status |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Gaussian IID** | 1,000 | 0 | 0.00% | 0.0000 | 0.0000 | 1.42 | **PASS** |
-| **Student-t IID** | 1,000 | 1 | 0.10% | 0.0000 | 0.8435 | 3.29 | **PASS** |
-| **Random Walk** | 1,000 | 0 | 0.00% | 0.0000 | 0.0220 | 4.30 | **PASS** |
-| **Temporal Shuffle** | 1,000 | 1 | 0.10% | 0.0000 | 0.4901 | -0.78 | **PASS** |
-| **Block Shuffle** | 1,000 | 1 | 0.10% | 0.0000 | 0.1242 | -2.96 | **PASS** |
-| **Volatility Null** | 1,000 | 0 | 0.00% | 0.0000 | 0.5414 | 8.16 | **PASS** |
+| Null Family | Replications ($\ge 3$ Signals) | Original Reported Med. Sharpe | True Pooled Trade Sharpe | True Continuous Strategy Sharpe | True Pooled IC | Status |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Gaussian IID** | 36 / 1,000 (3.6%) | 1.42 | **+0.0330** | **+0.0057** | +0.0305 | **AUDITED** |
+| **Student-t IID** | 28 / 1,000 (2.8%) | 3.29 | **-0.0138** | **-0.0022** | -0.0142 | **AUDITED** |
+| **Random Walk** | 36 / 1,000 (3.6%) | 4.30 | **+0.0178** | **+0.0030** | +0.0144 | **AUDITED** |
+| **Temporal Shuffle** | 28 / 1,000 (2.8%) | -0.78 | **-0.0925** | **-0.0149** | -0.0928 | **AUDITED** |
+| **Block Shuffle** | 33 / 1,000 (3.3%) | -2.96 | **-0.0563** | **-0.0101** | -0.0591 | **AUDITED** |
+| **Volatility Null (GARCH)** | 38 / 1,000 (3.8%) | 8.16 | **-0.0021** | **-0.0004** | -0.0046 | **AUDITED** |

@@ -1,0 +1,16 @@
+{
+  "gate": "G1_STATISTICAL_METRIC_AUDIT",
+  "timestampUTC": "2026-09-03T01:06:02.826Z",
+  "gitBaselineCommit": "b5fb950",
+  "artifacts": {
+    "g1_independent_metric_audit.js": {
+      "sha256": "357a9eb405e89ebe22b0e194d949889f7c400e70ace9c4b3945296a2b63b198f"
+    },
+    "g1_audit_results.json": {
+      "sha256": "68b837425616d88ed29f504a367ad8017dba1ccf55b8f110a860d86394dd6479"
+    },
+    "G1_STATISTICAL_METRIC_AUDIT.md": {
+      "sha256": "acd675d3fedab9a1f8bbf41ba73036b421c8f05d077ca3b35f237964de8a2f69"
+    }
+  }
+}

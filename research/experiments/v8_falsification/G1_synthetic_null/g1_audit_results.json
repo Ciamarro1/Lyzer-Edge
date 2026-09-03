@@ -1,0 +1,182 @@
+{
+  "N1_GAUSSIAN_IID": {
+    "name": "Gaussian IID",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 676,
+      "1": 226,
+      "2": 62,
+      "3": 15,
+      "4+": 21
+    },
+    "replicationsWith3PlusSignals": 36,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": 1.4197,
+      "q95MicroIC": 0,
+      "minMicroSharpe": -93.1,
+      "maxMicroSharpe": 34.41
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 509,
+      "exposurePercentage": 2.99,
+      "pooledMeanReturnPercent": 0.1032,
+      "pooledStdReturnPercent": 3.1325,
+      "truePooledTradeSharpe": 0.033,
+      "trueContinuousStrategySharpe": 0.0057,
+      "pooledTStat": 0.7434,
+      "pooledIC": 0.0305,
+      "pooledICTStat": 0.6875
+    }
+  },
+  "N2_STUDENT_T_IID": {
+    "name": "Student-t IID",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 707,
+      "1": 210,
+      "2": 55,
+      "3": 17,
+      "4+": 11
+    },
+    "replicationsWith3PlusSignals": 28,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": 3.2935,
+      "q95MicroIC": 0.8435,
+      "minMicroSharpe": -121.37,
+      "maxMicroSharpe": 95.23
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 433,
+      "exposurePercentage": 2.55,
+      "pooledMeanReturnPercent": -0.0417,
+      "pooledStdReturnPercent": 3.0297,
+      "truePooledTradeSharpe": -0.0138,
+      "trueContinuousStrategySharpe": -0.0022,
+      "pooledTStat": -0.2861,
+      "pooledIC": -0.0142,
+      "pooledICTStat": -0.2948
+    }
+  },
+  "N3_RANDOM_WALK": {
+    "name": "Random Walk",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 681,
+      "1": 228,
+      "2": 55,
+      "3": 17,
+      "4+": 19
+    },
+    "replicationsWith3PlusSignals": 36,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": 4.2958,
+      "q95MicroIC": 0.022,
+      "minMicroSharpe": -236.4,
+      "maxMicroSharpe": 62.22
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 480,
+      "exposurePercentage": 2.82,
+      "pooledMeanReturnPercent": 0.0632,
+      "pooledStdReturnPercent": 3.5413,
+      "truePooledTradeSharpe": 0.0178,
+      "trueContinuousStrategySharpe": 0.003,
+      "pooledTStat": 0.3907,
+      "pooledIC": 0.0144,
+      "pooledICTStat": 0.3153
+    }
+  },
+  "N4_TEMPORAL_SHUFFLE": {
+    "name": "Temporal Shuffle",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 696,
+      "1": 216,
+      "2": 60,
+      "3": 15,
+      "4+": 13
+    },
+    "replicationsWith3PlusSignals": 28,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": -0.7819,
+      "q95MicroIC": 0.4901,
+      "minMicroSharpe": -52.45,
+      "maxMicroSharpe": 37.12
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 443,
+      "exposurePercentage": 2.61,
+      "pooledMeanReturnPercent": -0.1453,
+      "pooledStdReturnPercent": 1.5716,
+      "truePooledTradeSharpe": -0.0925,
+      "trueContinuousStrategySharpe": -0.0149,
+      "pooledTStat": -1.9462,
+      "pooledIC": -0.0928,
+      "pooledICTStat": -1.9574
+    }
+  },
+  "N5_BLOCK_SHUFFLE": {
+    "name": "Block Shuffle",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 639,
+      "1": 250,
+      "2": 78,
+      "3": 15,
+      "4+": 18
+    },
+    "replicationsWith3PlusSignals": 33,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": -2.9634,
+      "q95MicroIC": 0.1242,
+      "minMicroSharpe": -80.66,
+      "maxMicroSharpe": 198.7
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 548,
+      "exposurePercentage": 3.22,
+      "pooledMeanReturnPercent": -0.0984,
+      "pooledStdReturnPercent": 1.7472,
+      "truePooledTradeSharpe": -0.0563,
+      "trueContinuousStrategySharpe": -0.0101,
+      "pooledTStat": -1.3181,
+      "pooledIC": -0.0591,
+      "pooledICTStat": -1.3825
+    }
+  },
+  "N6_VOLATILITY_NULL": {
+    "name": "GARCH Null",
+    "replications": 1000,
+    "signalCountHistogram": {
+      "0": 664,
+      "1": 226,
+      "2": 72,
+      "3": 17,
+      "4+": 21
+    },
+    "replicationsWith3PlusSignals": 38,
+    "originalMetricsReported": {
+      "medianMicroSharpeAnnualized": 8.1649,
+      "q95MicroIC": 0.5414,
+      "minMicroSharpe": -68.16,
+      "maxMicroSharpe": 184.51
+    },
+    "independentAuditMetrics": {
+      "totalEvaluations": 17000,
+      "totalDirectionalTrades": 537,
+      "exposurePercentage": 3.16,
+      "pooledMeanReturnPercent": -0.0093,
+      "pooledStdReturnPercent": 4.4844,
+      "truePooledTradeSharpe": -0.0021,
+      "trueContinuousStrategySharpe": -0.0004,
+      "pooledTStat": -0.0482,
+      "pooledIC": -0.0046,
+      "pooledICTStat": -0.1061
+    }
+  }
+}
