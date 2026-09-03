@@ -1,9 +1,11 @@
 {
   "program": "ALPHA_DISCOVERY_AD003",
   "title": "Temporal Scale Dependence of Volatility Compression Breakouts",
-  "timestampUTC": "2026-09-03T05:50:22.388Z",
+  "timestampUTC": "2026-09-03T05:54:59.506Z",
   "engineV8FrozenSHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
   "status": "PENDING_EXECUTIVE_HOMOLOGATION",
+  "fdrProcedure": "BENJAMINI_YEKUTIELI_2001",
+  "sampleSizeCriterion": "N_MIN_60_OBSERVED_ELIGIBLE_TRADES_WITHOUT_INDEPENDENCE_ASSUMPTION",
   "dataFirewallStatus": {
     "discoveryPopulation2023_2024": "BLOCKED_PENDING_HOMOLOGATION",
     "confirmatoryHoldout2025_2026": "PERMANENTLY_LOCKED_UNDER_CHINESE_WALL",
@@ -17,6 +19,10 @@
     "charter/AD003_CONSTITUTIONAL_ADDENDUM.md": {
       "sha256": "e8437c88ea98e33cbe253d22201fda68c8bb70bbab091a314f2f1cda78e9ec03",
       "sizeBytes": 11264
+    },
+    "charter/AD003_CONSTITUTIONAL_CLARIFICATION_PATCH.md": {
+      "sha256": "de0c730e486c1c481ec7ae39a2dc342dd467822fb1a57ccc7bfe55f4e9a0f3c5",
+      "sizeBytes": 5995
     },
     "spec/TSD_40_HYPOTHESIS_MATRIX.json": {
       "sha256": "ddeba7ae2a70b359f176593744d60855320dd32c5346ba79d97d681df651cfc0",
