@@ -89,6 +89,11 @@ async function main() {
     for (let t = spec.parameters.lookbackL; t < n - H - 1; t++) {
       if (t <= inPosUntil) continue;
 
+      // Strictly enforce holdout temporal window for executed trades
+      if (candles[t + 1].timestamp < spec.holdoutPopulation.startMs || candles[t + H].timestamp > spec.holdoutPopulation.endMs) {
+        continue;
+      }
+
       const curZ = stats.zScores[t];
       if (curZ <= Z_THRESHOLD) {
         // Trigger: LONG

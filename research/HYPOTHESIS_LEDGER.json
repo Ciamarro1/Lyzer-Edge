@@ -166,5 +166,21 @@
     },
     "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(16)=3.3807",
     "diagnosticNote": "AD004 evaluated 16 cells across 6 assets (13,158 observations). Structural asymmetry established: Short Squeeze delivered monotonic expectancy up to +0.265R (PF=1.95, p=0.0432, N=170), while Long Flush was definitively falsified. Direct automatic promotion blocked due to mixed-grid BY FDR multiplicity penalty (q_BY=1.0000). Candidate isolated as H012 for independent frozen confirmatory charter. Holdout 2025-2026 remains 100% sealed."
+  },
+  {
+    "id": "H012",
+    "date": "2026-09-03T08:15:00.000Z",
+    "parentBatch": "AD004_FUNDING_SQUEEZE",
+    "hypothesis": "Perpetual Short Squeeze via Funding Dislocation (Z <= -2.5, H=24h, 8h candles)",
+    "economicRationale": "Extreme dislocation in perpetual futures funding rates indicates crowded leveraged short positioning. Upon exhaustion, stop-loss and margin liquidations trigger violent short squeezes while long positions capture funding cash flows.",
+    "status": "ARCHIVED",
+    "result": "REJECTED / NOT CONFIRMED",
+    "class": "CONFIRMATORY FAILURE",
+    "pValue": 0.7301,
+    "sampleSize": 192,
+    "meanNetR": -0.046,
+    "profitFactor": 0.89,
+    "maxDrawdownR": 17.34,
+    "reasonForRejection": "Confirmatory claim not confirmed. Evaluated on Virgin Temporal Holdout (2025-01-01 to 2026-08-31) across the 6 core assets. Sample size gate was met (N = 192 >= 100), but strategy failed primary statistical significance (p_block = 0.7301 >= 0.0500) and economic expectancy (E[R] = -0.046R < +0.150R, PF = 0.89). While BTC (+0.018R), AVAX (+0.102R), and DOGE (+0.279R) remained mildly positive, ETH (-0.263R, PF=0.54) and SOL (-0.348R, PF=0.40) suffered severe trend-bleed during negative funding regimes, overwhelming the collected funding cash flows. Under institutional rules, re-testing or parameter optimization on the holdout is strictly forbidden. Production promotion is PERMANENTLY BLOCKED."
   }
 ]

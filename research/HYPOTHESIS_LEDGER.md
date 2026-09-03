@@ -20,14 +20,13 @@ This ledger maintains a permanent, immutable record of all scientific hypotheses
 | **H011** | AD002 / H011_VCB | Volatility Compression Breakout (θ=0.65, K=40, v=1.50, 1:5 RR) | Confirmatory claim rejected/not confirmed on Virgin Population C (BNB/XRP/ADA/SUI). Primary statistical gate failed ($p_{\text{block}} = 0.0945 \ge 0.0500$) and minimum sample-size gate failed ($N = 50 < 150$). Economic signal was positive ($E[R] = +0.589R$, $\text{PF} = 1.77$, 4/4 assets positive), but sample power is insufficient to confirm. Economic mechanism NOT falsified, but production promotion is permanently blocked. |
 | **AD003** | AD003_TSD | Temporal Scale Dependence of Volatility Compression Breakouts (15m, 30m, 2h, 4h, 1:5 RR) | Discovery failure: 0/40 hypotheses met joint criteria ($N \ge 60$ observed eligible trades and $q_{\text{BY}} < 0.0500$). Apparent significance in 4 cells proved to be mechanical artifact of centered bootstrap on $N \le 4$. Setups in 15m/30m filtered by 80 bps feasibility floor; setups in 2h/4h suffered structural event density scarcity over 2 years. Economic mechanism NOT falsified, but scale invariance hypothesis remains unestablished. All promotions blocked; holdout 2025–2026 untouched and permanently sealed. |
 | **AD004** | AD004_FUNDING | Perpetual Funding Rate Dislocation & Squeeze Mechanics (8h, 2023–2024 Discovery) | Discovery completed (16 cells, 13,158 observations). Structural asymmetry isolated: Short Squeeze (buying on extreme negative funding $Z \le -2.5, H=24\text{h}$) yielded $E[R] = +0.265R$, $\text{PF} = 1.95$, $p_{\text{block}} = 0.0432$, $N = 170$ with 5/6 assets positive (BTC PF=4.35, ETH PF=5.15). Long Flush (shorting on positive funding) was falsified. Direct automatic promotion from mixed grid blocked by BY multiplicity penalty ($q_{\text{BY}} = 1.0000$). Candidate isolated as H012 for frozen confirmatory charter. Holdout 2025–2026 untouched. |
+| **H012** | AD004 / H012_FUNDING | Perpetual Short Squeeze via Funding Dislocation ($Z \le -2.5, H=24\text{h}$) | Confirmatory claim rejected/not confirmed on Virgin Temporal Holdout (2025–2026). Sample size was sufficient ($N = 192 \ge 100$), but strategy failed primary statistical significance ($p_{\text{block}} = 0.7301 \ge 0.0500$) and economic expectancy ($E[R] = -0.046R < +0.150R$, $\text{PF} = 0.89$, $\text{MaxDD} = 17.34R$). In 2025–2026, protracted altcoin bleeding during negative funding (ETH $-0.263R$, SOL $-0.348R$) overwhelmed the collected funding cash flows. Generalization claim falsified; production promotion is permanently blocked. |
 
 ---
 
 ## 🟡 EXPLORATORY HYPOTHESES (IN PROGRESS)
 
-| ID | Batch | Hypothesis | Status | Note |
-|----|-------|------------|--------|------|
-| **H012** | AD004 | Perpetual Short Squeeze via Funding Dislocation ($Z \le -2.5, H=24\text{h}$) | CANDIDATE ISOLATED | Isolated from AD004 Discovery ($E[R]=+0.265R, \text{PF}=1.95, p=0.0432, N=170$). Awaiting frozen Confirmatory Charter. |
+*None active.*
 
 ## 🟢 CONFIRMED HYPOTHESES (PRODUCTION READY)
 *None active.*

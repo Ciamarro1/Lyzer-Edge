@@ -1,0 +1,95 @@
+{
+  "hypothesisId": "H012",
+  "name": "Perpetual Short Squeeze via Funding Dislocation",
+  "executionDateUTC": "2026-09-03T08:12:24.797Z",
+  "holdoutWindow": {
+    "type": "TEMPORAL_HOLDOUT_VIRGIN",
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "targetAssets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "AVAXUSDT",
+      "LINKUSDT",
+      "DOGEUSDT"
+    ],
+    "timeframe": "8h"
+  },
+  "totalEligibleTrades": 192,
+  "meanNetR": -0.046,
+  "ci95Lower": -0.191,
+  "ci95Upper": 0.115,
+  "pBlock": 0.7301,
+  "profitFactor": 0.89,
+  "maxDrawdownR": 17.34,
+  "perAssetStats": {
+    "BTCUSDT": {
+      "nTrades": 33,
+      "meanNetR": 0.018,
+      "profitFactor": 1.05,
+      "winRate": 57.6
+    },
+    "ETHUSDT": {
+      "nTrades": 26,
+      "meanNetR": -0.263,
+      "profitFactor": 0.54,
+      "winRate": 50
+    },
+    "SOLUSDT": {
+      "nTrades": 32,
+      "meanNetR": -0.348,
+      "profitFactor": 0.4,
+      "winRate": 46.9
+    },
+    "AVAXUSDT": {
+      "nTrades": 37,
+      "meanNetR": 0.102,
+      "profitFactor": 1.27,
+      "winRate": 56.8
+    },
+    "LINKUSDT": {
+      "nTrades": 46,
+      "meanNetR": -0.005,
+      "profitFactor": 0.99,
+      "winRate": 45.7
+    },
+    "DOGEUSDT": {
+      "nTrades": 18,
+      "meanNetR": 0.279,
+      "profitFactor": 2.01,
+      "winRate": 55.6
+    }
+  },
+  "gatesAudit": {
+    "gate1_statisticalSignificance": {
+      "required": "p < 0.0500",
+      "realized": 0.7301,
+      "pass": false
+    },
+    "gate2_minimumSampleSize": {
+      "required": "N >= 100",
+      "realized": 192,
+      "pass": true
+    },
+    "gate3_economicExpectancy": {
+      "required": "E[R] >= +0.150R",
+      "realized": -0.046,
+      "pass": false
+    },
+    "gate4_crossAssetBreadth": {
+      "required": ">= 4/6 assets",
+      "realized": "3/6",
+      "pass": false
+    },
+    "gate5_maximumDrawdown": {
+      "required": "MDD <= 15.0R",
+      "realized": 17.34,
+      "pass": false
+    },
+    "allGatesPassed": false
+  },
+  "finalVerdict": "REJECTED_NOT_CONFIRMED"
+}
