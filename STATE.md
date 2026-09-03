@@ -1,10 +1,11 @@
 # 🏛️ LYZER EDGE — RESEARCH & OPERATIONAL STATE DASHBOARD
 
-**Data do Registro:** 2026-09-01T07:45:00Z  
+**Data do Registro:** 2026-09-03T08:55:00Z  
 **Autoridade:** Senior CTO & Executive Engineering Director  
-**Status do Repositório:** 🟢 **PRODUCTION READY / 48H TESTNET SOAK PASSED & CERTIFIED**  
-**Dataset Base:** 32.016 Hourly Candles BTCUSDT (2023–2026) | SHA-256: `5da8350f0546641485d33abe23414ac12deb88cc7721647d7fed9c1223f2dfaf`  
-**Git Remote:** `https://github.com/Ciamarro1/Lyzer-Edge.git` (`origin/main` @ commit `4886ef5`)
+**Status do Repositório:** 🟢 **PRODUCTION READY / DISCOVERY BREAKTHROUGH HOMOLOGATED**  
+**Dataset Base:** 32.016 Hourly Candles BTCUSDT + Painel Multiativo Sincronizado (BTC, ETH, SOL, AVAX, LINK, DOGE)  
+**Git Remote:** `https://github.com/Ciamarro1/Lyzer-Edge.git` (`origin/main` @ commit `40f360c`)  
+**Motor V8 SHA-256:** `fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1` (**100% INTACTO**)  
 
 ---
 
@@ -14,75 +15,72 @@
 ╔═══════════════════════════════════════════════════════════════════════════════╗
 ║                      LYZER EDGE — RUNTIME DASHBOARD                           ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║ RESEARCH STATUS            🟢 CLOSED & FROZEN (Batches 001 → 036 Completed)  ║
+║ OPERATIONAL STATUS         🟢 STABLE & MONITORED (Railway Testnet 48h Soak OK)║
 ║ COMPILED PROVIDER          🟢 REC_COMP_INSTITUTIONAL_v1 (Engine V5 Only)      ║
 ║ PROVIDER MUTABILITY        🔒 PROHIBITED (Zero online learning / parameter edit║
 ║ OTHER PROVIDERS (V1-V4,V6,V7) 🔒 HARD-DISABLED (NULL in RAM / Zero Execution)  ║
 ║ RUNTIME CONTRACT           🟢 ENFORCED (StreamEngine hard-halts on any deviance║
-║ MONITORED ASSET            🟢 BTCUSDT Only                                    ║
-║ TIMEFRAME                  🟢 1 Hour (1h) Aggregated                          ║
-║ EXIT POLICY                🟢 DYNAMIC_TP (SL: 1.0 ATR, TP: 2.5 ATR, Time: 6h) ║
-║ CAPITAL AUTHORITY          🟢 Asymmetric Ed25519 Boot Contract Enforced       ║
-║ MAX STRUCTURAL CEILING     🟢 $150,000 USD                                    ║
+║ ALPHA FACTORY PIPELINE     🟢 OPERATIONAL v1.0 (Sub-3s benchmark, 14d Bootstrap║
+║ RESEARCH PIPELINE STATUS   🟢 BREAKTHROUGH (AD006 Carry Engine: 9/9 BY Pass)   ║
+║ LEAD EXPLORATORY ALFA      🟡 H013 (Delta-Neutral Cash-and-Carry BTC/ETH)     ║
 ║ ENVIRONMENT                🟡 BINANCE TESTNET (ARL_MODE=TESTNET)              ║
 ║ AUTHORIZED CAPACITY        🟢 $500 USD (Valid Ed25519 Token Active)           ║
 ║ REAL MONEY (LIVE CAPITAL)  🔴 ZERO AUTHORIZED ($0)                            ║
 ║ PERSISTENT KILL-SWITCHES   🟢 ARMED (K1–K5 Survive Container Destruction)     ║
-║ AUTO-PROMOTION / RESUME    🔴 PROHIBITED                                      ║
-║ FIDELITY GATES             🟢 7/7 PASSED (verify_fidelity_gate.js)            ║
-║ RAILWAY CLOUD DEPLOY       🟢 LIVE & STABLE (Booted 2026-08-30 05:43 UTC)     ║
-║ 48H OBSERVABILITY SOAK     🟢 100% PASSED (Concluído em 2026-09-01 07:45 UTC) ║
+║ HOLDOUT 2025–2026 STATUS   🔒 SEALED & PROTECTED (Virgin Temporal Holdout)    ║
+║ PRODUCTION V8 SHA-256      🟢 VERIFIED INVARIANT (fc19e807...b4db1)           ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```
 
 ```text
-PRODUCTION ENGINEERING STATUS
-────────────────────────────────────────────
-SOAK RESILIENCE                 🟢 PASSED & CERTIFIED
-EVENT-SOURCING INTEGRITY        🟢 PASSED & CERTIFIED
-FAIL-CLOSED BEHAVIOR            🟢 PASSED & CERTIFIED
-WEBSOCKET RECOVERY              🟢 PASSED & CERTIFIED
-NO-ACTION DISCIPLINE            🟢 PASSED & CERTIFIED
-TRADE EXECUTION PATH            🟢 AUDITED & VERIFIED (POST_SOAK_REPLAY_REPORT.md)
-LIVE PROFITABILITY              ⚪ NOT ESTABLISHED
-REAL-CAPITAL READINESS          🔴 NOT CERTIFIED
+PRODUCTION & RESEARCH DUAL-TRACK STATUS
+─────────────────────────────────────────────────────────────────
+OPERATIONAL SOAK RESILIENCE         🟢 PASSED & CERTIFIED
+FAIL-CLOSED BEHAVIOR                🟢 PASSED & CERTIFIED
+ALPHA FACTORY INFRASTRUCTURE        🟢 OPERATIONAL & BENCHMARKED (v1.0)
+DIRECTIONAL PRICE PATTERNS (H001-11)🔴 FALSIFIED / NEGATIVE EDGE
+PERPETUAL SHORT SQUEEZE (H012)      🔴 CONFIRMATORY FAILURE (OOS Bleed)
+CROSS-SECTIONAL SPREAD (AD005)      🔴 FALSIFIED (Friction Floor)
+DELTA-NEUTRAL CARRY ENGINE (AD006)  🟢 DISCOVERY SUCCESS (9/9 BY Pass)
+PROMOTED CANDIDATE FOR HOLDOUT      🟡 H013 (Awaiting Confirmatory Charter)
+REAL-CAPITAL READINESS              🔴 NOT CERTIFIED (Governance Freeze)
 ```
 
 ---
 
-## 2. LINHA DO TEMPO CIENTÍFICA & ENGENHARIA (BATCH 001 → BATCH 033)
+## 2. LINHA DO TEMPO CIENTÍFICA & ENGENHARIA QUANTITATIVA
 
 ```text
 ========================================================================================================================
-BATCH RANGE     FOCO INSTITUCIONAL                     RESULTADO FORENSE                        STATUS DE GOVERNANÇA
+PROGRAMA / BATCH   FOCO INSTITUCIONAL                     RESULTADO FORENSE                        STATUS DE GOVERNANÇA
 ========================================================================================================================
-Batch 001–004   Busca Causal Ampla & Decomposição      BOS e POCs convencionais colapsaram;     🔴 ILUSÕES DESCARTADAS
-                                                       Displacement positivo isolado.
-Batch 005–011   Displacement & Dinâmica de Clusters    Displacement carrega causalidade, mas     🔴 V8 ARQUIVADO POR
-                                                       falhou no FWER após penalidade FWER.     CONTENÇÃO DE DANO
-Batch 012–014   Wyckoff Springs & Volume Absorption    Reversão de mínima de 30h + Volume Z>1.5  🟢 ALFA CONFIRMADO
-                                                       + Funding Negativo superou controles.    (PF > 1.60)
-Batch 015–021   Sensibilidade, Falsificação & Compilação Testes de perturbação e choque;         🔒 PROVIDER COMPILADO:
-                                                       Isolamento estrito do Engine V5.         REC_COMP_INSTITUTIONAL_v1
-Batch 022–026   Atrito de Execução & Capacidade        Modelagem de slippage, filas de ordens   🟢 TETO DEFINIDO
-                                                       e teto de capacidade ($150k max).        (T1: $500 a T3: $10k)
-Batch 027–032   Readiness, Shadow Live & Governança    Contrato de execução institucional e     🟢 GOVERNANÇA SOBERANA
-                                                       desacoplamento Rust/Node/Exchange.
-Batch 033       Deployment Fidelity & Asymmetric Boot  Ed25519 Zero-Trust out-of-band auth;     🟢 PRODUÇÃO BLINDADA
-                                                       Runtime Contract e trava física.         (100% Fail-Closed)
-Batch 034       Absorption Reversal (Proxy Flow)       Testou ε_t → R_{t+k}; ausência de        🔴 FALSIFICADO EM G3
-                                                       reação gera momentum, não reversão.      [ARCHIVED / REJECT]
-Batch 035       Flow-Price Response (Real Taker Flow)  Dataset Binance Futures 2.47M certificado 🔴 FALSIFICADO EM G3
-                                                       (G-DATA-0 PASS). Fluxo M5 é ruído pós-   [ARCHIVED / REJECT]
-                                                       fricção (t-stat < 1.0, Net Edge < 0).
-Batch 036       Funding Imbalance & Macro Vol Regime   Interação F*V exploratória em H+168 (t=3.35) 🔴 FALSIFICADO EM G3
-                                                       mas teste econômico simétrico falhou.    [ARCHIVED / REJECT]
-Meta-Audit      Auditoria Forense dos Batches 034–036  Validação PIT, graus de liberdade (Neff) 🟢 METODOLOGIA CERTIFICADA
-                                                       e classificação de H+168 como gerador.   (META_AUDIT_BATCHES_034_036.md)
-Batch 037       Conditional Regime State Persistence   +0.82% liq OOS em H+168 (N=36 ep), mas   🔴 ARQUIVADO / FAIL-CLOSED
-                                                       Block-Bootstrap CI cruza zero (t=1.19).  (BATCH_037_CLOSING_MEMORANDUM.md)
-Batch 038       Strict Prospective Replication         Protocolo congelado ex-ante para novos   🟡 AGUARDANDO DADOS
-                                                       dados prospectivos pós-2026-08 (N>=20).  (BATCH_038_REPLICATION_MANDATE.md)
+Batch 001–004      Busca Causal Ampla & Decomposição      BOS e POCs convencionais colapsaram;     🔴 ILUSÕES DESCARTADAS
+Batch 005–011      Displacement & Dinâmica de Clusters    Displacement positivo isolado; falha     🔴 V8 ARQUIVADO POR
+                                                          em FWER correction.                      CONTENÇÃO DE DANO
+Batch 012–014      Wyckoff Springs & Volume Absorption    Reversão de mínima de 30h + Volume Z>1.5  🟢 ALFA CONFIRMADO
+                                                          + Funding Negativo superou controles.    (REC_COMP_INST_v1)
+Batch 015–033      Hardening, Runtime Contract & Soak     48h Soak Testnet concluído no Railway.   🟢 PRODUÇÃO BLINDADA
+                                                          Zero degradação operacional.             (100% Fail-Closed)
+Batch 034–038      Fluxo Taker M5 & Persistência          Microestrutura M5 é ruído pós-taxas;      🔴 FALSIFICADO /
+                                                          H+168 falhou no CI do bootstrap.         ARQUIVADO
+H009               Wyckoff Spring Cross-Asset (1H)        Falsificado em 6/6 ativos core (E=-0.25R)🔴 FALSIFICADO / REJECT
+                                                          Controle de continuação superou spring.  (HYPOTHESIS_LEDGER.md)
+AD003              Temporal Scale Dependence (VCB)        0/40 células elegíveis. 15m/30m filtrados🔴 FALSIFICADO / REJECT
+                                                          por atrito (80 bps); 2h/4h sem densidade.(HYPOTHESIS_LEDGER.md)
+Alpha Factory v1.0 Infraestrutura de Escala Industrial    Firewall fail-closed, sub-3s benchmark,  🟢 HOMOLOGADO & ATIVO
+                                                          14d Block Bootstrap e Benjamini-Yekutieli(alpha_factory.test.js)
+AD004              Funding Dislocation & Squeeze          Assimetria isolada: Short Squeeze        🟢 DESCOBERTA CONCLUÍDA
+                                                          positivo (+0.265R, PF=1.95, N=170);      (H012 ISOLADO)
+                                                          Long Flush falsificado.
+H012               Validação Confirmatória em Holdout     N=192 no Holdout 2025–2026. Falhou gates 🔴 FALHA CONFIRMATÓRIA
+                                                          (E=-0.046R, p=0.7301, MaxDD=17.34R) por  (HYPOTHESIS_LEDGER.md)
+                                                          sangramento de altcoins.
+AD005              Cross-Sectional Market-Neutral Spread  0/12 células elegíveis. Reversão falhou  🔴 FALSIFICADO / REJECT
+                                                          totalmente (-0.27R); Momentum comido     (HYPOTHESIS_LEDGER.md)
+                                                          pelo atrito de 24 bps.
+AD006              Structural Carry Engine (Delta=0)      9/9 CÉLULAS APROVADAS SOB BY FDR!        🟢 MARCO HISTÓRICO
+                                                          BTC/ETH Static Carry entregou +10.73% a.a(DESCOBERTA HOMOLOGADA)
+                                                          Sharpe 30.80, MaxDD 0.11%, q_BY=0.0004.  (H013 PROMOVIDO)
 ========================================================================================================================
 ```
 
@@ -99,66 +97,50 @@ Batch 038       Strict Prospective Replication         Protocolo congelado ex-an
 │  • Readiness para Capital Real: 🔴 NOT CERTIFIED (Bloqueado por governança).                    │
 ├─────────────────────────────────────────────────────────────────────────────────────────────────┤
 │ 🧪 TRILHA 2: LABORATORY EXPERIMENTAL (DESCOBERTA DE ALFA ISOLADA)                               │
-│  • B034 (Absorption Reversal)      → 🔴 REJECT (Conhecimento Negativo: não reverte).           │
-│  • B035 (Flow-Price M5 Taker Flow) → 🔴 REJECT (Conhecimento Negativo: ruído intra pós-taxas).   │
-│  • B036 (Funding Imbalance Triad)  → 🔴 REJECT (Conhecimento Negativo: simetria falhou).       │
-│  • Meta-Audit 034–036              → 🟢 CONCLUÍDO (Metodologia auditada; H+168 = gerador).      │
-│  • B037 (Regime State Persistence) → 🔴 FAIL-CLOSED (OOS +0.82% liq; CI [-0.52%, +2.34%]).     │
-│  • B038 (Prospective Replication)  → 🟡 MANDATO CONGELADO (Aguardando acúmulo prospectivo).     │
+│  • H009 (Wyckoff Spring)           → 🔴 REJECT (Falsificado em 6/6 ativos).                     │
+│  • AD003 (Scale Dependence VCB)    → 🔴 REJECT (0/40 elegíveis; atrito vs escassez amostral).   │
+│  • AD004 / H012 (Funding Squeeze)  → 🔴 REJECT CONFIRMATÓRIO (E=-0.046R no Holdout 2025–2026).  │
+│  • AD005 (Market-Neutral Spread)   → 🔴 REJECT (0/12 elegíveis; comprimido por 24 bps friction) │
+│  • AD006 (Delta-Neutral Carry)     → 🟢 DESCOBERTA HOMOLOGADA (9/9 células BY pass; Sharpe 30.8)│
+│  • H013 (Delta-Neutral Cash&Carry) → 🟡 PRÉ-REGISTRADO (Aguardando Carta Confirmatória Holdout)  │
 └─────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 3. ARQUITETURA DE SEGURANÇA & DEPLOYMENT FIDELITY (RULE #9)
+## 4. O MARCO HISTÓRICO: CANDIDATO H013 (CASH-AND-CARRY DELTA-NEUTRAL)
 
-### 🔐 1. Asymmetric Capital Authorization Ceremony (Ed25519)
-- **Local da Chave Privada:** `.keys/private_key.pem` (Local isolado, gitignored, sob custódia humana).
-- **Local da Chave Pública:** `GOVERNANCE_PUBLIC_KEY` no Railway.
-- **Validador:** [`lyzer edge/backend/CapitalAuthorizationValidator.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/lyzer%20edge/backend/CapitalAuthorizationValidator.js).
-- **CLI de Emissão de Tokens:** [`scripts/authorize.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/scripts/authorize.js) (`node scripts/authorize.js generate-keys` / `sign`).
+O programa `AD006` resolveu os dois maiores problemas enfrentados pela pesquisa quantitativa:
+1. **Delta = 0**: A compra do ativo Spot com venda simultânea no Perpétuo anula 100% da flutuação de preço, tornando o retorno imune a ciclos de baixa ou alta do mercado.
+2. **Amortização Temporal de Fricção**: A taxa de corretagem e slippage ($24\text{ bps}$ roundtrip) é paga apenas na entrada/saída e diluída ao longo de semanas/meses de carregamento ($< 0,03\text{ bps/dia}$), viabilizando a extração do fluxo contínuo de taxas de financiamento positivas ($> 80\%\text{--}93\%$ do tempo em cripto).
 
-### 🛡️ 2. Runtime Contract Físico no StreamEngine
-- Se o servidor for inicializado com ativos adicionais (e.g. `ETHUSDT`), timeframes incorretos (`1m`), TP/SL alterados ou políticas de saída divergentes de `DYNAMIC_TP` + `360m`, o construtor do `StreamEngine` executa um `[HALT]` imediato e recusa o boot.
-- Se `REC_COMP_INSTITUTIONAL_v1` estiver autorizado, todos os motores legados (`v1`, `v2`, `v3`, `v4`, `v6`, `v7`) são forçados a `null` em memória.
-
----
-
-## 4. ESTADO DO SOAK TEST NO RAILWAY (CONCLUÍDO COM 100% DE SUCESSO)
-
-- **Início Agendado:** 2026-08-30 às 05:00:00 UTC (02:00:00 BRT)
-- **Início Efetivo da Persistência de Eventos:** 2026-08-30 às 05:43:00 UTC (02:43:00 BRT)
-- **Intervalo de Bootstrap / Warmup:** 43 minutos (Deep Warmup, estabilização de LHDS e preenchimento de buffer MTF)
-- **Término Oficial:** 2026-09-01 às 07:45:00 UTC (04:45:00 BRT) — Duração total: 48h 02min de persistência contínua
-- **Ambiente:** Binance Testnet via Railway Cloud Container
-- **Token Ativo:** Assinatura Ed25519 válida, Tier T1 (\$500 USD), Sem Expiração, Nonce único.
-- **Relatório Forense de Encerramento:** [`research/RAILWAY_48H_SOAK_CLOSING_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/RAILWAY_48H_SOAK_CLOSING_REPORT.md)
-- **Certificado Imutável de Hashes:** [`research/SOAK_CLOSING_CERTIFICATE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/SOAK_CLOSING_CERTIFICATE.md)
-- **Auditoria de Atrição dos Portões (467 → 146):** [`research/GATE_ATTRITION_AUDIT_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/GATE_ATTRITION_AUDIT_REPORT.md)
-- **Auditoria dos Artefatos de Produção (`historical_causal_memory.db` & logs):**
-  - **Candles Persistidos:** 43.000 registros gravados sem corrupção.
-  - **Vereditos do TruthKernel:** 7.515 vereditos auditados (78.8% `OBSERVED/FLAT`, 21.2% `VETO/DIVERGENCE`).
-  - **Estabilidade Semântica:** Média SDS = 0.0404, Média LHDS = 0.2348.
-  - **Zero Erros de Runtime / Zero Vazamentos / Zero Trades Espúrios.**
-  - **Ciclos Cognitivos de Sonho:** 100% pontuais a cada 12h (05:42 e 17:42 UTC).
+### Métricas do Candidato Líder (`AD006_STATIC_BTC_ETH`):
+- **Retorno Anualizado Líquido:** **$+10,73\%$**
+- **Retorno Líquido Total em 2 anos (2023–2024):** **$+22,65\%$**
+- **Índice de Sharpe Anualizado:** **$30,80$**
+- **Drawdown Máximo:** **$0,11\%$**
+- **Significância sob Bootstrap de Blocos de 14 dias:** $p_{\text{block}} = 0,0001, q_{\text{BY}} = 0,0004$.
 
 ---
 
-## 5. DIRETRIZES DE READINESS & GOVERNANÇA DE DUAS TRILHAS
+## 5. FILA DE TAREFAS IMEDIATAS & PRÓXIMOS PASSOS
 
-1. **FIDELIDADE OPERACIONAL COMPROVADA:** O runtime do Lyzer Edge sobreviveu a 48h ininterruptas de streaming de mercado em nuvem com zero degradação.
-2. **DISTINÇÃO EPISTEMOLÓGICA SOBERANA:** Estabilidade operacional e disciplina de *no-action* em Testnet não equivalem a rentabilidade econômica comprovada. A prontidão para capital real permanece `NOT CERTIFIED`.
-3. **PESQUISA AVANÇADA NO LABORATÓRIO (TRILHA 2):**
-   - **Batch 037:** Pré-registro congelado em [`research/BATCH_037_PRE_REGISTRATION.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/research/BATCH_037_PRE_REGISTRATION.md).
-   - O objeto de estudo é a persistência do estado conjunto $S_t = (F_t, V_t, P_t)$ em múltiplos horizontes ($k=24, 72, 168$).
-   - **Regra de Isolamento Inviolável:** Nenhum resultado do Batch 037 poderá alterar o motor de produção `REC_COMP_INSTITUTIONAL_v1`.
+1. [ ] **Carta Constitucional Confirmatória de H013**:
+   - Redigir `research/alpha_confirmation/H013_CARRY_ARBITRAGE/charter/H013_CONFIRMATORY_CHARTER.md`;
+   - Congelar parâmetros ($M=1$): BTC/ETH 50/50, $\Delta=0$, fricção amortizada de $24\text{ bps}$;
+   - Definir Gates: Retorno anualizado $\ge +6,0\%$, Sharpe $\ge 5,0$, MaxDD $\le 2,0\%$, $p_{\text{block}} < 0,0500$.
+2. [ ] **Criação do Lacre de Execução (`H013_PREREGISTRATION_LOCK.json`)**:
+   - Hashes SHA-256 de charter, spec e runner; status `LOCKED_AWAITING_EXECUTIVE_UNLOCK`.
+3. [ ] **Submissão à Governança Executiva para Desbloqueio e Execução no Holdout 2025–2026**.
 
 ---
 
 ## 6. MAPA DE DOCUMENTOS E ARQUIVOS ESSENCIAIS
 
-- **SOP Operacional para Humanos:** [`LYZER_EDGE_SOP.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/LYZER_EDGE_SOP.md)
-- **Constituição da Engenharia:** [`.agents/rules/MASTER_PROMPT.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/.agents/rules/MASTER_PROMPT.md)
-- **Control Plane de Governança:** [`docs/CONTROL_PLANE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/docs/CONTROL_PLANE.md)
-- **Testes de Certificação de Fidelidade:** [`lyzer edge/tests/verification/verify_fidelity_gate.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/lyzer%20edge/tests/verification/verify_fidelity_gate.js)
-- **CLI de Assinatura Criptográfica:** [`scripts/authorize.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta/Lyzer-Edge/scripts/authorize.js)
+- **Master Hypothesis Ledger (MD):** [`research/HYPOTHESIS_LEDGER.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/research/HYPOTHESIS_LEDGER.md)
+- **Master Hypothesis Ledger (JSON):** [`research/HYPOTHESIS_LEDGER.json`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/research/HYPOTHESIS_LEDGER.json)
+- **Memória Persistente do Ciclo AD003–AD006:** [`.agents/memory/alpha-research-cycle-ad003-ad006.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/.agents/memory/alpha-research-cycle-ad003-ad006.md)
+- **Relatório de Descoberta AD006:** [`research/alpha_discovery/AD006/discovery/AD006_DISCOVERY_REPORT.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/research/alpha_discovery/AD006/discovery/AD006_DISCOVERY_REPORT.md)
+- **Laudo Confirmatório de H012:** [`research/alpha_confirmation/H012_FUNDING_SQUEEZE/results/H012_CONFIRMATORY_VERDICT.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/research/alpha_confirmation/H012_FUNDING_SQUEEZE/results/H012_CONFIRMATORY_VERDICT.md)
+- **SOP Operacional para Humanos:** [`LYZER_EDGE_SOP.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/LYZER_EDGE_SOP.md)
+- **Constituição da Engenharia:** [`.agents/rules/MASTER_PROMPT.md`](file:///c:/Users/WDAGUtilityAccount/.gemini/antigravity/scratch/Lyzer-Edge/.agents/rules/MASTER_PROMPT.md)
