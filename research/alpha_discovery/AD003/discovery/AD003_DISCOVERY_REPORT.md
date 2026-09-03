@@ -39,9 +39,9 @@ Consequentemente, o cálculo empírico resulta mecanicamente em:
 $$p = \frac{1 + 0}{1 + 10.000} = \frac{1}{10.001} \approx 0,00009999 \dots \approx 0,0001$$
 
 ### 2.2. Veredito sobre os 4 Candidatos Aparentes sob BY:
-- Os p-valores de `TSD004`, `TSD030`, `TSD037` e `TSD038` **não constituem evidência estatística válida de significância**.
-- Trata-se de uma **consequência mecânica da degenerescência do bootstrap centrado sobre amostras microscópicas ($N \le 4$)**.
-- O gate constitucional mandatório **$N_{\text{min\_discovery}} \ge 60$** funcionou exatamente como uma barreira protetora contra essa degenerescência matemática, desqualificando sumariamente tais células antes de qualquer consideração de bacia ou promoção.
+> **4 células produziram p-values degenerados de limite inferior devido a amostras microscópicas; todas foram inelegíveis pelo gate constitucional N ≥ 60. Esses p-values não são interpretados como evidência confirmatória.**
+
+Trata-se de uma consequência mecânica da degenerescência do bootstrap centrado sobre amostras microscópicas ($N \le 4$). O gate constitucional mandatório **$N_{\text{min\_discovery}} \ge 60$** funcionou exatamente como uma barreira protetora contra essa degenerescência matemática, desqualificando sumariamente tais células antes de qualquer consideração de bacia ou promoção.
 
 ---
 
@@ -99,11 +99,17 @@ $$p = \frac{1 + 0}{1 + 10.000} = \frac{1}{10.001} \approx 0,00009999 \dots \appr
 Em alinhamento integral à deliberação da Governança Executiva:
 
 ### 4.1. Ausência de Evidência $\ne$ Falsificação do Mecanismo:
-- O experimento AD003 demonstrou que **nenhuma das 40 configurações estabeleceu evidência empírica suficiente de alfa institucional** sob o contrato de execução fechado (12 bps all-in, $R_{\text{raw}} \ge 80\text{ bps}$, 1:5 RR).
-- Isso **NÃO equivale a falsificar a existência do mecanismo econômico** de expansão de volatilidade após compressão.
-- As causas subjacentes foram estruturais e operacionais:
-  1. **Em 15m e 30m**: A restrição física de viabilidade microestrutural ($R_{\text{raw}} \ge 80\text{ bps}$) filtrou a grande maioria dos sinais, demonstrando que timeframes curtos não expandem com amplitude suficiente para absorver atritos institucionais de forma economicamente viável.
-  2. **Em 2h e 4h**: A baixa contagem total de barras no histórico de 2 anos gerou um problema estrutural de **densidade de eventos**, tornando tais células essencialmente **não informativas por baixa frequência**, e não evidência de alfa negativo.
+> **AD003 — DISCOVERY FAIL / NO CANDIDATE PROMOTED / HYPOTHESIS NOT ESTABLISHED**
+
+- O experimento AD003 demonstrou:
+  1. Nenhuma das 40 configurações atingiu simultaneamente os gates.
+  2. Nenhuma configuração possui amostra mínima ($N \ge 60$).
+  3. Portanto, nenhuma configuração pode ser promovida.
+  4. O desenho testado **não estabeleceu evidência suficiente de alfa institucional**.
+- Isso **NÃO equivale a falsificar a existência do mecanismo econômico** de expansão de volatilidade pós-compressão:
+  - 15m/30m sofrem de forte restrição de elegibilidade pelo filtro de 80 bps.
+  - 2h/4h têm pouquíssimos eventos (escassez de densidade amostral).
+  - Várias células são essencialmente **não informativas por baixa frequência**, e não evidência negativa robusta.
 
 ### 4.2. Classificação Oficial no Master Hypothesis Ledger:
 ```text
