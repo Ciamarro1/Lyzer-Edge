@@ -182,5 +182,20 @@
     "profitFactor": 0.89,
     "maxDrawdownR": 17.34,
     "reasonForRejection": "Confirmatory claim not confirmed. Evaluated on Virgin Temporal Holdout (2025-01-01 to 2026-08-31) across the 6 core assets. Sample size gate was met (N = 192 >= 100), but strategy failed primary statistical significance (p_block = 0.7301 >= 0.0500) and economic expectancy (E[R] = -0.046R < +0.150R, PF = 0.89). While BTC (+0.018R), AVAX (+0.102R), and DOGE (+0.279R) remained mildly positive, ETH (-0.263R, PF=0.54) and SOL (-0.348R, PF=0.40) suffered severe trend-bleed during negative funding regimes, overwhelming the collected funding cash flows. Under institutional rules, re-testing or parameter optimization on the holdout is strictly forbidden. Production promotion is PERMANENTLY BLOCKED."
+  },
+  {
+    "id": "AD005",
+    "date": "2026-09-03T08:30:00.000Z",
+    "parentBatch": "AD005_SPREAD",
+    "hypothesis": "Cross-Sectional Momentum & Market-Neutral Relative Strength Spread (6 assets, 1h timeframe, 2023-2024 Discovery)",
+    "economicRationale": "Cross-sectional return dispersion between leading and lagging cryptoassets allows capturing idiosyncratic spread alpha while hedging systematic market beta to near-zero.",
+    "status": "ARCHIVED",
+    "result": "DISCOVERY FAIL / NO CANDIDATE PROMOTED",
+    "class": "DISCOVERY FAILURE (FRICTION COMPRESSION / SPREAD DECAY)",
+    "mechanismStatus": "CROSS-SECTIONAL REVERSION FALSIFIED; MOMENTUM COMPRESSED BY FRICTION",
+    "evaluatedHypotheses": 12,
+    "eligibleHypotheses": 0,
+    "multiplicityMethod": "Benjamini-Yekutieli (BY, 2001), c(12)=3.1032",
+    "reasonForRejection": "Discovery closed with 0/12 hypotheses meeting joint criteria (p_block < 0.0500 under BY and E[R] >= +0.150R). Sample size was extensive (N = 241 to 729 trades). Cross-sectional mean reversion was comprehensively falsified across all lookbacks (all cells negative down to -0.272R). Cross-sectional momentum showed positive gross drift at 168h lookback (+0.111R), but was insufficient to overcome the 24 bps roundtrip spread friction and achieve statistical significance (p_block = 0.2507, q_BY = 1.0000). All promotions to confirmation are BLOCKED. Holdout 2025–2026 remains 100% sealed and untouched."
   }
 ]

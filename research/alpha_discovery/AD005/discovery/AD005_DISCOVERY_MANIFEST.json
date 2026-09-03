@@ -1,0 +1,32 @@
+{
+  "campaignId": "AD005_CROSS_SECTIONAL_SPREAD_DISCOVERY",
+  "program": "AD005",
+  "timestampUTC": "2026-09-03T08:26:38.422Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "discoveryPeriod": "2023-01-01 to 2024-12-31",
+  "totalBarsProcessed": 105264,
+  "holdoutStatus": "2025-2026 UNTOUCHED AND PERMANENTLY SEALED",
+  "verdict": "DISCOVERY_FAILURE_NO_CANDIDATE_PROMOTED",
+  "artifacts": {
+    "spec/AD005_CAMPAIGN_SPEC.json": {
+      "sha256": "22d102ed0324e172ddf1de4f778350167fbc8d465447ea7ee2e4c3247a029807",
+      "sizeBytes": 3765
+    },
+    "core/ad005_cross_sectional_detector.js": {
+      "sha256": "567717746342ca8fe3ff4c5c422314d55b6f079bc9c16bef3d27e06951860b77",
+      "sizeBytes": 2078
+    },
+    "discovery/run_ad005_discovery.js": {
+      "sha256": "5ec0960972a8929d0c06dea6236f4319d46020cb606a2cd82bb1bab80e5a7a7d",
+      "sizeBytes": 9795
+    },
+    "discovery/AD005_DISCOVERY_RESULTS.json": {
+      "sha256": "0c7b67840bc354412e9733e704d536b544e4752d847f7e808f9e0b9b47c271db",
+      "sizeBytes": 6389
+    },
+    "discovery/AD005_DISCOVERY_REPORT.md": {
+      "sha256": "953964cc10444bd8d97175aa79110f40267a591cdd3e54ce92340aa4cf68ef78",
+      "sizeBytes": 5293
+    }
+  }
+}

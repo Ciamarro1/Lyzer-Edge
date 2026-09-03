@@ -1,0 +1,116 @@
+{
+  "campaignId": "AD005_CROSS_SECTIONAL_SPREAD_DISCOVERY",
+  "program": "AD005",
+  "title": "Cross-Sectional Momentum & Market-Neutral Relative Strength Spread",
+  "family": "CROSS_SECTIONAL_STATISTICAL_ARBITRAGE",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframe": "1h",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "feeRatePerLeg": 0.0005,
+    "slippageRatePerLeg": 0.0001,
+    "roundtripBpsPerLeg": 12,
+    "totalRoundtripBpsPerPair": 24
+  },
+  "riskNormalizer": {
+    "unitRiskPct": 0.015,
+    "description": "1R is normalized to 1.5% pair spread return (typical cross-sectional daily volatility)"
+  },
+  "cells": [
+    {
+      "id": "AD005_CSM_L24_H24",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 24,
+      "rebalanceHours": 24,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 24h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSM_L24_H72",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 24,
+      "rebalanceHours": 72,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 24h past return, rebalanced every 72h"
+    },
+    {
+      "id": "AD005_CSM_L72_H24",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 72,
+      "rebalanceHours": 24,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 72h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSM_L72_H72",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 72,
+      "rebalanceHours": 72,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 72h past return, rebalanced every 72h"
+    },
+    {
+      "id": "AD005_CSM_L168_H24",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 168,
+      "rebalanceHours": 24,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 168h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSM_L168_H72",
+      "strategy": "MOMENTUM",
+      "lookbackHours": 168,
+      "rebalanceHours": 72,
+      "description": "Momentum: Long Top 1, Short Bottom 1 based on 168h past return, rebalanced every 72h"
+    },
+    {
+      "id": "AD005_CSR_L24_H24",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 24,
+      "rebalanceHours": 24,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 24h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSR_L24_H72",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 24,
+      "rebalanceHours": 72,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 24h past return, rebalanced every 72h"
+    },
+    {
+      "id": "AD005_CSR_L72_H24",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 72,
+      "rebalanceHours": 24,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 72h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSR_L72_H72",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 72,
+      "rebalanceHours": 72,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 72h past return, rebalanced every 72h"
+    },
+    {
+      "id": "AD005_CSR_L168_H24",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 168,
+      "rebalanceHours": 24,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 168h past return, rebalanced every 24h"
+    },
+    {
+      "id": "AD005_CSR_L168_H72",
+      "strategy": "MEAN_REVERSION",
+      "lookbackHours": 168,
+      "rebalanceHours": 72,
+      "description": "Mean Reversion: Long Bottom 1, Short Top 1 based on 168h past return, rebalanced every 72h"
+    }
+  ]
+}
