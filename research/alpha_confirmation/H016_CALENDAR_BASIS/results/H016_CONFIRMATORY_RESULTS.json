@@ -1,0 +1,53 @@
+{
+  "hypothesisId": "H016",
+  "verdict": "REJECTED_NOT_CONFIRMED",
+  "executionTimestampUTC": "2026-09-04T23:04:25.973Z",
+  "holdoutPeriod": {
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "label": "2025-01-01 to 2026-08-31 (Virgin Temporal Holdout)"
+  },
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "gates": {
+    "gate1": {
+      "metric": "annualizedNetReturnPct",
+      "threshold": ">= 6%",
+      "realized": 4.07,
+      "pass": false
+    },
+    "gate2": {
+      "metric": "annualizedSharpe",
+      "threshold": ">= 1.5",
+      "realized": 2.02,
+      "pass": true
+    },
+    "gate3": {
+      "metric": "maxDrawdownPct",
+      "threshold": "<= 2%",
+      "realized": 1.3,
+      "pass": true
+    },
+    "gate4": {
+      "metric": "pBlock",
+      "threshold": "< 0.05",
+      "realized": 0.0026,
+      "pass": true
+    },
+    "gate5": {
+      "metric": "deltaResidualCorrelation",
+      "threshold": "< 0.05",
+      "realized": -0.2764,
+      "pass": false
+    }
+  },
+  "metrics": {
+    "totalNetReturnPct": 6.85,
+    "annualizedNetReturnPct": 4.07,
+    "sharpe": 2.02,
+    "maxDrawdownPct": 1.3,
+    "pBlock": 0.0026,
+    "profitFactor": 3.64,
+    "nBlocks": 43,
+    "deltaResidualCorrelation": -0.2764
+  }
+}

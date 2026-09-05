@@ -1,0 +1,125 @@
+{
+  "campaignId": "AD009_BASIS_TERM_STRUCTURE_DISCOVERY",
+  "program": "AD009",
+  "title": "Basis Term Structure & Delivery Calendar Futures Arbitrage",
+  "family": "CALENDAR_BASIS_CASH_AND_CARRY_ARBITRAGE",
+  "targetPairs": [
+    "BTCUSD",
+    "ETHUSD"
+  ],
+  "contractTypes": [
+    "CURRENT_QUARTER",
+    "NEXT_QUARTER"
+  ],
+  "timeframe": "1d",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "futureFeeBps": 5,
+    "slippageBps": 2,
+    "rollOverFeeBps": 10,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "coinMarginRules": {
+    "borrowRateAnnualPct": 0.0,
+    "collateralHaircut": 0.0,
+    "deltaResidualTarget": 0.0,
+    "riskUnit": 0.01
+  },
+  "cells": [
+    {
+      "id": "AD009_BTC_CURRENT_Q_10X",
+      "pair": "BTCUSD",
+      "contractType": "CURRENT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "BTC_100",
+      "description": "Baseline: BTCUSD Spot + Short Current Quarter Delivery Future (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_BTC_NEXT_Q_10X",
+      "pair": "BTCUSD",
+      "contractType": "NEXT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "BTC_100",
+      "description": "BTCUSD Spot + Short Next Quarter Delivery Future (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_ETH_CURRENT_Q_10X",
+      "pair": "ETHUSD",
+      "contractType": "CURRENT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "ETH_100",
+      "description": "Baseline: ETHUSD Spot + Short Current Quarter Delivery Future (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_ETH_NEXT_Q_10X",
+      "pair": "ETHUSD",
+      "contractType": "NEXT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "ETH_100",
+      "description": "ETHUSD Spot + Short Next Quarter Delivery Future (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_DUAL_CURRENT_Q_10X",
+      "pair": "DUAL_BTC_ETH",
+      "contractType": "CURRENT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "50_50",
+      "description": "Dual 50/50 BTC + ETH Spot + Short Current Quarter (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_DUAL_NEXT_Q_10X",
+      "pair": "DUAL_BTC_ETH",
+      "contractType": "NEXT_QUARTER",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "50_50",
+      "description": "Dual 50/50 BTC + ETH Spot + Short Next Quarter (1.0x, 0% borrow)"
+    },
+    {
+      "id": "AD009_DUAL_NEXT_Q_15X",
+      "pair": "DUAL_BTC_ETH",
+      "contractType": "NEXT_QUARTER",
+      "leverage": 1.5,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "50_50",
+      "description": "Dual 50/50 BTC + ETH Next Quarter with 1.5x gearing under Coin-M (0% borrow)"
+    },
+    {
+      "id": "AD009_DUAL_NEXT_Q_20X",
+      "pair": "DUAL_BTC_ETH",
+      "contractType": "NEXT_QUARTER",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "50_50",
+      "description": "Dual 50/50 BTC + ETH Next Quarter with 2.0x gearing under Coin-M (0% borrow)"
+    },
+    {
+      "id": "AD009_DYNAMIC_TERM_SLOPE_10X",
+      "pair": "DYNAMIC",
+      "contractType": "DYNAMIC_SELECTION",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "HIGHEST_ANNUALIZED_BASIS",
+      "description": "Dynamic Rotation: Continuously allocate to the pair/contract with highest annualized basis yield (1.0x)"
+    },
+    {
+      "id": "AD009_DYNAMIC_TERM_SLOPE_20X",
+      "pair": "DYNAMIC",
+      "contractType": "DYNAMIC_SELECTION",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 0.0,
+      "allocation": "HIGHEST_ANNUALIZED_BASIS",
+      "description": "Dynamic Rotation: Allocate to highest annualized basis with 2.0x gearing (0% borrow)"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "hypothesisId": "H013",
+  "title": "Structural Cash-and-Carry Arbitrage via Multi-Asset Perpetual Funding Harvest",
+  "status": "UNLOCKED",
+  "timestampUTC": "2026-09-04T18:57:30.000Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutTarget": "TEMPORAL_HOLDOUT_VIRGIN (2025-01-01 to 2026-08-31)",
+  "executiveUnlockToken": "EXEC_AUTH_TOKEN_HOLDOUT_2025_2026_APPROVED",
+  "unlockAuthorizedBy": "EXECUTIVE_GOVERNANCE_DIRECT_AUTHORIZATION",
+  "fileHashes": {
+    "charter/H013_CONFIRMATORY_CHARTER.md": {
+      "sha256": "83feef60737caa8d7f96ff0537e52a52a3e82cceaf8c3a2a646ef04539ccfaff",
+      "sizeBytes": 7694
+    },
+    "frozen_spec/H013_FROZEN_SPEC.json": {
+      "sha256": "fc60b2674e40964dd7173a1c1e1f1352699c2a2f21c6b9219b8395f29decee6a",
+      "sizeBytes": 1657
+    },
+    "execution/run_h013_confirmatory.js": {
+      "sha256": "93ea70297513057d7ee478a8464da7115770af2d041b428513da4fe93060c337",
+      "sizeBytes": 9984
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "hypothesisId": "H015",
+  "title": "Institutional Portfolio Margin & Leveraged Cash-and-Carry Arbitrage (BTC/ETH 50/50, 2.0x Gearing)",
+  "status": "UNLOCKED",
+  "lockTimestampUTC": "2026-09-04T22:40:00.000Z",
+  "unlockTimestampUTC": "2026-09-04T22:42:00.000Z",
+  "executiveUnlockToken": "EXEC_AUTH_TOKEN_H015_HOLDOUT_APPROVED",
+  "unlockAuthorizedBy": "EXECUTIVE_GOVERNANCE_DIRECT_AUTHORIZATION",
+  "governanceAuthority": "Senior CTO & Executive Engineering Director",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": [
+    {
+      "path": "charter/H015_CONFIRMATORY_CHARTER.md",
+      "sha256": "58e1a93afd1f3898914fc0181e51172a60d7820ac214b8cc08331a43ac1b235e",
+      "bytes": 7164
+    },
+    {
+      "path": "frozen_spec/H015_FROZEN_SPEC.json",
+      "sha256": "f8d6d7a513fcab4c034c30dde0407aa72db5db6a15b58741130419489025e263",
+      "bytes": 1821
+    },
+    {
+      "path": "execution/run_h015_confirmatory.js",
+      "sha256": "39022f96c378a09567f9ead53d9676bfa3b9bca2eec1aed55304b61f8df56101",
+      "bytes": 14393
+    }
+  ],
+  "holdoutPopulation": {
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "timeframe": "8h"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "hypothesisId": "H015",
+  "name": "Institutional Portfolio Margin & Leveraged Cash-and-Carry Arbitrage (BTC/ETH 50/50, 2.0x Gearing)",
+  "timestampUTC": "2026-09-04T22:24:27.441Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "verdict": "REJECTED_NOT_CONFIRMED",
+  "gates": {
+    "gate1_annualizedReturn": {
+      "passed": false,
+      "realizedPct": 4.670347028521005,
+      "threshold": ">= +6.00% a.a."
+    },
+    "gate2_sharpeRatio": {
+      "passed": true,
+      "realized": 13.741886161605462,
+      "threshold": ">= 5.0"
+    },
+    "gate3_maxDrawdown": {
+      "passed": true,
+      "realizedPct": 1.7702074114102633,
+      "threshold": "<= 2.00%"
+    },
+    "gate4_pBlock": {
+      "passed": true,
+      "realized": 0.0001,
+      "threshold": "< 0.0500"
+    },
+    "gate5_directionalIndependence": {
+      "passed": true,
+      "realized": 0,
+      "threshold": "< 0.0500"
+    }
+  },
+  "performance": {
+    "totalNetReturnPct": 7.899973066956023,
+    "annualizedReturnPct": 4.670347028521005,
+    "annualizedSharpe": 13.741886161605462,
+    "maxDrawdownPct": 1.7702074114102633,
+    "minMarginHealthRatio": 10,
+    "timeInMarketPct": 100,
+    "nBlocks": 44,
+    "meanNetRPerBlock": 0.173,
+    "ci95Lower": 0.1,
+    "ci95Upper": 0.241,
+    "pBlock": 0.0001,
+    "profitFactor": 5.06
+  },
+  "holdoutMetadata": {
+    "periodsEvaluated": 1824,
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "leverage": 2,
+    "borrowRateAnnualPct": 3,
+    "roundtripBps": 24
+  }
+}

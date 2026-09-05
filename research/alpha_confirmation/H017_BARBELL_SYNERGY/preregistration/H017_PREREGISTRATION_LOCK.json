@@ -1,0 +1,34 @@
+{
+  "hypothesisId": "H017",
+  "title": "Leveraged Barbell Synergy Allocation (85% Static Carry 1.5x [3% borrow] + 15% Wyckoff Spring 1H Overlay)",
+  "status": "UNLOCKED",
+  "lockTimestampUTC": "2026-09-04T23:50:00.000Z",
+  "unlockTimestampUTC": "2026-09-04T23:55:00.000Z",
+  "executiveUnlockToken": "EXEC_AUTH_TOKEN_H017_HOLDOUT_APPROVED",
+  "unlockAuthorizedBy": "EXECUTIVE_GOVERNANCE_DIRECT_AUTHORIZATION",
+  "governanceAuthority": "Senior CTO & Executive Engineering Director",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": [
+    {
+      "path": "charter/H017_CONFIRMATORY_CHARTER.md",
+      "sha256": "7f8f40476c5c410c2e73d05ac6e4161a0a8683b49a2ff8dd8367b16930ca8396",
+      "bytes": 4660
+    },
+    {
+      "path": "frozen_spec/H017_FROZEN_SPEC.json",
+      "sha256": "4ee8b74f9bcdbfb4217843e83c3b31d9ca2aa21995a6a585c468fc9c33889af2",
+      "bytes": 1582
+    },
+    {
+      "path": "execution/run_h017_confirmatory.js",
+      "sha256": "af8ce5f590642a335bb6cadbff093dd59cce00ed407ca5e18f8db02488314c53",
+      "bytes": 12426
+    }
+  ],
+  "holdoutPopulation": {
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "assets": ["BTCUSDT", "ETHUSDT"],
+    "timeframes": ["8h", "1h"]
+  }
+}

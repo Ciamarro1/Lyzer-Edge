@@ -1,0 +1,143 @@
+{
+  "campaignId": "AD010_BARBELL_SYNERGY_DISCOVERY",
+  "program": "AD010",
+  "title": "Hybrid Barbell Synergy Allocation (Delta-Neutral Carry Base + Event-Driven Wyckoff Spring Overlay)",
+  "family": "HYBRID_BARBELL_PORTFOLIO_ALLOCATION",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year In-Sample Discovery)"
+  },
+  "friction": {
+    "carryRoundtripBps": 24,
+    "directionalRoundtripBps": 24,
+    "directionalRiskPerTradePct": 1.0
+  },
+  "portfolioRules": {
+    "cashBufferPct": 0.0,
+    "riskUnitR": 0.01,
+    "directionalStopAtrMultiplier": 1.0,
+    "directionalTakeProfitAtrMultiplier": 2.5,
+    "directionalMaxHoldingHours": 6
+  },
+  "directionalParameters": {
+    "engine": "REC_COMP_INSTITUTIONAL_v1",
+    "asset": "BTCUSDT",
+    "timeframe": "1h",
+    "lookback": 60,
+    "volumeZScoreThreshold": 1.5,
+    "requireNegativeFunding": true,
+    "requirePierce": true,
+    "requireReversal": true
+  },
+  "cells": [
+    {
+      "id": "AD010_STATIC_90_10",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.90,
+      "directionalWeight": 0.10,
+      "description": "Conservative Barbell: 90% Static BTC/ETH 1.0x Carry + 10% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_STATIC_85_15",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.85,
+      "directionalWeight": 0.15,
+      "description": "Balanced Barbell: 85% Static BTC/ETH 1.0x Carry + 15% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_STATIC_80_20",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.80,
+      "directionalWeight": 0.20,
+      "description": "Master Institutional Barbell: 80% Static BTC/ETH 1.0x Carry + 20% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_STATIC_75_25",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.75,
+      "directionalWeight": 0.25,
+      "description": "Growth Barbell: 75% Static BTC/ETH 1.0x Carry + 25% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_STATIC_70_30",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.70,
+      "directionalWeight": 0.30,
+      "description": "Aggressive Barbell: 70% Static BTC/ETH 1.0x Carry + 30% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_ROTATIONAL_90_10",
+      "carryBase": "ROTATIONAL_TOP_3",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.90,
+      "directionalWeight": 0.10,
+      "description": "Rotational Barbell: 90% Top 3 Rotational 1.0x Carry + 10% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_ROTATIONAL_85_15",
+      "carryBase": "ROTATIONAL_TOP_3",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.85,
+      "directionalWeight": 0.15,
+      "description": "Rotational Barbell: 85% Top 3 Rotational 1.0x Carry + 15% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_ROTATIONAL_80_20",
+      "carryBase": "ROTATIONAL_TOP_3",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.80,
+      "directionalWeight": 0.20,
+      "description": "Master Rotational Barbell: 80% Top 3 Rotational 1.0x Carry + 20% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_ROTATIONAL_75_25",
+      "carryBase": "ROTATIONAL_TOP_3",
+      "carryLeverage": 1.0,
+      "carryBorrowRateAnnualPct": 0.0,
+      "carryWeight": 0.75,
+      "directionalWeight": 0.25,
+      "description": "Growth Rotational Barbell: 75% Top 3 Rotational 1.0x Carry + 25% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_LEVERAGED_85_15",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.5,
+      "carryBorrowRateAnnualPct": 3.0,
+      "carryWeight": 0.85,
+      "directionalWeight": 0.15,
+      "description": "Gearing Barbell: 85% Static Carry 1.5x (3% borrow) + 15% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_LEVERAGED_80_20",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.5,
+      "carryBorrowRateAnnualPct": 3.0,
+      "carryWeight": 0.80,
+      "directionalWeight": 0.20,
+      "description": "Master Gearing Barbell: 80% Static Carry 1.5x (3% borrow) + 20% Wyckoff Spring 1H"
+    },
+    {
+      "id": "AD010_LEVERAGED_75_25",
+      "carryBase": "STATIC_BTC_ETH_50_50",
+      "carryLeverage": 1.5,
+      "carryBorrowRateAnnualPct": 3.0,
+      "carryWeight": 0.75,
+      "directionalWeight": 0.25,
+      "description": "Growth Gearing Barbell: 75% Static Carry 1.5x (3% borrow) + 25% Wyckoff Spring 1H"
+    }
+  ]
+}

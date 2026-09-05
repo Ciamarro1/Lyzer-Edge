@@ -1,0 +1,62 @@
+{
+  "hypothesisId": "H013",
+  "name": "Delta-Neutral Cash-and-Carry Arbitrage (BTC/ETH 50/50)",
+  "programOrigin": "AD006",
+  "status": "FROZEN_AWAITING_UNLOCK",
+  "dateFrozenUTC": "2026-09-04T18:55:00.000Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutPopulation": {
+    "type": "TEMPORAL_HOLDOUT_VIRGIN",
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "targetAssets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "timeframe": "8h"
+  },
+  "parameters": {
+    "strategyType": "STATIC_BENCHMARK",
+    "allocation": "BTC_ETH_50_50",
+    "weights": {
+      "BTCUSDT": 0.5,
+      "ETHUSDT": 0.5
+    },
+    "delta": 0.0,
+    "rebalanceDays": 0,
+    "lookbackDays": 0,
+    "amortizeFriction": true
+  },
+  "friction": {
+    "spotBps": 12,
+    "perpBps": 12,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "confirmatoryGates": {
+    "gate1_minimumAnnualizedReturn": {
+      "metric": "annualizedNetReturn",
+      "threshold": ">= +0.0600 (+6.00% a.a.)"
+    },
+    "gate2_annualizedSharpeRatio": {
+      "metric": "annualizedSharpe",
+      "threshold": ">= 5.0"
+    },
+    "gate3_maximumDrawdown": {
+      "metric": "maxDrawdown",
+      "threshold": "<= 0.0200 (2.00%)"
+    },
+    "gate4_statisticalSignificance": {
+      "metric": "p_block",
+      "threshold": "< 0.0500",
+      "bootstrapReplications": 10000,
+      "calendarBlockDays": 14,
+      "hypothesisCountM": 1
+    },
+    "gate5_directionalResidualIndependence": {
+      "metric": "absPriceCorrelation",
+      "threshold": "< 0.0500"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "hypothesisId": "H017",
+  "program": "AD010",
+  "title": "Leveraged Barbell Synergy Allocation (85% Static Carry 1.5x [3% borrow] + 15% Wyckoff Spring 1H Overlay)",
+  "preregistrationTimestampUTC": "2026-09-04T23:45:00.000Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutPeriod": {
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "label": "2025-01-01 to 2026-08-31 (Virgin Temporal Holdout, 608 days)"
+  },
+  "allocation": {
+    "carryWeight": 0.85,
+    "directionalWeight": 0.15
+  },
+  "carryLeg": {
+    "base": "STATIC_BTC_ETH_50_50",
+    "leverage": 1.5,
+    "borrowRateAnnualPct": 3.0,
+    "turnoverFrictionBps": 24
+  },
+  "directionalLeg": {
+    "engine": "REC_COMP_INSTITUTIONAL_v1",
+    "asset": "BTCUSDT",
+    "timeframe": "1h",
+    "lookback": 30,
+    "volumeZScoreThreshold": 1.50,
+    "requireNegativeFunding": true,
+    "requirePierce": true,
+    "requireReversal": true,
+    "stopLossAtrMultiplier": 1.0,
+    "takeProfitAtrMultiplier": 2.5,
+    "maxHoldingHours": 6,
+    "turnoverFrictionBps": 24
+  },
+  "constitutionalGates": {
+    "gate1_annualized_net_return": {
+      "threshold": 6.00,
+      "comparison": ">="
+    },
+    "gate2_annualized_sharpe": {
+      "threshold": 3.00,
+      "comparison": ">="
+    },
+    "gate3_max_drawdown": {
+      "threshold": 2.50,
+      "comparison": "<="
+    },
+    "gate4_block_bootstrap_p": {
+      "threshold": 0.0500,
+      "comparison": "<"
+    },
+    "gate5_structural_delta_neutrality_pct": {
+      "threshold": 90.0,
+      "comparison": ">="
+    }
+  }
+}

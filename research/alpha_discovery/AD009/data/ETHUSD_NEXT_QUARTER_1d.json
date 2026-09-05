@@ -1,0 +1,7312 @@
+[
+  {
+    "timestamp": 1672531200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1195.64851554,
+    "futuresPrice": 1198.1,
+    "basis": 2.45148446,
+    "basisRate": 0.0021,
+    "annualizedBasisRate": 0.0005
+  },
+  {
+    "timestamp": 1672617600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1200.4933276,
+    "futuresPrice": 1202.8,
+    "basis": 2.3066724,
+    "basisRate": 0.0019,
+    "annualizedBasisRate": 0.0005
+  },
+  {
+    "timestamp": 1672704000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1213.8700809,
+    "futuresPrice": 1216.45,
+    "basis": 2.5799191,
+    "basisRate": 0.0021,
+    "annualizedBasisRate": 0.0005
+  },
+  {
+    "timestamp": 1672790400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1214.28081167,
+    "futuresPrice": 1219.43,
+    "basis": 5.14918833,
+    "basisRate": 0.0042,
+    "annualizedBasisRate": 0.0011
+  },
+  {
+    "timestamp": 1672876800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1256.32560892,
+    "futuresPrice": 1263.32,
+    "basis": 6.99439108,
+    "basisRate": 0.0056,
+    "annualizedBasisRate": 0.0014
+  },
+  {
+    "timestamp": 1672963200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1250.89399609,
+    "futuresPrice": 1257.67,
+    "basis": 6.77600391,
+    "basisRate": 0.0054,
+    "annualizedBasisRate": 0.0014
+  },
+  {
+    "timestamp": 1673049600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1268.9592063,
+    "futuresPrice": 1276.14,
+    "basis": 7.1807937,
+    "basisRate": 0.0057,
+    "annualizedBasisRate": 0.0014
+  },
+  {
+    "timestamp": 1673136000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1263.85393572,
+    "futuresPrice": 1270.13,
+    "basis": 6.27606428,
+    "basisRate": 0.005,
+    "annualizedBasisRate": 0.0013
+  },
+  {
+    "timestamp": 1673222400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1290.16571606,
+    "futuresPrice": 1297.26,
+    "basis": 7.09428394,
+    "basisRate": 0.0055,
+    "annualizedBasisRate": 0.0014
+  },
+  {
+    "timestamp": 1673308800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1320.59898469,
+    "futuresPrice": 1328.5,
+    "basis": 7.90101531,
+    "basisRate": 0.006,
+    "annualizedBasisRate": 0.0015
+  },
+  {
+    "timestamp": 1673395200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1335.69861794,
+    "futuresPrice": 1342.8,
+    "basis": 7.10138206,
+    "basisRate": 0.0053,
+    "annualizedBasisRate": 0.0013
+  },
+  {
+    "timestamp": 1673481600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1389.4181428,
+    "futuresPrice": 1398.2,
+    "basis": 8.7818572,
+    "basisRate": 0.0063,
+    "annualizedBasisRate": 0.0016
+  },
+  {
+    "timestamp": 1673568000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1416.21300805,
+    "futuresPrice": 1425.85,
+    "basis": 9.63699195,
+    "basisRate": 0.0068,
+    "annualizedBasisRate": 0.0017
+  },
+  {
+    "timestamp": 1673654400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1451.26606404,
+    "futuresPrice": 1461.99,
+    "basis": 10.72393596,
+    "basisRate": 0.0074,
+    "annualizedBasisRate": 0.0019
+  },
+  {
+    "timestamp": 1673740800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1550.40857583,
+    "futuresPrice": 1568.22,
+    "basis": 17.81142417,
+    "basisRate": 0.0115,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1673827200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1552.83997326,
+    "futuresPrice": 1569.6,
+    "basis": 16.76002674,
+    "basisRate": 0.0108,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1673913600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1576.9285328,
+    "futuresPrice": 1592.2,
+    "basis": 15.2714672,
+    "basisRate": 0.0097,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1674000000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1565.33238499,
+    "futuresPrice": 1582.27,
+    "basis": 16.93761501,
+    "basisRate": 0.0108,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1674086400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1511.58771108,
+    "futuresPrice": 1524.77,
+    "basis": 13.18228892,
+    "basisRate": 0.0087,
+    "annualizedBasisRate": 0.0022
+  },
+  {
+    "timestamp": 1674172800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1551.28041644,
+    "futuresPrice": 1567.85,
+    "basis": 16.56958356,
+    "basisRate": 0.0107,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1674259200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1658.50549924,
+    "futuresPrice": 1676.09,
+    "basis": 17.58450076,
+    "basisRate": 0.0106,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1674345600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1626.74834048,
+    "futuresPrice": 1644.9,
+    "basis": 18.15165952,
+    "basisRate": 0.0112,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1674432000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1627.8048404,
+    "futuresPrice": 1648.22,
+    "basis": 20.4151596,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1674518400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1626.50581652,
+    "futuresPrice": 1646,
+    "basis": 19.49418348,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1674604800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1556.20340322,
+    "futuresPrice": 1581.69,
+    "basis": 25.48659678,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1674691200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1611.76655238,
+    "futuresPrice": 1638.72,
+    "basis": 26.95344762,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1674777600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1601.46159348,
+    "futuresPrice": 1628.1,
+    "basis": 26.63840652,
+    "basisRate": 0.0166,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1674864000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1598.08781868,
+    "futuresPrice": 1622.94,
+    "basis": 24.85218132,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1674950400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1572.48273682,
+    "futuresPrice": 1598.77,
+    "basis": 26.28726318,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1675036800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1645.36106436,
+    "futuresPrice": 1676.43,
+    "basis": 31.06893564,
+    "basisRate": 0.0189,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1675123200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1566.55084603,
+    "futuresPrice": 1594.52,
+    "basis": 27.96915397,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1675209600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1585.40230936,
+    "futuresPrice": 1613.29,
+    "basis": 27.88769064,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1675296000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1642.21552064,
+    "futuresPrice": 1670.6,
+    "basis": 28.38447936,
+    "basisRate": 0.0173,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1675382400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1643.56037783,
+    "futuresPrice": 1676.38,
+    "basis": 32.81962217,
+    "basisRate": 0.02,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1675468800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1663.99809121,
+    "futuresPrice": 1695.91,
+    "basis": 31.91190879,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1675555200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1666.58408001,
+    "futuresPrice": 1698.14,
+    "basis": 31.55591999,
+    "basisRate": 0.0189,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1675641600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1629.73782938,
+    "futuresPrice": 1656.9,
+    "basis": 27.16217062,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1675728000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1614.45738713,
+    "futuresPrice": 1641.39,
+    "basis": 26.93261287,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1675814400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1671.70255461,
+    "futuresPrice": 1703.2,
+    "basis": 31.49744539,
+    "basisRate": 0.0188,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1675900800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1650.8687343,
+    "futuresPrice": 1679.2,
+    "basis": 28.3312657,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1675987200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1545.80663092,
+    "futuresPrice": 1572.57,
+    "basis": 26.76336908,
+    "basisRate": 0.0173,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1676073600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1513.68792987,
+    "futuresPrice": 1538.4,
+    "basis": 24.71207013,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1676160000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1539.06735084,
+    "futuresPrice": 1563.8,
+    "basis": 24.73264916,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1676246400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1515.44332622,
+    "futuresPrice": 1539.24,
+    "basis": 23.79667378,
+    "basisRate": 0.0157,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1676332800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1506.68451327,
+    "futuresPrice": 1528.4,
+    "basis": 21.71548673,
+    "basisRate": 0.0144,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1676419200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1556.43406731,
+    "futuresPrice": 1580.85,
+    "basis": 24.41593269,
+    "basisRate": 0.0157,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1676505600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1675.49786746,
+    "futuresPrice": 1703.01,
+    "basis": 27.51213254,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1676592000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1637.79841408,
+    "futuresPrice": 1668.9,
+    "basis": 31.10158592,
+    "basisRate": 0.019,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1676678400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1694.34166727,
+    "futuresPrice": 1727.02,
+    "basis": 32.67833273,
+    "basisRate": 0.0193,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1676764800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1692.17206823,
+    "futuresPrice": 1724,
+    "basis": 31.82793177,
+    "basisRate": 0.0188,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1676851200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1680.95523603,
+    "futuresPrice": 1711.32,
+    "basis": 30.36476397,
+    "basisRate": 0.0181,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1676937600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1703.31067343,
+    "futuresPrice": 1737.86,
+    "basis": 34.54932657,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1677024000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1659.58499912,
+    "futuresPrice": 1692.71,
+    "basis": 33.12500088,
+    "basisRate": 0.02,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1677110400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1643.38279886,
+    "futuresPrice": 1680.19,
+    "basis": 36.80720114,
+    "basisRate": 0.0224,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1677196800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1650.68405075,
+    "futuresPrice": 1690.63,
+    "basis": 39.94594925,
+    "basisRate": 0.0242,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1677283200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1607.86972852,
+    "futuresPrice": 1646.21,
+    "basis": 38.34027148,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0062
+  },
+  {
+    "timestamp": 1677369600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1594.86148131,
+    "futuresPrice": 1636,
+    "basis": 41.13851869,
+    "basisRate": 0.0258,
+    "annualizedBasisRate": 0.0067
+  },
+  {
+    "timestamp": 1677456000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1641.68508652,
+    "futuresPrice": 1687.31,
+    "basis": 45.62491348,
+    "basisRate": 0.0278,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1677542400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1633.74487284,
+    "futuresPrice": 1678.75,
+    "basis": 45.00512716,
+    "basisRate": 0.0275,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1677628800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1605.16920799,
+    "futuresPrice": 1644.08,
+    "basis": 38.91079201,
+    "basisRate": 0.0242,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1677715200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1665.39608468,
+    "futuresPrice": 1705.43,
+    "basis": 40.03391532,
+    "basisRate": 0.024,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1677801600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1648.02002682,
+    "futuresPrice": 1686.06,
+    "basis": 38.03997318,
+    "basisRate": 0.0231,
+    "annualizedBasisRate": 0.0061
+  },
+  {
+    "timestamp": 1677888000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1569.6961274,
+    "futuresPrice": 1599.79,
+    "basis": 30.0938726,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1677974400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1566.82366402,
+    "futuresPrice": 1595.39,
+    "basis": 28.56633598,
+    "basisRate": 0.0182,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1678060800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1564.87331245,
+    "futuresPrice": 1592.93,
+    "basis": 28.05668755,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1678147200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1565.83210961,
+    "futuresPrice": 1590.8,
+    "basis": 24.96789039,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1678233600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1561.63898781,
+    "futuresPrice": 1587.1,
+    "basis": 25.46101219,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1678320000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1532.25139551,
+    "futuresPrice": 1556.8,
+    "basis": 24.54860449,
+    "basisRate": 0.016,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1678406400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1437.66325569,
+    "futuresPrice": 1459.23,
+    "basis": 21.56674431,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1678492800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1431.17768006,
+    "futuresPrice": 1443.77,
+    "basis": 12.59231994,
+    "basisRate": 0.0088,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1678579200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1483.21186921,
+    "futuresPrice": 1475.17,
+    "basis": -8.04186921,
+    "basisRate": -0.0054,
+    "annualizedBasisRate": -0.0014
+  },
+  {
+    "timestamp": 1678665600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1590.96614874,
+    "futuresPrice": 1590.4,
+    "basis": -0.56614874,
+    "basisRate": -0.0004,
+    "annualizedBasisRate": -0.0001
+  },
+  {
+    "timestamp": 1678752000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1679.99753671,
+    "futuresPrice": 1692.46,
+    "basis": 12.46246329,
+    "basisRate": 0.0074,
+    "annualizedBasisRate": 0.002
+  },
+  {
+    "timestamp": 1678838400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1704.77358481,
+    "futuresPrice": 1721.48,
+    "basis": 16.70641519,
+    "basisRate": 0.0098,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1678924800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1656.3008134,
+    "futuresPrice": 1666.67,
+    "basis": 10.3691866,
+    "basisRate": 0.0063,
+    "annualizedBasisRate": 0.0017
+  },
+  {
+    "timestamp": 1679011200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1676.9155407,
+    "futuresPrice": 1689.57,
+    "basis": 12.6544593,
+    "basisRate": 0.0075,
+    "annualizedBasisRate": 0.002
+  },
+  {
+    "timestamp": 1679097600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1793.15456949,
+    "futuresPrice": 1806.59,
+    "basis": 13.43543051,
+    "basisRate": 0.0075,
+    "annualizedBasisRate": 0.002
+  },
+  {
+    "timestamp": 1679184000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1763.49408589,
+    "futuresPrice": 1776.28,
+    "basis": 12.78591411,
+    "basisRate": 0.0073,
+    "annualizedBasisRate": 0.0019
+  },
+  {
+    "timestamp": 1679270400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1785.90451395,
+    "futuresPrice": 1799.13,
+    "basis": 13.22548605,
+    "basisRate": 0.0074,
+    "annualizedBasisRate": 0.002
+  },
+  {
+    "timestamp": 1679356800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1737.69319225,
+    "futuresPrice": 1751.35,
+    "basis": 13.65680775,
+    "basisRate": 0.0079,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679443200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1806.05665239,
+    "futuresPrice": 1820.1,
+    "basis": 14.04334761,
+    "basisRate": 0.0078,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679529600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1738.49901156,
+    "futuresPrice": 1753.27,
+    "basis": 14.77098844,
+    "basisRate": 0.0085,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1679616000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1817.0701231,
+    "futuresPrice": 1834.25,
+    "basis": 17.1798769,
+    "basisRate": 0.0095,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1679702400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1751.76868469,
+    "futuresPrice": 1770.26,
+    "basis": 18.49131531,
+    "basisRate": 0.0106,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1679788800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1743.96417822,
+    "futuresPrice": 1762.55,
+    "basis": 18.58582178,
+    "basisRate": 0.0107,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1679875200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1775.85813485,
+    "futuresPrice": 1793.66,
+    "basis": 17.80186515,
+    "basisRate": 0.01,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1679961600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1716.09273137,
+    "futuresPrice": 1734.42,
+    "basis": 18.32726863,
+    "basisRate": 0.0107,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1680048000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1773.4755737,
+    "futuresPrice": 1793.74,
+    "basis": 20.2644263,
+    "basisRate": 0.0114,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1680134400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1793.59572865,
+    "futuresPrice": 1816,
+    "basis": 22.40427135,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1680220800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1794.22471394,
+    "futuresPrice": 1814.82,
+    "basis": 20.59528606,
+    "basisRate": 0.0115,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1680307200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1821.84189437,
+    "futuresPrice": 1864.23,
+    "basis": 42.38810563,
+    "basisRate": 0.0233,
+    "annualizedBasisRate": 0.0062
+  },
+  {
+    "timestamp": 1680393600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1821.51335828,
+    "futuresPrice": 1858.56,
+    "basis": 37.04664172,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1680480000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1795.47167881,
+    "futuresPrice": 1830.06,
+    "basis": 34.58832119,
+    "basisRate": 0.0193,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1680566400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1810.9713542,
+    "futuresPrice": 1846.39,
+    "basis": 35.4186458,
+    "basisRate": 0.0196,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1680652800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1871.46692681,
+    "futuresPrice": 1907.49,
+    "basis": 36.02307319,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1680739200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1909.35771265,
+    "futuresPrice": 1946.08,
+    "basis": 36.72228735,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1680825600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1873.19816561,
+    "futuresPrice": 1909.46,
+    "basis": 36.26183439,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1680912000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1864.99012632,
+    "futuresPrice": 1899.2,
+    "basis": 34.20987368,
+    "basisRate": 0.0183,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1680998400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1850.13103418,
+    "futuresPrice": 1884.22,
+    "basis": 34.08896582,
+    "basisRate": 0.0184,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1681084800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1859.84584044,
+    "futuresPrice": 1892.92,
+    "basis": 33.07415956,
+    "basisRate": 0.0178,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1681171200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1911.46138362,
+    "futuresPrice": 1947.73,
+    "basis": 36.26861638,
+    "basisRate": 0.019,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1681257600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1891.7060229,
+    "futuresPrice": 1925.48,
+    "basis": 33.7739771,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1681344000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1918.5240652,
+    "futuresPrice": 1955.72,
+    "basis": 37.1959348,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1681430400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2013.70054696,
+    "futuresPrice": 2054.8,
+    "basis": 41.09945304,
+    "basisRate": 0.0204,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1681516800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2101.39927876,
+    "futuresPrice": 2134.07,
+    "basis": 32.67072124,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1681603200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2092.22233297,
+    "futuresPrice": 2130.77,
+    "basis": 38.54766703,
+    "basisRate": 0.0184,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1681689600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2119.98732248,
+    "futuresPrice": 2161.6,
+    "basis": 41.61267752,
+    "basisRate": 0.0196,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1681776000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2075.65702617,
+    "futuresPrice": 2112.28,
+    "basis": 36.62297383,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1681862400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2104.36858771,
+    "futuresPrice": 2146.61,
+    "basis": 42.24141229,
+    "basisRate": 0.0201,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1681948800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1935.55603296,
+    "futuresPrice": 1971.29,
+    "basis": 35.73396704,
+    "basisRate": 0.0185,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1682035200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1943.35715445,
+    "futuresPrice": 1977.56,
+    "basis": 34.20284555,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1682121600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1848.8523318,
+    "futuresPrice": 1881.99,
+    "basis": 33.1376682,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1682208000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1874.36506629,
+    "futuresPrice": 1904,
+    "basis": 29.63493371,
+    "basisRate": 0.0158,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1682294400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1862.39932088,
+    "futuresPrice": 1889.92,
+    "basis": 27.52067912,
+    "basisRate": 0.0148,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1682380800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1842.18625034,
+    "futuresPrice": 1870.75,
+    "basis": 28.56374966,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1682467200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1864.9515335,
+    "futuresPrice": 1897.09,
+    "basis": 32.1384665,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1682553600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1866.56877142,
+    "futuresPrice": 1895.39,
+    "basis": 28.82122858,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1682640000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1909.28987051,
+    "futuresPrice": 1939.63,
+    "basis": 30.34012949,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1682726400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1892.33141977,
+    "futuresPrice": 1922.42,
+    "basis": 30.08858023,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1682812800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1908.82051121,
+    "futuresPrice": 1940.07,
+    "basis": 31.24948879,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1682899200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1869.87422903,
+    "futuresPrice": 1900.18,
+    "basis": 30.30577097,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1682985600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1831.67973879,
+    "futuresPrice": 1859.03,
+    "basis": 27.35026121,
+    "basisRate": 0.0149,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1683072000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1871.27465497,
+    "futuresPrice": 1898.79,
+    "basis": 27.51534503,
+    "basisRate": 0.0147,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1683158400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1905.43341123,
+    "futuresPrice": 1933.74,
+    "basis": 28.30658877,
+    "basisRate": 0.0149,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1683244800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1878.05709351,
+    "futuresPrice": 1905.59,
+    "basis": 27.53290649,
+    "basisRate": 0.0147,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1683331200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1995.3958988,
+    "futuresPrice": 2025.6,
+    "basis": 30.2041012,
+    "basisRate": 0.0151,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1683417600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1900.48835914,
+    "futuresPrice": 1926.13,
+    "basis": 25.64164086,
+    "basisRate": 0.0135,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1683504000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1875.30797915,
+    "futuresPrice": 1894.4,
+    "basis": 19.09202085,
+    "basisRate": 0.0102,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1683590400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1848.79499848,
+    "futuresPrice": 1870.19,
+    "basis": 21.39500152,
+    "basisRate": 0.0116,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1683676800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1847.41286406,
+    "futuresPrice": 1867.25,
+    "basis": 19.83713594,
+    "basisRate": 0.0107,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1683763200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1842.04433959,
+    "futuresPrice": 1862.94,
+    "basis": 20.89566041,
+    "basisRate": 0.0113,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1683849600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1795.17975116,
+    "futuresPrice": 1814.62,
+    "basis": 19.44024884,
+    "basisRate": 0.0108,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1683936000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1808.13791003,
+    "futuresPrice": 1829.32,
+    "basis": 21.18208997,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1684022400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1795.85856902,
+    "futuresPrice": 1816.79,
+    "basis": 20.93143098,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1684108800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1799.98906422,
+    "futuresPrice": 1820.01,
+    "basis": 20.02093578,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1684195200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1816.46207528,
+    "futuresPrice": 1838.99,
+    "basis": 22.52792472,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684281600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1824.29099083,
+    "futuresPrice": 1847.65,
+    "basis": 23.35900917,
+    "basisRate": 0.0128,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1684368000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1822.20764226,
+    "futuresPrice": 1844.1,
+    "basis": 21.89235774,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1684454400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1800.77050618,
+    "futuresPrice": 1822.79,
+    "basis": 22.01949382,
+    "basisRate": 0.0122,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684540800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1812.71839592,
+    "futuresPrice": 1834.6,
+    "basis": 21.88160408,
+    "basisRate": 0.0121,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684627200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1819.94810758,
+    "futuresPrice": 1842.79,
+    "basis": 22.84189242,
+    "basisRate": 0.0126,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1684713600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1805.10576537,
+    "futuresPrice": 1825.39,
+    "basis": 20.28423463,
+    "basisRate": 0.0112,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1684800000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1817.67066042,
+    "futuresPrice": 1839.28,
+    "basis": 21.60933958,
+    "basisRate": 0.0119,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1684886400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1854.37793333,
+    "futuresPrice": 1878.39,
+    "basis": 24.01206667,
+    "basisRate": 0.0129,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1684972800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1799.93828257,
+    "futuresPrice": 1821.12,
+    "basis": 21.18171743,
+    "basisRate": 0.0118,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1685059200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1806.05131047,
+    "futuresPrice": 1824.47,
+    "basis": 18.41868953,
+    "basisRate": 0.0102,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1685145600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1828.40005118,
+    "futuresPrice": 1848.55,
+    "basis": 20.14994882,
+    "basisRate": 0.011,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1685232000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1830.87450152,
+    "futuresPrice": 1848.15,
+    "basis": 17.27549848,
+    "basisRate": 0.0094,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1685318400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1909.07534593,
+    "futuresPrice": 1932.21,
+    "basis": 23.13465407,
+    "basisRate": 0.0121,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1685404800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1893.1621701,
+    "futuresPrice": 1916.26,
+    "basis": 23.0978299,
+    "basisRate": 0.0122,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1685491200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1901.04121891,
+    "futuresPrice": 1924.64,
+    "basis": 23.59878109,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1685577600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1874.01324755,
+    "futuresPrice": 1895.01,
+    "basis": 20.99675245,
+    "basisRate": 0.0112,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1685664000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1862.19634052,
+    "futuresPrice": 1879.33,
+    "basis": 17.13365948,
+    "basisRate": 0.0092,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1685750400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1907.16552899,
+    "futuresPrice": 1925.9,
+    "basis": 18.73447101,
+    "basisRate": 0.0098,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1685836800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1892.36584962,
+    "futuresPrice": 1908.46,
+    "basis": 16.09415038,
+    "basisRate": 0.0085,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1685923200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1890.39261237,
+    "futuresPrice": 1907.44,
+    "basis": 17.04738763,
+    "basisRate": 0.009,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1686009600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1811.47602878,
+    "futuresPrice": 1826.48,
+    "basis": 15.00397122,
+    "basisRate": 0.0083,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1686096000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1884.77006019,
+    "futuresPrice": 1900.6,
+    "basis": 15.82993981,
+    "basisRate": 0.0084,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1686182400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1832.70184302,
+    "futuresPrice": 1849.39,
+    "basis": 16.68815698,
+    "basisRate": 0.0091,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1686268800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1846.13770873,
+    "futuresPrice": 1863.66,
+    "basis": 17.52229127,
+    "basisRate": 0.0095,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1686355200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1840.52126352,
+    "futuresPrice": 1858.42,
+    "basis": 17.89873648,
+    "basisRate": 0.0097,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1686441600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1752.64219599,
+    "futuresPrice": 1770.94,
+    "basis": 18.29780401,
+    "basisRate": 0.0104,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1686528000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1753.44165887,
+    "futuresPrice": 1771.19,
+    "basis": 17.74834113,
+    "basisRate": 0.0101,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1686614400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1742.63480503,
+    "futuresPrice": 1762.27,
+    "basis": 19.63519497,
+    "basisRate": 0.0113,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1686700800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1739.82654227,
+    "futuresPrice": 1761.82,
+    "basis": 21.99345773,
+    "basisRate": 0.0126,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1686787200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1650.99479754,
+    "futuresPrice": 1671.67,
+    "basis": 20.67520246,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1686873600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1665.59502588,
+    "futuresPrice": 1686.45,
+    "basis": 20.85497412,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1686960000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1716.78638683,
+    "futuresPrice": 1738.81,
+    "basis": 22.02361317,
+    "basisRate": 0.0128,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1687046400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1727.16709199,
+    "futuresPrice": 1750.21,
+    "basis": 23.04290801,
+    "basisRate": 0.0133,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1687132800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1720.53823517,
+    "futuresPrice": 1743.65,
+    "basis": 23.11176483,
+    "basisRate": 0.0134,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1687219200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1736.7195537,
+    "futuresPrice": 1764.12,
+    "basis": 27.4004463,
+    "basisRate": 0.0158,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1687305600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1792.23095708,
+    "futuresPrice": 1814.04,
+    "basis": 21.80904292,
+    "basisRate": 0.0122,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1687392000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1889.37783856,
+    "futuresPrice": 1912.14,
+    "basis": 22.76216144,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1687478400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1872.37743326,
+    "futuresPrice": 1894.41,
+    "basis": 22.03256674,
+    "basisRate": 0.0118,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1687564800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1893.32423159,
+    "futuresPrice": 1914.34,
+    "basis": 21.01576841,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1687651200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1875.84922944,
+    "futuresPrice": 1891.55,
+    "basis": 15.70077056,
+    "basisRate": 0.0084,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1687737600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1899.36030794,
+    "futuresPrice": 1915.62,
+    "basis": 16.25969206,
+    "basisRate": 0.0086,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1687824000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1859.24641357,
+    "futuresPrice": 1874.22,
+    "basis": 14.97358643,
+    "basisRate": 0.0081,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1687910400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1889.80628115,
+    "futuresPrice": 1906.69,
+    "basis": 16.88371885,
+    "basisRate": 0.0089,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1687996800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1827.96009399,
+    "futuresPrice": 1844.92,
+    "basis": 16.95990601,
+    "basisRate": 0.0093,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1688083200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1852.06900676,
+    "futuresPrice": 1870.41,
+    "basis": 18.34099324,
+    "basisRate": 0.0099,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1688169600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1933.34892692,
+    "futuresPrice": 1973.99,
+    "basis": 40.64107308,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1688256000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1924.46302254,
+    "futuresPrice": 1967.33,
+    "basis": 42.86697746,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1688342400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1937.45267661,
+    "futuresPrice": 1981.52,
+    "basis": 44.06732339,
+    "basisRate": 0.0227,
+    "annualizedBasisRate": 0.0065
+  },
+  {
+    "timestamp": 1688428800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1955.61755381,
+    "futuresPrice": 1994.98,
+    "basis": 39.36244619,
+    "basisRate": 0.0201,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1688515200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1936.33318025,
+    "futuresPrice": 1976.44,
+    "basis": 40.10681975,
+    "basisRate": 0.0207,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1688601600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1910.33694342,
+    "futuresPrice": 1948.03,
+    "basis": 37.69305658,
+    "basisRate": 0.0197,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1688688000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1846.62860479,
+    "futuresPrice": 1880.14,
+    "basis": 33.51139521,
+    "basisRate": 0.0181,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1688774400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1870.68710634,
+    "futuresPrice": 1908.61,
+    "basis": 37.92289366,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0059
+  },
+  {
+    "timestamp": 1688860800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1865.53284383,
+    "futuresPrice": 1904.26,
+    "basis": 38.72715617,
+    "basisRate": 0.0208,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1688947200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1863.2315855,
+    "futuresPrice": 1901.79,
+    "basis": 38.5584145,
+    "basisRate": 0.0207,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1689033600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1880.5478109,
+    "futuresPrice": 1920.08,
+    "basis": 39.5321891,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.0061
+  },
+  {
+    "timestamp": 1689120000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1878.35996219,
+    "futuresPrice": 1915.51,
+    "basis": 37.15003781,
+    "basisRate": 0.0198,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1689206400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1871.79957507,
+    "futuresPrice": 1909.85,
+    "basis": 38.05042493,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0059
+  },
+  {
+    "timestamp": 1689292800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2005.01027231,
+    "futuresPrice": 2049.64,
+    "basis": 44.62972769,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0065
+  },
+  {
+    "timestamp": 1689379200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1938.96870962,
+    "futuresPrice": 1980.26,
+    "basis": 41.29129038,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0062
+  },
+  {
+    "timestamp": 1689465600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1931.79775396,
+    "futuresPrice": 1970.3,
+    "basis": 38.50224604,
+    "basisRate": 0.0199,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1689552000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1923.19709288,
+    "futuresPrice": 1959.32,
+    "basis": 36.12290712,
+    "basisRate": 0.0188,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1689638400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1911.58869917,
+    "futuresPrice": 1946.28,
+    "basis": 34.69130083,
+    "basisRate": 0.0181,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1689724800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1897.66295568,
+    "futuresPrice": 1931.14,
+    "basis": 33.47704432,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1689811200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1888.87406344,
+    "futuresPrice": 1921.99,
+    "basis": 33.11593656,
+    "basisRate": 0.0175,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1689897600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1891.58961199,
+    "futuresPrice": 1921.73,
+    "basis": 30.14038801,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1689984000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1891.95014718,
+    "futuresPrice": 1921.8,
+    "basis": 29.84985282,
+    "basisRate": 0.0158,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1690070400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1866.18269393,
+    "futuresPrice": 1895.97,
+    "basis": 29.78730607,
+    "basisRate": 0.016,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1690156800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1888.91654232,
+    "futuresPrice": 1917.96,
+    "basis": 29.04345768,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1690243200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1849.92404305,
+    "futuresPrice": 1877.73,
+    "basis": 27.80595695,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1690329600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1857.56370243,
+    "futuresPrice": 1885.37,
+    "basis": 27.80629757,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1690416000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1871.93686597,
+    "futuresPrice": 1901.98,
+    "basis": 30.04313403,
+    "basisRate": 0.016,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1690502400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1860.85712357,
+    "futuresPrice": 1888.71,
+    "basis": 27.85287643,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1690588800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1874.39719364,
+    "futuresPrice": 1904.69,
+    "basis": 30.29280636,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1690675200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1880.84354078,
+    "futuresPrice": 1911.55,
+    "basis": 30.70645922,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1690761600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1861.72584877,
+    "futuresPrice": 1890.78,
+    "basis": 29.05415123,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1690848000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1856.09836261,
+    "futuresPrice": 1884.58,
+    "basis": 28.48163739,
+    "basisRate": 0.0153,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1690934400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1872.75300845,
+    "futuresPrice": 1904.99,
+    "basis": 32.23699155,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1691020800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1839.05707957,
+    "futuresPrice": 1871.39,
+    "basis": 32.33292043,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1691107200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1834.5344109,
+    "futuresPrice": 1866.04,
+    "basis": 31.5055891,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1691193600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1827.61514238,
+    "futuresPrice": 1857.6,
+    "basis": 29.98485762,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1691280000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1834.89447448,
+    "futuresPrice": 1867.42,
+    "basis": 32.52552552,
+    "basisRate": 0.0177,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1691366400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1827.62570454,
+    "futuresPrice": 1861.97,
+    "basis": 34.34429546,
+    "basisRate": 0.0188,
+    "annualizedBasisRate": 0.0056
+  },
+  {
+    "timestamp": 1691452800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1827.03070874,
+    "futuresPrice": 1862.17,
+    "basis": 35.13929126,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1691539200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1855.1186243,
+    "futuresPrice": 1888.59,
+    "basis": 33.4713757,
+    "basisRate": 0.018,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1691625600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1854.07237774,
+    "futuresPrice": 1888.5,
+    "basis": 34.42762226,
+    "basisRate": 0.0186,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1691712000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1850.60491882,
+    "futuresPrice": 1885.15,
+    "basis": 34.54508118,
+    "basisRate": 0.0187,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1691798400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1847.14343625,
+    "futuresPrice": 1883.46,
+    "basis": 36.31656375,
+    "basisRate": 0.0197,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1691884800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1849.00956183,
+    "futuresPrice": 1884.36,
+    "basis": 35.35043817,
+    "basisRate": 0.0191,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1691971200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1839.35299325,
+    "futuresPrice": 1874.61,
+    "basis": 35.25700675,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1692057600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1843.95817335,
+    "futuresPrice": 1879.5,
+    "basis": 35.54182665,
+    "basisRate": 0.0193,
+    "annualizedBasisRate": 0.0057
+  },
+  {
+    "timestamp": 1692144000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1827.19508222,
+    "futuresPrice": 1861.07,
+    "basis": 33.87491778,
+    "basisRate": 0.0185,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1692230400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1805.65648059,
+    "futuresPrice": 1839.25,
+    "basis": 33.59351941,
+    "basisRate": 0.0186,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1692316800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1681.52984973,
+    "futuresPrice": 1703.98,
+    "basis": 22.45015027,
+    "basisRate": 0.0134,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1692403200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1661.02583163,
+    "futuresPrice": 1684.43,
+    "basis": 23.40416837,
+    "basisRate": 0.0141,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1692489600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1669.47410468,
+    "futuresPrice": 1692.99,
+    "basis": 23.51589532,
+    "basisRate": 0.0141,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1692576000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1685.26325596,
+    "futuresPrice": 1706.46,
+    "basis": 21.19674404,
+    "basisRate": 0.0126,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1692662400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1667.29759643,
+    "futuresPrice": 1687.29,
+    "basis": 19.99240357,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1692748800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1633.89664367,
+    "futuresPrice": 1653.97,
+    "basis": 20.07335633,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1692835200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1679.16202939,
+    "futuresPrice": 1700.98,
+    "basis": 21.81797061,
+    "basisRate": 0.013,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1692921600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1660.45216419,
+    "futuresPrice": 1680.66,
+    "basis": 20.20783581,
+    "basisRate": 0.0122,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1693008000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1653.00129602,
+    "futuresPrice": 1672.78,
+    "basis": 19.77870398,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1693094400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1646.23125686,
+    "futuresPrice": 1666.03,
+    "basis": 19.79874314,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1693180800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1657.67507367,
+    "futuresPrice": 1677.86,
+    "basis": 20.18492633,
+    "basisRate": 0.0122,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1693267200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1652.34151318,
+    "futuresPrice": 1672.18,
+    "basis": 19.83848682,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1693353600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1729.43846174,
+    "futuresPrice": 1750.82,
+    "basis": 21.38153826,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1693440000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1705.36095293,
+    "futuresPrice": 1725.8,
+    "basis": 20.43904707,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1693526400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1645.69265753,
+    "futuresPrice": 1665.89,
+    "basis": 20.19734247,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1693612800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1628.43513351,
+    "futuresPrice": 1649.74,
+    "basis": 21.30486649,
+    "basisRate": 0.0131,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1693699200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1636.77700942,
+    "futuresPrice": 1658.51,
+    "basis": 21.73299058,
+    "basisRate": 0.0133,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1693785600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1635.8459923,
+    "futuresPrice": 1655.96,
+    "basis": 20.1140077,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1693872000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1629.87246406,
+    "futuresPrice": 1650.42,
+    "basis": 20.54753594,
+    "basisRate": 0.0126,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1693958400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1633.91551364,
+    "futuresPrice": 1654.47,
+    "basis": 20.55448636,
+    "basisRate": 0.0126,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1694044800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1632.26960146,
+    "futuresPrice": 1652.27,
+    "basis": 20.00039854,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1694131200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1647.59816975,
+    "futuresPrice": 1668.08,
+    "basis": 20.48183025,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1694217600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1636.08362904,
+    "futuresPrice": 1655.38,
+    "basis": 19.29637096,
+    "basisRate": 0.0118,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1694304000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1635.31910568,
+    "futuresPrice": 1653.09,
+    "basis": 17.77089432,
+    "basisRate": 0.0109,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1694390400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1616.87025107,
+    "futuresPrice": 1634.86,
+    "basis": 17.98974893,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1694476800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1551.46846501,
+    "futuresPrice": 1567.89,
+    "basis": 16.42153499,
+    "basisRate": 0.0106,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1694563200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1593.12202624,
+    "futuresPrice": 1608.31,
+    "basis": 15.18797376,
+    "basisRate": 0.0095,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1694649600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1607.92844967,
+    "futuresPrice": 1623.5,
+    "basis": 15.57155033,
+    "basisRate": 0.0097,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1694736000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1626.86924344,
+    "futuresPrice": 1641.98,
+    "basis": 15.11075656,
+    "basisRate": 0.0093,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1694822400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1641.4412633,
+    "futuresPrice": 1656.6,
+    "basis": 15.1587367,
+    "basisRate": 0.0092,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1694908800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1635.01921061,
+    "futuresPrice": 1649.17,
+    "basis": 14.15078939,
+    "basisRate": 0.0087,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1694995200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1623.00256478,
+    "futuresPrice": 1635.94,
+    "basis": 12.93743522,
+    "basisRate": 0.008,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1695081600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1637.24905858,
+    "futuresPrice": 1650.5,
+    "basis": 13.25094142,
+    "basisRate": 0.0081,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1695168000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1643.49522699,
+    "futuresPrice": 1658.52,
+    "basis": 15.02477301,
+    "basisRate": 0.0091,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1695254400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1622.41460001,
+    "futuresPrice": 1635.19,
+    "basis": 12.77539999,
+    "basisRate": 0.0079,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1695340800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1583.89503488,
+    "futuresPrice": 1596.37,
+    "basis": 12.47496512,
+    "basisRate": 0.0079,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1695427200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1593.08682558,
+    "futuresPrice": 1606.36,
+    "basis": 13.27317442,
+    "basisRate": 0.0083,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1695513600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1593.76179346,
+    "futuresPrice": 1606.74,
+    "basis": 12.97820654,
+    "basisRate": 0.0081,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1695600000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1580.77872767,
+    "futuresPrice": 1593.14,
+    "basis": 12.36127233,
+    "basisRate": 0.0078,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1695686400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1587.97886123,
+    "futuresPrice": 1602.36,
+    "basis": 14.38113877,
+    "basisRate": 0.0091,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1695772800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1593.21602669,
+    "futuresPrice": 1608.48,
+    "basis": 15.26397331,
+    "basisRate": 0.0096,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1695859200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1597.44117148,
+    "futuresPrice": 1613.62,
+    "basis": 16.17882852,
+    "basisRate": 0.0101,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1695945600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1652.98510423,
+    "futuresPrice": 1671.32,
+    "basis": 18.33489577,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1696032000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1667.50005711,
+    "futuresPrice": 1699.54,
+    "basis": 32.03994289,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0059
+  },
+  {
+    "timestamp": 1696118400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1670.94597207,
+    "futuresPrice": 1700.41,
+    "basis": 29.46402793,
+    "basisRate": 0.0176,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1696204800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1733.30039401,
+    "futuresPrice": 1763.19,
+    "basis": 29.88960599,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1696291200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1662.57528834,
+    "futuresPrice": 1698.4,
+    "basis": 35.82471166,
+    "basisRate": 0.0215,
+    "annualizedBasisRate": 0.0067
+  },
+  {
+    "timestamp": 1696377600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1656.92424858,
+    "futuresPrice": 1692.25,
+    "basis": 35.32575142,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1696464000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1647.13714175,
+    "futuresPrice": 1681.75,
+    "basis": 34.61285825,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.0065
+  },
+  {
+    "timestamp": 1696550400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1611.6575613,
+    "futuresPrice": 1646.05,
+    "basis": 34.3924387,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1696636800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1645.67702394,
+    "futuresPrice": 1677.85,
+    "basis": 32.17297606,
+    "basisRate": 0.0195,
+    "annualizedBasisRate": 0.0061
+  },
+  {
+    "timestamp": 1696723200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1634.58886966,
+    "futuresPrice": 1664.16,
+    "basis": 29.57113034,
+    "basisRate": 0.0181,
+    "annualizedBasisRate": 0.0056
+  },
+  {
+    "timestamp": 1696809600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1633.51726416,
+    "futuresPrice": 1661.95,
+    "basis": 28.43273584,
+    "basisRate": 0.0174,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1696896000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1580.22227224,
+    "futuresPrice": 1608.46,
+    "basis": 28.23772776,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0056
+  },
+  {
+    "timestamp": 1696982400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1567.38118521,
+    "futuresPrice": 1593.63,
+    "basis": 26.24881479,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1697068800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1566.56839021,
+    "futuresPrice": 1593.25,
+    "basis": 26.68160979,
+    "basisRate": 0.017,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1697155200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1539.40607414,
+    "futuresPrice": 1563.78,
+    "basis": 24.37392586,
+    "basisRate": 0.0158,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1697241600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1552.00795833,
+    "futuresPrice": 1577.49,
+    "basis": 25.48204167,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1697328000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1554.79424708,
+    "futuresPrice": 1581.44,
+    "basis": 26.64575292,
+    "basisRate": 0.0171,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1697414400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1558.0065484,
+    "futuresPrice": 1584.17,
+    "basis": 26.1634516,
+    "basisRate": 0.0168,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1697500800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1599.98815154,
+    "futuresPrice": 1626.67,
+    "basis": 26.68184846,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1697587200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1565.110761,
+    "futuresPrice": 1589.45,
+    "basis": 24.339239,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1697673600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1563.69445067,
+    "futuresPrice": 1587.95,
+    "basis": 24.25554933,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1697760000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1567.35029017,
+    "futuresPrice": 1592.68,
+    "basis": 25.32970983,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1697846400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1604.65554212,
+    "futuresPrice": 1629.83,
+    "basis": 25.17445788,
+    "basisRate": 0.0157,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1697932800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1629.47564135,
+    "futuresPrice": 1654.76,
+    "basis": 25.28435865,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1698019200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1664.01074519,
+    "futuresPrice": 1688.75,
+    "basis": 24.73925481,
+    "basisRate": 0.0149,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1698105600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1765.54924201,
+    "futuresPrice": 1788.08,
+    "basis": 22.53075799,
+    "basisRate": 0.0128,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1698192000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1785.01273364,
+    "futuresPrice": 1814.01,
+    "basis": 28.99726636,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1698278400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1787.43150634,
+    "futuresPrice": 1818,
+    "basis": 30.56849366,
+    "basisRate": 0.0171,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1698364800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1803.76085352,
+    "futuresPrice": 1835.81,
+    "basis": 32.04914648,
+    "basisRate": 0.0178,
+    "annualizedBasisRate": 0.0056
+  },
+  {
+    "timestamp": 1698451200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1779.523207,
+    "futuresPrice": 1813.71,
+    "basis": 34.186793,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0061
+  },
+  {
+    "timestamp": 1698537600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1775.42717912,
+    "futuresPrice": 1809.95,
+    "basis": 34.52282088,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0061
+  },
+  {
+    "timestamp": 1698624000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1794.43053796,
+    "futuresPrice": 1830.75,
+    "basis": 36.31946204,
+    "basisRate": 0.0202,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1698710400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1809.89259818,
+    "futuresPrice": 1847.91,
+    "basis": 38.01740182,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.0067
+  },
+  {
+    "timestamp": 1698796800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1815.46033947,
+    "futuresPrice": 1856.03,
+    "basis": 40.56966053,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0071
+  },
+  {
+    "timestamp": 1698883200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1847.44697865,
+    "futuresPrice": 1892.3,
+    "basis": 44.85302135,
+    "basisRate": 0.0243,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1698969600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1800.98682812,
+    "futuresPrice": 1841.5,
+    "basis": 40.51317188,
+    "basisRate": 0.0225,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1699056000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1833.4248911,
+    "futuresPrice": 1875.17,
+    "basis": 41.7451089,
+    "basisRate": 0.0228,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1699142400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1856.93120888,
+    "futuresPrice": 1900.59,
+    "basis": 43.65879112,
+    "basisRate": 0.0235,
+    "annualizedBasisRate": 0.0075
+  },
+  {
+    "timestamp": 1699228800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1893.81290085,
+    "futuresPrice": 1943.75,
+    "basis": 49.93709915,
+    "basisRate": 0.0264,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1699315200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1901.19492676,
+    "futuresPrice": 1949.4,
+    "basis": 48.20507324,
+    "basisRate": 0.0254,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1699401600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1886.14691027,
+    "futuresPrice": 1936.92,
+    "basis": 50.77308973,
+    "basisRate": 0.0269,
+    "annualizedBasisRate": 0.0086
+  },
+  {
+    "timestamp": 1699488000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1888.66445922,
+    "futuresPrice": 1940.41,
+    "basis": 51.74554078,
+    "basisRate": 0.0274,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1699574400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2120.58463139,
+    "futuresPrice": 2186.17,
+    "basis": 65.58536861,
+    "basisRate": 0.0309,
+    "annualizedBasisRate": 0.0099
+  },
+  {
+    "timestamp": 1699660800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2078.40610192,
+    "futuresPrice": 2141.42,
+    "basis": 63.01389808,
+    "basisRate": 0.0303,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1699747200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2054.11949185,
+    "futuresPrice": 2113.01,
+    "basis": 58.89050815,
+    "basisRate": 0.0287,
+    "annualizedBasisRate": 0.0092
+  },
+  {
+    "timestamp": 1699833600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2045.73031652,
+    "futuresPrice": 2102.46,
+    "basis": 56.72968348,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1699920000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2053.98067838,
+    "futuresPrice": 2117.27,
+    "basis": 63.28932162,
+    "basisRate": 0.0308,
+    "annualizedBasisRate": 0.0099
+  },
+  {
+    "timestamp": 1700006400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1979.34787966,
+    "futuresPrice": 2034.1,
+    "basis": 54.75212034,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1700092800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2059.48128954,
+    "futuresPrice": 2118.96,
+    "basis": 59.47871046,
+    "basisRate": 0.0289,
+    "annualizedBasisRate": 0.0093
+  },
+  {
+    "timestamp": 1700179200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1961.60689296,
+    "futuresPrice": 2012.79,
+    "basis": 51.18310704,
+    "basisRate": 0.0261,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1700265600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1961.49749969,
+    "futuresPrice": 2008.69,
+    "basis": 47.19250031,
+    "basisRate": 0.0241,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1700352000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1963.30208231,
+    "futuresPrice": 2011.22,
+    "basis": 47.91791769,
+    "basisRate": 0.0244,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1700438400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2012.17062851,
+    "futuresPrice": 2063.63,
+    "basis": 51.45937149,
+    "basisRate": 0.0256,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1700524800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2022.47808632,
+    "futuresPrice": 2072.28,
+    "basis": 49.80191368,
+    "basisRate": 0.0246,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1700611200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 1934.25157121,
+    "futuresPrice": 1976.15,
+    "basis": 41.89842879,
+    "basisRate": 0.0217,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1700697600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2064.17678709,
+    "futuresPrice": 2114.96,
+    "basis": 50.78321291,
+    "basisRate": 0.0246,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1700784000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2062.67262059,
+    "futuresPrice": 2113.2,
+    "basis": 50.52737941,
+    "basisRate": 0.0245,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1700870400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2082.22927349,
+    "futuresPrice": 2134.66,
+    "basis": 52.43072651,
+    "basisRate": 0.0252,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1700956800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2084.07289676,
+    "futuresPrice": 2136.34,
+    "basis": 52.26710324,
+    "basisRate": 0.0251,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1701043200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2062.7603155,
+    "futuresPrice": 2112.59,
+    "basis": 49.8296845,
+    "basisRate": 0.0242,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1701129600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2027.08197166,
+    "futuresPrice": 2074.86,
+    "basis": 47.77802834,
+    "basisRate": 0.0236,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1701216000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2049.05525185,
+    "futuresPrice": 2098.29,
+    "basis": 49.23474815,
+    "basisRate": 0.024,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1701302400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2029.58962554,
+    "futuresPrice": 2073.08,
+    "basis": 43.49037446,
+    "basisRate": 0.0214,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1701388800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2052.57053803,
+    "futuresPrice": 2100.83,
+    "basis": 48.25946197,
+    "basisRate": 0.0235,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1701475200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2087.98688831,
+    "futuresPrice": 2137.62,
+    "basis": 49.63311169,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1701561600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2165.67948119,
+    "futuresPrice": 2224.51,
+    "basis": 58.83051881,
+    "basisRate": 0.0272,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1701648000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2193.7152102,
+    "futuresPrice": 2251.79,
+    "basis": 58.0747898,
+    "basisRate": 0.0265,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1701734400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2243.35812263,
+    "futuresPrice": 2296.74,
+    "basis": 53.38187737,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1701820800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2293.66046685,
+    "futuresPrice": 2348.22,
+    "basis": 54.55953315,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1701907200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2233.51676054,
+    "futuresPrice": 2283.78,
+    "basis": 50.26323946,
+    "basisRate": 0.0225,
+    "annualizedBasisRate": 0.0074
+  },
+  {
+    "timestamp": 1701993600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2356.99320548,
+    "futuresPrice": 2414.65,
+    "basis": 57.65679452,
+    "basisRate": 0.0245,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1702080000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2358.84018161,
+    "futuresPrice": 2413.31,
+    "basis": 54.46981839,
+    "basisRate": 0.0231,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1702166400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2340.79501615,
+    "futuresPrice": 2397.92,
+    "basis": 57.12498385,
+    "basisRate": 0.0244,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1702252800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2352.32981206,
+    "futuresPrice": 2404.44,
+    "basis": 52.11018794,
+    "basisRate": 0.0222,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1702339200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2224.1078391,
+    "futuresPrice": 2279.55,
+    "basis": 55.4421609,
+    "basisRate": 0.0249,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1702425600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2198.72105727,
+    "futuresPrice": 2253.91,
+    "basis": 55.18894273,
+    "basisRate": 0.0251,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1702512000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2260.58812099,
+    "futuresPrice": 2317.16,
+    "basis": 56.57187901,
+    "basisRate": 0.025,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1702598400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2315.86321728,
+    "futuresPrice": 2367.35,
+    "basis": 51.48678272,
+    "basisRate": 0.0222,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1702684800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2220.02997831,
+    "futuresPrice": 2271.6,
+    "basis": 51.57002169,
+    "basisRate": 0.0232,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1702771200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2227.06365705,
+    "futuresPrice": 2279.73,
+    "basis": 52.66634295,
+    "basisRate": 0.0236,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1702857600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2194.87696618,
+    "futuresPrice": 2247.54,
+    "basis": 52.66303382,
+    "basisRate": 0.024,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1702944000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2218.31725114,
+    "futuresPrice": 2272,
+    "basis": 53.68274886,
+    "basisRate": 0.0242,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1703030400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2177.3829479,
+    "futuresPrice": 2227.54,
+    "basis": 50.1570521,
+    "basisRate": 0.023,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1703116800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2201.80892593,
+    "futuresPrice": 2259.94,
+    "basis": 58.13107407,
+    "basisRate": 0.0264,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1703203200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2239.85896253,
+    "futuresPrice": 2307.53,
+    "basis": 67.67103747,
+    "basisRate": 0.0302,
+    "annualizedBasisRate": 0.01
+  },
+  {
+    "timestamp": 1703289600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2326.63262395,
+    "futuresPrice": 2402.47,
+    "basis": 75.83737605,
+    "basisRate": 0.0326,
+    "annualizedBasisRate": 0.0108
+  },
+  {
+    "timestamp": 1703376000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2309.59400633,
+    "futuresPrice": 2385.02,
+    "basis": 75.42599367,
+    "basisRate": 0.0327,
+    "annualizedBasisRate": 0.0109
+  },
+  {
+    "timestamp": 1703462400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2265.14203386,
+    "futuresPrice": 2338.02,
+    "basis": 72.87796614,
+    "basisRate": 0.0322,
+    "annualizedBasisRate": null
+  },
+  {
+    "timestamp": 1703548800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2272.1049289,
+    "futuresPrice": 2344.62,
+    "basis": 72.5150711,
+    "basisRate": 0.0319,
+    "annualizedBasisRate": 0.0106
+  },
+  {
+    "timestamp": 1703635200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2231.01756216,
+    "futuresPrice": 2309.03,
+    "basis": 78.01243784,
+    "basisRate": 0.035,
+    "annualizedBasisRate": 0.0117
+  },
+  {
+    "timestamp": 1703721600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2380.64629568,
+    "futuresPrice": 2478.1,
+    "basis": 97.45370432,
+    "basisRate": 0.0409,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1703808000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2345.67610032,
+    "futuresPrice": 2444.11,
+    "basis": 98.43389968,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.014
+  },
+  {
+    "timestamp": 1703894400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2299.66100261,
+    "futuresPrice": 2467.55,
+    "basis": 167.88899739,
+    "basisRate": 0.073,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1703980800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2291.80437776,
+    "futuresPrice": 2462.31,
+    "basis": 170.50562224,
+    "basisRate": 0.0744,
+    "annualizedBasisRate": 0.0249
+  },
+  {
+    "timestamp": 1704067200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2281.26445595,
+    "futuresPrice": 2469.14,
+    "basis": 187.87554405,
+    "basisRate": 0.0824,
+    "annualizedBasisRate": 0.0276
+  },
+  {
+    "timestamp": 1704153600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2352.68752261,
+    "futuresPrice": 2550.7,
+    "basis": 198.01247739,
+    "basisRate": 0.0842,
+    "annualizedBasisRate": 0.0282
+  },
+  {
+    "timestamp": 1704240000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2356.23186227,
+    "futuresPrice": 2572.29,
+    "basis": 216.05813773,
+    "basisRate": 0.0917,
+    "annualizedBasisRate": 0.0308
+  },
+  {
+    "timestamp": 1704326400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2210.65241127,
+    "futuresPrice": 2378.93,
+    "basis": 168.27758873,
+    "basisRate": 0.0761,
+    "annualizedBasisRate": 0.0256
+  },
+  {
+    "timestamp": 1704412800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2269.30842759,
+    "futuresPrice": 2440.11,
+    "basis": 170.80157241,
+    "basisRate": 0.0753,
+    "annualizedBasisRate": 0.0253
+  },
+  {
+    "timestamp": 1704499200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2269.64675272,
+    "futuresPrice": 2434.99,
+    "basis": 165.34324728,
+    "basisRate": 0.0728,
+    "annualizedBasisRate": 0.0245
+  },
+  {
+    "timestamp": 1704585600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2241.25905256,
+    "futuresPrice": 2384.7,
+    "basis": 143.44094744,
+    "basisRate": 0.064,
+    "annualizedBasisRate": 0.0216
+  },
+  {
+    "timestamp": 1704672000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2222.15802837,
+    "futuresPrice": 2362.25,
+    "basis": 140.09197163,
+    "basisRate": 0.063,
+    "annualizedBasisRate": 0.0212
+  },
+  {
+    "timestamp": 1704758400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2332.85942186,
+    "futuresPrice": 2481.55,
+    "basis": 148.69057814,
+    "basisRate": 0.0637,
+    "annualizedBasisRate": 0.0215
+  },
+  {
+    "timestamp": 1704844800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2345.10706112,
+    "futuresPrice": 2494.29,
+    "basis": 149.18293888,
+    "basisRate": 0.0636,
+    "annualizedBasisRate": 0.0215
+  },
+  {
+    "timestamp": 1704931200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2584.28456961,
+    "futuresPrice": 2744.02,
+    "basis": 159.73543039,
+    "basisRate": 0.0618,
+    "annualizedBasisRate": 0.0209
+  },
+  {
+    "timestamp": 1705017600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2619.21365816,
+    "futuresPrice": 2789.22,
+    "basis": 170.00634184,
+    "basisRate": 0.0649,
+    "annualizedBasisRate": 0.022
+  },
+  {
+    "timestamp": 1705104000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2522.36716848,
+    "futuresPrice": 2660.55,
+    "basis": 138.18283152,
+    "basisRate": 0.0548,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1705190400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2577.65016742,
+    "futuresPrice": 2717.13,
+    "basis": 139.47983258,
+    "basisRate": 0.0541,
+    "annualizedBasisRate": 0.0183
+  },
+  {
+    "timestamp": 1705276800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2471.24527216,
+    "futuresPrice": 2606.9,
+    "basis": 135.65472784,
+    "basisRate": 0.0549,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1705363200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2510.47824828,
+    "futuresPrice": 2646.36,
+    "basis": 135.88175172,
+    "basisRate": 0.0541,
+    "annualizedBasisRate": 0.0184
+  },
+  {
+    "timestamp": 1705449600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2586.94269895,
+    "futuresPrice": 2726.04,
+    "basis": 139.09730105,
+    "basisRate": 0.0538,
+    "annualizedBasisRate": 0.0183
+  },
+  {
+    "timestamp": 1705536000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2528.36270702,
+    "futuresPrice": 2659.91,
+    "basis": 131.54729298,
+    "basisRate": 0.052,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1705622400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2468.08668065,
+    "futuresPrice": 2598.46,
+    "basis": 130.37331935,
+    "basisRate": 0.0528,
+    "annualizedBasisRate": 0.018
+  },
+  {
+    "timestamp": 1705708800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2489.89303536,
+    "futuresPrice": 2614.72,
+    "basis": 124.82696464,
+    "basisRate": 0.0501,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1705795200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2470.22846356,
+    "futuresPrice": 2592.03,
+    "basis": 121.80153644,
+    "basisRate": 0.0493,
+    "annualizedBasisRate": 0.0168
+  },
+  {
+    "timestamp": 1705881600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2455.14277833,
+    "futuresPrice": 2578.05,
+    "basis": 122.90722167,
+    "basisRate": 0.0501,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1705968000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2310.88799745,
+    "futuresPrice": 2415.84,
+    "basis": 104.95200255,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0155
+  },
+  {
+    "timestamp": 1706054400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2241.47853361,
+    "futuresPrice": 2337.12,
+    "basis": 95.64146639,
+    "basisRate": 0.0427,
+    "annualizedBasisRate": 0.0146
+  },
+  {
+    "timestamp": 1706140800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2233.95895733,
+    "futuresPrice": 2331.14,
+    "basis": 97.18104267,
+    "basisRate": 0.0435,
+    "annualizedBasisRate": 0.0149
+  },
+  {
+    "timestamp": 1706227200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2217.35008538,
+    "futuresPrice": 2313.69,
+    "basis": 96.33991462,
+    "basisRate": 0.0434,
+    "annualizedBasisRate": 0.0149
+  },
+  {
+    "timestamp": 1706313600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2267.40456202,
+    "futuresPrice": 2359.47,
+    "basis": 92.06543798,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.0139
+  },
+  {
+    "timestamp": 1706400000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2268.03032846,
+    "futuresPrice": 2363.23,
+    "basis": 95.19967154,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0144
+  },
+  {
+    "timestamp": 1706486400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2256.95370427,
+    "futuresPrice": 2352.53,
+    "basis": 95.57629573,
+    "basisRate": 0.0423,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1706572800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2317.39812143,
+    "futuresPrice": 2415.86,
+    "basis": 98.46187857,
+    "basisRate": 0.0425,
+    "annualizedBasisRate": 0.0146
+  },
+  {
+    "timestamp": 1706659200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2343.23380303,
+    "futuresPrice": 2440.22,
+    "basis": 96.98619697,
+    "basisRate": 0.0414,
+    "annualizedBasisRate": 0.0143
+  },
+  {
+    "timestamp": 1706745600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2282.07171576,
+    "futuresPrice": 2374.77,
+    "basis": 92.69828424,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.014
+  },
+  {
+    "timestamp": 1706832000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2303.61809268,
+    "futuresPrice": 2397.19,
+    "basis": 93.57190732,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.014
+  },
+  {
+    "timestamp": 1706918400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2307.68503328,
+    "futuresPrice": 2400.26,
+    "basis": 92.57496672,
+    "basisRate": 0.0401,
+    "annualizedBasisRate": 0.0139
+  },
+  {
+    "timestamp": 1707004800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2295.73823096,
+    "futuresPrice": 2381.09,
+    "basis": 85.35176904,
+    "basisRate": 0.0372,
+    "annualizedBasisRate": 0.0129
+  },
+  {
+    "timestamp": 1707091200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2288.82419634,
+    "futuresPrice": 2372.22,
+    "basis": 83.39580366,
+    "basisRate": 0.0364,
+    "annualizedBasisRate": 0.0126
+  },
+  {
+    "timestamp": 1707177600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2298.96051688,
+    "futuresPrice": 2384.41,
+    "basis": 85.44948312,
+    "basisRate": 0.0372,
+    "annualizedBasisRate": 0.0129
+  },
+  {
+    "timestamp": 1707264000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2372.22703856,
+    "futuresPrice": 2461.76,
+    "basis": 89.53296144,
+    "basisRate": 0.0377,
+    "annualizedBasisRate": 0.0131
+  },
+  {
+    "timestamp": 1707350400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2424.25889374,
+    "futuresPrice": 2515.24,
+    "basis": 90.98110626,
+    "basisRate": 0.0375,
+    "annualizedBasisRate": 0.013
+  },
+  {
+    "timestamp": 1707436800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2419.98712566,
+    "futuresPrice": 2514.02,
+    "basis": 94.03287434,
+    "basisRate": 0.0389,
+    "annualizedBasisRate": 0.0135
+  },
+  {
+    "timestamp": 1707523200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2487.40387569,
+    "futuresPrice": 2582.51,
+    "basis": 95.10612431,
+    "basisRate": 0.0382,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1707609600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2500.84709769,
+    "futuresPrice": 2595.99,
+    "basis": 95.14290231,
+    "basisRate": 0.038,
+    "annualizedBasisRate": 0.0132
+  },
+  {
+    "timestamp": 1707696000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2507.77593619,
+    "futuresPrice": 2603.28,
+    "basis": 95.50406381,
+    "basisRate": 0.0381,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1707782400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2660.11769315,
+    "futuresPrice": 2774.35,
+    "basis": 114.23230685,
+    "basisRate": 0.0429,
+    "annualizedBasisRate": 0.015
+  },
+  {
+    "timestamp": 1707868800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2641.73188637,
+    "futuresPrice": 2748.09,
+    "basis": 106.35811363,
+    "basisRate": 0.0403,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1707955200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2777.73720455,
+    "futuresPrice": 2905.7,
+    "basis": 127.96279545,
+    "basisRate": 0.0461,
+    "annualizedBasisRate": 0.0161
+  },
+  {
+    "timestamp": 1708041600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2825.34954227,
+    "futuresPrice": 2957.24,
+    "basis": 131.89045773,
+    "basisRate": 0.0467,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1708128000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2803.94289833,
+    "futuresPrice": 2938.07,
+    "basis": 134.12710167,
+    "basisRate": 0.0478,
+    "annualizedBasisRate": 0.0167
+  },
+  {
+    "timestamp": 1708214400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2787.19601615,
+    "futuresPrice": 2913.39,
+    "basis": 126.19398385,
+    "basisRate": 0.0453,
+    "annualizedBasisRate": 0.0159
+  },
+  {
+    "timestamp": 1708300800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2881.57925099,
+    "futuresPrice": 3022.72,
+    "basis": 141.14074901,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1708387200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2944.87050405,
+    "futuresPrice": 3095,
+    "basis": 150.12949595,
+    "basisRate": 0.051,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1708473600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3015.84998353,
+    "futuresPrice": 3168.22,
+    "basis": 152.37001647,
+    "basisRate": 0.0505,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1708560000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2969.04554416,
+    "futuresPrice": 3116.46,
+    "basis": 147.41445584,
+    "basisRate": 0.0497,
+    "annualizedBasisRate": 0.0175
+  },
+  {
+    "timestamp": 1708646400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2969.73077922,
+    "futuresPrice": 3117.58,
+    "basis": 147.84922078,
+    "basisRate": 0.0498,
+    "annualizedBasisRate": 0.0175
+  },
+  {
+    "timestamp": 1708732800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2921.82449733,
+    "futuresPrice": 3060.45,
+    "basis": 138.62550267,
+    "basisRate": 0.0474,
+    "annualizedBasisRate": 0.0167
+  },
+  {
+    "timestamp": 1708819200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2992.38855092,
+    "futuresPrice": 3139.94,
+    "basis": 147.55144908,
+    "basisRate": 0.0493,
+    "annualizedBasisRate": 0.0174
+  },
+  {
+    "timestamp": 1708905600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3112.71037656,
+    "futuresPrice": 3269.54,
+    "basis": 156.82962344,
+    "basisRate": 0.0504,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1708992000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3178.48370673,
+    "futuresPrice": 3339.4,
+    "basis": 160.91629327,
+    "basisRate": 0.0506,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1709078400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3243.92569557,
+    "futuresPrice": 3413.94,
+    "basis": 170.01430443,
+    "basisRate": 0.0524,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1709164800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3386.68037857,
+    "futuresPrice": 3571.42,
+    "basis": 184.73962143,
+    "basisRate": 0.0545,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1709251200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3342.08676896,
+    "futuresPrice": 3531.28,
+    "basis": 189.19323104,
+    "basisRate": 0.0566,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1709337600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3436.15730628,
+    "futuresPrice": 3624,
+    "basis": 187.84269372,
+    "basisRate": 0.0547,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1709424000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3423.30803851,
+    "futuresPrice": 3609.9,
+    "basis": 186.59196149,
+    "basisRate": 0.0545,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1709510400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3489.7765198,
+    "futuresPrice": 3702.78,
+    "basis": 213.0034802,
+    "basisRate": 0.061,
+    "annualizedBasisRate": 0.0217
+  },
+  {
+    "timestamp": 1709596800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3632.65904634,
+    "futuresPrice": 3876.84,
+    "basis": 244.18095366,
+    "basisRate": 0.0672,
+    "annualizedBasisRate": 0.0239
+  },
+  {
+    "timestamp": 1709683200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3558.94294105,
+    "futuresPrice": 3811.87,
+    "basis": 252.92705895,
+    "basisRate": 0.0711,
+    "annualizedBasisRate": 0.0253
+  },
+  {
+    "timestamp": 1709769600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3820.65046592,
+    "futuresPrice": 4085.41,
+    "basis": 264.75953408,
+    "basisRate": 0.0693,
+    "annualizedBasisRate": 0.0247
+  },
+  {
+    "timestamp": 1709856000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3874.89976256,
+    "futuresPrice": 4140.45,
+    "basis": 265.55023744,
+    "basisRate": 0.0685,
+    "annualizedBasisRate": 0.0245
+  },
+  {
+    "timestamp": 1709942400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3892.95137736,
+    "futuresPrice": 4165.99,
+    "basis": 273.03862264,
+    "basisRate": 0.0701,
+    "annualizedBasisRate": 0.0251
+  },
+  {
+    "timestamp": 1710028800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3913.87115777,
+    "futuresPrice": 4189.72,
+    "basis": 275.84884223,
+    "basisRate": 0.0705,
+    "annualizedBasisRate": 0.0252
+  },
+  {
+    "timestamp": 1710115200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3881.91031216,
+    "futuresPrice": 4152.89,
+    "basis": 270.97968784,
+    "basisRate": 0.0698,
+    "annualizedBasisRate": 0.025
+  },
+  {
+    "timestamp": 1710201600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 4066.22289816,
+    "futuresPrice": 4348.21,
+    "basis": 281.98710184,
+    "basisRate": 0.0693,
+    "annualizedBasisRate": 0.0248
+  },
+  {
+    "timestamp": 1710288000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3980.27130513,
+    "futuresPrice": 4259.22,
+    "basis": 278.94869487,
+    "basisRate": 0.0701,
+    "annualizedBasisRate": 0.0252
+  },
+  {
+    "timestamp": 1710374400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 4007.37056254,
+    "futuresPrice": 4276.44,
+    "basis": 269.06943746,
+    "basisRate": 0.0671,
+    "annualizedBasisRate": 0.0241
+  },
+  {
+    "timestamp": 1710460800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3881.03447192,
+    "futuresPrice": 4138.99,
+    "basis": 257.95552808,
+    "basisRate": 0.0665,
+    "annualizedBasisRate": 0.0239
+  },
+  {
+    "timestamp": 1710547200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3741.29196987,
+    "futuresPrice": 3996.79,
+    "basis": 255.49803013,
+    "basisRate": 0.0683,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1710633600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3520.29234596,
+    "futuresPrice": 3750.16,
+    "basis": 229.86765404,
+    "basisRate": 0.0653,
+    "annualizedBasisRate": 0.0235
+  },
+  {
+    "timestamp": 1710720000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3642.1075873,
+    "futuresPrice": 3904.9,
+    "basis": 262.7924127,
+    "basisRate": 0.0722,
+    "annualizedBasisRate": 0.026
+  },
+  {
+    "timestamp": 1710806400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3520.02422193,
+    "futuresPrice": 3759.63,
+    "basis": 239.60577807,
+    "basisRate": 0.0681,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1710892800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3158.46942651,
+    "futuresPrice": 3348,
+    "basis": 189.53057349,
+    "basisRate": 0.06,
+    "annualizedBasisRate": 0.0217
+  },
+  {
+    "timestamp": 1710979200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3516.0695615,
+    "futuresPrice": 3745.07,
+    "basis": 229.0004385,
+    "basisRate": 0.0651,
+    "annualizedBasisRate": 0.0235
+  },
+  {
+    "timestamp": 1711065600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3492.12933076,
+    "futuresPrice": 3727.18,
+    "basis": 235.05066924,
+    "basisRate": 0.0673,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1711152000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3336.55078187,
+    "futuresPrice": 3551.62,
+    "basis": 215.06921813,
+    "basisRate": 0.0645,
+    "annualizedBasisRate": 0.0234
+  },
+  {
+    "timestamp": 1711238400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3331.91181255,
+    "futuresPrice": 3528.46,
+    "basis": 196.54818745,
+    "basisRate": 0.059,
+    "annualizedBasisRate": 0.0214
+  },
+  {
+    "timestamp": 1711324800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3453.99260548,
+    "futuresPrice": 3671.91,
+    "basis": 217.91739452,
+    "basisRate": 0.0631,
+    "annualizedBasisRate": 0.0229
+  },
+  {
+    "timestamp": 1711411200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3591.39558435,
+    "futuresPrice": 3814.02,
+    "basis": 222.62441565,
+    "basisRate": 0.062,
+    "annualizedBasisRate": 0.0225
+  },
+  {
+    "timestamp": 1711497600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3587.39990518,
+    "futuresPrice": 3812.99,
+    "basis": 225.59009482,
+    "basisRate": 0.0629,
+    "annualizedBasisRate": 0.0229
+  },
+  {
+    "timestamp": 1711584000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3499.12901322,
+    "futuresPrice": 3727.58,
+    "basis": 228.45098678,
+    "basisRate": 0.0653,
+    "annualizedBasisRate": 0.0238
+  },
+  {
+    "timestamp": 1711670400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3561.41660895,
+    "futuresPrice": 3791.39,
+    "basis": 229.97339105,
+    "basisRate": 0.0646,
+    "annualizedBasisRate": 0.0235
+  },
+  {
+    "timestamp": 1711756800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3511.73696433,
+    "futuresPrice": 3908.34,
+    "basis": 396.60303567,
+    "basisRate": 0.1129,
+    "annualizedBasisRate": 0.0412
+  },
+  {
+    "timestamp": 1711843200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3507.79793933,
+    "futuresPrice": 3970.38,
+    "basis": 462.58206067,
+    "basisRate": 0.1319,
+    "annualizedBasisRate": 0.0482
+  },
+  {
+    "timestamp": 1711929600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3646.12601601,
+    "futuresPrice": 4162.85,
+    "basis": 516.72398399,
+    "basisRate": 0.1417,
+    "annualizedBasisRate": 0.0518
+  },
+  {
+    "timestamp": 1712016000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3505.79057861,
+    "futuresPrice": 3953.44,
+    "basis": 447.64942139,
+    "basisRate": 0.1277,
+    "annualizedBasisRate": 0.0467
+  },
+  {
+    "timestamp": 1712102400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3278.7537821,
+    "futuresPrice": 3610.91,
+    "basis": 332.1562179,
+    "basisRate": 0.1013,
+    "annualizedBasisRate": 0.0371
+  },
+  {
+    "timestamp": 1712188800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3312.33424466,
+    "futuresPrice": 3632,
+    "basis": 319.66575534,
+    "basisRate": 0.0965,
+    "annualizedBasisRate": 0.0354
+  },
+  {
+    "timestamp": 1712275200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3329.428145,
+    "futuresPrice": 3655.51,
+    "basis": 326.081855,
+    "basisRate": 0.0979,
+    "annualizedBasisRate": 0.0359
+  },
+  {
+    "timestamp": 1712361600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3319.76859005,
+    "futuresPrice": 3628.96,
+    "basis": 309.19140995,
+    "basisRate": 0.0931,
+    "annualizedBasisRate": 0.0342
+  },
+  {
+    "timestamp": 1712448000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3353.53408074,
+    "futuresPrice": 3646.01,
+    "basis": 292.47591926,
+    "basisRate": 0.0872,
+    "annualizedBasisRate": 0.0321
+  },
+  {
+    "timestamp": 1712534400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3454.13472533,
+    "futuresPrice": 3757.85,
+    "basis": 303.71527467,
+    "basisRate": 0.0879,
+    "annualizedBasisRate": 0.0324
+  },
+  {
+    "timestamp": 1712620800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3694.24283247,
+    "futuresPrice": 4065.65,
+    "basis": 371.40716753,
+    "basisRate": 0.1005,
+    "annualizedBasisRate": 0.037
+  },
+  {
+    "timestamp": 1712707200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3505.52855837,
+    "futuresPrice": 3823,
+    "basis": 317.47144163,
+    "basisRate": 0.0906,
+    "annualizedBasisRate": 0.0334
+  },
+  {
+    "timestamp": 1712793600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3544.65101017,
+    "futuresPrice": 3874.29,
+    "basis": 329.63898983,
+    "basisRate": 0.093,
+    "annualizedBasisRate": 0.0343
+  },
+  {
+    "timestamp": 1712880000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3503.61643207,
+    "futuresPrice": 3811.83,
+    "basis": 308.21356793,
+    "basisRate": 0.088,
+    "annualizedBasisRate": 0.0325
+  },
+  {
+    "timestamp": 1712966400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3239.86421571,
+    "futuresPrice": 3495.88,
+    "basis": 256.01578429,
+    "basisRate": 0.079,
+    "annualizedBasisRate": 0.0292
+  },
+  {
+    "timestamp": 1713052800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3012.58761171,
+    "futuresPrice": 3182.16,
+    "basis": 169.57238829,
+    "basisRate": 0.0563,
+    "annualizedBasisRate": 0.0209
+  },
+  {
+    "timestamp": 1713139200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3157.98132331,
+    "futuresPrice": 3351.02,
+    "basis": 193.03867669,
+    "basisRate": 0.0611,
+    "annualizedBasisRate": 0.0227
+  },
+  {
+    "timestamp": 1713225600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3102.51595185,
+    "futuresPrice": 3286.29,
+    "basis": 183.77404815,
+    "basisRate": 0.0592,
+    "annualizedBasisRate": 0.022
+  },
+  {
+    "timestamp": 1713312000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3085.1707891,
+    "futuresPrice": 3263.1,
+    "basis": 177.9292109,
+    "basisRate": 0.0577,
+    "annualizedBasisRate": 0.0214
+  },
+  {
+    "timestamp": 1713398400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2985.25243573,
+    "futuresPrice": 3122.74,
+    "basis": 137.48756427,
+    "basisRate": 0.0461,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1713484800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3065.87125518,
+    "futuresPrice": 3217.98,
+    "basis": 152.10874482,
+    "basisRate": 0.0496,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1713571200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3058.09789452,
+    "futuresPrice": 3183.97,
+    "basis": 125.87210548,
+    "basisRate": 0.0412,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1713657600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3157.40984607,
+    "futuresPrice": 3299.78,
+    "basis": 142.37015393,
+    "basisRate": 0.0451,
+    "annualizedBasisRate": 0.0168
+  },
+  {
+    "timestamp": 1713744000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3148.13244666,
+    "futuresPrice": 3296.98,
+    "basis": 148.84755334,
+    "basisRate": 0.0473,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1713830400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3201.74969397,
+    "futuresPrice": 3372.06,
+    "basis": 170.31030603,
+    "basisRate": 0.0532,
+    "annualizedBasisRate": 0.0199
+  },
+  {
+    "timestamp": 1713916800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3219.5501901,
+    "futuresPrice": 3392.8,
+    "basis": 173.2498099,
+    "basisRate": 0.0538,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1714003200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3139.08654819,
+    "futuresPrice": 3310,
+    "basis": 170.91345181,
+    "basisRate": 0.0544,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1714089600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3155.49157984,
+    "futuresPrice": 3318.49,
+    "basis": 162.99842016,
+    "basisRate": 0.0517,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1714176000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3129.94981822,
+    "futuresPrice": 3292.99,
+    "basis": 163.04018178,
+    "basisRate": 0.0521,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1714262400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3252.94906098,
+    "futuresPrice": 3415.37,
+    "basis": 162.42093902,
+    "basisRate": 0.0499,
+    "annualizedBasisRate": 0.0188
+  },
+  {
+    "timestamp": 1714348800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3262.54910249,
+    "futuresPrice": 3422.43,
+    "basis": 159.88089751,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0184
+  },
+  {
+    "timestamp": 1714435200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3215.32264797,
+    "futuresPrice": 3361.14,
+    "basis": 145.81735203,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1714521600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3011.38434821,
+    "futuresPrice": 3129.38,
+    "basis": 117.99565179,
+    "basisRate": 0.0392,
+    "annualizedBasisRate": 0.0148
+  },
+  {
+    "timestamp": 1714608000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2968.88922417,
+    "futuresPrice": 3068.26,
+    "basis": 99.37077583,
+    "basisRate": 0.0335,
+    "annualizedBasisRate": 0.0126
+  },
+  {
+    "timestamp": 1714694400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2987.13147889,
+    "futuresPrice": 3086,
+    "basis": 98.86852111,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1714780800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3104.2219205,
+    "futuresPrice": 3226.18,
+    "basis": 121.9580795,
+    "basisRate": 0.0393,
+    "annualizedBasisRate": 0.0149
+  },
+  {
+    "timestamp": 1714867200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3117.34449739,
+    "futuresPrice": 3244.99,
+    "basis": 127.64550261,
+    "basisRate": 0.0409,
+    "annualizedBasisRate": 0.0155
+  },
+  {
+    "timestamp": 1714953600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3137.22400095,
+    "futuresPrice": 3265.79,
+    "basis": 128.56599905,
+    "basisRate": 0.041,
+    "annualizedBasisRate": 0.0155
+  },
+  {
+    "timestamp": 1715040000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3062.73518632,
+    "futuresPrice": 3189.85,
+    "basis": 127.11481368,
+    "basisRate": 0.0415,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1715126400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3005.72118221,
+    "futuresPrice": 3129.97,
+    "basis": 124.24881779,
+    "basisRate": 0.0413,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1715212800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2973.0037378,
+    "futuresPrice": 3093.55,
+    "basis": 120.5462622,
+    "basisRate": 0.0405,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1715299200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3035.80912635,
+    "futuresPrice": 3151.3,
+    "basis": 115.49087365,
+    "basisRate": 0.038,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1715385600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2909.54202087,
+    "futuresPrice": 3013.01,
+    "basis": 103.46797913,
+    "basisRate": 0.0356,
+    "annualizedBasisRate": 0.0136
+  },
+  {
+    "timestamp": 1715472000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2911.35740366,
+    "futuresPrice": 3018.51,
+    "basis": 107.15259634,
+    "basisRate": 0.0368,
+    "annualizedBasisRate": 0.014
+  },
+  {
+    "timestamp": 1715558400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2928.36693873,
+    "futuresPrice": 3036.48,
+    "basis": 108.11306127,
+    "basisRate": 0.0369,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1715644800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2950.11105831,
+    "futuresPrice": 3056.39,
+    "basis": 106.27894169,
+    "basisRate": 0.036,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1715731200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2881.032893,
+    "futuresPrice": 2984.82,
+    "basis": 103.787107,
+    "basisRate": 0.036,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1715817600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3033.83829707,
+    "futuresPrice": 3141.4,
+    "basis": 107.56170293,
+    "basisRate": 0.0355,
+    "annualizedBasisRate": 0.0136
+  },
+  {
+    "timestamp": 1715904000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2945.13751371,
+    "futuresPrice": 3050.86,
+    "basis": 105.72248629,
+    "basisRate": 0.0359,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1715990400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3093.4255371,
+    "futuresPrice": 3208.28,
+    "basis": 114.8544629,
+    "basisRate": 0.0371,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1716076800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3122.86122434,
+    "futuresPrice": 3246.23,
+    "basis": 123.36877566,
+    "basisRate": 0.0395,
+    "annualizedBasisRate": 0.0152
+  },
+  {
+    "timestamp": 1716163200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3070.92071841,
+    "futuresPrice": 3190.76,
+    "basis": 119.83928159,
+    "basisRate": 0.039,
+    "annualizedBasisRate": 0.015
+  },
+  {
+    "timestamp": 1716249600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3661.6371405,
+    "futuresPrice": 3832.36,
+    "basis": 170.7228595,
+    "basisRate": 0.0466,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1716336000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3789.65159221,
+    "futuresPrice": 3972.9,
+    "basis": 183.24840779,
+    "basisRate": 0.0484,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1716422400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3736.07701768,
+    "futuresPrice": 3926.54,
+    "basis": 190.46298232,
+    "basisRate": 0.051,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1716508800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3781.64563408,
+    "futuresPrice": 3970.49,
+    "basis": 188.84436592,
+    "basisRate": 0.0499,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1716595200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3726.99045178,
+    "futuresPrice": 3911.25,
+    "basis": 184.25954822,
+    "basisRate": 0.0494,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1716681600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3749.3664662,
+    "futuresPrice": 3925.19,
+    "basis": 175.8235338,
+    "basisRate": 0.0469,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1716768000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3824.45264584,
+    "futuresPrice": 4005.56,
+    "basis": 181.10735416,
+    "basisRate": 0.0474,
+    "annualizedBasisRate": 0.0184
+  },
+  {
+    "timestamp": 1716854400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3891.19379447,
+    "futuresPrice": 4081.29,
+    "basis": 190.09620553,
+    "basisRate": 0.0489,
+    "annualizedBasisRate": 0.019
+  },
+  {
+    "timestamp": 1716940800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3840.19753609,
+    "futuresPrice": 4028.71,
+    "basis": 188.51246391,
+    "basisRate": 0.0491,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1717027200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3762.32043623,
+    "futuresPrice": 3946.12,
+    "basis": 183.79956377,
+    "basisRate": 0.0489,
+    "annualizedBasisRate": 0.019
+  },
+  {
+    "timestamp": 1717113600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3746.95028128,
+    "futuresPrice": 3924.75,
+    "basis": 177.79971872,
+    "basisRate": 0.0475,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1717200000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3758.55677988,
+    "futuresPrice": 3938.34,
+    "basis": 179.78322012,
+    "basisRate": 0.0478,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1717286400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3813.26738498,
+    "futuresPrice": 3995.24,
+    "basis": 181.97261502,
+    "basisRate": 0.0477,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1717372800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3779.20631049,
+    "futuresPrice": 3954.74,
+    "basis": 175.53368951,
+    "basisRate": 0.0464,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1717459200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3766.05482073,
+    "futuresPrice": 3937.1,
+    "basis": 171.04517927,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1717545600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3811.25834137,
+    "futuresPrice": 3979.22,
+    "basis": 167.96165863,
+    "basisRate": 0.0441,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1717632000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3866.04198384,
+    "futuresPrice": 4043.35,
+    "basis": 177.30801616,
+    "basisRate": 0.0459,
+    "annualizedBasisRate": 0.018
+  },
+  {
+    "timestamp": 1717718400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3812.0694091,
+    "futuresPrice": 3985.72,
+    "basis": 173.6505909,
+    "basisRate": 0.0456,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1717804800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3676.85149595,
+    "futuresPrice": 3847.52,
+    "basis": 170.66850405,
+    "basisRate": 0.0464,
+    "annualizedBasisRate": 0.0182
+  },
+  {
+    "timestamp": 1717891200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3680.67195063,
+    "futuresPrice": 3847.98,
+    "basis": 167.30804937,
+    "basisRate": 0.0455,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1717977600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3705.91575225,
+    "futuresPrice": 3871.83,
+    "basis": 165.91424775,
+    "basisRate": 0.0448,
+    "annualizedBasisRate": 0.0176
+  },
+  {
+    "timestamp": 1718064000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3665.63943473,
+    "futuresPrice": 3825.19,
+    "basis": 159.55056527,
+    "basisRate": 0.0435,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1718150400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3497.48811487,
+    "futuresPrice": 3619.35,
+    "basis": 121.86188513,
+    "basisRate": 0.0348,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1718236800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3559.06054839,
+    "futuresPrice": 3687.94,
+    "basis": 128.87945161,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0143
+  },
+  {
+    "timestamp": 1718323200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3468.12298998,
+    "futuresPrice": 3597.76,
+    "basis": 129.63701002,
+    "basisRate": 0.0374,
+    "annualizedBasisRate": 0.0148
+  },
+  {
+    "timestamp": 1718409600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3479.86355123,
+    "futuresPrice": 3601.58,
+    "basis": 121.71644877,
+    "basisRate": 0.035,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1718496000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3566.67293169,
+    "futuresPrice": 3689.9,
+    "basis": 123.22706831,
+    "basisRate": 0.0345,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1718582400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3621.61880839,
+    "futuresPrice": 3749.52,
+    "basis": 127.90119161,
+    "basisRate": 0.0353,
+    "annualizedBasisRate": 0.014
+  },
+  {
+    "timestamp": 1718668800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3510.10002368,
+    "futuresPrice": 3632.24,
+    "basis": 122.13997632,
+    "basisRate": 0.0348,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1718755200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3482.50402975,
+    "futuresPrice": 3592.58,
+    "basis": 110.07597025,
+    "basisRate": 0.0316,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1718841600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3558.77393414,
+    "futuresPrice": 3674.2,
+    "basis": 115.42606586,
+    "basisRate": 0.0324,
+    "annualizedBasisRate": 0.0129
+  },
+  {
+    "timestamp": 1718928000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3511.35121606,
+    "futuresPrice": 3618.18,
+    "basis": 106.82878394,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0121
+  },
+  {
+    "timestamp": 1719014400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3517.08132984,
+    "futuresPrice": 3626.03,
+    "basis": 108.94867016,
+    "basisRate": 0.031,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1719100800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3494.62453529,
+    "futuresPrice": 3601.15,
+    "basis": 106.52546471,
+    "basisRate": 0.0305,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1719187200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3418.59383815,
+    "futuresPrice": 3523.12,
+    "basis": 104.52616185,
+    "basisRate": 0.0306,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1719273600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3350.58470099,
+    "futuresPrice": 3452.71,
+    "basis": 102.12529901,
+    "basisRate": 0.0305,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1719360000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3394.12945434,
+    "futuresPrice": 3496.72,
+    "basis": 102.59054566,
+    "basisRate": 0.0302,
+    "annualizedBasisRate": 0.0121
+  },
+  {
+    "timestamp": 1719446400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3368.73148219,
+    "futuresPrice": 3469.08,
+    "basis": 100.34851781,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0119
+  },
+  {
+    "timestamp": 1719532800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3445.7037492,
+    "futuresPrice": 3550.39,
+    "basis": 104.6862508,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1719619200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3373.72475942,
+    "futuresPrice": 3573.84,
+    "basis": 200.11524058,
+    "basisRate": 0.0593,
+    "annualizedBasisRate": 0.0238
+  },
+  {
+    "timestamp": 1719705600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3372.86812548,
+    "futuresPrice": 3571.54,
+    "basis": 198.67187452,
+    "basisRate": 0.0589,
+    "annualizedBasisRate": 0.0237
+  },
+  {
+    "timestamp": 1719792000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3432.33502783,
+    "futuresPrice": 3640.25,
+    "basis": 207.91497217,
+    "basisRate": 0.0606,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1719878400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3439.23064837,
+    "futuresPrice": 3636.76,
+    "basis": 197.52935163,
+    "basisRate": 0.0574,
+    "annualizedBasisRate": 0.0231
+  },
+  {
+    "timestamp": 1719964800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3416.24806514,
+    "futuresPrice": 3611.7,
+    "basis": 195.45193486,
+    "basisRate": 0.0572,
+    "annualizedBasisRate": 0.0231
+  },
+  {
+    "timestamp": 1720051200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3292.08330303,
+    "futuresPrice": 3470.76,
+    "basis": 178.67669697,
+    "basisRate": 0.0543,
+    "annualizedBasisRate": 0.0219
+  },
+  {
+    "timestamp": 1720137600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3058.48543087,
+    "futuresPrice": 3210.58,
+    "basis": 152.09456913,
+    "basisRate": 0.0497,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1720224000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2981.81330442,
+    "futuresPrice": 3133.62,
+    "basis": 151.80669558,
+    "basisRate": 0.0509,
+    "annualizedBasisRate": 0.0206
+  },
+  {
+    "timestamp": 1720310400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3067.63936856,
+    "futuresPrice": 3222.12,
+    "basis": 154.48063144,
+    "basisRate": 0.0504,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1720396800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2930.17079655,
+    "futuresPrice": 3073.82,
+    "basis": 143.64920345,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0199
+  },
+  {
+    "timestamp": 1720483200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3018.20770334,
+    "futuresPrice": 3164.76,
+    "basis": 146.55229666,
+    "basisRate": 0.0486,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1720569600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3066.37950906,
+    "futuresPrice": 3216.59,
+    "basis": 150.21049094,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0199
+  },
+  {
+    "timestamp": 1720656000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3101.64647774,
+    "futuresPrice": 3250.76,
+    "basis": 149.11352226,
+    "basisRate": 0.0481,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1720742400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3099.32657373,
+    "futuresPrice": 3248.57,
+    "basis": 149.24342627,
+    "basisRate": 0.0482,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1720828800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3134.3100495,
+    "futuresPrice": 3285.18,
+    "basis": 150.8699505,
+    "basisRate": 0.0481,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1720915200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3176.63131508,
+    "futuresPrice": 3327.97,
+    "basis": 151.33868492,
+    "basisRate": 0.0476,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1721001600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3246.09097152,
+    "futuresPrice": 3409.33,
+    "basis": 163.23902848,
+    "basisRate": 0.0503,
+    "annualizedBasisRate": 0.0206
+  },
+  {
+    "timestamp": 1721088000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3485.67843068,
+    "futuresPrice": 3665.07,
+    "basis": 179.39156932,
+    "basisRate": 0.0515,
+    "annualizedBasisRate": 0.0211
+  },
+  {
+    "timestamp": 1721174400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3445.02037978,
+    "futuresPrice": 3619.91,
+    "basis": 174.88962022,
+    "basisRate": 0.0508,
+    "annualizedBasisRate": 0.0208
+  },
+  {
+    "timestamp": 1721260800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3387.67929391,
+    "futuresPrice": 3556.12,
+    "basis": 168.44070609,
+    "basisRate": 0.0497,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1721347200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3425.52990722,
+    "futuresPrice": 3598.38,
+    "basis": 172.85009278,
+    "basisRate": 0.0505,
+    "annualizedBasisRate": 0.0207
+  },
+  {
+    "timestamp": 1721433600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3505.80116338,
+    "futuresPrice": 3686.16,
+    "basis": 180.35883662,
+    "basisRate": 0.0514,
+    "annualizedBasisRate": 0.0211
+  },
+  {
+    "timestamp": 1721520000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3518.83055472,
+    "futuresPrice": 3698.16,
+    "basis": 179.32944528,
+    "basisRate": 0.051,
+    "annualizedBasisRate": 0.021
+  },
+  {
+    "timestamp": 1721606400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3535.57969109,
+    "futuresPrice": 3722.74,
+    "basis": 187.16030891,
+    "basisRate": 0.0529,
+    "annualizedBasisRate": 0.0218
+  },
+  {
+    "timestamp": 1721692800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3441.10266137,
+    "futuresPrice": 3614.73,
+    "basis": 173.62733863,
+    "basisRate": 0.0505,
+    "annualizedBasisRate": 0.0208
+  },
+  {
+    "timestamp": 1721779200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3482.43878547,
+    "futuresPrice": 3649.05,
+    "basis": 166.61121453,
+    "basisRate": 0.0478,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1721865600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3335.40424366,
+    "futuresPrice": 3493.1,
+    "basis": 157.69575634,
+    "basisRate": 0.0473,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1721952000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3174.27272944,
+    "futuresPrice": 3318.92,
+    "basis": 144.64727056,
+    "basisRate": 0.0456,
+    "annualizedBasisRate": 0.0189
+  },
+  {
+    "timestamp": 1722038400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3275.44632601,
+    "futuresPrice": 3429.99,
+    "basis": 154.54367399,
+    "basisRate": 0.0472,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1722124800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3248.7063649,
+    "futuresPrice": 3396.73,
+    "basis": 148.0236351,
+    "basisRate": 0.0456,
+    "annualizedBasisRate": 0.0189
+  },
+  {
+    "timestamp": 1722211200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3270.79359847,
+    "futuresPrice": 3420.22,
+    "basis": 149.42640153,
+    "basisRate": 0.0457,
+    "annualizedBasisRate": 0.019
+  },
+  {
+    "timestamp": 1722297600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3318.43446653,
+    "futuresPrice": 3473.1,
+    "basis": 154.66553347,
+    "basisRate": 0.0466,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1722384000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3278.32951834,
+    "futuresPrice": 3434.89,
+    "basis": 156.56048166,
+    "basisRate": 0.0478,
+    "annualizedBasisRate": 0.0199
+  },
+  {
+    "timestamp": 1722470400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3231.46196718,
+    "futuresPrice": 3379.68,
+    "basis": 148.21803282,
+    "basisRate": 0.0459,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1722556800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3200.85748092,
+    "futuresPrice": 3327.19,
+    "basis": 126.33251908,
+    "basisRate": 0.0395,
+    "annualizedBasisRate": 0.0165
+  },
+  {
+    "timestamp": 1722643200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2986.09403725,
+    "futuresPrice": 3096.73,
+    "basis": 110.63596275,
+    "basisRate": 0.0371,
+    "annualizedBasisRate": 0.0155
+  },
+  {
+    "timestamp": 1722729600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2901.85007905,
+    "futuresPrice": 3006.93,
+    "basis": 105.07992095,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1722816000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2687.84281098,
+    "futuresPrice": 2780.91,
+    "basis": 93.06718902,
+    "basisRate": 0.0346,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1722902400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2419.60351679,
+    "futuresPrice": 2493.06,
+    "basis": 73.45648321,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1722988800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2462.39759176,
+    "futuresPrice": 2546.8,
+    "basis": 84.40240824,
+    "basisRate": 0.0343,
+    "annualizedBasisRate": 0.0144
+  },
+  {
+    "timestamp": 1723075200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2343.10768455,
+    "futuresPrice": 2421.67,
+    "basis": 78.56231545,
+    "basisRate": 0.0335,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1723161600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2684.26882245,
+    "futuresPrice": 2769.19,
+    "basis": 84.92117755,
+    "basisRate": 0.0316,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1723248000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2599.89667293,
+    "futuresPrice": 2680.2,
+    "basis": 80.30332707,
+    "basisRate": 0.0309,
+    "annualizedBasisRate": 0.013
+  },
+  {
+    "timestamp": 1723334400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2609.93477438,
+    "futuresPrice": 2691.49,
+    "basis": 81.55522562,
+    "basisRate": 0.0312,
+    "annualizedBasisRate": 0.0131
+  },
+  {
+    "timestamp": 1723420800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2554.92676441,
+    "futuresPrice": 2635.99,
+    "basis": 81.06323559,
+    "basisRate": 0.0317,
+    "annualizedBasisRate": 0.0134
+  },
+  {
+    "timestamp": 1723507200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2722.98197486,
+    "futuresPrice": 2811.81,
+    "basis": 88.82802514,
+    "basisRate": 0.0326,
+    "annualizedBasisRate": 0.0138
+  },
+  {
+    "timestamp": 1723593600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2703.39824758,
+    "futuresPrice": 2793.45,
+    "basis": 90.05175242,
+    "basisRate": 0.0333,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1723680000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2662.47182636,
+    "futuresPrice": 2748.59,
+    "basis": 86.11817364,
+    "basisRate": 0.0323,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1723766400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2569.94176572,
+    "futuresPrice": 2650.86,
+    "basis": 80.91823428,
+    "basisRate": 0.0315,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1723852800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2593.32770966,
+    "futuresPrice": 2670.87,
+    "basis": 77.54229034,
+    "basisRate": 0.0299,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1723939200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2614.31709976,
+    "futuresPrice": 2691.79,
+    "basis": 77.47290024,
+    "basisRate": 0.0296,
+    "annualizedBasisRate": 0.0126
+  },
+  {
+    "timestamp": 1724025600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2612.06396066,
+    "futuresPrice": 2690.11,
+    "basis": 78.04603934,
+    "basisRate": 0.0299,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1724112000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2637.78071983,
+    "futuresPrice": 2716.39,
+    "basis": 78.60928017,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1724198400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2573.13427922,
+    "futuresPrice": 2645.78,
+    "basis": 72.64572078,
+    "basisRate": 0.0282,
+    "annualizedBasisRate": 0.012
+  },
+  {
+    "timestamp": 1724284800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2630.72588047,
+    "futuresPrice": 2707.52,
+    "basis": 76.79411953,
+    "basisRate": 0.0292,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1724371200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2623.18264622,
+    "futuresPrice": 2699.34,
+    "basis": 76.15735378,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0124
+  },
+  {
+    "timestamp": 1724457600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2764.38483706,
+    "futuresPrice": 2840.56,
+    "basis": 76.17516294,
+    "basisRate": 0.0276,
+    "annualizedBasisRate": 0.0118
+  },
+  {
+    "timestamp": 1724544000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2769.51706217,
+    "futuresPrice": 2848.43,
+    "basis": 78.91293783,
+    "basisRate": 0.0285,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1724630400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2747.71238589,
+    "futuresPrice": 2826.43,
+    "basis": 78.71761411,
+    "basisRate": 0.0286,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1724716800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2680.97201345,
+    "futuresPrice": 2751.69,
+    "basis": 70.71798655,
+    "basisRate": 0.0264,
+    "annualizedBasisRate": 0.0113
+  },
+  {
+    "timestamp": 1724803200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2458.0582342,
+    "futuresPrice": 2513.99,
+    "basis": 55.9317658,
+    "basisRate": 0.0228,
+    "annualizedBasisRate": 0.0098
+  },
+  {
+    "timestamp": 1724889600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2528.41558802,
+    "futuresPrice": 2589.28,
+    "basis": 60.86441198,
+    "basisRate": 0.0241,
+    "annualizedBasisRate": 0.0104
+  },
+  {
+    "timestamp": 1724976000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2528.07824979,
+    "futuresPrice": 2584.41,
+    "basis": 56.33175021,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1725062400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2525.92063095,
+    "futuresPrice": 2582.3,
+    "basis": 56.37936905,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1725148800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2512.89483775,
+    "futuresPrice": 2567.53,
+    "basis": 54.63516225,
+    "basisRate": 0.0217,
+    "annualizedBasisRate": 0.0094
+  },
+  {
+    "timestamp": 1725235200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2426.44255768,
+    "futuresPrice": 2476,
+    "basis": 49.55744232,
+    "basisRate": 0.0204,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1725321600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2538.15832877,
+    "futuresPrice": 2593.9,
+    "basis": 55.74167123,
+    "basisRate": 0.022,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1725408000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2423.29317454,
+    "futuresPrice": 2476.11,
+    "basis": 52.81682546,
+    "basisRate": 0.0218,
+    "annualizedBasisRate": 0.0094
+  },
+  {
+    "timestamp": 1725494400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2450.12117111,
+    "futuresPrice": 2501.47,
+    "basis": 51.34882889,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.0091
+  },
+  {
+    "timestamp": 1725580800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2367.81452567,
+    "futuresPrice": 2418.26,
+    "basis": 50.44547433,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0093
+  },
+  {
+    "timestamp": 1725667200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2224.27059051,
+    "futuresPrice": 2269.47,
+    "basis": 45.19940949,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1725753600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2273.17542315,
+    "futuresPrice": 2317.09,
+    "basis": 43.91457685,
+    "basisRate": 0.0193,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1725840000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2296.83845783,
+    "futuresPrice": 2338.02,
+    "basis": 41.18154217,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0078
+  },
+  {
+    "timestamp": 1725926400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2359.8613779,
+    "futuresPrice": 2403.55,
+    "basis": 43.6886221,
+    "basisRate": 0.0185,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1726012800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2388.19098577,
+    "futuresPrice": 2435.47,
+    "basis": 47.27901423,
+    "basisRate": 0.0198,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1726099200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2340.57139525,
+    "futuresPrice": 2386.8,
+    "basis": 46.22860475,
+    "basisRate": 0.0198,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1726185600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2361.74464364,
+    "futuresPrice": 2407.8,
+    "basis": 46.05535636,
+    "basisRate": 0.0195,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1726272000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2441.30884012,
+    "futuresPrice": 2485.62,
+    "basis": 44.31115988,
+    "basisRate": 0.0182,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1726358400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2417.99802863,
+    "futuresPrice": 2461.22,
+    "basis": 43.22197137,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1726444800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2316.7425557,
+    "futuresPrice": 2352,
+    "basis": 35.2574443,
+    "basisRate": 0.0152,
+    "annualizedBasisRate": 0.0067
+  },
+  {
+    "timestamp": 1726531200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2295.17848863,
+    "futuresPrice": 2335.27,
+    "basis": 40.09151137,
+    "basisRate": 0.0175,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1726617600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2342.05333849,
+    "futuresPrice": 2380,
+    "basis": 37.94666151,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0071
+  },
+  {
+    "timestamp": 1726704000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2374.66839982,
+    "futuresPrice": 2415.64,
+    "basis": 40.97160018,
+    "basisRate": 0.0173,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1726790400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2465.07947762,
+    "futuresPrice": 2508.9,
+    "basis": 43.82052238,
+    "basisRate": 0.0178,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1726876800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2561.47715184,
+    "futuresPrice": 2603.27,
+    "basis": 41.79284816,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1726963200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2614.14427072,
+    "futuresPrice": 2659.16,
+    "basis": 45.01572928,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1727049600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2581.34021753,
+    "futuresPrice": 2626.27,
+    "basis": 44.92978247,
+    "basisRate": 0.0174,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1727136000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2646.85553963,
+    "futuresPrice": 2692.09,
+    "basis": 45.23446037,
+    "basisRate": 0.0171,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1727222400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2653.20755128,
+    "futuresPrice": 2697.7,
+    "basis": 44.49244872,
+    "basisRate": 0.0168,
+    "annualizedBasisRate": 0.0075
+  },
+  {
+    "timestamp": 1727308800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2579.53020582,
+    "futuresPrice": 2621.44,
+    "basis": 41.90979418,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1727395200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2632.08770975,
+    "futuresPrice": 2675.83,
+    "basis": 43.74229025,
+    "basisRate": 0.0166,
+    "annualizedBasisRate": 0.0074
+  },
+  {
+    "timestamp": 1727481600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2695.57336602,
+    "futuresPrice": 2805.01,
+    "basis": 109.43663398,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1727568000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2676.49569518,
+    "futuresPrice": 2785.9,
+    "basis": 109.40430482,
+    "basisRate": 0.0409,
+    "annualizedBasisRate": 0.0183
+  },
+  {
+    "timestamp": 1727654400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2658.00134775,
+    "futuresPrice": 2766.14,
+    "basis": 108.13865225,
+    "basisRate": 0.0407,
+    "annualizedBasisRate": 0.0182
+  },
+  {
+    "timestamp": 1727740800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2601.95777389,
+    "futuresPrice": 2694.53,
+    "basis": 92.57222611,
+    "basisRate": 0.0356,
+    "annualizedBasisRate": 0.0159
+  },
+  {
+    "timestamp": 1727827200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2447.98186471,
+    "futuresPrice": 2529.91,
+    "basis": 81.92813529,
+    "basisRate": 0.0335,
+    "annualizedBasisRate": 0.015
+  },
+  {
+    "timestamp": 1727913600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2363.87688201,
+    "futuresPrice": 2444.77,
+    "basis": 80.89311799,
+    "basisRate": 0.0342,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1728000000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2349.67685817,
+    "futuresPrice": 2432.24,
+    "basis": 82.56314183,
+    "basisRate": 0.0351,
+    "annualizedBasisRate": 0.0158
+  },
+  {
+    "timestamp": 1728086400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2414.53267369,
+    "futuresPrice": 2498.89,
+    "basis": 84.35732631,
+    "basisRate": 0.0349,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1728172800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2414.55446598,
+    "futuresPrice": 2500.77,
+    "basis": 86.21553402,
+    "basisRate": 0.0357,
+    "annualizedBasisRate": 0.0161
+  },
+  {
+    "timestamp": 1728259200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2439.85720536,
+    "futuresPrice": 2528.09,
+    "basis": 88.23279464,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1728345600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2421.92517671,
+    "futuresPrice": 2508.8,
+    "basis": 86.87482329,
+    "basisRate": 0.0359,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1728432000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2439.4061578,
+    "futuresPrice": 2521.75,
+    "basis": 82.3438422,
+    "basisRate": 0.0338,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1728518400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2367.84482708,
+    "futuresPrice": 2450.54,
+    "basis": 82.69517292,
+    "basisRate": 0.0349,
+    "annualizedBasisRate": 0.0158
+  },
+  {
+    "timestamp": 1728604800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2384.08729299,
+    "futuresPrice": 2461.3,
+    "basis": 77.21270701,
+    "basisRate": 0.0324,
+    "annualizedBasisRate": 0.0147
+  },
+  {
+    "timestamp": 1728691200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2437.78107698,
+    "futuresPrice": 2522.37,
+    "basis": 84.58892302,
+    "basisRate": 0.0347,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1728777600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2476.29366508,
+    "futuresPrice": 2563.43,
+    "basis": 87.13633492,
+    "basisRate": 0.0352,
+    "annualizedBasisRate": 0.016
+  },
+  {
+    "timestamp": 1728864000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2467.39832988,
+    "futuresPrice": 2554.67,
+    "basis": 87.27167012,
+    "basisRate": 0.0354,
+    "annualizedBasisRate": 0.0161
+  },
+  {
+    "timestamp": 1728950400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2628.78898882,
+    "futuresPrice": 2726.78,
+    "basis": 97.99101118,
+    "basisRate": 0.0373,
+    "annualizedBasisRate": 0.017
+  },
+  {
+    "timestamp": 1729036800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2606.72945536,
+    "futuresPrice": 2697.29,
+    "basis": 90.56054464,
+    "basisRate": 0.0347,
+    "annualizedBasisRate": 0.0158
+  },
+  {
+    "timestamp": 1729123200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2610.55473248,
+    "futuresPrice": 2702.9,
+    "basis": 92.34526752,
+    "basisRate": 0.0354,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1729209600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2604.38970134,
+    "futuresPrice": 2691.35,
+    "basis": 86.96029866,
+    "basisRate": 0.0334,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1729296000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2641.87115863,
+    "futuresPrice": 2734.25,
+    "basis": 92.37884137,
+    "basisRate": 0.035,
+    "annualizedBasisRate": 0.016
+  },
+  {
+    "timestamp": 1729382400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2648.02973106,
+    "futuresPrice": 2744.2,
+    "basis": 96.17026894,
+    "basisRate": 0.0363,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1729468800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2745.82946764,
+    "futuresPrice": 2852.4,
+    "basis": 106.57053236,
+    "basisRate": 0.0388,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1729555200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2665.51331291,
+    "futuresPrice": 2766.85,
+    "basis": 101.33668709,
+    "basisRate": 0.038,
+    "annualizedBasisRate": 0.0175
+  },
+  {
+    "timestamp": 1729641600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2620.31899815,
+    "futuresPrice": 2723.33,
+    "basis": 103.01100185,
+    "basisRate": 0.0393,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1729728000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2522.44432814,
+    "futuresPrice": 2613.4,
+    "basis": 90.95567186,
+    "basisRate": 0.0361,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1729814400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2534.21539765,
+    "futuresPrice": 2635.29,
+    "basis": 101.07460235,
+    "basisRate": 0.0399,
+    "annualizedBasisRate": 0.0184
+  },
+  {
+    "timestamp": 1729900800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2436.91622827,
+    "futuresPrice": 2531.84,
+    "basis": 94.92377173,
+    "basisRate": 0.039,
+    "annualizedBasisRate": 0.018
+  },
+  {
+    "timestamp": 1729987200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2479.44620418,
+    "futuresPrice": 2574.64,
+    "basis": 95.19379582,
+    "basisRate": 0.0384,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1730073600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2505.22397533,
+    "futuresPrice": 2604.78,
+    "basis": 99.55602467,
+    "basisRate": 0.0397,
+    "annualizedBasisRate": 0.0184
+  },
+  {
+    "timestamp": 1730160000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2565.38255677,
+    "futuresPrice": 2668.09,
+    "basis": 102.70744323,
+    "basisRate": 0.04,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1730246400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2637.26686426,
+    "futuresPrice": 2754.11,
+    "basis": 116.84313574,
+    "basisRate": 0.0443,
+    "annualizedBasisRate": 0.0206
+  },
+  {
+    "timestamp": 1730332800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2657.96101129,
+    "futuresPrice": 2774.19,
+    "basis": 116.22898871,
+    "basisRate": 0.0437,
+    "annualizedBasisRate": 0.0203
+  },
+  {
+    "timestamp": 1730419200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2515.30186719,
+    "futuresPrice": 2618.16,
+    "basis": 102.85813281,
+    "basisRate": 0.0409,
+    "annualizedBasisRate": 0.019
+  },
+  {
+    "timestamp": 1730505600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2510.65329112,
+    "futuresPrice": 2613.69,
+    "basis": 103.03670888,
+    "basisRate": 0.041,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1730592000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2493.28754862,
+    "futuresPrice": 2587.33,
+    "basis": 94.04245138,
+    "basisRate": 0.0377,
+    "annualizedBasisRate": 0.0176
+  },
+  {
+    "timestamp": 1730678400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2456.36304678,
+    "futuresPrice": 2543.26,
+    "basis": 86.89695322,
+    "basisRate": 0.0354,
+    "annualizedBasisRate": 0.0165
+  },
+  {
+    "timestamp": 1730764800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2396.69132946,
+    "futuresPrice": 2483.63,
+    "basis": 86.93867054,
+    "basisRate": 0.0363,
+    "annualizedBasisRate": 0.017
+  },
+  {
+    "timestamp": 1730851200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2422.28361992,
+    "futuresPrice": 2511.48,
+    "basis": 89.19638008,
+    "basisRate": 0.0368,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1730937600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2724.11449686,
+    "futuresPrice": 2832,
+    "basis": 107.88550314,
+    "basisRate": 0.0396,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1731024000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2897.09063008,
+    "futuresPrice": 3018.67,
+    "basis": 121.57936992,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1731110400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 2963.8212475,
+    "futuresPrice": 3087.79,
+    "basis": 123.9687525,
+    "basisRate": 0.0418,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1731196800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3128.28884918,
+    "futuresPrice": 3257.17,
+    "basis": 128.88115082,
+    "basisRate": 0.0412,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1731283200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3186.32845226,
+    "futuresPrice": 3331.26,
+    "basis": 144.93154774,
+    "basisRate": 0.0455,
+    "annualizedBasisRate": 0.0214
+  },
+  {
+    "timestamp": 1731369600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3375.82124675,
+    "futuresPrice": 3534.77,
+    "basis": 158.94875325,
+    "basisRate": 0.0471,
+    "annualizedBasisRate": 0.0222
+  },
+  {
+    "timestamp": 1731456000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3247.39104403,
+    "futuresPrice": 3398.5,
+    "basis": 151.10895597,
+    "basisRate": 0.0465,
+    "annualizedBasisRate": 0.022
+  },
+  {
+    "timestamp": 1731542400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3191.35132206,
+    "futuresPrice": 3335.94,
+    "basis": 144.58867794,
+    "basisRate": 0.0453,
+    "annualizedBasisRate": 0.0214
+  },
+  {
+    "timestamp": 1731628800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3059.4690829,
+    "futuresPrice": 3196.99,
+    "basis": 137.5209171,
+    "basisRate": 0.0449,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1731715200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3090.80794336,
+    "futuresPrice": 3232.97,
+    "basis": 142.16205664,
+    "basisRate": 0.046,
+    "annualizedBasisRate": 0.0218
+  },
+  {
+    "timestamp": 1731801600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3134.05418351,
+    "futuresPrice": 3286.43,
+    "basis": 152.37581649,
+    "basisRate": 0.0486,
+    "annualizedBasisRate": 0.0231
+  },
+  {
+    "timestamp": 1731888000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3076.04414923,
+    "futuresPrice": 3222.8,
+    "basis": 146.75585077,
+    "basisRate": 0.0477,
+    "annualizedBasisRate": 0.0227
+  },
+  {
+    "timestamp": 1731974400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3209.73966183,
+    "futuresPrice": 3373.78,
+    "basis": 164.04033817,
+    "basisRate": 0.0511,
+    "annualizedBasisRate": 0.0243
+  },
+  {
+    "timestamp": 1732060800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3111.31072197,
+    "futuresPrice": 3269.59,
+    "basis": 158.27927803,
+    "basisRate": 0.0509,
+    "annualizedBasisRate": 0.0243
+  },
+  {
+    "timestamp": 1732147200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3072.27824824,
+    "futuresPrice": 3222.01,
+    "basis": 149.73175176,
+    "basisRate": 0.0487,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1732233600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3360.38507803,
+    "futuresPrice": 3528.6,
+    "basis": 168.21492197,
+    "basisRate": 0.0501,
+    "annualizedBasisRate": 0.024
+  },
+  {
+    "timestamp": 1732320000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3331.50888319,
+    "futuresPrice": 3493.39,
+    "basis": 161.88111681,
+    "basisRate": 0.0486,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1732406400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3397.52601776,
+    "futuresPrice": 3572.42,
+    "basis": 174.89398224,
+    "basisRate": 0.0515,
+    "annualizedBasisRate": 0.0247
+  },
+  {
+    "timestamp": 1732492800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3364.44763596,
+    "futuresPrice": 3535.76,
+    "basis": 171.31236404,
+    "basisRate": 0.0509,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1732579200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3413.88068573,
+    "futuresPrice": 3579.76,
+    "basis": 165.87931427,
+    "basisRate": 0.0486,
+    "annualizedBasisRate": 0.0234
+  },
+  {
+    "timestamp": 1732665600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3323.4723075,
+    "futuresPrice": 3486.75,
+    "basis": 163.2776925,
+    "basisRate": 0.0491,
+    "annualizedBasisRate": 0.0236
+  },
+  {
+    "timestamp": 1732752000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3657.62570622,
+    "futuresPrice": 3845.25,
+    "basis": 187.62429378,
+    "basisRate": 0.0513,
+    "annualizedBasisRate": 0.0247
+  },
+  {
+    "timestamp": 1732838400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3578.91813765,
+    "futuresPrice": 3760.22,
+    "basis": 181.30186235,
+    "basisRate": 0.0507,
+    "annualizedBasisRate": 0.0245
+  },
+  {
+    "timestamp": 1732924800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3593.86297196,
+    "futuresPrice": 3770.01,
+    "basis": 176.14702804,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0237
+  },
+  {
+    "timestamp": 1733011200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3705.9166405,
+    "futuresPrice": 3896.35,
+    "basis": 190.4333595,
+    "basisRate": 0.0514,
+    "annualizedBasisRate": 0.0249
+  },
+  {
+    "timestamp": 1733097600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3710.65010108,
+    "futuresPrice": 3901.51,
+    "basis": 190.85989892,
+    "basisRate": 0.0514,
+    "annualizedBasisRate": 0.0249
+  },
+  {
+    "timestamp": 1733184000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3644.61347466,
+    "futuresPrice": 3827.18,
+    "basis": 182.56652534,
+    "basisRate": 0.0501,
+    "annualizedBasisRate": 0.0243
+  },
+  {
+    "timestamp": 1733270400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3617.69553025,
+    "futuresPrice": 3800.76,
+    "basis": 183.06446975,
+    "basisRate": 0.0506,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1733356800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3844.10909774,
+    "futuresPrice": 4038.46,
+    "basis": 194.35090226,
+    "basisRate": 0.0506,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1733443200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3790.44870757,
+    "futuresPrice": 3993.08,
+    "basis": 202.63129243,
+    "basisRate": 0.0535,
+    "annualizedBasisRate": 0.0261
+  },
+  {
+    "timestamp": 1733529600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 4005.56255863,
+    "futuresPrice": 4215.38,
+    "basis": 209.81744137,
+    "basisRate": 0.0524,
+    "annualizedBasisRate": 0.0256
+  },
+  {
+    "timestamp": 1733616000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 4000.1324254,
+    "futuresPrice": 4214.17,
+    "basis": 214.0375746,
+    "basisRate": 0.0535,
+    "annualizedBasisRate": 0.0261
+  },
+  {
+    "timestamp": 1733702400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 4006.80883882,
+    "futuresPrice": 4216.65,
+    "basis": 209.84116118,
+    "basisRate": 0.0524,
+    "annualizedBasisRate": 0.0256
+  },
+  {
+    "timestamp": 1733788800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3717.0152743,
+    "futuresPrice": 3890.54,
+    "basis": 173.5247257,
+    "basisRate": 0.0467,
+    "annualizedBasisRate": 0.0229
+  },
+  {
+    "timestamp": 1733875200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3630.59488703,
+    "futuresPrice": 3794.55,
+    "basis": 163.95511297,
+    "basisRate": 0.0452,
+    "annualizedBasisRate": 0.0222
+  },
+  {
+    "timestamp": 1733961600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3834.7365946,
+    "futuresPrice": 4009.01,
+    "basis": 174.2734054,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0223
+  },
+  {
+    "timestamp": 1734048000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3882.71580314,
+    "futuresPrice": 4051.01,
+    "basis": 168.29419686,
+    "basisRate": 0.0433,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1734134400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3908.17972821,
+    "futuresPrice": 4079.09,
+    "basis": 170.91027179,
+    "basisRate": 0.0437,
+    "annualizedBasisRate": 0.0215
+  },
+  {
+    "timestamp": 1734220800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3869.94221537,
+    "futuresPrice": 4027.89,
+    "basis": 157.94778463,
+    "basisRate": 0.0408,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1734307200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3956.53118903,
+    "futuresPrice": 4142.82,
+    "basis": 186.28881097,
+    "basisRate": 0.0471,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1734393600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3987.87563095,
+    "futuresPrice": 4162.18,
+    "basis": 174.30436905,
+    "basisRate": 0.0437,
+    "annualizedBasisRate": 0.0216
+  },
+  {
+    "timestamp": 1734480000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3893.91281236,
+    "futuresPrice": 4053.41,
+    "basis": 159.49718764,
+    "basisRate": 0.041,
+    "annualizedBasisRate": 0.0203
+  },
+  {
+    "timestamp": 1734566400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3625.32831764,
+    "futuresPrice": 3767.09,
+    "basis": 141.76168236,
+    "basisRate": 0.0391,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1734652800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3414.56378786,
+    "futuresPrice": 3556.47,
+    "basis": 141.90621214,
+    "basisRate": 0.0416,
+    "annualizedBasisRate": 0.0206
+  },
+  {
+    "timestamp": 1734739200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3470.47402264,
+    "futuresPrice": 3595.63,
+    "basis": 125.15597736,
+    "basisRate": 0.0361,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1734825600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3337.89833436,
+    "futuresPrice": 3449.43,
+    "basis": 111.53166564,
+    "basisRate": 0.0334,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1734912000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3278.56816291,
+    "futuresPrice": 3388.2,
+    "basis": 109.63183709,
+    "basisRate": 0.0334,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1734998400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3418.11032781,
+    "futuresPrice": 3536.7,
+    "basis": 118.58967219,
+    "basisRate": 0.0347,
+    "annualizedBasisRate": 0.0173
+  },
+  {
+    "timestamp": 1735084800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3491.23744202,
+    "futuresPrice": 3610.74,
+    "basis": 119.50255798,
+    "basisRate": 0.0342,
+    "annualizedBasisRate": null
+  },
+  {
+    "timestamp": 1735171200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3494.74092303,
+    "futuresPrice": 3612.41,
+    "basis": 117.66907697,
+    "basisRate": 0.0337,
+    "annualizedBasisRate": 0.0169
+  },
+  {
+    "timestamp": 1735257600000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3331.45895131,
+    "futuresPrice": 3437.09,
+    "basis": 105.63104869,
+    "basisRate": 0.0317,
+    "annualizedBasisRate": 0.0159
+  },
+  {
+    "timestamp": 1735344000000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3328.32463622,
+    "futuresPrice": 3534.5,
+    "basis": 206.17536378,
+    "basisRate": 0.0619,
+    "annualizedBasisRate": 0.0311
+  },
+  {
+    "timestamp": 1735430400000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3398.23388917,
+    "futuresPrice": 3602.17,
+    "basis": 203.93611083,
+    "basisRate": 0.06,
+    "annualizedBasisRate": 0.0302
+  },
+  {
+    "timestamp": 1735516800000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3349.61131779,
+    "futuresPrice": 3547.32,
+    "basis": 197.70868221,
+    "basisRate": 0.059,
+    "annualizedBasisRate": 0.0297
+  },
+  {
+    "timestamp": 1735603200000,
+    "pair": "ETHUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 3355.68315576,
+    "futuresPrice": 3554.06,
+    "basis": 198.37684424,
+    "basisRate": 0.0591,
+    "annualizedBasisRate": 0.0298
+  }
+]

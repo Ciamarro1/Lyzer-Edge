@@ -1,0 +1,41 @@
+{
+  "hypothesisId": "H014",
+  "title": "Regime-Conditional & Rotational Cash-and-Carry Arbitrage (Top 3 Equal-Weighted)",
+  "status": "UNLOCKED",
+  "lockTimestampUTC": "2026-09-04T22:20:00.000Z",
+  "unlockTimestampUTC": "2026-09-04T22:25:00.000Z",
+  "executiveUnlockToken": "EXEC_AUTH_TOKEN_H014_HOLDOUT_APPROVED",
+  "unlockAuthorizedBy": "EXECUTIVE_GOVERNANCE_DIRECT_AUTHORIZATION",
+  "governanceAuthority": "Senior CTO & Executive Engineering Director",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": [
+    {
+      "path": "charter/H014_CONFIRMATORY_CHARTER.md",
+      "sha256": "9998fd74fe9b0d014ea065d9568ef982a60bdb2d094c040d0e8af91a72bb155b",
+      "bytes": 7350
+    },
+    {
+      "path": "frozen_spec/H014_FROZEN_SPEC.json",
+      "sha256": "b1982bffb386ec4a175df97bf5021736db19dacb7b0dc5cae1866a428e941af7",
+      "bytes": 1752
+    },
+    {
+      "path": "execution/run_h014_confirmatory.js",
+      "sha256": "7a37de65909f4d1bb3073ae86637d7177b60d3846d3cad44aaec7958fb252bc1",
+      "bytes": 14006
+    }
+  ],
+  "holdoutPopulation": {
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "AVAXUSDT",
+      "LINKUSDT",
+      "DOGEUSDT"
+    ],
+    "timeframe": "8h"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "hypothesisId": "H016",
+  "title": "Calendar Delivery Basis Arbitrage (ETHUSD Current Quarter, 1.0x, 0% Borrow Cost, Delta=0)",
+  "status": "UNLOCKED",
+  "lockTimestampUTC": "2026-09-04T22:58:00.000Z",
+  "unlockTimestampUTC": "2026-09-04T23:05:00.000Z",
+  "executiveUnlockToken": "EXEC_AUTH_TOKEN_H016_HOLDOUT_APPROVED",
+  "unlockAuthorizedBy": "EXECUTIVE_GOVERNANCE_DIRECT_AUTHORIZATION",
+  "governanceAuthority": "Senior CTO & Executive Engineering Director",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "artifacts": [
+    {
+      "path": "charter/H016_CONFIRMATORY_CHARTER.md",
+      "sha256": "d3806d8830f67bddda3e59b5a68bf721a5d97148bf5d0df11cdb200b89e61a4c",
+      "bytes": 6180
+    },
+    {
+      "path": "frozen_spec/H016_FROZEN_SPEC.json",
+      "sha256": "df24c074b1d9fd1031bdccf886947380def778ffc0222c816c0a7d5dc612eaa6",
+      "bytes": 1109
+    },
+    {
+      "path": "execution/run_h016_confirmatory.js",
+      "sha256": "507f82460066d85acd9182f9094be032f68e2325975af1d41e4a1d6599f8dee3",
+      "bytes": 14016
+    }
+  ],
+  "holdoutPopulation": {
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "asset": "ETHUSD",
+    "contractType": "CURRENT_QUARTER",
+    "timeframe": "1d"
+  }
+}

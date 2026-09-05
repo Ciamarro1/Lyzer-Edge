@@ -1,0 +1,220 @@
+{
+  "hypothesisId": "H017",
+  "executionTimestampUTC": "2026-09-04T23:33:25.091Z",
+  "status": "REJECTED_NOT_CONFIRMED",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "metrics": {
+    "totalNetReturnPct": 6.93,
+    "annualizedReturnPct": 4.1,
+    "annualizedSharpe": 6.33,
+    "maxDrawdownPct": 0.8,
+    "directionalTradeCount": 15,
+    "directionalWinRate": 60,
+    "timeDeltaNeutralPct": 99.38,
+    "nBlocks": 44,
+    "meanNetRPerBlock": 0.152,
+    "ci95Lower": 0.105,
+    "ci95Upper": 0.199,
+    "pBlock": 0.0001,
+    "profitFactor": 8.95
+  },
+  "gates": {
+    "gate1": {
+      "name": "Annualized Net Return",
+      "threshold": ">= +6.00% a.a.",
+      "value": "4.10% a.a.",
+      "pass": false
+    },
+    "gate2": {
+      "name": "Annualized Sharpe",
+      "threshold": ">= 3.00",
+      "value": "6.33",
+      "pass": true
+    },
+    "gate3": {
+      "name": "Max Drawdown",
+      "threshold": "<= 2.50%",
+      "value": "0.80%",
+      "pass": true
+    },
+    "gate4": {
+      "name": "Block Bootstrap Significance",
+      "threshold": "p < 0.0500",
+      "value": "0.0001",
+      "pass": true
+    },
+    "gate5": {
+      "name": "Structural Delta Neutrality",
+      "threshold": ">= 90.0%",
+      "value": "99.38%",
+      "pass": true
+    }
+  },
+  "directionalTrades": [
+    {
+      "entryTime": 1740369600000,
+      "exitTime": 1740387600000,
+      "entryPrice": 95298,
+      "exitPrice": 96040.83833333333,
+      "rawReturn": 0.007794899508209334,
+      "netReturn": 0.005394899508209334,
+      "exitReason": "TAKE_PROFIT",
+      "atr": 297.1353333333333,
+      "fundingRateAtEntry": -0.0000297
+    },
+    {
+      "entryTime": 1743980400000,
+      "exitTime": 1743984000000,
+      "entryPrice": 78430,
+      "exitPrice": 77840.65866666667,
+      "rawReturn": -0.007514233499086193,
+      "netReturn": -0.009914233499086192,
+      "exitReason": "STOP_LOSS",
+      "atr": 589.3413333333316,
+      "fundingRateAtEntry": -0.00000603
+    },
+    {
+      "entryTime": 1746410400000,
+      "exitTime": 1746432000000,
+      "entryPrice": 94236.67,
+      "exitPrice": 94559.19,
+      "rawReturn": 0.0034224469094674514,
+      "netReturn": 0.0010224469094674516,
+      "exitReason": "TIME_EXIT",
+      "atr": 386.0233333333318,
+      "fundingRateAtEntry": -0.00002404
+    },
+    {
+      "entryTime": 1749776400000,
+      "exitTime": 1749780000000,
+      "entryPrice": 103773.65,
+      "exitPrice": 103079.078,
+      "rawReturn": -0.006693144165209571,
+      "netReturn": -0.009093144165209571,
+      "exitReason": "STOP_LOSS",
+      "atr": 694.5720000000006,
+      "fundingRateAtEntry": -0.00001801
+    },
+    {
+      "entryTime": 1760605200000,
+      "exitTime": 1760623200000,
+      "entryPrice": 111146.31,
+      "exitPrice": 110327.68633333333,
+      "rawReturn": -0.007365279753027036,
+      "netReturn": -0.009765279753027037,
+      "exitReason": "STOP_LOSS",
+      "atr": 818.6236666666668,
+      "fundingRateAtEntry": -0.0000223
+    },
+    {
+      "entryTime": 1760630400000,
+      "exitTime": 1760634000000,
+      "entryPrice": 109232.43,
+      "exitPrice": 108282.77433333332,
+      "rawReturn": -0.008693898567180763,
+      "netReturn": -0.011093898567180762,
+      "exitReason": "STOP_LOSS",
+      "atr": 949.6556666666667,
+      "fundingRateAtEntry": -0.0000223
+    },
+    {
+      "entryTime": 1760695200000,
+      "exitTime": 1760716800000,
+      "entryPrice": 104751.99,
+      "exitPrice": 107307.3325,
+      "rawReturn": 0.024394214372442935,
+      "netReturn": 0.021994214372442936,
+      "exitReason": "TAKE_PROFIT",
+      "atr": 1022.137000000002,
+      "fundingRateAtEntry": -0.00000634
+    },
+    {
+      "entryTime": 1763992800000,
+      "exitTime": 1764003600000,
+      "entryPrice": 86171.14,
+      "exitPrice": 88021.18083333333,
+      "rawReturn": 0.02146937864966545,
+      "netReturn": 0.01906937864966545,
+      "exitReason": "TAKE_PROFIT",
+      "atr": 740.0163333333335,
+      "fundingRateAtEntry": -0.00000134
+    },
+    {
+      "entryTime": 1770336000000,
+      "exitTime": 1770357600000,
+      "entryPrice": 63509.39,
+      "exitPrice": 64988.26,
+      "rawReturn": 0.023285847966733778,
+      "netReturn": 0.02088584796673378,
+      "exitReason": "TIME_EXIT",
+      "atr": 1457.046666666666,
+      "fundingRateAtEntry": -0.00001597
+    },
+    {
+      "entryTime": 1770732000000,
+      "exitTime": 1770753600000,
+      "entryPrice": 68460.4,
+      "exitPrice": 68753.7,
+      "rawReturn": 0.004284228546721943,
+      "netReturn": 0.0018842285467219433,
+      "exitReason": "TIME_EXIT",
+      "atr": 755.9016666666672,
+      "fundingRateAtEntry": -0.00004829
+    },
+    {
+      "entryTime": 1770822000000,
+      "exitTime": 1770843600000,
+      "entryPrice": 66519.73,
+      "exitPrice": 68368.3925,
+      "rawReturn": 0.02779119067380469,
+      "netReturn": 0.02539119067380469,
+      "exitReason": "TAKE_PROFIT",
+      "atr": 739.4650000000004,
+      "fundingRateAtEntry": -0.00008417
+    },
+    {
+      "entryTime": 1774620000000,
+      "exitTime": 1774630800000,
+      "entryPrice": 66205.06,
+      "exitPrice": 65667.406,
+      "rawReturn": -0.008121040899290704,
+      "netReturn": -0.010521040899290703,
+      "exitReason": "STOP_LOSS",
+      "atr": 537.6539999999999,
+      "fundingRateAtEntry": -0.00006298
+    },
+    {
+      "entryTime": 1776344400000,
+      "exitTime": 1776362400000,
+      "entryPrice": 73788.03,
+      "exitPrice": 74986.10166666667,
+      "rawReturn": 0.016236666931840713,
+      "netReturn": 0.013836666931840713,
+      "exitReason": "TAKE_PROFIT",
+      "atr": 479.2286666666667,
+      "fundingRateAtEntry": -0.00002841
+    },
+    {
+      "entryTime": 1777381200000,
+      "exitTime": 1777384800000,
+      "entryPrice": 76189.84,
+      "exitPrice": 75827.35433333334,
+      "rawReturn": -0.004757664101495161,
+      "netReturn": -0.007157664101495161,
+      "exitReason": "STOP_LOSS",
+      "atr": 362.4856666666669,
+      "fundingRateAtEntry": -0.00003204
+    },
+    {
+      "entryTime": 1778925600000,
+      "exitTime": 1778947200000,
+      "entryPrice": 77960,
+      "exitPrice": 78205.96,
+      "rawReturn": 0.003154951257054982,
+      "netReturn": 0.0007549512570549821,
+      "exitReason": "TIME_EXIT",
+      "atr": 362.1770000000004,
+      "fundingRateAtEntry": -0.0000021
+    }
+  ]
+}

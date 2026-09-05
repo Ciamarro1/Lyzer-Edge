@@ -1,0 +1,158 @@
+{
+  "campaignId": "AD008_LEVERAGED_CARRY_DISCOVERY",
+  "program": "AD008",
+  "title": "Institutional Portfolio Margin & Leveraged Delta-Neutral Carry Engine",
+  "family": "PORTFOLIO_MARGIN_CASH_AND_CARRY_ARBITRAGE",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframe": "8h",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "perpFeeBps": 5,
+    "slippageBps": 2,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "portfolioMarginRules": {
+    "maintenanceMarginRequirement": 0.05,
+    "spotCollateralHaircut": 0.10,
+    "basisDivergenceThresholdPct": 1.5,
+    "riskUnit": 0.01
+  },
+  "cells": [
+    {
+      "id": "AD008_STATIC_BTC_ETH_10X_BENCHMARK",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 1.0,
+      "borrowRateAnnualPct": 0.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Baseline Control: Static BTC/ETH 50/50 unleveraged (L=1.0x, borrow=0%)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_15X_BORROW_0PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 1.5,
+      "borrowRateAnnualPct": 0.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 1.5x gearing, zero borrow cost (Synthetic Dollar / Coin-Margin model)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_15X_BORROW_3PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 1.5,
+      "borrowRateAnnualPct": 3.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 1.5x gearing, institutional tier-1 borrow rate (3.0% a.a.)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_15X_BORROW_5PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 1.5,
+      "borrowRateAnnualPct": 5.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 1.5x gearing, standard prime borrow rate (5.0% a.a.)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_20X_BORROW_0PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 0.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 2.0x gearing, zero borrow cost"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_20X_BORROW_3PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 3.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 2.0x gearing, institutional borrow rate (3.0% a.a.)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_20X_BORROW_5PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 5.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 2.0x gearing, standard prime borrow rate (5.0% a.a.)"
+    },
+    {
+      "id": "AD008_STATIC_BTC_ETH_25X_BORROW_5PCT",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "BTC_ETH_50_50",
+      "leverage": 2.5,
+      "borrowRateAnnualPct": 5.0,
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "description": "Static BTC/ETH with 2.5x gearing, standard prime borrow rate (5.0% a.a.)"
+    },
+    {
+      "id": "AD008_ROT_TOP3_15X_BORROW_3PCT",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "leverage": 1.5,
+      "borrowRateAnnualPct": 3.0,
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 0.0,
+      "description": "Dynamic Rotation: Top 3 yielders with 1.5x gearing, 3.0% a.a. borrow rate"
+    },
+    {
+      "id": "AD008_ROT_TOP3_20X_BORROW_3PCT",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 3.0,
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 0.0,
+      "description": "Dynamic Rotation: Top 3 yielders with 2.0x gearing, 3.0% a.a. borrow rate"
+    },
+    {
+      "id": "AD008_ROT_TOP3_20X_BORROW_5PCT",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "leverage": 2.0,
+      "borrowRateAnnualPct": 5.0,
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 0.0,
+      "description": "Dynamic Rotation: Top 3 yielders with 2.0x gearing, 5.0% a.a. borrow rate"
+    },
+    {
+      "id": "AD008_ROT_TOP3_25X_BORROW_5PCT",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "leverage": 2.5,
+      "borrowRateAnnualPct": 5.0,
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 0.0,
+      "description": "Dynamic Rotation: Top 3 yielders with 2.5x gearing, 5.0% a.a. borrow rate"
+    }
+  ]
+}

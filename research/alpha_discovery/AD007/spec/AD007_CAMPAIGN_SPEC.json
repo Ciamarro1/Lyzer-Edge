@@ -1,0 +1,122 @@
+{
+  "campaignId": "AD007_REGIME_CONDITIONAL_CARRY_DISCOVERY",
+  "program": "AD007",
+  "title": "Regime-Conditional & Cross-Asset Rotational Carry Engine",
+  "family": "DERIVATIVES_CASH_AND_CARRY_ARBITRAGE",
+  "targetAssets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SOLUSDT",
+    "AVAXUSDT",
+    "LINKUSDT",
+    "DOGEUSDT"
+  ],
+  "timeframe": "8h",
+  "period": {
+    "startMs": 1672531200000,
+    "endMs": 1735689599999,
+    "label": "2023-01-01 to 2024-12-31 (Strict 2-Year Discovery)"
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "perpFeeBps": 5,
+    "slippageBps": 2,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "riskUnit": {
+    "unitRiskPct": 0.01,
+    "label": "1R is normalized to 1.0% (100 bps) net unleveraged yield"
+  },
+  "cells": [
+    {
+      "id": "AD007_HURDLE_6PCT_BTC_ETH_M1",
+      "type": "HURDLE_GATED",
+      "allocation": "BTC_ETH_50_50",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 6.0,
+      "description": "BTC/ETH 50/50 carry with monthly hurdle gate: exit to cash (0%) if 30-day rolling funding < 6.0% a.a."
+    },
+    {
+      "id": "AD007_HURDLE_8PCT_BTC_ETH_M1",
+      "type": "HURDLE_GATED",
+      "allocation": "BTC_ETH_50_50",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 8.0,
+      "description": "BTC/ETH 50/50 carry with monthly hurdle gate: exit to cash (0%) if 30-day rolling funding < 8.0% a.a."
+    },
+    {
+      "id": "AD007_ROT_TOP2_HURDLE_6PCT_M1",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 6.0,
+      "description": "Dynamic Rotation: Monthly rebalance into Top 2 yielders if asset rolling funding >= 6.0% a.a., else cash"
+    },
+    {
+      "id": "AD007_ROT_TOP2_HURDLE_8PCT_M1",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 8.0,
+      "description": "Dynamic Rotation: Monthly rebalance into Top 2 yielders if asset rolling funding >= 8.0% a.a., else cash"
+    },
+    {
+      "id": "AD007_ROT_TOP2_HURDLE_6PCT_W2",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_2_YIELDERS",
+      "lookbackDays": 14,
+      "rebalanceDays": 14,
+      "hurdleAnnualPct": 6.0,
+      "description": "Dynamic Rotation: Bi-weekly (14d) rebalance into Top 2 yielders if rolling funding >= 6.0% a.a., else cash"
+    },
+    {
+      "id": "AD007_ROT_TOP3_EQW_M1",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 0.0,
+      "description": "Dynamic Rotation: Monthly rebalance into Top 3 yielders equal-weighted (1/3 each, hurdle 0%)"
+    },
+    {
+      "id": "AD007_ROT_TOP3_HURDLE_6PCT_M1",
+      "type": "DYNAMIC_ROTATION_HURDLE",
+      "allocation": "TOP_3_YIELDERS",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 6.0,
+      "description": "Dynamic Rotation: Monthly rebalance into Top 3 yielders if rolling funding >= 6.0% a.a., else cash"
+    },
+    {
+      "id": "AD007_VOL_INVERSE_WEIGHT_M1",
+      "type": "VOL_INVERSE_WEIGHT",
+      "allocation": "ALL_ELIGIBLE_INVERSE_VOL",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 5.0,
+      "description": "Risk Parity Carry: Monthly allocation weighted inversely by 30-day funding volatility for assets with yield >= 5% a.a."
+    },
+    {
+      "id": "AD007_SOL_BTC_PAIR_M1",
+      "type": "HURDLE_GATED",
+      "allocation": "SOL_BTC_50_50",
+      "lookbackDays": 30,
+      "rebalanceDays": 30,
+      "hurdleAnnualPct": 6.0,
+      "description": "Focused SOL/BTC 50/50 carry with monthly hurdle gate: exit to cash if rolling funding < 6.0% a.a."
+    },
+    {
+      "id": "AD007_STATIC_ALL6_CONTROL",
+      "type": "STATIC_BENCHMARK",
+      "allocation": "ALL_6_EQUAL_WEIGHT",
+      "lookbackDays": 0,
+      "rebalanceDays": 0,
+      "hurdleAnnualPct": 0.0,
+      "description": "Static Benchmark Control: Equal weight across all 6 core assets held continuously without hurdle"
+    }
+  ]
+}

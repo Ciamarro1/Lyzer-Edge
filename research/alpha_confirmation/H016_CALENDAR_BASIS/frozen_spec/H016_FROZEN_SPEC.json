@@ -1,0 +1,33 @@
+{
+  "hypothesisId": "H016",
+  "title": "Calendar Delivery Basis Arbitrage (ETHUSD Current Quarter, 1.0x, 0% Borrow Cost, Delta=0)",
+  "originProgram": "AD009",
+  "leadCandidateId": "AD009_ETH_CURRENT_Q_10X",
+  "charterPath": "research/alpha_confirmation/H016_CALENDAR_BASIS/charter/H016_CONFIRMATORY_CHARTER.md",
+  "createdAtUTC": "2026-09-04T22:55:00.000Z",
+  "asset": "ETHUSD",
+  "contractType": "CURRENT_QUARTER",
+  "leverage": 1.0,
+  "borrowRateAnnualPct": 0.0,
+  "allocation": "ETH_100",
+  "holdoutPeriod": {
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "label": "2025-01-01 to 2026-08-31 (Virgin Temporal Holdout)"
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "futureFeeBps": 5,
+    "slippageBps": 2,
+    "rollOverFeeBps": 10,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "gates": {
+    "gate1_annualizedNetReturnMinPct": 6.0,
+    "gate2_annualizedSharpeMin": 1.5,
+    "gate3_maxDrawdownMaxPct": 2.0,
+    "gate4_bootstrapPValueMax": 0.05,
+    "gate5_deltaResidualCorrelationMax": 0.05
+  },
+  "expectedEngineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1"
+}

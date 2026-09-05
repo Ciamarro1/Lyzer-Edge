@@ -1,0 +1,7312 @@
+[
+  {
+    "timestamp": 1672531200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16534.73442857,
+    "futuresPrice": 16569.4,
+    "basis": 34.66557143,
+    "basisRate": 0.0021,
+    "annualizedBasisRate": 0.0005
+  },
+  {
+    "timestamp": 1672617600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16617.90757143,
+    "futuresPrice": 16690.6,
+    "basis": 72.69242857,
+    "basisRate": 0.0044,
+    "annualizedBasisRate": 0.0011
+  },
+  {
+    "timestamp": 1672704000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16669.82638095,
+    "futuresPrice": 16755.4,
+    "basis": 85.57361905,
+    "basisRate": 0.0051,
+    "annualizedBasisRate": 0.0013
+  },
+  {
+    "timestamp": 1672790400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16669.63233333,
+    "futuresPrice": 16752.8,
+    "basis": 83.16766667,
+    "basisRate": 0.005,
+    "annualizedBasisRate": 0.0013
+  },
+  {
+    "timestamp": 1672876800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16847.799,
+    "futuresPrice": 16986.7,
+    "basis": 138.901,
+    "basisRate": 0.0082,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1672963200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16827.29595238,
+    "futuresPrice": 16979.6,
+    "basis": 152.30404762,
+    "basisRate": 0.0091,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1673049600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16950.4742381,
+    "futuresPrice": 17114.1,
+    "basis": 163.6257619,
+    "basisRate": 0.0097,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1673136000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 16942.974,
+    "futuresPrice": 17102.8,
+    "basis": 159.826,
+    "basisRate": 0.0094,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1673222400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 17125.86761905,
+    "futuresPrice": 17305.1,
+    "basis": 179.23238095,
+    "basisRate": 0.0105,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1673308800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 17180.443,
+    "futuresPrice": 17343.3,
+    "basis": 162.857,
+    "basisRate": 0.0095,
+    "annualizedBasisRate": 0.0024
+  },
+  {
+    "timestamp": 1673395200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 17443.92361905,
+    "futuresPrice": 17613.7,
+    "basis": 169.77638095,
+    "basisRate": 0.0097,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1673481600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 17941.10366667,
+    "futuresPrice": 18121.1,
+    "basis": 179.99633333,
+    "basisRate": 0.01,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1673568000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 18851.19766667,
+    "futuresPrice": 19060.7,
+    "basis": 209.50233333,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0028
+  },
+  {
+    "timestamp": 1673654400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 19934.19519048,
+    "futuresPrice": 20163.6,
+    "basis": 229.40480952,
+    "basisRate": 0.0115,
+    "annualizedBasisRate": 0.0029
+  },
+  {
+    "timestamp": 1673740800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20958.05061905,
+    "futuresPrice": 21232.1,
+    "basis": 274.04938095,
+    "basisRate": 0.0131,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1673827200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20879.93595238,
+    "futuresPrice": 21171.8,
+    "basis": 291.86404762,
+    "basisRate": 0.014,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1673913600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21188.96842857,
+    "futuresPrice": 21478.1,
+    "basis": 289.13157143,
+    "basisRate": 0.0136,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1674000000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21140.14842857,
+    "futuresPrice": 21445,
+    "basis": 304.85157143,
+    "basisRate": 0.0144,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1674086400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20675.98771429,
+    "futuresPrice": 20986.6,
+    "basis": 310.61228571,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1674172800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21081.67552381,
+    "futuresPrice": 21403.4,
+    "basis": 321.72447619,
+    "basisRate": 0.0153,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1674259200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22672.57238095,
+    "futuresPrice": 23031.6,
+    "basis": 359.02761905,
+    "basisRate": 0.0158,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1674345600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22784.4837619,
+    "futuresPrice": 23134.9,
+    "basis": 350.4162381,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1674432000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22714.63490476,
+    "futuresPrice": 23051.1,
+    "basis": 336.46509524,
+    "basisRate": 0.0148,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1674518400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22923.91666667,
+    "futuresPrice": 23267.3,
+    "basis": 343.38333333,
+    "basisRate": 0.015,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1674604800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22638.32609524,
+    "futuresPrice": 23010.6,
+    "basis": 372.27390476,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1674691200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23062.64642857,
+    "futuresPrice": 23485.4,
+    "basis": 422.75357143,
+    "basisRate": 0.0183,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1674777600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23014.06995238,
+    "futuresPrice": 23454.1,
+    "basis": 440.03004762,
+    "basisRate": 0.0191,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1674864000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23079.82695238,
+    "futuresPrice": 23515.1,
+    "basis": 435.27304762,
+    "basisRate": 0.0189,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1674950400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23031.78285714,
+    "futuresPrice": 23484.3,
+    "basis": 452.51714286,
+    "basisRate": 0.0196,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1675036800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23750.20485714,
+    "futuresPrice": 24221.7,
+    "basis": 471.49514286,
+    "basisRate": 0.0199,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1675123200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22833.42633333,
+    "futuresPrice": 23254,
+    "basis": 420.57366667,
+    "basisRate": 0.0184,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1675209600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23130.49442857,
+    "futuresPrice": 23590.8,
+    "basis": 460.30557143,
+    "basisRate": 0.0199,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1675296000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23734.07709524,
+    "futuresPrice": 24229.4,
+    "basis": 495.32290476,
+    "basisRate": 0.0209,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1675382400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23496.06019048,
+    "futuresPrice": 23964.9,
+    "basis": 468.83980952,
+    "basisRate": 0.02,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1675468800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23437.011,
+    "futuresPrice": 23924.2,
+    "basis": 487.189,
+    "basisRate": 0.0208,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1675555200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23328.71147619,
+    "futuresPrice": 23793.5,
+    "basis": 464.78852381,
+    "basisRate": 0.0199,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1675641600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22938.1077619,
+    "futuresPrice": 23349.8,
+    "basis": 411.6922381,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1675728000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22767.46647619,
+    "futuresPrice": 23156,
+    "basis": 388.53352381,
+    "basisRate": 0.0171,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1675814400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23254.65861905,
+    "futuresPrice": 23659.2,
+    "basis": 404.54138095,
+    "basisRate": 0.0174,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1675900800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22966.06480952,
+    "futuresPrice": 23353.7,
+    "basis": 387.63519048,
+    "basisRate": 0.0169,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1675987200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21800.30119048,
+    "futuresPrice": 22182.5,
+    "basis": 382.19880952,
+    "basisRate": 0.0175,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1676073600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21636.71990476,
+    "futuresPrice": 21989.8,
+    "basis": 353.08009524,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1676160000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21868.19371429,
+    "futuresPrice": 22211.8,
+    "basis": 343.60628571,
+    "basisRate": 0.0157,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1676246400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21788.25878261,
+    "futuresPrice": 22139.2,
+    "basis": 350.94121739,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1676332800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21795.07926087,
+    "futuresPrice": 22152.3,
+    "basis": 357.22073913,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1676419200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22209.93668421,
+    "futuresPrice": 22606.1,
+    "basis": 396.16331579,
+    "basisRate": 0.0178,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1676505600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24334.45889474,
+    "futuresPrice": 24803.5,
+    "basis": 469.04110526,
+    "basisRate": 0.0193,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1676592000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23514.25894737,
+    "futuresPrice": 24053.9,
+    "basis": 539.64105263,
+    "basisRate": 0.0229,
+    "annualizedBasisRate": 0.0059
+  },
+  {
+    "timestamp": 1676678400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24579.27247368,
+    "futuresPrice": 25150.1,
+    "basis": 570.82752632,
+    "basisRate": 0.0232,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1676764800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24641.3,
+    "futuresPrice": 25288,
+    "basis": 646.7,
+    "basisRate": 0.0262,
+    "annualizedBasisRate": 0.0068
+  },
+  {
+    "timestamp": 1676851200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24286.43531579,
+    "futuresPrice": 24877.3,
+    "basis": 590.86468421,
+    "basisRate": 0.0243,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1676937600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24841.39026316,
+    "futuresPrice": 25485.1,
+    "basis": 643.70973684,
+    "basisRate": 0.0259,
+    "annualizedBasisRate": 0.0067
+  },
+  {
+    "timestamp": 1677024000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24449.62115789,
+    "futuresPrice": 25097.4,
+    "basis": 647.77884211,
+    "basisRate": 0.0265,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1677110400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24189.055,
+    "futuresPrice": 24801.1,
+    "basis": 612.045,
+    "basisRate": 0.0253,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1677196800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23943.24415789,
+    "futuresPrice": 24553.6,
+    "basis": 610.35584211,
+    "basisRate": 0.0255,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1677283200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23191.15721053,
+    "futuresPrice": 23795.7,
+    "basis": 604.54278947,
+    "basisRate": 0.0261,
+    "annualizedBasisRate": 0.0068
+  },
+  {
+    "timestamp": 1677369600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23164.90189474,
+    "futuresPrice": 23772,
+    "basis": 607.09810526,
+    "basisRate": 0.0262,
+    "annualizedBasisRate": 0.0068
+  },
+  {
+    "timestamp": 1677456000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23559.96715789,
+    "futuresPrice": 24222.5,
+    "basis": 662.53284211,
+    "basisRate": 0.0281,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1677542400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23495.08831579,
+    "futuresPrice": 24124.8,
+    "basis": 629.71168421,
+    "basisRate": 0.0268,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1677628800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23141.89284211,
+    "futuresPrice": 23711.5,
+    "basis": 569.60715789,
+    "basisRate": 0.0246,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1677715200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23635.28068421,
+    "futuresPrice": 24256.9,
+    "basis": 621.61931579,
+    "basisRate": 0.0263,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1677801600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 23469.82094737,
+    "futuresPrice": 24028.1,
+    "basis": 558.27905263,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0062
+  },
+  {
+    "timestamp": 1677888000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22359.38789474,
+    "futuresPrice": 22812.9,
+    "basis": 453.51210526,
+    "basisRate": 0.0203,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1677974400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22350.2572,
+    "futuresPrice": 22783.8,
+    "basis": 433.5428,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1678060800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22433.65131579,
+    "futuresPrice": 22861.7,
+    "basis": 428.04868421,
+    "basisRate": 0.0191,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1678147200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22408.04777778,
+    "futuresPrice": 22824.2,
+    "basis": 416.15222222,
+    "basisRate": 0.0186,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1678233600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22198.23777778,
+    "futuresPrice": 22603.9,
+    "basis": 405.66222222,
+    "basisRate": 0.0183,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1678320000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 21700.96333333,
+    "futuresPrice": 22053.3,
+    "basis": 352.33666667,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1678406400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20365.27555556,
+    "futuresPrice": 20692.1,
+    "basis": 326.82444444,
+    "basisRate": 0.016,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1678492800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20221.48,
+    "futuresPrice": 20428.2,
+    "basis": 206.72,
+    "basisRate": 0.0102,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1678579200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 20614.23777778,
+    "futuresPrice": 20528.6,
+    "basis": -85.63777778,
+    "basisRate": -0.0042,
+    "annualizedBasisRate": -0.0011
+  },
+  {
+    "timestamp": 1678665600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 22163.28777778,
+    "futuresPrice": 22158.1,
+    "basis": -5.18777778,
+    "basisRate": -0.0002,
+    "annualizedBasisRate": -0.0001
+  },
+  {
+    "timestamp": 1678752000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24203.17,
+    "futuresPrice": 24373.8,
+    "basis": 170.63,
+    "basisRate": 0.007,
+    "annualizedBasisRate": 0.0018
+  },
+  {
+    "timestamp": 1678838400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24753.91444444,
+    "futuresPrice": 24987.8,
+    "basis": 233.88555556,
+    "basisRate": 0.0094,
+    "annualizedBasisRate": 0.0025
+  },
+  {
+    "timestamp": 1678924800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 24372.57777778,
+    "futuresPrice": 24563.4,
+    "basis": 190.82222222,
+    "basisRate": 0.0078,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679011200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25048.99666667,
+    "futuresPrice": 25240,
+    "basis": 191.00333333,
+    "basisRate": 0.0076,
+    "annualizedBasisRate": 0.002
+  },
+  {
+    "timestamp": 1679097600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27447.35111111,
+    "futuresPrice": 27669.5,
+    "basis": 222.14888889,
+    "basisRate": 0.0081,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679184000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26976.38,
+    "futuresPrice": 27194,
+    "basis": 217.62,
+    "basisRate": 0.0081,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679270400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28051.90555556,
+    "futuresPrice": 28275.8,
+    "basis": 223.89444444,
+    "basisRate": 0.008,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679356800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27801.86333333,
+    "futuresPrice": 28025.1,
+    "basis": 223.23666667,
+    "basisRate": 0.008,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679443200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28183.8639637,
+    "futuresPrice": 28387.3,
+    "basis": 203.4360363,
+    "basisRate": 0.0072,
+    "annualizedBasisRate": 0.0019
+  },
+  {
+    "timestamp": 1679529600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27315.32869786,
+    "futuresPrice": 27501.1,
+    "basis": 185.77130214,
+    "basisRate": 0.0068,
+    "annualizedBasisRate": 0.0018
+  },
+  {
+    "timestamp": 1679616000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28342.83908463,
+    "futuresPrice": 28562.9,
+    "basis": 220.06091537,
+    "basisRate": 0.0078,
+    "annualizedBasisRate": 0.0021
+  },
+  {
+    "timestamp": 1679702400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27493.62345435,
+    "futuresPrice": 27726.4,
+    "basis": 232.77654565,
+    "basisRate": 0.0085,
+    "annualizedBasisRate": 0.0023
+  },
+  {
+    "timestamp": 1679788800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27496.86316172,
+    "futuresPrice": 27768.5,
+    "basis": 271.63683828,
+    "basisRate": 0.0099,
+    "annualizedBasisRate": 0.0026
+  },
+  {
+    "timestamp": 1679875200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28001.27770325,
+    "futuresPrice": 28290.1,
+    "basis": 288.82229675,
+    "basisRate": 0.0103,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1679961600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27143.02746175,
+    "futuresPrice": 27422.1,
+    "basis": 279.07253825,
+    "basisRate": 0.0103,
+    "annualizedBasisRate": 0.0027
+  },
+  {
+    "timestamp": 1680048000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27273.37947757,
+    "futuresPrice": 27583.5,
+    "basis": 310.12052243,
+    "basisRate": 0.0114,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1680134400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28361.14357158,
+    "futuresPrice": 28716.2,
+    "basis": 355.05642842,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1680220800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28042.52601237,
+    "futuresPrice": 28404,
+    "basis": 361.47398763,
+    "basisRate": 0.0129,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1680307200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28466.85733333,
+    "futuresPrice": 29256.1,
+    "basis": 789.24266667,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0074
+  },
+  {
+    "timestamp": 1680393600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28465.73893964,
+    "futuresPrice": 29257.6,
+    "basis": 791.86106036,
+    "basisRate": 0.0278,
+    "annualizedBasisRate": 0.0074
+  },
+  {
+    "timestamp": 1680480000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28190.68645226,
+    "futuresPrice": 28920.9,
+    "basis": 730.21354774,
+    "basisRate": 0.0259,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1680566400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27812.64953341,
+    "futuresPrice": 28534.5,
+    "basis": 721.85046659,
+    "basisRate": 0.026,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1680652800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28177.86312175,
+    "futuresPrice": 28969.2,
+    "basis": 791.33687825,
+    "basisRate": 0.0281,
+    "annualizedBasisRate": 0.0075
+  },
+  {
+    "timestamp": 1680739200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28178.50590712,
+    "futuresPrice": 28991,
+    "basis": 812.49409288,
+    "basisRate": 0.0288,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1680825600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28047.04446762,
+    "futuresPrice": 28800.3,
+    "basis": 753.25553238,
+    "basisRate": 0.0269,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1680912000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27928.2558955,
+    "futuresPrice": 28650.1,
+    "basis": 721.8441045,
+    "basisRate": 0.0258,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1680998400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27960.0423435,
+    "futuresPrice": 28703.4,
+    "basis": 743.3576565,
+    "basisRate": 0.0266,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1681084800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28338.64779625,
+    "futuresPrice": 29108.1,
+    "basis": 769.45220375,
+    "basisRate": 0.0272,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1681171200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29655.17284862,
+    "futuresPrice": 30461.1,
+    "basis": 805.92715138,
+    "basisRate": 0.0272,
+    "annualizedBasisRate": 0.0073
+  },
+  {
+    "timestamp": 1681257600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30232.95329238,
+    "futuresPrice": 31006.1,
+    "basis": 773.14670762,
+    "basisRate": 0.0256,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1681344000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29904.00473562,
+    "futuresPrice": 30694.4,
+    "basis": 790.39526438,
+    "basisRate": 0.0264,
+    "annualizedBasisRate": 0.0071
+  },
+  {
+    "timestamp": 1681430400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30407.94732438,
+    "futuresPrice": 31220.2,
+    "basis": 812.25267562,
+    "basisRate": 0.0267,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1681516800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30494.426322,
+    "futuresPrice": 31212.2,
+    "basis": 717.773678,
+    "basisRate": 0.0235,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1681603200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30323.34491487,
+    "futuresPrice": 31096.8,
+    "basis": 773.45508513,
+    "basisRate": 0.0255,
+    "annualizedBasisRate": 0.0069
+  },
+  {
+    "timestamp": 1681689600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30324.91305825,
+    "futuresPrice": 31104.5,
+    "basis": 779.58694175,
+    "basisRate": 0.0257,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1681776000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29449.78571429,
+    "futuresPrice": 30138.3,
+    "basis": 688.51428571,
+    "basisRate": 0.0234,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1681862400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30393.11893,
+    "futuresPrice": 31136.1,
+    "basis": 742.98107,
+    "basisRate": 0.0244,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1681948800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28820.0675,
+    "futuresPrice": 29454.7,
+    "basis": 634.6325,
+    "basisRate": 0.022,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1682035200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28245.2354875,
+    "futuresPrice": 28871.8,
+    "basis": 626.5645125,
+    "basisRate": 0.0222,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1682121600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27260.9811746,
+    "futuresPrice": 27776.7,
+    "basis": 515.7188254,
+    "basisRate": 0.0189,
+    "annualizedBasisRate": 0.0051
+  },
+  {
+    "timestamp": 1682208000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27819.46125,
+    "futuresPrice": 28252,
+    "basis": 432.53875,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1682294400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27593.99642525,
+    "futuresPrice": 28042.8,
+    "basis": 448.80357475,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1682380800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27517.503636,
+    "futuresPrice": 27968.7,
+    "basis": 451.196364,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1682467200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28378.25657475,
+    "futuresPrice": 28798.7,
+    "basis": 420.44342525,
+    "basisRate": 0.0148,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1682553600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28427.82,
+    "futuresPrice": 28901.5,
+    "basis": 473.68,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1682640000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29482.04671838,
+    "futuresPrice": 29965.3,
+    "basis": 483.25328162,
+    "basisRate": 0.0164,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1682726400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29333.75545075,
+    "futuresPrice": 29771.6,
+    "basis": 437.84454925,
+    "basisRate": 0.0149,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1682812800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29247.95750975,
+    "futuresPrice": 29699.7,
+    "basis": 451.74249025,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1682899200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29242.1255765,
+    "futuresPrice": 29725.2,
+    "basis": 483.0744235,
+    "basisRate": 0.0165,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1682985600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28080.16409288,
+    "futuresPrice": 28531.5,
+    "basis": 451.33590712,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1683072000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28689.99375,
+    "futuresPrice": 29139.8,
+    "basis": 449.80625,
+    "basisRate": 0.0157,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1683158400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29038.9620915,
+    "futuresPrice": 29507.4,
+    "basis": 468.4379085,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1683244800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28861.82875,
+    "futuresPrice": 29330,
+    "basis": 468.17125,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1683331200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29538.29845149,
+    "futuresPrice": 29998,
+    "basis": 459.70154851,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1683417600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28901.44739571,
+    "futuresPrice": 29258.8,
+    "basis": 357.35260429,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1683504000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28470.27059314,
+    "futuresPrice": 28796.9,
+    "basis": 326.62940686,
+    "basisRate": 0.0115,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1683590400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27692.79142857,
+    "futuresPrice": 28029,
+    "basis": 336.20857143,
+    "basisRate": 0.0121,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1683676800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27644.4375598,
+    "futuresPrice": 27965.6,
+    "basis": 321.1624402,
+    "basisRate": 0.0116,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1683763200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27618.69551414,
+    "futuresPrice": 27962.2,
+    "basis": 343.50448586,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1683849600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26985.15449914,
+    "futuresPrice": 27319.7,
+    "basis": 334.54550086,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1683936000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26806.37857143,
+    "futuresPrice": 27121.8,
+    "basis": 315.42142857,
+    "basisRate": 0.0118,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1684022400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26787.4,
+    "futuresPrice": 27117.4,
+    "basis": 330,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684108800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26928.66,
+    "futuresPrice": 27287,
+    "basis": 358.34,
+    "basisRate": 0.0133,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1684195200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27167.24051514,
+    "futuresPrice": 27540.9,
+    "basis": 373.65948486,
+    "basisRate": 0.0138,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1684281600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27036.49661686,
+    "futuresPrice": 27406.7,
+    "basis": 370.20338314,
+    "basisRate": 0.0137,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1684368000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27404.11423714,
+    "futuresPrice": 27783.5,
+    "basis": 379.38576286,
+    "basisRate": 0.0138,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1684454400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26819.35106629,
+    "futuresPrice": 27155.9,
+    "basis": 336.54893371,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1684540800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26890.14725171,
+    "futuresPrice": 27223.2,
+    "basis": 333.05274829,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684627200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27113.12693457,
+    "futuresPrice": 27457.3,
+    "basis": 344.17306543,
+    "basisRate": 0.0127,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1684713600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26750.475652,
+    "futuresPrice": 27084.7,
+    "basis": 334.224348,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1684800000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26855.19631429,
+    "futuresPrice": 27185.4,
+    "basis": 330.20368571,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1684886400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27222.92929971,
+    "futuresPrice": 27578.9,
+    "basis": 355.97070029,
+    "basisRate": 0.0131,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1684972800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26325.18571429,
+    "futuresPrice": 26651.1,
+    "basis": 325.91428571,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1685059200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26476.88781743,
+    "futuresPrice": 26804.2,
+    "basis": 327.31218257,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1685145600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26713.25734434,
+    "futuresPrice": 27056.2,
+    "basis": 342.94265566,
+    "basisRate": 0.0128,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1685232000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26870.18285714,
+    "futuresPrice": 27225.2,
+    "basis": 355.01714286,
+    "basisRate": 0.0132,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1685318400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28076.02571429,
+    "futuresPrice": 28463.3,
+    "basis": 387.27428571,
+    "basisRate": 0.0138,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1685404800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27744.8018418,
+    "futuresPrice": 28141.2,
+    "basis": 396.3981582,
+    "basisRate": 0.0143,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1685491200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27701.85707043,
+    "futuresPrice": 28087.9,
+    "basis": 386.04292957,
+    "basisRate": 0.0139,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1685577600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27219.535387,
+    "futuresPrice": 27574.3,
+    "basis": 354.764613,
+    "basisRate": 0.013,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1685664000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26820.56907029,
+    "futuresPrice": 27124.2,
+    "basis": 303.63092971,
+    "basisRate": 0.0113,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1685750400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27252.31714286,
+    "futuresPrice": 27580.6,
+    "basis": 328.28285714,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1685836800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27075.16666667,
+    "futuresPrice": 27368.3,
+    "basis": 293.13333333,
+    "basisRate": 0.0108,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1685923200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27122.83165371,
+    "futuresPrice": 27419.8,
+    "basis": 296.96834629,
+    "basisRate": 0.0109,
+    "annualizedBasisRate": 0.0031
+  },
+  {
+    "timestamp": 1686009600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25733.87603323,
+    "futuresPrice": 26006.5,
+    "basis": 272.62396677,
+    "basisRate": 0.0106,
+    "annualizedBasisRate": 0.003
+  },
+  {
+    "timestamp": 1686096000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27238.18992857,
+    "futuresPrice": 27573.3,
+    "basis": 335.11007143,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1686182400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26349.06639029,
+    "futuresPrice": 26646.1,
+    "basis": 297.03360971,
+    "basisRate": 0.0113,
+    "annualizedBasisRate": 0.0032
+  },
+  {
+    "timestamp": 1686268800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26507.70034988,
+    "futuresPrice": 26818.3,
+    "basis": 310.59965012,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1686355200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26482.8081597,
+    "futuresPrice": 26810.3,
+    "basis": 327.4918403,
+    "basisRate": 0.0124,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1686441600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25854.8819938,
+    "futuresPrice": 26156.7,
+    "basis": 301.8180062,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0033
+  },
+  {
+    "timestamp": 1686528000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25935.20161551,
+    "futuresPrice": 26268.5,
+    "basis": 333.29838449,
+    "basisRate": 0.0129,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1686614400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25905.87020762,
+    "futuresPrice": 26247.6,
+    "basis": 341.72979238,
+    "basisRate": 0.0132,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1686700800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25932.3236251,
+    "futuresPrice": 26274.2,
+    "basis": 341.8763749,
+    "basisRate": 0.0132,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1686787200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25125.01004876,
+    "futuresPrice": 25435.1,
+    "basis": 310.08995124,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1686873600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25573.591636,
+    "futuresPrice": 25906,
+    "basis": 332.408364,
+    "basisRate": 0.013,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1686960000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26329.52493413,
+    "futuresPrice": 26698.3,
+    "basis": 368.77506587,
+    "basisRate": 0.014,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1687046400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26508.17298841,
+    "futuresPrice": 26904.2,
+    "basis": 396.02701159,
+    "basisRate": 0.0149,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1687132800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26337.48237535,
+    "futuresPrice": 26744.3,
+    "basis": 406.81762465,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1687219200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26840.4129211,
+    "futuresPrice": 27277.9,
+    "basis": 437.4870789,
+    "basisRate": 0.0163,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1687305600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28315.12350823,
+    "futuresPrice": 28751.8,
+    "basis": 436.67649177,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1687392000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30000.42910335,
+    "futuresPrice": 30436.8,
+    "basis": 436.37089665,
+    "basisRate": 0.0145,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1687478400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29891.82724605,
+    "futuresPrice": 30344.4,
+    "basis": 452.57275395,
+    "basisRate": 0.0151,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1687564800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30704.52966205,
+    "futuresPrice": 31191.8,
+    "basis": 487.27033795,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0045
+  },
+  {
+    "timestamp": 1687651200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30544.69841517,
+    "futuresPrice": 31048.7,
+    "basis": 504.00158483,
+    "basisRate": 0.0165,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1687737600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30467.02250119,
+    "futuresPrice": 30975.3,
+    "basis": 508.27749881,
+    "basisRate": 0.0167,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1687824000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30269.57234677,
+    "futuresPrice": 30718.7,
+    "basis": 449.12765323,
+    "basisRate": 0.0148,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1687910400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30694.67533343,
+    "futuresPrice": 31228.2,
+    "basis": 533.52466657,
+    "basisRate": 0.0174,
+    "annualizedBasisRate": 0.005
+  },
+  {
+    "timestamp": 1687996800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30082.27995008,
+    "futuresPrice": 30567.3,
+    "basis": 485.02004992,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1688083200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30446.51993977,
+    "futuresPrice": 30940.9,
+    "basis": 494.38006023,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1688169600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30471.64570089,
+    "futuresPrice": 31399.6,
+    "basis": 927.95429911,
+    "basisRate": 0.0305,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1688256000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30589.44906577,
+    "futuresPrice": 31548,
+    "basis": 958.55093423,
+    "basisRate": 0.0313,
+    "annualizedBasisRate": 0.009
+  },
+  {
+    "timestamp": 1688342400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30616.82957508,
+    "futuresPrice": 31604.3,
+    "basis": 987.47042492,
+    "basisRate": 0.0323,
+    "annualizedBasisRate": 0.0093
+  },
+  {
+    "timestamp": 1688428800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 31154.39054996,
+    "futuresPrice": 32200,
+    "basis": 1045.60945004,
+    "basisRate": 0.0336,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1688515200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30773.18947034,
+    "futuresPrice": 31721.8,
+    "basis": 948.61052966,
+    "basisRate": 0.0308,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1688601600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30501.3040644,
+    "futuresPrice": 31385.1,
+    "basis": 883.7959356,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1688688000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29904.34111154,
+    "futuresPrice": 30721.8,
+    "basis": 817.45888846,
+    "basisRate": 0.0273,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1688774400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30346.97328774,
+    "futuresPrice": 31217.1,
+    "basis": 870.12671226,
+    "basisRate": 0.0287,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1688860800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30293.34409773,
+    "futuresPrice": 31161.6,
+    "basis": 868.25590227,
+    "basisRate": 0.0287,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1688947200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30170.35648625,
+    "futuresPrice": 31056.6,
+    "basis": 886.24351375,
+    "basisRate": 0.0294,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1689033600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30416.93271943,
+    "futuresPrice": 31300.6,
+    "basis": 883.66728057,
+    "basisRate": 0.0291,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1689120000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30623.88541654,
+    "futuresPrice": 31568.2,
+    "basis": 944.31458346,
+    "basisRate": 0.0308,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1689206400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30385.70420361,
+    "futuresPrice": 31307.7,
+    "basis": 921.99579639,
+    "basisRate": 0.0303,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1689292800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 31474.51944521,
+    "futuresPrice": 32490.3,
+    "basis": 1015.78055479,
+    "basisRate": 0.0323,
+    "annualizedBasisRate": 0.0094
+  },
+  {
+    "timestamp": 1689379200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30330.24022758,
+    "futuresPrice": 31280,
+    "basis": 949.75977242,
+    "basisRate": 0.0313,
+    "annualizedBasisRate": 0.0091
+  },
+  {
+    "timestamp": 1689465600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30296.0326783,
+    "futuresPrice": 31225.3,
+    "basis": 929.2673217,
+    "basisRate": 0.0307,
+    "annualizedBasisRate": 0.0089
+  },
+  {
+    "timestamp": 1689552000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30245.67632146,
+    "futuresPrice": 31157.8,
+    "basis": 912.12367854,
+    "basisRate": 0.0302,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1689638400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30147.49932992,
+    "futuresPrice": 31046.1,
+    "basis": 898.60067008,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1689724800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29861.80541398,
+    "futuresPrice": 30764.9,
+    "basis": 903.09458602,
+    "basisRate": 0.0302,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1689811200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29915.34374285,
+    "futuresPrice": 30805.7,
+    "basis": 890.35625715,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1689897600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29804.10733371,
+    "futuresPrice": 30701.3,
+    "basis": 897.19266629,
+    "basisRate": 0.0301,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1689984000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29908.96116184,
+    "futuresPrice": 30799.5,
+    "basis": 890.53883816,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1690070400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29784.75797857,
+    "futuresPrice": 30673.3,
+    "basis": 888.54202143,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1690156800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 30084.38974274,
+    "futuresPrice": 30977.8,
+    "basis": 893.41025726,
+    "basisRate": 0.0297,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1690243200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29177.57682024,
+    "futuresPrice": 29984.9,
+    "basis": 807.32317976,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1690329600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29224.80079574,
+    "futuresPrice": 30034.5,
+    "basis": 809.69920426,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1690416000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29347.77666667,
+    "futuresPrice": 30194.4,
+    "basis": 846.62333333,
+    "basisRate": 0.0288,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1690502400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29214.11007833,
+    "futuresPrice": 29998.8,
+    "basis": 784.68992167,
+    "basisRate": 0.0269,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1690588800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29315.18864271,
+    "futuresPrice": 30125.9,
+    "basis": 810.71135729,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1690675200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29359.05180945,
+    "futuresPrice": 30156.4,
+    "basis": 797.34819055,
+    "basisRate": 0.0272,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1690761600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29278.9980755,
+    "futuresPrice": 30088.6,
+    "basis": 809.6019245,
+    "basisRate": 0.0277,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1690848000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29229.6090658,
+    "futuresPrice": 30030.6,
+    "basis": 800.9909342,
+    "basisRate": 0.0274,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1690934400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29695.36273181,
+    "futuresPrice": 30542.6,
+    "basis": 847.23726819,
+    "basisRate": 0.0285,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1691020800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29160.45479985,
+    "futuresPrice": 29984.6,
+    "basis": 824.14520015,
+    "basisRate": 0.0283,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1691107200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29177.58373686,
+    "futuresPrice": 29992.1,
+    "basis": 814.51626314,
+    "basisRate": 0.0279,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1691193600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29075.3337196,
+    "futuresPrice": 29879.1,
+    "basis": 803.7662804,
+    "basisRate": 0.0276,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1691280000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29047.74247311,
+    "futuresPrice": 29841.5,
+    "basis": 793.75752689,
+    "basisRate": 0.0273,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1691366400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29039.16445084,
+    "futuresPrice": 29850.7,
+    "basis": 811.53554916,
+    "basisRate": 0.0279,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1691452800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29179.88266419,
+    "futuresPrice": 30035.4,
+    "basis": 855.51733581,
+    "basisRate": 0.0293,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1691539200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29765.98886462,
+    "futuresPrice": 30625,
+    "basis": 859.01113538,
+    "basisRate": 0.0289,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1691625600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29565.98543635,
+    "futuresPrice": 30407.1,
+    "basis": 841.11456365,
+    "basisRate": 0.0284,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1691712000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29425.9064061,
+    "futuresPrice": 30246.9,
+    "basis": 820.9935939,
+    "basisRate": 0.0279,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1691798400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29399.65967715,
+    "futuresPrice": 30212,
+    "basis": 812.34032285,
+    "basisRate": 0.0276,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1691884800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29414.91441463,
+    "futuresPrice": 30220.5,
+    "basis": 805.58558537,
+    "basisRate": 0.0274,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1691971200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29282.03104009,
+    "futuresPrice": 30075.2,
+    "basis": 793.16895991,
+    "basisRate": 0.0271,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1692057600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29409.48875904,
+    "futuresPrice": 30206.5,
+    "basis": 797.01124096,
+    "basisRate": 0.0271,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1692144000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29169.73484419,
+    "futuresPrice": 29963.4,
+    "basis": 793.66515581,
+    "basisRate": 0.0272,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1692230400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28699.87098327,
+    "futuresPrice": 29477.1,
+    "basis": 777.22901673,
+    "basisRate": 0.0271,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1692316800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26634.5067039,
+    "futuresPrice": 27173.6,
+    "basis": 539.0932961,
+    "basisRate": 0.0202,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1692403200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26048.07073073,
+    "futuresPrice": 26629.5,
+    "basis": 581.42926927,
+    "basisRate": 0.0223,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1692489600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26092.62296715,
+    "futuresPrice": 26656.3,
+    "basis": 563.67703285,
+    "basisRate": 0.0216,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1692576000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26189.95081209,
+    "futuresPrice": 26734.8,
+    "basis": 544.84918791,
+    "basisRate": 0.0208,
+    "annualizedBasisRate": 0.0062
+  },
+  {
+    "timestamp": 1692662400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26124.32364995,
+    "futuresPrice": 26651.9,
+    "basis": 527.57635005,
+    "basisRate": 0.0202,
+    "annualizedBasisRate": 0.006
+  },
+  {
+    "timestamp": 1692748800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26039.82891815,
+    "futuresPrice": 26549.1,
+    "basis": 509.27108185,
+    "basisRate": 0.0196,
+    "annualizedBasisRate": 0.0059
+  },
+  {
+    "timestamp": 1692835200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26427.32414769,
+    "futuresPrice": 26939.5,
+    "basis": 512.17585231,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1692921600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26164.12617482,
+    "futuresPrice": 26672.8,
+    "basis": 508.67382518,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0058
+  },
+  {
+    "timestamp": 1693008000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26049.12591407,
+    "futuresPrice": 26520.1,
+    "basis": 470.97408593,
+    "basisRate": 0.0181,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1693094400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26007.22870938,
+    "futuresPrice": 26485.1,
+    "basis": 477.87129062,
+    "basisRate": 0.0184,
+    "annualizedBasisRate": 0.0055
+  },
+  {
+    "timestamp": 1693180800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26089.24910734,
+    "futuresPrice": 26555.4,
+    "basis": 466.15089266,
+    "basisRate": 0.0179,
+    "annualizedBasisRate": 0.0054
+  },
+  {
+    "timestamp": 1693267200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26104.08465472,
+    "futuresPrice": 26564.9,
+    "basis": 460.81534528,
+    "basisRate": 0.0177,
+    "annualizedBasisRate": 0.0053
+  },
+  {
+    "timestamp": 1693353600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27724.46534283,
+    "futuresPrice": 28201.1,
+    "basis": 476.63465717,
+    "basisRate": 0.0172,
+    "annualizedBasisRate": 0.0052
+  },
+  {
+    "timestamp": 1693440000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27303.54146426,
+    "futuresPrice": 27746.1,
+    "basis": 442.55853574,
+    "basisRate": 0.0162,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1693526400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25932.48672576,
+    "futuresPrice": 26334.8,
+    "basis": 402.31327424,
+    "basisRate": 0.0155,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1693612800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25800.09189789,
+    "futuresPrice": 26211.3,
+    "basis": 411.20810211,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0048
+  },
+  {
+    "timestamp": 1693699200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25869.50152493,
+    "futuresPrice": 26274.3,
+    "basis": 404.79847507,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1693785600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25969.93100171,
+    "futuresPrice": 26375.3,
+    "basis": 405.36899829,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1693872000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25812.11059948,
+    "futuresPrice": 26228.8,
+    "basis": 416.68940052,
+    "basisRate": 0.0161,
+    "annualizedBasisRate": 0.0049
+  },
+  {
+    "timestamp": 1693958400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25784.80482657,
+    "futuresPrice": 26187.3,
+    "basis": 402.49517343,
+    "basisRate": 0.0156,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1694044800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25752.30867984,
+    "futuresPrice": 26148.5,
+    "basis": 396.19132016,
+    "basisRate": 0.0154,
+    "annualizedBasisRate": 0.0047
+  },
+  {
+    "timestamp": 1694131200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26252.25383862,
+    "futuresPrice": 26652.5,
+    "basis": 400.24616138,
+    "basisRate": 0.0152,
+    "annualizedBasisRate": 0.0046
+  },
+  {
+    "timestamp": 1694217600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25906.44880451,
+    "futuresPrice": 26283.8,
+    "basis": 377.35119549,
+    "basisRate": 0.0146,
+    "annualizedBasisRate": 0.0044
+  },
+  {
+    "timestamp": 1694304000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25896.34387655,
+    "futuresPrice": 26255.7,
+    "basis": 359.35612345,
+    "basisRate": 0.0139,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1694390400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25832.25223956,
+    "futuresPrice": 26193.1,
+    "basis": 360.84776044,
+    "basisRate": 0.014,
+    "annualizedBasisRate": 0.0043
+  },
+  {
+    "timestamp": 1694476800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25156.35403957,
+    "futuresPrice": 25505.8,
+    "basis": 349.44596043,
+    "basisRate": 0.0139,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1694563200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 25839.91170432,
+    "futuresPrice": 26190,
+    "basis": 350.08829568,
+    "basisRate": 0.0135,
+    "annualizedBasisRate": 0.0041
+  },
+  {
+    "timestamp": 1694649600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26227.86980923,
+    "futuresPrice": 26567.3,
+    "basis": 339.43019077,
+    "basisRate": 0.0129,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1694736000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26531.93281647,
+    "futuresPrice": 26879.7,
+    "basis": 347.76718353,
+    "basisRate": 0.0131,
+    "annualizedBasisRate": 0.004
+  },
+  {
+    "timestamp": 1694822400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26606.0704933,
+    "futuresPrice": 26939.6,
+    "basis": 333.5295067,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1694908800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26569.65743934,
+    "futuresPrice": 26897.7,
+    "basis": 328.04256066,
+    "basisRate": 0.0123,
+    "annualizedBasisRate": 0.0038
+  },
+  {
+    "timestamp": 1694995200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26535.07829763,
+    "futuresPrice": 26844.8,
+    "basis": 309.72170237,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1695081600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26766.07031465,
+    "futuresPrice": 27083.5,
+    "basis": 317.42968535,
+    "basisRate": 0.0119,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1695168000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27217.90334297,
+    "futuresPrice": 27542,
+    "basis": 324.09665703,
+    "basisRate": 0.0119,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1695254400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27128.27217364,
+    "futuresPrice": 27445.9,
+    "basis": 317.62782636,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1695340800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26565.58552951,
+    "futuresPrice": 26883.8,
+    "basis": 318.21447049,
+    "basisRate": 0.012,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1695427200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26581.16686329,
+    "futuresPrice": 26897,
+    "basis": 315.83313671,
+    "basisRate": 0.0119,
+    "annualizedBasisRate": 0.0037
+  },
+  {
+    "timestamp": 1695513600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26581.23350131,
+    "futuresPrice": 26892.3,
+    "basis": 311.06649869,
+    "basisRate": 0.0117,
+    "annualizedBasisRate": 0.0036
+  },
+  {
+    "timestamp": 1695600000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26251.11866498,
+    "futuresPrice": 26538.5,
+    "basis": 287.38133502,
+    "basisRate": 0.0109,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1695686400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26294.75442671,
+    "futuresPrice": 26598.3,
+    "basis": 303.54557329,
+    "basisRate": 0.0115,
+    "annualizedBasisRate": 0.0035
+  },
+  {
+    "timestamp": 1695772800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26210.3332804,
+    "futuresPrice": 26501.8,
+    "basis": 291.4667196,
+    "basisRate": 0.0111,
+    "annualizedBasisRate": 0.0034
+  },
+  {
+    "timestamp": 1695859200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26358.74346589,
+    "futuresPrice": 26688.4,
+    "basis": 329.65653411,
+    "basisRate": 0.0125,
+    "annualizedBasisRate": 0.0039
+  },
+  {
+    "timestamp": 1695945600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27026.33031537,
+    "futuresPrice": 27390.3,
+    "basis": 363.96968463,
+    "basisRate": 0.0135,
+    "annualizedBasisRate": 0.0042
+  },
+  {
+    "timestamp": 1696032000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26911.75125283,
+    "futuresPrice": 27569.1,
+    "basis": 657.34874717,
+    "basisRate": 0.0244,
+    "annualizedBasisRate": 0.0075
+  },
+  {
+    "timestamp": 1696118400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26967.01359426,
+    "futuresPrice": 27637.4,
+    "basis": 670.38640574,
+    "basisRate": 0.0249,
+    "annualizedBasisRate": 0.0077
+  },
+  {
+    "timestamp": 1696204800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27989.86785116,
+    "futuresPrice": 28757.9,
+    "basis": 768.03214884,
+    "basisRate": 0.0274,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1696291200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27503.0889999,
+    "futuresPrice": 28233.4,
+    "basis": 730.3110001,
+    "basisRate": 0.0266,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1696377600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27430.76717916,
+    "futuresPrice": 28188,
+    "basis": 757.23282084,
+    "basisRate": 0.0276,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1696464000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27790.85365634,
+    "futuresPrice": 28548.9,
+    "basis": 758.04634366,
+    "basisRate": 0.0273,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1696550400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27413.76710031,
+    "futuresPrice": 28148.4,
+    "basis": 734.63289969,
+    "basisRate": 0.0268,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1696636800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27947.40035043,
+    "futuresPrice": 28693.6,
+    "basis": 746.19964957,
+    "basisRate": 0.0267,
+    "annualizedBasisRate": 0.0083
+  },
+  {
+    "timestamp": 1696723200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27973.01647904,
+    "futuresPrice": 28696.4,
+    "basis": 723.38352096,
+    "basisRate": 0.0259,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1696809600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27933.71383267,
+    "futuresPrice": 28657.5,
+    "basis": 723.78616733,
+    "basisRate": 0.0259,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1696896000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27592.03201076,
+    "futuresPrice": 28307.8,
+    "basis": 715.76798924,
+    "basisRate": 0.0259,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1696982400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27394.44493207,
+    "futuresPrice": 28097.2,
+    "basis": 702.75506793,
+    "basisRate": 0.0257,
+    "annualizedBasisRate": 0.008
+  },
+  {
+    "timestamp": 1697068800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26870.1602271,
+    "futuresPrice": 27471.2,
+    "basis": 601.0397729,
+    "basisRate": 0.0224,
+    "annualizedBasisRate": 0.007
+  },
+  {
+    "timestamp": 1697155200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26755.52080675,
+    "futuresPrice": 27326,
+    "basis": 570.47919325,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1697241600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26865.83160205,
+    "futuresPrice": 27419.7,
+    "basis": 553.86839795,
+    "basisRate": 0.0206,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1697328000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 26854.8693224,
+    "futuresPrice": 27406.2,
+    "basis": 551.3306776,
+    "basisRate": 0.0205,
+    "annualizedBasisRate": 0.0064
+  },
+  {
+    "timestamp": 1697414400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 27174.49948359,
+    "futuresPrice": 27723.6,
+    "basis": 549.10051641,
+    "basisRate": 0.0202,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1697500800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28518.10974124,
+    "futuresPrice": 29121.7,
+    "basis": 603.59025876,
+    "basisRate": 0.0212,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1697587200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28410.24620657,
+    "futuresPrice": 29000.1,
+    "basis": 589.85379343,
+    "basisRate": 0.0208,
+    "annualizedBasisRate": 0.0065
+  },
+  {
+    "timestamp": 1697673600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28329.77185378,
+    "futuresPrice": 28924.5,
+    "basis": 594.72814622,
+    "basisRate": 0.021,
+    "annualizedBasisRate": 0.0066
+  },
+  {
+    "timestamp": 1697760000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 28731.70346468,
+    "futuresPrice": 29324.9,
+    "basis": 593.19653532,
+    "basisRate": 0.0206,
+    "annualizedBasisRate": 0.0065
+  },
+  {
+    "timestamp": 1697846400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29684.91312616,
+    "futuresPrice": 30283.9,
+    "basis": 598.98687384,
+    "basisRate": 0.0202,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1697932800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29923.68432041,
+    "futuresPrice": 30521.3,
+    "basis": 597.61567959,
+    "basisRate": 0.02,
+    "annualizedBasisRate": 0.0063
+  },
+  {
+    "timestamp": 1698019200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 29997.917649,
+    "futuresPrice": 30644.1,
+    "basis": 646.182351,
+    "basisRate": 0.0215,
+    "annualizedBasisRate": 0.0068
+  },
+  {
+    "timestamp": 1698105600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 33080.16578444,
+    "futuresPrice": 33833.2,
+    "basis": 753.03421556,
+    "basisRate": 0.0228,
+    "annualizedBasisRate": 0.0072
+  },
+  {
+    "timestamp": 1698192000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 33921.06426927,
+    "futuresPrice": 34741.3,
+    "basis": 820.23573073,
+    "basisRate": 0.0242,
+    "annualizedBasisRate": 0.0076
+  },
+  {
+    "timestamp": 1698278400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34498.96801544,
+    "futuresPrice": 35498.5,
+    "basis": 999.53198456,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0092
+  },
+  {
+    "timestamp": 1698364800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34158.19598777,
+    "futuresPrice": 35183.3,
+    "basis": 1025.10401223,
+    "basisRate": 0.03,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1698451200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 33908.54828054,
+    "futuresPrice": 34907.1,
+    "basis": 998.55171946,
+    "basisRate": 0.0294,
+    "annualizedBasisRate": 0.0093
+  },
+  {
+    "timestamp": 1698537600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34089.87764579,
+    "futuresPrice": 35116.3,
+    "basis": 1026.42235421,
+    "basisRate": 0.0301,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1698624000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34533.57491571,
+    "futuresPrice": 35611.7,
+    "basis": 1078.12508429,
+    "basisRate": 0.0312,
+    "annualizedBasisRate": 0.0099
+  },
+  {
+    "timestamp": 1698710400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34497.67678045,
+    "futuresPrice": 35596.9,
+    "basis": 1099.22321955,
+    "basisRate": 0.0319,
+    "annualizedBasisRate": 0.0101
+  },
+  {
+    "timestamp": 1698796800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34657.41623982,
+    "futuresPrice": 35774.5,
+    "basis": 1117.08376018,
+    "basisRate": 0.0322,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1698883200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35438.93865104,
+    "futuresPrice": 36746.4,
+    "basis": 1307.46134896,
+    "basisRate": 0.0369,
+    "annualizedBasisRate": 0.0117
+  },
+  {
+    "timestamp": 1698969600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34939.00414676,
+    "futuresPrice": 36173.9,
+    "basis": 1234.89585324,
+    "basisRate": 0.0353,
+    "annualizedBasisRate": 0.0112
+  },
+  {
+    "timestamp": 1699056000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 34733.95864383,
+    "futuresPrice": 35918.3,
+    "basis": 1184.34135617,
+    "basisRate": 0.0341,
+    "annualizedBasisRate": 0.0108
+  },
+  {
+    "timestamp": 1699142400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35087.13050549,
+    "futuresPrice": 36325.8,
+    "basis": 1238.66949451,
+    "basisRate": 0.0353,
+    "annualizedBasisRate": 0.0112
+  },
+  {
+    "timestamp": 1699228800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35043.07616354,
+    "futuresPrice": 36317.7,
+    "basis": 1274.62383646,
+    "basisRate": 0.0364,
+    "annualizedBasisRate": 0.0116
+  },
+  {
+    "timestamp": 1699315200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35037.97609991,
+    "futuresPrice": 36317.1,
+    "basis": 1279.12390009,
+    "basisRate": 0.0365,
+    "annualizedBasisRate": 0.0116
+  },
+  {
+    "timestamp": 1699401600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35429.05926848,
+    "futuresPrice": 36727.7,
+    "basis": 1298.64073152,
+    "basisRate": 0.0367,
+    "annualizedBasisRate": 0.0117
+  },
+  {
+    "timestamp": 1699488000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35634.04011134,
+    "futuresPrice": 36956.8,
+    "basis": 1322.75988866,
+    "basisRate": 0.0371,
+    "annualizedBasisRate": 0.0119
+  },
+  {
+    "timestamp": 1699574400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 36692.96801862,
+    "futuresPrice": 37992.9,
+    "basis": 1299.93198138,
+    "basisRate": 0.0354,
+    "annualizedBasisRate": 0.0113
+  },
+  {
+    "timestamp": 1699660800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37315.21288111,
+    "futuresPrice": 38684.3,
+    "basis": 1369.08711889,
+    "basisRate": 0.0367,
+    "annualizedBasisRate": 0.0117
+  },
+  {
+    "timestamp": 1699747200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37146.24700292,
+    "futuresPrice": 38465.5,
+    "basis": 1319.25299708,
+    "basisRate": 0.0355,
+    "annualizedBasisRate": 0.0114
+  },
+  {
+    "timestamp": 1699833600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37070.17550438,
+    "futuresPrice": 38398.1,
+    "basis": 1327.92449562,
+    "basisRate": 0.0358,
+    "annualizedBasisRate": 0.0115
+  },
+  {
+    "timestamp": 1699920000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 36488.42819883,
+    "futuresPrice": 37827.2,
+    "basis": 1338.77180117,
+    "basisRate": 0.0367,
+    "annualizedBasisRate": 0.0118
+  },
+  {
+    "timestamp": 1700006400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35555.90403829,
+    "futuresPrice": 36842.5,
+    "basis": 1286.59596171,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0116
+  },
+  {
+    "timestamp": 1700092800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37884.11762862,
+    "futuresPrice": 39330,
+    "basis": 1445.88237138,
+    "basisRate": 0.0382,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1700179200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 36160.40847552,
+    "futuresPrice": 37393.5,
+    "basis": 1233.09152448,
+    "basisRate": 0.0341,
+    "annualizedBasisRate": 0.011
+  },
+  {
+    "timestamp": 1700265600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 36626.12020477,
+    "futuresPrice": 37839.9,
+    "basis": 1213.77979523,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0107
+  },
+  {
+    "timestamp": 1700352000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 36590.67177126,
+    "futuresPrice": 37704.1,
+    "basis": 1113.42822874,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0098
+  },
+  {
+    "timestamp": 1700438400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37395.68668418,
+    "futuresPrice": 38606.5,
+    "basis": 1210.81331582,
+    "basisRate": 0.0324,
+    "annualizedBasisRate": 0.0105
+  },
+  {
+    "timestamp": 1700524800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37478.24952115,
+    "futuresPrice": 38642.2,
+    "basis": 1163.95047885,
+    "basisRate": 0.0311,
+    "annualizedBasisRate": 0.01
+  },
+  {
+    "timestamp": 1700611200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 35764.22757515,
+    "futuresPrice": 36666,
+    "basis": 901.77242485,
+    "basisRate": 0.0252,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1700697600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37423.63743193,
+    "futuresPrice": 38608.7,
+    "basis": 1185.06256807,
+    "basisRate": 0.0317,
+    "annualizedBasisRate": 0.0103
+  },
+  {
+    "timestamp": 1700784000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37301.06210034,
+    "futuresPrice": 38523.3,
+    "basis": 1222.23789966,
+    "basisRate": 0.0328,
+    "annualizedBasisRate": 0.0106
+  },
+  {
+    "timestamp": 1700870400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37733.49598414,
+    "futuresPrice": 38974.4,
+    "basis": 1240.90401586,
+    "basisRate": 0.0329,
+    "annualizedBasisRate": 0.0107
+  },
+  {
+    "timestamp": 1700956800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37804.45013709,
+    "futuresPrice": 39089.8,
+    "basis": 1285.34986291,
+    "basisRate": 0.034,
+    "annualizedBasisRate": 0.011
+  },
+  {
+    "timestamp": 1701043200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37461.57982378,
+    "futuresPrice": 38742.1,
+    "basis": 1280.52017622,
+    "basisRate": 0.0342,
+    "annualizedBasisRate": 0.0111
+  },
+  {
+    "timestamp": 1701129600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37245.14335454,
+    "futuresPrice": 38423.8,
+    "basis": 1178.65664546,
+    "basisRate": 0.0316,
+    "annualizedBasisRate": 0.0103
+  },
+  {
+    "timestamp": 1701216000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37836.03898663,
+    "futuresPrice": 39010.6,
+    "basis": 1174.56101337,
+    "basisRate": 0.031,
+    "annualizedBasisRate": 0.0101
+  },
+  {
+    "timestamp": 1701302400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37865.82880791,
+    "futuresPrice": 38996.1,
+    "basis": 1130.27119209,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1701388800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 37724.32404755,
+    "futuresPrice": 38888.2,
+    "basis": 1163.87595245,
+    "basisRate": 0.0309,
+    "annualizedBasisRate": 0.0101
+  },
+  {
+    "timestamp": 1701475200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 38700.24712354,
+    "futuresPrice": 39962.9,
+    "basis": 1262.65287646,
+    "basisRate": 0.0326,
+    "annualizedBasisRate": 0.0106
+  },
+  {
+    "timestamp": 1701561600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 39475.62191952,
+    "futuresPrice": 40741.1,
+    "basis": 1265.47808048,
+    "basisRate": 0.0321,
+    "annualizedBasisRate": 0.0105
+  },
+  {
+    "timestamp": 1701648000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 39982.88846517,
+    "futuresPrice": 41307.9,
+    "basis": 1325.01153483,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0108
+  },
+  {
+    "timestamp": 1701734400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41985.74945349,
+    "futuresPrice": 43428.2,
+    "basis": 1442.45054651,
+    "basisRate": 0.0344,
+    "annualizedBasisRate": 0.0112
+  },
+  {
+    "timestamp": 1701820800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44080.57655614,
+    "futuresPrice": 45420.5,
+    "basis": 1339.92344386,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0099
+  },
+  {
+    "timestamp": 1701907200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43763.43714661,
+    "futuresPrice": 45064,
+    "basis": 1300.56285339,
+    "basisRate": 0.0297,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1701993600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43287.96902371,
+    "futuresPrice": 44551.8,
+    "basis": 1263.83097629,
+    "basisRate": 0.0292,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1702080000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44187.3564943,
+    "futuresPrice": 45558.5,
+    "basis": 1371.1435057,
+    "basisRate": 0.031,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1702166400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43716.76967625,
+    "futuresPrice": 45086.3,
+    "basis": 1369.53032375,
+    "basisRate": 0.0313,
+    "annualizedBasisRate": 0.0103
+  },
+  {
+    "timestamp": 1702252800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43789.98179926,
+    "futuresPrice": 45164.9,
+    "basis": 1374.91820074,
+    "basisRate": 0.0314,
+    "annualizedBasisRate": 0.0103
+  },
+  {
+    "timestamp": 1702339200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41237.24572905,
+    "futuresPrice": 42590.2,
+    "basis": 1352.95427095,
+    "basisRate": 0.0328,
+    "annualizedBasisRate": 0.0108
+  },
+  {
+    "timestamp": 1702425600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41470.27572232,
+    "futuresPrice": 42782.4,
+    "basis": 1312.12427768,
+    "basisRate": 0.0316,
+    "annualizedBasisRate": 0.0104
+  },
+  {
+    "timestamp": 1702512000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42886.59616696,
+    "futuresPrice": 44198.1,
+    "basis": 1311.50383304,
+    "basisRate": 0.0306,
+    "annualizedBasisRate": 0.0101
+  },
+  {
+    "timestamp": 1702598400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43026.80916249,
+    "futuresPrice": 44297.7,
+    "basis": 1270.89083751,
+    "basisRate": 0.0295,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1702684800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41934.65369652,
+    "futuresPrice": 43144.7,
+    "basis": 1210.04630348,
+    "basisRate": 0.0289,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1702771200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42239.23057459,
+    "futuresPrice": 43514.8,
+    "basis": 1275.56942541,
+    "basisRate": 0.0302,
+    "annualizedBasisRate": 0.01
+  },
+  {
+    "timestamp": 1702857600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41346.22955403,
+    "futuresPrice": 42540.2,
+    "basis": 1193.97044597,
+    "basisRate": 0.0289,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1702944000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42648.38532424,
+    "futuresPrice": 43966.7,
+    "basis": 1318.31467576,
+    "basisRate": 0.0309,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1703030400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42264.59222847,
+    "futuresPrice": 43547.1,
+    "basis": 1282.50777153,
+    "basisRate": 0.0303,
+    "annualizedBasisRate": 0.01
+  },
+  {
+    "timestamp": 1703116800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43658.91561709,
+    "futuresPrice": 45209.1,
+    "basis": 1550.18438291,
+    "basisRate": 0.0355,
+    "annualizedBasisRate": 0.0118
+  },
+  {
+    "timestamp": 1703203200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43871.82156762,
+    "futuresPrice": 45504.1,
+    "basis": 1632.27843238,
+    "basisRate": 0.0372,
+    "annualizedBasisRate": 0.0124
+  },
+  {
+    "timestamp": 1703289600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44004.35843454,
+    "futuresPrice": 45649.5,
+    "basis": 1645.14156546,
+    "basisRate": 0.0374,
+    "annualizedBasisRate": 0.0124
+  },
+  {
+    "timestamp": 1703376000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43734.87363335,
+    "futuresPrice": 45340.6,
+    "basis": 1605.72636665,
+    "basisRate": 0.0367,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1703462400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43025.79064675,
+    "futuresPrice": 44538.4,
+    "basis": 1512.60935325,
+    "basisRate": 0.0352,
+    "annualizedBasisRate": null
+  },
+  {
+    "timestamp": 1703548800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43593.00998911,
+    "futuresPrice": 45291.9,
+    "basis": 1698.89001089,
+    "basisRate": 0.039,
+    "annualizedBasisRate": 0.013
+  },
+  {
+    "timestamp": 1703635200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42515.4391889,
+    "futuresPrice": 44134.5,
+    "basis": 1619.0608111,
+    "basisRate": 0.0381,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1703721600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43471.33800826,
+    "futuresPrice": 45240.7,
+    "basis": 1769.36199174,
+    "basisRate": 0.0407,
+    "annualizedBasisRate": 0.0136
+  },
+  {
+    "timestamp": 1703808000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42593.68805638,
+    "futuresPrice": 44270.4,
+    "basis": 1676.71194362,
+    "basisRate": 0.0394,
+    "annualizedBasisRate": 0.0132
+  },
+  {
+    "timestamp": 1703894400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42082.41556151,
+    "futuresPrice": 45346.1,
+    "basis": 3263.68443849,
+    "basisRate": 0.0776,
+    "annualizedBasisRate": 0.026
+  },
+  {
+    "timestamp": 1703980800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42146.69935676,
+    "futuresPrice": 45567.3,
+    "basis": 3420.60064324,
+    "basisRate": 0.0812,
+    "annualizedBasisRate": 0.0272
+  },
+  {
+    "timestamp": 1704067200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42262.85917207,
+    "futuresPrice": 45785.2,
+    "basis": 3522.34082793,
+    "basisRate": 0.0833,
+    "annualizedBasisRate": 0.0279
+  },
+  {
+    "timestamp": 1704153600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44194.59223201,
+    "futuresPrice": 48132.6,
+    "basis": 3938.00776799,
+    "basisRate": 0.0891,
+    "annualizedBasisRate": 0.0299
+  },
+  {
+    "timestamp": 1704240000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44971.51076699,
+    "futuresPrice": 48603.3,
+    "basis": 3631.78923301,
+    "basisRate": 0.0808,
+    "annualizedBasisRate": 0.0271
+  },
+  {
+    "timestamp": 1704326400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42859.54531516,
+    "futuresPrice": 46119.4,
+    "basis": 3259.85468484,
+    "basisRate": 0.0761,
+    "annualizedBasisRate": 0.0256
+  },
+  {
+    "timestamp": 1704412800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44195.98267514,
+    "futuresPrice": 47591.2,
+    "basis": 3395.21732486,
+    "basisRate": 0.0768,
+    "annualizedBasisRate": 0.0258
+  },
+  {
+    "timestamp": 1704499200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44182.92799029,
+    "futuresPrice": 46911.4,
+    "basis": 2728.47200971,
+    "basisRate": 0.0618,
+    "annualizedBasisRate": 0.0208
+  },
+  {
+    "timestamp": 1704585600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43984.81574277,
+    "futuresPrice": 46768.5,
+    "basis": 2783.68425723,
+    "basisRate": 0.0633,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1704672000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43937.56649793,
+    "futuresPrice": 46753,
+    "basis": 2815.43350207,
+    "basisRate": 0.0641,
+    "annualizedBasisRate": 0.0216
+  },
+  {
+    "timestamp": 1704758400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 46993.5083073,
+    "futuresPrice": 49819.2,
+    "basis": 2825.6916927,
+    "basisRate": 0.0601,
+    "annualizedBasisRate": 0.0203
+  },
+  {
+    "timestamp": 1704844800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 46125.83822349,
+    "futuresPrice": 49024.9,
+    "basis": 2899.06177651,
+    "basisRate": 0.0629,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1704931200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 46671.0286775,
+    "futuresPrice": 49477.7,
+    "basis": 2806.6713225,
+    "basisRate": 0.0601,
+    "annualizedBasisRate": 0.0203
+  },
+  {
+    "timestamp": 1705017600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 46351.13921358,
+    "futuresPrice": 49045.7,
+    "basis": 2694.56078642,
+    "basisRate": 0.0581,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1705104000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42781.82652965,
+    "futuresPrice": 45260,
+    "basis": 2478.17347035,
+    "basisRate": 0.0579,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1705190400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42838.30263703,
+    "futuresPrice": 45062.8,
+    "basis": 2224.49736297,
+    "basisRate": 0.0519,
+    "annualizedBasisRate": 0.0176
+  },
+  {
+    "timestamp": 1705276800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41711.07322599,
+    "futuresPrice": 43648.1,
+    "basis": 1937.02677401,
+    "basisRate": 0.0464,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1705363200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42497.30038256,
+    "futuresPrice": 44538.5,
+    "basis": 2041.19961744,
+    "basisRate": 0.048,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1705449600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43132.03526903,
+    "futuresPrice": 45299.8,
+    "basis": 2167.76473097,
+    "basisRate": 0.0503,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1705536000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42741.49967157,
+    "futuresPrice": 44921.4,
+    "basis": 2179.90032843,
+    "basisRate": 0.051,
+    "annualizedBasisRate": 0.0174
+  },
+  {
+    "timestamp": 1705622400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41281.3833214,
+    "futuresPrice": 43016.7,
+    "basis": 1735.3166786,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0143
+  },
+  {
+    "timestamp": 1705708800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41621.73422667,
+    "futuresPrice": 43470.5,
+    "basis": 1848.76577333,
+    "basisRate": 0.0444,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1705795200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41663.97594491,
+    "futuresPrice": 43645.7,
+    "basis": 1981.72405509,
+    "basisRate": 0.0476,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1705881600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41555.87531027,
+    "futuresPrice": 43580.4,
+    "basis": 2024.52468973,
+    "basisRate": 0.0487,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1705968000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 39520.129807,
+    "futuresPrice": 41055.4,
+    "basis": 1535.270193,
+    "basisRate": 0.0388,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1706054400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 39864.71245912,
+    "futuresPrice": 41509.3,
+    "basis": 1644.58754088,
+    "basisRate": 0.0413,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1706140800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 40073.4809706,
+    "futuresPrice": 41772.9,
+    "basis": 1699.4190294,
+    "basisRate": 0.0424,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1706227200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 39928.50682642,
+    "futuresPrice": 41705,
+    "basis": 1776.49317358,
+    "basisRate": 0.0445,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1706313600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 41815.73532617,
+    "futuresPrice": 43592.5,
+    "basis": 1776.76467383,
+    "basisRate": 0.0425,
+    "annualizedBasisRate": 0.0146
+  },
+  {
+    "timestamp": 1706400000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42125.58160937,
+    "futuresPrice": 44038.8,
+    "basis": 1913.21839063,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0156
+  },
+  {
+    "timestamp": 1706486400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42028.76218699,
+    "futuresPrice": 43851,
+    "basis": 1822.23781301,
+    "basisRate": 0.0434,
+    "annualizedBasisRate": 0.0149
+  },
+  {
+    "timestamp": 1706572800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43295.32901881,
+    "futuresPrice": 45249,
+    "basis": 1953.67098119,
+    "basisRate": 0.0451,
+    "annualizedBasisRate": 0.0155
+  },
+  {
+    "timestamp": 1706659200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42947.95587138,
+    "futuresPrice": 44813.4,
+    "basis": 1865.44412862,
+    "basisRate": 0.0434,
+    "annualizedBasisRate": 0.015
+  },
+  {
+    "timestamp": 1706745600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42552.77185571,
+    "futuresPrice": 44426,
+    "basis": 1873.22814429,
+    "basisRate": 0.044,
+    "annualizedBasisRate": 0.0152
+  },
+  {
+    "timestamp": 1706832000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43074.55119604,
+    "futuresPrice": 44843,
+    "basis": 1768.44880396,
+    "basisRate": 0.0411,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1706918400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43183.64923053,
+    "futuresPrice": 44999.2,
+    "basis": 1815.55076947,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1707004800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42996.68458788,
+    "futuresPrice": 44757.7,
+    "basis": 1761.01541212,
+    "basisRate": 0.041,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1707091200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42574.98206019,
+    "futuresPrice": 44333,
+    "basis": 1758.01793981,
+    "basisRate": 0.0413,
+    "annualizedBasisRate": 0.0143
+  },
+  {
+    "timestamp": 1707177600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 42655.38672456,
+    "futuresPrice": 44466.9,
+    "basis": 1811.51327544,
+    "basisRate": 0.0425,
+    "annualizedBasisRate": 0.0147
+  },
+  {
+    "timestamp": 1707264000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 43091.51960503,
+    "futuresPrice": 44873.4,
+    "basis": 1781.88039497,
+    "basisRate": 0.0414,
+    "annualizedBasisRate": 0.0144
+  },
+  {
+    "timestamp": 1707350400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 44341.90883221,
+    "futuresPrice": 46208,
+    "basis": 1866.09116779,
+    "basisRate": 0.0421,
+    "annualizedBasisRate": 0.0146
+  },
+  {
+    "timestamp": 1707436800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 45309.78103022,
+    "futuresPrice": 47200.7,
+    "basis": 1890.91896978,
+    "basisRate": 0.0417,
+    "annualizedBasisRate": 0.0145
+  },
+  {
+    "timestamp": 1707523200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 47150.05692443,
+    "futuresPrice": 49066.3,
+    "basis": 1916.24307557,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1707609600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 47769.06781418,
+    "futuresPrice": 49680.2,
+    "basis": 1911.13218582,
+    "basisRate": 0.04,
+    "annualizedBasisRate": 0.0139
+  },
+  {
+    "timestamp": 1707696000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 48308.43113947,
+    "futuresPrice": 50450.4,
+    "basis": 2141.96886053,
+    "basisRate": 0.0443,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1707782400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 49939.76109998,
+    "futuresPrice": 52266,
+    "basis": 2326.23890002,
+    "basisRate": 0.0466,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1707868800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 49731.88150376,
+    "futuresPrice": 51972.1,
+    "basis": 2240.21849624,
+    "basisRate": 0.045,
+    "annualizedBasisRate": 0.0157
+  },
+  {
+    "timestamp": 1707955200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51844.50948514,
+    "futuresPrice": 54399.7,
+    "basis": 2555.19051486,
+    "basisRate": 0.0493,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1708041600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51939.86710346,
+    "futuresPrice": 54584.6,
+    "basis": 2644.73289654,
+    "basisRate": 0.0509,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1708128000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 52168.40173593,
+    "futuresPrice": 54817.9,
+    "basis": 2649.49826407,
+    "basisRate": 0.0508,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1708214400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51675.08462336,
+    "futuresPrice": 54199.5,
+    "basis": 2524.41537664,
+    "basisRate": 0.0489,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1708300800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 52147.43040091,
+    "futuresPrice": 54946.5,
+    "basis": 2799.06959909,
+    "basisRate": 0.0537,
+    "annualizedBasisRate": 0.0188
+  },
+  {
+    "timestamp": 1708387200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51781.97513774,
+    "futuresPrice": 54557.8,
+    "basis": 2775.82486226,
+    "basisRate": 0.0536,
+    "annualizedBasisRate": 0.0188
+  },
+  {
+    "timestamp": 1708473600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 52275.0660216,
+    "futuresPrice": 55157.6,
+    "basis": 2882.5339784,
+    "basisRate": 0.0551,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1708560000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51854.33572014,
+    "futuresPrice": 54695.3,
+    "basis": 2840.96427986,
+    "basisRate": 0.0548,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1708646400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51268.95265572,
+    "futuresPrice": 54082.9,
+    "basis": 2813.94734428,
+    "basisRate": 0.0549,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1708732800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 50740.67365963,
+    "futuresPrice": 53560.1,
+    "basis": 2819.42634037,
+    "basisRate": 0.0556,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1708819200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51562.90076071,
+    "futuresPrice": 54465.7,
+    "basis": 2902.79923929,
+    "basisRate": 0.0563,
+    "annualizedBasisRate": 0.0199
+  },
+  {
+    "timestamp": 1708905600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 51727.65278335,
+    "futuresPrice": 54686.8,
+    "basis": 2959.14721665,
+    "basisRate": 0.0572,
+    "annualizedBasisRate": 0.0202
+  },
+  {
+    "timestamp": 1708992000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 54526.66941575,
+    "futuresPrice": 57722.8,
+    "basis": 3196.13058425,
+    "basisRate": 0.0586,
+    "annualizedBasisRate": 0.0207
+  },
+  {
+    "timestamp": 1709078400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57070.69204327,
+    "futuresPrice": 60542.1,
+    "basis": 3471.40795673,
+    "basisRate": 0.0608,
+    "annualizedBasisRate": 0.0215
+  },
+  {
+    "timestamp": 1709164800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62506.48550332,
+    "futuresPrice": 66064.6,
+    "basis": 3558.11449668,
+    "basisRate": 0.0569,
+    "annualizedBasisRate": 0.0202
+  },
+  {
+    "timestamp": 1709251200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61174.46830476,
+    "futuresPrice": 64798.5,
+    "basis": 3624.03169524,
+    "basisRate": 0.0592,
+    "annualizedBasisRate": 0.021
+  },
+  {
+    "timestamp": 1709337600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62437.66760724,
+    "futuresPrice": 66101.7,
+    "basis": 3664.03239276,
+    "basisRate": 0.0587,
+    "annualizedBasisRate": 0.0208
+  },
+  {
+    "timestamp": 1709424000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62040.448565,
+    "futuresPrice": 65762.7,
+    "basis": 3722.251435,
+    "basisRate": 0.06,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1709510400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63156.07163412,
+    "futuresPrice": 67404.2,
+    "basis": 4248.12836588,
+    "basisRate": 0.0673,
+    "annualizedBasisRate": 0.0239
+  },
+  {
+    "timestamp": 1709596800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68345.74196356,
+    "futuresPrice": 73213,
+    "basis": 4867.25803644,
+    "basisRate": 0.0712,
+    "annualizedBasisRate": 0.0253
+  },
+  {
+    "timestamp": 1709683200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63800.82058836,
+    "futuresPrice": 68637.7,
+    "basis": 4836.87941164,
+    "basisRate": 0.0758,
+    "annualizedBasisRate": 0.027
+  },
+  {
+    "timestamp": 1709769600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66113.53687461,
+    "futuresPrice": 71179.1,
+    "basis": 5065.56312539,
+    "basisRate": 0.0766,
+    "annualizedBasisRate": 0.0273
+  },
+  {
+    "timestamp": 1709856000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66938.58993607,
+    "futuresPrice": 71646.1,
+    "basis": 4707.51006393,
+    "basisRate": 0.0703,
+    "annualizedBasisRate": 0.0251
+  },
+  {
+    "timestamp": 1709942400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68299.14074231,
+    "futuresPrice": 72866.8,
+    "basis": 4567.65925769,
+    "basisRate": 0.0669,
+    "annualizedBasisRate": 0.0239
+  },
+  {
+    "timestamp": 1710028800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68466.4094993,
+    "futuresPrice": 73255.6,
+    "basis": 4789.1905007,
+    "basisRate": 0.0699,
+    "annualizedBasisRate": 0.025
+  },
+  {
+    "timestamp": 1710115200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69031.93614824,
+    "futuresPrice": 74432,
+    "basis": 5400.06385176,
+    "basisRate": 0.0782,
+    "annualizedBasisRate": 0.028
+  },
+  {
+    "timestamp": 1710201600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 72108.00696135,
+    "futuresPrice": 77441.7,
+    "basis": 5333.69303865,
+    "basisRate": 0.074,
+    "annualizedBasisRate": 0.0265
+  },
+  {
+    "timestamp": 1710288000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71476.74605789,
+    "futuresPrice": 76658.6,
+    "basis": 5181.85394211,
+    "basisRate": 0.0725,
+    "annualizedBasisRate": 0.026
+  },
+  {
+    "timestamp": 1710374400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 73114.45711938,
+    "futuresPrice": 78081.6,
+    "basis": 4967.14288062,
+    "basisRate": 0.0679,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1710460800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71368.91461641,
+    "futuresPrice": 76380.1,
+    "basis": 5011.18538359,
+    "basisRate": 0.0702,
+    "annualizedBasisRate": 0.0252
+  },
+  {
+    "timestamp": 1710547200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69484.96386804,
+    "futuresPrice": 74457.6,
+    "basis": 4972.63613196,
+    "basisRate": 0.0716,
+    "annualizedBasisRate": 0.0258
+  },
+  {
+    "timestamp": 1710633600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65251.63377219,
+    "futuresPrice": 69638.7,
+    "basis": 4387.06622781,
+    "basisRate": 0.0672,
+    "annualizedBasisRate": 0.0242
+  },
+  {
+    "timestamp": 1710720000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68350.35370995,
+    "futuresPrice": 73478.7,
+    "basis": 5128.34629005,
+    "basisRate": 0.075,
+    "annualizedBasisRate": 0.027
+  },
+  {
+    "timestamp": 1710806400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67608.38958666,
+    "futuresPrice": 71888.4,
+    "basis": 4280.01041334,
+    "basisRate": 0.0633,
+    "annualizedBasisRate": 0.0228
+  },
+  {
+    "timestamp": 1710892800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61903.49389317,
+    "futuresPrice": 65480.3,
+    "basis": 3576.80610683,
+    "basisRate": 0.0578,
+    "annualizedBasisRate": 0.0209
+  },
+  {
+    "timestamp": 1710979200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67861.62928785,
+    "futuresPrice": 72719.3,
+    "basis": 4857.67071215,
+    "basisRate": 0.0716,
+    "annualizedBasisRate": 0.0259
+  },
+  {
+    "timestamp": 1711065600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65489.870099,
+    "futuresPrice": 69732.7,
+    "basis": 4242.829901,
+    "basisRate": 0.0648,
+    "annualizedBasisRate": 0.0235
+  },
+  {
+    "timestamp": 1711152000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63815.68571224,
+    "futuresPrice": 67793,
+    "basis": 3977.31428776,
+    "basisRate": 0.0623,
+    "annualizedBasisRate": 0.0226
+  },
+  {
+    "timestamp": 1711238400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64010.32379326,
+    "futuresPrice": 67821.8,
+    "basis": 3811.47620674,
+    "basisRate": 0.0595,
+    "annualizedBasisRate": 0.0216
+  },
+  {
+    "timestamp": 1711324800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67193.97707997,
+    "futuresPrice": 71455.9,
+    "basis": 4261.92292003,
+    "basisRate": 0.0634,
+    "annualizedBasisRate": 0.023
+  },
+  {
+    "timestamp": 1711411200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69910.7024311,
+    "futuresPrice": 74157.8,
+    "basis": 4247.0975689,
+    "basisRate": 0.0608,
+    "annualizedBasisRate": 0.0221
+  },
+  {
+    "timestamp": 1711497600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69994.91992398,
+    "futuresPrice": 74422.2,
+    "basis": 4427.28007602,
+    "basisRate": 0.0633,
+    "annualizedBasisRate": 0.023
+  },
+  {
+    "timestamp": 1711584000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69430.53373443,
+    "futuresPrice": 73906.7,
+    "basis": 4476.16626557,
+    "basisRate": 0.0645,
+    "annualizedBasisRate": 0.0235
+  },
+  {
+    "timestamp": 1711670400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70784.94057861,
+    "futuresPrice": 75388.9,
+    "basis": 4603.95942139,
+    "basisRate": 0.065,
+    "annualizedBasisRate": 0.0237
+  },
+  {
+    "timestamp": 1711756800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69906.2166845,
+    "futuresPrice": 78625,
+    "basis": 8718.7833155,
+    "basisRate": 0.1247,
+    "annualizedBasisRate": 0.0455
+  },
+  {
+    "timestamp": 1711843200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69626.87092722,
+    "futuresPrice": 78949.2,
+    "basis": 9322.32907278,
+    "basisRate": 0.1339,
+    "annualizedBasisRate": 0.0489
+  },
+  {
+    "timestamp": 1711929600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71295.66958115,
+    "futuresPrice": 82874,
+    "basis": 11578.33041885,
+    "basisRate": 0.1624,
+    "annualizedBasisRate": 0.0594
+  },
+  {
+    "timestamp": 1712016000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69692.55246385,
+    "futuresPrice": 79189.5,
+    "basis": 9496.94753615,
+    "basisRate": 0.1363,
+    "annualizedBasisRate": 0.0499
+  },
+  {
+    "timestamp": 1712102400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65462.16310664,
+    "futuresPrice": 72693.4,
+    "basis": 7231.23689336,
+    "basisRate": 0.1105,
+    "annualizedBasisRate": 0.0405
+  },
+  {
+    "timestamp": 1712188800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65989.18176409,
+    "futuresPrice": 72700,
+    "basis": 6710.81823591,
+    "basisRate": 0.1017,
+    "annualizedBasisRate": 0.0373
+  },
+  {
+    "timestamp": 1712275200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68528.61129971,
+    "futuresPrice": 75603.2,
+    "basis": 7074.58870029,
+    "basisRate": 0.1032,
+    "annualizedBasisRate": 0.0379
+  },
+  {
+    "timestamp": 1712361600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67856.19540559,
+    "futuresPrice": 74847.7,
+    "basis": 6991.50459441,
+    "basisRate": 0.103,
+    "annualizedBasisRate": 0.0378
+  },
+  {
+    "timestamp": 1712448000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68913.6289902,
+    "futuresPrice": 75659.1,
+    "basis": 6745.4710098,
+    "basisRate": 0.0979,
+    "annualizedBasisRate": 0.036
+  },
+  {
+    "timestamp": 1712534400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69362.49174406,
+    "futuresPrice": 76304.7,
+    "basis": 6942.20825594,
+    "basisRate": 0.1001,
+    "annualizedBasisRate": 0.0369
+  },
+  {
+    "timestamp": 1712620800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71628.33407436,
+    "futuresPrice": 79000,
+    "basis": 7371.66592564,
+    "basisRate": 0.1029,
+    "annualizedBasisRate": 0.0379
+  },
+  {
+    "timestamp": 1712707200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69136.23648785,
+    "futuresPrice": 76259.9,
+    "basis": 7123.66351215,
+    "basisRate": 0.103,
+    "annualizedBasisRate": 0.038
+  },
+  {
+    "timestamp": 1712793600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70624.49508093,
+    "futuresPrice": 77965.2,
+    "basis": 7340.70491907,
+    "basisRate": 0.1039,
+    "annualizedBasisRate": 0.0384
+  },
+  {
+    "timestamp": 1712880000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70025.09950627,
+    "futuresPrice": 76815.6,
+    "basis": 6790.50049373,
+    "basisRate": 0.097,
+    "annualizedBasisRate": 0.0359
+  },
+  {
+    "timestamp": 1712966400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67161.00461912,
+    "futuresPrice": 72877.9,
+    "basis": 5716.89538088,
+    "basisRate": 0.0851,
+    "annualizedBasisRate": 0.0315
+  },
+  {
+    "timestamp": 1713052800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64035.08602979,
+    "futuresPrice": 68368.4,
+    "basis": 4333.31397021,
+    "basisRate": 0.0677,
+    "annualizedBasisRate": 0.0251
+  },
+  {
+    "timestamp": 1713139200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65740.95115016,
+    "futuresPrice": 70334,
+    "basis": 4593.04884984,
+    "basisRate": 0.0699,
+    "annualizedBasisRate": 0.0259
+  },
+  {
+    "timestamp": 1713225600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63431.89137969,
+    "futuresPrice": 67686.3,
+    "basis": 4254.40862031,
+    "basisRate": 0.0671,
+    "annualizedBasisRate": 0.0249
+  },
+  {
+    "timestamp": 1713312000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63825.26182066,
+    "futuresPrice": 68019.1,
+    "basis": 4193.83817934,
+    "basisRate": 0.0657,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1713398400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61279.47742814,
+    "futuresPrice": 64435.4,
+    "basis": 3155.92257186,
+    "basisRate": 0.0515,
+    "annualizedBasisRate": 0.0192
+  },
+  {
+    "timestamp": 1713484800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63511.1828689,
+    "futuresPrice": 66884.7,
+    "basis": 3373.5171311,
+    "basisRate": 0.0531,
+    "annualizedBasisRate": 0.0198
+  },
+  {
+    "timestamp": 1713571200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63835.54071809,
+    "futuresPrice": 66272.4,
+    "basis": 2436.85928191,
+    "basisRate": 0.0382,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1713657600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64980.33105411,
+    "futuresPrice": 68001.5,
+    "basis": 3021.16894589,
+    "basisRate": 0.0465,
+    "annualizedBasisRate": 0.0173
+  },
+  {
+    "timestamp": 1713744000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64949.86149426,
+    "futuresPrice": 68096,
+    "basis": 3146.13850574,
+    "basisRate": 0.0484,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1713830400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66848.40868204,
+    "futuresPrice": 70748.1,
+    "basis": 3899.69131796,
+    "basisRate": 0.0583,
+    "annualizedBasisRate": 0.0218
+  },
+  {
+    "timestamp": 1713916800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66417.67974381,
+    "futuresPrice": 70098,
+    "basis": 3680.32025619,
+    "basisRate": 0.0554,
+    "annualizedBasisRate": 0.0207
+  },
+  {
+    "timestamp": 1714003200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64266.47953231,
+    "futuresPrice": 68080.1,
+    "basis": 3813.62046769,
+    "basisRate": 0.0593,
+    "annualizedBasisRate": 0.0222
+  },
+  {
+    "timestamp": 1714089600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64488.1234162,
+    "futuresPrice": 68015.1,
+    "basis": 3526.9765838,
+    "basisRate": 0.0547,
+    "annualizedBasisRate": 0.0205
+  },
+  {
+    "timestamp": 1714176000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63746.98050283,
+    "futuresPrice": 66900.9,
+    "basis": 3153.91949717,
+    "basisRate": 0.0495,
+    "annualizedBasisRate": 0.0186
+  },
+  {
+    "timestamp": 1714262400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63424.37597803,
+    "futuresPrice": 66553.8,
+    "basis": 3129.42402197,
+    "basisRate": 0.0493,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1714348800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63105.92669168,
+    "futuresPrice": 66087.1,
+    "basis": 2981.17330832,
+    "basisRate": 0.0472,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1714435200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63834.00698751,
+    "futuresPrice": 66453.6,
+    "basis": 2619.59301249,
+    "basisRate": 0.041,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1714521600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60620.25546614,
+    "futuresPrice": 62638,
+    "basis": 2017.74453386,
+    "basisRate": 0.0333,
+    "annualizedBasisRate": 0.0126
+  },
+  {
+    "timestamp": 1714608000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58264.78642703,
+    "futuresPrice": 59604,
+    "basis": 1339.21357297,
+    "basisRate": 0.023,
+    "annualizedBasisRate": 0.0087
+  },
+  {
+    "timestamp": 1714694400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59095.07251377,
+    "futuresPrice": 60770.5,
+    "basis": 1675.42748623,
+    "basisRate": 0.0284,
+    "annualizedBasisRate": 0.0107
+  },
+  {
+    "timestamp": 1714780800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62917.16854805,
+    "futuresPrice": 65509.7,
+    "basis": 2592.53145195,
+    "basisRate": 0.0412,
+    "annualizedBasisRate": 0.0156
+  },
+  {
+    "timestamp": 1714867200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63899.29245622,
+    "futuresPrice": 66534.1,
+    "basis": 2634.80754378,
+    "basisRate": 0.0412,
+    "annualizedBasisRate": 0.0156
+  },
+  {
+    "timestamp": 1714953600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64035.22816241,
+    "futuresPrice": 66589.7,
+    "basis": 2554.47183759,
+    "basisRate": 0.0399,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1715040000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63164.49923273,
+    "futuresPrice": 65817.6,
+    "basis": 2653.10076727,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0159
+  },
+  {
+    "timestamp": 1715126400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62319.40138592,
+    "futuresPrice": 64950,
+    "basis": 2630.59861408,
+    "basisRate": 0.0422,
+    "annualizedBasisRate": 0.016
+  },
+  {
+    "timestamp": 1715212800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61173.88519786,
+    "futuresPrice": 63142.2,
+    "basis": 1968.31480214,
+    "basisRate": 0.0322,
+    "annualizedBasisRate": 0.0122
+  },
+  {
+    "timestamp": 1715299200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63066.31699494,
+    "futuresPrice": 65300.4,
+    "basis": 2234.08300506,
+    "basisRate": 0.0354,
+    "annualizedBasisRate": 0.0135
+  },
+  {
+    "timestamp": 1715385600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60791.35241753,
+    "futuresPrice": 62823.7,
+    "basis": 2032.34758247,
+    "basisRate": 0.0334,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1715472000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60811.81317165,
+    "futuresPrice": 62821.7,
+    "basis": 2009.88682835,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0126
+  },
+  {
+    "timestamp": 1715558400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61453.10575824,
+    "futuresPrice": 63463.9,
+    "basis": 2010.79424176,
+    "basisRate": 0.0327,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1715644800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62926.62828111,
+    "futuresPrice": 64875.4,
+    "basis": 1948.77171889,
+    "basisRate": 0.031,
+    "annualizedBasisRate": 0.0118
+  },
+  {
+    "timestamp": 1715731200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61551.67301114,
+    "futuresPrice": 63465.1,
+    "basis": 1913.42698886,
+    "basisRate": 0.0311,
+    "annualizedBasisRate": 0.0119
+  },
+  {
+    "timestamp": 1715817600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66240.68096657,
+    "futuresPrice": 68495.2,
+    "basis": 2254.51903343,
+    "basisRate": 0.034,
+    "annualizedBasisRate": 0.013
+  },
+  {
+    "timestamp": 1715904000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65244.43581399,
+    "futuresPrice": 67532.3,
+    "basis": 2287.86418601,
+    "basisRate": 0.0351,
+    "annualizedBasisRate": 0.0135
+  },
+  {
+    "timestamp": 1715990400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67048.27459371,
+    "futuresPrice": 69480.3,
+    "basis": 2432.02540629,
+    "basisRate": 0.0363,
+    "annualizedBasisRate": 0.0139
+  },
+  {
+    "timestamp": 1716076800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66924.23697715,
+    "futuresPrice": 69562.5,
+    "basis": 2638.26302285,
+    "basisRate": 0.0394,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1716163200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66265.76459383,
+    "futuresPrice": 68890.9,
+    "basis": 2625.13540617,
+    "basisRate": 0.0396,
+    "annualizedBasisRate": 0.0152
+  },
+  {
+    "timestamp": 1716249600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71418.7353615,
+    "futuresPrice": 74949.9,
+    "basis": 3531.1646385,
+    "basisRate": 0.0494,
+    "annualizedBasisRate": 0.019
+  },
+  {
+    "timestamp": 1716336000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70141.71899715,
+    "futuresPrice": 73613.8,
+    "basis": 3472.08100285,
+    "basisRate": 0.0495,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1716422400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69123.68040566,
+    "futuresPrice": 72566.5,
+    "basis": 3442.81959434,
+    "basisRate": 0.0498,
+    "annualizedBasisRate": 0.0192
+  },
+  {
+    "timestamp": 1716508800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67941.67629875,
+    "futuresPrice": 71301.8,
+    "basis": 3360.12370125,
+    "basisRate": 0.0495,
+    "annualizedBasisRate": 0.0191
+  },
+  {
+    "timestamp": 1716595200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68545.45434194,
+    "futuresPrice": 71822.9,
+    "basis": 3277.44565806,
+    "basisRate": 0.0478,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1716681600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69280.10835644,
+    "futuresPrice": 72275.3,
+    "basis": 2995.19164356,
+    "basisRate": 0.0432,
+    "annualizedBasisRate": 0.0167
+  },
+  {
+    "timestamp": 1716768000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68478.61384676,
+    "futuresPrice": 71418.6,
+    "basis": 2939.98615324,
+    "basisRate": 0.0429,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1716854400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69377.82255266,
+    "futuresPrice": 72549.3,
+    "basis": 3171.47744734,
+    "basisRate": 0.0457,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1716940800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68325.41845686,
+    "futuresPrice": 71510.8,
+    "basis": 3185.38154314,
+    "basisRate": 0.0466,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1717027200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67569.03555554,
+    "futuresPrice": 70703.1,
+    "basis": 3134.06444446,
+    "basisRate": 0.0464,
+    "annualizedBasisRate": 0.018
+  },
+  {
+    "timestamp": 1717113600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68344.47711733,
+    "futuresPrice": 71373.9,
+    "basis": 3029.42288267,
+    "basisRate": 0.0443,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1717200000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67480.24628872,
+    "futuresPrice": 70540.9,
+    "basis": 3060.65371128,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1717286400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67719.80717194,
+    "futuresPrice": 70788,
+    "basis": 3068.19282806,
+    "basisRate": 0.0453,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1717372800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67737.72835088,
+    "futuresPrice": 70797.8,
+    "basis": 3060.07164912,
+    "basisRate": 0.0452,
+    "annualizedBasisRate": 0.0176
+  },
+  {
+    "timestamp": 1717459200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68797.21013737,
+    "futuresPrice": 71915.4,
+    "basis": 3118.18986263,
+    "basisRate": 0.0453,
+    "annualizedBasisRate": 0.0177
+  },
+  {
+    "timestamp": 1717545600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70553.24197878,
+    "futuresPrice": 73467.9,
+    "basis": 2914.65802122,
+    "basisRate": 0.0413,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1717632000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 71113.62765085,
+    "futuresPrice": 74137.1,
+    "basis": 3023.47234915,
+    "basisRate": 0.0425,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1717718400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70766.87341309,
+    "futuresPrice": 73813.1,
+    "basis": 3046.22658691,
+    "basisRate": 0.043,
+    "annualizedBasisRate": 0.0169
+  },
+  {
+    "timestamp": 1717804800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69322.63871418,
+    "futuresPrice": 72347.8,
+    "basis": 3025.16128582,
+    "basisRate": 0.0436,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1717891200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69300.03393283,
+    "futuresPrice": 72214.8,
+    "basis": 2914.76606717,
+    "basisRate": 0.0421,
+    "annualizedBasisRate": 0.0165
+  },
+  {
+    "timestamp": 1717977600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69640.91353148,
+    "futuresPrice": 72613.4,
+    "basis": 2972.48646852,
+    "basisRate": 0.0427,
+    "annualizedBasisRate": 0.0168
+  },
+  {
+    "timestamp": 1718064000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69506.45063842,
+    "futuresPrice": 72331.4,
+    "basis": 2824.94936158,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.016
+  },
+  {
+    "timestamp": 1718150400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67322.28025946,
+    "futuresPrice": 69588.9,
+    "basis": 2266.61974054,
+    "basisRate": 0.0337,
+    "annualizedBasisRate": 0.0133
+  },
+  {
+    "timestamp": 1718236800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68241.24616158,
+    "futuresPrice": 70575.4,
+    "basis": 2334.15383842,
+    "basisRate": 0.0342,
+    "annualizedBasisRate": 0.0135
+  },
+  {
+    "timestamp": 1718323200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66743.18082798,
+    "futuresPrice": 69092.4,
+    "basis": 2349.21917202,
+    "basisRate": 0.0352,
+    "annualizedBasisRate": 0.0139
+  },
+  {
+    "timestamp": 1718409600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65998.18294639,
+    "futuresPrice": 68180.2,
+    "basis": 2182.01705361,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0131
+  },
+  {
+    "timestamp": 1718496000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66190.14609593,
+    "futuresPrice": 68378.4,
+    "basis": 2188.25390407,
+    "basisRate": 0.0331,
+    "annualizedBasisRate": 0.0131
+  },
+  {
+    "timestamp": 1718582400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66629.60326652,
+    "futuresPrice": 68944.9,
+    "basis": 2315.29673348,
+    "basisRate": 0.0347,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1718668800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66480.77466802,
+    "futuresPrice": 68857.4,
+    "basis": 2376.62533198,
+    "basisRate": 0.0357,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1718755200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65155.66586876,
+    "futuresPrice": 67176.5,
+    "basis": 2020.83413124,
+    "basisRate": 0.031,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1718841600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64945.72511992,
+    "futuresPrice": 66922.8,
+    "basis": 1977.07488008,
+    "basisRate": 0.0304,
+    "annualizedBasisRate": 0.0121
+  },
+  {
+    "timestamp": 1718928000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64839.6392955,
+    "futuresPrice": 66782.5,
+    "basis": 1942.8607045,
+    "basisRate": 0.03,
+    "annualizedBasisRate": 0.0119
+  },
+  {
+    "timestamp": 1719014400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64104.72692949,
+    "futuresPrice": 66080.6,
+    "basis": 1975.87307051,
+    "basisRate": 0.0308,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1719100800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64240.0393593,
+    "futuresPrice": 66142.5,
+    "basis": 1902.4606407,
+    "basisRate": 0.0296,
+    "annualizedBasisRate": 0.0118
+  },
+  {
+    "timestamp": 1719187200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63167.0272997,
+    "futuresPrice": 64996.5,
+    "basis": 1829.4727003,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0116
+  },
+  {
+    "timestamp": 1719273600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60271.92093441,
+    "futuresPrice": 61937.1,
+    "basis": 1665.17906559,
+    "basisRate": 0.0276,
+    "annualizedBasisRate": 0.011
+  },
+  {
+    "timestamp": 1719360000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61791.31210497,
+    "futuresPrice": 63585.8,
+    "basis": 1794.48789503,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0116
+  },
+  {
+    "timestamp": 1719446400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60813.35732049,
+    "futuresPrice": 62418.1,
+    "basis": 1604.74267951,
+    "basisRate": 0.0264,
+    "annualizedBasisRate": 0.0106
+  },
+  {
+    "timestamp": 1719532800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61619.04330411,
+    "futuresPrice": 63225.9,
+    "basis": 1606.85669589,
+    "basisRate": 0.0261,
+    "annualizedBasisRate": 0.0105
+  },
+  {
+    "timestamp": 1719619200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60317.55096446,
+    "futuresPrice": 64202.2,
+    "basis": 3884.64903554,
+    "basisRate": 0.0644,
+    "annualizedBasisRate": 0.0258
+  },
+  {
+    "timestamp": 1719705600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60877.09878901,
+    "futuresPrice": 64697.4,
+    "basis": 3820.30121099,
+    "basisRate": 0.0628,
+    "annualizedBasisRate": 0.0252
+  },
+  {
+    "timestamp": 1719792000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62675.31011082,
+    "futuresPrice": 67051.1,
+    "basis": 4375.78988918,
+    "basisRate": 0.0698,
+    "annualizedBasisRate": 0.0281
+  },
+  {
+    "timestamp": 1719878400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62844.37408145,
+    "futuresPrice": 66686.6,
+    "basis": 3842.22591855,
+    "basisRate": 0.0611,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1719964800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62031.99746854,
+    "futuresPrice": 65674.5,
+    "basis": 3642.50253146,
+    "basisRate": 0.0587,
+    "annualizedBasisRate": 0.0237
+  },
+  {
+    "timestamp": 1720051200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60144.75586223,
+    "futuresPrice": 63234.3,
+    "basis": 3089.54413777,
+    "basisRate": 0.0514,
+    "annualizedBasisRate": 0.0207
+  },
+  {
+    "timestamp": 1720137600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57036.48901592,
+    "futuresPrice": 59805,
+    "basis": 2768.51098408,
+    "basisRate": 0.0485,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1720224000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 56640.12952746,
+    "futuresPrice": 59495.3,
+    "basis": 2855.17047254,
+    "basisRate": 0.0504,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1720310400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58242.42806893,
+    "futuresPrice": 61132.4,
+    "basis": 2889.97193107,
+    "basisRate": 0.0496,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1720396800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 55844.51365194,
+    "futuresPrice": 58530.6,
+    "basis": 2686.08634806,
+    "basisRate": 0.0481,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1720483200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 56703.5659096,
+    "futuresPrice": 59424.7,
+    "basis": 2721.1340904,
+    "basisRate": 0.048,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1720569600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58029.6807922,
+    "futuresPrice": 60785.2,
+    "basis": 2755.5192078,
+    "basisRate": 0.0475,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1720656000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57732.2395934,
+    "futuresPrice": 60533.1,
+    "basis": 2800.8604066,
+    "basisRate": 0.0485,
+    "annualizedBasisRate": 0.0197
+  },
+  {
+    "timestamp": 1720742400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57345.59450532,
+    "futuresPrice": 60056.7,
+    "basis": 2711.10549468,
+    "basisRate": 0.0473,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1720828800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57902.28499117,
+    "futuresPrice": 60710.3,
+    "basis": 2808.01500883,
+    "basisRate": 0.0485,
+    "annualizedBasisRate": 0.0198
+  },
+  {
+    "timestamp": 1720915200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59221.61589296,
+    "futuresPrice": 62121.1,
+    "basis": 2899.48410704,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.02
+  },
+  {
+    "timestamp": 1721001600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60813.15255446,
+    "futuresPrice": 64060.2,
+    "basis": 3247.04744554,
+    "basisRate": 0.0534,
+    "annualizedBasisRate": 0.0218
+  },
+  {
+    "timestamp": 1721088000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64763.38114874,
+    "futuresPrice": 68252,
+    "basis": 3488.61885126,
+    "basisRate": 0.0539,
+    "annualizedBasisRate": 0.022
+  },
+  {
+    "timestamp": 1721174400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65085.66743697,
+    "futuresPrice": 68517.3,
+    "basis": 3431.63256303,
+    "basisRate": 0.0527,
+    "annualizedBasisRate": 0.0216
+  },
+  {
+    "timestamp": 1721260800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64098.13045076,
+    "futuresPrice": 67500,
+    "basis": 3401.86954924,
+    "basisRate": 0.0531,
+    "annualizedBasisRate": 0.0218
+  },
+  {
+    "timestamp": 1721347200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63969.18074492,
+    "futuresPrice": 67415.7,
+    "basis": 3446.51925508,
+    "basisRate": 0.0539,
+    "annualizedBasisRate": 0.0221
+  },
+  {
+    "timestamp": 1721433600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66706.70954214,
+    "futuresPrice": 70341.6,
+    "basis": 3634.89045786,
+    "basisRate": 0.0545,
+    "annualizedBasisRate": 0.0224
+  },
+  {
+    "timestamp": 1721520000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67161.11104764,
+    "futuresPrice": 70873.4,
+    "basis": 3712.28895236,
+    "basisRate": 0.0553,
+    "annualizedBasisRate": 0.0227
+  },
+  {
+    "timestamp": 1721606400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68159.99160152,
+    "futuresPrice": 72060.6,
+    "basis": 3900.60839848,
+    "basisRate": 0.0572,
+    "annualizedBasisRate": 0.0236
+  },
+  {
+    "timestamp": 1721692800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67570.55759424,
+    "futuresPrice": 71195.4,
+    "basis": 3624.84240576,
+    "basisRate": 0.0536,
+    "annualizedBasisRate": 0.0221
+  },
+  {
+    "timestamp": 1721779200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65929.48015691,
+    "futuresPrice": 69305.4,
+    "basis": 3375.91984309,
+    "basisRate": 0.0512,
+    "annualizedBasisRate": 0.0211
+  },
+  {
+    "timestamp": 1721865600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65368.87750396,
+    "futuresPrice": 68632.3,
+    "basis": 3263.42249604,
+    "basisRate": 0.0499,
+    "annualizedBasisRate": 0.0206
+  },
+  {
+    "timestamp": 1721952000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65794.4657636,
+    "futuresPrice": 69082,
+    "basis": 3287.5342364,
+    "basisRate": 0.05,
+    "annualizedBasisRate": 0.0207
+  },
+  {
+    "timestamp": 1722038400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67919.86945937,
+    "futuresPrice": 71246.3,
+    "basis": 3326.43054063,
+    "basisRate": 0.049,
+    "annualizedBasisRate": 0.0203
+  },
+  {
+    "timestamp": 1722124800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67897.93040674,
+    "futuresPrice": 71095.7,
+    "basis": 3197.76959326,
+    "basisRate": 0.0471,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1722211200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68251.94353429,
+    "futuresPrice": 71482.9,
+    "basis": 3230.95646571,
+    "basisRate": 0.0473,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1722297600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66769.28071912,
+    "futuresPrice": 70000.2,
+    "basis": 3230.91928088,
+    "basisRate": 0.0484,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1722384000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66171.94334566,
+    "futuresPrice": 69356.7,
+    "basis": 3184.75665434,
+    "basisRate": 0.0481,
+    "annualizedBasisRate": 0.02
+  },
+  {
+    "timestamp": 1722470400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64619.5095703,
+    "futuresPrice": 67397.6,
+    "basis": 2778.0904297,
+    "basisRate": 0.043,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1722556800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65294.02007067,
+    "futuresPrice": 67806.5,
+    "basis": 2512.47992933,
+    "basisRate": 0.0385,
+    "annualizedBasisRate": 0.0161
+  },
+  {
+    "timestamp": 1722643200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61416.47607221,
+    "futuresPrice": 63414.5,
+    "basis": 1998.02392779,
+    "basisRate": 0.0325,
+    "annualizedBasisRate": 0.0136
+  },
+  {
+    "timestamp": 1722729600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60678.4511021,
+    "futuresPrice": 62737.1,
+    "basis": 2058.6488979,
+    "basisRate": 0.0339,
+    "annualizedBasisRate": 0.0142
+  },
+  {
+    "timestamp": 1722816000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58126.12185407,
+    "futuresPrice": 60030,
+    "basis": 1903.87814593,
+    "basisRate": 0.0328,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1722902400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 54017.2782844,
+    "futuresPrice": 55961.6,
+    "basis": 1944.3217156,
+    "basisRate": 0.036,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1722988800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 56059.19342192,
+    "futuresPrice": 57977.7,
+    "basis": 1918.50657808,
+    "basisRate": 0.0342,
+    "annualizedBasisRate": 0.0143
+  },
+  {
+    "timestamp": 1723075200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 55127.44412785,
+    "futuresPrice": 57199,
+    "basis": 2071.55587215,
+    "basisRate": 0.0376,
+    "annualizedBasisRate": 0.0158
+  },
+  {
+    "timestamp": 1723161600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61703.07598137,
+    "futuresPrice": 64100.2,
+    "basis": 2397.12401863,
+    "basisRate": 0.0388,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1723248000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60859.70720331,
+    "futuresPrice": 63199.7,
+    "basis": 2339.99279669,
+    "basisRate": 0.0384,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1723334400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60944.63095528,
+    "futuresPrice": 63287.5,
+    "basis": 2342.86904472,
+    "basisRate": 0.0384,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1723420800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58721.66952297,
+    "futuresPrice": 60891.7,
+    "basis": 2170.03047703,
+    "basisRate": 0.037,
+    "annualizedBasisRate": 0.0156
+  },
+  {
+    "timestamp": 1723507200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59359.88444381,
+    "futuresPrice": 61508.9,
+    "basis": 2149.01555619,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1723593600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60607.55414302,
+    "futuresPrice": 62775.7,
+    "basis": 2168.14585698,
+    "basisRate": 0.0358,
+    "annualizedBasisRate": 0.0151
+  },
+  {
+    "timestamp": 1723680000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58694.02062485,
+    "futuresPrice": 60823.7,
+    "basis": 2129.67937515,
+    "basisRate": 0.0363,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1723766400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57551.78192372,
+    "futuresPrice": 59468.2,
+    "basis": 1916.41807628,
+    "basisRate": 0.0333,
+    "annualizedBasisRate": 0.0141
+  },
+  {
+    "timestamp": 1723852800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58890.09399583,
+    "futuresPrice": 60792.1,
+    "basis": 1902.00600417,
+    "basisRate": 0.0323,
+    "annualizedBasisRate": 0.0137
+  },
+  {
+    "timestamp": 1723939200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59487.73237122,
+    "futuresPrice": 61496.4,
+    "basis": 2008.66762878,
+    "basisRate": 0.0338,
+    "annualizedBasisRate": 0.0144
+  },
+  {
+    "timestamp": 1724025600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58443.00867493,
+    "futuresPrice": 60230.8,
+    "basis": 1787.79132507,
+    "basisRate": 0.0306,
+    "annualizedBasisRate": 0.013
+  },
+  {
+    "timestamp": 1724112000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59478.08070614,
+    "futuresPrice": 61267.5,
+    "basis": 1789.41929386,
+    "basisRate": 0.0301,
+    "annualizedBasisRate": 0.0128
+  },
+  {
+    "timestamp": 1724198400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59017.1357087,
+    "futuresPrice": 60781.6,
+    "basis": 1764.4642913,
+    "basisRate": 0.0299,
+    "annualizedBasisRate": 0.0127
+  },
+  {
+    "timestamp": 1724284800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61167.25231061,
+    "futuresPrice": 62956.4,
+    "basis": 1789.14768939,
+    "basisRate": 0.0293,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1724371200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60385.37258004,
+    "futuresPrice": 62135,
+    "basis": 1749.62741996,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0124
+  },
+  {
+    "timestamp": 1724457600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64087.62690133,
+    "futuresPrice": 65932.6,
+    "basis": 1844.97309867,
+    "basisRate": 0.0288,
+    "annualizedBasisRate": 0.0123
+  },
+  {
+    "timestamp": 1724544000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64178.61774268,
+    "futuresPrice": 66093.4,
+    "basis": 1914.78225732,
+    "basisRate": 0.0298,
+    "annualizedBasisRate": 0.0128
+  },
+  {
+    "timestamp": 1724630400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64268.0281505,
+    "futuresPrice": 66136.7,
+    "basis": 1868.6718495,
+    "basisRate": 0.0291,
+    "annualizedBasisRate": 0.0125
+  },
+  {
+    "timestamp": 1724716800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62848.524468,
+    "futuresPrice": 64672.5,
+    "basis": 1823.975532,
+    "basisRate": 0.029,
+    "annualizedBasisRate": 0.0124
+  },
+  {
+    "timestamp": 1724803200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59438.52325971,
+    "futuresPrice": 60850,
+    "basis": 1411.47674029,
+    "basisRate": 0.0237,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1724889600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59035.54405955,
+    "futuresPrice": 60508.6,
+    "basis": 1473.05594045,
+    "basisRate": 0.025,
+    "annualizedBasisRate": 0.0108
+  },
+  {
+    "timestamp": 1724976000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59372.706968,
+    "futuresPrice": 60771.9,
+    "basis": 1399.193032,
+    "basisRate": 0.0236,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1725062400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59110.75412553,
+    "futuresPrice": 60556.8,
+    "basis": 1446.04587447,
+    "basisRate": 0.0245,
+    "annualizedBasisRate": 0.0106
+  },
+  {
+    "timestamp": 1725148800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58969.24802873,
+    "futuresPrice": 60358.4,
+    "basis": 1389.15197127,
+    "basisRate": 0.0236,
+    "annualizedBasisRate": 0.0102
+  },
+  {
+    "timestamp": 1725235200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57309.16936046,
+    "futuresPrice": 58573.5,
+    "basis": 1264.33063954,
+    "basisRate": 0.0221,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1725321600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59134.28040684,
+    "futuresPrice": 60541.8,
+    "basis": 1407.51959316,
+    "basisRate": 0.0238,
+    "annualizedBasisRate": 0.0103
+  },
+  {
+    "timestamp": 1725408000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57485.06693885,
+    "futuresPrice": 58797.3,
+    "basis": 1312.23306115,
+    "basisRate": 0.0228,
+    "annualizedBasisRate": 0.0099
+  },
+  {
+    "timestamp": 1725494400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57966.27669372,
+    "futuresPrice": 59300.3,
+    "basis": 1334.02330628,
+    "basisRate": 0.023,
+    "annualizedBasisRate": 0.01
+  },
+  {
+    "timestamp": 1725580800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 56159.58497778,
+    "futuresPrice": 57387,
+    "basis": 1227.41502222,
+    "basisRate": 0.0219,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1725667200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 53951.06977144,
+    "futuresPrice": 55134.9,
+    "basis": 1183.83022856,
+    "basisRate": 0.0219,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1725753600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 54149.12342509,
+    "futuresPrice": 55351.4,
+    "basis": 1202.27657491,
+    "basisRate": 0.0222,
+    "annualizedBasisRate": 0.0097
+  },
+  {
+    "timestamp": 1725840000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 54868.35856457,
+    "futuresPrice": 56075.8,
+    "basis": 1207.44143543,
+    "basisRate": 0.022,
+    "annualizedBasisRate": 0.0096
+  },
+  {
+    "timestamp": 1725926400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57057.06543259,
+    "futuresPrice": 58300.1,
+    "basis": 1243.03456741,
+    "basisRate": 0.0218,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1726012800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57645.08128586,
+    "futuresPrice": 58901.2,
+    "basis": 1256.11871414,
+    "basisRate": 0.0218,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1726099200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 57348.57516194,
+    "futuresPrice": 58531.4,
+    "basis": 1182.82483806,
+    "basisRate": 0.0206,
+    "annualizedBasisRate": 0.009
+  },
+  {
+    "timestamp": 1726185600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58137.05573599,
+    "futuresPrice": 59330,
+    "basis": 1192.94426401,
+    "basisRate": 0.0205,
+    "annualizedBasisRate": 0.009
+  },
+  {
+    "timestamp": 1726272000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60555.19247202,
+    "futuresPrice": 61846.6,
+    "basis": 1291.40752798,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0093
+  },
+  {
+    "timestamp": 1726358400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60007.74381672,
+    "futuresPrice": 61290.2,
+    "basis": 1282.45618328,
+    "basisRate": 0.0214,
+    "annualizedBasisRate": 0.0094
+  },
+  {
+    "timestamp": 1726444800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 59130.31838695,
+    "futuresPrice": 60276.8,
+    "basis": 1146.48161305,
+    "basisRate": 0.0194,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1726531200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 58206.51589983,
+    "futuresPrice": 59273.9,
+    "basis": 1067.38410017,
+    "basisRate": 0.0183,
+    "annualizedBasisRate": 0.0081
+  },
+  {
+    "timestamp": 1726617600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60315.95250337,
+    "futuresPrice": 61440.6,
+    "basis": 1124.64749663,
+    "basisRate": 0.0186,
+    "annualizedBasisRate": 0.0082
+  },
+  {
+    "timestamp": 1726704000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 61766.80362242,
+    "futuresPrice": 63082.1,
+    "basis": 1315.29637758,
+    "basisRate": 0.0213,
+    "annualizedBasisRate": 0.0094
+  },
+  {
+    "timestamp": 1726790400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62943.25614142,
+    "futuresPrice": 64287.6,
+    "basis": 1344.34385858,
+    "basisRate": 0.0214,
+    "annualizedBasisRate": 0.0095
+  },
+  {
+    "timestamp": 1726876800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63210.77112007,
+    "futuresPrice": 64445.2,
+    "basis": 1234.42887993,
+    "basisRate": 0.0195,
+    "annualizedBasisRate": 0.0086
+  },
+  {
+    "timestamp": 1726963200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63367.68685752,
+    "futuresPrice": 64621.6,
+    "basis": 1253.91314248,
+    "basisRate": 0.0198,
+    "annualizedBasisRate": 0.0088
+  },
+  {
+    "timestamp": 1727049600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63585.43835697,
+    "futuresPrice": 64788.7,
+    "basis": 1203.26164303,
+    "basisRate": 0.0189,
+    "annualizedBasisRate": 0.0084
+  },
+  {
+    "timestamp": 1727136000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63332.74694435,
+    "futuresPrice": 64549.3,
+    "basis": 1216.55305565,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1727222400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 64268.14109496,
+    "futuresPrice": 65404,
+    "basis": 1135.85890504,
+    "basisRate": 0.0177,
+    "annualizedBasisRate": 0.0079
+  },
+  {
+    "timestamp": 1727308800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63138.82064287,
+    "futuresPrice": 64349.8,
+    "basis": 1210.97935713,
+    "basisRate": 0.0192,
+    "annualizedBasisRate": 0.0085
+  },
+  {
+    "timestamp": 1727395200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65179.02547618,
+    "futuresPrice": 66212.3,
+    "basis": 1033.27452382,
+    "basisRate": 0.0159,
+    "annualizedBasisRate": 0.0071
+  },
+  {
+    "timestamp": 1727481600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65786.07769829,
+    "futuresPrice": 69156.4,
+    "basis": 3370.32230171,
+    "basisRate": 0.0512,
+    "annualizedBasisRate": 0.0228
+  },
+  {
+    "timestamp": 1727568000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65870.34537116,
+    "futuresPrice": 69153.5,
+    "basis": 3283.15462884,
+    "basisRate": 0.0498,
+    "annualizedBasisRate": 0.0222
+  },
+  {
+    "timestamp": 1727654400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 65604.18146154,
+    "futuresPrice": 68912.6,
+    "basis": 3308.41853846,
+    "basisRate": 0.0504,
+    "annualizedBasisRate": 0.0225
+  },
+  {
+    "timestamp": 1727740800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63313.65195973,
+    "futuresPrice": 65620,
+    "basis": 2306.34804027,
+    "basisRate": 0.0364,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1727827200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60805.15425722,
+    "futuresPrice": 62895.2,
+    "basis": 2090.04574278,
+    "basisRate": 0.0344,
+    "annualizedBasisRate": 0.0154
+  },
+  {
+    "timestamp": 1727913600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60634.02662673,
+    "futuresPrice": 62770.2,
+    "basis": 2136.17337327,
+    "basisRate": 0.0352,
+    "annualizedBasisRate": 0.0158
+  },
+  {
+    "timestamp": 1728000000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60744.17979544,
+    "futuresPrice": 62945.2,
+    "basis": 2201.02020456,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1728086400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62084.86167317,
+    "futuresPrice": 64360.6,
+    "basis": 2275.73832683,
+    "basisRate": 0.0367,
+    "annualizedBasisRate": 0.0165
+  },
+  {
+    "timestamp": 1728172800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62054.43680585,
+    "futuresPrice": 64320,
+    "basis": 2265.56319415,
+    "basisRate": 0.0365,
+    "annualizedBasisRate": 0.0164
+  },
+  {
+    "timestamp": 1728259200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62813.04895623,
+    "futuresPrice": 65305,
+    "basis": 2491.95104377,
+    "basisRate": 0.0397,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1728345600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62217.33128265,
+    "futuresPrice": 64563.9,
+    "basis": 2346.56871735,
+    "basisRate": 0.0377,
+    "annualizedBasisRate": 0.017
+  },
+  {
+    "timestamp": 1728432000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62124.65633978,
+    "futuresPrice": 64496.1,
+    "basis": 2371.44366022,
+    "basisRate": 0.0382,
+    "annualizedBasisRate": 0.0173
+  },
+  {
+    "timestamp": 1728518400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60573.96875133,
+    "futuresPrice": 62817.9,
+    "basis": 2243.93124867,
+    "basisRate": 0.037,
+    "annualizedBasisRate": 0.0167
+  },
+  {
+    "timestamp": 1728604800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 60279.87792595,
+    "futuresPrice": 62438,
+    "basis": 2158.12207405,
+    "basisRate": 0.0358,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1728691200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62494.0863345,
+    "futuresPrice": 64958.6,
+    "basis": 2464.5136655,
+    "basisRate": 0.0394,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1728777600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 63188.94259509,
+    "futuresPrice": 65674.2,
+    "basis": 2485.25740491,
+    "basisRate": 0.0393,
+    "annualizedBasisRate": 0.0179
+  },
+  {
+    "timestamp": 1728864000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 62842.81980194,
+    "futuresPrice": 65336.6,
+    "basis": 2493.78019806,
+    "basisRate": 0.0397,
+    "annualizedBasisRate": 0.0181
+  },
+  {
+    "timestamp": 1728950400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66054.92349907,
+    "futuresPrice": 68898.1,
+    "basis": 2843.17650093,
+    "basisRate": 0.043,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1729036800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67060.12915238,
+    "futuresPrice": 69445,
+    "basis": 2384.87084762,
+    "basisRate": 0.0356,
+    "annualizedBasisRate": 0.0162
+  },
+  {
+    "timestamp": 1729123200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67607.37873689,
+    "futuresPrice": 69981.8,
+    "basis": 2374.42126311,
+    "basisRate": 0.0351,
+    "annualizedBasisRate": 0.016
+  },
+  {
+    "timestamp": 1729209600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67400.92652025,
+    "futuresPrice": 69656.7,
+    "basis": 2255.77347975,
+    "basisRate": 0.0335,
+    "annualizedBasisRate": 0.0153
+  },
+  {
+    "timestamp": 1729296000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68428.24746185,
+    "futuresPrice": 70903.4,
+    "basis": 2475.15253815,
+    "basisRate": 0.0362,
+    "annualizedBasisRate": 0.0166
+  },
+  {
+    "timestamp": 1729382400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68365.01676067,
+    "futuresPrice": 70801.9,
+    "basis": 2436.88323933,
+    "basisRate": 0.0356,
+    "annualizedBasisRate": 0.0163
+  },
+  {
+    "timestamp": 1729468800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69012.89105391,
+    "futuresPrice": 71688.1,
+    "basis": 2675.20894609,
+    "basisRate": 0.0388,
+    "annualizedBasisRate": 0.0178
+  },
+  {
+    "timestamp": 1729555200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67356.24135563,
+    "futuresPrice": 69883.2,
+    "basis": 2526.95864437,
+    "basisRate": 0.0375,
+    "annualizedBasisRate": 0.0172
+  },
+  {
+    "timestamp": 1729641600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67383.54313731,
+    "futuresPrice": 69942.9,
+    "basis": 2559.35686269,
+    "basisRate": 0.038,
+    "annualizedBasisRate": 0.0175
+  },
+  {
+    "timestamp": 1729728000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66610.59990914,
+    "futuresPrice": 69321.2,
+    "basis": 2710.60009086,
+    "basisRate": 0.0407,
+    "annualizedBasisRate": 0.0187
+  },
+  {
+    "timestamp": 1729814400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68160.83868204,
+    "futuresPrice": 70995,
+    "basis": 2834.16131796,
+    "basisRate": 0.0416,
+    "annualizedBasisRate": 0.0192
+  },
+  {
+    "timestamp": 1729900800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 66581.08793765,
+    "futuresPrice": 69351.3,
+    "basis": 2770.21206235,
+    "basisRate": 0.0416,
+    "annualizedBasisRate": 0.0192
+  },
+  {
+    "timestamp": 1729987200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67013.50673527,
+    "futuresPrice": 69847.3,
+    "basis": 2833.79326473,
+    "basisRate": 0.0423,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1730073600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67941.58376435,
+    "futuresPrice": 70880.5,
+    "basis": 2938.91623565,
+    "basisRate": 0.0433,
+    "annualizedBasisRate": 0.02
+  },
+  {
+    "timestamp": 1730160000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69918.26231812,
+    "futuresPrice": 72991.8,
+    "basis": 3073.53768188,
+    "basisRate": 0.044,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1730246400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 72703.99605866,
+    "futuresPrice": 76362.1,
+    "basis": 3658.10394134,
+    "basisRate": 0.0503,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1730332800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 72327.15738403,
+    "futuresPrice": 75862.2,
+    "basis": 3535.04261597,
+    "basisRate": 0.0489,
+    "annualizedBasisRate": 0.0227
+  },
+  {
+    "timestamp": 1730419200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 70213.94366674,
+    "futuresPrice": 73559.6,
+    "basis": 3345.65633326,
+    "basisRate": 0.0476,
+    "annualizedBasisRate": 0.0222
+  },
+  {
+    "timestamp": 1730505600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69475.44261585,
+    "futuresPrice": 72657.6,
+    "basis": 3182.15738415,
+    "basisRate": 0.0458,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1730592000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69346.94425171,
+    "futuresPrice": 72256.1,
+    "basis": 2909.15574829,
+    "basisRate": 0.042,
+    "annualizedBasisRate": 0.0196
+  },
+  {
+    "timestamp": 1730678400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 68738.29108149,
+    "futuresPrice": 71575.4,
+    "basis": 2837.10891851,
+    "basisRate": 0.0413,
+    "annualizedBasisRate": 0.0193
+  },
+  {
+    "timestamp": 1730764800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 67806.09102837,
+    "futuresPrice": 70610.7,
+    "basis": 2804.60897163,
+    "basisRate": 0.0414,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1730851200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 69382.4306899,
+    "futuresPrice": 72267.9,
+    "basis": 2885.4693101,
+    "basisRate": 0.0416,
+    "annualizedBasisRate": 0.0195
+  },
+  {
+    "timestamp": 1730937600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 75642.59301522,
+    "futuresPrice": 78597,
+    "basis": 2954.40698478,
+    "basisRate": 0.0391,
+    "annualizedBasisRate": 0.0183
+  },
+  {
+    "timestamp": 1731024000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 75921.44347529,
+    "futuresPrice": 79528.9,
+    "basis": 3607.45652471,
+    "basisRate": 0.0475,
+    "annualizedBasisRate": 0.0223
+  },
+  {
+    "timestamp": 1731110400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 76563.51698494,
+    "futuresPrice": 80039.8,
+    "basis": 3476.28301506,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0213
+  },
+  {
+    "timestamp": 1731196800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 76716.44304917,
+    "futuresPrice": 80348.1,
+    "basis": 3631.65695083,
+    "basisRate": 0.0473,
+    "annualizedBasisRate": 0.0223
+  },
+  {
+    "timestamp": 1731283200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 80426.9937345,
+    "futuresPrice": 84585.5,
+    "basis": 4158.5062655,
+    "basisRate": 0.0517,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1731369600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 88758.38009676,
+    "futuresPrice": 93297,
+    "basis": 4538.61990324,
+    "basisRate": 0.0511,
+    "annualizedBasisRate": 0.0241
+  },
+  {
+    "timestamp": 1731456000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 88047.82909397,
+    "futuresPrice": 91861.7,
+    "basis": 3813.87090603,
+    "basisRate": 0.0433,
+    "annualizedBasisRate": 0.0205
+  },
+  {
+    "timestamp": 1731542400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 90500.6461995,
+    "futuresPrice": 95053.7,
+    "basis": 4553.0538005,
+    "basisRate": 0.0503,
+    "annualizedBasisRate": 0.0238
+  },
+  {
+    "timestamp": 1731628800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 87329.23320833,
+    "futuresPrice": 91540.1,
+    "basis": 4210.86679167,
+    "basisRate": 0.0482,
+    "annualizedBasisRate": 0.0228
+  },
+  {
+    "timestamp": 1731715200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 91060.74759642,
+    "futuresPrice": 95597.3,
+    "basis": 4536.55240358,
+    "basisRate": 0.0498,
+    "annualizedBasisRate": 0.0236
+  },
+  {
+    "timestamp": 1731801600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 90604.32819914,
+    "futuresPrice": 95244.9,
+    "basis": 4640.57180086,
+    "basisRate": 0.0512,
+    "annualizedBasisRate": 0.0243
+  },
+  {
+    "timestamp": 1731888000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 89867.85267112,
+    "futuresPrice": 94467,
+    "basis": 4599.14732888,
+    "basisRate": 0.0512,
+    "annualizedBasisRate": 0.0244
+  },
+  {
+    "timestamp": 1731974400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 90512.57993261,
+    "futuresPrice": 95232.4,
+    "basis": 4719.82006739,
+    "basisRate": 0.0521,
+    "annualizedBasisRate": 0.0248
+  },
+  {
+    "timestamp": 1732060800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 92415.29218577,
+    "futuresPrice": 97223.6,
+    "basis": 4808.30781423,
+    "basisRate": 0.052,
+    "annualizedBasisRate": 0.0248
+  },
+  {
+    "timestamp": 1732147200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 94372.07780501,
+    "futuresPrice": 99215,
+    "basis": 4842.92219499,
+    "basisRate": 0.0513,
+    "annualizedBasisRate": 0.0245
+  },
+  {
+    "timestamp": 1732233600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 98454.02203042,
+    "futuresPrice": 103609.8,
+    "basis": 5155.77796958,
+    "basisRate": 0.0524,
+    "annualizedBasisRate": 0.0251
+  },
+  {
+    "timestamp": 1732320000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 99011.01301133,
+    "futuresPrice": 104168.9,
+    "basis": 5157.88698867,
+    "basisRate": 0.0521,
+    "annualizedBasisRate": 0.0249
+  },
+  {
+    "timestamp": 1732406400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97767.95371252,
+    "futuresPrice": 102945.5,
+    "basis": 5177.54628748,
+    "basisRate": 0.053,
+    "annualizedBasisRate": 0.0254
+  },
+  {
+    "timestamp": 1732492800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 98009.92116105,
+    "futuresPrice": 103030,
+    "basis": 5020.07883895,
+    "basisRate": 0.0512,
+    "annualizedBasisRate": 0.0246
+  },
+  {
+    "timestamp": 1732579200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 93006.06763599,
+    "futuresPrice": 97510.5,
+    "basis": 4504.43236401,
+    "basisRate": 0.0484,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1732665600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 91921.99197973,
+    "futuresPrice": 96351,
+    "basis": 4429.00802027,
+    "basisRate": 0.0482,
+    "annualizedBasisRate": 0.0232
+  },
+  {
+    "timestamp": 1732752000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95957.57116323,
+    "futuresPrice": 100567.1,
+    "basis": 4609.52883677,
+    "basisRate": 0.048,
+    "annualizedBasisRate": 0.0231
+  },
+  {
+    "timestamp": 1732838400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95654.48484804,
+    "futuresPrice": 100375.7,
+    "basis": 4721.21515196,
+    "basisRate": 0.0494,
+    "annualizedBasisRate": 0.0238
+  },
+  {
+    "timestamp": 1732924800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97493.5400937,
+    "futuresPrice": 102136.9,
+    "basis": 4643.3599063,
+    "basisRate": 0.0476,
+    "annualizedBasisRate": 0.023
+  },
+  {
+    "timestamp": 1733011200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 96457.08310291,
+    "futuresPrice": 101241.9,
+    "basis": 4784.81689709,
+    "basisRate": 0.0496,
+    "annualizedBasisRate": 0.024
+  },
+  {
+    "timestamp": 1733097600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97264.30006077,
+    "futuresPrice": 102175.9,
+    "basis": 4911.59993923,
+    "basisRate": 0.0505,
+    "annualizedBasisRate": 0.0245
+  },
+  {
+    "timestamp": 1733184000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95858.84252677,
+    "futuresPrice": 100462.7,
+    "basis": 4603.85747323,
+    "basisRate": 0.048,
+    "annualizedBasisRate": 0.0233
+  },
+  {
+    "timestamp": 1733270400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95923.9390264,
+    "futuresPrice": 100694.3,
+    "basis": 4770.3609736,
+    "basisRate": 0.0497,
+    "annualizedBasisRate": 0.0241
+  },
+  {
+    "timestamp": 1733356800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 98756.65016584,
+    "futuresPrice": 103552.3,
+    "basis": 4795.64983416,
+    "basisRate": 0.0486,
+    "annualizedBasisRate": 0.0236
+  },
+  {
+    "timestamp": 1733443200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97064.40026294,
+    "futuresPrice": 101518.2,
+    "basis": 4453.79973706,
+    "basisRate": 0.0459,
+    "annualizedBasisRate": 0.0224
+  },
+  {
+    "timestamp": 1733529600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 99887.03826705,
+    "futuresPrice": 104561.4,
+    "basis": 4674.36173295,
+    "basisRate": 0.0468,
+    "annualizedBasisRate": 0.0228
+  },
+  {
+    "timestamp": 1733616000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 99923.30006467,
+    "futuresPrice": 104441.3,
+    "basis": 4517.99993533,
+    "basisRate": 0.0452,
+    "annualizedBasisRate": 0.0221
+  },
+  {
+    "timestamp": 1733702400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 101181.59755677,
+    "futuresPrice": 105944.2,
+    "basis": 4762.60244323,
+    "basisRate": 0.0471,
+    "annualizedBasisRate": 0.023
+  },
+  {
+    "timestamp": 1733788800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97378.87818586,
+    "futuresPrice": 101521.2,
+    "basis": 4142.32181414,
+    "basisRate": 0.0425,
+    "annualizedBasisRate": 0.0208
+  },
+  {
+    "timestamp": 1733875200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 96655.11907715,
+    "futuresPrice": 100697,
+    "basis": 4041.88092285,
+    "basisRate": 0.0418,
+    "annualizedBasisRate": 0.0205
+  },
+  {
+    "timestamp": 1733961600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 101191.72502411,
+    "futuresPrice": 105197.9,
+    "basis": 4006.17497589,
+    "basisRate": 0.0396,
+    "annualizedBasisRate": 0.0194
+  },
+  {
+    "timestamp": 1734048000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 100043.88592,
+    "futuresPrice": 104188.7,
+    "basis": 4144.81408,
+    "basisRate": 0.0414,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1734134400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 101445.97385405,
+    "futuresPrice": 105655.4,
+    "basis": 4209.42614595,
+    "basisRate": 0.0415,
+    "annualizedBasisRate": 0.0204
+  },
+  {
+    "timestamp": 1734220800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 101393.65548214,
+    "futuresPrice": 105507.9,
+    "basis": 4114.24451786,
+    "basisRate": 0.0406,
+    "annualizedBasisRate": 0.02
+  },
+  {
+    "timestamp": 1734307200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 104416.95702699,
+    "futuresPrice": 109155.5,
+    "basis": 4738.54297301,
+    "basisRate": 0.0454,
+    "annualizedBasisRate": 0.0224
+  },
+  {
+    "timestamp": 1734393600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 106080.67368481,
+    "futuresPrice": 110399.4,
+    "basis": 4318.72631519,
+    "basisRate": 0.0407,
+    "annualizedBasisRate": 0.0201
+  },
+  {
+    "timestamp": 1734480000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 106155.90068337,
+    "futuresPrice": 110402,
+    "basis": 4246.09931663,
+    "basisRate": 0.04,
+    "annualizedBasisRate": 0.0198
+  },
+  {
+    "timestamp": 1734566400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 100153.1754948,
+    "futuresPrice": 104227.7,
+    "basis": 4074.5245052,
+    "basisRate": 0.0407,
+    "annualizedBasisRate": 0.0202
+  },
+  {
+    "timestamp": 1734652800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97374.25452319,
+    "futuresPrice": 101545.2,
+    "basis": 4170.94547681,
+    "basisRate": 0.0428,
+    "annualizedBasisRate": 0.0212
+  },
+  {
+    "timestamp": 1734739200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97764.21718563,
+    "futuresPrice": 101450.3,
+    "basis": 3686.08281437,
+    "basisRate": 0.0377,
+    "annualizedBasisRate": 0.0187
+  },
+  {
+    "timestamp": 1734825600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 97220.83038874,
+    "futuresPrice": 100873,
+    "basis": 3652.16961126,
+    "basisRate": 0.0376,
+    "annualizedBasisRate": 0.0187
+  },
+  {
+    "timestamp": 1734912000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95090.03737574,
+    "futuresPrice": 98619,
+    "basis": 3528.96262426,
+    "basisRate": 0.0371,
+    "annualizedBasisRate": 0.0185
+  },
+  {
+    "timestamp": 1734998400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 94761.2192223,
+    "futuresPrice": 98350.4,
+    "basis": 3589.1807777,
+    "basisRate": 0.0379,
+    "annualizedBasisRate": 0.0189
+  },
+  {
+    "timestamp": 1735084800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 98595.54593356,
+    "futuresPrice": 101941.6,
+    "basis": 3346.05406644,
+    "basisRate": 0.0339,
+    "annualizedBasisRate": null
+  },
+  {
+    "timestamp": 1735171200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 99362.40992471,
+    "futuresPrice": 102859.5,
+    "basis": 3497.09007529,
+    "basisRate": 0.0352,
+    "annualizedBasisRate": 0.0176
+  },
+  {
+    "timestamp": 1735257600000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95675.3835135,
+    "futuresPrice": 98935.6,
+    "basis": 3260.2164865,
+    "basisRate": 0.0341,
+    "annualizedBasisRate": 0.0171
+  },
+  {
+    "timestamp": 1735344000000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 94168.99317324,
+    "futuresPrice": 100482.7,
+    "basis": 6313.70682676,
+    "basisRate": 0.067,
+    "annualizedBasisRate": 0.0336
+  },
+  {
+    "timestamp": 1735430400000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 95132.46549558,
+    "futuresPrice": 101617,
+    "basis": 6484.53450442,
+    "basisRate": 0.0682,
+    "annualizedBasisRate": 0.0343
+  },
+  {
+    "timestamp": 1735516800000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 93561.56294301,
+    "futuresPrice": 100075,
+    "basis": 6513.43705699,
+    "basisRate": 0.0696,
+    "annualizedBasisRate": 0.035
+  },
+  {
+    "timestamp": 1735603200000,
+    "pair": "BTCUSD",
+    "contractType": "NEXT_QUARTER",
+    "indexPrice": 92624.60577632,
+    "futuresPrice": 98989.4,
+    "basis": 6364.79422368,
+    "basisRate": 0.0687,
+    "annualizedBasisRate": 0.0346
+  }
+]

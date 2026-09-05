@@ -1,0 +1,65 @@
+{
+  "hypothesisId": "H015",
+  "name": "Institutional Portfolio Margin & Leveraged Cash-and-Carry Arbitrage (BTC/ETH 50/50, 2.0x Gearing)",
+  "programOrigin": "AD008",
+  "status": "FROZEN_AWAITING_UNLOCK",
+  "dateFrozenUTC": "2026-09-04T22:35:00.000Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "holdoutPopulation": {
+    "type": "TEMPORAL_HOLDOUT_VIRGIN",
+    "startDateUTC": "2025-01-01T00:00:00.000Z",
+    "endDateUTC": "2026-08-31T23:59:59.999Z",
+    "startMs": 1735689600000,
+    "endMs": 1788220799999,
+    "targetAssets": [
+      "BTCUSDT",
+      "ETHUSDT"
+    ],
+    "timeframe": "8h"
+  },
+  "parameters": {
+    "strategyType": "STATIC_BENCHMARK",
+    "allocation": "BTC_ETH_50_50",
+    "leverage": 2.0,
+    "borrowRateAnnualPct": 3.0,
+    "lookbackDays": 0,
+    "rebalanceDays": 0,
+    "delta": 0.0,
+    "amortizeFriction": true
+  },
+  "friction": {
+    "spotFeeBps": 5,
+    "perpFeeBps": 5,
+    "slippageBps": 2,
+    "totalRoundtripBpsPerCycle": 24
+  },
+  "portfolioMarginRules": {
+    "maintenanceMarginRequirement": 0.05,
+    "spotCollateralHaircut": 0.10
+  },
+  "confirmatoryGates": {
+    "gate1_minimumAnnualizedReturn": {
+      "metric": "annualizedNetReturn",
+      "threshold": ">= +0.0600 (+6.00% a.a.)"
+    },
+    "gate2_annualizedSharpeRatio": {
+      "metric": "annualizedSharpe",
+      "threshold": ">= 5.0"
+    },
+    "gate3_maximumDrawdown": {
+      "metric": "maxDrawdown",
+      "threshold": "<= 0.0200 (2.00%)"
+    },
+    "gate4_statisticalSignificance": {
+      "metric": "p_block",
+      "threshold": "< 0.0500",
+      "bootstrapReplications": 10000,
+      "calendarBlockDays": 14,
+      "hypothesisCountM": 1
+    },
+    "gate5_directionalResidualIndependence": {
+      "metric": "absPriceCorrelation",
+      "threshold": "< 0.0500"
+    }
+  }
+}

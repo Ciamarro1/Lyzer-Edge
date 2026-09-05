@@ -1,0 +1,59 @@
+{
+  "hypothesisId": "H014",
+  "name": "Regime-Conditional & Rotational Cash-and-Carry Arbitrage (Top 3 Equal-Weighted)",
+  "timestampUTC": "2026-09-04T22:13:49.791Z",
+  "engineV8SHA256": "fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1",
+  "verdict": "REJECTED_NOT_CONFIRMED",
+  "gates": {
+    "gate1_annualizedReturn": {
+      "passed": false,
+      "realizedPct": 3.122759952460785,
+      "threshold": ">= +6.00% a.a."
+    },
+    "gate2_sharpeRatio": {
+      "passed": true,
+      "realized": 11.032106093870256,
+      "threshold": ">= 5.0"
+    },
+    "gate3_maxDrawdown": {
+      "passed": true,
+      "realizedPct": 0.15265042317281305,
+      "threshold": "<= 2.00%"
+    },
+    "gate4_pBlock": {
+      "passed": true,
+      "realized": 0.0001,
+      "threshold": "< 0.0500"
+    },
+    "gate5_directionalIndependence": {
+      "passed": true,
+      "realized": 0,
+      "threshold": "< 0.0500"
+    }
+  },
+  "performance": {
+    "totalNetReturnPct": 5.255633750464006,
+    "annualizedReturnPct": 3.122759952460785,
+    "annualizedSharpe": 11.032106093870256,
+    "maxDrawdownPct": 0.15265042317281305,
+    "timeInMarketPct": 95.06578947368422,
+    "nBlocks": 44,
+    "meanNetRPerBlock": 0.116,
+    "ci95Lower": 0.085,
+    "ci95Upper": 0.149,
+    "pBlock": 0.0001,
+    "profitFactor": 25.37
+  },
+  "holdoutMetadata": {
+    "periodsEvaluated": 1824,
+    "assets": [
+      "BTCUSDT",
+      "ETHUSDT",
+      "SOLUSDT",
+      "AVAXUSDT",
+      "LINKUSDT",
+      "DOGEUSDT"
+    ],
+    "roundtripBps": 24
+  }
+}
