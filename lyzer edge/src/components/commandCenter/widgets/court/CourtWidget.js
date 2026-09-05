@@ -46,6 +46,14 @@ export class CourtWidget {
             <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">MOL State</span>
             <span id="cw-mol" style="color: #4ade80; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 10px;">EXECUTE</span>
           </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">Anti-Martingale</span>
+            <span id="cw-antimartingale" style="color: #10b981; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 10px;">RULE_008 GUARDED</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: rgba(148, 163, 184, 0.6); font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px;">Sizing Model</span>
+            <span id="cw-sizing" style="color: #38bdf8; font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 10px;">HALF-KELLY (H019)</span>
+          </div>
         </div>
 
         <div style="background: rgba(12, 16, 30, 0.4); border: 1px solid rgba(148, 163, 184, 0.06); border-radius: 8px; padding: 10px;">
@@ -141,6 +149,9 @@ export class CourtWidget {
       'VETO_REALITY_DIVERGENCE': 'LHDS EXCEEDED / REALITY DIVERGENCE',
       'VETO_ONTOLOGICAL_COLLAPSE': 'ONTOLOGICAL COLLAPSE (SDS+TRG)',
       'VETO_CONFIDENCE_ARROGANCE': 'CONFIDENCE OVERFITTING DETECTED',
+      'VETO_MARTINGALE_ESCALATION': 'RULE_008 / POST-LOSS SIZING ESCALATION BLOCKED',
+      'VETO_SIZE_OVERRIDE': 'CAPACITY LIMIT / POSITION SIZE EXCEEDS NAV',
+      'VETO_HARD_LIMIT_DRAWDOWN': 'MAX DAILY DRAWDOWN REACHED (5%)',
       'VALIDATED': 'VALIDATED',
       'VETO_UNKNOWN': allowed ? 'VALIDATED' : 'VETO / REASON UNSPECIFIED'
     };

@@ -44,7 +44,7 @@ import { SpectrogramUI } from "./spectrogramUI.js";
 import { sendTelegramAlert, formatTradeAlert, formatSystemAlert } from "./telegram.js";
 import { recordTickReceived, recordTickDuration, recordCsrlDuration, recordCclistEvaluation, recordEcaEvaluation, recordSystemError, recordSignalGenerated, recordKernelEvaluated, recordBreakEvenTrade } from "../src/observability/index.js";
 import { MicrostructureDampener } from "../../packages/lyzer-shared/src/engine/MicrostructureDampener.js";
-import { DynamicSizing } from "../src/engine/sizing.js";
+import { DynamicSizing, calculateHalfKellyRisk, validateAntiMartingaleConstraint } from "../src/engine/sizing.js";
 import { authorizeOrder } from './riskGatewayClient.js';
 
 // C1 fix: Observer Dynamics Lab (Era 7.1) imports
@@ -1728,18 +1728,146 @@ export class StreamEngine extends EventEmitter {
           }
         }
       }
+      // --- PRE-ORDER SIZING & INVARIANTS COMPUTATION ---
+      const strategyType = candidateStrategy;
+      const confidence = baseSignal.confidence || 0.5;
+      const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
+      const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
+      const allocationScore = (confidence > 1 ? confidence : confidence * 100) * (1 - stress);
+      const capacityScore = Math.max(0, Math.min(100, diversity * 100));
+      const csi = 1.0 - stress;
+      const coc = 1.0;
+
+      // Institutional Dynamic Risk/Reward using MicroATR (1:2 R:R Ratio)
+      let microAtr = 0;
+      const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
+      if (candleList.length >= 5) {
+        const recent = candleList.slice(-14);
+        let sumRange = 0;
+        for (let i = 0; i < recent.length; i++) {
+          sumRange += (recent[i].high - recent[i].low);
+        }
+        microAtr = sumRange / recent.length;
+      }
+
+      const entryPrice = candle.close;
+      const atrRatio = entryPrice > 0 ? (microAtr / entryPrice) : 0.002;
+      const atrSlMult = parseFloat(process.env.ATR_SL_MULTIPLIER || '1.5');
+      const atrTpMult = parseFloat(process.env.ATR_TP_MULTIPLIER || '3.0');
+
+      const minStopDefault = strategyType === 'RANGE_SCALP' ? 0.0015 : 0.0025;
+      const maxStopDefault = strategyType === 'RANGE_SCALP' ? 0.0045 : 0.025;
+      let minStop = minStopDefault;
+      let maxStop = maxStopDefault;
+      if (process.env.SCALP_MIN_STOP) minStop = validateDistanceFraction(process.env.SCALP_MIN_STOP, 'SCALP_MIN_STOP');
+      else if (process.env.MIN_STOP_DISTANCE) minStop = validateDistanceFraction(process.env.MIN_STOP_DISTANCE, 'MIN_STOP_DISTANCE');
+
+      if (process.env.SCALP_MAX_STOP) maxStop = validateDistanceFraction(process.env.SCALP_MAX_STOP, 'SCALP_MAX_STOP');
+      else if (process.env.MAX_STOP_DISTANCE) maxStop = validateDistanceFraction(process.env.MAX_STOP_DISTANCE, 'MAX_STOP_DISTANCE');
+
+      let slDistance = Math.min(maxStop, Math.max(minStop, atrRatio * atrSlMult));
+      if (process.env.SCALP_SL_PCT) {
+        slDistance = validateDistanceFraction(process.env.SCALP_SL_PCT, 'SCALP_SL_PCT');
+      } else {
+        slDistance = validateDistanceFraction(slDistance, 'calculated slDistance');
+      }
+
+      const effectiveExitPolicy = this.exitPolicy || getExitPolicyConfig().policy;
+      const effectiveTimeExitMinutes = this.timeExitMinutes || getExitPolicyConfig().timeExitMinutes;
+
+      let takeProfit = null;
+      let tpDistance = null;
+
+      if (effectiveExitPolicy !== 'TIME') {
+        tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
+        if (strategyType === 'RANGE_SCALP') {
+          tpDistance = Math.max(0.0025, atrRatio * 1.6);
+        }
+        if (process.env.SCALP_TP_PCT) {
+          tpDistance = validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
+        } else {
+          tpDistance = validateDistanceFraction(tpDistance, 'calculated tpDistance');
+        }
+        takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
+      } else {
+        if (process.env.SCALP_TP_PCT) {
+          validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
+        }
+      }
+
+      const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
+
+      // Fail-Closed Mathematical Validation of Price Invariants
+      validatePriceInvariants(direction, entryPrice, stopLoss, takeProfit);
+
+      // Dynamic Position Sizing (Half-Kelly, Risk-Normalized, or Fixed Notional)
+      const currentDrawdown = this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0;
+      const sizingMode = (process.env.SIZING_MODE || '').toUpperCase();
+      const enableRiskNorm = process.env.ENABLE_RISK_NORMALIZATION === 'true' || sizingMode === 'HALF_KELLY';
+      const stopDistanceUsd = entryPrice * slDistance;
+      let notionalTarget;
+      let quantity;
+      let effectiveRiskPct = 0.005;
+
+      const capitalBase = parseFloat(process.env.RISK_CAPITAL_BASE || String(this.maxDailyCapital || 1000));
+
+      if (enableRiskNorm && stopDistanceUsd > 0) {
+        if (sizingMode === 'HALF_KELLY') {
+          const winRate = parseFloat(process.env.KELLY_WIN_RATE || '0.1841');
+          const rrr = parseFloat(process.env.KELLY_RRR || '5.0');
+          const halfKellyPercent = calculateHalfKellyRisk(winRate, rrr, currentDrawdown);
+          effectiveRiskPct = halfKellyPercent / 100.0;
+        } else {
+          effectiveRiskPct = parseFloat(process.env.RISK_PCT_PER_TRADE || '0.005');
+        }
+        const riskTargetUsd = capitalBase * effectiveRiskPct;
+        quantity = riskTargetUsd / stopDistanceUsd;
+        notionalTarget = quantity * entryPrice;
+        const maxNotional = parseFloat(process.env.MAX_NOTIONAL || '50000');
+        if (notionalTarget > maxNotional) {
+          notionalTarget = maxNotional;
+          quantity = notionalTarget / entryPrice;
+        }
+      } else {
+        notionalTarget = parseFloat(process.env.FIXED_NOTIONAL || '20');
+        quantity = notionalTarget / entryPrice;
+      }
+
+      // History analysis for Anti-Martingale validation
+      const lastTrade = (this.tradeHistory && this.tradeHistory.length > 0) 
+        ? this.tradeHistory[this.tradeHistory.length - 1] 
+        : null;
+      const lastTradeOutcome = lastTrade ? (lastTrade.pnl < 0 ? 'LOSS' : (lastTrade.pnl > 0 ? 'WIN' : 'BE')) : 'NONE';
+      const previousNotional = lastTrade ? (lastTrade.notional || ((lastTrade.entryPrice || 0) * (lastTrade.quantity || lastTrade.initialQuantity || 1))) : notionalTarget;
+      const isPostLossEscalation = (lastTradeOutcome === 'LOSS' && notionalTarget > previousNotional * 1.05);
+
+      // Pre-flight anti-martingale sizing check (scaled in percentage)
+      const antiMartingaleCheck = validateAntiMartingaleConstraint(effectiveRiskPct * 100, lastTradeOutcome, effectiveRiskPct * 100);
+      if (!antiMartingaleCheck.allowed) {
+        console.warn(`🛑 [ANTI-MARTINGALE] Order sizing vetoed pre-court: ${antiMartingaleCheck.reason}`);
+        return;
+      }
+
+      // Normalized position sizes as fraction of capital for Constitutional Court
+      const requestedPositionSize = capitalBase > 0 ? (notionalTarget / capitalBase) : 0.05;
+      const previousPositionSize = capitalBase > 0 ? (previousNotional / capitalBase) : requestedPositionSize;
+
       // 1. Rust RiskGateway gRPC Intent Registration and Pre-Check
       const intentId = generateUUIDv7();
-      const currentDrawdown = this.dailyPnl ? Math.abs(Math.min(0, this.dailyPnl)) / (this.maxDailyCapital || 1000) : 0;
       const courtState = {
         symbol: this.symbol,
+        direction,
         trg: kernelResult.trg,
         dvf: kernelResult.dvf,
         scale_divergence: sds,
         lhds,
         epistemic_authority: kernelResult.epistemic_authority,
         currentDrawdown,
-        currentSlippage: 0
+        currentSlippage: 0,
+        requestedPositionSize,
+        previousPositionSize,
+        lastTradeOutcome,
+        isPostLossEscalation
       };
 
       let grpcResult = { approved: true };
@@ -1752,7 +1880,7 @@ export class StreamEngine extends EventEmitter {
               intent_id: intentId,
               symbol: this.symbol,
               side: direction === 'BUY' || direction === 'LONG' ? 'BUY' : 'SELL',
-              quantity: 0.001,
+              quantity: quantity || 0.001,
               mode: this.mode
             });
           }
@@ -1790,99 +1918,6 @@ export class StreamEngine extends EventEmitter {
       recordEcaEvaluation(this.symbol, governanceDecision, rejectionReason);
 
       if (governanceDecision === 'ALLOW') {
-        const strategyType = candidateStrategy;
-        const confidence = baseSignal.confidence || 0.5;
-        const diversity = (this.extinctionEngine && this.extinctionEngine.metricsTracker) ? this.extinctionEngine.metricsTracker.getDiversity() : 1;
-        const stress = this.extinctionEngine ? this.extinctionEngine.stressLevel : 0;
-        const allocationScore = (confidence > 1 ? confidence : confidence * 100) * (1 - stress);
-        const capacityScore = Math.max(0, Math.min(100, diversity * 100));
-        const csi = 1.0 - stress;
-        const coc = 1.0;
-
-        // Institutional Dynamic Risk/Reward using MicroATR (1:2 R:R Ratio)
-        let microAtr = 0;
-        const candleList = (this.candles && this.candles.length >= 5) ? this.candles : (this.mtfCandles['1m'] || []);
-        if (candleList.length >= 5) {
-          const recent = candleList.slice(-14);
-          let sumRange = 0;
-          for (let i = 0; i < recent.length; i++) {
-            sumRange += (recent[i].high - recent[i].low);
-          }
-          microAtr = sumRange / recent.length;
-        }
-
-        const entryPrice = candle.close;
-        const atrRatio = entryPrice > 0 ? (microAtr / entryPrice) : 0.002;
-        const atrSlMult = parseFloat(process.env.ATR_SL_MULTIPLIER || '1.5');
-        const atrTpMult = parseFloat(process.env.ATR_TP_MULTIPLIER || '3.0');
-
-        const minStopDefault = strategyType === 'RANGE_SCALP' ? 0.0015 : 0.0025;
-        const maxStopDefault = strategyType === 'RANGE_SCALP' ? 0.0045 : 0.025;
-        let minStop = minStopDefault;
-        let maxStop = maxStopDefault;
-        if (process.env.SCALP_MIN_STOP) minStop = validateDistanceFraction(process.env.SCALP_MIN_STOP, 'SCALP_MIN_STOP');
-        else if (process.env.MIN_STOP_DISTANCE) minStop = validateDistanceFraction(process.env.MIN_STOP_DISTANCE, 'MIN_STOP_DISTANCE');
-
-        if (process.env.SCALP_MAX_STOP) maxStop = validateDistanceFraction(process.env.SCALP_MAX_STOP, 'SCALP_MAX_STOP');
-        else if (process.env.MAX_STOP_DISTANCE) maxStop = validateDistanceFraction(process.env.MAX_STOP_DISTANCE, 'MAX_STOP_DISTANCE');
-
-        let slDistance = Math.min(maxStop, Math.max(minStop, atrRatio * atrSlMult));
-        if (process.env.SCALP_SL_PCT) {
-          slDistance = validateDistanceFraction(process.env.SCALP_SL_PCT, 'SCALP_SL_PCT');
-        } else {
-          slDistance = validateDistanceFraction(slDistance, 'calculated slDistance');
-        }
-
-        const effectiveExitPolicy = this.exitPolicy || getExitPolicyConfig().policy;
-        const effectiveTimeExitMinutes = this.timeExitMinutes || getExitPolicyConfig().timeExitMinutes;
-
-        let takeProfit = null;
-        let tpDistance = null;
-
-        if (effectiveExitPolicy !== 'TIME') {
-          tpDistance = Math.max(0.0050, atrRatio * atrTpMult);
-          if (strategyType === 'RANGE_SCALP') {
-            tpDistance = Math.max(0.0025, atrRatio * 1.6);
-          }
-          if (process.env.SCALP_TP_PCT) {
-            tpDistance = validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
-          } else {
-            tpDistance = validateDistanceFraction(tpDistance, 'calculated tpDistance');
-          }
-          takeProfit = direction === 'LONG' ? entryPrice * (1 + tpDistance) : entryPrice * (1 - tpDistance);
-        } else {
-          if (process.env.SCALP_TP_PCT) {
-            validateDistanceFraction(process.env.SCALP_TP_PCT, 'SCALP_TP_PCT');
-          }
-        }
-
-        const stopLoss = direction === 'LONG' ? entryPrice * (1 - slDistance) : entryPrice * (1 + slDistance);
-
-        // Fail-Closed Mathematical Validation of Price Invariants
-        validatePriceInvariants(direction, entryPrice, stopLoss, takeProfit);
-
-        // Dynamic Position Sizing (Risk-Normalized or Fixed Notional)
-        const enableRiskNorm = process.env.ENABLE_RISK_NORMALIZATION === 'true';
-        const stopDistanceUsd = entryPrice * slDistance;
-        let notionalTarget;
-        let quantity;
-
-        if (enableRiskNorm && stopDistanceUsd > 0) {
-          const riskPct = parseFloat(process.env.RISK_PCT_PER_TRADE || '0.005');
-          const capitalBase = parseFloat(process.env.RISK_CAPITAL_BASE || '1000');
-          const riskTargetUsd = capitalBase * riskPct;
-          quantity = riskTargetUsd / stopDistanceUsd;
-          notionalTarget = quantity * entryPrice;
-          const maxNotional = parseFloat(process.env.MAX_NOTIONAL || '50000');
-          if (notionalTarget > maxNotional) {
-            notionalTarget = maxNotional;
-            quantity = notionalTarget / entryPrice;
-          }
-        } else {
-          notionalTarget = parseFloat(process.env.FIXED_NOTIONAL || '20');
-          quantity = notionalTarget / entryPrice;
-        }
-
         // Apply asset-specific LOT_SIZE precision (always round DOWN to avoid exceeding risk)
         if (entryPrice > 10000) {
           quantity = Math.floor(quantity * 10000) / 10000; // 4 decimals (e.g. BTC)
@@ -1925,6 +1960,7 @@ export class StreamEngine extends EventEmitter {
           quantity,
           initialQuantity: quantity,
           remainingQuantity: quantity,
+          notional: notionalTarget,
           mfeTargetBE,
           mfeTargetScale1,
           mfeTargetScale2,

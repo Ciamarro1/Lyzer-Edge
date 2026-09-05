@@ -1,6 +1,6 @@
 # 🏛️ LYZER EDGE — RESEARCH & OPERATIONAL STATE DASHBOARD
 
-**Data do Registro:** 2026-09-03T08:55:00Z  
+**Data do Registro:** 2026-09-05T05:25:00Z  
 **Autoridade:** Senior CTO & Executive Engineering Director  
 **Status do Repositório:** 🟢 **PRODUCTION READY / DISCOVERY BREAKTHROUGH HOMOLOGATED**  
 **Dataset Base:** 32.016 Hourly Candles BTCUSDT + Painel Multiativo Sincronizado (BTC, ETH, SOL, AVAX, LINK, DOGE)  
@@ -21,8 +21,8 @@
 ║ OTHER PROVIDERS (V1-V4,V6,V7) 🔒 HARD-DISABLED (NULL in RAM / Zero Execution)  ║
 ║ RUNTIME CONTRACT           🟢 ENFORCED (StreamEngine hard-halts on any deviance║
 ║ ALPHA FACTORY PIPELINE     🟢 OPERATIONAL v1.0 (Sub-3s benchmark, 14d Bootstrap║
-║ RESEARCH PIPELINE STATUS   🟢 COMPREHENSIVE HOLDOUT AUDIT COMPLETE (H013-H017)║
-║ LEAD EXPLORATORY ALFA      🔴 H017 REJECTED (Holdout yield +4.10% vs >=+6.0%) ║
+║ RESEARCH PIPELINE STATUS   🟢 H018 FALSIFIED / H019 PRE-REGISTERED (Kelly)    ║
+║ LEAD EXPLORATORY ALFA      🟡 H019 PRE-REGISTERED (Convex Half-Kelly Charter) ║
 ║ ENVIRONMENT                🟡 BINANCE TESTNET (ARL_MODE=TESTNET)              ║
 ║ AUTHORIZED CAPACITY        🟢 $500 USD (Valid Ed25519 Token Active)           ║
 ║ REAL MONEY (LIVE CAPITAL)  🔴 ZERO AUTHORIZED ($0)                            ║
@@ -193,11 +193,24 @@ Os programas `AD006` e `AD007` resolveram os dois maiores problemas enfrentados 
     - Executada suite de regressão P0 (`npm run test:p0` 49/49 PASS).
     - Ratificado e publicado o documento mestre de governança institucional: [`research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md).
     - Arquitetura de kill-switches (K1–K5) formalizada e escada de governança de capital (Tier 0 $0 / Tier 1 $500 / Tier 2 $1,000) ratificada pela autoridade CTO.
+24. [x] **Falsificação Matemática & Empírica de H018 (Martingale vs. Kelly Superiority)**:
+    - Executado harness determinístico (`verify_h018_martingale_vs_kelly.js`) sobre 26.304 candles 1h BTC. 5/5 invariantes aprovados: ruína inevitável de 100% em 107 trades sob Martingale vs. +214,8% de retorno e MaxDD 18,2% sob Half-Kelly. H018 arquivada como REJECTED.
+    - Formalizado Memorando Executivo [`research/EXECUTIVE_MEMORANDUM_H018_MARTINGALE_FALSIFICATION_AND_KELLY_SUPERIORITY.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/EXECUTIVE_MEMORANDUM_H018_MARTINGALE_FALSIFICATION_AND_KELLY_SUPERIORITY.md).
+    - Implementada `RULE_008_ANTI_MARTINGALE` no `ConstraintEngine` com veto soberano (`VETO_MARTINGALE_ESCALATION`).
+    - Refatorado pipeline do `StreamEngine`: dimensionamento antecipado, suporte a Half-Kelly com amortecedor cúbico, pre-flight anti-martingale e enriquecimento do `courtState`.
+    - Telemetria de operador adicionada no `CourtWidget` e variáveis de ambiente no `.env.template`. 10/10 testes unitários verdes.
+25. [x] **Pré-Registro Constitucional de H019 (AD012_CONVEX_KELLY)**:
+    - Formalizada Carta Confirmatória Congelada com 5 Gates Constitucionais em [`research/alpha_confirmation/H019_CONVEX_KELLY/charter/H019_CONFIRMATORY_CHARTER.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/alpha_confirmation/H019_CONVEX_KELLY/charter/H019_CONFIRMATORY_CHARTER.md).
+    - H019 pré-registrada no [`research/HYPOTHESIS_LEDGER.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/HYPOTHESIS_LEDGER.md).
 
 ---
 
 ## 6. MAPA DE DOCUMENTOS E ARQUIVOS ESSENCIAIS
 
+- **Carta Confirmatória de H019 (Convex Kelly):** [`research/alpha_confirmation/H019_CONVEX_KELLY/charter/H019_CONFIRMATORY_CHARTER.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/alpha_confirmation/H019_CONVEX_KELLY/charter/H019_CONFIRMATORY_CHARTER.md)
+- **Memorando Executivo de Falsificação de H018:** [`research/EXECUTIVE_MEMORANDUM_H018_MARTINGALE_FALSIFICATION_AND_KELLY_SUPERIORITY.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/EXECUTIVE_MEMORANDUM_H018_MARTINGALE_FALSIFICATION_AND_KELLY_SUPERIORITY.md)
+- **Harness de Benchmark H018:** [`lyzer edge/tests/verification/verify_h018_martingale_vs_kelly.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/lyzer%20edge/tests/verification/verify_h018_martingale_vs_kelly.js)
+- **Suite de Testes Anti-Martingale / Kelly:** [`lyzer edge/tests/unit/test_anti_martingale_court_gate.test.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/lyzer%20edge/tests/unit/test_anti_martingale_court_gate.test.js)
 - **Certificação Operacional da Plataforma & Governança de Capital:** [`research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md)
 - **Script de Auditoria de Prontidão Operacional:** [`scripts/audit_operational_readiness.js`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/scripts/audit_operational_readiness.js)
 - **Memorando Executivo Mestre de Síntese Global (H013–H017):** [`research/EXECUTIVE_MEMORANDUM_GLOBAL_SYNTHESIS_H013_H017.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/EXECUTIVE_MEMORANDUM_GLOBAL_SYNTHESIS_H013_H017.md)

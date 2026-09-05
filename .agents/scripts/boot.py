@@ -4,7 +4,11 @@ Lyzer Edge - Fast Agentic Session Primer
 Gera um digest compacto de inicialização para o agente Antigravity.
 """
 import subprocess
+import sys
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 def get_git_info():
     try:

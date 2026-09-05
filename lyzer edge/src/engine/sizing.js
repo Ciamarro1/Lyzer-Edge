@@ -163,5 +163,67 @@ export class DynamicSizing {
       raw_metrics
     };
   }
+
+  /**
+   * Calculates analytical Half-Kelly fraction with drawdown volatility dampener.
+   * 
+   * @param {number} winRate - Expected win rate between 0.0 and 1.0 (e.g. 0.19 for 19%)
+   * @param {number} rewardRiskRatio - Payoff multiple R (e.g. 5.0 for 1:5 RR)
+   * @param {number} currentDrawdown - Current portfolio drawdown between 0.0 and 1.0
+   * @returns {number} Recommended risk percentage (e.g. 1.0 for 1%)
+   */
+  calculateHalfKellyRisk(winRate, rewardRiskRatio = 5.0, currentDrawdown = 0.0) {
+    if (winRate <= 0 || rewardRiskRatio <= 0) return this.baseRiskPercentage;
+    
+    // Full Kelly: f* = (p * (R + 1) - 1) / R
+    const fullKelly = (winRate * (rewardRiskRatio + 1) - 1) / rewardRiskRatio;
+    if (fullKelly <= 0) return 0; // No positive edge detected
+    
+    // Half-Kelly institutional standard (converts to percentage)
+    let halfKellyPct = (fullKelly / 2.0) * 100;
+    
+    // Drawdown dampening: reduce size if drawdown exceeds 10% to prevent volatility drag
+    if (currentDrawdown > 0.10) {
+      const dampener = Math.max(0.2, 1.0 - (currentDrawdown - 0.10) * 2.0);
+      halfKellyPct *= dampener;
+    }
+    
+    // Clamp to conservative bounds [0.1%, maxRiskPercentage]
+    return Math.max(0.1, Math.min(this.maxRiskPercentage, halfKellyPct));
+  }
+
+  /**
+   * Enforces Constitutional Anti-Martingale Law (H018 Invariant).
+   * Vetoes any attempt to escalate position size following a loss.
+   * 
+   * @param {number} proposedRiskPct - The requested risk percentage for the incoming order
+   * @param {string} lastTradeOutcome - 'WIN', 'LOSS', or 'FLAT'
+   * @param {number} baseRiskPct - The baseline established risk percentage
+   * @returns {Object} { allowed: boolean, reason: string|null }
+   */
+  validateAntiMartingaleConstraint(proposedRiskPct, lastTradeOutcome, baseRiskPct = this.baseRiskPercentage) {
+    if (lastTradeOutcome === 'LOSS' && proposedRiskPct > baseRiskPct * 1.05) {
+      return {
+        allowed: false,
+        reason: 'VETO_MARTINGALE_ESCALATION_PROHIBITED'
+      };
+    }
+    if (proposedRiskPct > this.maxRiskPercentage) {
+      return {
+        allowed: false,
+        reason: 'VETO_CAPACITY_VIOLATION_MAX_EXPOSURE_EXCEEDED'
+      };
+    }
+    return { allowed: true, reason: null };
+  }
 }
- 
+
+export function calculateHalfKellyRisk(winRate, rewardRiskRatio = 5.0, currentDrawdown = 0.0) {
+  const ds = new DynamicSizing();
+  return ds.calculateHalfKellyRisk(winRate, rewardRiskRatio, currentDrawdown);
+}
+
+export function validateAntiMartingaleConstraint(proposedRiskPct, lastTradeOutcome, baseRiskPct) {
+  const ds = new DynamicSizing();
+  return ds.validateAntiMartingaleConstraint(proposedRiskPct, lastTradeOutcome, baseRiskPct);
+}

@@ -58,6 +58,11 @@ export class ConstraintEngine {
       }
     }
 
+    // H018 Invariant: Anti-Martingale Escalation Veto (Blocks recovery ladders / sizing escalation after loss)
+    if (state.isPostLossEscalation === true || (state.lastTradeOutcome === 'LOSS' && state.requestedPositionSize > (state.previousPositionSize || 1.0) * 1.05)) {
+      return { passed: false, reason: 'VETO_MARTINGALE_ESCALATION' };
+    }
+
     return { passed: true, reason: null };
   }
 }
