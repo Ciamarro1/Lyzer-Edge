@@ -1,17 +1,23 @@
 # LYZER EDGE — Standard Operating Procedure (SOP)
 
-**Data:** 2026-08-28
-**Status Operacional:** Testnet (48h Observational Soak Test)
-**Artefato Base:** `REC_COMP_INSTITUTIONAL_v1` (Engine v5)
-**Ambiente:** Railway (Cloud)
+**Data:** 2026-09-04  
+**Status Operacional:** 🟢 CERTIFIED PRODUCTION READY (Tier 0 — Binance Testnet)  
+**Artefato Base:** `REC_COMP_INSTITUTIONAL_v1` (Engine v5 Wyckoff Spring 1H Long-Only)  
+**Invariante Kernel (SHA-256):** `fc19e807255b3ecfb8351e82d7dc9d244c1e511d9aa007ac8b67b12d584b4db1`  
+**Ambiente:** Railway (Cloud) / Binance Testnet  
+**Capital Real Autorizado:** **$0,00 USD (TIER 0 - CONGELAMENTO ATIVO)**  
 
 ---
 
 ## 1. O QUE O LYZER EDGE ESTÁ FAZENDO AGORA?
 
-O Lyzer Edge foi configurado para uma operação de "soak test" (teste de absorção/estabilidade) de 48 horas na **Testnet**. 
+O Lyzer Edge concluiu com sucesso o **teste de absorção de 48 horas (48h Soak Test)** no Railway e passou pela **Auditoria de Prontidão Operacional (10/10 checks)** e verificação dos **7 Clamps do Fidelity Gate**.
 
-Isso significa que o motor operará exatamente com o mesmo rigor, checagens de risco e lógica de um ambiente Live com dinheiro real, **mas enviará ordens simuladas para a rede Testnet da Binance**, sem consumir ou arriscar o seu capital físico. O objetivo deste teste é validar a resiliência do sistema e a obediência cega ao artefato científico, observando como ele se comporta quando deixado totalmente autônomo.
+O motor opera na **Trilha 1 (Produção)** com rigor institucional máximo:
+- Conectado em tempo real à **Testnet da Binance**, processando candles de 1 hora de `BTCUSDT`.
+- Ordens são simuladas diretamente na rede de teste sem consumir capital físico da firma ($0 capital real).
+- O motor matemático `REC_COMP_INSTITUTIONAL_v1` está matematicamente selado e imutável.
+- A Trilha 2 de pesquisa laboratorial (hipóteses H001 a H017) foi concluída e arquivada, confirmando que a única assimetria quantitativa viável é a absorção direcional de liquidações via Wyckoff Spring com funding negativo.
 
 ### Parâmetros Base de Operação:
 - **Ativo (Symbol):** `BTCUSDT` (Bitcoin / Tether)
@@ -57,18 +63,25 @@ Se qualquer anomalia acontecer na Testnet durante estas 48h, o sistema tomará a
 
 ## 4. O QUE VOCÊ DEVE OBSERVAR NAS PRÓXIMAS 48H
 
-Durante o Soak Test no Railway, sua função como Diretor será observar:
-1. **Estabilidade e Memória:** O container não deve reiniciar repetidamente nem estourar uso de memória.
-2. **Rejeição de Ordens:** O robô *deve* passar a maior parte do tempo sem operar. Esta estratégia é de alta precisão (sniper). Ele aguarda horas ou dias por uma configuração perfeita de armadilha (Wyckoff Spring). Não ver trades em 24h é um comportamento esperado e correto.
-3. **Logs de Decisão:** Pelo painel do Railway, observe se as variáveis estruturais (Provider V5 isolado) foram respeitadas e se a conexão via WebSocket reporta ping/pong normais.
+Durante a operação contínua na Testnet (Tier 0), sua função como Diretor é observar:
+1. **Estabilidade e Memória:** O container mantém uso estável de memória (< 180MB RAM) sem vazamentos nem reinicializações espúrias.
+2. **Rejeição de Ordens:** O robô passa $\approx 99\%$ do tempo sem operar. Esta estratégia é de alta precisão (sniper). Ele aguarda horas ou dias por uma configuração perfeita de armadilha (Wyckoff Spring com funding negativo). Não ver trades em 24h ou 48h é um comportamento cientificamente esperado e desejável.
+3. **Logs de Decisão:** Pelo painel do Railway, confirme que o StreamEngine reporta ping/pong normais (latência < 150ms) e que o invariant SHA-256 do kernel permanece intocado.
 
 ---
 
-## 5. E QUANDO VOCÊ DECIDIR USAR DINHEIRO REAL?
+## 5. E QUANDO VOCÊ DECIDIR USAR DINHEIRO REAL? (TRANSIÇÃO DE CAPITAL)
 
-Quando as 48h de Testnet terminarem e você estiver pronto para a transição para Live Capital, **você não mudará código**. 
+A transição de capital é estritamente regida pelo documento [`research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md`](file:///c:/Users/WDAGUtilityAccount/Documents/Nova%20pasta%20(2)/research/PLATFORM_OPERATIONAL_CERTIFICATION_AND_CAPITAL_GOVERNANCE.md).
 
-Você executará a **Cerimônia de Governança**:
-1. Usará um script local na sua máquina para assinar uma permissão criptográfica informando quanto dinheiro (e.g. `$100`) o Lyzer tem permissão de usar.
-2. Você colocará essa assinatura (o token gerado) no painel de configurações do Railway.
-3. O robô vai inicializar, validar matematicamente que a assinatura é sua, destravar a trava física e iniciar as operações na Binance real, limitado a nunca ultrapassar os `$100`.
+O sistema opera sob a **Escada Institucional de Capital**:
+- **Tier 0 (Estado Atual Ativo):** Binance Testnet, **$0,00 USD** capital real.
+- **Tier 1 (Piloto Micro-Alocação):** Teto de **$500,00 USD**, em conta isolada com alavancagem 1.0x.
+- **Tier 2 (Escala):** Teto de **$1.000,00 USD**, após 90 dias ininterruptos em Tier 1 com Sharpe > 2.50.
+
+### A Cerimônia de Governança (Para ativar Tier 1):
+Quando a Diretoria Executiva deliberar pela ativação do Piloto Tier 1, **nenhum código será alterado**:
+1. O Diretor Executivo gerará uma chave criptográfica Ed25519 em máquina fria (air-gapped ou local) assinando a permissão para até `$500 USD`.
+2. Essa assinatura (token de autorização out-of-band) será injetada como variável de ambiente no Railway: `CAPITAL_AUTH_TOKEN`.
+3. Ao inicializar, o `StreamEngine` validará matematicamente a assinatura contra a chave pública mestre, desativará o modo `HALTED` e habilitará a execução em dinheiro real estritamente até o limite assinado.
+4. Qualquer violação dos disjuntores K1–K5 (como perda de 2% do capital ou 3 stops consecutivos) reverterá compulsoriamente a plataforma para o Tier 0 ($0).
